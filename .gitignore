@@ -43,3 +43,12 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Deployment caches and private signing credentials
+node_modules/
+.firebase/
+.env*
+*.p8
+*.p12
+*.mobileprovision
+config/private/

@@ -13,8 +13,8 @@ void main() {
       'real preferences adapter handles raw corrupt types without typed getter casts',
       () async {
     SharedPreferences.setMockInitialValues({
-      'streak_active_days': 'wrong type',
-      'streak_longest': -10,
+      'signed-out:streak_active_days': 'wrong type',
+      'signed-out:streak_longest': -10,
       'progress_completed_days': 42,
       'progress_onboarding_complete': 'true',
       'paywall_lifetime_unlocked': 1,
@@ -32,7 +32,7 @@ void main() {
     expect(container.read(progressProvider).onboardingComplete, false);
     expect(container.read(paywallProvider), false);
     final prefs = await SharedPreferences.getInstance();
-    expect(prefs.get('streak_active_days'), ['2026-10-29']);
+    expect(prefs.get('signed-out:streak_active_days'), ['2026-10-29']);
   });
 
   test('preferences adapter roundtrips booleans, counters and day lists',

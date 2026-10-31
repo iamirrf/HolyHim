@@ -1,0 +1,131 @@
+{
+  "status": "prepared-not-submitted",
+  "auditedOn": "2026-10-29",
+  "dataUsedForTracking": false,
+  "dataTypes": [
+    {
+      "type": "Name",
+      "linkedToUser": true,
+      "usedForTracking": false,
+      "purposes": [
+        "App Functionality",
+        "Product Personalization"
+      ],
+      "basis": "Provider name and preferred name/greeting"
+    },
+    {
+      "type": "Email Address",
+      "linkedToUser": true,
+      "usedForTracking": false,
+      "purposes": [
+        "App Functionality"
+      ],
+      "basis": "Authentication, password reset, and support contact"
+    },
+    {
+      "type": "Phone Number",
+      "linkedToUser": true,
+      "usedForTracking": false,
+      "purposes": [
+        "App Functionality"
+      ],
+      "basis": "Google Sign-In SDK declaration; provider-specific collection baseline"
+    },
+    {
+      "type": "Coarse Location",
+      "linkedToUser": true,
+      "usedForTracking": false,
+      "purposes": [
+        "App Functionality"
+      ],
+      "basis": "Google Sign-In SDK declaration; no app GPS permission"
+    },
+    {
+      "type": "Sensitive Info",
+      "linkedToUser": true,
+      "usedForTracking": false,
+      "purposes": [
+        "App Functionality",
+        "Product Personalization"
+      ],
+      "basis": "Saved Bible familiarity and faith-oriented focus"
+    },
+    {
+      "type": "User ID",
+      "linkedToUser": true,
+      "usedForTracking": false,
+      "purposes": [
+        "App Functionality",
+        "Analytics"
+      ],
+      "basis": "Firebase/provider identifiers and RevenueCat custom UID/reporting"
+    },
+    {
+      "type": "Device ID",
+      "linkedToUser": true,
+      "usedForTracking": false,
+      "purposes": [
+        "Analytics"
+      ],
+      "basis": "Google Sign-In SDK declaration"
+    },
+    {
+      "type": "Purchase History",
+      "linkedToUser": true,
+      "usedForTracking": false,
+      "purposes": [
+        "App Functionality",
+        "Analytics"
+      ],
+      "basis": "RevenueCat entitlement/restore and dashboard reporting"
+    },
+    {
+      "type": "Product Interaction",
+      "linkedToUser": true,
+      "usedForTracking": false,
+      "purposes": [
+        "App Functionality"
+      ],
+      "basis": "Synced lesson completions and activity dates"
+    },
+    {
+      "type": "Other Usage Data",
+      "linkedToUser": true,
+      "usedForTracking": false,
+      "purposes": [
+        "Analytics"
+      ],
+      "basis": "Google Sign-In SDK declaration"
+    },
+    {
+      "type": "Customer Support",
+      "linkedToUser": true,
+      "usedForTracking": false,
+      "purposes": [
+        "App Functionality"
+      ],
+      "basis": "Website support email/message"
+    },
+    {
+      "type": "Other Data Types",
+      "linkedToUser": true,
+      "usedForTracking": false,
+      "purposes": [
+        "App Functionality",
+        "Product Personalization",
+        "Analytics"
+      ],
+      "basis": "Routine/reminder preferences, journey time zone, security metadata and Google Sign-In declaration"
+    },
+    {
+      "type": "Other Diagnostic Data",
+      "linkedToUser": false,
+      "usedForTracking": false,
+      "purposes": [
+        "Analytics"
+      ],
+      "basis": "FirebaseAuth/Firestore unlinked technical diagnostics"
+    }
+  ],
+  "qualification": "Includes downloaded vendor declarations. Do not narrow provider-specific categories without documentation/configuration and runtime evidence. Reconcile the final archive privacy report before entering App Store Connect answers."
+}

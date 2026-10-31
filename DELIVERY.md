@@ -1,92 +1,48 @@
-# HolyHer v1 delivery — October 29, 2026
+# HolyHer delivery status
 
-## What was built
+Updated October 30, 2026. HolyHer contains the complete 365-lesson implementation, deployed production cloud services, the configured worldwide lifetime product, and prepared store materials. **Apple accepted the 1.0.0 (1) upload and began processing it. App Review readiness and release scheduling remain unverified.**
 
-HolyHer is implemented in its original folder, signed with the existing Codellion
-LLC development identity, installed, and launched on the owner's iPhone 14 Pro
-Max. The owner confirmed the complete onboarding → local Start → lesson →
-Complete → close/reopen flow works. v1 includes ten messages, Today/Journey/Profile,
-local streak/progress/access persistence, bundled Lexend, the locked light theme,
-and iOS/Android runners. It uses no app account, backend, real payment, analytics,
-or runtime font/content requests. All original lesson prose and storage keys
-were preserved. The complete changed-file inventory, service contracts and
-original discrepancies are recorded in [README.md](README.md).
+## Implemented
 
-Actually run and passed: `flutter analyze` (no issues), `flutter test
---concurrency=1` under America/New_York (21 tests), scripture retrieval/comparison,
-contrast calculations, static source audit, unsigned iOS release compilation,
-signed iPhone release compilation, signature verification, direct device
-installation and OS launch. Flutter's combined run command returned an
-installation/launch error after building; explicit `devicectl` install and launch
-both succeeded. On-phone acceptance is the owner's confirmation, not an automated
-claim of watching or controlling the phone UI.
+- **365 complete WEB lessons**, with 365 unique references/titles and distinct original confidence, reason, hope, devotional-reflection, and practical-reflection prose. Every quotation is tied to the pinned authoritative corpus and its provenance.
+- A premium iPhone/iPad experience: splash/welcome, Apple/Google/email authentication screens, guided questionnaire, personalized rhythm summary and preview, lifetime paywall, Today, virtualized Journey, Profile, five learning cards, completion, Settings, help, About, Privacy, and Terms.
+- Account-specific setup, progress, activity, and caches; server-governed calendar unlocking; accumulated missed days; offline access to previously unlocked lessons after setup; queued completion and cross-account safeguards.
+- RevenueCat purchase/restore integration for the `holyher_lifetime` non-consumable and `lifetime` entitlement. US launch price is **$1.99 once**, with localized store pricing and no recurring plan.
+- Firebase/Firestore/Cloud Functions source for access validation, journey start/unlock/completion, activity, authenticated billing webhooks, deletion, and website support.
+- Production identity `com.holyher.app`, Codellion LLC publishing identity, supplied HolyHer icons, English listing/review materials, privacy preparation, and ten App Store marketing captures.
 
-## The 10 lessons
+The first-person devotional voice is clearly separate from the quoted World English Bible passage. All readers receive the same complete curriculum; setup personalizes guidance and application rather than generating Scripture or lesson text.
 
-Each reference links to its verification source. All quotations are public-domain
-KJV, verified word for word including punctuation before and after writing;
-source display small-caps LORD is retained as LORD. All references are unique.
+## Recorded verification
 
-1. **You Are Not Facing This Alone** — [Deuteronomy 31:6](https://www.biblegateway.com/passage/?search=Deuteronomy+31%3A6&version=KJV).
-2. **Held Up by His Right Hand** — [Isaiah 41:10](https://www.biblegateway.com/passage/?search=Isaiah+41%3A10&version=KJV).
-3. **A Refuge You Can Run To** — [Psalm 46:1](https://www.biblegateway.com/passage/?search=Psalm+46%3A1&version=KJV).
-4. **If God Is for You** — [Romans 8:31](https://www.biblegateway.com/passage/?search=Romans+8%3A31&version=KJV).
-5. **His Thoughts Toward You Are Peace** — [Jeremiah 29:11](https://www.biblegateway.com/passage/?search=Jeremiah+29%3A11&version=KJV).
-6. **Peace Before Things Are Settled** — [John 14:27](https://www.biblegateway.com/passage/?search=John+14%3A27&version=KJV). Content bar and field-by-field read-back quality gate passed; promise of peace amid a current worry.
-7. **Strength You Can Receive** — [Isaiah 40:31](https://www.biblegateway.com/passage/?search=Isaiah+40%3A31&version=KJV). Content bar and quality gate passed; promised help for ordinary tired tasks.
-8. **Known From the Beginning** — [Psalm 139:13–14](https://www.biblegateway.com/passage/?search=Psalm+139%3A13-14&version=KJV). Content bar and quality gate passed; personal creative care before achievement or approval.
-9. **Light for Your Next Step** — [Psalm 119:105](https://www.biblegateway.com/passage/?search=Psalm+119%3A105&version=KJV). Content bar and quality gate passed; help through God's word for one concrete next step.
-10. **You Can Rest Here** — [Matthew 11:28](https://www.biblegateway.com/passage/?search=Matthew+11%3A28&version=KJV). Content bar and quality gate passed; Jesus' promised rest with unfinished tasks.
+| Check | Latest recorded result |
+|---|---|
+| Flutter automated suite | 53 tests passed, including the store capture |
+| Flutter analyzer | No issues found |
+| Backend domain suite | 17 tests passed |
+| Scripture and generated catalog | 365 lessons, 371 quoted verses verified; all 38,058 cached source verses match an independent XML parse |
+| Original prose | 47,475 words; required field lengths and global uniqueness checks passed |
+| Store images | Five iPhone and five iPad RGB PNGs prepared from actual Flutter-rendered screens |
+| Icon provenance | Supplied icon archive and master hashes recorded |
+| Production cloud | Final deployment of all eight functions and Hosting succeeded; server-secret bindings/access verified; support/billing TTL policies active |
+| Live cloud acceptance | 17 live checks and 14 additional read-only transport checks passed, including persisted support, actual inactive RevenueCat entitlement, and deletion |
+| Webhook transport | Authenticated smoke and idempotent retry passed; no user/access data created, QA marker removed. RevenueCat endpoint correct; redacted configured header and real billing-event delivery remain unverified |
+| Apple lifetime product | Product plan applied; live availability and localized prices verified for all 175 storefronts, including US$1.99 |
+| IAP review screenshot | Apple live read-back confirms actual paywall capture fcad9c60-08c3-42ef-9a8d-1c99fb217ea2 with matching checksum/byte size |
+| Signed archive | Production identity, iPhone/iPad families, signature, branding resources and all 29 bundled privacy manifests passed |
+| Physical install | Installed on iPhone 14 Pro Max; launch blocked by locked device |
+| App Store upload | Xcode export/upload succeeded; Apple reported package processing. No review submission or public release |
+| Exported IPA | build/ios/ipa/holyher.ipa passed distribution signing, disabled-debugger, identity and privacy checks |
+| Reviewer identities | Two retained Firebase test accounts created, actual sign-in and private credential storage verified; paid/native acceptance and Apple credential upload remain open |
 
-## How to run it
+These results establish automated behavior, a signed native archive, and successful App Store upload. They do not establish completed Apple processing, native provider/purchase acceptance, App Review submission/approval, or public release. [Verification details](store/VERIFICATION.md) records those boundaries.
 
-Open **HolyHer** on the iPhone; the installed release build can run without the
-Flutter debugger. For development from the Mac:
+## Remaining production gates
 
-```sh
-cd /Users/amir/Downloads/HolyHer
-flutter run
-```
+The `holyher-app-production` Google project is controlled by `iamirrf1@gmail.com`, with billing and production service bindings verified. All eight functions and Hosting are deployed. All 17 live cloud checks and 14 additional read-only transport checks passed; [the evidence](store/live-cloud-verification.json) includes persisted support, actual inactive RevenueCat entitlement, and account deletion. The earlier project's billing is disabled, and its temporary editor grant to the intended owner has been removed. RevenueCat Apple credentials are connected, and worldwide product availability/prices and the review-image read-back are verified. Native Apple/Google/email authentication and real purchase/restore/refund/webhook/deletion flows remain acceptance gates. Apple Sign-In requires its own Services ID/signing-key setup, separate from RevenueCat purchase keys; see [the owner guide](store/APPLE_OWNER_SETUP.md).
 
-Flutter plus the target platform tools are prerequisites. An iOS device install
-also requires the existing authenticated developer account and provisioning; those
-were used successfully for this installation. The app itself needs no account,
-server, purchase, or backend configuration. README contains the exact device
-build/install commands and the signed development profile's expiry.
+The fresh signed archive passed production identity, deep signature, iPhone/iPad support, Apple sign-in entitlement, compiled branding resources, and combined privacy checks. It contains the correct Firebase app, the root privacy file, and 29 total privacy manifests covered by the prepared 13-category disclosure. It installed on iPhone 14 Pro Max; iOS blocked launch because the phone was locked. **Distribution export/upload succeeded and Apple began processing the package.** The ten framed screenshots are current RGB images matching their manifest. Current-device acceptance, completed Apple processing, reviewer accounts/contact, final privacy/age/export answers, listing upload, and IAP/version submission remain open. Evidence: `store/archive-verification.json`, `store/apple-upload-verification.json`, and `store/device-verification.json`.
 
-## The two declared future seams
+The requested release is **November 15, 2026 at 6:00 AM EST (11:00 UTC)**. It is recorded in `config/release.json`, not claimed as configured in App Store Connect. Approval and store propagation affect actual availability.
 
-1. **Days 11–365:** not written or fabricated. Append verified entries to the
-   existing lesson list. Counts and progress derive from available content;
-   Journey's unwritten-day note is non-tappable.
-2. **Ship-time integrations:** RevenueCat monthly/annual products, valid
-   entitlement handling, real Restore Purchases, the separate Firebase project,
-   production `com.holyher.app` identity, production signing and store listings
-   under Codellion LLC. The development install uses `com.example.holyher`.
-   Store work and the owner's domain registration remain deferred.
-
-## What could not be verified
-
-- Android's debug build failed during Gradle Kotlin JAR transformation while the
-  Mac was nearly full. An automated test compilation also explicitly failed with
-  `No space left on device`. Android build/emulator verification was deferred at
-  the owner's request; there is no verified APK or Android device run.
-- No iOS simulator app run was completed. The physical iPhone installation and
-  owner-confirmed flow provide the native iOS proof instead.
-- Airplane-mode first launch and exhaustive visual/accessibility testing on the
-  physical phone were not separately confirmed. Code has no runtime network
-  dependency; widget renders were inspected and all lessons tested at 320dp/3×.
-- DST, timezone/backwards dates, concurrent triggers, corruption, and interrupted
-  write boundaries were tested with controlled state rather than changing the
-  owner's device clock or forcibly killing it during a preference write.
-- SharedPreferences does not guarantee disk durability after a setter returns.
-  Recovery reconstructs consistent counters from saved history; abrupt OS/disk
-  failures can still lose the latest unflushed value. This required-storage limit
-  is documented rather than presented as an atomic transaction guarantee.
-
-## Confirmation
-
-The v1 implementation is complete and installed; the owner confirmed the iPhone
-flow works. Android native verification remains open as stated above. No purchase,
-domain registration, new account, Firebase project, RevenueCat product, or store
-listing was performed. Product success remains the owner's subsequent evaluation.
+See [owner actions](store/OWNER_ACTIONS.md) for the remaining handoffs and [review preparation](store/REVIEW_NOTES.md) for the reviewer flow.

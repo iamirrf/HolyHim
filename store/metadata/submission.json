@@ -1,0 +1,54 @@
+{
+  "status": "prepared-not-submitted",
+  "bundleId": "com.holyher.app",
+  "name": "HolyHer",
+  "primaryLocale": "en-US",
+  "version": "1.0.0",
+  "buildNumber": 1,
+  "publisher": "Codellion LLC",
+  "copyright": "2026 Codellion LLC",
+  "platforms": [
+    "iPhone",
+    "iPad"
+  ],
+  "primaryCategory": "REFERENCE",
+  "secondaryCategory": "LIFESTYLE",
+  "ageRating": "Complete the current App Store Connect questionnaire; no final rating claimed here.",
+  "pricing": {
+    "appDownload": "Free with in-app purchase",
+    "productId": "holyher_lifetime",
+    "productType": "NON_CONSUMABLE",
+    "entitlementId": "lifetime",
+    "launchPriceUSD": "1.99",
+    "subscription": false,
+    "localizedPriceSource": "App Store product"
+  },
+  "release": {
+    "local": "2026-11-15 06:00 EST",
+    "timeZone": "America/New_York",
+    "earliestReleaseTimestamp": "2026-11-15T11:00:00Z",
+    "note": "Target release time; App Review approval and App Store propagation affect actual availability. Do not release before this timestamp."
+  },
+  "urls": {
+    "marketing": "https://holyher-app-production.web.app",
+    "support": "https://holyher-app-production.web.app/support",
+    "privacy": "https://holyher-app-production.web.app/privacy",
+    "terms": "https://holyher-app-production.web.app/terms"
+  },
+  "screenshots": {
+    "iphone": "store/screenshots/app-store/iphone-1206x2622",
+    "ipad": "store/screenshots/app-store/ipad-2064x2752",
+    "count": 10,
+    "provenance": "Actual Flutter-rendered screens with marketing framing; see store/screenshots/manifest.json."
+  },
+  "reviewerCredentials": "PENDING: configure real review accounts and enter credentials securely in App Store Connect. Do not commit passwords.",
+  "requiredBeforeSubmission": [
+    "Production signed archive and App Store validation",
+    "Live authentication, purchase/restore, journey and deletion acceptance",
+    "Final archive privacy report and saved App Privacy answers",
+    "Real reviewer credentials and contact information",
+    "Updated age-rating and export-compliance questionnaire",
+    "Confirm public privacy/terms/support URLs and working support delivery",
+    "Attach the non-consumable purchase to the first version submission"
+  ]
+}

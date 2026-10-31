@@ -1,0 +1,21 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function owner(uid) { return request.auth != null && request.auth.uid == uid; }
+    match /users/{uid} {
+      allow read: if owner(uid);
+      allow create, update: if owner(uid)
+        && request.resource.data.keys().hasOnly(['name','familiarity','focus','obstacle','reminderMinutes','onboardingComplete','haptics','onboardingStep'])
+        && request.resource.data.name is string && request.resource.data.name.size() <= 80
+        && request.resource.data.familiarity in ['new','returning','regular']
+        && request.resource.data.focus in ['peace','confidence','hope','guidance','rest']
+        && request.resource.data.obstacle in ['busy','forget','language','apply']
+        && (request.resource.data.reminderMinutes == null || (request.resource.data.reminderMinutes is int && request.resource.data.reminderMinutes >= 0 && request.resource.data.reminderMinutes < 1440))
+        && request.resource.data.onboardingComplete is bool && request.resource.data.haptics is bool
+        && request.resource.data.onboardingStep is int && request.resource.data.onboardingStep >= 0 && request.resource.data.onboardingStep <= 6;
+      allow delete: if false;
+      match /private/{document} { allow read: if owner(uid); allow write: if false; }
+    }
+    match /{document=**} { allow read, write: if false; }
+  }
+}

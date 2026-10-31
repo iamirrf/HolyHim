@@ -1,0 +1,14 @@
+{
+  "checkedAt": "2026-10-31T02:37:57.411291+00:00",
+  "model": "iPhone 14 Pro Max",
+  "bundleId": "com.holyher.app",
+  "version": "1.0.0",
+  "buildNumber": "1",
+  "installed": true,
+  "launchConfirmed": false,
+  "launchBlocker": "iOS refused launch because the physical device is locked. Owner unlock requested.",
+  "limitations": [
+    "Installation does not establish native authentication, purchase/restore, reminders, cross-device synchronization, or account deletion acceptance.",
+    "No physical iPad acceptance recorded."
+  ]
+}

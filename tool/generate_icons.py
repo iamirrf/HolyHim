@@ -1,43 +1,31 @@
-"""Render the existing flat cross mark into native launcher icons, offline."""
+"""Install the owner's supplied icon assets; never redraw or replace the artwork."""
+import hashlib
 import json
-import math
+import zipfile
 from pathlib import Path
-import re
-import struct
-import subprocess
-import zlib
+from PIL import Image
 
-theme = Path('lib/core/theme/app_theme.dart').read_text()
-def token(name):
-    match = re.search(r'static const ' + name + r' = Color\(0xFF([0-9A-Fa-f]{6})\)', theme)
-    if not match:
-        raise ValueError('Missing theme token: ' + name)
-    return tuple(bytes.fromhex(match.group(1)))
-
-white, blush, accent = token('background'), token('surfaceLight'), token('accent')
-rows = bytearray()
-for y in range(1024):
-    rows.append(0)
-    for x in range(1024):
-        coverage = max(0, min(1, 400.5 - math.hypot(x + .5 - 512, y + .5 - 512)))
-        color = tuple(round(a + (b - a) * coverage) for a, b in zip(white, blush))
-        if (492 <= x < 532 and 332 <= y < 692) or (372 <= x < 652 and 422 <= y < 462):
-            color = accent
-        rows.extend(color)
-
-def chunk(kind, data):
-    return struct.pack('!I', len(data)) + kind + data + struct.pack('!I', zlib.crc32(kind + data) & 0xffffffff)
-
-master = Path('ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png')
-master.write_bytes(b'\x89PNG\r\n\x1a\n' + chunk(b'IHDR', struct.pack('!IIBBBBB', 1024, 1024, 8, 2, 0, 0, 0)) + chunk(b'IDAT', zlib.compress(bytes(rows), 9)) + chunk(b'IEND', b''))
-contents = json.loads(master.with_name('Contents.json').read_text())
-for image in contents['images']:
-    name = image.get('filename')
-    if not name or name == master.name:
-        continue
-    size = round(float(image['size'].split('x')[0]) * float(image['scale'].rstrip('x')))
-    subprocess.run(['sips', '-z', str(size), str(size), str(master), '--out', str(master.with_name(name))], check=True, stdout=subprocess.DEVNULL)
-for density, size in [('mdpi', 48), ('hdpi', 72), ('xhdpi', 96), ('xxhdpi', 144), ('xxxhdpi', 192)]:
-    target = Path(f'android/app/src/main/res/mipmap-{density}/ic_launcher.png')
-    subprocess.run(['sips', '-z', str(size), str(size), str(master), '--out', str(target)], check=True, stdout=subprocess.DEVNULL)
-print('Native icons rendered from the existing theme and cross mark.')
+ROOT=Path(__file__).resolve().parents[1]
+source=ROOT/'HolyHer_AppIcon_Set.zip'
+target=ROOT/'ios/Runner/Assets.xcassets/AppIcon.appiconset'
+manifest=json.loads((target/'Contents.json').read_text())
+with zipfile.ZipFile(source) as archive:
+    for item in manifest['images']:
+        filename=item['filename']
+        (target/filename).write_bytes(archive.read('HolyHer_AppIcon_Set/'+filename))
+        with Image.open(target/filename) as image:
+            pixels=round(float(item['size'].split('x')[0])*float(item['scale'][:-1]))
+            assert image.size==(pixels,pixels),filename
+            assert 'A' not in image.getbands() or image.getextrema()[-1]==(255,255),filename
+master=target/'Icon-App-1024x1024@1x.png'
+with Image.open(master) as image:
+    for density,pixels in [('mdpi',48),('hdpi',72),('xhdpi',96),('xxhdpi',144),('xxxhdpi',192)]:
+        image.resize((pixels,pixels),Image.Resampling.LANCZOS).save(ROOT/f'android/app/src/main/res/mipmap-{density}/ic_launcher.png')
+    launch=ROOT/'ios/Runner/Assets.xcassets/LaunchImage.imageset'
+    for scale,suffix in [(1,''),(2,'@2x'),(3,'@3x')]:
+        image.resize((108*scale,108*scale),Image.Resampling.LANCZOS).save(launch/f'LaunchImage{suffix}.png')
+for path in ['store/app-icon.png','public/app-icon.png']:
+    (ROOT/path).parent.mkdir(parents=True,exist_ok=True)
+    (ROOT/path).write_bytes(master.read_bytes())
+(ROOT/'config/icon-provenance.json').write_text(json.dumps({'source':source.name,'sourceSha256':hashlib.sha256(source.read_bytes()).hexdigest(),'masterSha256':hashlib.sha256(master.read_bytes()).hexdigest()},indent=2)+'\n')
+print('Installed supplied icons for iPhone, iPad, native launch, store, website, and Android assets.')

@@ -1,51 +1,105 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
-/// Design tokens for HolyHer: light pink + white, women-focused.
-/// Theme-flip slice (2026-10-27): Cognein's dark palette is gone. Every
-/// text/background pair below was contrast-checked against WCAG AA:
-/// accent #AD1457 on white 6.97:1, body text #2E1A24 on white 16.29:1,
-/// secondary #5F4B55 on white 8.00:1, accent on light pink #F9DCE4
-/// 5.44:1. No white text sits on a light background anywhere in v1;
-/// the flame icon is a 32pt icon, above the 3:1 large-graphic threshold.
 abstract final class AppColors {
-  static const background = Color(0xFFFFFFFF);
-  static const surface = Color(0xFFFDF0F3);
-  static const surfaceLight = Color(0xFFF9DCE4);
-  static const accent = Color(0xFFAD1457);
-  static const textPrimary = Color(0xFF2E1A24);
-  static const textSecondary = Color(0xFF5F4B55);
-  static const divider = Color(0xFFEAD7DE);
-  static const flame = Color(0xFFE64A19);
+  static const background = Color(0xFFFFFAFB);
+  static const surface = Color(0xFFFFF3F6);
+  static const surfaceLight = Color(0xFFF6DFE8);
+  static const accent = Color(0xFF8B365C);
+  static const accentDark = Color(0xFF64243F);
+  static const textPrimary = Color(0xFF382331);
+  static const textSecondary = Color(0xFF735867);
+  static const divider = Color(0xFFE9D4DF);
+  static const flame = Color(0xFFAC542F);
+  static const success = Color(0xFF397064);
 }
 
 ThemeData buildAppTheme() {
-  final base = ThemeData(fontFamily: 'Lexend', brightness: Brightness.light);
-  final text = base.textTheme.apply(
-    bodyColor: AppColors.textPrimary,
-    displayColor: AppColors.textPrimary,
-  );
+  final base = ThemeData(
+      useMaterial3: true,
+      fontFamily: 'Lexend',
+      brightness: Brightness.light,
+      colorScheme: const ColorScheme.light(
+          primary: AppColors.accent,
+          onPrimary: Colors.white,
+          surface: AppColors.background,
+          onSurface: AppColors.textPrimary,
+          secondary: AppColors.textSecondary,
+          outline: AppColors.divider,
+          error: Color(0xFF9C263B)));
   return base.copyWith(
-    scaffoldBackgroundColor: AppColors.background,
-    colorScheme: const ColorScheme.light(
-      primary: AppColors.accent,
-      onPrimary: AppColors.background,
-      surface: AppColors.surface,
-      onSurface: AppColors.textPrimary,
-    ),
-    textTheme: text,
-    appBarTheme: const AppBarTheme(
-      backgroundColor: AppColors.background,
-      foregroundColor: AppColors.textPrimary,
-      elevation: 0,
-      scrolledUnderElevation: 0,
-      surfaceTintColor: AppColors.background,
-      centerTitle: true,
-    ),
-    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-      backgroundColor: AppColors.background,
-      selectedItemColor: AppColors.accent,
-      unselectedItemColor: AppColors.textSecondary,
-      type: BottomNavigationBarType.fixed,
-    ),
-  );
+      scaffoldBackgroundColor: AppColors.background,
+      textTheme:
+          base.textTheme.apply(bodyColor: AppColors.textPrimary, displayColor: AppColors.textPrimary).copyWith(
+              headlineLarge: const TextStyle(
+                  fontFamily: 'Lexend',
+                  fontSize: 34,
+                  height: 1.18,
+                  fontWeight: FontWeight.w600,
+                  letterSpacing: -1.2,
+                  color: AppColors.textPrimary),
+              headlineMedium: const TextStyle(
+                  fontFamily: 'Lexend',
+                  fontSize: 27,
+                  height: 1.22,
+                  fontWeight: FontWeight.w600,
+                  letterSpacing: -.8,
+                  color: AppColors.textPrimary),
+              titleLarge: const TextStyle(
+                  fontFamily: 'Lexend',
+                  fontSize: 21,
+                  height: 1.3,
+                  fontWeight: FontWeight.w600,
+                  letterSpacing: -.4,
+                  color: AppColors.textPrimary),
+              bodyLarge: const TextStyle(
+                  fontFamily: 'Lexend',
+                  fontSize: 16,
+                  height: 1.65,
+                  color: AppColors.textPrimary),
+              bodyMedium: const TextStyle(
+                  fontFamily: 'Lexend',
+                  fontSize: 14,
+                  height: 1.6,
+                  color: AppColors.textSecondary),
+              labelLarge: const TextStyle(
+                  fontFamily: 'Lexend',
+                  fontSize: 15,
+                  height: 1.3,
+                  fontWeight: FontWeight.w600)),
+      appBarTheme: const AppBarTheme(
+          elevation: 0,
+          scrolledUnderElevation: 0,
+          centerTitle: false,
+          backgroundColor: Colors.transparent,
+          surfaceTintColor: Colors.transparent,
+          foregroundColor: AppColors.textPrimary,
+          systemOverlayStyle: SystemUiOverlayStyle.dark),
+      inputDecorationTheme: InputDecorationTheme(
+          filled: true,
+          fillColor: Colors.white.withValues(alpha: .85),
+          contentPadding:
+              const EdgeInsets.symmetric(horizontal: 20, vertical: 19),
+          border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(20),
+              borderSide: const BorderSide(color: AppColors.divider)),
+          enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(20),
+              borderSide: const BorderSide(color: AppColors.divider)),
+          focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(20),
+              borderSide:
+                  const BorderSide(color: AppColors.accent, width: 1.5))),
+      snackBarTheme: SnackBarThemeData(
+          behavior: SnackBarBehavior.floating,
+          backgroundColor: AppColors.textPrimary,
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(18))),
+      dividerTheme:
+          const DividerThemeData(color: AppColors.divider, thickness: 1),
+      progressIndicatorTheme:
+          const ProgressIndicatorThemeData(color: AppColors.accent),
+      textSelectionTheme: TextSelectionThemeData(
+          cursorColor: AppColors.accent,
+          selectionColor: AppColors.accent.withValues(alpha: .18)));
 }

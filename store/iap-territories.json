@@ -1,0 +1,896 @@
+{
+  "retrievedOn": "2026-10-30",
+  "sourceTerritoryCount": 175,
+  "sources": {
+    "apple": {
+      "url": "https://developer.apple.com/help/app-store-connect/reference/app-information/app-store-localizations",
+      "sha256": "afae28da1207f6d2d942b61bdb6e7c84448d6ec0fc9c07535e70e57590e18026"
+    },
+    "aliases": {
+      "url": "https://raw.githubusercontent.com/unicode-org/cldr-json/main/cldr-json/cldr-core/supplemental/aliases.json",
+      "sha256": "ee30563c98bb6217adebbdc97b0ca7a0ff834973011a6890cddfd83c6250e729"
+    },
+    "names": {
+      "url": "https://raw.githubusercontent.com/unicode-org/cldr-json/main/cldr-json/cldr-localenames-full/main/en/territories.json",
+      "sha256": "1326fb3bcdf8b8cf63df73ea02ea7f8bf7a8362cbb60bd12bcdb53f3ad22bf04"
+    }
+  },
+  "territories": [
+    {
+      "appleTerritoryId": "AFG",
+      "revenueCatTerritoryCode": "AF",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "ALB",
+      "revenueCatTerritoryCode": "AL",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "DZA",
+      "revenueCatTerritoryCode": "DZ",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "AGO",
+      "revenueCatTerritoryCode": "AO",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "AIA",
+      "revenueCatTerritoryCode": "AI",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "ATG",
+      "revenueCatTerritoryCode": "AG",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "ARG",
+      "revenueCatTerritoryCode": "AR",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "ARM",
+      "revenueCatTerritoryCode": "AM",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "AUS",
+      "revenueCatTerritoryCode": "AU",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "AUT",
+      "revenueCatTerritoryCode": "AT",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "AZE",
+      "revenueCatTerritoryCode": "AZ",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "BHS",
+      "revenueCatTerritoryCode": "BS",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "BHR",
+      "revenueCatTerritoryCode": "BH",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "BRB",
+      "revenueCatTerritoryCode": "BB",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "BLR",
+      "revenueCatTerritoryCode": "BY",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "BEL",
+      "revenueCatTerritoryCode": "BE",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "BLZ",
+      "revenueCatTerritoryCode": "BZ",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "BEN",
+      "revenueCatTerritoryCode": "BJ",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "BMU",
+      "revenueCatTerritoryCode": "BM",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "BTN",
+      "revenueCatTerritoryCode": "BT",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "BOL",
+      "revenueCatTerritoryCode": "BO",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "BIH",
+      "revenueCatTerritoryCode": "BA",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "BWA",
+      "revenueCatTerritoryCode": "BW",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "BRA",
+      "revenueCatTerritoryCode": "BR",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "VGB",
+      "revenueCatTerritoryCode": "VG",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "BRN",
+      "revenueCatTerritoryCode": "BN",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "BGR",
+      "revenueCatTerritoryCode": "BG",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "BFA",
+      "revenueCatTerritoryCode": "BF",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "KHM",
+      "revenueCatTerritoryCode": "KH",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "CMR",
+      "revenueCatTerritoryCode": "CM",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "CAN",
+      "revenueCatTerritoryCode": "CA",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "CPV",
+      "revenueCatTerritoryCode": "CV",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "CYM",
+      "revenueCatTerritoryCode": "KY",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "TCD",
+      "revenueCatTerritoryCode": "TD",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "CHL",
+      "revenueCatTerritoryCode": "CL",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "CHN",
+      "revenueCatTerritoryCode": "CN",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "COL",
+      "revenueCatTerritoryCode": "CO",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "COD",
+      "revenueCatTerritoryCode": "CD",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "COG",
+      "revenueCatTerritoryCode": "CG",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "CRI",
+      "revenueCatTerritoryCode": "CR",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "CIV",
+      "revenueCatTerritoryCode": "CI",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "HRV",
+      "revenueCatTerritoryCode": "HR",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "CYP",
+      "revenueCatTerritoryCode": "CY",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "CZE",
+      "revenueCatTerritoryCode": "CZ",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "DNK",
+      "revenueCatTerritoryCode": "DK",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "DMA",
+      "revenueCatTerritoryCode": "DM",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "DOM",
+      "revenueCatTerritoryCode": "DO",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "ECU",
+      "revenueCatTerritoryCode": "EC",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "EGY",
+      "revenueCatTerritoryCode": "EG",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "SLV",
+      "revenueCatTerritoryCode": "SV",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "EST",
+      "revenueCatTerritoryCode": "EE",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "SWZ",
+      "revenueCatTerritoryCode": "SZ",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "FJI",
+      "revenueCatTerritoryCode": "FJ",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "FIN",
+      "revenueCatTerritoryCode": "FI",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "FRA",
+      "revenueCatTerritoryCode": "FR",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "GAB",
+      "revenueCatTerritoryCode": "GA",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "GMB",
+      "revenueCatTerritoryCode": "GM",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "GEO",
+      "revenueCatTerritoryCode": "GE",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "DEU",
+      "revenueCatTerritoryCode": "DE",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "GHA",
+      "revenueCatTerritoryCode": "GH",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "GRC",
+      "revenueCatTerritoryCode": "GR",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "GRD",
+      "revenueCatTerritoryCode": "GD",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "GTM",
+      "revenueCatTerritoryCode": "GT",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "GNB",
+      "revenueCatTerritoryCode": "GW",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "GUY",
+      "revenueCatTerritoryCode": "GY",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "HND",
+      "revenueCatTerritoryCode": "HN",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "HKG",
+      "revenueCatTerritoryCode": "HK",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "HUN",
+      "revenueCatTerritoryCode": "HU",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "ISL",
+      "revenueCatTerritoryCode": "IS",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "IND",
+      "revenueCatTerritoryCode": "IN",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "IDN",
+      "revenueCatTerritoryCode": "ID",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "IRQ",
+      "revenueCatTerritoryCode": "IQ",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "IRL",
+      "revenueCatTerritoryCode": "IE",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "ISR",
+      "revenueCatTerritoryCode": "IL",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "ITA",
+      "revenueCatTerritoryCode": "IT",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "JAM",
+      "revenueCatTerritoryCode": "JM",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "JPN",
+      "revenueCatTerritoryCode": "JP",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "JOR",
+      "revenueCatTerritoryCode": "JO",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "KAZ",
+      "revenueCatTerritoryCode": "KZ",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "KEN",
+      "revenueCatTerritoryCode": "KE",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "XKS",
+      "revenueCatTerritoryCode": "XK",
+      "mappingMethod": "Exact country-name agreement between Apple table and Unicode English territory names"
+    },
+    {
+      "appleTerritoryId": "KWT",
+      "revenueCatTerritoryCode": "KW",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "KGZ",
+      "revenueCatTerritoryCode": "KG",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "LAO",
+      "revenueCatTerritoryCode": "LA",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "LVA",
+      "revenueCatTerritoryCode": "LV",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "LBN",
+      "revenueCatTerritoryCode": "LB",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "LBR",
+      "revenueCatTerritoryCode": "LR",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "LBY",
+      "revenueCatTerritoryCode": "LY",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "LTU",
+      "revenueCatTerritoryCode": "LT",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "LUX",
+      "revenueCatTerritoryCode": "LU",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "MAC",
+      "revenueCatTerritoryCode": "MO",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "MDG",
+      "revenueCatTerritoryCode": "MG",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "MWI",
+      "revenueCatTerritoryCode": "MW",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "MYS",
+      "revenueCatTerritoryCode": "MY",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "MDV",
+      "revenueCatTerritoryCode": "MV",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "MLI",
+      "revenueCatTerritoryCode": "ML",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "MLT",
+      "revenueCatTerritoryCode": "MT",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "MRT",
+      "revenueCatTerritoryCode": "MR",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "MUS",
+      "revenueCatTerritoryCode": "MU",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "MEX",
+      "revenueCatTerritoryCode": "MX",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "FSM",
+      "revenueCatTerritoryCode": "FM",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "MDA",
+      "revenueCatTerritoryCode": "MD",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "MNG",
+      "revenueCatTerritoryCode": "MN",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "MNE",
+      "revenueCatTerritoryCode": "ME",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "MSR",
+      "revenueCatTerritoryCode": "MS",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "MAR",
+      "revenueCatTerritoryCode": "MA",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "MOZ",
+      "revenueCatTerritoryCode": "MZ",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "MMR",
+      "revenueCatTerritoryCode": "MM",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "NAM",
+      "revenueCatTerritoryCode": "NA",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "NRU",
+      "revenueCatTerritoryCode": "NR",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "NPL",
+      "revenueCatTerritoryCode": "NP",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "NLD",
+      "revenueCatTerritoryCode": "NL",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "NZL",
+      "revenueCatTerritoryCode": "NZ",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "NIC",
+      "revenueCatTerritoryCode": "NI",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "NER",
+      "revenueCatTerritoryCode": "NE",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "NGA",
+      "revenueCatTerritoryCode": "NG",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "MKD",
+      "revenueCatTerritoryCode": "MK",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "NOR",
+      "revenueCatTerritoryCode": "NO",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "OMN",
+      "revenueCatTerritoryCode": "OM",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "PAK",
+      "revenueCatTerritoryCode": "PK",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "PLW",
+      "revenueCatTerritoryCode": "PW",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "PAN",
+      "revenueCatTerritoryCode": "PA",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "PNG",
+      "revenueCatTerritoryCode": "PG",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "PRY",
+      "revenueCatTerritoryCode": "PY",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "PER",
+      "revenueCatTerritoryCode": "PE",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "PHL",
+      "revenueCatTerritoryCode": "PH",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "POL",
+      "revenueCatTerritoryCode": "PL",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "PRT",
+      "revenueCatTerritoryCode": "PT",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "QAT",
+      "revenueCatTerritoryCode": "QA",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "KOR",
+      "revenueCatTerritoryCode": "KR",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "ROU",
+      "revenueCatTerritoryCode": "RO",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "RUS",
+      "revenueCatTerritoryCode": "RU",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "RWA",
+      "revenueCatTerritoryCode": "RW",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "STP",
+      "revenueCatTerritoryCode": "ST",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "SAU",
+      "revenueCatTerritoryCode": "SA",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "SEN",
+      "revenueCatTerritoryCode": "SN",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "SRB",
+      "revenueCatTerritoryCode": "RS",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "SYC",
+      "revenueCatTerritoryCode": "SC",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "SLE",
+      "revenueCatTerritoryCode": "SL",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "SGP",
+      "revenueCatTerritoryCode": "SG",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "SVK",
+      "revenueCatTerritoryCode": "SK",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "SVN",
+      "revenueCatTerritoryCode": "SI",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "SLB",
+      "revenueCatTerritoryCode": "SB",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "ZAF",
+      "revenueCatTerritoryCode": "ZA",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "ESP",
+      "revenueCatTerritoryCode": "ES",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "LKA",
+      "revenueCatTerritoryCode": "LK",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "KNA",
+      "revenueCatTerritoryCode": "KN",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "LCA",
+      "revenueCatTerritoryCode": "LC",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "VCT",
+      "revenueCatTerritoryCode": "VC",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "SUR",
+      "revenueCatTerritoryCode": "SR",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "SWE",
+      "revenueCatTerritoryCode": "SE",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "CHE",
+      "revenueCatTerritoryCode": "CH",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "TWN",
+      "revenueCatTerritoryCode": "TW",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "TJK",
+      "revenueCatTerritoryCode": "TJ",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "TZA",
+      "revenueCatTerritoryCode": "TZ",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "THA",
+      "revenueCatTerritoryCode": "TH",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "TON",
+      "revenueCatTerritoryCode": "TO",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "TTO",
+      "revenueCatTerritoryCode": "TT",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "TUN",
+      "revenueCatTerritoryCode": "TN",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "TUR",
+      "revenueCatTerritoryCode": "TR",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "TKM",
+      "revenueCatTerritoryCode": "TM",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "TCA",
+      "revenueCatTerritoryCode": "TC",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "UGA",
+      "revenueCatTerritoryCode": "UG",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "UKR",
+      "revenueCatTerritoryCode": "UA",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "ARE",
+      "revenueCatTerritoryCode": "AE",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "GBR",
+      "revenueCatTerritoryCode": "GB",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "USA",
+      "revenueCatTerritoryCode": "US",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "URY",
+      "revenueCatTerritoryCode": "UY",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "UZB",
+      "revenueCatTerritoryCode": "UZ",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "VUT",
+      "revenueCatTerritoryCode": "VU",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "VEN",
+      "revenueCatTerritoryCode": "VE",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "VNM",
+      "revenueCatTerritoryCode": "VN",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "YEM",
+      "revenueCatTerritoryCode": "YE",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "ZMB",
+      "revenueCatTerritoryCode": "ZM",
+      "mappingMethod": "CLDR overlong territory alias"
+    },
+    {
+      "appleTerritoryId": "ZWE",
+      "revenueCatTerritoryCode": "ZW",
+      "mappingMethod": "CLDR overlong territory alias"
+    }
+  ],
+  "verification": "All 175 IDs mapped uniquely. Cross-check the future authenticated Apple territory export before store apply if it differs."
+}

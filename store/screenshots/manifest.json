@@ -1,0 +1,122 @@
+[
+  {
+    "file": "screenshots/app-store/iphone-1206x2622/01-today.png",
+    "width": 1206,
+    "height": 2622,
+    "mode": "RGB",
+    "bytes": 1579028,
+    "source": "screenshots/raw/iphone-1206x2622/01-today.png",
+    "caption": [
+      "One quiet moment.",
+      "Every day."
+    ]
+  },
+  {
+    "file": "screenshots/app-store/iphone-1206x2622/02-verse.png",
+    "width": 1206,
+    "height": 2622,
+    "mode": "RGB",
+    "bytes": 1511158,
+    "source": "screenshots/raw/iphone-1206x2622/02-verse.png",
+    "caption": [
+      "Begin with",
+      "His Word."
+    ]
+  },
+  {
+    "file": "screenshots/app-store/iphone-1206x2622/03-reason.png",
+    "width": 1206,
+    "height": 2622,
+    "mode": "RGB",
+    "bytes": 1535176,
+    "source": "screenshots/raw/iphone-1206x2622/03-reason.png",
+    "caption": [
+      "Confidence,",
+      "with a reason."
+    ]
+  },
+  {
+    "file": "screenshots/app-store/iphone-1206x2622/04-carry.png",
+    "width": 1206,
+    "height": 2622,
+    "mode": "RGB",
+    "bytes": 1476838,
+    "source": "screenshots/raw/iphone-1206x2622/04-carry.png",
+    "caption": [
+      "A thought to carry.",
+      "A focus that\u2019s yours."
+    ]
+  },
+  {
+    "file": "screenshots/app-store/iphone-1206x2622/05-journey.png",
+    "width": 1206,
+    "height": 2622,
+    "mode": "RGB",
+    "bytes": 1529470,
+    "source": "screenshots/raw/iphone-1206x2622/05-journey.png",
+    "caption": [
+      "365 small steps.",
+      "One beautiful journey."
+    ]
+  },
+  {
+    "file": "screenshots/app-store/ipad-2064x2752/01-today.png",
+    "width": 2064,
+    "height": 2752,
+    "mode": "RGB",
+    "bytes": 2129505,
+    "source": "screenshots/raw/ipad-2064x2752/01-today.png",
+    "caption": [
+      "One quiet moment.",
+      "Every day."
+    ]
+  },
+  {
+    "file": "screenshots/app-store/ipad-2064x2752/02-verse.png",
+    "width": 2064,
+    "height": 2752,
+    "mode": "RGB",
+    "bytes": 1993167,
+    "source": "screenshots/raw/ipad-2064x2752/02-verse.png",
+    "caption": [
+      "Begin with",
+      "His Word."
+    ]
+  },
+  {
+    "file": "screenshots/app-store/ipad-2064x2752/03-reason.png",
+    "width": 2064,
+    "height": 2752,
+    "mode": "RGB",
+    "bytes": 2014912,
+    "source": "screenshots/raw/ipad-2064x2752/03-reason.png",
+    "caption": [
+      "Confidence,",
+      "with a reason."
+    ]
+  },
+  {
+    "file": "screenshots/app-store/ipad-2064x2752/04-carry.png",
+    "width": 2064,
+    "height": 2752,
+    "mode": "RGB",
+    "bytes": 1986134,
+    "source": "screenshots/raw/ipad-2064x2752/04-carry.png",
+    "caption": [
+      "A thought to carry.",
+      "A focus that\u2019s yours."
+    ]
+  },
+  {
+    "file": "screenshots/app-store/ipad-2064x2752/05-journey.png",
+    "width": 2064,
+    "height": 2752,
+    "mode": "RGB",
+    "bytes": 2044545,
+    "source": "screenshots/raw/ipad-2064x2752/05-journey.png",
+    "caption": [
+      "365 small steps.",
+      "One beautiful journey."
+    ]
+  }
+]

@@ -1,0 +1,20 @@
+{
+  "recordedAt": "2026-10-31T02:42:11.731821+00:00",
+  "bundleId": "com.holyher.app",
+  "version": "1.0.0",
+  "buildNumber": "1",
+  "teamId": "DU9D6TAM58",
+  "archive": "build/ios/archive/HolyHer.xcarchive",
+  "command": "bash tool/apple_release_setup.sh --upload-archive build/ios/archive/HolyHer.xcarchive",
+  "xcodeExitCode": 0,
+  "appleUploadSucceeded": true,
+  "appleReportedStatus": "Uploaded package is processing. Upload succeeded.",
+  "appleUploadCompletedAt": "2026-10-30T22:41:52-04:00",
+  "appReviewSubmitted": false,
+  "publicReleaseConfiguredVerified": false,
+  "targetReleaseTimestamp": "2026-11-15T11:00:00Z",
+  "limitations": [
+    "Upload acceptance is separate from completed processing, TestFlight availability, App Review submission/approval, and public release.",
+    "Native provider and purchase lifecycle acceptance remain open."
+  ]
+}

@@ -119,7 +119,7 @@ void main() {
     final container = create(store, () => DateTime(2026, 10, 29));
     await container.read(streakProvider.notifier).initialize();
     expect(container.read(streakProvider).current, 1);
-    expect(store.writes, ['streak_active_days']);
+    expect(store.writes, ['streak_pending_days', 'streak_active_days']);
     final restarted =
         create(MemoryStore(store.values), () => DateTime(2026, 10, 29));
     await restarted.read(streakProvider.notifier).initialize();
