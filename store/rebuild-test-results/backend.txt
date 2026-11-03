@@ -1,0 +1,36 @@
+
+> test
+> node --test test/*.test.js
+
+✔ calendar unlocking accumulates missed dates and caps at 365 (2.514083ms)
+✔ DST and leap days use calendar dates rather than elapsed hours (60.573167ms)
+✔ completion is idempotent and future days are rejected (1.6355ms)
+✔ V2 lifetime entitlement uses the internal ID and a null expiry (0.239792ms)
+✔ V2 refunds and revocations remove active access; repurchase restores it (0.140333ms)
+✔ finite V2 entitlements use millisecond expiry and reject malformed responses (0.230791ms)
+✔ webhooks reconcile custom aliases and both sides of transfers (0.182458ms)
+✔ invalid webhook identity types cannot inject document paths (0.134375ms)
+✔ a slow pre-refund reconciliation cannot overwrite or return stale active access (26.321917ms)
+✔ deletion blocks in-flight and delayed webhook writes from recreating user data (2.806834ms)
+✔ free journey creation does not depend on a purchase or provider availability (3.233333ms)
+✔ V2 pagination reaches the target entitlement without leaking authorization (3.394458ms)
+✔ an unknown V2 customer is an explicit inactive result, not a new customer (0.836709ms)
+✔ base-only analysis exports all five independent endpoints without secret params (1.02725ms)
+✔ default deployment analysis retains billing exports and secret requirements (0.536834ms)
+✔ activity merging retains offline dates only within the journey calendar (0.680625ms)
+✔ concurrent activity uploads merge both devices idempotently (3.21175ms)
+✔ free enrollment is atomic, idempotent and distinct from purchase status (1.6125ms)
+✔ existing journeys backfill a grant without moving dates or losing completions (0.765ms)
+✔ server grades canonical option IDs, accepts mistakes, and returns original duplicate result (4.470666ms)
+✔ both answers, a valid version, available day and valid option IDs are mandatory (1.593292ms)
+✔ reset preserves access, calendar and saved items while rejecting old submissions and checkpoints (4.015292ms)
+✔ a never-billed free account deletes without any billing network calls (1.9025ms)
+✔ private legacy cleanup retries after billing outages without recreating accounts (1.792125ms)
+ℹ tests 24
+ℹ suites 0
+ℹ pass 24
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 228.319416

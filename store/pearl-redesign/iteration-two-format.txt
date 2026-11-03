@@ -1,0 +1,6 @@
+Formatted lib/core/widgets/holy_illustrations.dart
+Formatted lib/features/home/progress_calendar.dart
+Formatted lib/features/onboarding/onboarding_screen.dart
+Formatted tool/render_review.dart
+Formatted test/navigation_presentation_test.dart
+Formatted 32 files (5 changed) in 0.54 seconds.

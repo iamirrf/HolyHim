@@ -1,0 +1,10 @@
+21:32:10  Acquired tunnel connection to device.
+21:32:10  Enabling developer disk image services.
+21:32:11  Acquired usage assertion.
+App installed:
+• bundleID: com.holyher.app
+• installationURL: file:///private/var/containers/Bundle/Application/9B9A31E7-CB47-40DB-BA6C-A5C07E1FBF53/Runner.app/
+• launchServicesIdentifier: unknown
+• databaseUUID: 034CD097-6E2C-4CCC-B07D-9587F71592B6
+• databaseSequenceNumber: 4956
+• options: 

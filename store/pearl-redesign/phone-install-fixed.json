@@ -1,0 +1,37 @@
+{
+  "info" : {
+    "arguments" : [
+      "devicectl",
+      "device",
+      "install",
+      "app",
+      "--device",
+      "79D1760F-3CCF-5595-874B-46E260F41DCD",
+      "build/ios/Release-iphoneos/Runner.app",
+      "--json-output",
+      "store/pearl-redesign/phone-install-fixed.json"
+    ],
+    "commandType" : "devicectl.device.install.app",
+    "environment" : {
+      "TERM" : "dumb"
+    },
+    "jsonVersion" : 3,
+    "outcome" : "success",
+    "version" : "518.33"
+  },
+  "result" : {
+    "deviceIdentifier" : "79D1760F-3CCF-5595-874B-46E260F41DCD",
+    "installedApplications" : [
+      {
+        "bundleID" : "com.holyher.app",
+        "databaseSequenceNumber" : 4956,
+        "databaseUUID" : "034CD097-6E2C-4CCC-B07D-9587F71592B6",
+        "installationURL" : "file:///private/var/containers/Bundle/Application/9B9A31E7-CB47-40DB-BA6C-A5C07E1FBF53/Runner.app/",
+        "launchServicesIdentifier" : "unknown",
+        "options" : {
+
+        }
+      }
+    ]
+  }
+}

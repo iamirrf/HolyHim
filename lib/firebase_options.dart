@@ -11,4 +11,12 @@ abstract final class HolyHerFirebaseOptions {
     storageBucket: "holyher-app-production.firebasestorage.app",
     iosBundleId: "com.holyher.app",
   );
+  static const web = FirebaseOptions(
+    apiKey: "AIzaSyDPv9e6_jZ-x_TWXRS6yNy-P-qJS_uKqZ8",
+    appId: "1:746503857955:web:b0c6ecf2df60ab209f8e96",
+    messagingSenderId: "746503857955",
+    projectId: "holyher-app-production",
+    storageBucket: "holyher-app-production.firebasestorage.app",
+    authDomain: "holyher-app-production.web.app",
+  );
 }

@@ -1,0 +1,3 @@
+00:00 +0: loading /Users/amir/Downloads/HolyHer/test/legacy_completion_test.dart
+00:00 +0: rejected five-card completion preserves the durable reading position
+00:00 +1: All tests passed!

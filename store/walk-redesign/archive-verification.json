@@ -1,0 +1,897 @@
+{
+  "checkedAt": "2026-11-03T12:26:10.837682+00:00",
+  "archive": "/Users/amir/Downloads/HolyHer/build/ios/archive/Runner.xcarchive",
+  "status": "passed",
+  "scope": "Completed archive identity, signing and combined bundled privacy declarations.",
+  "checks": {
+    "archive_directory": true,
+    "archive_metadata": true,
+    "one_archived_application": true,
+    "bundled_firebase_config": true,
+    "root_privacy_manifest": true,
+    "CFBundleIdentifier": true,
+    "CFBundleDisplayName": true,
+    "CFBundleShortVersionString": true,
+    "CFBundleVersion": true,
+    "UIDeviceFamily": true,
+    "ITSAppUsesNonExemptEncryption": true,
+    "compiled_asset_catalog": true,
+    "compiled_launch_storyboard": true,
+    "firebase_project": true,
+    "firebase_app_id": true,
+    "firebase_bundle_id": true,
+    "firebase_config_matches_source": true,
+    "root_privacy_matches_source": true,
+    "codesign_verify_deep_strict": true,
+    "codesign_team": true,
+    "entitlements_read": true,
+    "entitlement_application_id": true,
+    "entitlement_team": true,
+    "apple_signin_entitlement": true,
+    "privacy_manifests_present": true,
+    "no_tracking:Frameworks/AppAuth.framework/AppAuthCore_Privacy.bundle/PrivacyInfo.xcprivacy": true,
+    "no_tracking:Frameworks/FBLPromises.framework/FBLPromises_Privacy.bundle/PrivacyInfo.xcprivacy": true,
+    "no_tracking:Frameworks/FirebaseAuth.framework/FirebaseAuth_Privacy.bundle/PrivacyInfo.xcprivacy": true,
+    "known_accessed_api:NSPrivacyAccessedAPICategoryUserDefaults": true,
+    "accessed_api_reasons:Frameworks/FirebaseAuth.framework/FirebaseAuth_Privacy.bundle/PrivacyInfo.xcprivacy:NSPrivacyAccessedAPICategoryUserDefaults": true,
+    "no_tracking:Frameworks/FirebaseCore.framework/FirebaseCore_Privacy.bundle/PrivacyInfo.xcprivacy": true,
+    "accessed_api_reasons:Frameworks/FirebaseCore.framework/FirebaseCore_Privacy.bundle/PrivacyInfo.xcprivacy:NSPrivacyAccessedAPICategoryUserDefaults": true,
+    "no_tracking:Frameworks/FirebaseCoreExtension.framework/FirebaseCoreExtension_Privacy.bundle/PrivacyInfo.xcprivacy": true,
+    "no_tracking:Frameworks/FirebaseCoreInternal.framework/FirebaseCoreInternal_Privacy.bundle/PrivacyInfo.xcprivacy": true,
+    "accessed_api_reasons:Frameworks/FirebaseCoreInternal.framework/FirebaseCoreInternal_Privacy.bundle/PrivacyInfo.xcprivacy:NSPrivacyAccessedAPICategoryUserDefaults": true,
+    "no_tracking:Frameworks/FirebaseFirestore.framework/FirebaseFirestore_Privacy.bundle/PrivacyInfo.xcprivacy": true,
+    "no_tracking:Frameworks/FirebaseFirestoreInternal.framework/FirebaseFirestoreInternal_Privacy.bundle/PrivacyInfo.xcprivacy": true,
+    "no_tracking:Frameworks/Flutter.framework/PrivacyInfo.xcprivacy": true,
+    "known_accessed_api:NSPrivacyAccessedAPICategoryFileTimestamp": true,
+    "accessed_api_reasons:Frameworks/Flutter.framework/PrivacyInfo.xcprivacy:NSPrivacyAccessedAPICategoryFileTimestamp": true,
+    "known_accessed_api:NSPrivacyAccessedAPICategorySystemBootTime": true,
+    "accessed_api_reasons:Frameworks/Flutter.framework/PrivacyInfo.xcprivacy:NSPrivacyAccessedAPICategorySystemBootTime": true,
+    "no_tracking:Frameworks/GTMAppAuth.framework/GTMAppAuth_Privacy.bundle/PrivacyInfo.xcprivacy": true,
+    "no_tracking:Frameworks/GTMSessionFetcher.framework/GTMSessionFetcher_Core_Privacy.bundle/PrivacyInfo.xcprivacy": true,
+    "accessed_api_reasons:Frameworks/GTMSessionFetcher.framework/GTMSessionFetcher_Core_Privacy.bundle/PrivacyInfo.xcprivacy:NSPrivacyAccessedAPICategoryUserDefaults": true,
+    "no_tracking:Frameworks/GTMSessionFetcher.framework/GTMSessionFetcher_Full_Privacy.bundle/PrivacyInfo.xcprivacy": true,
+    "no_tracking:Frameworks/GoogleSignIn.framework/GoogleSignIn.bundle/PrivacyInfo.xcprivacy": true,
+    "accessed_api_reasons:Frameworks/GoogleSignIn.framework/GoogleSignIn.bundle/PrivacyInfo.xcprivacy:NSPrivacyAccessedAPICategoryUserDefaults": true,
+    "no_tracking:Frameworks/GoogleUtilities.framework/GoogleUtilities_Privacy.bundle/PrivacyInfo.xcprivacy": true,
+    "accessed_api_reasons:Frameworks/GoogleUtilities.framework/GoogleUtilities_Privacy.bundle/PrivacyInfo.xcprivacy:NSPrivacyAccessedAPICategoryFileTimestamp": true,
+    "accessed_api_reasons:Frameworks/GoogleUtilities.framework/GoogleUtilities_Privacy.bundle/PrivacyInfo.xcprivacy:NSPrivacyAccessedAPICategoryUserDefaults": true,
+    "no_tracking:Frameworks/Promises.framework/Promises_Privacy.bundle/PrivacyInfo.xcprivacy": true,
+    "no_tracking:Frameworks/absl.framework/xcprivacy.bundle/PrivacyInfo.xcprivacy": true,
+    "no_tracking:Frameworks/flutter_local_notifications.framework/flutter_local_notifications_privacy.bundle/PrivacyInfo.xcprivacy": true,
+    "accessed_api_reasons:Frameworks/flutter_local_notifications.framework/flutter_local_notifications_privacy.bundle/PrivacyInfo.xcprivacy:NSPrivacyAccessedAPICategoryUserDefaults": true,
+    "no_tracking:Frameworks/flutter_timezone.framework/flutter_timezone_privacy.bundle/PrivacyInfo.xcprivacy": true,
+    "no_tracking:Frameworks/grpc.framework/grpc.bundle/PrivacyInfo.xcprivacy": true,
+    "accessed_api_reasons:Frameworks/grpc.framework/grpc.bundle/PrivacyInfo.xcprivacy:NSPrivacyAccessedAPICategoryFileTimestamp": true,
+    "no_tracking:Frameworks/grpcpp.framework/grpcpp.bundle/PrivacyInfo.xcprivacy": true,
+    "accessed_api_reasons:Frameworks/grpcpp.framework/grpcpp.bundle/PrivacyInfo.xcprivacy:NSPrivacyAccessedAPICategoryFileTimestamp": true,
+    "no_tracking:Frameworks/leveldb.framework/leveldb_Privacy.bundle/PrivacyInfo.xcprivacy": true,
+    "accessed_api_reasons:Frameworks/leveldb.framework/leveldb_Privacy.bundle/PrivacyInfo.xcprivacy:NSPrivacyAccessedAPICategoryFileTimestamp": true,
+    "no_tracking:Frameworks/nanopb.framework/nanopb_Privacy.bundle/PrivacyInfo.xcprivacy": true,
+    "no_tracking:Frameworks/openssl_grpc.framework/openssl_grpc.bundle/PrivacyInfo.xcprivacy": true,
+    "accessed_api_reasons:Frameworks/openssl_grpc.framework/openssl_grpc.bundle/PrivacyInfo.xcprivacy:NSPrivacyAccessedAPICategoryFileTimestamp": true,
+    "no_tracking:Frameworks/share_plus.framework/share_plus_privacy.bundle/PrivacyInfo.xcprivacy": true,
+    "no_tracking:Frameworks/shared_preferences_foundation.framework/shared_preferences_foundation_privacy.bundle/PrivacyInfo.xcprivacy": true,
+    "accessed_api_reasons:Frameworks/shared_preferences_foundation.framework/shared_preferences_foundation_privacy.bundle/PrivacyInfo.xcprivacy:NSPrivacyAccessedAPICategoryUserDefaults": true,
+    "no_tracking:Frameworks/sqflite_darwin.framework/sqflite_darwin_privacy.bundle/PrivacyInfo.xcprivacy": true,
+    "no_tracking:Frameworks/url_launcher_ios.framework/url_launcher_ios_privacy.bundle/PrivacyInfo.xcprivacy": true,
+    "no_tracking:PrivacyInfo.xcprivacy": true,
+    "accessed_api_reasons:PrivacyInfo.xcprivacy:NSPrivacyAccessedAPICategoryUserDefaults": true,
+    "no_tracking:google_sign_in_ios_privacy.bundle/PrivacyInfo.xcprivacy": true,
+    "baseline_has_no_tracking": true,
+    "category_disclosed:Other Diagnostic Data": true,
+    "category_no_tracking:Other Diagnostic Data": true,
+    "purposes_disclosed:Other Diagnostic Data": true,
+    "linkage_disclosed:Other Diagnostic Data": true,
+    "baseline_category_no_tracking:Other Diagnostic Data": true,
+    "category_disclosed:User ID": true,
+    "category_no_tracking:User ID": true,
+    "purposes_disclosed:User ID": true,
+    "linkage_disclosed:User ID": true,
+    "baseline_category_no_tracking:User ID": true,
+    "category_disclosed:Name": true,
+    "category_no_tracking:Name": true,
+    "purposes_disclosed:Name": true,
+    "linkage_disclosed:Name": true,
+    "baseline_category_no_tracking:Name": true,
+    "category_disclosed:Email Address": true,
+    "category_no_tracking:Email Address": true,
+    "purposes_disclosed:Email Address": true,
+    "linkage_disclosed:Email Address": true,
+    "baseline_category_no_tracking:Email Address": true,
+    "category_disclosed:Phone Number": true,
+    "category_no_tracking:Phone Number": true,
+    "purposes_disclosed:Phone Number": true,
+    "linkage_disclosed:Phone Number": true,
+    "baseline_category_no_tracking:Phone Number": true,
+    "category_disclosed:Other Data Types": true,
+    "category_no_tracking:Other Data Types": true,
+    "purposes_disclosed:Other Data Types": true,
+    "linkage_disclosed:Other Data Types": true,
+    "baseline_category_no_tracking:Other Data Types": true,
+    "category_disclosed:Coarse Location": true,
+    "category_no_tracking:Coarse Location": true,
+    "purposes_disclosed:Coarse Location": true,
+    "linkage_disclosed:Coarse Location": true,
+    "baseline_category_no_tracking:Coarse Location": true,
+    "category_disclosed:Device ID": true,
+    "category_no_tracking:Device ID": true,
+    "purposes_disclosed:Device ID": true,
+    "linkage_disclosed:Device ID": true,
+    "baseline_category_no_tracking:Device ID": true,
+    "category_disclosed:Other Usage Data": true,
+    "category_no_tracking:Other Usage Data": true,
+    "purposes_disclosed:Other Usage Data": true,
+    "linkage_disclosed:Other Usage Data": true,
+    "baseline_category_no_tracking:Other Usage Data": true,
+    "category_disclosed:Sensitive Info": true,
+    "category_no_tracking:Sensitive Info": true,
+    "purposes_disclosed:Sensitive Info": true,
+    "linkage_disclosed:Sensitive Info": true,
+    "baseline_category_no_tracking:Sensitive Info": true,
+    "category_disclosed:Purchase History": true,
+    "category_no_tracking:Purchase History": true,
+    "purposes_disclosed:Purchase History": true,
+    "linkage_disclosed:Purchase History": true,
+    "baseline_category_no_tracking:Purchase History": true,
+    "category_disclosed:Product Interaction": true,
+    "category_no_tracking:Product Interaction": true,
+    "purposes_disclosed:Product Interaction": true,
+    "linkage_disclosed:Product Interaction": true,
+    "baseline_category_no_tracking:Product Interaction": true,
+    "category_disclosed:Customer Support": true,
+    "category_no_tracking:Customer Support": true,
+    "purposes_disclosed:Customer Support": true,
+    "linkage_disclosed:Customer Support": true,
+    "baseline_category_no_tracking:Customer Support": true
+  },
+  "failures": [],
+  "application": {
+    "CFBundleIdentifier": "com.holyher.app",
+    "CFBundleDisplayName": "HolyHer",
+    "CFBundleShortVersionString": "1.2.0",
+    "CFBundleVersion": "4",
+    "ITSAppUsesNonExemptEncryption": false,
+    "UIDeviceFamily": [
+      1,
+      2
+    ],
+    "MinimumOSVersion": "15.0",
+    "DTSDKName": "iphoneos26.5",
+    "DTXcode": "2660",
+    "bytes": 59345430
+  },
+  "sourceHashes": {
+    "ios/Runner/PrivacyInfo.xcprivacy": "63569c0d2a87f6d68c7d33ca920fe3f4f86aef483af4d487cc2b63c13b63a9ff",
+    "ios/Runner/GoogleService-Info.plist": "5f0b9e099f43edc162bade4c330e9a876ae5519ed1e16e17417e17b7c1b75537",
+    "ios/Podfile.lock": "4ff690a0247b960519030cb8399690a1ca537d943c946d87ffea5df1f8e52c66",
+    "store/metadata/privacy_labels.json": "b603b89158651fb50d693fa56479e5e1617c93aef1c748561fd9a283c2e62cb1",
+    "config/release.json": "8eae4447661378d64f4f4a413697cc06a6da9039879e3e87d9d7c340fe1c54df",
+    "config/cloud.json": "097877f4c0a17a2040e4954548e17142cd9ffa48e08a5ae50d5a6b313f603398"
+  },
+  "firebase": {
+    "PROJECT_ID": "holyher-app-production",
+    "GOOGLE_APP_ID": "1:746503857955:ios:6ed10c73853d13b39f8e96",
+    "BUNDLE_ID": "com.holyher.app"
+  },
+  "signing": {
+    "teamIdentifier": "DU9D6TAM58",
+    "entitlements": {
+      "application-identifier": "DU9D6TAM58.com.holyher.app",
+      "com.apple.developer.team-identifier": "DU9D6TAM58",
+      "com.apple.developer.applesignin": [
+        "Default"
+      ],
+      "get-task-allow": true
+    },
+    "debuggerAllowed": true,
+    "qualification": "Archive signing is not proof of distribution export or App Store validation."
+  },
+  "privacy": {
+    "manifestCount": 29,
+    "manifests": [
+      {
+        "path": "Frameworks/AppAuth.framework/AppAuthCore_Privacy.bundle/PrivacyInfo.xcprivacy",
+        "sha256": "5ade962faaea1eddbbdd06c4cf8a872cec554f64c55a00e00136004d378e1ced",
+        "tracking": false,
+        "trackingDomains": [],
+        "collectedDataTypes": [],
+        "accessedAPITypes": []
+      },
+      {
+        "path": "Frameworks/FBLPromises.framework/FBLPromises_Privacy.bundle/PrivacyInfo.xcprivacy",
+        "sha256": "74b0cd72fc23c1ef302f22ee2753f61817cdc5af0ff7a7f2d0632b524fb8acea",
+        "tracking": false,
+        "trackingDomains": [],
+        "collectedDataTypes": [],
+        "accessedAPITypes": []
+      },
+      {
+        "path": "Frameworks/FirebaseAuth.framework/FirebaseAuth_Privacy.bundle/PrivacyInfo.xcprivacy",
+        "sha256": "04c162eafa49b2ced0663231a89cc9f5793506c802b68486719b5da0608aefd5",
+        "tracking": false,
+        "trackingDomains": [],
+        "collectedDataTypes": [
+          {
+            "NSPrivacyCollectedDataType": "NSPrivacyCollectedDataTypeOtherDiagnosticData",
+            "NSPrivacyCollectedDataTypeLinked": false,
+            "NSPrivacyCollectedDataTypeTracking": false,
+            "NSPrivacyCollectedDataTypePurposes": [
+              "NSPrivacyCollectedDataTypePurposeAnalytics"
+            ]
+          },
+          {
+            "NSPrivacyCollectedDataType": "NSPrivacyCollectedDataTypeUserID",
+            "NSPrivacyCollectedDataTypeLinked": true,
+            "NSPrivacyCollectedDataTypeTracking": false,
+            "NSPrivacyCollectedDataTypePurposes": [
+              "NSPrivacyCollectedDataTypePurposeAppFunctionality"
+            ]
+          }
+        ],
+        "accessedAPITypes": [
+          {
+            "NSPrivacyAccessedAPIType": "NSPrivacyAccessedAPICategoryUserDefaults",
+            "NSPrivacyAccessedAPITypeReasons": [
+              "CA92.1"
+            ]
+          }
+        ]
+      },
+      {
+        "path": "Frameworks/FirebaseCore.framework/FirebaseCore_Privacy.bundle/PrivacyInfo.xcprivacy",
+        "sha256": "11e31f5f6b60e80ebd5901549fce5043f9af3e683f874022945000b405306c3f",
+        "tracking": false,
+        "trackingDomains": [],
+        "collectedDataTypes": [],
+        "accessedAPITypes": [
+          {
+            "NSPrivacyAccessedAPIType": "NSPrivacyAccessedAPICategoryUserDefaults",
+            "NSPrivacyAccessedAPITypeReasons": [
+              "CA92.1"
+            ]
+          }
+        ]
+      },
+      {
+        "path": "Frameworks/FirebaseCoreExtension.framework/FirebaseCoreExtension_Privacy.bundle/PrivacyInfo.xcprivacy",
+        "sha256": "1377eccedff8f8320f78040e9c9d3e17ecc0ea569594b56af0ef17be44197c7a",
+        "tracking": false,
+        "trackingDomains": [],
+        "collectedDataTypes": [],
+        "accessedAPITypes": []
+      },
+      {
+        "path": "Frameworks/FirebaseCoreInternal.framework/FirebaseCoreInternal_Privacy.bundle/PrivacyInfo.xcprivacy",
+        "sha256": "5b7fe979423dede3e08afc29a42f00f6086275dc548a84c29774235863eed3ef",
+        "tracking": false,
+        "trackingDomains": [],
+        "collectedDataTypes": [],
+        "accessedAPITypes": [
+          {
+            "NSPrivacyAccessedAPIType": "NSPrivacyAccessedAPICategoryUserDefaults",
+            "NSPrivacyAccessedAPITypeReasons": [
+              "1C8F.1"
+            ]
+          }
+        ]
+      },
+      {
+        "path": "Frameworks/FirebaseFirestore.framework/FirebaseFirestore_Privacy.bundle/PrivacyInfo.xcprivacy",
+        "sha256": "cfbb3c4f76a66d53698bae91f7110c00f2148e6e6f13ad7d32592909bc010e51",
+        "tracking": false,
+        "trackingDomains": [],
+        "collectedDataTypes": [
+          {
+            "NSPrivacyCollectedDataType": "NSPrivacyCollectedDataTypeOtherDiagnosticData",
+            "NSPrivacyCollectedDataTypeLinked": false,
+            "NSPrivacyCollectedDataTypeTracking": false,
+            "NSPrivacyCollectedDataTypePurposes": [
+              "NSPrivacyCollectedDataTypePurposeAnalytics"
+            ]
+          }
+        ],
+        "accessedAPITypes": []
+      },
+      {
+        "path": "Frameworks/FirebaseFirestoreInternal.framework/FirebaseFirestoreInternal_Privacy.bundle/PrivacyInfo.xcprivacy",
+        "sha256": "cfbb3c4f76a66d53698bae91f7110c00f2148e6e6f13ad7d32592909bc010e51",
+        "tracking": false,
+        "trackingDomains": [],
+        "collectedDataTypes": [
+          {
+            "NSPrivacyCollectedDataType": "NSPrivacyCollectedDataTypeOtherDiagnosticData",
+            "NSPrivacyCollectedDataTypeLinked": false,
+            "NSPrivacyCollectedDataTypeTracking": false,
+            "NSPrivacyCollectedDataTypePurposes": [
+              "NSPrivacyCollectedDataTypePurposeAnalytics"
+            ]
+          }
+        ],
+        "accessedAPITypes": []
+      },
+      {
+        "path": "Frameworks/Flutter.framework/PrivacyInfo.xcprivacy",
+        "sha256": "9f95d7e7862a4b56b66ed926bd6d622d2a6545a827d19847278b438d571d4212",
+        "tracking": false,
+        "trackingDomains": [],
+        "collectedDataTypes": [],
+        "accessedAPITypes": [
+          {
+            "NSPrivacyAccessedAPIType": "NSPrivacyAccessedAPICategoryFileTimestamp",
+            "NSPrivacyAccessedAPITypeReasons": [
+              "0A2A.1",
+              "C617.1"
+            ]
+          },
+          {
+            "NSPrivacyAccessedAPIType": "NSPrivacyAccessedAPICategorySystemBootTime",
+            "NSPrivacyAccessedAPITypeReasons": [
+              "35F9.1"
+            ]
+          }
+        ]
+      },
+      {
+        "path": "Frameworks/GTMAppAuth.framework/GTMAppAuth_Privacy.bundle/PrivacyInfo.xcprivacy",
+        "sha256": "5a9b8fc0cddb10201bb47cc2804b3f004c7251476622d25bfc4eb54ed46e1084",
+        "tracking": false,
+        "trackingDomains": [],
+        "collectedDataTypes": [],
+        "accessedAPITypes": []
+      },
+      {
+        "path": "Frameworks/GTMSessionFetcher.framework/GTMSessionFetcher_Core_Privacy.bundle/PrivacyInfo.xcprivacy",
+        "sha256": "3e4a93cbe86acef7dd7e063a28c849992f556e7f52cadc5f37c1e8b0e1b54686",
+        "tracking": false,
+        "trackingDomains": [],
+        "collectedDataTypes": [],
+        "accessedAPITypes": [
+          {
+            "NSPrivacyAccessedAPIType": "NSPrivacyAccessedAPICategoryUserDefaults",
+            "NSPrivacyAccessedAPITypeReasons": [
+              "CA92.1"
+            ]
+          }
+        ]
+      },
+      {
+        "path": "Frameworks/GTMSessionFetcher.framework/GTMSessionFetcher_Full_Privacy.bundle/PrivacyInfo.xcprivacy",
+        "sha256": "74b0cd72fc23c1ef302f22ee2753f61817cdc5af0ff7a7f2d0632b524fb8acea",
+        "tracking": false,
+        "trackingDomains": [],
+        "collectedDataTypes": [],
+        "accessedAPITypes": []
+      },
+      {
+        "path": "Frameworks/GoogleSignIn.framework/GoogleSignIn.bundle/PrivacyInfo.xcprivacy",
+        "sha256": "9300972853096f7d570d6c4a4bf7152a36c798e89c4f0d81d3b4c6b5dfaddfd0",
+        "tracking": false,
+        "trackingDomains": [],
+        "collectedDataTypes": [
+          {
+            "NSPrivacyCollectedDataType": "NSPrivacyCollectedDataTypeName",
+            "NSPrivacyCollectedDataTypeLinked": true,
+            "NSPrivacyCollectedDataTypeTracking": false,
+            "NSPrivacyCollectedDataTypePurposes": [
+              "NSPrivacyCollectedDataTypePurposeAppFunctionality"
+            ]
+          },
+          {
+            "NSPrivacyCollectedDataType": "NSPrivacyCollectedDataTypeEmailAddress",
+            "NSPrivacyCollectedDataTypeLinked": true,
+            "NSPrivacyCollectedDataTypeTracking": false,
+            "NSPrivacyCollectedDataTypePurposes": [
+              "NSPrivacyCollectedDataTypePurposeAppFunctionality"
+            ]
+          },
+          {
+            "NSPrivacyCollectedDataType": "NSPrivacyCollectedDataTypePhoneNumber",
+            "NSPrivacyCollectedDataTypeLinked": true,
+            "NSPrivacyCollectedDataTypeTracking": false,
+            "NSPrivacyCollectedDataTypePurposes": [
+              "NSPrivacyCollectedDataTypePurposeAppFunctionality"
+            ]
+          },
+          {
+            "NSPrivacyCollectedDataType": "NSPrivacyCollectedDataTypeOtherDataTypes",
+            "NSPrivacyCollectedDataTypeLinked": true,
+            "NSPrivacyCollectedDataTypeTracking": false,
+            "NSPrivacyCollectedDataTypePurposes": [
+              "NSPrivacyCollectedDataTypePurposeAppFunctionality",
+              "NSPrivacyCollectedDataTypePurposeAnalytics"
+            ]
+          },
+          {
+            "NSPrivacyCollectedDataType": "NSPrivacyCollectedDataTypeCoarseLocation",
+            "NSPrivacyCollectedDataTypeLinked": true,
+            "NSPrivacyCollectedDataTypeTracking": false,
+            "NSPrivacyCollectedDataTypePurposes": [
+              "NSPrivacyCollectedDataTypePurposeAppFunctionality"
+            ]
+          },
+          {
+            "NSPrivacyCollectedDataType": "NSPrivacyCollectedDataTypeUserID",
+            "NSPrivacyCollectedDataTypeLinked": true,
+            "NSPrivacyCollectedDataTypeTracking": false,
+            "NSPrivacyCollectedDataTypePurposes": [
+              "NSPrivacyCollectedDataTypePurposeAppFunctionality",
+              "NSPrivacyCollectedDataTypePurposeAnalytics"
+            ]
+          },
+          {
+            "NSPrivacyCollectedDataType": "NSPrivacyCollectedDataTypeDeviceID",
+            "NSPrivacyCollectedDataTypeLinked": true,
+            "NSPrivacyCollectedDataTypeTracking": false,
+            "NSPrivacyCollectedDataTypePurposes": [
+              "NSPrivacyCollectedDataTypePurposeAnalytics"
+            ]
+          },
+          {
+            "NSPrivacyCollectedDataType": "NSPrivacyCollectedDataTypeOtherUsageData",
+            "NSPrivacyCollectedDataTypeLinked": true,
+            "NSPrivacyCollectedDataTypeTracking": false,
+            "NSPrivacyCollectedDataTypePurposes": [
+              "NSPrivacyCollectedDataTypePurposeAnalytics"
+            ]
+          }
+        ],
+        "accessedAPITypes": [
+          {
+            "NSPrivacyAccessedAPITypeReasons": [
+              "CA92.1"
+            ],
+            "NSPrivacyAccessedAPIType": "NSPrivacyAccessedAPICategoryUserDefaults"
+          }
+        ]
+      },
+      {
+        "path": "Frameworks/GoogleUtilities.framework/GoogleUtilities_Privacy.bundle/PrivacyInfo.xcprivacy",
+        "sha256": "f81b5cf8f043662712eca9e9785767264cf190025fe7bdb49777296c068de53c",
+        "tracking": false,
+        "trackingDomains": [],
+        "collectedDataTypes": [],
+        "accessedAPITypes": [
+          {
+            "NSPrivacyAccessedAPIType": "NSPrivacyAccessedAPICategoryFileTimestamp",
+            "NSPrivacyAccessedAPITypeReasons": [
+              "C617.1"
+            ]
+          },
+          {
+            "NSPrivacyAccessedAPIType": "NSPrivacyAccessedAPICategoryUserDefaults",
+            "NSPrivacyAccessedAPITypeReasons": [
+              "C56D.1"
+            ]
+          }
+        ]
+      },
+      {
+        "path": "Frameworks/Promises.framework/Promises_Privacy.bundle/PrivacyInfo.xcprivacy",
+        "sha256": "74b0cd72fc23c1ef302f22ee2753f61817cdc5af0ff7a7f2d0632b524fb8acea",
+        "tracking": false,
+        "trackingDomains": [],
+        "collectedDataTypes": [],
+        "accessedAPITypes": []
+      },
+      {
+        "path": "Frameworks/absl.framework/xcprivacy.bundle/PrivacyInfo.xcprivacy",
+        "sha256": "f232217ae9edf2ab6a541a28eff50cfe05303c2b4756fff95cca72eccbc3b898",
+        "tracking": false,
+        "trackingDomains": [],
+        "collectedDataTypes": [],
+        "accessedAPITypes": []
+      },
+      {
+        "path": "Frameworks/flutter_local_notifications.framework/flutter_local_notifications_privacy.bundle/PrivacyInfo.xcprivacy",
+        "sha256": "8f4cbf3a6f18b7deaabc8646bd255df453f0d100def074ec05e44463437be9d5",
+        "tracking": false,
+        "trackingDomains": [],
+        "collectedDataTypes": [],
+        "accessedAPITypes": [
+          {
+            "NSPrivacyAccessedAPIType": "NSPrivacyAccessedAPICategoryUserDefaults",
+            "NSPrivacyAccessedAPITypeReasons": [
+              "CA92.1"
+            ]
+          }
+        ]
+      },
+      {
+        "path": "Frameworks/flutter_timezone.framework/flutter_timezone_privacy.bundle/PrivacyInfo.xcprivacy",
+        "sha256": "47226a29608df206ad0a110e6afeb5a77ff575ac1df9c76bfdb2d6dfb3fafed1",
+        "tracking": false,
+        "trackingDomains": [],
+        "collectedDataTypes": [],
+        "accessedAPITypes": []
+      },
+      {
+        "path": "Frameworks/grpc.framework/grpc.bundle/PrivacyInfo.xcprivacy",
+        "sha256": "03b2c70833a331a2b1efd11ff168ed02a8eadfd5e7d1fbf30eecc7509a4aea47",
+        "tracking": false,
+        "trackingDomains": [],
+        "collectedDataTypes": [],
+        "accessedAPITypes": [
+          {
+            "NSPrivacyAccessedAPIType": "NSPrivacyAccessedAPICategoryFileTimestamp",
+            "NSPrivacyAccessedAPITypeReasons": [
+              "C617.1"
+            ]
+          }
+        ]
+      },
+      {
+        "path": "Frameworks/grpcpp.framework/grpcpp.bundle/PrivacyInfo.xcprivacy",
+        "sha256": "03b2c70833a331a2b1efd11ff168ed02a8eadfd5e7d1fbf30eecc7509a4aea47",
+        "tracking": false,
+        "trackingDomains": [],
+        "collectedDataTypes": [],
+        "accessedAPITypes": [
+          {
+            "NSPrivacyAccessedAPIType": "NSPrivacyAccessedAPICategoryFileTimestamp",
+            "NSPrivacyAccessedAPITypeReasons": [
+              "C617.1"
+            ]
+          }
+        ]
+      },
+      {
+        "path": "Frameworks/leveldb.framework/leveldb_Privacy.bundle/PrivacyInfo.xcprivacy",
+        "sha256": "0ac00a0b7eff0079dce252e29ab41d71cf58c6c94fe4e44ea110cef5c62970e1",
+        "tracking": false,
+        "trackingDomains": [],
+        "collectedDataTypes": [],
+        "accessedAPITypes": [
+          {
+            "NSPrivacyAccessedAPIType": "NSPrivacyAccessedAPICategoryFileTimestamp",
+            "NSPrivacyAccessedAPITypeReasons": [
+              "C617.1"
+            ]
+          }
+        ]
+      },
+      {
+        "path": "Frameworks/nanopb.framework/nanopb_Privacy.bundle/PrivacyInfo.xcprivacy",
+        "sha256": "729ba3cbd0f458c78cd61edf17350edafe0e34ca86e314ec64c8cb22ccd21b54",
+        "tracking": false,
+        "trackingDomains": [],
+        "collectedDataTypes": [],
+        "accessedAPITypes": []
+      },
+      {
+        "path": "Frameworks/openssl_grpc.framework/openssl_grpc.bundle/PrivacyInfo.xcprivacy",
+        "sha256": "03b2c70833a331a2b1efd11ff168ed02a8eadfd5e7d1fbf30eecc7509a4aea47",
+        "tracking": false,
+        "trackingDomains": [],
+        "collectedDataTypes": [],
+        "accessedAPITypes": [
+          {
+            "NSPrivacyAccessedAPIType": "NSPrivacyAccessedAPICategoryFileTimestamp",
+            "NSPrivacyAccessedAPITypeReasons": [
+              "C617.1"
+            ]
+          }
+        ]
+      },
+      {
+        "path": "Frameworks/share_plus.framework/share_plus_privacy.bundle/PrivacyInfo.xcprivacy",
+        "sha256": "6d2da0d8d930227d428c1d9363b0ad6e3a12e2c9b68c5ce297158a7412fc8c31",
+        "tracking": false,
+        "trackingDomains": [],
+        "collectedDataTypes": [],
+        "accessedAPITypes": []
+      },
+      {
+        "path": "Frameworks/shared_preferences_foundation.framework/shared_preferences_foundation_privacy.bundle/PrivacyInfo.xcprivacy",
+        "sha256": "056428b938bd57018a60019d15c3c1ee2fa727f23687598bbbd934848b180b1a",
+        "tracking": false,
+        "trackingDomains": [],
+        "collectedDataTypes": [],
+        "accessedAPITypes": [
+          {
+            "NSPrivacyAccessedAPIType": "NSPrivacyAccessedAPICategoryUserDefaults",
+            "NSPrivacyAccessedAPITypeReasons": [
+              "1C8F.1"
+            ]
+          }
+        ]
+      },
+      {
+        "path": "Frameworks/sqflite_darwin.framework/sqflite_darwin_privacy.bundle/PrivacyInfo.xcprivacy",
+        "sha256": "47226a29608df206ad0a110e6afeb5a77ff575ac1df9c76bfdb2d6dfb3fafed1",
+        "tracking": false,
+        "trackingDomains": [],
+        "collectedDataTypes": [],
+        "accessedAPITypes": []
+      },
+      {
+        "path": "Frameworks/url_launcher_ios.framework/url_launcher_ios_privacy.bundle/PrivacyInfo.xcprivacy",
+        "sha256": "6d2da0d8d930227d428c1d9363b0ad6e3a12e2c9b68c5ce297158a7412fc8c31",
+        "tracking": false,
+        "trackingDomains": [],
+        "collectedDataTypes": [],
+        "accessedAPITypes": []
+      },
+      {
+        "path": "PrivacyInfo.xcprivacy",
+        "sha256": "63569c0d2a87f6d68c7d33ca920fe3f4f86aef483af4d487cc2b63c13b63a9ff",
+        "tracking": false,
+        "trackingDomains": [],
+        "collectedDataTypes": [
+          {
+            "NSPrivacyCollectedDataType": "NSPrivacyCollectedDataTypeName",
+            "NSPrivacyCollectedDataTypeLinked": true,
+            "NSPrivacyCollectedDataTypeTracking": false,
+            "NSPrivacyCollectedDataTypePurposes": [
+              "NSPrivacyCollectedDataTypePurposeAppFunctionality",
+              "NSPrivacyCollectedDataTypePurposeProductPersonalization"
+            ]
+          },
+          {
+            "NSPrivacyCollectedDataType": "NSPrivacyCollectedDataTypeEmailAddress",
+            "NSPrivacyCollectedDataTypeLinked": true,
+            "NSPrivacyCollectedDataTypeTracking": false,
+            "NSPrivacyCollectedDataTypePurposes": [
+              "NSPrivacyCollectedDataTypePurposeAppFunctionality"
+            ]
+          },
+          {
+            "NSPrivacyCollectedDataType": "NSPrivacyCollectedDataTypeSensitiveInfo",
+            "NSPrivacyCollectedDataTypeLinked": true,
+            "NSPrivacyCollectedDataTypeTracking": false,
+            "NSPrivacyCollectedDataTypePurposes": [
+              "NSPrivacyCollectedDataTypePurposeAppFunctionality",
+              "NSPrivacyCollectedDataTypePurposeProductPersonalization"
+            ]
+          },
+          {
+            "NSPrivacyCollectedDataType": "NSPrivacyCollectedDataTypeUserID",
+            "NSPrivacyCollectedDataTypeLinked": true,
+            "NSPrivacyCollectedDataTypeTracking": false,
+            "NSPrivacyCollectedDataTypePurposes": [
+              "NSPrivacyCollectedDataTypePurposeAppFunctionality",
+              "NSPrivacyCollectedDataTypePurposeAnalytics"
+            ]
+          },
+          {
+            "NSPrivacyCollectedDataType": "NSPrivacyCollectedDataTypePurchaseHistory",
+            "NSPrivacyCollectedDataTypeLinked": true,
+            "NSPrivacyCollectedDataTypeTracking": false,
+            "NSPrivacyCollectedDataTypePurposes": [
+              "NSPrivacyCollectedDataTypePurposeAppFunctionality",
+              "NSPrivacyCollectedDataTypePurposeAnalytics"
+            ]
+          },
+          {
+            "NSPrivacyCollectedDataType": "NSPrivacyCollectedDataTypeProductInteraction",
+            "NSPrivacyCollectedDataTypeLinked": true,
+            "NSPrivacyCollectedDataTypeTracking": false,
+            "NSPrivacyCollectedDataTypePurposes": [
+              "NSPrivacyCollectedDataTypePurposeAppFunctionality"
+            ]
+          },
+          {
+            "NSPrivacyCollectedDataType": "NSPrivacyCollectedDataTypeCustomerSupport",
+            "NSPrivacyCollectedDataTypeLinked": true,
+            "NSPrivacyCollectedDataTypeTracking": false,
+            "NSPrivacyCollectedDataTypePurposes": [
+              "NSPrivacyCollectedDataTypePurposeAppFunctionality"
+            ]
+          },
+          {
+            "NSPrivacyCollectedDataType": "NSPrivacyCollectedDataTypeOtherDataTypes",
+            "NSPrivacyCollectedDataTypeLinked": true,
+            "NSPrivacyCollectedDataTypeTracking": false,
+            "NSPrivacyCollectedDataTypePurposes": [
+              "NSPrivacyCollectedDataTypePurposeAppFunctionality",
+              "NSPrivacyCollectedDataTypePurposeProductPersonalization"
+            ]
+          }
+        ],
+        "accessedAPITypes": [
+          {
+            "NSPrivacyAccessedAPIType": "NSPrivacyAccessedAPICategoryUserDefaults",
+            "NSPrivacyAccessedAPITypeReasons": [
+              "CA92.1"
+            ]
+          }
+        ]
+      },
+      {
+        "path": "google_sign_in_ios_privacy.bundle/PrivacyInfo.xcprivacy",
+        "sha256": "6d2da0d8d930227d428c1d9363b0ad6e3a12e2c9b68c5ce297158a7412fc8c31",
+        "tracking": false,
+        "trackingDomains": [],
+        "collectedDataTypes": [],
+        "accessedAPITypes": []
+      }
+    ],
+    "combinedCollectedData": {
+      "Coarse Location": {
+        "linkedToUser": true,
+        "usedForTracking": false,
+        "purposes": [
+          "App Functionality"
+        ],
+        "sources": [
+          "Frameworks/GoogleSignIn.framework/GoogleSignIn.bundle/PrivacyInfo.xcprivacy"
+        ]
+      },
+      "Customer Support": {
+        "linkedToUser": true,
+        "usedForTracking": false,
+        "purposes": [
+          "App Functionality"
+        ],
+        "sources": [
+          "PrivacyInfo.xcprivacy"
+        ]
+      },
+      "Device ID": {
+        "linkedToUser": true,
+        "usedForTracking": false,
+        "purposes": [
+          "Analytics"
+        ],
+        "sources": [
+          "Frameworks/GoogleSignIn.framework/GoogleSignIn.bundle/PrivacyInfo.xcprivacy"
+        ]
+      },
+      "Email Address": {
+        "linkedToUser": true,
+        "usedForTracking": false,
+        "purposes": [
+          "App Functionality"
+        ],
+        "sources": [
+          "Frameworks/GoogleSignIn.framework/GoogleSignIn.bundle/PrivacyInfo.xcprivacy",
+          "PrivacyInfo.xcprivacy"
+        ]
+      },
+      "Name": {
+        "linkedToUser": true,
+        "usedForTracking": false,
+        "purposes": [
+          "App Functionality",
+          "Product Personalization"
+        ],
+        "sources": [
+          "Frameworks/GoogleSignIn.framework/GoogleSignIn.bundle/PrivacyInfo.xcprivacy",
+          "PrivacyInfo.xcprivacy"
+        ]
+      },
+      "Other Data Types": {
+        "linkedToUser": true,
+        "usedForTracking": false,
+        "purposes": [
+          "Analytics",
+          "App Functionality",
+          "Product Personalization"
+        ],
+        "sources": [
+          "Frameworks/GoogleSignIn.framework/GoogleSignIn.bundle/PrivacyInfo.xcprivacy",
+          "PrivacyInfo.xcprivacy"
+        ]
+      },
+      "Other Diagnostic Data": {
+        "linkedToUser": false,
+        "usedForTracking": false,
+        "purposes": [
+          "Analytics"
+        ],
+        "sources": [
+          "Frameworks/FirebaseAuth.framework/FirebaseAuth_Privacy.bundle/PrivacyInfo.xcprivacy",
+          "Frameworks/FirebaseFirestore.framework/FirebaseFirestore_Privacy.bundle/PrivacyInfo.xcprivacy",
+          "Frameworks/FirebaseFirestoreInternal.framework/FirebaseFirestoreInternal_Privacy.bundle/PrivacyInfo.xcprivacy"
+        ]
+      },
+      "Other Usage Data": {
+        "linkedToUser": true,
+        "usedForTracking": false,
+        "purposes": [
+          "Analytics"
+        ],
+        "sources": [
+          "Frameworks/GoogleSignIn.framework/GoogleSignIn.bundle/PrivacyInfo.xcprivacy"
+        ]
+      },
+      "Phone Number": {
+        "linkedToUser": true,
+        "usedForTracking": false,
+        "purposes": [
+          "App Functionality"
+        ],
+        "sources": [
+          "Frameworks/GoogleSignIn.framework/GoogleSignIn.bundle/PrivacyInfo.xcprivacy"
+        ]
+      },
+      "Product Interaction": {
+        "linkedToUser": true,
+        "usedForTracking": false,
+        "purposes": [
+          "App Functionality"
+        ],
+        "sources": [
+          "PrivacyInfo.xcprivacy"
+        ]
+      },
+      "Purchase History": {
+        "linkedToUser": true,
+        "usedForTracking": false,
+        "purposes": [
+          "Analytics",
+          "App Functionality"
+        ],
+        "sources": [
+          "PrivacyInfo.xcprivacy"
+        ]
+      },
+      "Sensitive Info": {
+        "linkedToUser": true,
+        "usedForTracking": false,
+        "purposes": [
+          "App Functionality",
+          "Product Personalization"
+        ],
+        "sources": [
+          "PrivacyInfo.xcprivacy"
+        ]
+      },
+      "User ID": {
+        "linkedToUser": true,
+        "usedForTracking": false,
+        "purposes": [
+          "Analytics",
+          "App Functionality"
+        ],
+        "sources": [
+          "Frameworks/FirebaseAuth.framework/FirebaseAuth_Privacy.bundle/PrivacyInfo.xcprivacy",
+          "Frameworks/GoogleSignIn.framework/GoogleSignIn.bundle/PrivacyInfo.xcprivacy",
+          "PrivacyInfo.xcprivacy"
+        ]
+      }
+    },
+    "combinedAccessedAPIs": {
+      "NSPrivacyAccessedAPICategoryFileTimestamp": {
+        "reasons": [
+          "0A2A.1",
+          "C617.1"
+        ],
+        "sources": [
+          "Frameworks/Flutter.framework/PrivacyInfo.xcprivacy",
+          "Frameworks/GoogleUtilities.framework/GoogleUtilities_Privacy.bundle/PrivacyInfo.xcprivacy",
+          "Frameworks/grpc.framework/grpc.bundle/PrivacyInfo.xcprivacy",
+          "Frameworks/grpcpp.framework/grpcpp.bundle/PrivacyInfo.xcprivacy",
+          "Frameworks/leveldb.framework/leveldb_Privacy.bundle/PrivacyInfo.xcprivacy",
+          "Frameworks/openssl_grpc.framework/openssl_grpc.bundle/PrivacyInfo.xcprivacy"
+        ]
+      },
+      "NSPrivacyAccessedAPICategorySystemBootTime": {
+        "reasons": [
+          "35F9.1"
+        ],
+        "sources": [
+          "Frameworks/Flutter.framework/PrivacyInfo.xcprivacy"
+        ]
+      },
+      "NSPrivacyAccessedAPICategoryUserDefaults": {
+        "reasons": [
+          "1C8F.1",
+          "C56D.1",
+          "CA92.1"
+        ],
+        "sources": [
+          "Frameworks/FirebaseAuth.framework/FirebaseAuth_Privacy.bundle/PrivacyInfo.xcprivacy",
+          "Frameworks/FirebaseCore.framework/FirebaseCore_Privacy.bundle/PrivacyInfo.xcprivacy",
+          "Frameworks/FirebaseCoreInternal.framework/FirebaseCoreInternal_Privacy.bundle/PrivacyInfo.xcprivacy",
+          "Frameworks/GTMSessionFetcher.framework/GTMSessionFetcher_Core_Privacy.bundle/PrivacyInfo.xcprivacy",
+          "Frameworks/GoogleSignIn.framework/GoogleSignIn.bundle/PrivacyInfo.xcprivacy",
+          "Frameworks/GoogleUtilities.framework/GoogleUtilities_Privacy.bundle/PrivacyInfo.xcprivacy",
+          "Frameworks/flutter_local_notifications.framework/flutter_local_notifications_privacy.bundle/PrivacyInfo.xcprivacy",
+          "Frameworks/shared_preferences_foundation.framework/shared_preferences_foundation_privacy.bundle/PrivacyInfo.xcprivacy",
+          "PrivacyInfo.xcprivacy"
+        ]
+      }
+    },
+    "qualification": "Bundled declarations only; not a runtime data-use audit or Apple validation."
+  }
+}

@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:sqflite_common_ffi/sqflite_ffi.dart';
+import 'package:holyher/services/durable_store.dart';
 import 'package:holyher/services/account_cache.dart';
 import 'package:holyher/services/auth_service.dart';
 import 'package:holyher/services/local_store.dart';
@@ -111,7 +113,11 @@ void main() {
       'user:A:journey_cache': 'A',
       'user:B:profile': 'private B'
     });
-    await eraseAccountCache('A');
+    sqfliteFfiInit();
+    final database = await openAccountDatabase(
+        path: inMemoryDatabasePath, factory: databaseFactoryFfi);
+    addTearDown(database.close);
+    await eraseAccountCache('A', database: database);
     final prefs = await SharedPreferences.getInstance();
     expect(prefs.get('user:A:profile'), isNull);
     expect(prefs.get('user:A:journey_cache'), isNull);

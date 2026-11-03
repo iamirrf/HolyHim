@@ -1,3 +1,7 @@
+> Current Walk with God implementation: see [release status](store/WALK_WITH_GOD_STATUS.md) and [visual gallery](store/walk-redesign/index.html). The historical delivery record below does not establish readiness for version 1.2.0 (4).
+
+> Development rebuild in progress (October 31, 2026). The active source now uses free edition access and Learn/Saved/Profile. Only the first five lessons have the new guided format. See [rebuild status and migration](store/REBUILD_MIGRATION.md) and [parity matrix](store/COGNEIN_SCREEN_MAP.md). Historical build-1 billing and release notes below are not the current implementation or proof of a completed rebuild.
+
 # HolyHer delivery status
 
 Updated October 30, 2026. HolyHer contains the complete 365-lesson implementation, deployed production cloud services, the configured worldwide lifetime product, and prepared store materials. **Apple accepted the 1.0.0 (1) upload and began processing it. App Review readiness and release scheduling remain unverified.**

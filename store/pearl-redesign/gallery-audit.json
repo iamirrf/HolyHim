@@ -1,0 +1,602 @@
+[
+  {
+    "capture": "lesson-verse--4A7C6FBB--s1.png",
+    "route": "lesson:verse",
+    "inkPixelsOutsideLaunchMark": 7137,
+    "issues": []
+  },
+  {
+    "capture": "welcome-1--E0F7AB65--s1.png",
+    "route": "welcome:1",
+    "inkPixelsOutsideLaunchMark": 8203,
+    "issues": []
+  },
+  {
+    "capture": "welcome-0--4A7C6FBB--s1.3.png",
+    "route": "welcome:0",
+    "inkPixelsOutsideLaunchMark": 9310,
+    "issues": []
+  },
+  {
+    "capture": "onboarding-reminder--E0F7AB65--s1.png",
+    "route": "onboarding:reminder",
+    "inkPixelsOutsideLaunchMark": 2846,
+    "issues": []
+  },
+  {
+    "capture": "A-scripture--E0F7AB65--s1.png",
+    "route": "A-scripture",
+    "inkPixelsOutsideLaunchMark": 11222,
+    "issues": []
+  },
+  {
+    "capture": "C-learn--E0F7AB65--s1.png",
+    "route": "C-learn",
+    "inkPixelsOutsideLaunchMark": 3469,
+    "issues": []
+  },
+  {
+    "capture": "profile--922B4F9F--s1.png",
+    "route": "profile",
+    "inkPixelsOutsideLaunchMark": 2804,
+    "issues": []
+  },
+  {
+    "capture": "onboarding-moment--E0F7AB65--s1.png",
+    "route": "onboarding:moment",
+    "inkPixelsOutsideLaunchMark": 12148,
+    "issues": []
+  },
+  {
+    "capture": "saved-populated--4A7C6FBB--s2.png",
+    "route": "saved:populated",
+    "inkPixelsOutsideLaunchMark": 6554,
+    "issues": []
+  },
+  {
+    "capture": "learn--E3F9460C--s1.png",
+    "route": "learn",
+    "inkPixelsOutsideLaunchMark": 14015,
+    "issues": []
+  },
+  {
+    "capture": "onboarding-guided-example--4A7C6FBB--s1.3.png",
+    "route": "onboarding:guided-example",
+    "inkPixelsOutsideLaunchMark": 7852,
+    "issues": []
+  },
+  {
+    "capture": "saved-populated--E3F9460C--s1.png",
+    "route": "saved:populated",
+    "inkPixelsOutsideLaunchMark": 10946,
+    "issues": []
+  },
+  {
+    "capture": "auth-visible--E0F7AB65--s1.png",
+    "route": "auth:visible",
+    "inkPixelsOutsideLaunchMark": 8987,
+    "issues": []
+  },
+  {
+    "capture": "learn-list--E0F7AB65--s1.png",
+    "route": "learn:list",
+    "inkPixelsOutsideLaunchMark": 8306,
+    "issues": []
+  },
+  {
+    "capture": "B-welcome--E0F7AB65--s1.png",
+    "route": "B-welcome",
+    "inkPixelsOutsideLaunchMark": 10870,
+    "issues": []
+  },
+  {
+    "capture": "onboarding-reminder-denied--E0F7AB65--s1.png",
+    "route": "onboarding:reminder:denied",
+    "inkPixelsOutsideLaunchMark": 8521,
+    "issues": []
+  },
+  {
+    "capture": "learn--4A7C6FBB--s2.png",
+    "route": "learn",
+    "inkPixelsOutsideLaunchMark": 12954,
+    "issues": []
+  },
+  {
+    "capture": "onboarding-focus--E0F7AB65--s1.png",
+    "route": "onboarding:focus",
+    "inkPixelsOutsideLaunchMark": 9413,
+    "issues": []
+  },
+  {
+    "capture": "lesson-verse--E3F9460C--s2.png",
+    "route": "lesson:verse",
+    "inkPixelsOutsideLaunchMark": 33485,
+    "issues": []
+  },
+  {
+    "capture": "welcome-2--E0F7AB65--s1.png",
+    "route": "welcome:2",
+    "inkPixelsOutsideLaunchMark": 10024,
+    "issues": []
+  },
+  {
+    "capture": "welcome-0--922B4F9F--s1.png",
+    "route": "welcome:0",
+    "inkPixelsOutsideLaunchMark": 11910,
+    "issues": []
+  },
+  {
+    "capture": "onboarding-summary--922B4F9F--s1.png",
+    "route": "onboarding:summary",
+    "inkPixelsOutsideLaunchMark": 9498,
+    "issues": []
+  },
+  {
+    "capture": "auth-invalid--E0F7AB65--s1.png",
+    "route": "auth:invalid",
+    "inkPixelsOutsideLaunchMark": 8131,
+    "issues": []
+  },
+  {
+    "capture": "B-scripture--E0F7AB65--s1.png",
+    "route": "B-scripture",
+    "inkPixelsOutsideLaunchMark": 10383,
+    "issues": []
+  },
+  {
+    "capture": "calendar--E0F7AB65--s1.png",
+    "route": "calendar",
+    "inkPixelsOutsideLaunchMark": 3424,
+    "issues": []
+  },
+  {
+    "capture": "learn--4A7C6FBB--s1.3.png",
+    "route": "learn",
+    "inkPixelsOutsideLaunchMark": 8472,
+    "issues": []
+  },
+  {
+    "capture": "welcome-0--4A7C6FBB--s2.png",
+    "route": "welcome:0",
+    "inkPixelsOutsideLaunchMark": 7463,
+    "issues": []
+  },
+  {
+    "capture": "onboarding-moment--4A7C6FBB--s1.png",
+    "route": "onboarding:moment",
+    "inkPixelsOutsideLaunchMark": 10634,
+    "issues": []
+  },
+  {
+    "capture": "C-welcome--E0F7AB65--s1.png",
+    "route": "C-welcome",
+    "inkPixelsOutsideLaunchMark": 1356,
+    "issues": []
+  },
+  {
+    "capture": "auth--E0F7AB65--s1.png",
+    "route": "auth",
+    "inkPixelsOutsideLaunchMark": 8517,
+    "issues": []
+  },
+  {
+    "capture": "welcome-0--922B4F9F--s1.3.png",
+    "route": "welcome:0",
+    "inkPixelsOutsideLaunchMark": 12343,
+    "issues": []
+  },
+  {
+    "capture": "lesson-verse--E0F7AB65--s1.png",
+    "route": "lesson:verse",
+    "inkPixelsOutsideLaunchMark": 9756,
+    "issues": []
+  },
+  {
+    "capture": "profile--E3F9460C--s1.png",
+    "route": "profile",
+    "inkPixelsOutsideLaunchMark": 2310,
+    "issues": []
+  },
+  {
+    "capture": "reset-sent--E0F7AB65--s1.png",
+    "route": "reset:sent",
+    "inkPixelsOutsideLaunchMark": 8572,
+    "issues": []
+  },
+  {
+    "capture": "auth-error--E0F7AB65--s1.png",
+    "route": "auth:error",
+    "inkPixelsOutsideLaunchMark": 8521,
+    "issues": []
+  },
+  {
+    "capture": "learn--922B4F9F--s1.png",
+    "route": "learn",
+    "inkPixelsOutsideLaunchMark": 8344,
+    "issues": []
+  },
+  {
+    "capture": "profile--4A7C6FBB--s2.png",
+    "route": "profile",
+    "inkPixelsOutsideLaunchMark": 5580,
+    "issues": []
+  },
+  {
+    "capture": "B-learn--E0F7AB65--s1.png",
+    "route": "B-learn",
+    "inkPixelsOutsideLaunchMark": 10982,
+    "issues": []
+  },
+  {
+    "capture": "welcome-google-loading--E0F7AB65--s1.png",
+    "route": "welcome:google-loading",
+    "inkPixelsOutsideLaunchMark": 3878,
+    "issues": []
+  },
+  {
+    "capture": "saved-populated--922B4F9F--s1.png",
+    "route": "saved:populated",
+    "inkPixelsOutsideLaunchMark": 6406,
+    "issues": []
+  },
+  {
+    "capture": "learn-search--E0F7AB65--s1.png",
+    "route": "learn:search",
+    "inkPixelsOutsideLaunchMark": 8895,
+    "issues": []
+  },
+  {
+    "capture": "saved-populated--4A7C6FBB--s1.3.png",
+    "route": "saved:populated",
+    "inkPixelsOutsideLaunchMark": 6663,
+    "issues": []
+  },
+  {
+    "capture": "onboarding-day-one--E0F7AB65--s1.png",
+    "route": "onboarding:day-one",
+    "inkPixelsOutsideLaunchMark": 11569,
+    "issues": []
+  },
+  {
+    "capture": "welcome-0--E3F9460C--s1.png",
+    "route": "welcome:0",
+    "inkPixelsOutsideLaunchMark": 11732,
+    "issues": []
+  },
+  {
+    "capture": "lesson-question-1--E3F9460C--s1.3.png",
+    "route": "lesson:question-1",
+    "inkPixelsOutsideLaunchMark": 9940,
+    "issues": []
+  },
+  {
+    "capture": "onboarding-moment--E3F9460C--s2.png",
+    "route": "onboarding:moment",
+    "inkPixelsOutsideLaunchMark": 29966,
+    "issues": []
+  },
+  {
+    "capture": "lesson-verse--922B4F9F--s2.png",
+    "route": "lesson:verse",
+    "inkPixelsOutsideLaunchMark": 16896,
+    "issues": []
+  },
+  {
+    "capture": "onboarding-barrier--E0F7AB65--s1.png",
+    "route": "onboarding:barrier",
+    "inkPixelsOutsideLaunchMark": 9040,
+    "issues": []
+  },
+  {
+    "capture": "auth-create-error--E0F7AB65--s1.png",
+    "route": "auth:create-error",
+    "inkPixelsOutsideLaunchMark": 8663,
+    "issues": []
+  },
+  {
+    "capture": "learn--922B4F9F--s1.3.png",
+    "route": "learn",
+    "inkPixelsOutsideLaunchMark": 10349,
+    "issues": []
+  },
+  {
+    "capture": "welcome--E0F7AB65--s1.png",
+    "route": "welcome",
+    "inkPixelsOutsideLaunchMark": 10172,
+    "issues": []
+  },
+  {
+    "capture": "A-welcome--E0F7AB65--s1.png",
+    "route": "A-welcome",
+    "inkPixelsOutsideLaunchMark": 9880,
+    "issues": []
+  },
+  {
+    "capture": "welcome-0--E3F9460C--s2.png",
+    "route": "welcome:0",
+    "inkPixelsOutsideLaunchMark": 23065,
+    "issues": []
+  },
+  {
+    "capture": "onboarding-moment--E3F9460C--s1.png",
+    "route": "onboarding:moment",
+    "inkPixelsOutsideLaunchMark": 14633,
+    "issues": []
+  },
+  {
+    "capture": "lesson-verse--922B4F9F--s1.png",
+    "route": "lesson:verse",
+    "inkPixelsOutsideLaunchMark": 10739,
+    "issues": []
+  },
+  {
+    "capture": "learn--E0F7AB65--s1.png",
+    "route": "learn",
+    "inkPixelsOutsideLaunchMark": 7032,
+    "issues": []
+  },
+  {
+    "capture": "splash--E0F7AB65--s1.png",
+    "route": "splash",
+    "inkPixelsOutsideLaunchMark": 697,
+    "issues": []
+  },
+  {
+    "capture": "profile--4A7C6FBB--s1.png",
+    "route": "profile",
+    "inkPixelsOutsideLaunchMark": 1579,
+    "issues": []
+  },
+  {
+    "capture": "lesson-question-1-wrong--E0F7AB65--s1.png",
+    "route": "lesson:question-1:wrong",
+    "inkPixelsOutsideLaunchMark": 10179,
+    "issues": []
+  },
+  {
+    "capture": "saved-populated--922B4F9F--s2.png",
+    "route": "saved:populated",
+    "inkPixelsOutsideLaunchMark": 17997,
+    "issues": []
+  },
+  {
+    "capture": "auth-keyboard--E0F7AB65--s1.png",
+    "route": "auth:keyboard",
+    "inkPixelsOutsideLaunchMark": 4923,
+    "issues": []
+  },
+  {
+    "capture": "lesson-question-1--4A7C6FBB--s1.3.png",
+    "route": "lesson:question-1",
+    "inkPixelsOutsideLaunchMark": 4775,
+    "issues": []
+  },
+  {
+    "capture": "learn-resume--E0F7AB65--s1.png",
+    "route": "learn:resume",
+    "inkPixelsOutsideLaunchMark": 7032,
+    "issues": []
+  },
+  {
+    "capture": "onboarding-starting-point--E0F7AB65--s1.png",
+    "route": "onboarding:starting-point",
+    "inkPixelsOutsideLaunchMark": 8652,
+    "issues": []
+  },
+  {
+    "capture": "saved-populated--E3F9460C--s1.3.png",
+    "route": "saved:populated",
+    "inkPixelsOutsideLaunchMark": 20512,
+    "issues": []
+  },
+  {
+    "capture": "saved-populated--E0F7AB65--s1.png",
+    "route": "saved:populated",
+    "inkPixelsOutsideLaunchMark": 4983,
+    "issues": []
+  },
+  {
+    "capture": "welcome-0--4A7C6FBB--s1.png",
+    "route": "welcome:0",
+    "inkPixelsOutsideLaunchMark": 7827,
+    "issues": []
+  },
+  {
+    "capture": "onboarding-moment--4A7C6FBB--s2.png",
+    "route": "onboarding:moment",
+    "inkPixelsOutsideLaunchMark": 21440,
+    "issues": []
+  },
+  {
+    "capture": "onboarding-daily-rhythm--E0F7AB65--s1.png",
+    "route": "onboarding:daily-rhythm",
+    "inkPixelsOutsideLaunchMark": 8551,
+    "issues": []
+  },
+  {
+    "capture": "lesson-question-1-correct--E0F7AB65--s1.png",
+    "route": "lesson:question-1:correct",
+    "inkPixelsOutsideLaunchMark": 10202,
+    "issues": []
+  },
+  {
+    "capture": "onboarding-guided-example-answered--E0F7AB65--s1.png",
+    "route": "onboarding:guided-example:answered",
+    "inkPixelsOutsideLaunchMark": 13719,
+    "issues": []
+  },
+  {
+    "capture": "lesson-verse--E3F9460C--s1.png",
+    "route": "lesson:verse",
+    "inkPixelsOutsideLaunchMark": 11962,
+    "issues": []
+  },
+  {
+    "capture": "onboarding-name--E0F7AB65--s1.png",
+    "route": "onboarding:name",
+    "inkPixelsOutsideLaunchMark": 8076,
+    "issues": []
+  },
+  {
+    "capture": "onboarding-guided-example--E3F9460C--s1.3.png",
+    "route": "onboarding:guided-example",
+    "inkPixelsOutsideLaunchMark": 14006,
+    "issues": []
+  },
+  {
+    "capture": "welcome-0--922B4F9F--s2.png",
+    "route": "welcome:0",
+    "inkPixelsOutsideLaunchMark": 26680,
+    "issues": []
+  },
+  {
+    "capture": "profile--E0F7AB65--s1.png",
+    "route": "profile",
+    "inkPixelsOutsideLaunchMark": 2561,
+    "issues": []
+  },
+  {
+    "capture": "auth--4A7C6FBB--s1.3.png",
+    "route": "auth",
+    "inkPixelsOutsideLaunchMark": 9184,
+    "issues": []
+  },
+  {
+    "capture": "onboarding-summary--922B4F9F--s2.png",
+    "route": "onboarding:summary",
+    "inkPixelsOutsideLaunchMark": 19166,
+    "issues": []
+  },
+  {
+    "capture": "auth-create--E0F7AB65--s1.png",
+    "route": "auth:create",
+    "inkPixelsOutsideLaunchMark": 8660,
+    "issues": []
+  },
+  {
+    "capture": "onboarding-arrival--E0F7AB65--s1.png",
+    "route": "onboarding:arrival",
+    "inkPixelsOutsideLaunchMark": 9518,
+    "issues": []
+  },
+  {
+    "capture": "onboarding-save--E0F7AB65--s1.png",
+    "route": "onboarding:save",
+    "inkPixelsOutsideLaunchMark": 8552,
+    "issues": []
+  },
+  {
+    "capture": "saved-populated--E3F9460C--s2.png",
+    "route": "saved:populated",
+    "inkPixelsOutsideLaunchMark": 38367,
+    "issues": []
+  },
+  {
+    "capture": "lesson-closing--E0F7AB65--s1.png",
+    "route": "lesson:closing",
+    "inkPixelsOutsideLaunchMark": 9228,
+    "issues": []
+  },
+  {
+    "capture": "A-learn--E0F7AB65--s1.png",
+    "route": "A-learn",
+    "inkPixelsOutsideLaunchMark": 7622,
+    "issues": []
+  },
+  {
+    "capture": "C-scripture--E0F7AB65--s1.png",
+    "route": "C-scripture",
+    "inkPixelsOutsideLaunchMark": 10434,
+    "issues": []
+  },
+  {
+    "capture": "learn-unit--E0F7AB65--s1.png",
+    "route": "learn:unit",
+    "inkPixelsOutsideLaunchMark": 8801,
+    "issues": []
+  },
+  {
+    "capture": "contact-sent--E0F7AB65--s1.png",
+    "route": "contact:sent",
+    "inkPixelsOutsideLaunchMark": 9576,
+    "issues": []
+  },
+  {
+    "capture": "reset--E0F7AB65--s1.png",
+    "route": "reset",
+    "inkPixelsOutsideLaunchMark": 8362,
+    "issues": []
+  },
+  {
+    "capture": "learn--4A7C6FBB--s1.png",
+    "route": "learn",
+    "inkPixelsOutsideLaunchMark": 6339,
+    "issues": []
+  },
+  {
+    "capture": "welcome-0--E0F7AB65--s1.png",
+    "route": "welcome:0",
+    "inkPixelsOutsideLaunchMark": 10032,
+    "issues": []
+  },
+  {
+    "capture": "profile--922B4F9F--s2.png",
+    "route": "profile",
+    "inkPixelsOutsideLaunchMark": 9017,
+    "issues": []
+  },
+  {
+    "capture": "onboarding-summary--E0F7AB65--s1.png",
+    "route": "onboarding:summary",
+    "inkPixelsOutsideLaunchMark": 8582,
+    "issues": []
+  },
+  {
+    "capture": "onboarding-guided-example--E0F7AB65--s1.png",
+    "route": "onboarding:guided-example",
+    "inkPixelsOutsideLaunchMark": 6900,
+    "issues": []
+  },
+  {
+    "capture": "saved-populated--4A7C6FBB--s1.png",
+    "route": "saved:populated",
+    "inkPixelsOutsideLaunchMark": 5008,
+    "issues": []
+  },
+  {
+    "capture": "learn-search-empty--E0F7AB65--s1.png",
+    "route": "learn:search-empty",
+    "inkPixelsOutsideLaunchMark": 9948,
+    "issues": []
+  },
+  {
+    "capture": "auth--4A7C6FBB--s2.png",
+    "route": "auth",
+    "inkPixelsOutsideLaunchMark": 8577,
+    "issues": []
+  },
+  {
+    "capture": "lesson-question-1--922B4F9F--s1.3.png",
+    "route": "lesson:question-1",
+    "inkPixelsOutsideLaunchMark": 9172,
+    "issues": []
+  },
+  {
+    "capture": "lesson-verse--4A7C6FBB--s2.png",
+    "route": "lesson:verse",
+    "inkPixelsOutsideLaunchMark": 7458,
+    "issues": []
+  },
+  {
+    "capture": "welcome-apple-loading--E0F7AB65--s1.png",
+    "route": "welcome:apple-loading",
+    "inkPixelsOutsideLaunchMark": 3657,
+    "issues": []
+  },
+  {
+    "capture": "font--E0F7AB65--s1.png",
+    "route": "font",
+    "inkPixelsOutsideLaunchMark": 3422,
+    "issues": []
+  }
+]

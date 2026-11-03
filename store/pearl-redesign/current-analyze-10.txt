@@ -1,0 +1,26 @@
+Analyzing lib, preview_main.dart...
+
+  error - lib/features/home/home_shell.dart:549:23 - The method 'isCompleted' isn't defined for the type 'ProgressState'. Try correcting the name to the name of an existing method, or defining a method named 'isCompleted'. - undefined_method
+  error - lib/features/home/home_shell.dart:550:23 - The method 'isCompleted' isn't defined for the type 'ProgressState'. Try correcting the name to the name of an existing method, or defining a method named 'isCompleted'. - undefined_method
+   info - lib/dev/preview_fixtures.dart:80:7 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib/dev/preview_fixtures.dart:84:11 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib/dev/preview_fixtures.dart:87:11 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib/dev/preview_fixtures.dart:93:7 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib/dev/preview_fixtures.dart:96:7 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib/dev/preview_fixtures.dart:103:7 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib/dev/preview_fixtures.dart:109:7 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib/dev/preview_fixtures.dart:111:7 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib/dev/preview_fixtures.dart:140:7 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib/dev/preview_fixtures.dart:147:7 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib/features/home/lesson_presentation.dart:34:5 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib/features/home/lesson_presentation.dart:43:7 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib/features/home/lesson_presentation.dart:53:7 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib/features/home/lesson_presentation.dart:58:5 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib/features/landing/welcome_scenes.dart:45:11 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib/features/settings/data_screens.dart:252:7 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib/features/settings/data_screens.dart:269:7 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib/features/settings/data_screens.dart:301:7 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib/features/settings/settings_screen.dart:148:9 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib/main.dart:27:71 - Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation. - prefer_const_constructors
+
+22 issues found.

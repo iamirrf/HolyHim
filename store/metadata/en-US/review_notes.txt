@@ -1,17 +1,5 @@
-HolyHer offers 365 complete Bible lessons. Its account-based journey synchronizes onboarding preferences, the daily unlock calendar, completed lessons, and activity history between iPhone and iPad. Sign-in options are Apple, Google, and email/password.
+Development version 1.2.0 (4). HolyHer is a free 365-day Scripture journey. Sign in with Apple, Google, or email. Setup has three optional personalization steps and an actual Day 1 preview. Each reading has exactly five cards: Scripture, Meaning, Encouragement, Hope, and Prayer. Visit all five and tap Finish my reading. No purchase, quiz, timer, or written response is required. One additional reading unlocks each journey calendar day; previously unlocked readings remain available offline after setup.
 
-A working email/password review account must be configured and entered securely in App Store Connect before submission. Credentials are intentionally not stored in the repository. Provide an established journey account for examining later lessons and a fresh account for testing onboarding and purchase.
+Walk, Saved, and Profile retain tab state. Six themes, reading size, reminders, export, reset, and account deletion are available in Profile and Settings. Native reminders carry a WEB excerpt and open the quoted reading. The web app edits reminder preference without browser notification delivery.
 
-The only purchase is the non-consumable holyher_lifetime, granting the lifetime entitlement for the 365-lesson edition. The US launch price is $1.99; local prices are supplied by the App Store. Restore purchases is available on the paywall and in Profile > Settings. There are no subscriptions or renewal charges.
-
-Day 1 becomes available when the purchased journey is established. One lesson unlocks per calendar day in the journey's saved time zone, using server dates. Missed lessons remain available. Later days are intentionally locked on a fresh account. All 365 lessons are bundled; the app does not fetch unfinished or generated lessons. Previously unlocked lessons remain readable offline after setup; new unlocks and cross-device synchronization require connectivity.
-
-Open Today or an unlocked Journey lesson. Move through Verse, Confidence, Reason, Hope, and Carry by swiping or using the Next button. Complete appears on the final card, saves the day, and returns to the journey flow. Previously completed lessons can be reread.
-
-Bible quotations are verbatim public-domain World English Bible, labeled WEB. Confidence, Reason, Hope, Carry, and the separately labeled first-person devotional reflection are original devotional prose. The first-person literary reflection is not presented as a Bible quotation or a new revelation. All readers receive the same 365 Scripture-based lessons; setup preferences influence the greeting, reading guidance, reminder, and personal application prompts.
-
-Optional notifications are local reminders and do not require push registration. No advertising is included. Profile > Settings includes setup editing, reminders, restore, help, privacy, terms, sign-out, and Delete account. Deletion may request reauthentication; Apple authentication tokens are revoked for Apple-linked accounts, and account/profile/journey data are removed through the backend.
-
-Support: https://holyher-app-production.web.app/support
-Privacy: https://holyher-app-production.web.app/privacy
-Terms: https://holyher-app-production.web.app/terms
+INTERNAL DRAFT — NOT READY FOR SUBMISSION. The 365 Gemini images have not been generated or reviewed because the API credential is absent. Physical notification/provider/accessibility/performance acceptance remains open. Consult store/WALK_WITH_GOD_STATUS.md for current build and verification evidence. This text must be finalized with reviewer credentials supplied through the approved owner-only channel after release acceptance. No App Store upload, submission, or scheduling is authorized by this draft.

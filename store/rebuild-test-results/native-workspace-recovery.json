@@ -1,0 +1,13 @@
+{
+  "temporaryWorkspace": "Flutter-generated flutter_empty_xcode workspace removed during debugger cleanup",
+  "permanentWorkspace": "/Users/amir/Downloads/HolyHer/ios/Runner.xcworkspace",
+  "permanentWorkspaceExists": true,
+  "staleTemporaryWindowClosed": true,
+  "permanentWorkspaceOpenInXcode": true,
+  "signedAppReverified": true,
+  "deviceInitiallyUnlocked": true,
+  "laterDeviceLockState": "passcodeRequired true",
+  "directLaunchResult": "Denied by Apple SBMainWorkspace: Locked (CoreDevice 10002, FBSOpenApplicationErrorDomain 7)",
+  "launchVerified": false,
+  "sourceFilesLost": false
+}

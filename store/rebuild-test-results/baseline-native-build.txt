@@ -1,0 +1,14 @@
+Building com.holyher.app for device (ios)...
+Automatically signing iOS for device deployment using specified development team in Xcode project: DU9D6TAM58
+Running Xcode build...                                          
+Xcode build done.                                           96.6s
+Failed to build iOS app
+Error output from Xcode build:
+↳
+    ** BUILD FAILED **
+
+    Error saving invocation record to resultBundlePath:Error Domain=NSCocoaErrorDomain Code=640 "You can’t save the file “temporary_xcresult_bundle” because the volume “Macintosh HD” is out of space." UserInfo={NSFilePath=/var/folders/vz/9tw0d9q51xq4049dlf799yy80000gn/T/flutter_tools.VMbGy3/flutter_ios_build_temp_dirxEYqey/temporary_xcresult_bundle, NSURL=file:///var/folders/vz/9tw0d9q51xq4049dlf799yy80000gn/T/flutter_tools.VMbGy3/flutter_ios_build_temp_dirxEYqey/temporary_xcresult_bundle, NSUnderlyingError=0xa91306490 {Error Domain=NSPOSIXErrorDomain Code=28 "No space left on device"}}
+
+Xcode's output:
+↳
+Encountered error while building for device.

@@ -1,0 +1,8 @@
+{
+  "backendUnitTests": 31,
+  "firestoreEmulatorIntegrationTests": 7,
+  "productionChecks": "../walk-reading-live.json",
+  "onboardingChecks": "../walk-onboarding-live.json",
+  "rulesDeployment": "../walk-rules-deployment.json",
+  "clientRollout": false
+}

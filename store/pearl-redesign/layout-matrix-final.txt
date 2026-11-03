@@ -1,0 +1,20 @@
+00:00 +0: loading /Users/amir/Downloads/HolyHer/test/presentation_layout_test.dart
+00:00 +0: narrow-phone text 1.0 reflows every screen family
+00:06 +1: narrow-phone text 1.3 reflows every screen family
+00:08 +2: narrow-phone text 2.0 reflows every screen family
+00:11 +3: reference-phone text 1.0 reflows every screen family
+00:14 +4: reference-phone text 1.3 reflows every screen family
+00:16 +5: reference-phone text 2.0 reflows every screen family
+00:17 +6: 14-pro-max text 1.0 reflows every screen family
+00:22 +7: 14-pro-max text 1.3 reflows every screen family
+00:24 +8: 14-pro-max text 2.0 reflows every screen family
+00:27 +9: ipad-portrait text 1.0 reflows every screen family
+00:29 +10: ipad-portrait text 1.3 reflows every screen family
+00:30 +11: ipad-portrait text 2.0 reflows every screen family
+00:31 +12: ipad-landscape text 1.0 reflows every screen family
+00:33 +13: ipad-landscape text 1.3 reflows every screen family
+00:35 +14: ipad-landscape text 2.0 reflows every screen family
+00:36 +15: ipad-split text 1.0 reflows every screen family
+00:37 +16: ipad-split text 1.3 reflows every screen family
+00:40 +17: ipad-split text 2.0 reflows every screen family
+00:41 +18: All tests passed!

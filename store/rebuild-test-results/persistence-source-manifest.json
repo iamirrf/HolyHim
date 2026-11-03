@@ -1,0 +1,1519 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-01",
+  "sourceGitHead": "86ee99cdafe4611aee740b5c3dd636f9b0cea175",
+  "revisionKind": "Working-tree snapshot including pre-existing user changes; no new commit or index mutation.",
+  "verification": {
+    "flutterTests": 63,
+    "backendHarnessTests": 29,
+    "firestoreEmulatorSuites": 4,
+    "analysis": "passed",
+    "fullReleaseAccepted": false,
+    "signedDevelopmentBuild": "1.1.0 (3), installed/launched; physical database integrity passes",
+    "node22Verified": true,
+    "nativeStorageRegression": "passed",
+    "liveFreeFlowChecks": 14,
+    "callableAuthenticationGuards": 11,
+    "production": "Free backend and matching rules deployed; legacy billing handlers unchanged",
+    "physicalDayOneOpening": "user confirmed"
+  },
+  "files": [
+    {
+      "path": ".firebaserc",
+      "sha256": "5099b3545c6104b49ceac6ac796ea2335b1596f9b739cb26df79a43fb8969a11"
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "c6b396d755612d74351b7dc60c2a8a077222967e08b7df07e7701401c7847345"
+    },
+    {
+      "path": ".metadata",
+      "sha256": "cb5af004fc2078807f8b343ffd6d576ee783d0794e287724a4332c97fcd7cf22"
+    },
+    {
+      "path": "DELIVERY.md",
+      "sha256": "3f91a29e2abd4e9f89106cb193e80aecd934f986453361da9484203b2ca4f706"
+    },
+    {
+      "path": "HolyHer_AppIcon_Set.zip",
+      "sha256": "42dcb90cc515995cf83c0f51fd534b89233dc0ec113ceaa05cc7a96ef38de95a"
+    },
+    {
+      "path": "README.md",
+      "sha256": "b89e71f5496f25a65fcecc9a38f704e186e34b4f09044dfae0a8a0f5a27b8af1"
+    },
+    {
+      "path": "analysis_options.yaml",
+      "sha256": "20569b5eb44555cc8ae6392bd39b9bf28a47c513001e1a13ed0a9050d543b040"
+    },
+    {
+      "path": "android/.gitignore",
+      "sha256": "b027c9de1011765c015e5819bf857c0d75bfcd0886fb01721c091159012e50f1"
+    },
+    {
+      "path": "android/app/build.gradle.kts",
+      "sha256": "cc854c425f199ece6b5d7a600df1a8a0175e71c375b353424dac6867d3fe3df2"
+    },
+    {
+      "path": "android/app/src/debug/AndroidManifest.xml",
+      "sha256": "30b0832ed8b92dfbd6ae2abfa939ccf26333d37600056b1572bd4a397a18a74b"
+    },
+    {
+      "path": "android/app/src/main/AndroidManifest.xml",
+      "sha256": "1df6002cf6d89dc20c094f956ba31004703fdbc6f903b661835ea31ef983a9f2"
+    },
+    {
+      "path": "android/app/src/main/kotlin/com/example/holyher/MainActivity.kt",
+      "sha256": "ef2cde2041bc9fb1be70e14f13196b595e33b3caf29097af525991ba300510c8"
+    },
+    {
+      "path": "android/app/src/main/res/drawable-v21/launch_background.xml",
+      "sha256": "7ca6d5cec2169c5a98661a119db23a6f3399c8fef2256ff04f3a642831282478"
+    },
+    {
+      "path": "android/app/src/main/res/drawable/launch_background.xml",
+      "sha256": "94433756fe10005ddd6fc55cc5c0b1e9f3c10b66a08ceac795ece6713d34e28a"
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-hdpi/ic_launcher.png",
+      "sha256": "98da68f1ac0aeb652184a1afbba94be2b0d60de9f3f8ee5ba2ae07845518c5db"
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-mdpi/ic_launcher.png",
+      "sha256": "33a8dfdc1ab1c6320fab848722a83a8b93da74698fba81632fffac464591e45f"
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-xhdpi/ic_launcher.png",
+      "sha256": "aa6d8a95c797303aec516aade7764256f51c9756e44d9e3eba21793b23785693"
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png",
+      "sha256": "ce56abea769e158e4adf3f6a353e45305d1d7d27b375006f6584ca325badb576"
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png",
+      "sha256": "1c8b8822e73941090554eaf1827b6ded9f83fc2671c1aa70c487118117c3ad38"
+    },
+    {
+      "path": "android/app/src/main/res/values-night/styles.xml",
+      "sha256": "5f0f2de6589ba1f4fab29bf7262b04064bb5760436e37a7a40769cdc77066b98"
+    },
+    {
+      "path": "android/app/src/main/res/values/styles.xml",
+      "sha256": "937d7c82f539c72eb94fd3a3773f29b3d3fef1997213c92cb632298cedf4bda9"
+    },
+    {
+      "path": "android/app/src/profile/AndroidManifest.xml",
+      "sha256": "30b0832ed8b92dfbd6ae2abfa939ccf26333d37600056b1572bd4a397a18a74b"
+    },
+    {
+      "path": "android/build.gradle.kts",
+      "sha256": "6a26dba2cb8dfba1e74f540b0d17a89d96c1301d3c3bfda14348bed257fddcba"
+    },
+    {
+      "path": "android/gradle.properties",
+      "sha256": "5539cf5f17c53900a72cf0065e450f0a8ba5b929dd2b364724c1296d0285d9dc"
+    },
+    {
+      "path": "android/gradle/wrapper/gradle-wrapper.properties",
+      "sha256": "297c9e63b6fa6e7e8b221900fa1787c1a0e38869d8957da66389fd0f6b00f78e"
+    },
+    {
+      "path": "android/settings.gradle.kts",
+      "sha256": "a9b5756048f668d4ebf355116678fd334cd5f2169b7d4518ad19b8df14d3af36"
+    },
+    {
+      "path": "assets/fonts/Lexend-Black.ttf",
+      "sha256": "8e98938057167cb0a385a34215c4b82ff3b72529cda42ae6ebcbd701c2933547"
+    },
+    {
+      "path": "assets/fonts/Lexend-Bold.ttf",
+      "sha256": "7770405802303463dba20d8163b9117ade2a1f960fd9ce7a7ec5b480a449d449"
+    },
+    {
+      "path": "assets/fonts/Lexend-ExtraBold.ttf",
+      "sha256": "c5119af4be48e86f712932c0d497439701c0cf33cfd0e40f65eebd7c63ba159b"
+    },
+    {
+      "path": "assets/fonts/Lexend-ExtraLight.ttf",
+      "sha256": "5d94fdbaa54619675f93fa5d19f90b5d585118fccdb5f295ad9ad6a5bddd5fdd"
+    },
+    {
+      "path": "assets/fonts/Lexend-Light.ttf",
+      "sha256": "66b73c7c9b75c424872431aee9a28f2962871e1304e8203c2a0374149b06738c"
+    },
+    {
+      "path": "assets/fonts/Lexend-Medium.ttf",
+      "sha256": "8b6e7ba30bda2363774695dc81b1504a537a4818ab7512650148e76ad7cabb4f"
+    },
+    {
+      "path": "assets/fonts/Lexend-Regular.ttf",
+      "sha256": "191122ccad2e252e17407d7ed5c19e0afd92bc47c7456a87730d904dff1bae25"
+    },
+    {
+      "path": "assets/fonts/Lexend-SemiBold.ttf",
+      "sha256": "9c78b5a7b56fbfd650791420e496428451112bfa95d5f464a0f6c1fbdd8d3e7f"
+    },
+    {
+      "path": "assets/fonts/Lexend-Thin.ttf",
+      "sha256": "b767f367249aba4ace943788231a30e8356a7d310078b18c152aabee82d20c36"
+    },
+    {
+      "path": "assets/fonts/OFL.txt",
+      "sha256": "5da8505887d0fa7fe963445fd58852707fda34adfeb65af25c99d152bab285bd"
+    },
+    {
+      "path": "assets/sounds/lesson_correct.mp3",
+      "sha256": "2da233e5fb427870927edf0112d1167416b642c831617d02f29aa8e515811a32"
+    },
+    {
+      "path": "assets/sounds/lesson_land.mp3",
+      "sha256": "7be4afe58d2177c65fe6d8cc1886b72e9190e4983cbffdd1bd766453f6192efd"
+    },
+    {
+      "path": "assets/sounds/lesson_surge.mp3",
+      "sha256": "470997c142c533e54e3ef4c85b4a5e42e4ae757199e3eb4d0da863ed64c94e67"
+    },
+    {
+      "path": "assets/sounds/lesson_swipe_1.mp3",
+      "sha256": "e160cde7b3f8caf42dc8e7b0fdccef15b77b56a0c89a548c20d229ce44e9581f"
+    },
+    {
+      "path": "assets/sounds/lesson_swipe_2.mp3",
+      "sha256": "07b1824760d7867d34565312b0676b75f3a30320cf0f8eaaab76a7a9edccc822"
+    },
+    {
+      "path": "assets/sounds/lesson_swipe_3.mp3",
+      "sha256": "6ba1132ac6240aafa5864045ca09bfb901fec584407d4361553b0543ff1ee292"
+    },
+    {
+      "path": "assets/sounds/lesson_swipe_back.mp3",
+      "sha256": "ed3d61f6a6b8493d6a3a6b6c5065b163271524d9759cf17ea2bc32f545e4f1b5"
+    },
+    {
+      "path": "config/ExportOptions.plist",
+      "sha256": "fda8de4fba98e2342e0230ed0e3a0d063cb792a6c1eaeaf9e1bd6fefc078c2fb"
+    },
+    {
+      "path": "config/cloud.json",
+      "sha256": "097877f4c0a17a2040e4954548e17142cd9ffa48e08a5ae50d5a6b313f603398"
+    },
+    {
+      "path": "config/icon-provenance.json",
+      "sha256": "bcdf1895b22a11ba8b57be4f8e13c3bea5b6bdbf53f01bc4eb50f1e98a012a7c"
+    },
+    {
+      "path": "config/release.json",
+      "sha256": "5e2afd0c38832ec8c6debe3c5b4a7dc9383b4e88f882519e1461e0258ee35a9c"
+    },
+    {
+      "path": "config/revenuecat.json",
+      "sha256": "2e555326ef9f69b374e4f79d25e931051a4a913a0971765d3526ee32375fe219"
+    },
+    {
+      "path": "content/editorial-status.json",
+      "sha256": "5ea8cfdf6668a1b44005afb0eab291bcb4a1a64d5e3de88fba569a65e0932a93"
+    },
+    {
+      "path": "content/editorial_report.json",
+      "sha256": "88c1cbde03dc219afd290a3d4451987b57c21be9b69065a4084272377d23bbc6"
+    },
+    {
+      "path": "content/lessons_001_183.json",
+      "sha256": "4b8b3bf1bf7ab070e298dd2e6d6bd500bb9d25e4863e07069e0f3047921c4a69"
+    },
+    {
+      "path": "content/lessons_184_365.json",
+      "sha256": "b6d8c09437b6f70966e22a93a4585c9168d3840a18bab32e7051553f4ce43b4d"
+    },
+    {
+      "path": "content/teaching.json",
+      "sha256": "548985cf7a7ba93c7f09f39c923b4eb694c9ad6bd16096c3c7bbb1eba681472e"
+    },
+    {
+      "path": "content/units.json",
+      "sha256": "bba703c3d623c4c060b122ddc0370d9639c6db349590d3e300044d1580c40eb7"
+    },
+    {
+      "path": "firebase.emulators.json",
+      "sha256": "39c25c554b01a56e30cf12709388f1dc190f5bf1835b71168eac7541b99a56f0"
+    },
+    {
+      "path": "firebase.json",
+      "sha256": "892e47c589c4ac2b2ea55f2395e3a88556381688ed0ca91f3a5b2236bc4630ef"
+    },
+    {
+      "path": "firestore.rules",
+      "sha256": "5e6e399b0ef3dffa5ff371efeca026c625aea8a1c0df9df8c0dfd52056789291"
+    },
+    {
+      "path": "functions/domain.js",
+      "sha256": "900549fd5af7a487f4049d27810bc1fafdb31d06bc42b92f7bcc5f613978bce4"
+    },
+    {
+      "path": "functions/index.js",
+      "sha256": "9f1c9ae244e6045d891843d39d5d40633f31194bf1dbb53573912091366c29df"
+    },
+    {
+      "path": "functions/inventory-edition.js",
+      "sha256": "82b3fc6620696f38a07d32ffc2ae9a5183db0a1dbf6ebc087f140a39ff132263"
+    },
+    {
+      "path": "functions/package-lock.json",
+      "sha256": "9bce7e47ec806767a323b9309404c3ac6d478e2a0a97c0243fe850d7ea3a62bf"
+    },
+    {
+      "path": "functions/package.json",
+      "sha256": "899aacb054163a0649733be54bf711b22892af7dd4cd68b0a5d6ad3d7c703922"
+    },
+    {
+      "path": "functions/teaching.json",
+      "sha256": "548985cf7a7ba93c7f09f39c923b4eb694c9ad6bd16096c3c7bbb1eba681472e"
+    },
+    {
+      "path": "functions/test/domain.test.js",
+      "sha256": "133579974fda1f50dc7f1e9bd3ca68b16187ca68ad2d5c21b64cdbba09936c2e"
+    },
+    {
+      "path": "functions/test/firestore.integration.js",
+      "sha256": "ab6861866e7d1adde43b8f1a2e0279cd4c90a7445ceb43da005d260518d1f753"
+    },
+    {
+      "path": "ios/.gitignore",
+      "sha256": "37380775aeb2499662b7aca80f4ac4c95ae827c3ba2bfa179aa3e9af4812c623"
+    },
+    {
+      "path": "ios/Flutter/AppFrameworkInfo.plist",
+      "sha256": "448bf45fc4afbdf5a384e44425f995ab5318901915a4f766809b44bed1b1930d"
+    },
+    {
+      "path": "ios/Flutter/Debug.xcconfig",
+      "sha256": "690b8a8b1ae15ddd29b241429963e971bbc6720ab22f154cf8cf6b085b6d4925"
+    },
+    {
+      "path": "ios/Flutter/Release.xcconfig",
+      "sha256": "75abb819a9de1e0e41c835e7307bc64a506cac25a9a5c0b0d8253fa1c3d5d422"
+    },
+    {
+      "path": "ios/Podfile",
+      "sha256": "ed9a0a4770046f2eefde02db1e3fe9cc07a8df0c1343774fda450d405a33d165"
+    },
+    {
+      "path": "ios/Podfile.lock",
+      "sha256": "4ff690a0247b960519030cb8399690a1ca537d943c946d87ffea5df1f8e52c66"
+    },
+    {
+      "path": "ios/Runner.xcodeproj/project.pbxproj",
+      "sha256": "3f4e58d0a0632df239e595e6bb23b1c934d028901c985c5001433afcb7f49949"
+    },
+    {
+      "path": "ios/Runner.xcodeproj/project.xcworkspace/contents.xcworkspacedata",
+      "sha256": "7f3b00b5c3fdb45242d7b87e1e5c4e25d1fa8129a16c94295ecc4e8ea2235c5f"
+    },
+    {
+      "path": "ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist",
+      "sha256": "dfa0f9bb85b95ccba9c6811adadf8cb407fb5d52088e89db83ebc308ec448542"
+    },
+    {
+      "path": "ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings",
+      "sha256": "11b247bc6796892d67c9a821d18604db4dd6a880981b34f38460b9866e6b247f"
+    },
+    {
+      "path": "ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme",
+      "sha256": "2dd28b879e66081e28a3324cf2bee7ab2f70be9a3e50e08926b7366dadff7d6e"
+    },
+    {
+      "path": "ios/Runner.xcworkspace/contents.xcworkspacedata",
+      "sha256": "465e6de5660384eb6832e8078920ba6cd5305c445cb29a24a86a2fda4aa6b67e"
+    },
+    {
+      "path": "ios/Runner.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist",
+      "sha256": "dfa0f9bb85b95ccba9c6811adadf8cb407fb5d52088e89db83ebc308ec448542"
+    },
+    {
+      "path": "ios/Runner.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings",
+      "sha256": "11b247bc6796892d67c9a821d18604db4dd6a880981b34f38460b9866e6b247f"
+    },
+    {
+      "path": "ios/Runner/AppDelegate.swift",
+      "sha256": "1355c6d3217fe63e408fc556cc9ca4a53dcbba9b4e21d15e6a3e497e0442a51e"
+    },
+    {
+      "path": "ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json",
+      "sha256": "3b1e214f466ffedff74baa5598ad5c4421130eea6bc8d57b8fe23435e8280ae4"
+    },
+    {
+      "path": "ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png",
+      "sha256": "013299f6ca9d306f125d203f6ac6685957641fe6525f27ae2ec52c67c1fec759"
+    },
+    {
+      "path": "ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@1x.png",
+      "sha256": "30d7d671476c64e5de4f26e4c0329f87a624a186b8ece6a6f9cebf6ae9047aa7"
+    },
+    {
+      "path": "ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@2x.png",
+      "sha256": "49ec59bbea1bee85fd3fd3ef33a6038300cab39a3f0ebfe7ddf587359a65201d"
+    },
+    {
+      "path": "ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@3x.png",
+      "sha256": "248b59b6bff65b6cb4a915214ef2176fc2dd896b950cd080770e59d3273bb34a"
+    },
+    {
+      "path": "ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@1x.png",
+      "sha256": "88eb8f2f65d37071ad08dd1462e4b9c78c546cc4cc2c93f4b22b3be3bbb62ebc"
+    },
+    {
+      "path": "ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@2x.png",
+      "sha256": "83c44c45b2c1246bded3542a49f6e21476e520cc0ac854a5020d06bcae473889"
+    },
+    {
+      "path": "ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@3x.png",
+      "sha256": "4bc58b4fcfba308eeea583c6500a0ee4cdf3061fc53a89713d4a153ecb1e4a15"
+    },
+    {
+      "path": "ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@1x.png",
+      "sha256": "49ec59bbea1bee85fd3fd3ef33a6038300cab39a3f0ebfe7ddf587359a65201d"
+    },
+    {
+      "path": "ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@2x.png",
+      "sha256": "a6586dbbe73e8a58b1130fff06abfa77d160477a71ab60f7bc4438c36c351654"
+    },
+    {
+      "path": "ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@3x.png",
+      "sha256": "98a7a4207d2e3308a2a9533edd72fea08c76c726c2dbe974c573bf7875596be8"
+    },
+    {
+      "path": "ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@2x.png",
+      "sha256": "98a7a4207d2e3308a2a9533edd72fea08c76c726c2dbe974c573bf7875596be8"
+    },
+    {
+      "path": "ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@3x.png",
+      "sha256": "551f0639367da9854157dc36786464f2cc91a818c432c45094d6408dceb0484b"
+    },
+    {
+      "path": "ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@1x.png",
+      "sha256": "cd82c0f15d785e63c5b358a04b7573ebad1c3e780005bae9eea7f56934d5e26a"
+    },
+    {
+      "path": "ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@2x.png",
+      "sha256": "995bf684918274ae91fb112fafa2674f764bac3056e3babcca1558704dc46aaf"
+    },
+    {
+      "path": "ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png",
+      "sha256": "48aad04c9ace908f3f847a8d39dbdc855a9338c46c0b97bc194affa3b41cbe1e"
+    },
+    {
+      "path": "ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json",
+      "sha256": "ccc7950fd5f5b82067c85f667940a9d59189151460761ece8098ca78daa19469"
+    },
+    {
+      "path": "ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage.png",
+      "sha256": "44b366f959950bb49884d9475a864e529facd9b81e4fada1a37802bd19b51d8b"
+    },
+    {
+      "path": "ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@2x.png",
+      "sha256": "6b9d6125172350eb6c9a3b5550273e8398ebb0332897086bca26b3e94245d5e1"
+    },
+    {
+      "path": "ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@3x.png",
+      "sha256": "1bed1718b6178370a7f96f8eb2b5ff261a201edfabbfdf9abb10f6755b7ba025"
+    },
+    {
+      "path": "ios/Runner/Assets.xcassets/LaunchImage.imageset/README.md",
+      "sha256": "a985b626c4f7546a8ba392d135e9226c3547c8e2b46895f5f2bdf40d7b14ef9f"
+    },
+    {
+      "path": "ios/Runner/Base.lproj/LaunchScreen.storyboard",
+      "sha256": "be2e0c0bc7f2b3ed5ebc59ce6537ed7682191e22f600836d748a889c7cd7e456"
+    },
+    {
+      "path": "ios/Runner/Base.lproj/Main.storyboard",
+      "sha256": "fd367b6c43006d61b730f674970dd48b9f662c8f2264e52ffc1558102a2c9f2d"
+    },
+    {
+      "path": "ios/Runner/GoogleService-Info.plist",
+      "sha256": "5f0b9e099f43edc162bade4c330e9a876ae5519ed1e16e17417e17b7c1b75537"
+    },
+    {
+      "path": "ios/Runner/Info.plist",
+      "sha256": "7d54108d5d264df09071879b90fc82a5705905d199a038a09e9e1a9c69fba5d0"
+    },
+    {
+      "path": "ios/Runner/PrivacyInfo.xcprivacy",
+      "sha256": "63569c0d2a87f6d68c7d33ca920fe3f4f86aef483af4d487cc2b63c13b63a9ff"
+    },
+    {
+      "path": "ios/Runner/Runner-Bridging-Header.h",
+      "sha256": "1a8d11d01d1cc92c650c9c9ed35299240052d4683a15a719a2315ef44185e074"
+    },
+    {
+      "path": "ios/Runner/Runner.entitlements",
+      "sha256": "b2cff52cf90d8cc5be5a2803c78f759d1dffcf00f0f54615b5330c53fea46d29"
+    },
+    {
+      "path": "ios/Runner/SceneDelegate.swift",
+      "sha256": "add68b905971dedfcc0d0b5b7118030de5925ba8c081ad9815463699e3a444ad"
+    },
+    {
+      "path": "ios/RunnerTests/RunnerTests.swift",
+      "sha256": "5e8f4908dacea6f29b2a790e4d38bf5fded69096063f9a27a2f21584d62b30c0"
+    },
+    {
+      "path": "lib/core/constants/app_constants.dart",
+      "sha256": "e173ed0ddee17a7aebef9311acd7894460250af8d688fce67bd24775eabccbe9"
+    },
+    {
+      "path": "lib/core/theme/app_theme.dart",
+      "sha256": "1620a3668ec40d571a5362cbbf4a03972da5d6c633dac545c5fff2059e350304"
+    },
+    {
+      "path": "lib/core/widgets/glass_button.dart",
+      "sha256": "b08486f26f14e8ed0b864b2a9691abbc26def25384a0276350442c69b1b0cc12"
+    },
+    {
+      "path": "lib/core/widgets/google_mark.dart",
+      "sha256": "922722f9166c0d71108c8d58d2b9e5453a059073913dd96a894ede5a129c0d5f"
+    },
+    {
+      "path": "lib/core/widgets/holy_header.dart",
+      "sha256": "d0e721e53fdf91f767622648620213906dc4744c043d92c4a721ef675581d1b5"
+    },
+    {
+      "path": "lib/core/widgets/holy_loader.dart",
+      "sha256": "8f10fc50202bc3f823a9a94bd3a2612c49eb40dd5b88bac2cc7852acccb4181d"
+    },
+    {
+      "path": "lib/core/widgets/holy_material.dart",
+      "sha256": "4bd6fdbc5afecfe3c66bc725396a540e56a3aff778074b1c4982fac2741c3d18"
+    },
+    {
+      "path": "lib/core/widgets/holy_motion.dart",
+      "sha256": "9f3c621c0df4cca1a8d32d61ebc58e00db489d3da06f84831b01a8e9f9f7ee8e"
+    },
+    {
+      "path": "lib/core/widgets/holy_ui.dart",
+      "sha256": "ab25baa6038fed554efa3edf2a81fa5c2544fc1b026839b60497b225ace2c0a7"
+    },
+    {
+      "path": "lib/data/legal_documents.dart",
+      "sha256": "327fc9d7b14aa604a34df685b8bee916b8521895bf8222a0c7b921bcb5d52736"
+    },
+    {
+      "path": "lib/data/lessons.dart",
+      "sha256": "60f56cba732311c1997d21952e897c6300605444822f18e17eb0a63107457678"
+    },
+    {
+      "path": "lib/data/teaching.dart",
+      "sha256": "902a260f7f5ef3108d2c8c818c906a3e1307eb79bf3d69c1d785cc793d713e50"
+    },
+    {
+      "path": "lib/data/units.dart",
+      "sha256": "dd80824a8ef82f633a5dd5831824eb0ed5ef0a46c6620a14c211fb09f41f3b7a"
+    },
+    {
+      "path": "lib/features/auth/auth_screen.dart",
+      "sha256": "e51afbba866d84c3a237696b4c7f3a70dea2ae930346ebafb2f539dbb15d56ff"
+    },
+    {
+      "path": "lib/features/home/home_shell.dart",
+      "sha256": "bd5ed45486d757cde03bbe0d8e1d914073aaa496fcc272542871579b627c4c08"
+    },
+    {
+      "path": "lib/features/home/saved_tab.dart",
+      "sha256": "ce37feb6cd8576012ea5a215c0680dc66606f2a90179c8a2dc90da69f3a246ea"
+    },
+    {
+      "path": "lib/features/landing/landing_screen.dart",
+      "sha256": "c95f48ce59a834f805fdd78a3f0e234bb4c48bfdd1e638516cf751560a624bff"
+    },
+    {
+      "path": "lib/features/lesson/guided_lesson.dart",
+      "sha256": "fb3a581a270f2b9b191f81cc479fb1b2de6e10a48ba2feebbfa2ef0c46189713"
+    },
+    {
+      "path": "lib/features/lesson/lesson_cards.dart",
+      "sha256": "0eee8f7e4b9a28c6281d5801969defd882f5ac39ceefaf2ccc41b6aedbd1de31"
+    },
+    {
+      "path": "lib/features/lesson/lesson_deck.dart",
+      "sha256": "78aa6db81e7d9161dcdaf870740cd47db2047c85c970707045d78c8272666120"
+    },
+    {
+      "path": "lib/features/lesson/lesson_screen.dart",
+      "sha256": "d7c93db73b47b30756e1af10360f6a34f55eef3b3383b3b74242f7262062e133"
+    },
+    {
+      "path": "lib/features/onboarding/onboarding_screen.dart",
+      "sha256": "50fe5c545a7039f0106622223e84366ef15c10e2d366b1fd56bec4d155f41310"
+    },
+    {
+      "path": "lib/features/onboarding/personalization.dart",
+      "sha256": "06a75221d98c96d4878ff8d795c9103b59f5724525c96196a72b5052b71899d7"
+    },
+    {
+      "path": "lib/features/settings/data_screens.dart",
+      "sha256": "d9e3e29da6aacba02db2ff3ad1b8676b5f02c0c31f74b4cc6f00a0acdc653d1a"
+    },
+    {
+      "path": "lib/features/settings/settings_screen.dart",
+      "sha256": "1b38c4675252754b15c10d5935905ea0805e00974e2f38bb856fa22b13953ca5"
+    },
+    {
+      "path": "lib/features/splash/splash_screen.dart",
+      "sha256": "21c84d664aa115f4a1e6573436b62e7efbf6380b7b3be07f68bb58a432098e58"
+    },
+    {
+      "path": "lib/features/support/contact_screen.dart",
+      "sha256": "dafc516e448526ed54002ca2f4e909f7d850c3ad2cd2e5011e2f594f9a159f38"
+    },
+    {
+      "path": "lib/features/support/support_screens.dart",
+      "sha256": "f1024b7eb6b74c0e3347381a8600132e27cf19ae402c195763804aede941dffa"
+    },
+    {
+      "path": "lib/firebase_options.dart",
+      "sha256": "652285abc40181574bfa311c52bb32e571b9b597f1921feb76e4d50465146b15"
+    },
+    {
+      "path": "lib/main.dart",
+      "sha256": "3e451c3ba1b87ea46dda25695dff088145446f97c1c8edbffcb5ff18ab31c443"
+    },
+    {
+      "path": "lib/models/learning.dart",
+      "sha256": "7fbe86532452c617b58a13c5d576c96d287aedec36f87cf79855168c68affede"
+    },
+    {
+      "path": "lib/services/accessibility_service.dart",
+      "sha256": "25d6fc803ca1a604e05bcd83f5d3282cfa33b72034f3f3157a5c2193e65194c3"
+    },
+    {
+      "path": "lib/services/account_cache.dart",
+      "sha256": "5f863feb47ef73624f62ea870a8dd04d52dc82d6c7097581776ae283a1bbe195"
+    },
+    {
+      "path": "lib/services/auth_service.dart",
+      "sha256": "bc0f7f6abb8a5a95ce680bd04f73bc2da8e81e899fc7bdaa024bc2fc3929b84e"
+    },
+    {
+      "path": "lib/services/durable_store.dart",
+      "sha256": "d7d255b80b99faab0605ba006d9cf6ed533db8cf98fd6d3f383473704ce09356"
+    },
+    {
+      "path": "lib/services/feedback_service.dart",
+      "sha256": "b4ae69360507c9d12d5afcb73a003362cc7f0ba91a330a36d561ab38dce81290"
+    },
+    {
+      "path": "lib/services/learning_service.dart",
+      "sha256": "5b650f3cfa71983be035a3973e26c3a3a46d3944220b40c5e5b0dcc4e038e521"
+    },
+    {
+      "path": "lib/services/lesson_audio.dart",
+      "sha256": "3a9b1dad37bb68623d819d3a2055397e4c711783629429596328dc6ce0541903"
+    },
+    {
+      "path": "lib/services/local_store.dart",
+      "sha256": "797745193b65feb4e499178f9b7a0f165fdeab02a481c59843783c13e0b8dc07"
+    },
+    {
+      "path": "lib/services/profile_service.dart",
+      "sha256": "0583f3f4349c8a0c4fe54121ad05aaf5993c781a1ff7615fc7ce6b8dcdf739fb"
+    },
+    {
+      "path": "lib/services/progress_service.dart",
+      "sha256": "14b43d21fff78e85d1123efcb8e36155b2fa0813e5a1c3a7ce6be109367eca8e"
+    },
+    {
+      "path": "lib/services/reminder_service.dart",
+      "sha256": "2bd581503a321be41fdb23d735cf5369698fbd4d09ab61cc24cc18507854d10e"
+    },
+    {
+      "path": "lib/services/saved_service.dart",
+      "sha256": "02c74ffa9e331933c96a3e2fe4affe04e595f0aaf314d2529f2f98938ea58d30"
+    },
+    {
+      "path": "lib/services/streak_logic.dart",
+      "sha256": "b98666cacd540f9d863b55dea32738dc0f1c896c754028b450f1e4297e7611a8"
+    },
+    {
+      "path": "lib/services/streak_service.dart",
+      "sha256": "5d5e87c8db554fdd9979f3c3a1680548c1b95461e302fd014f9d7e01308990ec"
+    },
+    {
+      "path": "public/404.html",
+      "sha256": "ae08985fc5f8702237481cb58e75f59e69d7a78e7fc09a3e1b36f1327bb5feb4"
+    },
+    {
+      "path": "public/app-icon.png",
+      "sha256": "013299f6ca9d306f125d203f6ac6685957641fe6525f27ae2ec52c67c1fec759"
+    },
+    {
+      "path": "public/fonts/Lexend-Medium.ttf",
+      "sha256": "8b6e7ba30bda2363774695dc81b1504a537a4818ab7512650148e76ad7cabb4f"
+    },
+    {
+      "path": "public/fonts/Lexend-Regular.ttf",
+      "sha256": "191122ccad2e252e17407d7ed5c19e0afd92bc47c7456a87730d904dff1bae25"
+    },
+    {
+      "path": "public/fonts/Lexend-SemiBold.ttf",
+      "sha256": "9c78b5a7b56fbfd650791420e496428451112bfa95d5f464a0f6c1fbdd8d3e7f"
+    },
+    {
+      "path": "public/index.html",
+      "sha256": "5a3630802d75e20309f8f7a2848d69388fa80ccf898256f458a7b8de4c5bcc6b"
+    },
+    {
+      "path": "public/privacy.html",
+      "sha256": "708c9971e3cd1172675e576c4cd20b77a298fe6091b5196580cdddc31115f3ec"
+    },
+    {
+      "path": "public/style.css",
+      "sha256": "db36952f63c4340275bfb55510e2cc87a82c89519813b2b56cc605e125e15f23"
+    },
+    {
+      "path": "public/support.html",
+      "sha256": "aed0ae934b353d4b8fe70eb6b4770001098307656478e672955cf0ed08461fa4"
+    },
+    {
+      "path": "public/support.js",
+      "sha256": "847925d27538271d7aebe876154c59a42e6c91f372f83463cf591a6eb89b3388"
+    },
+    {
+      "path": "public/terms.html",
+      "sha256": "c9df4812bda5d9eac9bb67a9e33c1394e113dd384242909479f74ad3bc16408a"
+    },
+    {
+      "path": "pubspec.lock",
+      "sha256": "40c00439dd2efd7fafb99b0a341d32914aba11c1be0427c7b8cd1c5c888083eb"
+    },
+    {
+      "path": "pubspec.yaml",
+      "sha256": "ac292f50c53e1aa6efbfdb62d987a1ff93a490cad02f6648d07050ebc9a520ce"
+    },
+    {
+      "path": "store/APPLE_OWNER_SETUP.md",
+      "sha256": "2624be99d2c1c524498240936a918272a5e0a5f2e0aa2d2f027ab054d3f89620"
+    },
+    {
+      "path": "store/COGNEIN_SCREEN_MAP.md",
+      "sha256": "a18e2163751da41678257edcdcd343ead9674959e50dfb67f2b2cf2ea7431d44"
+    },
+    {
+      "path": "store/FIVE_DAY_EDITORIAL_REVIEW.md",
+      "sha256": "3fd4022cdfb70876bd4cac6deef55d0f6e39d17f220e42bcfd359953f66984a7"
+    },
+    {
+      "path": "store/HOLYHER_REBUILD_SPEC.md",
+      "sha256": "4bc2006d7249965eb9d35fc996b6962dee0ebc7115311bf7f5ce7ad0100d343c"
+    },
+    {
+      "path": "store/OWNER_ACTIONS.md",
+      "sha256": "a589222c025dfd364368c81f470999c2a9e6120f562b36f1bf92524ceeaf25dc"
+    },
+    {
+      "path": "store/PRIVACY_DISCLOSURE.md",
+      "sha256": "ccbb909f176f55bbf1996581991e35281e7c1cbdd8a7128f3a7b64417cba2ba2"
+    },
+    {
+      "path": "store/REBUILD_EXECUTION_PLAN.md",
+      "sha256": "ebe1f3e471f7afabb3691e57af9c5dfcc4a3f0d1729c79a9a141668e9cc7a8f7"
+    },
+    {
+      "path": "store/REBUILD_MIGRATION.md",
+      "sha256": "a50c2004cc6cba702509a9eb0a47920830f3229612f4d40d509f8194a638f514"
+    },
+    {
+      "path": "store/REBUILD_VERIFICATION.md",
+      "sha256": "6bec50bab1cd1fabea13da101b65cfba08ca0d275ebc323ba16fa08c3e27faa2"
+    },
+    {
+      "path": "store/REVIEW_NOTES.md",
+      "sha256": "e583452e22fd576813c3f27c3dcd20d7cbfe57691ab6e278d587c11ec5676da5"
+    },
+    {
+      "path": "store/VERIFICATION.md",
+      "sha256": "f1f0ad69d0fa0705eff53382bbb0cdedcc1530198629fb95d753b4be51ca325f"
+    },
+    {
+      "path": "store/apple-upload-verification.json",
+      "sha256": "278e7f1c9e10666eb45eab2cde32f891037dc1521a31dec4647e746b066d78fd"
+    },
+    {
+      "path": "store/archive-verification.json",
+      "sha256": "56fbd7f4cab8ec257379deed714561f102ef6e989d9c309f7d13a8bcf2c4c412"
+    },
+    {
+      "path": "store/cognein-source-manifest.json",
+      "sha256": "d168a0016cba3e8a3180e2f7157d60a2a6c3d63f611670b167603fa313631f11"
+    },
+    {
+      "path": "store/device-verification.json",
+      "sha256": "b5baf4915cf006c0e0f91e9c0201a2096815f4a500e02eb848626b1ca0f605b0"
+    },
+    {
+      "path": "store/distribution-verification.json",
+      "sha256": "dbad4fc50393942bf7c701f818481de6f1cea5475bdd444a5de7c27bd1306059"
+    },
+    {
+      "path": "store/frame_screenshots.py",
+      "sha256": "cf90ed903846fba8fdd3e5c979c6cca40e46c73c7df8ee5885a577f3c86fdbb4"
+    },
+    {
+      "path": "store/iap-applied.json",
+      "sha256": "ba5727c7572f45820f821a5aa6bd2ad459ec7e8116b8e8354a1c1e7b7aa12d54"
+    },
+    {
+      "path": "store/iap-catalog.json",
+      "sha256": "2c69df3b9b67a8f97ff0502773ac6f875e7583b3a09def7482796d65f8764ded"
+    },
+    {
+      "path": "store/iap-live-state.json",
+      "sha256": "1112932be8fdaaa026cb667361fd48f0ec10095eae4445f8e686818d8e503c20"
+    },
+    {
+      "path": "store/iap-plan.json",
+      "sha256": "96feee2085993ee8fae9db226574dc1834883e9972d76e5ea3a4c49a8080325f"
+    },
+    {
+      "path": "store/iap-review/paywall.png",
+      "sha256": "c8f27a6577c20c5e0f6f6dcce8b67735628b73dc0b0c4ce80fa0074db61ea87a"
+    },
+    {
+      "path": "store/iap-territories.json",
+      "sha256": "e7d24bbec459b983a371c914fafa0291d06ab70b929eb9385d252630916a7b81"
+    },
+    {
+      "path": "store/live-cloud-verification.json",
+      "sha256": "a25a7115323f603d42492d2bae4da593cdc033946d5b00146c94fede5d2f2057"
+    },
+    {
+      "path": "store/metadata/README.md",
+      "sha256": "8fcb6325376c1f3a109129dea2b31c354355d3e1677690afa9c058bd3eb1a9bf"
+    },
+    {
+      "path": "store/metadata/en-US/copyright.txt",
+      "sha256": "668bdc7207f19e1fd17804721230240773c3ec2d2cb09d95c39c27ab7f26e061"
+    },
+    {
+      "path": "store/metadata/en-US/description.txt",
+      "sha256": "91e033672749f53e36fb01172aada9c14413fa8d7994c644068e81f7294c65c4"
+    },
+    {
+      "path": "store/metadata/en-US/keywords.txt",
+      "sha256": "7cd30cbbe146a37530150d36c6b9257763056fe99f66e4e039a1b6580cd7e0ef"
+    },
+    {
+      "path": "store/metadata/en-US/marketing_url.txt",
+      "sha256": "9073a7e424f182a986e0a3e32d8001e940dc5d767cbe925a34a1a712c3962adb"
+    },
+    {
+      "path": "store/metadata/en-US/name.txt",
+      "sha256": "87f613790934bed04fe8d127d15d353081ccfc282b08bcfc130a23e2c0b976a5"
+    },
+    {
+      "path": "store/metadata/en-US/privacy_url.txt",
+      "sha256": "8ac2dcc503e16d5ef81a4e8333802cbc55b1a73c14eaaebd7cca4e5dc1e0ee1c"
+    },
+    {
+      "path": "store/metadata/en-US/promotional_text.txt",
+      "sha256": "65bc48b2858058e0fa2cfbddd44a27d534b8313270c18f503c03a0440e0c92f6"
+    },
+    {
+      "path": "store/metadata/en-US/release_notes.txt",
+      "sha256": "c851e50962973d2bb521de88a255bb5088357c4deeb3166a56977bd41280917e"
+    },
+    {
+      "path": "store/metadata/en-US/review_notes.txt",
+      "sha256": "51e0a4db56dcbe5e7e080348cf234071686273f161b8396467622a1c613237d5"
+    },
+    {
+      "path": "store/metadata/en-US/subtitle.txt",
+      "sha256": "2daa55a46314811f4248fdf26f3a07bd323652c5785f67d1984ec89cac8d8428"
+    },
+    {
+      "path": "store/metadata/en-US/support_url.txt",
+      "sha256": "bbfa3781403ad0da75e941e2065bf87001fda0ec6fb93e6ab4db4c2080fccd55"
+    },
+    {
+      "path": "store/metadata/privacy_labels.json",
+      "sha256": "b603b89158651fb50d693fa56479e5e1617c93aef1c748561fd9a283c2e62cb1"
+    },
+    {
+      "path": "store/metadata/sdk_privacy_audit.json",
+      "sha256": "dfed8f60c4e668dd89ba48ef46625e0e9ef309e1832c08690c9729aade868a73"
+    },
+    {
+      "path": "store/metadata/submission.json",
+      "sha256": "14b3ee97ba090dc3c68ab05ea5886432cdd5b6bba6f0972399898ece32084517"
+    },
+    {
+      "path": "store/rebuild-acceptance.json",
+      "sha256": "8559ff2be359eec22b40df6cb968277c3ba595389e191421fb562944f73dc487"
+    },
+    {
+      "path": "store/rebuild-gallery/carry-phone.png",
+      "sha256": "a42c8837ec8c1cdb0f393b34df31ad40dc9d0d66b0932d839e0451e654b58491"
+    },
+    {
+      "path": "store/rebuild-gallery/closing-pending-phone.png",
+      "sha256": "b18b8aa3b27a9a7a2440f5b5d5fdbd54c9de53037b310e07ab83a8d7e1d4702b"
+    },
+    {
+      "path": "store/rebuild-gallery/index.html",
+      "sha256": "f01fe22a61493b548e2490e11e1108df96278f597c7a5f94d6683e3e961e8a24"
+    },
+    {
+      "path": "store/rebuild-gallery/ipad-landscape-ContactScreen.png",
+      "sha256": "24cd707f9da202c03c83b85d5acdb36343f999a0150df7cf59565f64d3fc59df"
+    },
+    {
+      "path": "store/rebuild-gallery/ipad-landscape-HelpScreen.png",
+      "sha256": "b9307423a0f00ec9964f8300f861927ad4413a7cae7f72cf0d4cfad6e04020dc"
+    },
+    {
+      "path": "store/rebuild-gallery/ipad-landscape-HomeShell.png",
+      "sha256": "b63acee77f61961f3fe77cbfb88ff4f230f22b8e972edea0c4a3b2d3cacaa676"
+    },
+    {
+      "path": "store/rebuild-gallery/ipad-landscape-LessonScreen.png",
+      "sha256": "468cf49cc59f471f07dfb830037bc4b00cbe6a77f7fb71ad7dae3b5fe6d8a75c"
+    },
+    {
+      "path": "store/rebuild-gallery/ipad-landscape-SettingsScreen.png",
+      "sha256": "417dbf623eb5a91a3074cbf1c46c5895039686bcc5cdd690e7c30165258709da"
+    },
+    {
+      "path": "store/rebuild-gallery/learn-phone.png",
+      "sha256": "7916af1b6bdbf23a67cabe09c4dc130f1cb038de9d4955830098fab0eb17bddf"
+    },
+    {
+      "path": "store/rebuild-gallery/manifest.json",
+      "sha256": "fe64d3c7e793f2020ef898b57ee61a37d77965361367cdb465c2f87a9796eb74"
+    },
+    {
+      "path": "store/rebuild-gallery/onboarding-day-one.png",
+      "sha256": "88ef988f3f03839bc46e8d556402eb0eb474e50c542da9aef1af722b6c6b388c"
+    },
+    {
+      "path": "store/rebuild-gallery/phone-3x-ContactScreen.png",
+      "sha256": "787c4635727400456b22f54b21d427c458e04d144801420ca32189cfbd1fa0a5"
+    },
+    {
+      "path": "store/rebuild-gallery/phone-3x-HelpScreen.png",
+      "sha256": "cd2bbeb2692c0a34a9a4a9ac59bc4f0dab1bd02dc625faf19e6448a91ddfecd8"
+    },
+    {
+      "path": "store/rebuild-gallery/phone-3x-HomeShell.png",
+      "sha256": "e69dfa870dd0c033f4cf62e7cfbc30d7239aea2913d54e1155e3fd22e6843c76"
+    },
+    {
+      "path": "store/rebuild-gallery/phone-3x-LessonScreen.png",
+      "sha256": "44c3430694227b8dfa269206fe3e9cd99519f211ae7f7c99a03a8641106cb890"
+    },
+    {
+      "path": "store/rebuild-gallery/phone-3x-SettingsScreen.png",
+      "sha256": "988f51f7fdfff9ff6e047f8e5f3b763a00d0d4456529b7c1a0947f2141e47c04"
+    },
+    {
+      "path": "store/rebuild-gallery/question-wrong-phone.png",
+      "sha256": "6cdda2a87c9b4d5aa4c202d7a9ce1e8ddecd4387f6fe263c6aad7463ad3845a6"
+    },
+    {
+      "path": "store/rebuild-gallery/saved-empty-phone.png",
+      "sha256": "6989cdc3b483200facb69a57afa536047784186b9599ae351aec07f52d7cc447"
+    },
+    {
+      "path": "store/rebuild-gallery/split-view-ContactScreen.png",
+      "sha256": "f031e1faa1c0f76a584e1771440247eaf8e76e2f2f57e7bec632e922aac8fa3d"
+    },
+    {
+      "path": "store/rebuild-gallery/split-view-HelpScreen.png",
+      "sha256": "2aee2d4b934e04fcb8a502a7e685855e97c927084c6f2f6b01dbe19e298ba2dc"
+    },
+    {
+      "path": "store/rebuild-gallery/split-view-HomeShell.png",
+      "sha256": "be7d0c4af97022db9d75f9ad846c03d7cfb8f256c5a88e9ae45e8a0b4f382f45"
+    },
+    {
+      "path": "store/rebuild-gallery/split-view-LessonScreen.png",
+      "sha256": "abd0ba8972b2a8b31d14a37cc078976381211761a56a63550c372551c0a545b0"
+    },
+    {
+      "path": "store/rebuild-gallery/split-view-SettingsScreen.png",
+      "sha256": "b557c56b8d5e8fe80b56cbb1a5b62d9c6ffca59c59acaf7fc46b4100b07471d8"
+    },
+    {
+      "path": "store/rebuild-test-results/acceptance-release-gate.txt",
+      "sha256": "c3e8cf314d80a2d5854768e67b9d496af3113a80633bfb7e863dd8161c513b17"
+    },
+    {
+      "path": "store/rebuild-test-results/analyze.txt",
+      "sha256": "7baab8d809a048e3e86a004eb6032d3979378951ad333926db7a3d2d893c4330"
+    },
+    {
+      "path": "store/rebuild-test-results/auth-email-backend-check.json",
+      "sha256": "69bcbd31a18111e082a85173b5d3c8ff9610d0ff86c641291219e1907dd51770"
+    },
+    {
+      "path": "store/rebuild-test-results/auth-provider-preflight.json",
+      "sha256": "60ab74a39749fea2c5778e858568440261f83a3493124cf14228b94b39001d79"
+    },
+    {
+      "path": "store/rebuild-test-results/backend.txt",
+      "sha256": "a08bac43bae72f15c9ca0badd43d459c0916c14354310e5d4c9831d8dcedec3a"
+    },
+    {
+      "path": "store/rebuild-test-results/baseline-analyze.txt",
+      "sha256": "4f967336b5a31d84a50ddd2cb6cacdf8cea48787209576f6c324f7fcaaedf41a"
+    },
+    {
+      "path": "store/rebuild-test-results/baseline-flutter.txt",
+      "sha256": "a5628ed99a1f230e80549e285a377b15db11c2ad4768531ba6a5fa5039a73fe4"
+    },
+    {
+      "path": "store/rebuild-test-results/baseline-native-build.txt",
+      "sha256": "16d135e5f9ffebe40ffaab69e1417938d38ffa2f6907dbaae15b49da2c5136e8"
+    },
+    {
+      "path": "store/rebuild-test-results/content-release-gate.txt",
+      "sha256": "a2d47ac1d0bb5fa56edb53b991206d7bc0434e2286d59d796f505150196e217e"
+    },
+    {
+      "path": "store/rebuild-test-results/disk-cleanup.json",
+      "sha256": "15d76228571bcc312d2561924607d1f8e0117722024ad872bed7e79302d722c6"
+    },
+    {
+      "path": "store/rebuild-test-results/environment.json",
+      "sha256": "8e95f0ae2ceff21e00df63181d3ac98a10cb6a62533d6f6ebd1e82cb5320db9d"
+    },
+    {
+      "path": "store/rebuild-test-results/firestore-emulator.txt",
+      "sha256": "a39fed1df583546c88fabcbe6d68c23b7e95a23ae0b834a46e36698668e2c1b8"
+    },
+    {
+      "path": "store/rebuild-test-results/flutter.txt",
+      "sha256": "f1b073398470950e2851eb2ba1b63a48aa0ec03884338fbfe0d7d5dcab414800"
+    },
+    {
+      "path": "store/rebuild-test-results/free-backend-node22-tests.txt",
+      "sha256": "b2516b0068ee476ee5a55860b2d118d159377728c0fb3814596a2c37ee32d875"
+    },
+    {
+      "path": "store/rebuild-test-results/free-flow-live-verification.json",
+      "sha256": "827acd4333ef9f140449f9e70701bfedc0ccf72d748b8b77c23d341846623583"
+    },
+    {
+      "path": "store/rebuild-test-results/free-flow-live-verification.txt",
+      "sha256": "60600368bc2040a64a545d1e75d3ef65aea59c211595c467bb83b4f1ff1b8d24"
+    },
+    {
+      "path": "store/rebuild-test-results/free-rollout-emulator.txt",
+      "sha256": "047816151f3f50fc33051b8ee470322ab28d832b165406f42743c23182a5a162"
+    },
+    {
+      "path": "store/rebuild-test-results/free-rollout-functions-after.json",
+      "sha256": "b49f9ff50883edc83713e6f6c738aeb31c4de00ea6b1de0199062c2c723bfae1"
+    },
+    {
+      "path": "store/rebuild-test-results/free-rollout-functions-before.json",
+      "sha256": "89b597d49d958129e7bc55a7c9e1401299098364e29fdb51c01c29a6ab30a62b"
+    },
+    {
+      "path": "store/rebuild-test-results/free-rollout-functions-deploy.txt",
+      "sha256": "06f8ae74f3ca8cd66599da9cd6154e2284ffa81666e332aaa89a9c8f3bebb187"
+    },
+    {
+      "path": "store/rebuild-test-results/free-rollout-inventory-after.txt",
+      "sha256": "a2e1c897be72a8d65dc38483b5ed9c74acacaa4d4ec2af398e56a1024db9326c"
+    },
+    {
+      "path": "store/rebuild-test-results/free-rollout-inventory-before.txt",
+      "sha256": "8c513cf7e93e3c8248773cbc6bb2b79de4886d804851cf414e249a72d85776f0"
+    },
+    {
+      "path": "store/rebuild-test-results/free-rollout-plan.json",
+      "sha256": "bc9b3e205b9a105a91d4b882426a662b48a644c32a829a00b14d4c9a8414e7ef"
+    },
+    {
+      "path": "store/rebuild-test-results/free-rollout-report.json",
+      "sha256": "18226b8c2ccd374b8a627bedd8d56b8bf51d5435285e8817ea2bbc9ce42e6356"
+    },
+    {
+      "path": "store/rebuild-test-results/free-rollout-rules-before.json",
+      "sha256": "40caadedeed973c651c5c97d9d16c850e7503715a45abbd1c6598cad802d8fe6"
+    },
+    {
+      "path": "store/rebuild-test-results/free-rollout-rules-deploy.txt",
+      "sha256": "3c8257692204e977cb810ffe802f6426b1372ce91753011c35a1d550685a8fd7"
+    },
+    {
+      "path": "store/rebuild-test-results/free-rollout-source.zip",
+      "sha256": "630a12d523c2c8d7cbfa323473a0ff2f633baa9e1b985a7e104853dc21297e6f"
+    },
+    {
+      "path": "store/rebuild-test-results/free-rollout-transport-verification.json",
+      "sha256": "95aad731a31289919f370d864cd3f5d9d409b9cd913c1194ad5c103a2f669dc7"
+    },
+    {
+      "path": "store/rebuild-test-results/free-rollout-worker-privacy.json",
+      "sha256": "78345c4f58f4ce9ceb66a4adab6eae1ac39d818d9ec4bcaca715d7c161a5d7db"
+    },
+    {
+      "path": "store/rebuild-test-results/ios-build-failure.txt",
+      "sha256": "5b529cb5509ca493aa3d86f0efe890c825d0c8cc40d5ac51d8fbc80571f75750"
+    },
+    {
+      "path": "store/rebuild-test-results/iphone-day-one-confirmation.json",
+      "sha256": "aceb13b812a98fbba431e7340030d2dd73371a0f758dbeb523374cd8b2268b7e"
+    },
+    {
+      "path": "store/rebuild-test-results/iphone-direct-launch.txt",
+      "sha256": "f7ff312a91b60e945f1d5062857a0725fc81df45ca57662330057394b4a165f4"
+    },
+    {
+      "path": "store/rebuild-test-results/iphone-direct-unlocked.txt",
+      "sha256": "8f19ec2c4af9014f3135de74be8c3c899fb04516bb8b8de64f91a3c07074e0f8"
+    },
+    {
+      "path": "store/rebuild-test-results/iphone-install.txt",
+      "sha256": "3eac6461b690ce2b2c8e55b4cf8517d81b4f07aa6c93c15c079c8ca16bdccad1"
+    },
+    {
+      "path": "store/rebuild-test-results/iphone-launch.txt",
+      "sha256": "ba1d6f17bc0a1703e263c22bb183888593b6febd7a40106b473051125225c652"
+    },
+    {
+      "path": "store/rebuild-test-results/iphone-prebuilt-launch.txt",
+      "sha256": "47c2e21c24323160340dd249a4d86b6b9e9adda45f1bcea7441582371e9f429c"
+    },
+    {
+      "path": "store/rebuild-test-results/iphone-prebuilt-retry.txt",
+      "sha256": "c715c04d486b144dcea2bd8218b5e94a4dd407250171f45a076e027c01200eb3"
+    },
+    {
+      "path": "store/rebuild-test-results/iphone-preflight.json",
+      "sha256": "02181d7b4d8ff195ca52767b031f804f1b1b1d19ce20f9053d88ca1e33820279"
+    },
+    {
+      "path": "store/rebuild-test-results/iphone-release-mode-install.txt",
+      "sha256": "4506977e1133b7922848d2aac6752b532cf2f7ba124117def6282251e92e8558"
+    },
+    {
+      "path": "store/rebuild-test-results/iphone-release-mode-launch.txt",
+      "sha256": "9fec62e7afad0f74489b807acf33894ca95a3849090a981112959e54d3f0008f"
+    },
+    {
+      "path": "store/rebuild-test-results/iphone-release-mode-runtime.json",
+      "sha256": "314e9d12d8bc41f9d5faa4ac39e740007607437c9e8c35930228672c9c4b3578"
+    },
+    {
+      "path": "store/rebuild-test-results/iphone-space-cleared-launch.txt",
+      "sha256": "1f459b5637027bb00a896ecdb02c2499877aa23c303dc5201eb4d2ac74b78e2b"
+    },
+    {
+      "path": "store/rebuild-test-results/iphone-unlocked-attempt.json",
+      "sha256": "835535c78f7e161587104a13aa4a9a5a597f9996356a147b7fc3d9179cc94d62"
+    },
+    {
+      "path": "store/rebuild-test-results/iphone-unlocked-launch.txt",
+      "sha256": "c715c04d486b144dcea2bd8218b5e94a4dd407250171f45a076e027c01200eb3"
+    },
+    {
+      "path": "store/rebuild-test-results/native-build-verification.json",
+      "sha256": "11ecceeebe1182fff19fb4a31c91fcde0ae724e9eff5bd475d0599a50cc9439b"
+    },
+    {
+      "path": "store/rebuild-test-results/native-debug-artifact.json",
+      "sha256": "250ed1da24b06f3b1e14ace8a2b81a71babf0c03e33424b12a5ca77942467f83"
+    },
+    {
+      "path": "store/rebuild-test-results/native-development-artifact.json",
+      "sha256": "70b795be927cbb35517574df95a1b321b7b5b6fbe0d0cef15241a2e52d393ee7"
+    },
+    {
+      "path": "store/rebuild-test-results/native-release-mode-build.txt",
+      "sha256": "a793afb2595d1307bf9920055616ec96385336d57c6cceffaa1760336e7a6b41"
+    },
+    {
+      "path": "store/rebuild-test-results/native-release-mode-verification.json",
+      "sha256": "ba24afc20c7043fe0918efc1181d5e2768aec1aa33d09a37bd2a53a20531726c"
+    },
+    {
+      "path": "store/rebuild-test-results/native-repair-pods.txt",
+      "sha256": "dbe7ead636dc09d23dd2dfbbfa12210b3f1d461aa5ecd4edca99d451fd140202"
+    },
+    {
+      "path": "store/rebuild-test-results/native-repaired-build.txt",
+      "sha256": "5d52e6e37af47a74e91ea03d1d08dffc06c1ba931d07024a9f58f5de51f3bdd1"
+    },
+    {
+      "path": "store/rebuild-test-results/native-retry-pods.txt",
+      "sha256": "e01ec390bc70217fe2bc42b3b0126c7562c103e8d728592f8ec9fa1ba0360c80"
+    },
+    {
+      "path": "store/rebuild-test-results/native-retry.txt",
+      "sha256": "d448249f5726fe25836d362f7ef693b70c2a717c183425122339bcd3c2b0b8c3"
+    },
+    {
+      "path": "store/rebuild-test-results/native-storage-regression-before.txt",
+      "sha256": "f08fd1174e93a83adc2a1c5663f6e85b648b6752f9bfada2ddce4ee3ec97c7b8"
+    },
+    {
+      "path": "store/rebuild-test-results/native-storage-regression.txt",
+      "sha256": "750f06ad0cdf6f2ec112e780c4ec5c9de6975543384659314662993bc88711c6"
+    },
+    {
+      "path": "store/rebuild-test-results/native-workspace-recovery.json",
+      "sha256": "22b2c53131bb14dd8304cbcdf16f81e4f5f3e0abf0adad0df0fd11c9dcbf5968"
+    },
+    {
+      "path": "store/rebuild-test-results/node22-runtime.json",
+      "sha256": "c039e0d23ed3eea176706efdbb695652ccbd597a99dd29abb871be6decce5d8b"
+    },
+    {
+      "path": "store/rebuild-test-results/persistence-analyze.txt",
+      "sha256": "dd2f553f583c619193b9b9a84b88836e8aa32c0859e85b529001172a4ebf5313"
+    },
+    {
+      "path": "store/rebuild-test-results/persistence-backend.txt",
+      "sha256": "177055244eef6e2ee22d2af0f9e0b6189e5eda424cea7ed91e0a43ad3cd299e4"
+    },
+    {
+      "path": "store/rebuild-test-results/persistence-content-release-gate.txt",
+      "sha256": "5603ebde8d2be8b8ec1f284137a437386ac2a16779eeddc945a538a83353f4d1"
+    },
+    {
+      "path": "store/rebuild-test-results/persistence-flutter.txt",
+      "sha256": "c020ff29b9584cd3467b4cbede3cba571547bbb0518e124036fcd5c7640e1b77"
+    },
+    {
+      "path": "store/rebuild-test-results/persistence-pods.txt",
+      "sha256": "5af19dd5d3bb06000dc819ecc0272b379dcc8116ac6f10face113dfdc004f976"
+    },
+    {
+      "path": "store/rebuild-test-results/preserved-native-artifacts.json",
+      "sha256": "befdf1c98cade185dd8e498b2d8666961a4d7f87c6707377d3ccf0974eb16c3d"
+    },
+    {
+      "path": "store/rebuild-test-results/production-inventory.txt",
+      "sha256": "8c513cf7e93e3c8248773cbc6bb2b79de4886d804851cf414e249a72d85776f0"
+    },
+    {
+      "path": "store/rebuild-test-results/signed-in-bootstrap-preflight.json",
+      "sha256": "f80c0c5924570d639112cd6cdbff65e18144c557b1249cf57649968b5804d713"
+    },
+    {
+      "path": "store/rebuild-test-results/start-journey-live-diagnostic.json",
+      "sha256": "c2b67102150ee72f50dc4db77fd8b522ee0bd23638e90eb0dbb88d495c0837f9"
+    },
+    {
+      "path": "store/rebuild-test-results/startup-fix-analyze.txt",
+      "sha256": "8cf16f15f051c621626e2426fcaf93b99e075d8983e5f6883d8193c5a16fa4e8"
+    },
+    {
+      "path": "store/rebuild-test-results/startup-fix-artifact.json",
+      "sha256": "47ca82ede1f1b140d352b6d84bd508e3be13346083fd3f3dd1407f2c18f81477"
+    },
+    {
+      "path": "store/rebuild-test-results/startup-fix-build-verification.json",
+      "sha256": "ea3b3fde2a001f514e1219fd12c223e395d42824d5cbde396c5b7ea028a0e968"
+    },
+    {
+      "path": "store/rebuild-test-results/startup-fix-device-database.json",
+      "sha256": "8f35e48db26a7db69ad53eb40abe86887ecfa26c7ec906e2a8413970b649d073"
+    },
+    {
+      "path": "store/rebuild-test-results/startup-fix-device-files.txt",
+      "sha256": "2e07b70008b10fd0f118cad6e6da05a0cdd8e298b534eee1659ede76b2714aea"
+    },
+    {
+      "path": "store/rebuild-test-results/startup-fix-flutter.txt",
+      "sha256": "b043e048b2969e2a949718d83454501de9fd715126927e4c07ee30a120204f2e"
+    },
+    {
+      "path": "store/rebuild-test-results/startup-fix-install.txt",
+      "sha256": "4bf4d03b34984dd56e735e4e628c4efbb41e3688952b2b58a76c8378a83e072d"
+    },
+    {
+      "path": "store/rebuild-test-results/startup-fix-launch.txt",
+      "sha256": "f46bc6e333a199047b9cb6000b14d60a277acac8ea6a757633df013df79e55b0"
+    },
+    {
+      "path": "store/rebuild-test-results/startup-fix-native-build.txt",
+      "sha256": "8777d3207ff7a2c0f49277d46f3eac5003ff43080c6478d3c915d4ee62b2438b"
+    },
+    {
+      "path": "store/rebuild-test-results/summary.json",
+      "sha256": "e98f56464f3070ca12539025cd7240be7f4dc1f6624696ab2477ac37d21e19f3"
+    },
+    {
+      "path": "store/reviewer-account-status.json",
+      "sha256": "b4715e28c534a37d4636911b7b3cc878e7233948ed664ae1ed95af1f83e478c2"
+    },
+    {
+      "path": "store/screenshots/README.md",
+      "sha256": "c91f7b4d66b044cf5e539f12ce31a064781ca5593d4467c87e6586c4a1bb0a4b"
+    },
+    {
+      "path": "store/screenshots/app-store/ipad-2064x2752/01-today.png",
+      "sha256": "e31ba2f249d09302dd77df5802699dee348f9a6fe71ffb8832bb98aff2dbbd55"
+    },
+    {
+      "path": "store/screenshots/app-store/ipad-2064x2752/02-verse.png",
+      "sha256": "c9b2801a818a0a6154bed03347e414b456a2da988ba9588b7ff13a03a7f1c691"
+    },
+    {
+      "path": "store/screenshots/app-store/ipad-2064x2752/03-reason.png",
+      "sha256": "a1744d276e26f23137306cc07b0e0dd5900707ba7807ebd582f465a3796d0552"
+    },
+    {
+      "path": "store/screenshots/app-store/ipad-2064x2752/04-carry.png",
+      "sha256": "7780cc923466f6daf50a3565fae00f27b17a760661e922d3ba0a4fe7300c4665"
+    },
+    {
+      "path": "store/screenshots/app-store/ipad-2064x2752/05-journey.png",
+      "sha256": "ec8d755dae13919953c7afc1caf24e37b475dc484f137d2e72bb236fac81808e"
+    },
+    {
+      "path": "store/screenshots/app-store/iphone-1206x2622/01-today.png",
+      "sha256": "73a5f281b1f8ca9a7ce92305dd353fd9624512c103f8c9ed510f645f652531a0"
+    },
+    {
+      "path": "store/screenshots/app-store/iphone-1206x2622/02-verse.png",
+      "sha256": "1a44f5441bfbbac13fa728cb667deb15e9a1a4f098e0709844c6fc220d79231f"
+    },
+    {
+      "path": "store/screenshots/app-store/iphone-1206x2622/03-reason.png",
+      "sha256": "50eea2e712571eff0d0577bae2fdcadecb3415ccd0c97b4f9ec0c2dce3d29be7"
+    },
+    {
+      "path": "store/screenshots/app-store/iphone-1206x2622/04-carry.png",
+      "sha256": "b2d4ad003dada85523beb1f5ddf66f6855d130896d7059c7df34dbb4cbd8cfde"
+    },
+    {
+      "path": "store/screenshots/app-store/iphone-1206x2622/05-journey.png",
+      "sha256": "b62119747670123a20f45eeac0d473952af62585c786f14819532920fe43d9b6"
+    },
+    {
+      "path": "store/screenshots/manifest.json",
+      "sha256": "0d594e1f14c3815141e91ed5d2ebee00ede5d812297b3330772b1ce603309e59"
+    },
+    {
+      "path": "store/screenshots/overview.png",
+      "sha256": "744d1e31f7075ee1e10cef10eabef8acdc43669932f0fb51a37e7d41353a5e0c"
+    },
+    {
+      "path": "store/screenshots/raw/ipad-2064x2752/01-today.png",
+      "sha256": "fe60c3c83183dfed68d83487fda1323939c6db838fe1c88af4a44fe777f361c4"
+    },
+    {
+      "path": "store/screenshots/raw/ipad-2064x2752/02-verse.png",
+      "sha256": "c255cf667d569d2ecc1ea0f29152db68c41c0bc7824e10974549ea28f834ea5c"
+    },
+    {
+      "path": "store/screenshots/raw/ipad-2064x2752/03-reason.png",
+      "sha256": "e416ed7f1735349c614ec0ef46ac4cdcb3562cbc37704f9cc0b4bc477888d566"
+    },
+    {
+      "path": "store/screenshots/raw/ipad-2064x2752/04-carry.png",
+      "sha256": "a105831543918162af235007f8339b67c258284c3eb38b131de2790dfca3c1e7"
+    },
+    {
+      "path": "store/screenshots/raw/ipad-2064x2752/05-journey.png",
+      "sha256": "dbd07940d0d82ab78b9635cdcd11a175c7306caf683884d03f0611727462c587"
+    },
+    {
+      "path": "store/screenshots/raw/iphone-1206x2622/01-today.png",
+      "sha256": "ace425eb1e8f878edea6b7980e49e4647864d90c4c88696abf2db8a2e30fa5d0"
+    },
+    {
+      "path": "store/screenshots/raw/iphone-1206x2622/02-verse.png",
+      "sha256": "5ed13c155849e21fe55250ef8940e7a8f574446d273a8a8e26bc7e08943e6e07"
+    },
+    {
+      "path": "store/screenshots/raw/iphone-1206x2622/03-reason.png",
+      "sha256": "7da077c9bdab4e449c8480f48c9342ddd1053c049056d451906f685a74ff3d4d"
+    },
+    {
+      "path": "store/screenshots/raw/iphone-1206x2622/04-carry.png",
+      "sha256": "7e355efd8ee82f864cd8e4bab483f679b67fdb68491ccab7b9e75a14adce6eaf"
+    },
+    {
+      "path": "store/screenshots/raw/iphone-1206x2622/05-journey.png",
+      "sha256": "aa4f1864eaa920a9ec48257ad7c08fd768da672204e2f561155c7725d8ae4a14"
+    },
+    {
+      "path": "test/activity_sync_test.dart",
+      "sha256": "5357242c9e14a0453988280cc0dcd8de56ca01817089d420c00d2d7f3c84d2e0"
+    },
+    {
+      "path": "test/content_test.dart",
+      "sha256": "49e488b8d165f81df282f9b700ba8984dba6a85f157206afc144f063575bd39c"
+    },
+    {
+      "path": "test/durable_store_test.dart",
+      "sha256": "b647e7c3aa30b64e3b1996e12b68968d07099721f7881ad7d5811c315ac8df87"
+    },
+    {
+      "path": "test/fixtures/scripture.json",
+      "sha256": "d357007d9d06b6a22bc6e9a1cee5340f0945862eb64b43778ac6556c297722da"
+    },
+    {
+      "path": "test/learning_sync_test.dart",
+      "sha256": "58ebfb78455194c166ab4c76ae14267303212930ecba055ee949bf4db2def08a"
+    },
+    {
+      "path": "test/local_store_test.dart",
+      "sha256": "deb61af271b0bf171380f445dcd6df0b64dc1061dc93a6af694d5cbd4c0ca896"
+    },
+    {
+      "path": "test/native/sqlite_configuration_test.m",
+      "sha256": "d8e76faf895d284aa65417f78f0ec732937f9427b66abc344b04e71c0fcd32d0"
+    },
+    {
+      "path": "test/onboarding_migration_test.dart",
+      "sha256": "85222f7c40830411cb340f4d812d882301f3070436c7ac128b792a2aee4fad6c"
+    },
+    {
+      "path": "test/profile_persistence_test.dart",
+      "sha256": "8109e989bfa9ee5fdf19042e3dfd18ec48d7d29a33aa90d39918a52466b6f79d"
+    },
+    {
+      "path": "test/progress_paywall_test.dart",
+      "sha256": "09f9eadc30761096fb80d9f8b9ddfa05271e13a7d59e7bb7f6e85a4e2a12c534"
+    },
+    {
+      "path": "test/reminder_service_test.dart",
+      "sha256": "76bbb1579041212b78352fb36ad105913d273b58ce52270849dc11a4fa096736"
+    },
+    {
+      "path": "test/screens_test.dart",
+      "sha256": "8425bd4ee4f8e444867998a7f91b4577ab2dc3e13686c9d75b9c337400341a04"
+    },
+    {
+      "path": "test/session_isolation_test.dart",
+      "sha256": "29ef4ec5344eba97cfa1c083a84cb2444f13b081187025107b8958502a2ea4a7"
+    },
+    {
+      "path": "test/streak_test.dart",
+      "sha256": "3e1581f4b109c96e9267b38c07a7aea93234518e7d487f56732ed4d9daea3f94"
+    },
+    {
+      "path": "test/support.dart",
+      "sha256": "c8962350e1697a54ad6bfe47417e101f306a29b0b00bdcb8ebb075fd6bb63dd1"
+    },
+    {
+      "path": "tool/apple_release_setup.rb",
+      "sha256": "89d1531ca9db16a0de76f778091f784e8564a70f684504492b618115006e20b2"
+    },
+    {
+      "path": "tool/apple_release_setup.sh",
+      "sha256": "125448df915e78410441b05376dba2c72fe318d78a34b7673b37ede93c455c6a"
+    },
+    {
+      "path": "tool/build_legal.py",
+      "sha256": "9b456efc1dec6959154e61041f3a2b3c8f839fca3592d0ba5f2f751c6de8eaf8"
+    },
+    {
+      "path": "tool/build_lessons.py",
+      "sha256": "097fa83c86775e1593ea133b103cc6c1e531761737021684d8b96ab3fd78a984"
+    },
+    {
+      "path": "tool/build_teaching.py",
+      "sha256": "bd9b90f846d76c3a22121a70e903abe6e7a1cf4862b9839b7a3170293887480e"
+    },
+    {
+      "path": "tool/check_cloud.py",
+      "sha256": "7a4e2250c8ce4a8f1e9680b660bfc9ca03f7050155387fc8738dcee70749523d"
+    },
+    {
+      "path": "tool/configure_firebase.py",
+      "sha256": "0801190c63a2b4b536670472f6afcd6b8cc1c1a9f2be6bbf20a26d82b4de7e6f"
+    },
+    {
+      "path": "tool/connect_apple.sh",
+      "sha256": "3720c685c9b31cd4553f8fe39e6fd03c242218aa7aea1e0be4841a6ee51e48b5"
+    },
+    {
+      "path": "tool/connect_apple_signin.py",
+      "sha256": "c7eb6145a49909548a27ca2fcdd2f0b7b0f7d27c8e9e6d7ba6632432067b7672"
+    },
+    {
+      "path": "tool/connect_revenuecat_backend.py",
+      "sha256": "4d9b2a170476a8bd5527c90ea181328ec9bcdc5dd175d0b9b728e3755748042a"
+    },
+    {
+      "path": "tool/firebase_deploy.py",
+      "sha256": "9e277c47f3cc1dd22f002ff4511972f4713961760066aede01100a38a0644740"
+    },
+    {
+      "path": "tool/generate_icons.py",
+      "sha256": "12248b7f88c6ede7164dbb1cba7c2bfa563312477aa4d39c1f8717fc43b8d89c"
+    },
+    {
+      "path": "tool/prepare_review_accounts.py",
+      "sha256": "9ff5baca0af94f5e8303c34825d6d8fcf100cf188d1ce933ad403d0d6643d89b"
+    },
+    {
+      "path": "tool/refresh_firebase_config.py",
+      "sha256": "f28267a6505945953cfa5518707edbb2e795c33dec1004a3a7a5594f38aece42"
+    },
+    {
+      "path": "tool/scripture/book_names.xml",
+      "sha256": "87cd62b0430f3f78baab3cf3364a920cf3efc81e009fed086bfdfea70eac0a0f"
+    },
+    {
+      "path": "tool/scripture/extract.py",
+      "sha256": "0c4bfca908541f24eee2d2c730366daa6aa10a1bf4a24473c13f3637f9dbe210"
+    },
+    {
+      "path": "tool/scripture/provenance.json",
+      "sha256": "fd17d2504a63b0e79850b793bf0347ea96eafbfae3f3a7a7584189c94ab63e71"
+    },
+    {
+      "path": "tool/scripture/verses.json",
+      "sha256": "3551de063a9f82b897f5395b5803448a10a78e245b09ac10fd1acdc8456ba552"
+    },
+    {
+      "path": "tool/scripture/web.xml",
+      "sha256": "cb74e63fb01d7ef88ea75477231318d3a2aaa9f4c9c57ed53be3edc937e578fe"
+    },
+    {
+      "path": "tool/scripture/web.zip",
+      "sha256": "6b95cc0f7207fe2a1805370d4db6121bbcdf809ec8609a8a3d91f063214a911b"
+    },
+    {
+      "path": "tool/verify_acceptance.py",
+      "sha256": "a578fc6012741fb39a0d1f68d6dcd0d26a1708ae9b276f17cdea8722aa0acf2a"
+    },
+    {
+      "path": "tool/verify_archive.py",
+      "sha256": "90182deb0b20b9c38a0f4fc95c65aaf0d6f1a1623c7a6323135c14f9a682cb85"
+    },
+    {
+      "path": "tool/verify_checkpoint.py",
+      "sha256": "417f00a38fe183a924b8d5475e38e83041a3e9d638a0bd8856269401502e05d8"
+    },
+    {
+      "path": "tool/verify_distribution.py",
+      "sha256": "b21fbcc1f724e42d2d91a3c8cca42862f6e01c0beab546788cbb70cedf102f3a"
+    },
+    {
+      "path": "tool/verify_free_flow_live.py",
+      "sha256": "d1d4b8302df1c3e07548585657986a879e5928a2ff2e3b94695140500ab6b908"
+    },
+    {
+      "path": "tool/verify_native_storage.py",
+      "sha256": "bad1f90dcd2097344337654bcb94d037c76aed62383f7429744db3326fa16fbd"
+    },
+    {
+      "path": "tool/verify_scripture.py",
+      "sha256": "2cea61cd7fb7bdea75c3bf0c9a765802ade9e6d128ff087aee2dd48e4504fea5"
+    },
+    {
+      "path": "tool/verify_teaching.py",
+      "sha256": "3b42a86ef09b859928334ad16fe0d68824a3ae30b91ee1ffb589c72bb17ed04c"
+    }
+  ],
+  "lastMetadataUpdate": "2026-10-31T21:15:42.847429-04:00"
+}

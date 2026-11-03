@@ -1,0 +1,10 @@
+Computing fixes in HolyHer...
+Applying fixes...
+
+lib/dev/preview_automation.dart
+  curly_braces_in_flow_control_structures - 1 fix
+
+lib/dev/preview_fixtures.dart
+  curly_braces_in_flow_control_structures - 1 fix
+
+2 fixes made in 2 files.

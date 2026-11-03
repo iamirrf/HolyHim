@@ -1,0 +1,14 @@
+{
+  "mode": "release (AOT), existing development signing",
+  "bundleId": "com.holyher.app",
+  "version": "1.1.0",
+  "build": "2",
+  "signatureVerified": true,
+  "team": [
+    "DU9D6TAM58"
+  ],
+  "iPhoneIncludedInProfile": true,
+  "debuggerRequired": false,
+  "appPath": "/Users/amir/Downloads/HolyHer/build/ios/development/Runner-build-2.app",
+  "getTaskAllow": true
+}

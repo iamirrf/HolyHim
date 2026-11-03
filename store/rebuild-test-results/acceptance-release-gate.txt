@@ -1,0 +1,7 @@
+305 requirements, 16 gates, 15 shared states: structure verified.
+{'locally verified': 12, 'unimplemented': 293}
+Traceback (most recent call last):
+  File "/Users/amir/Downloads/HolyHer/tool/verify_acceptance.py", line 46, in <module>
+    assert not outstanding and not gates, f'Release blocked: {len(outstanding)} requirements and {len(gates)} gates not accepted.'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Release blocked: 305 requirements and 16 gates not accepted.

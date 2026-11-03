@@ -1,0 +1,40 @@
+{
+  "route": "welcome:0",
+  "logicalWidth": 430.0,
+  "logicalHeight": 932.0,
+  "pixelWidth": 1290.0,
+  "pixelHeight": 2796.0,
+  "devicePixelRatio": 3.0,
+  "textScale": 1.0,
+  "reduceMotion": true,
+  "build": "1.1.0 (3) local redesign preview",
+  "orientation": "portrait",
+  "viewport": "full native window",
+  "font": {
+    "appBuild": "3",
+    "design": "UIKit.SystemDesign.rounded",
+    "family": ".AppleSystemUIFontRounded",
+    "regularVariations": {},
+    "semiboldVariations": {
+      "wght": 590.8
+    },
+    "appVersion": "1.1.0",
+    "semiboldWidth": 342.24589705467224,
+    "semiboldName": ".AppleSystemUIFontRounded-Semibold",
+    "regularName": ".AppleSystemUIFontRounded-Regular",
+    "regularWidth": 327.099609375,
+    "regularWidthZeroTracking": 328.388671875,
+    "semiboldWidthZeroTracking": 343.6032783985138,
+    "regularFlutterWidth": 327.099609375,
+    "regularWidthDelta": 0.0,
+    "semiboldFlutterWidth": 342.24591064453125,
+    "semiboldWidthDelta": 1.3589859008789062e-05
+  },
+  "entrypoint": "tool/preview_main.dart",
+  "fixture": "lib/dev/preview_fixtures.dart",
+  "events": [],
+  "artifactSha256": "f416098d6657f2d616c9278b3b8df9872c10014585316bb807479e0282332a11",
+  "simulator": "922B4F9F-9F94-4429-8404-8F8DC6B19AD1",
+  "capture": "simctl native iOS screenshot",
+  "errors": ""
+}

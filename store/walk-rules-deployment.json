@@ -1,0 +1,14 @@
+{
+  "project": "holyher-app-production",
+  "ruleset": "projects/holyher-app-production/rulesets/731e53e7-b766-4aa9-a313-ae87ea2ecedf",
+  "sha256": "6875b7034847b1bd890eac08826b6d6a2a722f78a02f14ff2dafeca0bf5d3aaa",
+  "compiled": true,
+  "deployed": true,
+  "readBackMatches": true,
+  "release": {
+    "name": "projects/holyher-app-production/releases/cloud.firestore",
+    "rulesetName": "projects/holyher-app-production/rulesets/731e53e7-b766-4aa9-a313-ae87ea2ecedf",
+    "createTime": "2026-10-31T02:03:29.242300Z",
+    "updateTime": "2026-11-02T20:13:52.668043Z"
+  }
+}

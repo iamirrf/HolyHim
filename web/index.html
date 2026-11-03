@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en"><head>
+  <base href="$FLUTTER_BASE_HREF">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#fffaf7">
+  <meta name="description" content="Your free 365-day Scripture journey. Five quiet cards. One step closer to God.">
+  <link rel="icon" href="/app-icon.png"><title>HolyHer — Walk with God</title>
+  <style>html,body{margin:0;background:#fffaf7;color:#382735;height:100%;font-family:system-ui,sans-serif}#launch{height:100%;display:grid;place-content:center;text-align:center;background:radial-gradient(ellipse at 80% 80%,#f5e4e7,transparent 65%)}#launch img{width:72px;margin:0 auto 24px;border-radius:20px}#launch p{font-size:15px;line-height:1.7}#launch button{padding:14px 28px;background:#98516a;border:0;border-radius:30px;color:white;cursor:pointer}#error{display:none}</style>
+</head><body>
+  <div id="launch" role="status" aria-live="polite"><img src="/app-icon.png" alt="HolyHer pink cross"><p id="loading">Preparing your quiet place…</p><div id="error"><p>We couldn’t finish loading HolyHer.</p><button onclick="location.reload()">Retry</button><p><a href="/support">Get help</a></p></div></div>
+  <script src="storage.js"></script>
+  <script>window.addEventListener('flutter-first-frame',()=>document.querySelector('#launch')?.remove());function showLoadError(){const error=document.querySelector('#error'),loading=document.querySelector('#loading');if(error)error.style.display='block';if(loading)loading.style.display='none';}window.addEventListener('error',showLoadError);window.addEventListener('unhandledrejection',showLoadError);setTimeout(()=>{if(document.querySelector('#launch'))showLoadError();},30000);if('serviceWorker' in navigator)navigator.serviceWorker.register('/app/holyher-sw.js',{scope:'/app/'}).then(registration=>{function offer(worker){const button=document.createElement('button');button.textContent='A new version of HolyHer is ready. Reload';button.style.cssText='position:fixed;bottom:20px;left:20px;right:20px;z-index:99999;padding:18px;background:#98516a;color:white;border:1px solid white;border-radius:20px;font:16px system-ui';button.onclick=()=>{navigator.serviceWorker.addEventListener('controllerchange',()=>location.reload(),{once:true});worker.postMessage('HOLYHER_UPDATE');};document.body.append(button);}if(registration.waiting)offer(registration.waiting);registration.addEventListener('updatefound',()=>{const worker=registration.installing;worker.addEventListener('statechange',()=>{if(worker.state==='installed'&&navigator.serviceWorker.controller)offer(worker);});});});</script>
+  <script type="module" src="firebase-loader.js"></script>
+</body></html>

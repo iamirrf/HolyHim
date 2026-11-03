@@ -1,0 +1,132 @@
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/UIKit-67MVWRSVYW419ED4KNAUONOCJ.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/UIKit-67MVWRSVYW419ED4KNAUONOCJ.pcm
+note: The clang module cache may have expired since this object file was built. Rebuilding the object file will rebuild the module cache.
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/Foundation-F5AYPBY3S1QYJSDPAFD17B08X.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/Foundation-F5AYPBY3S1QYJSDPAFD17B08X.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/ObjectiveC-345O0ZSBI0K0HY10WPLT17I5R.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/ObjectiveC-345O0ZSBI0K0HY10WPLT17I5R.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/_DarwinFoundation1-9WM6HIFXDFRA9Q549E316ZVHM.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/_DarwinFoundation1-9WM6HIFXDFRA9Q549E316ZVHM.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/Flutter-AKGLYB183QF9ZVRC2COHQ6E4C.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/Flutter-AKGLYB183QF9ZVRC2COHQ6E4C.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/Darwin-3JN15SKXU773U1AO4FXLX0XSV.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/Darwin-3JN15SKXU773U1AO4FXLX0XSV.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/_DarwinFoundation2-551YHD8R6SSKHOLEZ1XRUD4W6.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/_DarwinFoundation2-551YHD8R6SSKHOLEZ1XRUD4W6.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/Dispatch-4YX1ZZIGYJ5ORI7QQELJJGE5P.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/Dispatch-4YX1ZZIGYJ5ORI7QQELJJGE5P.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/FirebaseFirestore-3FSNEXJIC9MH8CNUCVE263HCC.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/FirebaseFirestore-3FSNEXJIC9MH8CNUCVE263HCC.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/FirebaseFirestoreInternal-DA82YWEVOEWEJMOTZEB74GF0K.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/FirebaseFirestoreInternal-DA82YWEVOEWEJMOTZEB74GF0K.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/firebase_core-80G1DZR6L7XUIZ0K6UEUQL0UE.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/firebase_core-80G1DZR6L7XUIZ0K6UEUQL0UE.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/FirebaseCore-62WK7QV0SS0G0MZ8S47WKAQ7X.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/FirebaseCore-62WK7QV0SS0G0MZ8S47WKAQ7X.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/UIKit-458FVYOYO4K7L6AAPK12B3NVU.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/UIKit-458FVYOYO4K7L6AAPK12B3NVU.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/Foundation-E2Q5WB4L96RYVNF7NZFMYVXV0.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/Foundation-E2Q5WB4L96RYVNF7NZFMYVXV0.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/ObjectiveC-C51PK7N3U7MUR5K4I9OH33GXE.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/ObjectiveC-C51PK7N3U7MUR5K4I9OH33GXE.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Foundation-HIQEBZZ4PLNWZFKWK8ZCQYNX.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Foundation-HIQEBZZ4PLNWZFKWK8ZCQYNX.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules/Flutter-8G6S81CCYFG9EEZ2RJ24DWIKT.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules/Flutter-8G6S81CCYFG9EEZ2RJ24DWIKT.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules/cloud_functions-86PQYSO46INH02I5A7U616R7U.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules/cloud_functions-86PQYSO46INH02I5A7U616R7U.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_SwiftConcurrencyShims-2Q516X9Q2OU5TM8HZ6EWD2985.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_SwiftConcurrencyShims-2Q516X9Q2OU5TM8HZ6EWD2985.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules/FirebaseFunctions-8SPLU0AALK20RFDI5TO1IARX3.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules/FirebaseFunctions-8SPLU0AALK20RFDI5TO1IARX3.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules/firebase_core-EBYQ4DXFOO3II17FORGBCNO37.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules/firebase_core-EBYQ4DXFOO3II17FORGBCNO37.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/SwiftShims-9HO3QKG0ZKB110YGFL3G2261A.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/SwiftShims-9HO3QKG0ZKB110YGFL3G2261A.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules/FirebaseCore-7VIJWFU9DUY0S3P3922LEVVYL.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules/FirebaseCore-7VIJWFU9DUY0S3P3922LEVVYL.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/UIKit-10M64BZ4Y9HTNQQMIUMVMZ2PQ.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/UIKit-10M64BZ4Y9HTNQQMIUMVMZ2PQ.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/Foundation-5I04A9DO0U7R46HCMD4N0RBQV.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/Foundation-5I04A9DO0U7R46HCMD4N0RBQV.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/ObjectiveC-5UFB5FRHU6XXKGOZXYB830G4C.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/ObjectiveC-5UFB5FRHU6XXKGOZXYB830G4C.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules/Flutter-ALNJJHNKHJLRYVW7K289XBMCG.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules/Flutter-ALNJJHNKHJLRYVW7K289XBMCG.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Foundation-C3T9ARFNE2409T0LRZHME3C0K.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Foundation-C3T9ARFNE2409T0LRZHME3C0K.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/UIKit-11JSR9JBI7S56BQBE9XIYJ947.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/UIKit-11JSR9JBI7S56BQBE9XIYJ947.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/AuthenticationServices-DKLY1L8ESBOVINT8DTKSVGB2.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/AuthenticationServices-DKLY1L8ESBOVINT8DTKSVGB2.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules/firebase_auth-DMQS20C81RZSSAVPTJI6INKN7.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules/firebase_auth-DMQS20C81RZSSAVPTJI6INKN7.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_SwiftConcurrencyShims-CMO15S6Y4AW01ULZHKQ5TSBUO.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_SwiftConcurrencyShims-CMO15S6Y4AW01ULZHKQ5TSBUO.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules/FirebaseAuth-8BPU5F9PGLFV0PVTZY5BLP604.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules/FirebaseAuth-8BPU5F9PGLFV0PVTZY5BLP604.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/CommonCrypto-7B6IEZFWV5H2W6Y7B6PFSBBON.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/CommonCrypto-7B6IEZFWV5H2W6Y7B6PFSBBON.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules/FirebaseCore-5OO1GZ6PIWVUXSF2JXVL61QKU.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules/FirebaseCore-5OO1GZ6PIWVUXSF2JXVL61QKU.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Security-F7YXFCGI7NVYQFLWWOOZ5X5X.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Security-F7YXFCGI7NVYQFLWWOOZ5X5X.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules/firebase_core-3ZT7S7DCUV4WQ0PXR9ZM899FJ.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules/firebase_core-3ZT7S7DCUV4WQ0PXR9ZM899FJ.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/ObjectiveC-DJ1UYNLY81I0595HA3NKTJUVD.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/ObjectiveC-DJ1UYNLY81I0595HA3NKTJUVD.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/SwiftShims-CSJZ30H1HDBKW6P00BAHX4NK4.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/SwiftShims-CSJZ30H1HDBKW6P00BAHX4NK4.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/UIKit-8HTG89APWUMVEYHUZGAHXA994.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/UIKit-8HTG89APWUMVEYHUZGAHXA994.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/Foundation-AQWHWJLQK9YJYXINNPFJ88OXV.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/Foundation-AQWHWJLQK9YJYXINNPFJ88OXV.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/ObjectiveC-ETRMJZXE7ZKJPF2DPZ97X6NHR.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/ObjectiveC-ETRMJZXE7ZKJPF2DPZ97X6NHR.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/FirebaseCore-4FKHLFLH9E1X3ML8BIP27J7XH.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/FirebaseCore-4FKHLFLH9E1X3ML8BIP27J7XH.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/_DarwinFoundation1-C8GYKTE2KS9PRL0J4PC7RX6D3.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/_DarwinFoundation1-C8GYKTE2KS9PRL0J4PC7RX6D3.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/Flutter-1S7OKK1RWDFSQF3GX3VBDE22Z.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/Flutter-1S7OKK1RWDFSQF3GX3VBDE22Z.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/_DarwinFoundation2-2EOWHEOODHRZ8ENY5SR089A5Y.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/_DarwinFoundation2-2EOWHEOODHRZ8ENY5SR089A5Y.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/Dispatch-A4Y2HIE0CFEQ9AYEKCC8BOQ53.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/Dispatch-A4Y2HIE0CFEQ9AYEKCC8BOQ53.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/FirebaseCoreExtension-DUFEPWVGIJ0DY9M6GGOFISG09.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/FirebaseCoreExtension-DUFEPWVGIJ0DY9M6GGOFISG09.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Foundation-E7D1EKSG18XPD5T1KM7WS4SVL.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Foundation-E7D1EKSG18XPD5T1KM7WS4SVL.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules/Flutter-DBPYARI3C9G0L6S2ILGM24VNM.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules/Flutter-DBPYARI3C9G0L6S2ILGM24VNM.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules/FirebaseCore-4J9D0S86LDZBA4EHI1NPI8JW1.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules/FirebaseCore-4J9D0S86LDZBA4EHI1NPI8JW1.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules/firebase_core-99BCH52CQF7D1QAAIVAQL8WK6.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules/firebase_core-99BCH52CQF7D1QAAIVAQL8WK6.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_SwiftConcurrencyShims-3YR4WMV0ZS389EAODWJKPNJFR.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_SwiftConcurrencyShims-3YR4WMV0ZS389EAODWJKPNJFR.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/SwiftShims-19Y259GL3TKI6QSK0H356YYR5.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/SwiftShims-19Y259GL3TKI6QSK0H356YYR5.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/UIKit-4MLASYBMHW0JSJTOPR4DSH8N.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/UIKit-4MLASYBMHW0JSJTOPR4DSH8N.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/Foundation-CLKXLAQNEAR5ZBTFJHZKX0LUL.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/Foundation-CLKXLAQNEAR5ZBTFJHZKX0LUL.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/ObjectiveC-CBBMZJ2XPHSDU0M34AHHDENXW.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/ObjectiveC-CBBMZJ2XPHSDU0M34AHHDENXW.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/UIKit-6DSUCMB4NF315YMS9X2Y3TTXC.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/UIKit-6DSUCMB4NF315YMS9X2Y3TTXC.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Darwin-FQNEKP94A81PWCF6EKBIUYLR.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Darwin-FQNEKP94A81PWCF6EKBIUYLR.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules/GoogleSignIn-4FZEJYXV12TMFP08QK6PNMB4.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules/GoogleSignIn-4FZEJYXV12TMFP08QK6PNMB4.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/ObjectiveC-710G3R9EEG3RHKJQILIUGAAZC.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/ObjectiveC-710G3R9EEG3RHKJQILIUGAAZC.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules/google_sign_in_ios-1WXO9FCFC5KVL06TP069S5HK5.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules/google_sign_in_ios-1WXO9FCFC5KVL06TP069S5HK5.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/Foundation-D2OI7UL6HOBJC4R39C177S6UZ.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/Foundation-D2OI7UL6HOBJC4R39C177S6UZ.pcm
+warning: /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/ObjectiveC-EFUJBPIRUK9NI2YF5F4JAXPKB.pcm: No such file or directory
+note: while processing /Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/ExplicitPrecompiledModules/ObjectiveC-EFUJBPIRUK9NI2YF5F4JAXPKB.pcm
+note: Using codesigning identity override: Apple Development
+note: Run script build phase 'Run Script' will be run during every build because the option to run the script phase "Based on dependency analysis" is unchecked. (in target 'Runner' from project 'Runner')
+note: Run script build phase 'Thin Binary' will be run during every build because the option to run the script phase "Based on dependency analysis" is unchecked. (in target 'Runner' from project 'Runner')

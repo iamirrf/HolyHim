@@ -1,0 +1,157 @@
+00:00 +0: loading /Users/amir/Downloads/HolyHer/test/screens_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: free shell exposes Learn, Saved and Profile with roadmap search
+00:04 +1: future lesson opens a calendar explanation without a payment action
+00:07 +2: guided lesson locks questions, explains mistakes and saves only on closing
+00:10 +3: local save failure keeps completion recoverable
+00:10 +4: twelve onboarding stages preserve choices, summary edits, and the actual Day 1
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: null
+  Actual: FlutterError:<A RenderFlex overflowed by 51 pixels on the right.>
+
+When the exception was thrown, this was the stack:
+#4      main.tap (file:///Users/amir/Downloads/HolyHer/test/screens_test.dart:149:5)
+<asynchronous suspension>
+#5      main.<anonymous closure> (file:///Users/amir/Downloads/HolyHer/test/screens_test.dart:257:44)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/amir/Downloads/HolyHer/test/screens_test.dart line 149
+The test description was:
+  twelve onboarding stages preserve choices, summary edits, and the actual Day 1
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:12 +4 -1: twelve onboarding stages preserve choices, summary edits, and the actual Day 1 [E]
+  Test failed. See exception logs above.
+  The test description was: twelve onboarding stages preserve choices, summary edits, and the actual Day 1
+  
+00:12 +4 -1: support form validates before sending
+00:12 +5 -1: email authentication retains validation
+00:12 +6 -1: phone-3x keeps learning, settings and support scrollable
+══╡ EXCEPTION CAUGHT BY RENDERING LIBRARY ╞═════════════════════════════════════════════════════════
+The following assertion was thrown during layout:
+A RenderFlex overflowed by 46 pixels on the bottom.
+
+The relevant error-causing widget was:
+  Column Column:file:///Users/amir/Downloads/HolyHer/lib/features/home/home_shell.dart:60:252
+
+The overflowing RenderFlex has an orientation of Axis.vertical.
+The edge of the RenderFlex that is overflowing has been marked in the rendering with a yellow and
+black striped pattern. This is usually caused by the contents being too big for the RenderFlex.
+Consider applying a flex factor (e.g. using an Expanded widget) to force the children of the
+RenderFlex to fit within the available space instead of being sized to their natural size.
+This is considered an error condition because it indicates that there is content that cannot be
+seen. If the content is legitimately bigger than the available space, consider clipping it with a
+ClipRect widget before putting it in the flex, or using a scrollable container rather than a Flex,
+like a ListView.
+The specific RenderFlex in question is: RenderFlex#de415 relayoutBoundary=up23 OVERFLOWING:
+  creator: Column ← ConstrainedBox ← Listener ← RawGestureDetector ← GestureDetector ← Semantics ←
+    DefaultSelectionStyle ← Builder ← MouseRegion ← Semantics ← _FocusInheritedScope ← Focus ← ⋯
+  parentData: <none> (can use size)
+  constraints: BoxConstraints(w=95.0, 44.0<=h<=127.1)
+  size: Size(95.0, 127.1)
+  direction: vertical
+  mainAxisAlignment: center
+  mainAxisSize: max
+  crossAxisAlignment: center
+  verticalDirection: down
+  spacing: 0.0
+◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY RENDERING LIBRARY ╞═════════════════════════════════════════════════════════
+The following assertion was thrown during layout:
+A RenderFlex overflowed by 46 pixels on the bottom.
+
+The relevant error-causing widget was:
+  Column Column:file:///Users/amir/Downloads/HolyHer/lib/features/home/home_shell.dart:60:252
+
+The overflowing RenderFlex has an orientation of Axis.vertical.
+The edge of the RenderFlex that is overflowing has been marked in the rendering with a yellow and
+black striped pattern. This is usually caused by the contents being too big for the RenderFlex.
+Consider applying a flex factor (e.g. using an Expanded widget) to force the children of the
+RenderFlex to fit within the available space instead of being sized to their natural size.
+This is considered an error condition because it indicates that there is content that cannot be
+seen. If the content is legitimately bigger than the available space, consider clipping it with a
+ClipRect widget before putting it in the flex, or using a scrollable container rather than a Flex,
+like a ListView.
+The specific RenderFlex in question is: RenderFlex#058a3 relayoutBoundary=up23 OVERFLOWING:
+  creator: Column ← ConstrainedBox ← Listener ← RawGestureDetector ← GestureDetector ← Semantics ←
+    DefaultSelectionStyle ← Builder ← MouseRegion ← Semantics ← _FocusInheritedScope ← Focus ← ⋯
+  parentData: <none> (can use size)
+  constraints: BoxConstraints(w=95.0, 44.0<=h<=127.1)
+  size: Size(95.0, 127.1)
+  direction: vertical
+  mainAxisAlignment: center
+  mainAxisSize: max
+  crossAxisAlignment: center
+  verticalDirection: down
+  spacing: 0.0
+◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY RENDERING LIBRARY ╞═════════════════════════════════════════════════════════
+The following assertion was thrown during layout:
+A RenderFlex overflowed by 94 pixels on the bottom.
+
+The relevant error-causing widget was:
+  Column Column:file:///Users/amir/Downloads/HolyHer/lib/features/home/home_shell.dart:60:252
+
+The overflowing RenderFlex has an orientation of Axis.vertical.
+The edge of the RenderFlex that is overflowing has been marked in the rendering with a yellow and
+black striped pattern. This is usually caused by the contents being too big for the RenderFlex.
+Consider applying a flex factor (e.g. using an Expanded widget) to force the children of the
+RenderFlex to fit within the available space instead of being sized to their natural size.
+This is considered an error condition because it indicates that there is content that cannot be
+seen. If the content is legitimately bigger than the available space, consider clipping it with a
+ClipRect widget before putting it in the flex, or using a scrollable container rather than a Flex,
+like a ListView.
+The specific RenderFlex in question is: RenderFlex#73b7c relayoutBoundary=up23 OVERFLOWING:
+  creator: Column ← ConstrainedBox ← Listener ← RawGestureDetector ← GestureDetector ← Semantics ←
+    DefaultSelectionStyle ← Builder ← MouseRegion ← Semantics ← _FocusInheritedScope ← Focus ← ⋯
+  parentData: <none> (can use size)
+  constraints: BoxConstraints(w=95.0, 44.0<=h<=127.1)
+  size: Size(95.0, 127.1)
+  direction: vertical
+  mainAxisAlignment: center
+  mainAxisSize: max
+  crossAxisAlignment: center
+  verticalDirection: down
+  spacing: 0.0
+◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: null
+  Actual: 'Multiple exceptions (3) were detected during the running of the current test, and at
+least one was unexpected.'
+
+When the exception was thrown, this was the stack:
+#4      main.start (file:///Users/amir/Downloads/HolyHer/test/screens_test.dart:134:5)
+<asynchronous suspension>
+#5      main.<anonymous closure> (file:///Users/amir/Downloads/HolyHer/test/screens_test.dart:297:9)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/amir/Downloads/HolyHer/test/screens_test.dart line 134
+The test description was:
+  phone-3x keeps learning, settings and support scrollable
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:13 +6 -2: phone-3x keeps learning, settings and support scrollable [E]
+  Test failed. See exception logs above.
+  The test description was: phone-3x keeps learning, settings and support scrollable
+  
+00:13 +6 -2: ipad-landscape keeps learning, settings and support scrollable
+00:14 +7 -2: split-view keeps learning, settings and support scrollable
+00:14 +8 -2: (tearDownAll)
+00:15 +8 -2: Some tests failed.

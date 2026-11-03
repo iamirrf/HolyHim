@@ -1,0 +1,27 @@
+{
+  "version": "13.1.0",
+  "license": "Apache-2.0; upstream notices retained",
+  "transformation": "Same-version absolute module imports changed to relative paths; source map comment removed.",
+  "files": {
+    "firebase-app.js": {
+      "source": "https://www.gstatic.com/firebasejs/13.1.0/firebase-app.js",
+      "sourceSha256": "5f9f6e699f201010941ff6e116b7dbfc5794ab7b4524875d1a734acdd2994d06",
+      "localSha256": "855a0bb7be31c2ec197c04463785aa6ce074325e7a15a20b21298312cbf74f74"
+    },
+    "firebase-auth.js": {
+      "source": "https://www.gstatic.com/firebasejs/13.1.0/firebase-auth.js",
+      "sourceSha256": "72decbdf62edb7d86249db701206bf08a6ef694ac1a96105b9aac7c3cecb0d0d",
+      "localSha256": "314b13277da33219f3149b56b5ffc7ae7d034f2c7291edea321d081f42a8b99d"
+    },
+    "firebase-firestore-pipelines.js": {
+      "source": "https://www.gstatic.com/firebasejs/13.1.0/firebase-firestore-pipelines.js",
+      "sourceSha256": "3ad7d9215a41a2fdc58d4d9252f1446291064f1794f875ea2b0d54ccaa11cbc6",
+      "localSha256": "4ee7a50b99b4072ce0cb9c07d7b4ba3e81685f3283e51d704d207c280cb883bc"
+    },
+    "firebase-functions.js": {
+      "source": "https://www.gstatic.com/firebasejs/13.1.0/firebase-functions.js",
+      "sourceSha256": "354b93a3caa9fca27c8b67d53bc42edbbc4994f1cc3ea4555c632bdceca0f70b",
+      "localSha256": "3fdfb6118e753a197ff021fa762ea10284a1fbe3870a96c7d0aedbba1de6bcb4"
+    }
+  }
+}

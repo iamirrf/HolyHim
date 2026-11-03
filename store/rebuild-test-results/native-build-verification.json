@@ -1,0 +1,18 @@
+{
+  "bundleId": "com.holyher.app",
+  "version": "1.1.0",
+  "build": "2",
+  "signatureVerified": true,
+  "team": [
+    "DU9D6TAM58"
+  ],
+  "developmentDebugging": true,
+  "iPhoneIncludedInProfile": true,
+  "provisioningExpiration": "2027-10-29T20:40:34",
+  "appPath": "/Users/amir/Downloads/HolyHer/build/ios/development/Runner-debug.app",
+  "installationVerified": true,
+  "launchVerified": false,
+  "launchStatus": "Phone remained unlocked. Direct suspended launch accepted, but LLDB attachment did not establish a running process or a first frame. Process later absent. Host nearly full; DevToolsSecurity reports disabled, causal relevance unconfirmed.",
+  "podSourceReferencesVerified": 2235,
+  "mode": "original verified debug build (preserved)"
+}

@@ -1,0 +1,23 @@
+{
+  "project": "holyher-app-production",
+  "emailEnabled": true,
+  "passwordRequired": true,
+  "providers": {
+    "apple.com": {
+      "enabled": true,
+      "clientIdPresent": true,
+      "appleTeamIdPresent": false,
+      "appleKeyIdPresent": false,
+      "applePrivateKeyPresent": false,
+      "nativeBundleAllowed": false
+    },
+    "google.com": {
+      "enabled": true,
+      "clientIdPresent": true,
+      "clientSecretPresent": true,
+      "appleTeamIdPresent": false,
+      "appleKeyIdPresent": false,
+      "applePrivateKeyPresent": false
+    }
+  }
+}

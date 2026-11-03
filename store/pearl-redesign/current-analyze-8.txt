@@ -1,0 +1,5 @@
+Analyzing lib, preview_main.dart...
+
+   info - lib/main.dart:27:71 - Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation. - prefer_const_constructors
+
+1 issue found.

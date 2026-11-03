@@ -1,0 +1,5 @@
+lib/dev/preview_fixtures.dart:433:48: Error: Not a constant expression.
+        const Text('A sample journey.', style: HolyTypography.heading),
+                                               ^^^^^^^^^^^^^^
+Target kernel_snapshot_program failed: Exception
+

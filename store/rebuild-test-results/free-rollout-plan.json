@@ -1,0 +1,42 @@
+{
+  "project": "holyher-app-production",
+  "sourceFiles": {
+    "functions/index.js": "9f1c9ae244e6045d891843d39d5d40633f31194bf1dbb53573912091366c29df",
+    "functions/domain.js": "900549fd5af7a487f4049d27810bc1fafdb31d06bc42b92f7bcc5f613978bce4",
+    "functions/teaching.json": "548985cf7a7ba93c7f09f39c923b4eb694c9ad6bd16096c3c7bbb1eba681472e",
+    "functions/package.json": "899aacb054163a0649733be54bf711b22892af7dd4cd68b0a5d6ad3d7c703922",
+    "functions/package-lock.json": "9bce7e47ec806767a323b9309404c3ac6d478e2a0a97c0243fe850d7ea3a62bf",
+    "firestore.rules": "5e6e399b0ef3dffa5ff371efeca026c625aea8a1c0df9df8c0dfd52056789291"
+  },
+  "archiveSha256": "630a12d523c2c8d7cbfa323473a0ff2f633baa9e1b985a7e104853dc21297e6f",
+  "functions": [
+    "getAccessStatus",
+    "getJourney",
+    "startJourney",
+    "completeLesson",
+    "completeLessonAttempt",
+    "saveLessonResume",
+    "setSavedLesson",
+    "resetLearningProgress",
+    "exportAccountData",
+    "markActive",
+    "deleteAccount",
+    "supportRequest",
+    "retryLegacyBillingCleanup"
+  ],
+  "preservedRemoteFunctions": [
+    "syncAccess",
+    "revenuecatWebhook"
+  ],
+  "preflight": {
+    "node22Tests": 29,
+    "firestoreEmulatorSuites": 4,
+    "inventory": {
+      "journeys": 0,
+      "legacyRecords": 0,
+      "grants": 0
+    },
+    "backfillCandidates": 0
+  },
+  "rollbackPolicy": "Keep retained grants and completed work. Never restore the old purchase-required enrollment handler. Repair/redeploy this snapshotted free-compatible revision; no grant or journey deletions."
+}

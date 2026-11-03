@@ -1,0 +1,6 @@
+Analyzing lib, preview_main.dart...
+
+   info - lib/features/landing/welcome_scenes.dart:45:11 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib/main.dart:27:71 - Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation. - prefer_const_constructors
+
+2 issues found.

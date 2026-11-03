@@ -1,0 +1,184 @@
+TAP version 13
+# Subtest: calendar unlocking accumulates missed dates and caps at 365
+ok 1 - calendar unlocking accumulates missed dates and caps at 365
+  ---
+  duration_ms: 2.096375
+  type: 'test'
+  ...
+# Subtest: DST and leap days use calendar dates rather than elapsed hours
+ok 2 - DST and leap days use calendar dates rather than elapsed hours
+  ---
+  duration_ms: 15.763333
+  type: 'test'
+  ...
+# Subtest: completion is idempotent and future days are rejected
+ok 3 - completion is idempotent and future days are rejected
+  ---
+  duration_ms: 0.677958
+  type: 'test'
+  ...
+# Subtest: V2 lifetime entitlement uses the internal ID and a null expiry
+ok 4 - V2 lifetime entitlement uses the internal ID and a null expiry
+  ---
+  duration_ms: 0.111667
+  type: 'test'
+  ...
+# Subtest: V2 refunds and revocations remove active access; repurchase restores it
+ok 5 - V2 refunds and revocations remove active access; repurchase restores it
+  ---
+  duration_ms: 0.085041
+  type: 'test'
+  ...
+# Subtest: finite V2 entitlements use millisecond expiry and reject malformed responses
+ok 6 - finite V2 entitlements use millisecond expiry and reject malformed responses
+  ---
+  duration_ms: 0.205167
+  type: 'test'
+  ...
+# Subtest: webhooks reconcile custom aliases and both sides of transfers
+ok 7 - webhooks reconcile custom aliases and both sides of transfers
+  ---
+  duration_ms: 0.107208
+  type: 'test'
+  ...
+# Subtest: invalid webhook identity types cannot inject document paths
+ok 8 - invalid webhook identity types cannot inject document paths
+  ---
+  duration_ms: 0.145125
+  type: 'test'
+  ...
+# Subtest: a slow pre-refund reconciliation cannot overwrite or return stale active access
+ok 9 - a slow pre-refund reconciliation cannot overwrite or return stale active access
+  ---
+  duration_ms: 12.585083
+  type: 'test'
+  ...
+# Subtest: deletion blocks in-flight and delayed webhook writes from recreating user data
+ok 10 - deletion blocks in-flight and delayed webhook writes from recreating user data
+  ---
+  duration_ms: 1.965709
+  type: 'test'
+  ...
+# Subtest: free journey creation does not depend on a purchase or provider availability
+ok 11 - free journey creation does not depend on a purchase or provider availability
+  ---
+  duration_ms: 3.90775
+  type: 'test'
+  ...
+# Subtest: V2 pagination reaches the target entitlement without leaking authorization
+ok 12 - V2 pagination reaches the target entitlement without leaking authorization
+  ---
+  duration_ms: 2.368167
+  type: 'test'
+  ...
+# Subtest: an unknown V2 customer is an explicit inactive result, not a new customer
+ok 13 - an unknown V2 customer is an explicit inactive result, not a new customer
+  ---
+  duration_ms: 0.957625
+  type: 'test'
+  ...
+# Subtest: base-only analysis exports all five independent endpoints without secret params
+ok 14 - base-only analysis exports all five independent endpoints without secret params
+  ---
+  duration_ms: 1.043041
+  type: 'test'
+  ...
+# Subtest: default deployment analysis retains billing exports and secret requirements
+ok 15 - default deployment analysis retains billing exports and secret requirements
+  ---
+  duration_ms: 0.510041
+  type: 'test'
+  ...
+# Subtest: activity merging retains offline dates only within the journey calendar
+ok 16 - activity merging retains offline dates only within the journey calendar
+  ---
+  duration_ms: 0.682
+  type: 'test'
+  ...
+# Subtest: concurrent activity uploads merge both devices idempotently
+ok 17 - concurrent activity uploads merge both devices idempotently
+  ---
+  duration_ms: 2.221833
+  type: 'test'
+  ...
+# Subtest: free enrollment is atomic, idempotent and distinct from purchase status
+ok 18 - free enrollment is atomic, idempotent and distinct from purchase status
+  ---
+  duration_ms: 1.941333
+  type: 'test'
+  ...
+# Subtest: existing journeys backfill a grant without moving dates or losing completions
+ok 19 - existing journeys backfill a grant without moving dates or losing completions
+  ---
+  duration_ms: 0.943417
+  type: 'test'
+  ...
+# Subtest: server grades canonical option IDs, accepts mistakes, and returns original duplicate result
+ok 20 - server grades canonical option IDs, accepts mistakes, and returns original duplicate result
+  ---
+  duration_ms: 4.056542
+  type: 'test'
+  ...
+# Subtest: both answers, a valid version, available day and valid option IDs are mandatory
+ok 21 - both answers, a valid version, available day and valid option IDs are mandatory
+  ---
+  duration_ms: 2.865166
+  type: 'test'
+  ...
+# Subtest: reset preserves access, calendar and saved items while rejecting old submissions and checkpoints
+ok 22 - reset preserves access, calendar and saved items while rejecting old submissions and checkpoints
+  ---
+  duration_ms: 3.001583
+  type: 'test'
+  ...
+# Subtest: a never-billed free account deletes without any billing network calls
+ok 23 - a never-billed free account deletes without any billing network calls
+  ---
+  duration_ms: 1.120083
+  type: 'test'
+  ...
+# Subtest: private legacy cleanup retries after billing outages without recreating accounts
+ok 24 - private legacy cleanup retries after billing outages without recreating accounts
+  ---
+  duration_ms: 1.704875
+  type: 'test'
+  ...
+# Subtest: an uncertain reset retry preserves work earned after the first reset
+ok 25 - an uncertain reset retry preserves work earned after the first reset
+  ---
+  duration_ms: 4.858167
+  type: 'test'
+  ...
+# Subtest: bookmark receipts preserve canonical time and cannot replay an old save after a removal
+ok 26 - bookmark receipts preserve canonical time and cannot replay an old save after a removal
+  ---
+  duration_ms: 1.642875
+  type: 'test'
+  ...
+# Subtest: checkpoint compare-and-set rejects delayed writes and competing practice attempts
+ok 27 - checkpoint compare-and-set rejects delayed writes and competing practice attempts
+  ---
+  duration_ms: 8.754083
+  type: 'test'
+  ...
+# Subtest: a pre-reset checkpoint cannot resurrect a previous journey
+ok 28 - a pre-reset checkpoint cannot resurrect a previous journey
+  ---
+  duration_ms: 1.578208
+  type: 'test'
+  ...
+# Subtest: an older offline completion preserves a different active practice checkpoint
+ok 29 - an older offline completion preserves a different active practice checkpoint
+  ---
+  duration_ms: 1.870083
+  type: 'test'
+  ...
+1..29
+# tests 29
+# suites 0
+# pass 29
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 144.768084

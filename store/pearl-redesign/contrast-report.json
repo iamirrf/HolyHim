@@ -1,0 +1,74 @@
+{
+  "method": "WCAG relative luminance of exact palette foregrounds against sampled native screenshot background pixels; action fill sampled across actual composited gradient. Not an exhaustive accessibility audit.",
+  "samples": [
+    {
+      "role": "body on ambient",
+      "capture": "welcome-0--E0F7AB65--s1.png",
+      "logicalBackgroundPoint": [
+        24,
+        430
+      ],
+      "backgroundRgb": [
+        251,
+        246,
+        248
+      ],
+      "foregroundRgb": [
+        56,
+        35,
+        49
+      ],
+      "ratio": 13.52
+    },
+    {
+      "role": "secondary on ambient",
+      "capture": "welcome-0--E0F7AB65--s1.png",
+      "logicalBackgroundPoint": [
+        30,
+        840
+      ],
+      "backgroundRgb": [
+        247,
+        233,
+        237
+      ],
+      "foregroundRgb": [
+        115,
+        88,
+        103
+      ],
+      "ratio": 5.37
+    },
+    {
+      "role": "body on pearl reading plane",
+      "capture": "welcome-0--E0F7AB65--s1.png",
+      "logicalBackgroundPoint": [
+        95,
+        230
+      ],
+      "backgroundRgb": [
+        255,
+        255,
+        255
+      ],
+      "foregroundRgb": [
+        56,
+        35,
+        49
+      ],
+      "ratio": 14.45
+    },
+    {
+      "role": "white action label across sampled composited rose fill",
+      "capture": "welcome-0--E0F7AB65--s1.png",
+      "pixelRegion": [
+        100,
+        1500,
+        1080,
+        2350
+      ],
+      "minimumRatio": 5.15,
+      "sampledFillPixels": 8133
+    }
+  ]
+}

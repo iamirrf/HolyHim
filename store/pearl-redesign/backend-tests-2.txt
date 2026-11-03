@@ -1,0 +1,41 @@
+
+> test
+> node --test test/*.test.js
+
+✔ calendar unlocking accumulates missed dates and caps at 365 (5.963125ms)
+✔ DST and leap days use calendar dates rather than elapsed hours (83.929625ms)
+✔ completion is idempotent and future days are rejected (2.629667ms)
+✔ V2 lifetime entitlement uses the internal ID and a null expiry (0.357167ms)
+✔ V2 refunds and revocations remove active access; repurchase restores it (0.166833ms)
+✔ finite V2 entitlements use millisecond expiry and reject malformed responses (0.301416ms)
+✔ webhooks reconcile custom aliases and both sides of transfers (0.266375ms)
+✔ invalid webhook identity types cannot inject document paths (0.245125ms)
+✔ a slow pre-refund reconciliation cannot overwrite or return stale active access (93.603625ms)
+✔ deletion blocks in-flight and delayed webhook writes from recreating user data (23.155542ms)
+✔ free journey creation does not depend on a purchase or provider availability (23.387625ms)
+✔ V2 pagination reaches the target entitlement without leaking authorization (4.9375ms)
+✔ an unknown V2 customer is an explicit inactive result, not a new customer (1.276417ms)
+✔ base-only analysis exports all five independent endpoints without secret params (1.612708ms)
+✔ default deployment analysis retains billing exports and secret requirements (1.0635ms)
+✔ activity merging retains offline dates only within the journey calendar (0.438333ms)
+✔ concurrent activity uploads merge both devices idempotently (3.253584ms)
+✔ free enrollment is atomic, idempotent and distinct from purchase status (2.593709ms)
+✔ existing journeys backfill a grant without moving dates or losing completions (1.432167ms)
+✔ server grades canonical option IDs, accepts mistakes, and returns original duplicate result (4.487375ms)
+✔ both answers, a valid version, available day and valid option IDs are mandatory (13.990959ms)
+✔ reset preserves access, calendar and saved items while rejecting old submissions and checkpoints (8.8055ms)
+✔ a never-billed free account deletes without any billing network calls (2.239291ms)
+✔ private legacy cleanup retries after billing outages without recreating accounts (1.7245ms)
+✔ an uncertain reset retry preserves work earned after the first reset (6.994375ms)
+✔ bookmark receipts preserve canonical time and cannot replay an old save after a removal (1.269959ms)
+✔ checkpoint compare-and-set rejects delayed writes and competing practice attempts (84.384959ms)
+✔ a pre-reset checkpoint cannot resurrect a previous journey (18.378583ms)
+✔ an older offline completion preserves a different active practice checkpoint (54.726709ms)
+ℹ tests 29
+ℹ suites 0
+ℹ pass 29
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 638.9235

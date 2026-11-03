@@ -1,0 +1,513 @@
+[
+  {
+    "id": "unit-01",
+    "title": "Courage, refuge, and patient hope",
+    "firstDay": 1,
+    "lastDay": 5,
+    "summary": "Explore you do not walk alone, held when you feel weak, a place to bring trouble, opposition is not the whole story, hope during a long wait."
+  },
+  {
+    "id": "unit-02",
+    "title": "Peace and strength for one step",
+    "firstDay": 6,
+    "lastDay": 10,
+    "summary": "Explore peace before the answer, strength for ordinary walking, known before achievement, light for one step, rest with things unfinished."
+  },
+  {
+    "id": "unit-03",
+    "title": "Dignity and care in ordinary life",
+    "firstDay": 11,
+    "lastDay": 15,
+    "summary": "Explore made in god's image, a rhythm that includes stopping, seen in a lonely place, notice the help nearby, god in an ordinary place."
+  },
+  {
+    "id": "unit-04",
+    "title": "Honest prayer and integrity",
+    "firstDay": 16,
+    "lastDay": 20,
+    "summary": "Explore stay honest in prayer, integrity when no one sees, evil does not become good, your sorrow can be named, words for a difficult task."
+  },
+  {
+    "id": "unit-05",
+    "title": "Guidance and shared burdens",
+    "firstDay": 21,
+    "lastDay": 25,
+    "summary": "Explore guidance through changing hours, a pause before panic, today's portion, the load is too heavy, honor with clear eyes."
+  },
+  {
+    "id": "unit-06",
+    "title": "Kindness, presence, and blessing",
+    "firstDay": 26,
+    "lastDay": 30,
+    "summary": "Explore kindness across a divide, presence before the next step, love without keeping score, receive a blessing, a burden shared."
+  },
+  {
+    "id": "unit-07",
+    "title": "Remembering faith through practical care",
+    "firstDay": 31,
+    "lastDay": 35,
+    "summary": "Explore god's words deserve careful trust, words worth keeping close, faith in everyday conversation, remember the road, care that becomes practical."
+  },
+  {
+    "id": "unit-08",
+    "title": "Generosity, fairness, and character",
+    "firstDay": 36,
+    "lastDay": 40,
+    "summary": "Explore an open hand, fairness in small decisions, choose what gives life, a steady character, an image of being held."
+  },
+  {
+    "id": "unit-09",
+    "title": "Courage for new responsibilities",
+    "firstDay": 41,
+    "lastDay": 45,
+    "summary": "Explore courage for a new responsibility, a reminder you can touch, a household direction, small does not mean irrelevant, name the peace you seek."
+  },
+  {
+    "id": "unit-10",
+    "title": "Steady company and generous welcome",
+    "firstDay": 46,
+    "lastDay": 50,
+    "summary": "Explore the gift of steady company, welcome under god's care, leave room for someone else, a reputation built by care, celebrate another person's relief."
+  },
+  {
+    "id": "unit-11",
+    "title": "Tears, listening, and remembered help",
+    "firstDay": 51,
+    "lastDay": 55,
+    "summary": "Explore tears belong in prayer, misunderstood does not mean unheard, a listening posture, remember help already received, pray beyond the argument."
+  },
+  {
+    "id": "unit-12",
+    "title": "Faithful friendship without revenge",
+    "firstDay": 56,
+    "lastDay": 60,
+    "summary": "Explore the heart beneath the surface, courage without showing off, friendship that keeps its word, strength that refuses revenge, strength in a distressing hour."
+  },
+  {
+    "id": "unit-13",
+    "title": "Gratitude, wisdom, and human limits",
+    "firstDay": 61,
+    "lastDay": 65,
+    "summary": "Explore gratitude without entitlement, ask for an understanding heart, god is larger than the building, words confirmed by care, sleep and a meal."
+  },
+  {
+    "id": "unit-14",
+    "title": "Quiet attention and small beginnings",
+    "firstDay": 66,
+    "lastDay": 70,
+    "summary": "Explore make room for quiet, do not dismiss the small step, fear does not see everything, a heart willing to respond, tell a story of gratitude."
+  },
+  {
+    "id": "unit-15",
+    "title": "Serving with understanding",
+    "firstDay": 71,
+    "lastDay": 75,
+    "summary": "Explore bring your whole mind, giving what was first received, knowledge for serving well, when you do not know what to do, keep your hands at the work."
+  },
+  {
+    "id": "unit-16",
+    "title": "Shared work and room for joy",
+    "firstDay": 76,
+    "lastDay": 80,
+    "summary": "Explore celebrate a foundation, learn, practice, then share, a prayer between question and answer, a shared willingness to work, joy that makes room for others."
+  },
+  {
+    "id": "unit-17",
+    "title": "Standing together through grief",
+    "firstDay": 81,
+    "lastDay": 85,
+    "summary": "Explore use the position you have, ask others to stand with you, grief does not need a neat explanation, the care of staying quiet, kindness before agreement."
+  },
+  {
+    "id": "unit-18",
+    "title": "Hope with unanswered questions",
+    "firstDay": 86,
+    "lastDay": 90,
+    "summary": "Explore notice the gift of breath, hope with questions still open, permission not to know everything, roots before visible fruit, lift your head gently."
+  },
+  {
+    "id": "unit-19",
+    "title": "Honesty, refuge, and gratitude",
+    "firstDay": 91,
+    "lastDay": 95,
+    "summary": "Explore settle for the night, begin with an honest request, a refuge for the oppressed, you may ask how long, notice what is already good."
+  },
+  {
+    "id": "unit-20",
+    "title": "Attention, speech, and guidance",
+    "firstDay": 96,
+    "lastDay": 100,
+    "summary": "Explore return your attention, room to breathe, look up for a moment, words and the thoughts beneath them, let yourself be guided."
+  },
+  {
+    "id": "unit-21",
+    "title": "The shepherd’s care along the journey",
+    "firstDay": 101,
+    "lastDay": 105,
+    "summary": "Explore a quieter pace, a restored direction, company in the valley, a place at the table, mercy through the journey."
+  },
+  {
+    "id": "unit-22",
+    "title": "Humility and courageous waiting",
+    "firstDay": 106,
+    "lastDay": 110,
+    "summary": "Explore teach me the way, humility makes room for guidance, light when fear grows loud, one thing to seek, waiting can include courage."
+  },
+  {
+    "id": "unit-23",
+    "title": "Entrusting life to God",
+    "firstDay": 111,
+    "lastDay": 115,
+    "summary": "Explore let gratitude find a voice, strength and peace together, joy beyond this night, an act of entrusting, your life is more than a timeline."
+  },
+  {
+    "id": "unit-24",
+    "title": "Truth, repair, and shared waiting",
+    "firstDay": 116,
+    "lastDay": 120,
+    "summary": "Explore tell the truth and begin repair, guidance with attentive care, waiting together, bring fear into prayer, receive goodness personally."
+  },
+  {
+    "id": "unit-25",
+    "title": "Nearness and the next good step",
+    "firstDay": 121,
+    "lastDay": 125,
+    "summary": "Explore near to a broken heart, trust with something good to do, commit the way you are walking, stop measuring against the wrong person, a step worth taking."
+  },
+  {
+    "id": "unit-26",
+    "title": "Remembering, release, and renewal",
+    "firstDay": 126,
+    "lastDay": 130,
+    "summary": "Explore the wait can be remembered, a new song, honestly sung, speak gently to your own soul, release the need to be in charge, ask for a renewed heart."
+  },
+  {
+    "id": "unit-27",
+    "title": "Shelter while fear remains",
+    "firstDay": 131,
+    "lastDay": 135,
+    "summary": "Explore set down part of the load, trust can begin while you are afraid, shelter while the storm continues, when your heart is overwhelmed, wait without filling every silence."
+  },
+  {
+    "id": "unit-28",
+    "title": "Honest thirst and practical care",
+    "firstDay": 136,
+    "lastDay": 140,
+    "summary": "Explore pour out your heart, name your thirst, notice the work behind a meal, care for those without protection, worth does not expire."
+  },
+  {
+    "id": "unit-29",
+    "title": "Dependence beyond achievement",
+    "firstDay": 141,
+    "lastDay": 145,
+    "summary": "Explore more than your remaining energy, the value of a humble place, an undivided heart, spend a day with care, a place to turn for shelter."
+  },
+  {
+    "id": "unit-30",
+    "title": "Belonging, comfort, and compassion",
+    "firstDay": 146,
+    "lastDay": 150,
+    "summary": "Explore fruit in a later season, comfort among many thoughts, listen today, you belong before you perform, compassion that meets human need."
+  },
+  {
+    "id": "unit-31",
+    "title": "Human limits and a guarded heart",
+    "firstDay": 151,
+    "lastDay": 155,
+    "summary": "Explore god knows your limits, name the deeper hunger, care for what shapes your heart, trust beyond your first understanding, generosity that gives life."
+  },
+  {
+    "id": "unit-32",
+    "title": "Wise company and gentle speech",
+    "firstDay": 156,
+    "lastDay": 160,
+    "summary": "Explore words can leave a wound, choose company that helps you grow, slow the anger down, a gentle answer with a clear boundary, a plan improved by counsel."
+  },
+  {
+    "id": "unit-33",
+    "title": "Open plans and teachable listening",
+    "firstDay": 161,
+    "lastDay": 165,
+    "summary": "Explore plan with an open hand, kind words are real nourishment, love that returns after the crisis, listen before you answer, keep receiving instruction."
+  },
+  {
+    "id": "unit-34",
+    "title": "Dignity, integrity, and timely words",
+    "firstDay": 166,
+    "lastDay": 170,
+    "summary": "Explore ask a question that draws someone out, integrity beyond religious appearance, one maker, shared dignity, getting up after a setback, the right word at the right time."
+  },
+  {
+    "id": "unit-35",
+    "title": "Fairness and the seasons of life",
+    "firstDay": 171,
+    "lastDay": 175,
+    "summary": "Explore advice from a caring friend, grow through thoughtful challenge, use your voice for fairness, honor the season you are in, beauty beyond a complete explanation."
+  },
+  {
+    "id": "unit-36",
+    "title": "Help, work, and returning trust",
+    "firstDay": 176,
+    "lastDay": 180,
+    "summary": "Explore let someone help you up, do not give anger a permanent room, give care to the work before you, begin before conditions are perfect, a mind returning to trust."
+  },
+  {
+    "id": "unit-37",
+    "title": "Rest, mercy, and room for grief",
+    "firstDay": 181,
+    "lastDay": 185,
+    "summary": "Explore strength in returning and rest, known by name, justice, mercy, and a humble walk, room for needing help, grief has a place here."
+  },
+  {
+    "id": "unit-38",
+    "title": "Gentleness and everyday peacemaking",
+    "firstDay": 186,
+    "lastDay": 190,
+    "summary": "Explore the strength of gentleness, an appetite for what is right, mercy in an ordinary moment, a heart without a disguise, make a little more peace."
+  },
+  {
+    "id": "unit-39",
+    "title": "Quiet honesty and reordered attention",
+    "firstDay": 191,
+    "lastDay": 195,
+    "summary": "Explore goodness that points beyond you, a quiet place to be honest, notice where your heart goes, worth beyond your worry, put first things first."
+  },
+  {
+    "id": "unit-40",
+    "title": "Prayer, compassion, and a firm foundation",
+    "firstDay": 196,
+    "lastDay": 200,
+    "summary": "Explore keep the door of prayer open, the care you would welcome, build with what you hear, seen with compassion, learn a gentler way."
+  },
+  {
+    "id": "unit-41",
+    "title": "Care for fragile faith",
+    "firstDay": 201,
+    "lastDay": 205,
+    "summary": "Explore care for the faint flame, let the word take root, a familiar voice in the storm, bring the need you cannot fix, faith in a small gathering."
+  },
+  {
+    "id": "unit-42",
+    "title": "Service and company for the road",
+    "firstDay": 206,
+    "lastDay": 210,
+    "summary": "Explore greatness with an apron on, your neighbor has a name, the person others miss, willing and still needing help, company for the long road."
+  },
+  {
+    "id": "unit-43",
+    "title": "Need, peace, and scheduled rest",
+    "firstDay": 211,
+    "lastDay": 215,
+    "summary": "Explore before the demands begin, you can come as someone in need, peace is more than control, a person, not an interruption, rest belongs in the schedule."
+  },
+  {
+    "id": "unit-44",
+    "title": "Doubt, welcome, and wholehearted love",
+    "firstDay": 216,
+    "lastDay": 220,
+    "summary": "Explore an honest prayer with doubt inside, welcome without an achievement, the voice that makes room, love with your whole life, value beyond the size of a gift."
+  },
+  {
+    "id": "unit-45",
+    "title": "Mercy and a willing response",
+    "firstDay": 221,
+    "lastDay": 225,
+    "summary": "Explore a yes without the whole map, mercy like the first light, give the moment time to settle, enough to share, good news reaches the crushed."
+  },
+  {
+    "id": "unit-46",
+    "title": "Quiet consideration and compassion",
+    "firstDay": 226,
+    "lastDay": 230,
+    "summary": "Explore return to the quiet, begin with consideration, mercy as a family resemblance, care for the well within, compassion notices the funeral."
+  },
+  {
+    "id": "unit-47",
+    "title": "Attention rooted in God’s generosity",
+    "firstDay": 231,
+    "lastDay": 235,
+    "summary": "Explore keep what is worth growing, compassion crosses the road, the good part of attention, ask for the help of god's spirit, you belong to a generous father."
+  },
+  {
+    "id": "unit-48",
+    "title": "Welcome without comparison",
+    "firstDay": 236,
+    "lastDay": 240,
+    "summary": "Explore the welcome before the speech, return to say thank you, no comparison required in prayer, being found is good news, a future beyond a failure."
+  },
+  {
+    "id": "unit-49",
+    "title": "Forgiveness and a deeper light",
+    "firstDay": 241,
+    "lastDay": 245,
+    "summary": "Explore forgiveness does not call harm good, understanding along the way, darkness does not get the last word, a deeper source of life, enough light for following."
+  },
+  {
+    "id": "unit-50",
+    "title": "Connection and peace amid trouble",
+    "firstDay": 246,
+    "lastDay": 250,
+    "summary": "Explore known beyond the surface, the towel beside the table, stay connected to the source, peace with trouble still present, faith has shared rhythms."
+  },
+  {
+    "id": "unit-51",
+    "title": "Shared care in unfinished circumstances",
+    "firstDay": 251,
+    "lastDay": 255,
+    "summary": "Explore what you have can serve we, comfort can help you grow, a song in the unfinished night, seeking is already a movement, giving with strong and gentle hands."
+  },
+  {
+    "id": "unit-52",
+    "title": "Peace beyond performance and shame",
+    "firstDay": 256,
+    "lastDay": 260,
+    "summary": "Explore peace before your performance, shame does not own your name, when prayer has no clear words, give your mind a better pattern, your part in making peace."
+  },
+  {
+    "id": "unit-53",
+    "title": "Faithfulness and each person’s part",
+    "firstDay": 261,
+    "lastDay": 265,
+    "summary": "Explore hope can be asked for, held by faithfulness beyond yours, plant, water, and leave room, look for the way through temptation, a place without being every part."
+  },
+  {
+    "id": "unit-54",
+    "title": "Love, comfort, and sufficient grace",
+    "firstDay": 266,
+    "lastDay": 270,
+    "summary": "Explore love keeps looking for good, comfort you can pass along, treasure in an ordinary vessel, a new beginning with real roots, grace meets an unremoved limit."
+  },
+  {
+    "id": "unit-55",
+    "title": "Love made visible through care",
+    "firstDay": 271,
+    "lastDay": 275,
+    "summary": "Explore look for the fruit of love, a burden shared with care, made for good within reach, tenderness in the work of repair, the work is still in progress."
+  },
+  {
+    "id": "unit-56",
+    "title": "Humility and a life still growing",
+    "firstDay": 276,
+    "lastDay": 280,
+    "summary": "Explore love that learns to see clearly, a center larger than achievement, step out of the contest, the willingness to begin, your past is not the whole road."
+  },
+  {
+    "id": "unit-57",
+    "title": "Belonging, gentleness, and attention",
+    "firstDay": 281,
+    "lastDay": 285,
+    "summary": "Explore a belonging that travels with you, gentleness people can feel, turn the worry into a request, give good things your attention, strength for staying kind."
+  },
+  {
+    "id": "unit-58",
+    "title": "Rooted faith and the voice of peace",
+    "firstDay": 286,
+    "lastDay": 290,
+    "summary": "Explore you do not hold everything together, walk the faith you received, rooted enough to give thanks, choose what you put on, let peace have a voice."
+  },
+  {
+    "id": "unit-59",
+    "title": "Words that nourish a wider love",
+    "firstDay": 291,
+    "lastDay": 295,
+    "summary": "Explore make room for words that nourish, words with grace and substance, the work love keeps doing, offer presence alongside your words, a wider circle of love."
+  },
+  {
+    "id": "unit-60",
+    "title": "Quiet dignity and faithful encouragement",
+    "firstDay": 296,
+    "lastDay": 300,
+    "summary": "Explore the dignity of a quiet life, build someone up on purpose, thanks within an unfinished day, the caller remains faithful, notice love getting stronger."
+  },
+  {
+    "id": "unit-61",
+    "title": "Sustainable goodness and an honest example",
+    "firstDay": 301,
+    "lastDay": 305,
+    "summary": "Explore comfort rooted in grace, keep the good sustainable, mercy starts with the truth, practice what nourishes your life, you have something to model."
+  },
+  {
+    "id": "unit-62",
+    "title": "Enoughness, courage, and faithful care",
+    "firstDay": 306,
+    "lastDay": 310,
+    "summary": "Explore enough without the endless chase, rich in useful care, courage with love and self-control, trust has a person at its center, faithfulness when yours feels thin."
+  },
+  {
+    "id": "unit-63",
+    "title": "Scripture, grace, and useful work",
+    "firstDay": 311,
+    "lastDay": 315,
+    "summary": "Explore let scripture help you grow, a life measured by faithfulness, grace comes toward you, kindness at the heart of salvation, good work meets actual needs."
+  },
+  {
+    "id": "unit-64",
+    "title": "Understanding help and anchored hope",
+    "firstDay": 316,
+    "lastDay": 320,
+    "summary": "Explore be a refreshing presence, help from one who understands, come near in the need, an anchor beneath changing feelings, hold on to the faithful one."
+  },
+  {
+    "id": "unit-65",
+    "title": "Trust and endurance with company",
+    "firstDay": 321,
+    "lastDay": 325,
+    "summary": "Explore help goodness catch on, trust without seeing the whole, lay down a weight for the road, learning can be uncomfortable, company more lasting than possessions."
+  },
+  {
+    "id": "unit-66",
+    "title": "Goodness, wisdom, and listening",
+    "firstDay": 326,
+    "lastDay": 330,
+    "summary": "Explore remember the good you can do, ask without being embarrassed, endurance with love at its center, receive the gift and remember the giver, give listening the first turn."
+  },
+  {
+    "id": "unit-67",
+    "title": "Faith that becomes a gentle deed",
+    "firstDay": 331,
+    "lastDay": 335,
+    "summary": "Explore let one word become a deed, dignity does not follow status, faith with hands available, wisdom has a gentle shape, draw near with an honest heart."
+  },
+  {
+    "id": "unit-68",
+    "title": "Prayer, honesty, and living hope",
+    "firstDay": 336,
+    "lastDay": 340,
+    "summary": "Explore there is a prayer for this day, honesty and prayer in safe company, hope with life in it, love beyond what you can see, belonging that becomes a witness."
+  },
+  {
+    "id": "unit-69",
+    "title": "Compassion and particular gifts",
+    "firstDay": 341,
+    "lastDay": 345,
+    "summary": "Explore courtesy can carry compassion, love makes room for imperfection, put your particular gift to work, care before you set the burden down, receive help for the life of faith."
+  },
+  {
+    "id": "unit-70",
+    "title": "Growth and honest repair",
+    "firstDay": 346,
+    "lastDay": 350,
+    "summary": "Explore add care to your confidence, keep growing in grace, honesty opens the work of repair, help after you have fallen short, look again at the love given."
+  },
+  {
+    "id": "unit-71",
+    "title": "Love in practice and prayer",
+    "firstDay": 351,
+    "lastDay": 355,
+    "summary": "Explore make love true in practice, love begins before your response, prayer that leaves room for god, love has a path to walk, the joy of seeing truth lived."
+  },
+  {
+    "id": "unit-72",
+    "title": "Faithfulness within a larger story",
+    "firstDay": 356,
+    "lastDay": 360,
+    "summary": "Explore keep close to the love given, the one able to keep you, your days within a larger story, make room for renewed fellowship, a song with room for many voices."
+  },
+  {
+    "id": "unit-73",
+    "title": "The shepherd, renewed hope, and welcome",
+    "firstDay": 361,
+    "lastDay": 365,
+    "summary": "Explore the shepherd at the end of tears, tell the truth about grace, a future with sorrow undone, light beyond the last night, the invitation still stands."
+  }
+]

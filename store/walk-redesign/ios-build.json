@@ -1,0 +1,29 @@
+{
+  "version": "1.2.0",
+  "build": 4,
+  "archive": "build/ios/archive/Runner.xcarchive",
+  "developmentArchiveBuilt": true,
+  "archiveVerification": "archive-verification.json",
+  "xcodeAppSettingsValidationPassed": true,
+  "distributionExportSucceeded": false,
+  "currentDistributionIpa": null,
+  "exportErrors": [
+    "No Accounts",
+    "No signing certificate iOS Distribution found"
+  ],
+  "installedSigningIdentity": "Apple Development only",
+  "appStoreUploaded": false,
+  "appStoreSubmitted": false,
+  "fontNoticePackagingRebuild": "complete",
+  "archiveVerificationPassed": true,
+  "fontLicensesBundled": true,
+  "physicalDeviceInstallation": {
+    "passed": true,
+    "version": "1.2.0",
+    "build": "4",
+    "inPlaceUpgrade": true,
+    "report": "native-acceptance.json"
+  },
+  "compiledAppSha256": "83cdebe6aeaa674811a4c1162406d4805c7769aa49822bf2a0bd394049a14184",
+  "runnerSha256": "3732ee45f8ac0b0001582279f13a9c42de101778387670183a6959312c8f7f01"
+}

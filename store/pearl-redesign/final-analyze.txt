@@ -1,0 +1,38 @@
+Analyzing HolyHer...                                            
+
+   info • Use 'const' with the constructor to improve performance • lib/core/theme/app_theme.dart:22:16 • prefer_const_constructors
+   info • Statements in an if should be enclosed in a block • lib/core/theme/holy_typography.dart:15:7 • curly_braces_in_flow_control_structures
+   info • Statements in an if should be enclosed in a block • lib/features/auth/auth_screen.dart:28:7 • curly_braces_in_flow_control_structures
+   info • Statements in an if should be enclosed in a block • lib/features/auth/auth_screen.dart:37:7 • curly_braces_in_flow_control_structures
+   info • Statements in an if should be enclosed in a block • lib/features/auth/auth_screen.dart:44:9 • curly_braces_in_flow_control_structures
+   info • Statements in an if should be enclosed in a block • lib/features/auth/auth_screen.dart:181:7 • curly_braces_in_flow_control_structures
+   info • Statements in an if should be enclosed in a block • lib/features/auth/auth_screen.dart:184:7 • curly_braces_in_flow_control_structures
+   info • Use 'const' with the constructor to improve performance • lib/features/home/home_shell.dart:375:31 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/features/home/home_shell.dart:782:13 • prefer_const_constructors
+   info • Statements in an if should be enclosed in a block • lib/features/home/progress_calendar.dart:85:31 • curly_braces_in_flow_control_structures
+   info • Statements in an if should be enclosed in a block • lib/features/home/saved_tab.dart:37:21 • curly_braces_in_flow_control_structures
+   info • Statements in an if should be enclosed in a block • lib/features/home/saved_tab.dart:192:25 • curly_braces_in_flow_control_structures
+   info • Statements in an if should be enclosed in a block • lib/features/home/saved_tab.dart:194:25 • curly_braces_in_flow_control_structures
+   info • Use 'const' with the constructor to improve performance • lib/features/landing/welcome_scenes.dart:61:40 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/features/landing/welcome_scenes.dart:82:37 • prefer_const_constructors
+   info • Statements in an if should be enclosed in a block • lib/features/lesson/lesson_cards.dart:88:9 • curly_braces_in_flow_control_structures
+   info • Statements in an if should be enclosed in a block • lib/features/lesson/lesson_cards.dart:98:7 • curly_braces_in_flow_control_structures
+   info • Statements in an if should be enclosed in a block • lib/features/lesson/lesson_cards.dart:332:23 • curly_braces_in_flow_control_structures
+   info • Statements in an if should be enclosed in a block • lib/features/lesson/lesson_screen.dart:82:9 • curly_braces_in_flow_control_structures
+   info • Statements in an if should be enclosed in a block • lib/features/onboarding/checkpoint.dart:39:7 • curly_braces_in_flow_control_structures
+   info • Statements in an if should be enclosed in a block • lib/features/onboarding/checkpoint.dart:53:7 • curly_braces_in_flow_control_structures
+   info • Statements in an if should be enclosed in a block • lib/features/onboarding/onboarding_screen.dart:71:7 • curly_braces_in_flow_control_structures
+   info • Statements in an if should be enclosed in a block • lib/features/onboarding/onboarding_screen.dart:84:9 • curly_braces_in_flow_control_structures
+   info • Statements in an if should be enclosed in a block • lib/features/onboarding/onboarding_screen.dart:147:11 • curly_braces_in_flow_control_structures
+   info • Statements in an if should be enclosed in a block • lib/features/onboarding/onboarding_screen.dart:158:9 • curly_braces_in_flow_control_structures
+   info • Statements in an if should be enclosed in a block • lib/features/onboarding/onboarding_screen.dart:177:9 • curly_braces_in_flow_control_structures
+   info • Statements in an if should be enclosed in a block • lib/features/onboarding/onboarding_screen.dart:218:11 • curly_braces_in_flow_control_structures
+   info • Statements in an if should be enclosed in a block • lib/features/onboarding/onboarding_screen.dart:223:9 • curly_braces_in_flow_control_structures
+   info • Statements in an if should be enclosed in a block • lib/features/onboarding/onboarding_screen.dart:236:7 • curly_braces_in_flow_control_structures
+   info • Statements in an if should be enclosed in a block • lib/features/onboarding/onboarding_screen.dart:378:53 • curly_braces_in_flow_control_structures
+   info • Statements in an if should be enclosed in a block • lib/features/settings/profile_editors.dart:64:9 • curly_braces_in_flow_control_structures
+   info • Statements in an if should be enclosed in a block • lib/features/settings/profile_editors.dart:223:9 • curly_braces_in_flow_control_structures
+   info • Statements in an if should be enclosed in a block • lib/features/settings/profile_editors.dart:303:9 • curly_braces_in_flow_control_structures
+   info • Statements in an if should be enclosed in a block • tool/preview_main.dart:20:5 • curly_braces_in_flow_control_structures
+
+34 issues found. (ran in 15.5s)

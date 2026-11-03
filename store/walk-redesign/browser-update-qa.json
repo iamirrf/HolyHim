@@ -1,0 +1,8 @@
+{
+  "cloudAccountsModified": false,
+  "checks": [
+    "new worker offers an explicit reload",
+    "worker activation reloads the shell and preserves IndexedDB records"
+  ],
+  "passed": true
+}

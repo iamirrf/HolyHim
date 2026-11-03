@@ -43,7 +43,10 @@ void main() {
       'reconciliation follows a changed device zone without changing wall time',
       () async {
     var deviceZone = 'America/New_York';
-    final service = ReminderService(resolveTimeZone: () async => deviceZone);
+    final service = ReminderService(
+        resolveTimeZone: () async => deviceZone,
+        account: () => 'qa-reader',
+        journey: () => (startDate: '2026-10-01', timeZone: 'America/New_York'));
     expect(await service.reconcile(8 * 60), isTrue);
     deviceZone = 'America/Los_Angeles';
     expect(await service.reconcile(8 * 60), isTrue);
@@ -51,11 +54,11 @@ void main() {
         .where((call) => call.method == 'zonedSchedule')
         .map((call) => call.arguments as Map)
         .toList();
-    expect(schedules.length, 2);
+    expect(schedules.length, 120);
     expect(schedules[0]['timeZoneName'], 'America/New_York');
-    expect(schedules[1]['timeZoneName'], 'America/Los_Angeles');
+    expect(schedules[60]['timeZoneName'], 'America/Los_Angeles');
     expect(schedules[0]['scheduledDateTime'], contains('T08:00:00'));
-    expect(schedules[1]['scheduledDateTime'], contains('T08:00:00'));
+    expect(schedules[60]['scheduledDateTime'], contains('T08:00:00'));
     expect(calls.where((call) => call.method == 'requestPermissions'), isEmpty);
     expect(await service.reconcile(null), isFalse);
     expect(calls.last.method, 'cancel');

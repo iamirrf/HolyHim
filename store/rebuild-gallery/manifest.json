@@ -1,0 +1,89 @@
+{
+  "source": "Actual Flutter test renders; reduced motion; deterministic account state. Partial state coverage.",
+  "screenshots": [
+    {
+      "file": "carry-phone.png",
+      "sha256": "a42c8837ec8c1cdb0f393b34df31ad40dc9d0d66b0932d839e0451e654b58491"
+    },
+    {
+      "file": "closing-pending-phone.png",
+      "sha256": "b18b8aa3b27a9a7a2440f5b5d5fdbd54c9de53037b310e07ab83a8d7e1d4702b"
+    },
+    {
+      "file": "ipad-landscape-ContactScreen.png",
+      "sha256": "24cd707f9da202c03c83b85d5acdb36343f999a0150df7cf59565f64d3fc59df"
+    },
+    {
+      "file": "ipad-landscape-HelpScreen.png",
+      "sha256": "b9307423a0f00ec9964f8300f861927ad4413a7cae7f72cf0d4cfad6e04020dc"
+    },
+    {
+      "file": "ipad-landscape-HomeShell.png",
+      "sha256": "b63acee77f61961f3fe77cbfb88ff4f230f22b8e972edea0c4a3b2d3cacaa676"
+    },
+    {
+      "file": "ipad-landscape-LessonScreen.png",
+      "sha256": "468cf49cc59f471f07dfb830037bc4b00cbe6a77f7fb71ad7dae3b5fe6d8a75c"
+    },
+    {
+      "file": "ipad-landscape-SettingsScreen.png",
+      "sha256": "417dbf623eb5a91a3074cbf1c46c5895039686bcc5cdd690e7c30165258709da"
+    },
+    {
+      "file": "learn-phone.png",
+      "sha256": "7916af1b6bdbf23a67cabe09c4dc130f1cb038de9d4955830098fab0eb17bddf"
+    },
+    {
+      "file": "onboarding-day-one.png",
+      "sha256": "88ef988f3f03839bc46e8d556402eb0eb474e50c542da9aef1af722b6c6b388c"
+    },
+    {
+      "file": "phone-3x-ContactScreen.png",
+      "sha256": "787c4635727400456b22f54b21d427c458e04d144801420ca32189cfbd1fa0a5"
+    },
+    {
+      "file": "phone-3x-HelpScreen.png",
+      "sha256": "cd2bbeb2692c0a34a9a4a9ac59bc4f0dab1bd02dc625faf19e6448a91ddfecd8"
+    },
+    {
+      "file": "phone-3x-HomeShell.png",
+      "sha256": "e69dfa870dd0c033f4cf62e7cfbc30d7239aea2913d54e1155e3fd22e6843c76"
+    },
+    {
+      "file": "phone-3x-LessonScreen.png",
+      "sha256": "44c3430694227b8dfa269206fe3e9cd99519f211ae7f7c99a03a8641106cb890"
+    },
+    {
+      "file": "phone-3x-SettingsScreen.png",
+      "sha256": "988f51f7fdfff9ff6e047f8e5f3b763a00d0d4456529b7c1a0947f2141e47c04"
+    },
+    {
+      "file": "question-wrong-phone.png",
+      "sha256": "6cdda2a87c9b4d5aa4c202d7a9ce1e8ddecd4387f6fe263c6aad7463ad3845a6"
+    },
+    {
+      "file": "saved-empty-phone.png",
+      "sha256": "6989cdc3b483200facb69a57afa536047784186b9599ae351aec07f52d7cc447"
+    },
+    {
+      "file": "split-view-ContactScreen.png",
+      "sha256": "f031e1faa1c0f76a584e1771440247eaf8e76e2f2f57e7bec632e922aac8fa3d"
+    },
+    {
+      "file": "split-view-HelpScreen.png",
+      "sha256": "2aee2d4b934e04fcb8a502a7e685855e97c927084c6f2f6b01dbe19e298ba2dc"
+    },
+    {
+      "file": "split-view-HomeShell.png",
+      "sha256": "be7d0c4af97022db9d75f9ad846c03d7cfb8f256c5a88e9ae45e8a0b4f382f45"
+    },
+    {
+      "file": "split-view-LessonScreen.png",
+      "sha256": "abd0ba8972b2a8b31d14a37cc078976381211761a56a63550c372551c0a545b0"
+    },
+    {
+      "file": "split-view-SettingsScreen.png",
+      "sha256": "b557c56b8d5e8fe80b56cbb1a5b62d9c6ffca59c59acaf7fc46b4100b07471d8"
+    }
+  ]
+}

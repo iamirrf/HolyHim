@@ -1,11 +1,23 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:holyher/services/auth_service.dart';
+import 'platform_store_native.dart'
+    if (dart.library.js_interop) 'platform_store_web.dart' as platform;
 
 /// Small injectable local I/O boundary; services retain ownership of their keys.
 abstract interface class LocalStore {
   Future<Object?> read(String key);
   Future<bool> write(String key, Object value);
+}
+
+abstract interface class ExportableLocalStore {
+  Future<Map<String, Object?>> exportRecords();
+}
+
+class LocalStorageUnavailable extends StateError {
+  LocalStorageUnavailable([String? detail])
+      : super(detail ??
+            'Local storage is unavailable. Your saved data has not been changed.');
 }
 
 class PreferencesStore implements LocalStore {
@@ -21,7 +33,8 @@ class PreferencesStore implements LocalStore {
     try {
       return (await _preferences()).get('$prefix$key');
     } catch (_) {
-      return null;
+      _loading = null;
+      throw LocalStorageUnavailable();
     }
   }
 
@@ -50,5 +63,7 @@ class PreferencesStore implements LocalStore {
 
 final localStoreProvider = Provider<LocalStore>((ref) {
   final uid = ref.watch(authProvider.select((s) => s.user?.uid));
-  return PreferencesStore(prefix: uid == null ? 'signed-out:' : 'user:$uid:');
+  final account = uid == null ? 'signed-out' : 'user:$uid';
+  ref.onDispose(() => platform.releaseBrowserAccount(account));
+  return platform.createPlatformStore(ref, account);
 });

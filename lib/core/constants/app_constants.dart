@@ -1,22 +1,22 @@
-/// Product identity. Store prices are loaded from the localized StoreKit product.
+import 'package:holyher/core/constants/build_info.dart';
+import 'package:holyher/core/theme/holy_typography.dart';
+
+/// Product identity for the free HolyHer 365 edition.
 abstract final class AppConstants {
+  static String get versionName =>
+      HolyTypography.nativeResolution?['appVersion'] as String? ??
+      AppBuildInfo.name;
+  static String get buildNumber =>
+      HolyTypography.nativeResolution?['appBuild'] as String? ??
+      AppBuildInfo.build;
+  static String get versionLabel => '$versionName ($buildNumber)';
+  static String get wireVersion => '$versionName+$buildNumber';
   static const appName = 'HolyHer';
-  static const tagline = 'A little faith. A little courage. Every day.';
-  static const lifetimePriceLabel = r'$1.99';
-  static const paywallTitle = 'A year of hope. Yours forever.';
-  static const paywallSubtitle =
-      '365 daily Bible lessons. One gentle step at a time.';
-  static const pricingSummary = r'$1.99, one time, forever';
-  static const lifetimeStart = 'Unlock forever — $lifetimePriceLabel';
+  static const tagline = 'Walk with God, one day at a time.';
   static const totalDays = 365;
   static const websiteUrl = 'https://holyher-app-production.web.app';
   static const privacyUrl = '$websiteUrl/privacy';
   static const termsUrl = '$websiteUrl/terms';
   static const supportUrl = '$websiteUrl/support';
   static const supportEmail = String.fromEnvironment('HOLYHER_SUPPORT_EMAIL');
-  static const entitlementId = 'lifetime';
-  static const productId = 'holyher_lifetime';
-  static const revenueCatIosKey = String.fromEnvironment(
-      'REVENUECAT_IOS_API_KEY',
-      defaultValue: 'appl_RrNQZSCHRwuHEksPJVqfuVWBMMo');
 }

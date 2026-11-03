@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:holyher/core/theme/app_theme.dart';
 import 'package:holyher/core/widgets/holy_ui.dart';
 
 class GlassButton extends StatelessWidget {
@@ -10,7 +9,7 @@ class GlassButton extends StatelessWidget {
       {super.key,
       required this.label,
       required this.onPressed,
-      this.textColor = AppColors.accent});
+      this.textColor = const Color(0xFF98516A)});
   @override
   Widget build(BuildContext context) =>
       HolyButton(label: label, onPressed: onPressed);

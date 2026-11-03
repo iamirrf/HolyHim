@@ -1,9 +1,11 @@
 import 'package:holyher/services/profile_service.dart';
+import 'package:flutter/material.dart';
 
 String focusLabel(String id) =>
     const {
       'peace': 'Peace',
-      'confidence': 'Confidence',
+      'confidence': 'Courage',
+      'courage': 'Courage',
       'hope': 'Hope',
       'guidance': 'Guidance',
       'rest': 'Rest'
@@ -22,13 +24,16 @@ String rhythmTip(String obstacle) => switch (obstacle) {
       'forget' =>
         'Let one familiar moment be your cue: a morning drink, lunch, or settling in for the evening.',
       'language' =>
-        'Read the verse slowly, then turn to Reason for a plain-language explanation of its message.',
+        'Read the verse slowly, then turn to Meaning for a plain-language explanation of its message.',
       'apply' =>
-        'Stay with one small action on the Carry card. You do not need to change everything today.',
+        'Stay with one small action on the Prayer card. You do not need to change everything today.',
       _ => 'One verse, five short cards, and something to carry into your day.',
     };
-String reminderLabel(int? minutes) {
+String reminderLabel(int? minutes, {BuildContext? context}) {
   if (minutes == null) return 'No daily reminder';
+  if (context != null) {
+    return TimeOfDay(hour: minutes ~/ 60, minute: minutes % 60).format(context);
+  }
   final hour = minutes ~/ 60;
   return '${hour % 12 == 0 ? 12 : hour % 12}:${(minutes % 60).toString().padLeft(2, '0')} ${hour < 12 ? 'AM' : 'PM'}';
 }

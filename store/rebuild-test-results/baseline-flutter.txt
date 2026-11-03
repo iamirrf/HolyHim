@@ -1,0 +1,53 @@
+Waiting for another flutter command to release the startup lock...
+00:00 +0: loading /Users/amir/Downloads/HolyHer/test/streak_test.dart
+00:00 +0: /Users/amir/Downloads/HolyHer/test/streak_test.dart: fresh, concurrent, same-day, consecutive, and missed-day opens
+00:00 +1: /Users/amir/Downloads/HolyHer/test/streak_test.dart: backwards clock and duplicate dates leave state untouched
+00:00 +2: /Users/amir/Downloads/HolyHer/test/streak_test.dart: both DST boundaries use calendar yesterday, including late evening
+00:00 +3: /Users/amir/Downloads/HolyHer/test/streak_test.dart: timezone-style repeated/skipped/backwards local dates remain sane
+00:00 +4: /Users/amir/Downloads/HolyHer/test/streak_test.dart: invalid history resets; malformed counters are reconstructed
+00:00 +5: /Users/amir/Downloads/HolyHer/test/streak_test.dart: restart reconstructs counters after write boundary 1
+00:00 +6: /Users/amir/Downloads/HolyHer/test/streak_test.dart: restart reconstructs counters after write boundary 2
+00:00 +7: /Users/amir/Downloads/HolyHer/test/streak_test.dart: restart reconstructs counters after write boundary 3
+00:00 +8: /Users/amir/Downloads/HolyHer/test/streak_test.dart: failed history write keeps session coherent, does not write counters
+00:01 +9: /Users/amir/Downloads/HolyHer/test/activity_sync_test.dart: offline streak uses account dates and survives restart before merging
+00:01 +10: /Users/amir/Downloads/HolyHer/test/activity_sync_test.dart: a saved activity outbox recovers history interrupted before its write
+00:01 +11: /Users/amir/Downloads/HolyHer/test/activity_sync_test.dart: account calendar remains correct through repeated DST hours
+00:01 +12: /Users/amir/Downloads/HolyHer/test/activity_sync_test.dart: pending activity dates reject future and invalid entries and stay bounded
+00:01 +13: /Users/amir/Downloads/HolyHer/test/learning_sync_test.dart: answer IDs and shuffled option order roundtrip and first selection locks
+00:01 +14: /Users/amir/Downloads/HolyHer/test/learning_sync_test.dart: a failed local write never announces a completed lesson
+00:01 +15: /Users/amir/Downloads/HolyHer/test/learning_sync_test.dart: accepted offline attempts survive a new service instance and sync once
+00:01 +16: /Users/amir/Downloads/HolyHer/test/learning_sync_test.dart: a late attempt acknowledgment cannot enter a different account
+00:01 +17: /Users/amir/Downloads/HolyHer/test/learning_sync_test.dart: offline bookmark additions and removals survive restart as tombstones
+00:01 +18: /Users/amir/Downloads/HolyHer/test/learning_sync_test.dart: a stale server response cannot restore progress after a reset
+00:02 +19: /Users/amir/Downloads/HolyHer/test/reminder_service_test.dart: reconciliation follows a changed device zone without changing wall time
+00:02 +20: /Users/amir/Downloads/HolyHer/test/progress_paywall_test.dart: calendar state separates daily release, catch-up and year completion
+00:02 +21: /Users/amir/Downloads/HolyHer/test/progress_paywall_test.dart: future lessons stay locked and queued completion survives restart
+00:02 +22: /Users/amir/Downloads/HolyHer/test/progress_paywall_test.dart: failed persistence does not complete and does not poison next retry
+00:02 +23: /Users/amir/Downloads/HolyHer/test/progress_paywall_test.dart: corrupt cache and the old development unlock do not start a paid journey
+00:02 +24: /Users/amir/Downloads/HolyHer/test/progress_paywall_test.dart: all 365 real lessons participate in release and progress calculations
+00:02 +25: /Users/amir/Downloads/HolyHer/test/progress_paywall_test.dart: completion outbox survives missing journey cache and validates against server release
+00:02 +26: /Users/amir/Downloads/HolyHer/test/progress_paywall_test.dart: completion outbox survives corrupt journey cache and validates against server release
+00:04 +27: /Users/amir/Downloads/HolyHer/test/screens_test.dart: (setUpAll)
+00:04 +27: /Users/amir/Downloads/HolyHer/test/local_store_test.dart: real preferences adapter handles raw corrupt types without typed getter casts
+00:04 +28: /Users/amir/Downloads/HolyHer/test/screens_test.dart: free shell exposes Learn, Saved and Profile with roadmap search
+00:04 +29: /Users/amir/Downloads/HolyHer/test/screens_test.dart: free shell exposes Learn, Saved and Profile with roadmap search
+00:04 +30: /Users/amir/Downloads/HolyHer/test/screens_test.dart: free shell exposes Learn, Saved and Profile with roadmap search
+00:04 +31: /Users/amir/Downloads/HolyHer/test/screens_test.dart: free shell exposes Learn, Saved and Profile with roadmap search
+00:04 +32: /Users/amir/Downloads/HolyHer/test/screens_test.dart: free shell exposes Learn, Saved and Profile with roadmap search
+00:05 +33: /Users/amir/Downloads/HolyHer/test/screens_test.dart: free shell exposes Learn, Saved and Profile with roadmap search
+00:05 +34: /Users/amir/Downloads/HolyHer/test/screens_test.dart: free shell exposes Learn, Saved and Profile with roadmap search
+00:05 +35: /Users/amir/Downloads/HolyHer/test/screens_test.dart: free shell exposes Learn, Saved and Profile with roadmap search
+00:05 +36: /Users/amir/Downloads/HolyHer/test/session_isolation_test.dart: late account A streak load cannot overwrite account B
+00:05 +37: /Users/amir/Downloads/HolyHer/test/screens_test.dart: future lesson opens a calendar explanation without a payment action
+00:05 +38: /Users/amir/Downloads/HolyHer/test/session_isolation_test.dart: queued account A completions cannot complete account B lessons
+00:05 +39: /Users/amir/Downloads/HolyHer/test/screens_test.dart: guided lesson locks questions, explains mistakes and saves only on closing
+00:05 +40: /Users/amir/Downloads/HolyHer/test/screens_test.dart: guided lesson locks questions, explains mistakes and saves only on closing
+00:06 +41: /Users/amir/Downloads/HolyHer/test/screens_test.dart: local save failure keeps completion recoverable
+00:06 +42: /Users/amir/Downloads/HolyHer/test/screens_test.dart: ten onboarding surfaces preserve choices and use real Day 1
+00:07 +43: /Users/amir/Downloads/HolyHer/test/screens_test.dart: support form validates before sending
+00:07 +44: /Users/amir/Downloads/HolyHer/test/screens_test.dart: email authentication retains validation
+00:07 +45: /Users/amir/Downloads/HolyHer/test/screens_test.dart: phone-3x keeps learning, settings and support scrollable
+00:07 +46: /Users/amir/Downloads/HolyHer/test/screens_test.dart: ipad-landscape keeps learning, settings and support scrollable
+00:08 +47: /Users/amir/Downloads/HolyHer/test/screens_test.dart: split-view keeps learning, settings and support scrollable
+00:08 +48: /Users/amir/Downloads/HolyHer/test/screens_test.dart: (tearDownAll)
+00:08 +48: All tests passed!

@@ -1,28 +1,46 @@
 import 'dart:math' as math;
+import 'package:holyher/features/home/lesson_presentation.dart';
+import 'dart:convert';
+import 'package:holyher/core/widgets/holy_loader.dart';
+import 'package:holyher/services/durable_store.dart';
+import 'package:holyher/features/lesson/reading_parts.dart';
+import 'package:holyher/features/lesson/lesson_header.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:holyher/core/theme/app_theme.dart';
 import 'package:holyher/core/widgets/holy_ui.dart';
 import 'package:holyher/data/lessons.dart';
 import 'package:holyher/features/lesson/lesson_deck.dart';
-import 'package:holyher/features/onboarding/personalization.dart';
 import 'package:holyher/services/auth_service.dart';
 import 'package:holyher/services/local_store.dart';
 import 'package:holyher/services/profile_service.dart';
 
 /// Five editorial cards, with a physics-driven deck on roomy viewports and a
 /// natural-height reading view for large text and short landscape windows.
+class LessonCardsController {
+  Future<void> Function()? _save;
+  Future<void> save() async {
+    await _save?.call();
+  }
+}
+
 class LessonCards extends ConsumerStatefulWidget {
   final DailyLesson lesson;
+  final LessonCardsController? controller;
   final bool done;
   final bool saving;
-  final Future<void> Function() onComplete;
+  final Future<bool> Function() onComplete;
+  final VoidCallback onClose;
+  final String? error;
   const LessonCards(
       {super.key,
       required this.lesson,
+      this.controller,
       required this.done,
       required this.saving,
-      required this.onComplete});
+      required this.onComplete,
+      required this.onClose,
+      this.error});
   @override
   ConsumerState<LessonCards> createState() => _LessonCardsState();
 }
@@ -30,7 +48,10 @@ class LessonCards extends ConsumerStatefulWidget {
 class _LessonCardsState extends ConsumerState<LessonCards> {
   final _deck = LessonDeckController();
   final _scroll = ScrollController();
-  int _page = 0;
+  int _page = 0, _offset = 0;
+  List<ReadingPart> _parts = const [ReadingPart('', 0, 0)];
+  int get _part => ReadingLayout.indexAt(_parts, _offset);
+  String? _positionError;
   bool _help = false;
   bool _loaded = false;
   String get _positionKey =>
@@ -38,23 +59,53 @@ class _LessonCardsState extends ConsumerState<LessonCards> {
   @override
   void initState() {
     super.initState();
-    _help = ref.read(profileProvider).familiarity != 'regular';
+    _help = ref.read(profileProvider).tips &&
+        ref.read(profileProvider).familiarity != 'regular';
+    widget.controller?._save = _savePosition;
     _restore();
   }
 
   Future<void> _restore() async {
-    final saved =
-        widget.done ? 0 : await ref.read(localStoreProvider).read(_positionKey);
-    if (mounted && !_loaded) {
-      setState(() {
-        _page = saved is int ? saved.clamp(0, 4) : 0;
-        _loaded = true;
-      });
+    try {
+      final store = ref.read(localStoreProvider),
+          raw = await ref
+              .read(localStoreProvider)
+              .read('${_positionKey}_semantic');
+      final legacy = widget.done ? 0 : await store.read(_positionKey);
+      int page = legacy is int ? legacy.clamp(0, 4) : 0, offset = 0;
+      if (!widget.done && raw != null && raw != '') {
+        if (raw is! String) throw const FormatException();
+        final saved = jsonDecode(raw) as Map;
+        page = _labels
+            .map((s) => s.toLowerCase())
+            .toList()
+            .indexOf(saved['stepId']);
+        if (page < 0 ||
+            saved['readingOffset'] is! int ||
+            saved['readingOffset'] < 0) {
+          throw const FormatException();
+        }
+        offset = saved['readingOffset'];
+      }
+      if (mounted && !_loaded) {
+        setState(() {
+          _page = page;
+          _offset = offset;
+          _loaded = true;
+          _positionError = null;
+        });
+      }
+    } catch (_) {
+      if (mounted) {
+        setState(() => _positionError =
+            'Your saved place could not be read. Retry before continuing.');
+      }
     }
   }
 
   @override
   void dispose() {
+    widget.controller?._save = null;
     _scroll.dispose();
     super.dispose();
   }
@@ -62,89 +113,130 @@ class _LessonCardsState extends ConsumerState<LessonCards> {
   void _change(int page) {
     setState(() {
       _page = page;
+      _offset = 0;
       _loaded = true;
     });
-    ref.read(localStoreProvider).write(_positionKey, page);
+    _savePosition().catchError((Object _) {
+      if (mounted) {
+        setState(() =>
+            _positionError = 'Your place could not be saved. Please retry.');
+      }
+    });
     if (_scroll.hasClients) _scroll.jumpTo(0);
   }
 
+  Future<void> _savePosition() async {
+    if (!_loaded) return;
+    final store = ref.read(localStoreProvider);
+    if (!await writeLocalBatch(store, {
+      '${_positionKey}_semantic': jsonEncode(
+          {'stepId': _labels[_page].toLowerCase(), 'readingOffset': _offset}),
+      _positionKey: _page
+    })) {
+      throw StateError('Your place could not be saved.');
+    }
+    ref.read(readingPositionRevisionProvider.notifier).state++;
+  }
+
+  String _body(int i) => switch (i) {
+        0 => widget.lesson.verseText,
+        1 => widget.lesson.confidence,
+        2 => widget.lesson.reason,
+        3 => widget.lesson.hope,
+        _ => widget.lesson.reflection
+      };
   static const _labels = ['Verse', 'Confidence', 'Reason', 'Hope', 'Carry'];
-  static const _icons = [
-    Icons.menu_book_outlined,
-    Icons.wb_sunny_outlined,
-    Icons.lightbulb_outline_rounded,
-    Icons.auto_awesome_outlined,
-    Icons.favorite_border_rounded
-  ];
   static const _helpText = [
-    'Begin with the passage itself. The reference identifies its book, chapter, verse, and translation.',
-    'One grounded encouragement, drawn from the passage you just read.',
-    'A plain-language explanation of why this confidence follows from the verse.',
-    'A way to meet an ordinary moment with the passage in mind. The devotional reflection is original writing, separate from scripture.',
-    'A small reflection to bring into the rest of your day. Your focus adds a personal application question.',
+    'Start with the passage. Its reference is below.',
+    'An encouragement drawn from this passage.',
+    'How this thought connects to the passage.',
+    'A practical reflection for an ordinary day.',
+    'One small thought to carry into your day.',
   ];
   @override
   Widget build(BuildContext context) {
+    Theme.of(context);
     final profile = ref.watch(profileProvider);
+    if (!_loaded) {
+      return LessonRecoveryFrame(
+          child: _positionError == null
+              ? const PulsingDotsLoader(semanticsLabel: 'Restoring your place')
+              : Column(mainAxisSize: MainAxisSize.min, children: [
+                  InlineMessage(_positionError!, error: true),
+                  TextButton(onPressed: _restore, child: const Text('Retry'))
+                ]));
+    }
     return LayoutBuilder(builder: (context, box) {
-      final natural = box.maxHeight < 500 ||
+      final natural = box.maxHeight < 650 ||
           MediaQuery.textScalerOf(context).scale(16) > 25;
-      final header = Padding(
-          padding: const EdgeInsets.fromLTRB(26, 12, 26, 10),
-          child:
-              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            Row(children: [
-              Expanded(
-                  child: Eyebrow(
-                      'Day ${widget.lesson.day} · ${widget.lesson.theme}')),
-              Text('${_page + 1} / 5',
-                  style: const TextStyle(
-                      fontSize: 12, color: AppColors.textSecondary))
-            ]),
-            const SizedBox(height: 13),
-            Semantics(
-                label: 'Lesson progress',
-                value: '${_page + 1} of 5 cards',
-                child: ClipRRect(
-                    borderRadius: BorderRadius.circular(8),
-                    child: TweenAnimationBuilder<double>(
-                        tween: Tween(end: (_page + 1) / 5),
-                        duration: MediaQuery.disableAnimationsOf(context)
-                            ? Duration.zero
-                            : const Duration(milliseconds: 380),
-                        curve: Curves.easeOutCubic,
-                        builder: (context, value, _) => LinearProgressIndicator(
-                            value: value,
-                            minHeight: 5,
-                            backgroundColor: AppColors.divider)))),
-          ]));
+      final body = _body(_page);
+      _parts = natural
+          ? [ReadingPart(body, 0, body.length)]
+          : ReadingLayout.split(body,
+              style: _page == 0 || _page == 1
+                  ? HolyTypography.scripture
+                  : HolyTypography.reading,
+              width: natural
+                  ? math.min(700, box.maxWidth - 44) - 64
+                  : lessonPageSize(Size(box.maxWidth, box.maxHeight - 190),
+                              gutter: 48, inset: 24)
+                          .width -
+                      64,
+              height: math.max(180, box.maxHeight - 360),
+              scaler: MediaQuery.textScalerOf(context),
+              direction: Directionality.of(context));
+      final header = Column(children: [
+        LessonHeader(
+            day: widget.lesson.day,
+            index: _page,
+            count: 5,
+            onClose: widget.saving ? null : widget.onClose),
+        if (widget.error != null)
+          Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24),
+              child: InlineMessage(widget.error!, error: true))
+      ]);
       final footer = _footer(natural);
       if (natural) {
+        if (MediaQuery.textScalerOf(context).scale(17) > 42) {
+          return ReadingWidth(
+              maxWidth: 700,
+              child: ListView(controller: _scroll, children: [
+                header,
+                Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: _card(_page, profile, natural: true)),
+                footer
+              ]));
+        }
         return ReadingWidth(
             maxWidth: 700,
-            child: ListView(
-                controller: _scroll,
-                padding: const EdgeInsets.only(bottom: 18),
-                children: [
-                  header,
-                  Padding(
-                      padding: const EdgeInsets.all(22),
-                      child: _card(_page, profile, natural: true)),
-                  footer
-                ]));
+            child: Column(children: [
+              header,
+              Expanded(
+                  child: ListView(
+                      controller: _scroll,
+                      padding: const EdgeInsets.all(16),
+                      children: [_card(_page, profile, natural: true)])),
+              footer,
+            ]));
       }
+
       return ReadingWidth(
           maxWidth: 780,
           child: Column(children: [
             header,
             Expanded(child: LayoutBuilder(builder: (context, deckBox) {
-              final width = math.min(620.0, deckBox.maxWidth - 48);
               return LessonDeck(
                   itemCount: 5,
                   index: _page,
-                  cardSize: Size(width, deckBox.maxHeight - 24),
+                  cardSize:
+                      lessonPageSize(deckBox.biggest, gutter: 48, inset: 24),
                   controller: _deck,
-                  canMove: (from, to) => to >= 0 && to < 5,
+                  canMove: (from, to) =>
+                      to >= 0 &&
+                      to < 5 &&
+                      (to < from || _part == _parts.length - 1),
                   onIndexChanged: _change,
                   locked: widget.saving,
                   itemBuilder: (context, index, lift) =>
@@ -157,196 +249,152 @@ class _LessonCardsState extends ConsumerState<LessonCards> {
 
   Widget _card(int index, UserProfile profile,
       {bool natural = false, double lift = 0}) {
-    final lesson = widget.lesson;
-    final title = switch (index) {
-      0 => lesson.title,
-      1 => 'A confidence\nto hold.',
-      2 => 'Why it stands.',
-      3 => 'Hope for\nthe everyday.',
-      _ => 'Take this\nwith you.'
-    };
-    final body = switch (index) {
-      0 => lesson.verseText,
-      1 => lesson.confidence,
-      2 => lesson.reason,
-      3 => lesson.hope,
-      _ => lesson.reflection
-    };
+    final l = widget.lesson;
+    final titles = [
+      l.title,
+      'A confidence to hold.',
+      'Why it stands.',
+      'Hope for the everyday.',
+      'Take this with you.'
+    ];
     final content = Padding(
-        padding: const EdgeInsets.all(27),
+        padding: const EdgeInsets.all(32),
         child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
               Row(children: [
-                Container(
-                    padding: const EdgeInsets.all(12),
-                    decoration: BoxDecoration(
-                        color: Colors.white.withValues(alpha: .7),
-                        borderRadius: BorderRadius.circular(16),
-                        border: Border.all(color: Colors.white)),
-                    child:
-                        Icon(_icons[index], color: AppColors.accent, size: 22)),
-                const SizedBox(width: 13),
-                Expanded(child: Eyebrow(_labels[index])),
+                Expanded(child: Eyebrow('Day ${l.day} · ${_labels[index]}')),
                 IconButton(
                     tooltip: _help ? 'Hide reading help' : 'Show reading help',
-                    icon: const Icon(Icons.info_outline_rounded,
-                        size: 19, color: AppColors.textSecondary),
-                    onPressed: () => setState(() => _help = !_help))
+                    onPressed: () => setState(() => _help = !_help),
+                    icon: const Icon(Icons.info_outline, size: 20))
               ]),
               if (_help) ...[
-                const SizedBox(height: 15),
+                const SizedBox(height: 12),
                 Text(_helpText[index],
-                    style: const TextStyle(
-                        fontSize: 11,
-                        color: AppColors.textSecondary,
-                        height: 1.7))
+                    style: HolyTypography.supporting
+                        .copyWith(color: AppColors.textSecondary))
               ],
-              const SizedBox(height: 26),
-              Text(title,
-                  style: const TextStyle(
-                      fontSize: 29,
-                      fontWeight: FontWeight.w500,
-                      height: 1.22,
-                      letterSpacing: -.9)),
-              const SizedBox(height: 25),
+              const SizedBox(height: 24),
+              if (index == 2 || index == 4) ...[
+                Text(titles[index], style: HolyTypography.section),
+                const SizedBox(height: 24)
+              ],
+              if (index == _page && _parts.length > 1) ...[
+                Text('Part ${_part + 1} of ${_parts.length}',
+                    style: HolyTypography.supporting),
+                const SizedBox(height: 16)
+              ],
+              Text(index == _page ? _parts[_part].text : _body(index),
+                  style: index == 0 || index == 1 || index == 4
+                      ? HolyTypography.scripture
+                      : HolyTypography.reading),
               if (index == 0) ...[
-                const Icon(Icons.format_quote_rounded,
-                    size: 34, color: AppColors.accent),
-                const SizedBox(height: 10)
-              ],
-              Text(body,
-                  style: TextStyle(
-                      fontSize: index == 0 || index == 1 ? 20 : 17,
-                      height: 1.75,
-                      color: index == 0
-                          ? AppColors.accentDark
-                          : AppColors.textPrimary)),
-              if (index == 0) ...[
-                const SizedBox(height: 24),
-                Text(lesson.verseReference,
-                    style: const TextStyle(
-                        fontSize: 12,
-                        color: AppColors.textSecondary,
-                        height: 1.6))
-              ],
-              if (index == 3 && lesson.devotionalReflection.isNotEmpty) ...[
-                const SizedBox(height: 26),
-                const Divider(),
+                const SizedBox(height: 28),
+                Container(height: 1, width: 32, color: AppColors.accent),
                 const SizedBox(height: 16),
-                const Eyebrow('Devotional reflection'),
-                const SizedBox(height: 10),
-                Text(lesson.devotionalReflection,
-                    style: const TextStyle(
-                        fontSize: 17,
-                        height: 1.75,
-                        color: AppColors.accentDark)),
-                const SizedBox(height: 12),
-                const Text(
-                    'Original devotional writing · not a Bible quotation',
-                    style: TextStyle(
-                        fontSize: 10,
-                        height: 1.6,
-                        color: AppColors.textSecondary))
+                Text(l.verseReference,
+                    style: HolyTypography.supporting
+                        .copyWith(color: AppColors.accentDark)),
+                const SizedBox(height: 4),
+                const Text('World English Bible',
+                    style: HolyTypography.supporting)
               ],
-              if (index == 4) ...[
-                const SizedBox(height: 24),
-                const Divider(),
+              if (index == 3 && l.devotionalReflection.isNotEmpty) ...[
+                const Divider(height: 40),
+                const Text('HolyHer reflection',
+                    style: HolyTypography.supporting),
                 const SizedBox(height: 16),
-                Eyebrow('Your focus · ${focusLabel(profile.focus)}'),
-                const SizedBox(height: 12),
-                Text(focusQuestion(profile, lesson.day),
-                    style: const TextStyle(
-                        fontSize: 15, height: 1.8, color: AppColors.accentDark))
+                Text(l.devotionalReflection, style: HolyTypography.reading),
+                const SizedBox(height: 16),
+                const Text('Original devotional writing',
+                    style: HolyTypography.supporting)
               ],
-              const SizedBox(height: 14),
+              if (_positionError != null) ...[
+                InlineMessage(_positionError!, error: true),
+                TextButton(
+                    onPressed: () async {
+                      try {
+                        await _savePosition();
+                        if (mounted) setState(() => _positionError = null);
+                      } catch (_) {}
+                    },
+                    child: const Text('Retry'))
+              ],
             ]));
-    return AnimatedContainer(
-        duration: const Duration(milliseconds: 150),
-        decoration:
-            BoxDecoration(borderRadius: BorderRadius.circular(30), boxShadow: [
-          BoxShadow(
-              color: AppColors.accentDark.withValues(alpha: .11 + lift * .07),
-              blurRadius: 30 + lift * 20,
-              offset: Offset(0, 12 + lift * 10))
-        ]),
-        child: ClipRRect(
-            borderRadius: BorderRadius.circular(30),
-            child: DecoratedBox(
-                decoration: const BoxDecoration(
-                    gradient: LinearGradient(
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
-                        colors: [
-                          Color(0xFFFFFEFF),
-                          Color(0xFFF9ECF2),
-                          Color(0xFFF1DCE8)
-                        ]),
-                    borderRadius: BorderRadius.all(Radius.circular(30))),
-                child: natural
-                    ? content
-                    : SingleChildScrollView(
-                        key: PageStorageKey('card-${lesson.day}-$index'),
-                        child: content))));
+    return PearlSurface(
+        radius: 24,
+        lift: lift,
+        ribbon: index == 4,
+        child: natural
+            ? content
+            : SingleChildScrollView(
+                key: ValueKey(
+                    'existing-${l.day}-$index-${index == _page ? _offset : 0}'),
+                child: content));
   }
 
   Widget _footer(bool natural) {
     final large = MediaQuery.textScalerOf(context).scale(15) > 24;
     final previous = IconButton(
       tooltip: 'Previous card',
-      onPressed: widget.saving ? null : () => _change(_page - 1),
+      onPressed: widget.saving
+          ? null
+          : () {
+              if (_part > 0) {
+                setState(() => _offset = _parts[_part - 1].start);
+              } else {
+                _change(_page - 1);
+              }
+            },
       icon: const Icon(Icons.arrow_back_rounded),
     );
     final action = HolyButton(
       key: ValueKey('lesson-action-$_page'),
-      label: _page == 4
-          ? (widget.done
-              ? (large ? 'Return' : 'Return to my day')
-              : (large ? 'Complete' : 'Complete today’s message'))
-          : 'Next card',
+      label: _part < _parts.length - 1
+          ? 'Next part'
+          : _page == 4
+              ? (widget.done ? 'Continue' : 'Complete lesson')
+              : 'Next',
       busy: widget.saving,
       onPressed: widget.saving
           ? null
-          : _page == 4
+          : _part < _parts.length - 1
               ? () async {
-                  await widget.onComplete();
-                  if (mounted) {
-                    ref.read(localStoreProvider).write(_positionKey, 0);
+                  setState(() => _offset = _parts[_part + 1].start);
+                  try {
+                    await _savePosition();
+                  } catch (_) {
+                    if (mounted) {
+                      setState(() => _positionError =
+                          'Your place could not be saved. Please retry.');
+                    }
                   }
                 }
-              : () {
-                  if (natural) {
-                    _change(_page + 1);
-                  } else {
-                    _deck.advance();
-                  }
-                },
-      icon: large
-          ? null
-          : (_page == 4 ? Icons.check_rounded : Icons.arrow_forward_rounded),
+              : _page == 4
+                  ? () async {
+                      final accepted = await widget.onComplete();
+                      if (accepted && mounted) {
+                        final store = ref.read(localStoreProvider);
+                        await writeLocalBatch(store, {
+                          _positionKey: 0,
+                          '${_positionKey}_semantic': jsonEncode(
+                              {'stepId': 'verse', 'readingOffset': 0})
+                        });
+                      }
+                    }
+                  : () {
+                      if (natural) {
+                        _change(_page + 1);
+                      } else {
+                        _deck.advance();
+                      }
+                    },
     );
     return Padding(
-      padding: const EdgeInsets.fromLTRB(25, 10, 25, 18),
+      padding: const EdgeInsets.all(16),
       child: Column(mainAxisSize: MainAxisSize.min, children: [
-        Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: List.generate(
-                5,
-                (index) => Semantics(
-                      label: '${_labels[index]}, card ${index + 1}',
-                      selected: index == _page,
-                      child: Container(
-                          margin: const EdgeInsets.symmetric(horizontal: 4),
-                          height: 5,
-                          width: index == _page ? 24 : 6,
-                          decoration: BoxDecoration(
-                              color: index == _page
-                                  ? AppColors.accent
-                                  : AppColors.divider,
-                              borderRadius: BorderRadius.circular(5))),
-                    ))),
-        const SizedBox(height: 15),
         if (large) ...[
           if (_page > 0)
             Align(alignment: Alignment.centerLeft, child: previous),

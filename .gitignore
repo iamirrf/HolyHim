@@ -52,3 +52,6 @@ node_modules/
 *.p12
 *.mobileprovision
 config/private/
+
+# Reproducible authenticated-web output; build with tool/build_web.py
+/public/app/

@@ -1,0 +1,14 @@
+{
+  "qaOnly": true,
+  "customerAccountsModified": false,
+  "credentialsLogged": false,
+  "checks": [
+    "protected reading destination survives email sign-in",
+    "closing reading returns to Saved",
+    "browser back restores Saved tab and retained search",
+    "browser Forward and Back restore the intended tabs",
+    "authenticated direct link survives refresh",
+    "cached account and unlocked reading reopen offline at the saved card"
+  ],
+  "passed": true
+}

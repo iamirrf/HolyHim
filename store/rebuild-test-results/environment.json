@@ -1,0 +1,51 @@
+{
+  "date": "2026-10-31",
+  "timezone": "America/New_York",
+  "checkpoint": "/Users/amir/Downloads/HolyHer-checkpoint-20261031-202900",
+  "checkpointSha256": "9e2dd162d26d46e40e88ea9316db5d8d2e1bdd2e49f7722defff1224fcc8bdbe",
+  "flutter": "3.41.5 / framework 2c9eb20739",
+  "dart": "3.11.3",
+  "xcode": "26.6 / 17F113",
+  "cocoapods": "1.17.0",
+  "node": "26.8.1",
+  "npm": "11.19.0",
+  "java": "OpenJDK 21 (Homebrew)",
+  "dependencyLocks": {
+    "pubspec.lock": "40c00439dd2efd7fafb99b0a341d32914aba11c1be0427c7b8cd1c5c888083eb",
+    "ios/Podfile.lock": "4ff690a0247b960519030cb8399690a1ca537d943c946d87ffea5df1f8e52c66",
+    "functions/package-lock.json": "9bce7e47ec806767a323b9309404c3ac6d478e2a0a97c0243fe850d7ea3a62bf"
+  },
+  "referenceCommit": "633680c84cec9a1b509f5092e8e2129562a6e047",
+  "referenceHashesVerified": true,
+  "referenceFileCount": 22,
+  "nativeBuild": "Build 3 development-signed AOT build succeeded in 57.2 seconds, preserving existing signing.",
+  "nativeBuildLog": "store/rebuild-test-results/startup-fix-native-build.txt",
+  "cleanup": "Only verified HolyHer DerivedData Build and Index.noindex, build/ios/Debug-iphoneos, build/ios/XCBuildData, and .dart_tool/flutter_build. Archive and IPA preserved. Retry also removed only HolyHer test/build caches, the failed duplicate Debug-iphoneos/Runner.app, and disposable project index files; verified iphoneos/Runner.app and original archive/IPA retained. After installation, disposable HolyHer DerivedData Build was removed; verified signed app and debug IPA remain intact.",
+  "devices": "Follow-up preflight: iPhone reachable, paired, Developer Mode enabled, developer tunnel connected. User has no iPad available. No native app verification yet.",
+  "baseline": {
+    "flutterTests": 48,
+    "backendTests": 24,
+    "analysis": "passed",
+    "scripture": "passed",
+    "teachingSlice": "5 lessons / 10 questions; full release blocked"
+  },
+  "productionChanges": true,
+  "appleReleaseChanges": false,
+  "readOnlyProductionInventory": {
+    "project": "holyher-app-production",
+    "journeys": 0,
+    "legacyRecords": 0,
+    "grants": 0,
+    "created": 0,
+    "mode": "read-only"
+  },
+  "freeDiskBytesAfterChecks": 7364149248,
+  "node22Verified": true,
+  "devicePreflight": "store/rebuild-test-results/iphone-preflight.json",
+  "nativeDeviceStatus": "Build 3: physical database initialized with integrity ok; user confirmed signed-in startup, free enrollment and Day 1 opening on iPhone. Full native matrix remains pending.",
+  "developmentArtifact": "store/rebuild-test-results/startup-fix-artifact.json",
+  "diskCleanupReport": "store/rebuild-test-results/disk-cleanup.json",
+  "latestVerificationDate": "2026-11-01",
+  "node22Version": "v22.23.4",
+  "productionChangesScope": "Free backend functions and Firestore rules deployed under requested free-edition rollout. No legacy billing handler, Apple account/App Store, or hosting publication changes."
+}

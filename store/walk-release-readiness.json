@@ -1,0 +1,35 @@
+{
+  "updatedAt": "2026-11-03T12:38:59.279249+00:00",
+  "candidate": "1.2.0 (4)",
+  "releaseReady": false,
+  "completed": [
+    "Production backward-compatible profile rules deployed and read-back verified",
+    "Production reading endpoints passed 13 live checks",
+    "365 five-card readings and all content review hashes verified",
+    "105-test Flutter suite passed; router and expanded visual checks also passed",
+    "31 backend unit tests and 7 Firestore emulator tests passed",
+    "Chromium/Firefox/WebKit public and storage checks passed",
+    "Six authenticated browser route/history/offline checks passed",
+    "Service-worker activation/reload retained local data",
+    "Development-signed iOS archive passed identity/signature/privacy/font-license checks",
+    "HolyHer 1.2.0 (4) installed on the physical iPhone with version read-back"
+  ],
+  "remaining": [
+    {
+      "gate": "Gemini artwork",
+      "reason": "API credential missing; 365 planned, 0 generated/approved"
+    },
+    {
+      "gate": "App Store distribution IPA",
+      "reason": "No Apple Distribution signing identity/Xcode account available; development archive is not a distribution IPA"
+    },
+    {
+      "gate": "Physical launch, notifications, providers, accessibility, performance and recordings",
+      "reason": "The verified 1.2.0 (4) build is installed. Remote launch/debugger services are blocked by developer-image mount errors; manual launch feedback and USB retry are pending."
+    },
+    {
+      "gate": "Production web and final store delivery",
+      "reason": "New web build is staged locally; release acceptance is incomplete; no new App Store upload/submission"
+    }
+  ]
+}

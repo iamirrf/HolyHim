@@ -1,0 +1,1 @@
+Native sqflite Darwin configuration and first durable write passed.

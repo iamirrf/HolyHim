@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:holyher/data/lessons.dart';
 import 'package:holyher/services/local_store.dart';
+import 'package:holyher/services/journey_clock.dart';
 import 'package:holyher/services/progress_service.dart';
 import 'package:holyher/services/profile_service.dart';
 import 'package:holyher/services/auth_service.dart';
@@ -13,6 +14,15 @@ class _SavedProfile extends ProfileNotifier {
   @override
   UserProfile build() =>
       const UserProfile(loaded: true, onboardingComplete: true);
+}
+
+class _EditingProfile extends ProfileNotifier {
+  @override
+  UserProfile build() => const UserProfile(loaded: true);
+  @override
+  Future<void> save(UserProfile value) async {
+    state = value;
+  }
 }
 
 class _SignedIn extends AuthNotifier {
@@ -42,6 +52,20 @@ class _Journey implements JourneyGateway {
   }
 }
 
+class _DelayedJourney extends _Journey {
+  final firstStarted = Completer<void>();
+  final firstResponse = Completer<Map<String, dynamic>>();
+  @override
+  Future<Map<String, dynamic>> complete(String uid, int day) async {
+    if (day == 1 && !firstStarted.isCompleted) {
+      completed.add(day);
+      firstStarted.complete();
+      return firstResponse.future;
+    }
+    return super.complete(uid, day);
+  }
+}
+
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   Map<String, Object> journey(
@@ -68,6 +92,45 @@ void main() {
     return container;
   }
 
+  test(
+      'finishing setup preserves the enrolled journey without restarting progress',
+      () async {
+    final store = MemoryStore(journey());
+    final c = ProviderContainer(overrides: [
+      localStoreProvider.overrideWithValue(store),
+      profileProvider.overrideWith(_EditingProfile.new)
+    ]);
+    addTearDown(c.dispose);
+    final service = c.read(progressProvider.notifier);
+    await service.initialize();
+    expect(c.read(progressProvider).journeyStarted, isTrue);
+    await c
+        .read(profileProvider.notifier)
+        .save(c.read(profileProvider).copyWith(onboardingComplete: true));
+    expect(identical(service, c.read(progressProvider.notifier)), isTrue);
+    expect(c.read(progressProvider).journeyStarted, isTrue);
+    expect(c.read(progressProvider).unlockedThrough, 3);
+    expect(c.read(progressProvider).onboardingComplete, isTrue);
+  });
+  test(
+      'completion dates use the journey calendar, survive restart, and are never inferred for old lessons',
+      () async {
+    final store = MemoryStore(journey(completed: [1]));
+    final container = ProviderContainer(overrides: [
+      localStoreProvider.overrideWithValue(store),
+      profileProvider.overrideWith(_SavedProfile.new),
+      localClockProvider.overrideWithValue(() => DateTime.utc(2026, 11, 2, 2))
+    ]);
+    addTearDown(container.dispose);
+    await container.read(progressProvider.notifier).initialize();
+    expect(container.read(progressProvider).completionDates, isEmpty);
+    await container.read(progressProvider.notifier).completeDay(2);
+    expect(container.read(progressProvider).completionDates, {2: '2026-11-01'});
+    final restarted = create(MemoryStore(store.values));
+    await restarted.read(progressProvider.notifier).initialize();
+    expect(restarted.read(progressProvider).completionDates, {2: '2026-11-01'});
+    expect(restarted.read(progressProvider).completedDays, {1, 2});
+  });
   test('calendar state separates daily release, catch-up and year completion',
       () {
     const state = ProgressState(
@@ -181,4 +244,35 @@ void main() {
       expect(store.values['pending_completions'], isEmpty);
     });
   }
+  test(
+      'legacy completions added during a request drain without overwriting their outbox',
+      () async {
+    final store = MemoryStore(journey());
+    final gateway = _DelayedJourney();
+    gateway.server = {
+      'started': true,
+      'revision': 1,
+      'unlockedThrough': 3,
+      'startDate': '2026-10-29',
+      'timeZone': 'America/New_York',
+      'completedDays': <int>[]
+    };
+    final container = create(store, gateway: gateway);
+    final service = container.read(progressProvider.notifier);
+    await service.initialize();
+    await service.completeDay(1);
+    gateway.loadResponse.complete(gateway.server);
+    await gateway.firstStarted.future;
+    await service.completeDay(2);
+    expect(container.read(progressProvider).pendingDays, {1, 2});
+    gateway.firstResponse.complete({
+      ...gateway.server,
+      'completedDays': [1]
+    });
+    await service.refresh();
+    expect(gateway.completed, [1, 2]);
+    expect(container.read(progressProvider).completedDays, {1, 2});
+    expect(container.read(progressProvider).pendingDays, isEmpty);
+    expect(store.values['pending_completions'], isEmpty);
+  });
 }

@@ -1,31 +1,14 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:cloud_functions/cloud_functions.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:timezone/data/latest.dart' as tzdata;
-import 'package:timezone/timezone.dart' as tz;
+import 'package:holyher/services/journey_clock.dart';
+export 'package:holyher/services/journey_clock.dart';
 import 'package:holyher/services/auth_service.dart';
 import 'package:holyher/services/local_store.dart';
 import 'package:holyher/services/progress_service.dart';
 import 'package:holyher/services/streak_logic.dart';
 export 'package:holyher/services/streak_logic.dart' show StreakState;
 
-bool _timeZonesLoaded = false;
-
-/// The journey keeps its original calendar even when the device travels.
-DateTime accountCalendarTime(DateTime instant, String? timeZone) {
-  if (timeZone == null) return instant;
-  if (!_timeZonesLoaded) {
-    tzdata.initializeTimeZones();
-    _timeZonesLoaded = true;
-  }
-  try {
-    return tz.TZDateTime.from(instant.toUtc(), tz.getLocation(timeZone));
-  } catch (_) {
-    return instant;
-  }
-}
-
-final localClockProvider = Provider<DateTime Function()>((ref) => DateTime.now);
 final accountClockProvider = Provider<DateTime Function()>((ref) {
   final clock = ref.watch(localClockProvider);
   final timeZone =

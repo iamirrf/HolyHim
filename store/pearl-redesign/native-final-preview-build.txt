@@ -1,0 +1,194 @@
+--- xcodebuild: WARNING: Using the first of multiple matching destinations:
+{ platform:iOS Simulator, id:dvtdevice-DVTiOSDeviceSimulatorPlaceholder-iphonesimulator:placeholder, name:Any iOS Simulator Device }
+{ platform:iOS Simulator, arch:arm64, id:E0F7AB65-7529-40F1-8534-7C1A5FBAD7AC, OS:26.5, name:HolyHer Reference 393 }
+{ platform:iOS Simulator, arch:arm64, id:3A9DBC66-F1CD-4D80-809E-ACE8E91B6D3F, OS:26.5, name:iPad (A16) }
+{ platform:iOS Simulator, arch:arm64, id:B1932777-4D4A-4B08-8C22-06DFD2A43F0E, OS:26.5, name:iPad Air 11-inch (M4) }
+{ platform:iOS Simulator, arch:arm64, id:E3084583-135C-4DB0-9EAD-CE564F35DB67, OS:26.5, name:iPad Air 13-inch (M4) }
+{ platform:iOS Simulator, arch:arm64, id:FAA77F1A-6645-49CB-B9E8-93F4F84B399B, OS:26.5, name:iPad Pro 13-inch (M5) }
+{ platform:iOS Simulator, arch:arm64, id:BFF92074-A3E1-4A15-8269-74869C783AA5, OS:26.5, name:iPad mini (A17 Pro) }
+{ platform:iOS Simulator, arch:arm64, id:0588B1E8-2929-410C-B6E8-57B0D199BF8B, OS:26.5, name:iPhone 17 }
+{ platform:iOS Simulator, arch:arm64, id:0604F412-0117-4EA8-A1D5-E06613B22C0E, OS:26.5, name:iPhone 17 Pro Max }
+{ platform:iOS Simulator, arch:arm64, id:C46468FA-44E2-47D1-85C0-BD1E914C00CF, OS:26.5, name:iPhone 17e }
+{ platform:iOS Simulator, arch:arm64, id:A7419238-BDB5-472F-AAA6-F94894425846, OS:26.5, name:iPhone Air }
+{ platform:macOS, arch:arm64, variant:Designed for [iPad,iPhone], id:00008132-000049222E0B801C, name:My Mac }
+{ platform:iOS, id:dvtdevice-DVTiPhonePlaceholder-iphoneos:placeholder, name:Any iOS Device }
+note: Removed stale file '/Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/InputFileList-2E28C6D9ECA63762FC273F84-Pods-Runner-frameworks-Debug-input-files-91f5b5b04159d9c58b07f861506e7fd9-resolved.xcfilelist'
+
+note: Removed stale file '/Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/InputFileList-DE762792A9B66C354B78F49F-Pods-Runner-resources-Debug-input-files-a60e2dd7e330cd9537faa5724d539195-resolved.xcfilelist'
+
+note: Removed stale file '/Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/OutputFileList-2E28C6D9ECA63762FC273F84-Pods-Runner-frameworks-Debug-output-files-18bc9abda04fd1ed133624baf814718d-resolved.xcfilelist'
+
+note: Removed stale file '/Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/OutputFileList-DE762792A9B66C354B78F49F-Pods-Runner-resources-Debug-output-files-22373b8640a6b6dede0acf243c38a929-resolved.xcfilelist'
+
+note: Removed stale file '/Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Script-2E28C6D9ECA63762FC273F84.sh'
+
+note: Removed stale file '/Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Script-90B1042005B816614BA91377.sh'
+
+note: Removed stale file '/Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Script-AD0000000000000000000001.sh'
+
+note: Removed stale file '/Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Script-D614F5ED93A013D6B5697688.sh'
+
+note: Removed stale file '/Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/Runner.build/Debug-iphonesimulator/Runner.build/Script-DE762792A9B66C354B78F49F.sh'
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/AppFrameworkInfo.plist' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/AppsFlyerLib_Privacy.bundle' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/AppsFlyerRPC_Privacy.bundle' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Assets.car' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Base.lproj/LaunchScreen.storyboardc' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Base.lproj/Main.storyboardc' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Frameworks' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/AppAuth.framework' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/AppCheckCore.framework' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/FBLPromises.framework' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/FirebaseABTesting.framework' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/FirebaseAppCheck.framework' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/FirebaseAppCheckInterop.framework' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/FirebaseAuth.framework' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/FirebaseAuthInterop.framework' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/FirebaseCore.framework' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/FirebaseCoreExtension.framework' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/FirebaseCoreInternal.framework' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/FirebaseFirestore.framework' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/FirebaseFirestoreInternal.framework' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/FirebaseFunctions.framework' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/FirebaseInstallations.framework' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/FirebaseMessaging.framework' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/FirebaseMessagingInterop.framework' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/FirebaseRemoteConfig.framework' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/FirebaseRemoteConfigInterop.framework' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/FirebaseSharedSwift.framework' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/FirebaseStorage.framework' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/GTMAppAuth.framework' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/GTMSessionFetcher.framework' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/GoogleDataTransport.framework' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/GoogleSignIn.framework' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/GoogleUtilities.framework' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/Promises.framework' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/PurchasesHybridCommon.framework' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/RecaptchaInterop.framework' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/RevenueCat.framework' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/absl.framework' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/adaptive_platform_ui.framework' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/app_tracking_transparency.framework' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/audioplayers_darwin.framework' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/flutter_local_notifications.framework' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/flutter_timezone.framework' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/grpc.framework' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/grpcpp.framework' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/image_picker_ios.framework' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/in_app_review.framework' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/leveldb.framework' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/nanopb.framework' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/openssl_grpc.framework' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/package_info_plus.framework' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/path_provider_foundation.framework' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/printing.framework' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/purchases_flutter.framework' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/share_plus.framework' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/shared_preferences_foundation.framework' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/sign_in_with_apple.framework' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/sqflite_darwin.framework' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/url_launcher_ios.framework' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/video_player_avfoundation.framework' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/webview_flutter_wkwebview.framework' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/GoogleMobileAdsResources.bundle' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/GoogleService-Info.plist' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Info.plist' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/PkgInfo' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/PrivacyInfo.xcprivacy' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Runner' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/Runner.debug.dylib' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/UserMessagingPlatformResources.bundle' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/__preview.dylib' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/firebase_messaging_Privacy.bundle' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/google_mobile_ads.bundle' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/google_sign_in_ios_privacy.bundle' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.app/permission_handler_apple_privacy.bundle' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.swiftmodule/arm64-apple-ios-simulator.abi.json' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.swiftmodule/arm64-apple-ios-simulator.swiftdoc' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/build/ios/Debug-iphonesimulator/Runner.swiftmodule/arm64-apple-ios-simulator.swiftmodule' is located outside of the allowed root paths.
+
+warning: Stale file '/tmp/holyher-reference-app/ios/Runner/GoogleService-Info.plist' is located outside of the allowed root paths.
+
+note: Run script build phase 'Run Script' will be run during every build because the option to run the script phase "Based on dependency analysis" is unchecked. (in target 'Runner' from project 'Runner')
+note: Run script build phase 'Thin Binary' will be run during every build because the option to run the script phase "Based on dependency analysis" is unchecked. (in target 'Runner' from project 'Runner')

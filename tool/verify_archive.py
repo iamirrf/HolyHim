@@ -156,8 +156,8 @@ def audit(archive, output):
         check('root_privacy_manifest', privacy_path.is_file())
         for key, expected in [('CFBundleIdentifier', BUNDLE),
                               ('CFBundleDisplayName', 'HolyHer'),
-                              ('CFBundleShortVersionString', '1.0.0'),
-                              ('CFBundleVersion', '1'), ('UIDeviceFamily', [1, 2]),
+                              ('CFBundleShortVersionString', re.search(r'^version:\s*([^+\s]+)', (ROOT/'pubspec.yaml').read_text(),re.M)[1]),
+                              ('CFBundleVersion', re.search(r'^version:\s*[^+]+\+(\d+)', (ROOT/'pubspec.yaml').read_text(),re.M)[1]), ('UIDeviceFamily', [1, 2]),
                               ('ITSAppUsesNonExemptEncryption', False)]:
             check(key, info.get(key) == expected)
         check('compiled_asset_catalog', (app / 'Assets.car').is_file())

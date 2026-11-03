@@ -2,18 +2,38 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
     function owner(uid) { return request.auth != null && request.auth.uid == uid; }
+    function activeAccount(uid) {
+      return !exists(/databases/$(database)/documents/deletionGuards/$(uid))
+        || get(/databases/$(database)/documents/deletionGuards/$(uid)).data.deleting != true;
+    }
     match /users/{uid} {
       allow read: if owner(uid);
-      allow create, update: if owner(uid)
-        && request.resource.data.keys().hasOnly(['name','familiarity','focus','obstacle','reminderMinutes','onboardingComplete','haptics','onboardingStep'])
+      allow create, update: if owner(uid) && activeAccount(uid)
+        && request.resource.data.keys().hasOnly(['name','familiarity','focus','obstacle','reminderMinutes','onboardingComplete','haptics','sounds','tips','largerText','theme','readingScale','onboardingVersion','onboardingStepId','onboardingStep','onboardingAnswered','suggestedReminderMinutes','reminderDecision','guidedExampleAnswer','guidedExampleRevealed'])
         && request.resource.data.name is string && request.resource.data.name.size() <= 80
         && request.resource.data.familiarity in ['new','returning','regular']
-        && request.resource.data.focus in ['peace','confidence','hope','guidance','rest']
+        && request.resource.data.focus in ['peace','confidence','courage','hope','guidance','rest']
         && request.resource.data.obstacle in ['busy','forget','language','apply']
         && (request.resource.data.reminderMinutes == null || (request.resource.data.reminderMinutes is int && request.resource.data.reminderMinutes >= 0 && request.resource.data.reminderMinutes < 1440))
         && request.resource.data.onboardingComplete is bool && request.resource.data.haptics is bool
-        && request.resource.data.onboardingStep is int && request.resource.data.onboardingStep >= 0 && request.resource.data.onboardingStep <= 6;
+        && (!('sounds' in request.resource.data) || request.resource.data.sounds is bool)
+        && (!('tips' in request.resource.data) || request.resource.data.tips is bool)
+        && (!('largerText' in request.resource.data) || request.resource.data.largerText is bool)
+        && (!('theme' in request.resource.data) || request.resource.data.theme in ['pearl','rose','lavender','sage','dawn','midnight'])
+        && (!('readingScale' in request.resource.data) || (request.resource.data.readingScale is number && request.resource.data.readingScale >= 1 && request.resource.data.readingScale <= 2))
+        && (!('onboardingVersion' in request.resource.data) || request.resource.data.onboardingVersion in [2,3,4])
+        && (!('onboardingStepId' in request.resource.data) || request.resource.data.onboardingStepId in ['name','starting-point','focus','barrier','suggested-rhythm','reminder','learning-preview','summary','save','day-one','moment','guided-example','daily-rhythm','arrival'])
+        && (!('onboardingAnswered' in request.resource.data) || (request.resource.data.onboardingAnswered is list && request.resource.data.onboardingAnswered.size() <= 12 && request.resource.data.onboardingAnswered.hasOnly(['name','moment','starting-point','barrier','guided-example','daily-rhythm','focus','reminder','summary','save','day-one','arrival'])))
+        && (!('suggestedReminderMinutes' in request.resource.data) || request.resource.data.suggestedReminderMinutes == null || (request.resource.data.suggestedReminderMinutes is int && request.resource.data.suggestedReminderMinutes >= 0 && request.resource.data.suggestedReminderMinutes < 1440))
+        && (!('reminderDecision' in request.resource.data) || request.resource.data.reminderDecision in ['pending','enabled','declined','denied'])
+        && (!('guidedExampleAnswer' in request.resource.data) || request.resource.data.guidedExampleAnswer == null || request.resource.data.guidedExampleAnswer in ['day-001-q1-a','day-001-q1-b','day-001-q1-c','day-001-q1-d'])
+        && (!('guidedExampleRevealed' in request.resource.data) || request.resource.data.guidedExampleRevealed is bool)
+        && request.resource.data.onboardingStep is int && request.resource.data.onboardingStep >= 0 && request.resource.data.onboardingStep <= (('onboardingVersion' in request.resource.data && request.resource.data.onboardingVersion == 4) ? 3 : (('onboardingVersion' in request.resource.data && request.resource.data.onboardingVersion == 3) ? 11 : 9));
       allow delete: if false;
+      match /attempts/{attempt} { allow read: if owner(uid); allow write: if false; }
+      match /resumes/{lesson} { allow read: if owner(uid); allow write: if false; }
+      match /readingResumes/{lesson} { allow read: if owner(uid); allow write: if false; }
+      match /saved/{lesson} { allow read: if owner(uid); allow write: if false; }
       match /private/{document} { allow read: if owner(uid); allow write: if false; }
     }
     match /{document=**} { allow read, write: if false; }

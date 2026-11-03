@@ -1,0 +1,10 @@
+{
+  "path": "/Users/amir/Downloads/HolyHer/build/ios/development/HolyHer-1.1.0-2-development.ipa",
+  "sha256": "82a96b0f112d2af8cf4a8ec95c1637502ed9b4add204142e6181eb16fa273a1a",
+  "bytes": 19340913,
+  "mode": "Release-mode AOT app with existing development signing; no debugger required; not final release acceptance.",
+  "archiveIntegrityVerified": true,
+  "extractedSignatureVerified": true,
+  "identityVerified": true,
+  "aotBundleVerified": true
+}

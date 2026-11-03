@@ -1,0 +1,14 @@
+Building com.holyher.app for device (ios)...
+Automatically signing iOS for device deployment using specified development team in Xcode project: DU9D6TAM58
+Running Xcode build...                                          
+Xcode build done.                                           58.0s
+Failed to build iOS app
+Error (Xcode): error: accessing build database "/Users/amir/Library/Developer/Xcode/DerivedData/Runner-akyrqaaehdemvwfndqgdfofpnrtl/Build/Intermediates.noindex/XCBuildData/build.db": database or disk is full
+
+Error (Xcode): copy(/Users/amir/Downloads/HolyHer/ios/Pods/gRPC-Core/src/core/ext/upbdefs-gen/envoy/config/route/v3/scoped_route.upbdefs.h, /Users/amir/Downloads/HolyHer/build/ios/Debug-iphoneos/gRPC-Core/grpc.framework/PrivateHeaders/src/core/ext/upbdefs-gen/envoy/config/route/v3/scoped_route.upbdefs.h): No space left on device (28)
+
+Error (Xcode): copy(/Users/amir/Downloads/HolyHer/ios/Pods/gRPC-Core/src/core/ext/upbdefs-gen/envoy/config/route/v3/route_components.upbdefs.h, /Users/amir/Downloads/HolyHer/build/ios/Debug-iphoneos/gRPC-Core/grpc.framework/PrivateHeaders/src/core/ext/upbdefs-gen/envoy/config/route/v3/route_components.upbdefs.h): No space left on device (28)
+
+Error (Xcode): copy(/Users/amir/Downloads/HolyHer/ios/Pods/gRPC-Core/src/core/ext/upbdefs-gen/envoy/config/route/v3/route.upbdefs.h, /Users/amir/Downloads/HolyHer/build/ios/Debug-iphoneos/gRPC-Core/grpc.framework/PrivateHeaders/src/core/ext/upbdefs-gen/envoy/config/route/v3/route.upbdefs.h): No space left on device (28)
+
+Encountered error while building for device.

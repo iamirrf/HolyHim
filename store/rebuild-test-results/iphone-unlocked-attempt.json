@@ -1,0 +1,12 @@
+{
+  "deviceUnlockedVerified": true,
+  "directLaunchRequestAccepted": true,
+  "startedSuspendedForDebugger": true,
+  "debuggerAttached": false,
+  "firstFrameVerified": false,
+  "runtimeVerified": false,
+  "processStillRunningAfterAttempt": false,
+  "hostDeveloperToolsSecurityStatus": "disabled (read-only check; no settings changed; causal relevance unconfirmed)",
+  "hostFreeDiskBytes": 454684672,
+  "scope": "Direct launch of already installed development debug app. No build, reinstall, source, signing, provisioning or account changes."
+}

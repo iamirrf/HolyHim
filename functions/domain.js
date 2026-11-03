@@ -67,3 +67,20 @@ function webhookCustomerIds(event) {
     && !id.startsWith('$RCAnonymousID:') && !id.includes('/')))];
 }
 module.exports={TOTAL_DAYS,validTimeZone,dateKey,ordinal,unlockedThrough,mergeCompletion,mergeActivityDays,lifetimeAccess,webhookCustomerIds,REVENUECAT_PROJECT_ID,LIFETIME_ENTITLEMENT_ID};
+
+function gradeAttempt(catalog, request, revision) {
+  if(request.journeyRevision!==revision)throw new Error('stale-revision');
+  if(request.contentVersion!==catalog.version)throw new Error('content-version');
+  if(typeof request.attemptId!=='string'||!/^[a-zA-Z0-9-]{16,100}$/.test(request.attemptId))throw new Error('attempt-id');
+  const lesson=catalog.lessons.find(l=>l.day===request.day);
+  if(!lesson)throw new Error('content-unavailable');
+  const selected=request.selectedOptionIds;
+  if(!selected||typeof selected!=='object'||Array.isArray(selected)||Object.keys(selected).length!==2)throw new Error('answers-required');
+  const answers=lesson.questions.map(q=>{
+    const optionId=selected[q.id];
+    if(!q.options.some(o=>o.id===optionId))throw new Error('invalid-option');
+    return {questionId:q.id,selectedOptionId:optionId,correct:optionId===q.correctOptionId};
+  });
+  return {answers,correctCount:answers.filter(a=>a.correct).length,questionCount:2};
+}
+module.exports.gradeAttempt=gradeAttempt;

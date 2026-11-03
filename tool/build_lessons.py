@@ -156,7 +156,7 @@ def render_dart(lessons: list[dict], verses: dict[str, str]) -> str:
     dart = shutil.which('dart')
     if not dart:
         raise RuntimeError('Dart SDK is required to format the generated catalog')
-    result = subprocess.run([dart, 'format', '--output=show', '--summary=none'], input=source, text=True, capture_output=True, check=True)
+    result = subprocess.run([dart, 'format', '--language-version=3.0', '--output=show', '--summary=none'], input=source, text=True, capture_output=True, check=True)
     return result.stdout
 
 

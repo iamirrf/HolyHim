@@ -1,0 +1,14 @@
+{
+  "repository": "/Users/amir/Downloads/evolve.ai",
+  "commit": "633680c84cec9a1b509f5092e8e2129562a6e047",
+  "sourcePreparation": "git archive into separate temporary directory; original dirty repository untouched",
+  "rendering": "Actual iOS 26.5 simulator, iPhone 14 Pro geometry, 393 x 852 logical, 1179 x 2556 pixels, 3x",
+  "captures": {
+    "cognein-welcome-393.png": "Original WelcomeScreen route, initial certificate scene; not a screenshot approximation",
+    "cognein-name-393.png": "Original NameStep inside original OnboardingScaffold; isolated component fixture",
+    "cognein-surface-393.png": "Original LessonCardSurface with explicit comparison copy; component specimen, not authenticated lesson content"
+  },
+  "fixture": "preview_main.dart.txt",
+  "buildLog": "native-build.txt",
+  "limitations": "No complete authenticated Cognein tab/lesson journey, physical-device performance or full reference motion comparison was recorded. Temporary generated checkout and build were removed after retaining this evidence to recover QA disk space."
+}

@@ -1,0 +1,50 @@
+{
+  "route": "lesson:question-1",
+  "logicalWidth": 393.0,
+  "logicalHeight": 852.0,
+  "pixelWidth": 1179.0,
+  "pixelHeight": 2556.0,
+  "devicePixelRatio": 3.0,
+  "textScale": 1.0,
+  "reduceMotion": true,
+  "build": "1.1.0 (3) local redesign preview",
+  "font": {
+    "regularWidthZeroTracking": 328.388671875,
+    "semiboldWidthZeroTracking": 343.6032783985138,
+    "regularWidth": 327.099609375,
+    "semiboldWidth": 342.24589705467224,
+    "regularName": ".AppleSystemUIFontRounded-Regular",
+    "semiboldName": ".AppleSystemUIFontRounded-Semibold",
+    "regularVariations": {},
+    "semiboldVariations": {
+      "wght": 590.8
+    },
+    "family": ".AppleSystemUIFontRounded",
+    "design": "UIKit.SystemDesign.rounded",
+    "featureProbes": {
+      "default": 317.130859375,
+      "tnum": 324.048828125,
+      "pnum": 317.130859375,
+      "kern-off": 318.419921875,
+      "liga-off": 317.130859375,
+      ".AppleSystemUIFontRounded": 317.130859375,
+      ".AppleSystemUIFontRounded-Regular": 350.2919921875,
+      ".SFUIRounded-Regular": 350.2919921875,
+      "wght-400.0": 317.130859375,
+      "wght-590.8": 332.27716064453125,
+      "wght-600.0": 333.0068359375
+    },
+    "regularFlutterWidth": 317.130859375,
+    "regularWidthDelta": 9.96875,
+    "semiboldFlutterWidth": 333.0068359375,
+    "semiboldWidthDelta": 9.239061117172241
+  },
+  "entrypoint": "tool/preview_main.dart",
+  "fixture": "lib/dev/preview_fixtures.dart",
+  "events": [],
+  "artifactSha256": "4b24dd444cf64fddeed7336f639daad247f3fced9c787d943e98db892a8a24f2",
+  "simulator": "E0F7AB65-7529-40F1-8534-7C1A5FBAD7AC",
+  "capture": "simctl native iOS screenshot",
+  "errors": "",
+  "rejectionReason": "Early font adapter specimen mismatch. Superseded and excluded from the review gallery."
+}

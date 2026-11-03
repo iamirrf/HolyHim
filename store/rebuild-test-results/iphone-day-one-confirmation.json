@@ -1,0 +1,14 @@
+{
+  "recordedAt": "2026-11-01T11:05:46.404975-05:00",
+  "device": "physical iPhone",
+  "installedVersion": "1.1.0 (3)",
+  "accountProvider": "Google",
+  "userConfirmed": "Yes, Day 1 opens",
+  "confirmedFlow": [
+    "signed-in saved-data startup",
+    "free journey enrollment",
+    "Day 1 opens"
+  ],
+  "lessonCompletionOnPhysicalDeviceVerified": false,
+  "fullNativeAcceptanceVerified": false
+}

@@ -1,0 +1,3 @@
+00:00 +0: loading /Users/amir/Downloads/HolyHer/test/router_state_test.dart
+00:00 +0: real protected router retains Saved query through URL changes
+00:01 +1: All tests passed!

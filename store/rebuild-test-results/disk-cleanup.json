@@ -1,0 +1,44 @@
+{
+  "checkedAt": "2026-10-31T22:00:43.522318-04:00",
+  "freeBytesBefore": 450301952,
+  "removed": [
+    {
+      "category": "Outdated iOS 27.0 device symbols",
+      "path": "/Users/amir/Library/Developer/Xcode/iOS DeviceSupport/iPhone15,3 27.0 (24A435)",
+      "allocatedBytesBefore": 6859141120,
+      "removed": true
+    },
+    {
+      "category": "Regenerable Xcode module cache",
+      "path": "/Users/amir/Library/Developer/Xcode/DerivedData/ModuleCache.noindex",
+      "allocatedBytesBefore": 2300018688,
+      "removed": true
+    },
+    {
+      "category": "npm package download cache",
+      "path": "/Users/amir/.npm/_cacache",
+      "allocatedBytesBefore": 981925888,
+      "removed": true
+    },
+    {
+      "category": "VS Code cached extension installers",
+      "path": "/Users/amir/Library/Application Support/Code/CachedExtensionVSIXs",
+      "allocatedBytesBefore": 925323264,
+      "removed": true
+    }
+  ],
+  "preserved": [
+    "Current iOS 27.2 device support",
+    "HolyHer source and original curriculum",
+    "Verified signed app and debug IPA",
+    "Original archive and IPA",
+    "Pre-edit source checkpoint",
+    "Installed dependencies and editor extensions",
+    "Simulators and personal files"
+  ],
+  "freeBytesAfter": 11538165760,
+  "freeBytesGained": 11087863808,
+  "preservedSourceAndEvidenceVerified": true,
+  "verifiedDebugIpaUnchanged": true,
+  "signedAppReverified": true
+}

@@ -2,7 +2,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:holyher/services/local_store.dart';
-import 'package:holyher/services/paywall_service.dart';
 import 'package:holyher/services/progress_service.dart';
 import 'package:holyher/services/streak_service.dart';
 
@@ -20,17 +19,17 @@ void main() {
       'paywall_lifetime_unlocked': 1,
     });
     final container = ProviderContainer(overrides: [
+      localStoreProvider
+          .overrideWithValue(PreferencesStore(prefix: 'signed-out:')),
       localClockProvider.overrideWithValue(() => DateTime(2026, 10, 29)),
     ]);
     addTearDown(container.dispose);
     await container.read(streakProvider.notifier).initialize();
     await container.read(progressProvider.notifier).initialize();
-    await container.read(paywallProvider.notifier).initialize();
     expect(container.read(streakProvider).current, 1);
     expect(container.read(streakProvider).longest, 1);
     expect(container.read(progressProvider).completedDays, isEmpty);
     expect(container.read(progressProvider).onboardingComplete, false);
-    expect(container.read(paywallProvider), false);
     final prefs = await SharedPreferences.getInstance();
     expect(prefs.get('signed-out:streak_active_days'), ['2026-10-29']);
   });

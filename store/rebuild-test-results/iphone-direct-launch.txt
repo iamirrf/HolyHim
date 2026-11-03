@@ -1,0 +1,19 @@
+21:51:20  Acquired tunnel connection to device.
+21:51:20  Enabling developer disk image services.
+21:51:21  Acquired usage assertion.
+ERROR: The application failed to launch. (com.apple.dt.CoreDeviceError error 10002 (0x2712))
+       BundleIdentifier = com.holyher.app
+       ----------------------------------------
+           The request to open "com.holyher.app" failed. (FBSOpenApplicationServiceErrorDomain error 1 (0x01))
+           NSLocalizedFailureReason = The request was denied by service delegate (SBMainWorkspace) for reason: Locked ("Unable to launch com.holyher.app because the device was not, or could not be, unlocked").
+           FBSOpenApplicationRequestID = 0xc5a0
+           BSErrorCodeDescription = RequestDenied
+       ----------------------------------------
+               The operation couldn’t be completed. Unable to launch com.holyher.app because the device was not, or could not be, unlocked. (FBSOpenApplicationErrorDomain error 7 (0x07))
+               BSErrorCodeDescription = Locked
+               NSLocalizedFailureReason = Unable to launch com.holyher.app because the device was not, or could not be, unlocked.
+       Error writing JSON results: You can’t save the file “holyher-direct-launch.json” because the volume “Macintosh HD” is out of space. (NSCocoaErrorDomain error 640 (0x280))
+       NSURL = file:///tmp/holyher-direct-launch.json
+       NSFilePath = /tmp/holyher-direct-launch.json
+       ----------------------------------------
+           The operation couldn’t be completed. No space left on device (NSPOSIXErrorDomain error 28 (0x1C))

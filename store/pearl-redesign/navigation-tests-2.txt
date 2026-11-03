@@ -1,0 +1,4 @@
+00:00 +0: loading /Users/amir/Downloads/HolyHer/test/navigation_presentation_test.dart
+00:00 +0: only user vertical scrolling minimizes navigation and upward scrolling expands it
+00:01 +1: Saved search survives tab changes and reselecting Learn returns to the top
+00:02 +2: All tests passed!

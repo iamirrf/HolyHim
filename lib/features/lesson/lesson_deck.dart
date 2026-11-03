@@ -1,18 +1,25 @@
+import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter/physics.dart';
 
-import 'package:flutter/services.dart';
+import 'package:holyher/services/feedback_service.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:holyher/services/profile_service.dart';
 import 'package:holyher/core/widgets/holy_motion.dart';
+
+/// A portrait page retains its reading proportions as chrome and text reflow.
+Size lessonPageSize(Size stage, {double gutter = 40, double inset = 20}) {
+  final height = math.max(1.0, stage.height - inset);
+  return Size(
+      math.min(math.min(560.0, stage.width - gutter), height * 9 / 16), height);
+}
 
 /// Lets the parent trigger the same fly-off-and-advance animation a user swipe
 /// produces (used when a video finishes playing on its own).
 class LessonDeckController {
-  Future<void> Function()? _advance;
-  void _attach(Future<void> Function() advance) => _advance = advance;
+  Future<void> Function(int)? _advance;
+  void _attach(Future<void> Function(int) advance) => _advance = advance;
   void _detach() => _advance = null;
-  Future<void> advance() async => _advance?.call();
+  Future<void> advance([int delta = 1]) async => _advance?.call(delta);
 }
 
 /// A card that swipes off to the side and reveals the next one growing in from
@@ -119,10 +126,10 @@ class _LessonDeckState extends ConsumerState<LessonDeck>
   }
 
   void _tick() {
-    if (ref.read(profileProvider).haptics) HapticFeedback.selectionClick();
+    ref.read(feedbackProvider).selection();
   }
 
-  double get _width => widget.cardSize.width + 48;
+  double get _width => widget.cardSize.width;
 
   void _onDragStart(DragStartDetails details) {
     if (widget.locked || _anim.isAnimating) return;
@@ -178,11 +185,12 @@ class _LessonDeckState extends ConsumerState<LessonDeck>
     }
   }
 
-  Future<void> _advanceProgrammatically() async {
+  Future<void> _advanceProgrammatically(int delta) async {
     if (widget.locked || _dragging || _anim.isAnimating) return;
-    if (!widget.canMove(widget.index, widget.index + 1)) return;
-    widget.onCommit?.call(-1, 0.55);
-    await _settle(-1, -_autoAdvanceVelocity);
+    if (!widget.canMove(widget.index, widget.index + delta)) return;
+    final direction = delta > 0 ? -1 : 1;
+    widget.onCommit?.call(direction, 0.55);
+    await _settle(direction, direction * _autoAdvanceVelocity);
   }
 
   /// Springs the card to a resting place: off-screen in [direction] (-1 forward,
@@ -268,7 +276,8 @@ class _LessonDeckState extends ConsumerState<LessonDeck>
       onHorizontalDragStart: _onDragStart,
       onHorizontalDragUpdate: _onDragUpdate,
       onHorizontalDragEnd: _onDragEnd,
-      child: Stack(fit: StackFit.expand, children: layers),
+      child: Stack(
+          fit: StackFit.expand, clipBehavior: Clip.none, children: layers),
     );
   }
 
@@ -282,9 +291,9 @@ class _LessonDeckState extends ConsumerState<LessonDeck>
     required bool ignorePointer,
   }) {
     return ExcludeSemantics(
+        key: ValueKey('lesson-layer-$index'),
         excluding: ignorePointer,
         child: IgnorePointer(
-          key: ValueKey('lesson-layer-$index'),
           ignoring: ignorePointer,
           child: Center(
             child: Opacity(

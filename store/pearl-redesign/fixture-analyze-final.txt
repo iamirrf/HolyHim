@@ -1,0 +1,6 @@
+Analyzing dev, preview_main.dart...
+
+   info - lib/dev/preview_automation.dart:150:9 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib/dev/preview_fixtures.dart:118:7 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+
+2 issues found.

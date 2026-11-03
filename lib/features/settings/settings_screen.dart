@@ -1,12 +1,20 @@
+import 'package:holyher/features/settings/theme_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart' as fb;
+import 'package:firebase_core/firebase_core.dart';
+import 'package:holyher/features/settings/data_screens.dart';
+import 'package:holyher/services/feedback_service.dart';
+import 'package:holyher/services/lesson_audio.dart';
+import 'package:holyher/services/learning_service.dart';
+import 'package:holyher/services/saved_service.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:holyher/core/theme/app_theme.dart';
 import 'package:holyher/core/widgets/holy_ui.dart';
-import 'package:holyher/features/onboarding/onboarding_screen.dart';
+import 'package:holyher/features/settings/profile_editors.dart';
+import 'package:holyher/core/constants/app_constants.dart';
 import 'package:holyher/features/onboarding/personalization.dart';
 import 'package:holyher/features/support/support_screens.dart';
 import 'package:holyher/services/auth_service.dart';
-import 'package:holyher/services/paywall_service.dart';
 import 'package:holyher/services/profile_service.dart';
 import 'package:holyher/services/reminder_service.dart';
 
@@ -19,6 +27,8 @@ class SettingsScreen extends ConsumerStatefulWidget {
 class _SettingsScreenState extends ConsumerState<SettingsScreen>
     with WidgetsBindingObserver {
   bool _busy = false;
+  late final _audio =
+      LessonAudio(() => mounted && ref.read(profileProvider).sounds);
   String? _message;
   @override
   void initState() {
@@ -28,6 +38,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen>
 
   @override
   void dispose() {
+    _audio.dispose();
     WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
@@ -39,86 +50,16 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen>
     }
   }
 
-  Future<void> _reminder() async {
-    final profile = ref.read(profileProvider);
-    final selection = await showModalBottomSheet<String>(
-        context: context,
-        showDragHandle: true,
-        backgroundColor: AppColors.background,
-        builder: (context) => SafeArea(
-            child: Padding(
-                padding: const EdgeInsets.fromLTRB(24, 8, 24, 24),
-                child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      Text('Your daily reminder',
-                          style: Theme.of(context).textTheme.titleLarge),
-                      const SizedBox(height: 10),
-                      Text(reminderLabel(profile.reminderMinutes),
-                          style:
-                              const TextStyle(color: AppColors.textSecondary)),
-                      const SizedBox(height: 20),
-                      HolyButton(
-                          label: 'Choose a time',
-                          onPressed: () => Navigator.pop(context, 'time')),
-                      const SizedBox(height: 10),
-                      HolyButton(
-                          label: 'Turn reminder off',
-                          secondary: true,
-                          onPressed: () => Navigator.pop(context, 'off'))
-                    ]))));
-    if (selection == null || !mounted) return;
-    int? minutes;
-    if (selection == 'time') {
-      final initial = profile.reminderMinutes ?? 480;
-      final time = await showTimePicker(
-          context: context,
-          initialTime: TimeOfDay(hour: initial ~/ 60, minute: initial % 60));
-      if (time == null) return;
-      minutes = time.hour * 60 + time.minute;
-    }
-    setState(() {
-      _busy = true;
-      _message = null;
-    });
-    try {
-      await ref.read(profileProvider.notifier).setReminder(minutes);
-      ref.invalidate(reminderEnabledProvider);
-    } catch (_) {
-      if (mounted) {
-        setState(() => _message =
-            'Your reminder could not be enabled. Check notification permission in your device Settings, then try again.');
-      }
-    } finally {
-      if (mounted) setState(() => _busy = false);
-    }
-  }
-
-  Future<void> _restore() async {
-    setState(() {
-      _busy = true;
-      _message = null;
-    });
-    final restored = await ref.read(paywallProvider.notifier).restore();
-    if (mounted) {
-      setState(() {
-        _busy = false;
-        _message = restored
-            ? 'Your lifetime access is active.'
-            : ref.read(purchaseProvider).error ??
-                'No lifetime purchase was found for this store account.';
-      });
-    }
-  }
-
   Future<void> _logout() async {
-    final yes = await showDialog<bool>(
+    final pending = ref.read(attemptSyncProvider).pending.isNotEmpty ||
+        ref.read(savedProvider).pending.isNotEmpty;
+    final yes = await showAdaptiveDialog<bool>(
         context: context,
-        builder: (context) => AlertDialog(
+        builder: (context) => AlertDialog.adaptive(
                 title: const Text('Sign out?'),
-                content: const Text(
-                    'Your synced journey stays with your account. Sign in again to return to it.'),
+                content: Text(pending
+                    ? 'Your latest changes are saved on this device. They will sync when you sign in again and reconnect.'
+                    : 'Your saved journey stays with your account.'),
                 actions: [
                   TextButton(
                       onPressed: () => Navigator.pop(context, false),
@@ -136,9 +77,13 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen>
 
   Future<void> _delete() async {
     final password = TextEditingController();
-    final result = await showDialog<String>(
+    final passwordAccount = Firebase.apps.isNotEmpty &&
+        (fb.FirebaseAuth.instance.currentUser?.providerData
+                .any((p) => p.providerId == 'password') ??
+            false);
+    final result = await showAdaptiveDialog<String>(
         context: context,
-        builder: (context) => AlertDialog(
+        builder: (context) => AlertDialog.adaptive(
                 scrollable: true,
                 title: const Text('Delete your account?'),
                 content: Column(
@@ -146,16 +91,20 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen>
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const Text(
-                          'This permanently removes your account, setup answers, and cloud lesson progress. This cannot be undone. Your App Store purchase is handled separately by Apple.'),
+                          'This permanently removes your account, preferences, saved lessons, attempts, progress, and free-edition grant. This cannot be undone.'),
                       const SizedBox(height: 20),
-                      TextField(
-                          controller: password,
-                          obscureText: true,
-                          decoration: const InputDecoration(
-                              labelText: 'Password, if you use email',
-                              helperText:
-                                  'Apple and Google will ask you to sign in again.',
-                              helperMaxLines: 3))
+                      if (passwordAccount)
+                        TextField(
+                            controller: password,
+                            obscureText: true,
+                            decoration: const InputDecoration(
+                                labelText: 'Current password',
+                                helperText:
+                                    'Confirm your identity to delete your account.',
+                                helperMaxLines: 3)),
+                      if (!passwordAccount)
+                        const Text(
+                            'Your sign-in provider will ask you to confirm your identity.')
                     ]),
                 actions: [
                   TextButton(
@@ -187,6 +136,24 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen>
     }
   }
 
+  Future<void> _preference(UserProfile profile) async {
+    if (_busy) return;
+    setState(() {
+      _busy = true;
+      _message = null;
+    });
+    try {
+      await ref.read(profileProvider.notifier).save(profile);
+    } catch (_) {
+      if (mounted) {
+        setState(() => _message =
+            'Your preference could not finish saving. Please retry.');
+      }
+    } finally {
+      if (mounted) setState(() => _busy = false);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final profile = ref.watch(profileProvider);
@@ -194,38 +161,83 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen>
     final reminderEnabled = profile.reminderMinutes != null &&
         ref.watch(reminderEnabledProvider).valueOrNull == true;
     final busy = _busy || auth.loading;
+    final passwordAccount = Firebase.apps.isNotEmpty &&
+        (fb.FirebaseAuth.instance.currentUser?.providerData
+                .any((p) => p.providerId == 'password') ??
+            false);
     return HolyScaffold(
         title: 'Settings',
         body: ReadingWidth(
-            child: ListView(padding: const EdgeInsets.all(26), children: [
-          const PageHeading(
-              eyebrow: 'Make yourself at home',
-              title: 'Your everyday\npreferences.'),
-          if (_message != null) InlineMessage(_message!),
-          if (_message?.contains('notification permission') == true)
-            TextButton(
-                onPressed: () => openExternal(context, 'app-settings:'),
-                child: const Text('Open device Settings')),
+            child: ListView(padding: const EdgeInsets.all(24), children: [
+          if (_message != null) InlineMessage(_message!, error: true),
           if (auth.error != null) InlineMessage(auth.error!, error: true),
-          const SectionLabel('Your rhythm'),
+          const SectionLabel('Account'),
           MenuRow(
-              title: 'Edit your setup',
-              subtitle:
-                  '${focusLabel(profile.focus)} · ${familiarityLabel(profile.familiarity)}',
-              icon: Icons.spa_outlined,
+              title: 'Signed in',
+              subtitle: auth.user?.email ?? 'Your HolyHer account',
+              icon: Icons.person_outline_rounded),
+          MenuRow(
+              title: 'Preferred name',
+              subtitle: profile.name.isEmpty ? 'Add a name' : profile.name,
+              icon: Icons.edit_outlined,
               onTap: busy
                   ? null
-                  : () => openScreen(
-                      context, const OnboardingScreen(editing: true))),
+                  : () => openScreen(context, const NameEditorScreen())),
+          const MenuRow(
+              title: 'HolyHer 365 edition',
+              subtitle: 'Free enrollment · keep your unlocked lessons',
+              icon: Icons.verified_outlined),
+          if (passwordAccount)
+            MenuRow(
+                title: 'Change password',
+                icon: Icons.password,
+                onTap: busy
+                    ? null
+                    : () => openScreen(context, const ChangePasswordScreen())),
           MenuRow(
-              title: reminderEnabled
-                  ? 'Daily reminder'
-                  : 'Preferred reminder time',
+              title: 'Sign out',
+              icon: Icons.logout_rounded,
+              onTap: busy ? null : _logout),
+          const SectionLabel('My rhythm'),
+          MenuRow(
+              title: 'Edit my rhythm',
+              subtitle:
+                  '${focusLabel(profile.focus)} · ${familiarityLabel(profile.familiarity)}',
+              icon: Icons.wb_twilight_outlined,
+              onTap: busy
+                  ? null
+                  : () => openScreen(context, const RhythmScreen())),
+          MenuRow(
+              title: 'Daily reminder',
               subtitle: profile.reminderMinutes == null
-                  ? 'No daily reminder'
-                  : '${reminderLabel(profile.reminderMinutes)} · ${reminderEnabled ? 'Enabled on this device' : 'Tap to enable on this device'}',
+                  ? 'Off'
+                  : '${reminderLabel(profile.reminderMinutes, context: context)} · ${reminderEnabled ? 'On for this device' : 'Off for this device'}',
               icon: Icons.notifications_none_rounded,
-              onTap: busy ? null : _reminder),
+              onTap: busy
+                  ? null
+                  : () => openScreen(context, const ReminderSettingsScreen())),
+          const SectionLabel('Reading and feedback'),
+          MenuRow(
+              title: 'Theme',
+              subtitle: HolyPalette.byId(profile.theme).name,
+              icon: Icons.palette_outlined,
+              onTap: () => openScreen(context, const ThemeScreen())),
+          MenuRow(
+              title: 'Reading size',
+              subtitle:
+                  '${(profile.readingScale * 100).round()}% · Adds to your device text size',
+              icon: Icons.text_fields,
+              trailing: SizedBox(
+                  width: 140,
+                  child: Slider(
+                      min: 1,
+                      max: 2,
+                      divisions: 4,
+                      value: profile.readingScale,
+                      onChanged: busy
+                          ? null
+                          : (v) =>
+                              _preference(profile.copyWith(readingScale: v))))),
           MenuRow(
               title: 'Gentle haptics',
               subtitle: 'Small taps as you move through your day',
@@ -234,36 +246,91 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen>
                   value: profile.haptics,
                   onChanged: busy
                       ? null
-                      : (value) async {
-                          try {
-                            await ref
-                                .read(profileProvider.notifier)
-                                .setHaptics(value);
-                          } catch (_) {
-                            if (context.mounted) {
-                              showNotice(context,
-                                  'Your preference could not be saved. Please try again.');
-                            }
-                          }
-                        }),
-              onTap: null),
-          const SectionLabel('Your account'),
+                      : (value) =>
+                          _preference(profile.copyWith(haptics: value)))),
           MenuRow(
-              title: 'Signed in',
-              subtitle: auth.user?.email ?? 'Your HolyHer account',
-              icon: Icons.person_outline_rounded),
+              title: 'Sound effects',
+              subtitle: 'Soft reading cues · respects the silent switch',
+              icon: Icons.volume_up_outlined,
+              trailing: Switch.adaptive(
+                  value: profile.sounds,
+                  onChanged: busy
+                      ? null
+                      : (value) {
+                          if (!value) _audio.stop();
+                          _preference(profile.copyWith(sounds: value));
+                        })),
+          Wrap(spacing: 12, children: [
+            TextButton(
+                onPressed: !busy && profile.sounds
+                    ? () => _audio.play('lesson_correct', .24)
+                    : null,
+                child: const Text('Preview sound')),
+            TextButton(
+                onPressed: !busy && profile.haptics
+                    ? () => ref.read(feedbackProvider).light()
+                    : null,
+                child: const Text('Preview haptic'))
+          ]),
           MenuRow(
-              title: 'Lifetime access',
-              subtitle: 'Restore your App Store purchase',
-              icon: Icons.verified_outlined,
-              onTap: busy ? null : _restore),
+              title: 'Larger reading text',
+              subtitle: 'Adds to your device text size',
+              icon: Icons.text_fields,
+              trailing: Switch.adaptive(
+                  value: profile.largerText,
+                  onChanged: busy
+                      ? null
+                      : (v) => _preference(profile.copyWith(largerText: v)))),
+          const QuietInset(
+              child: Text(
+                  'God is our refuge and strength, a very present help in trouble. — Psalm 46:1 (WEB)',
+                  style: HolyTypography.reading)),
           MenuRow(
-              title: 'Sign out',
-              icon: Icons.logout_rounded,
-              onTap: busy ? null : _logout),
-          const SectionLabel('Help & information'),
+              title: 'Reading tips',
+              subtitle: 'Contextual guidance while learning',
+              icon: Icons.tips_and_updates_outlined,
+              trailing: Switch.adaptive(
+                  value: profile.tips,
+                  onChanged: busy
+                      ? null
+                      : (v) => _preference(profile.copyWith(tips: v)))),
+          const SectionLabel('Data'),
           MenuRow(
-              title: 'Help & support',
+              title: 'Export my data',
+              subtitle:
+                  'A copy of your profile, reading history, and saved items',
+              icon: Icons.file_download_outlined,
+              onTap: busy
+                  ? null
+                  : () => openScreen(context, const ExportDataScreen())),
+          MenuRow(
+              title: 'Reset reading progress',
+              subtitle:
+                  'Keep calendar availability, saved items, and edition access',
+              icon: Icons.restart_alt,
+              onTap: busy
+                  ? null
+                  : () => openScreen(context, const ResetProgressScreen())),
+          if (ref.watch(attemptSyncProvider).pending.isNotEmpty ||
+              ref.watch(savedProvider).pending.isNotEmpty)
+            MenuRow(
+                title: 'Changes waiting to sync',
+                subtitle: 'Your latest progress will sync when you’re online.',
+                icon: Icons.cloud_upload_outlined,
+                onTap: busy
+                    ? null
+                    : () async {
+                        await ref.read(attemptSyncProvider.notifier).sync();
+                        await ref.read(savedProvider.notifier).sync();
+                      }),
+          MenuRow(
+              title: 'Delete account',
+              subtitle: 'Permanently remove your account and cloud progress',
+              icon: Icons.delete_outline_rounded,
+              onTap: busy ? null : _delete),
+          const SectionLabel('Support'),
+          MenuRow(
+              title: 'Help',
               icon: Icons.help_outline_rounded,
               onTap: () => openScreen(context, const HelpScreen())),
           MenuRow(
@@ -278,12 +345,6 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen>
               title: 'Terms',
               icon: Icons.description_outlined,
               onTap: () => openScreen(context, const TermsScreen())),
-          const SectionLabel('Account data'),
-          MenuRow(
-              title: 'Delete account',
-              subtitle: 'Permanently remove your account and cloud progress',
-              icon: Icons.delete_outline_rounded,
-              onTap: busy ? null : _delete),
           if (busy)
             const Padding(
                 padding: EdgeInsets.all(20),
@@ -291,8 +352,10 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen>
                     child: SizedBox.square(
                         dimension: 23,
                         child: CircularProgressIndicator(strokeWidth: 2)))),
-          const SizedBox(height: 15),
-          const Center(child: Eyebrow('HolyHer · 1.0')),
+          const SizedBox(height: 24),
+          Center(
+              child: Text('HolyHer · ${AppConstants.versionLabel}',
+                  style: HolyTypography.supporting)),
         ])));
   }
 }

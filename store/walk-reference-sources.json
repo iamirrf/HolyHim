@@ -1,0 +1,34 @@
+{
+  "references": [
+    {
+      "repository": "/Users/amir/Downloads/evolve.ai",
+      "file": "lib/core/widgets/animated_mesh_background.dart",
+      "sha256": "bebbb647eef0727657559a53bc83ee666407ff6f5ba9d4819f84ebd8ac62e3c1"
+    },
+    {
+      "repository": "/Users/amir/Downloads/evolve.ai",
+      "file": "lib/core/animation/cognein_motion.dart",
+      "sha256": "aa54ee37989016b1ed3a166b2e0b801941ad9240bcccf9e2ee2f5bc22050381d"
+    },
+    {
+      "repository": "/Users/amir/Downloads/evolve.ai",
+      "file": "lib/core/widgets/app_top_bar.dart",
+      "sha256": "47158e3c7fc0592f48c569ab8676c417f86ba11c2432b78a95e1ae206838090f"
+    },
+    {
+      "repository": "/Users/amir/Downloads/Business/SunRize/code",
+      "file": "lib/core/theme/color_themes.dart",
+      "sha256": "f3baf61ded16d375bcc50749d5e58a83f4fdcadd64ea172aa93a8a13f438634d"
+    },
+    {
+      "repository": "/Users/amir/Downloads/Business/SunRize/code",
+      "file": "lib/features/home/widgets/page_gradient_themes.dart",
+      "sha256": "9119bddcb3dd24ac7289dab767db38d8f36af09861de8a0d6d7c32ae72fb1928"
+    },
+    {
+      "repository": "/Users/amir/Downloads/Business/SunRize/code",
+      "file": "lib/core/widgets/badge_reveal_dialog.dart",
+      "sha256": "54796bc0dab4f1fc02b1341aabd11caa0f28578dcebe5f843cab982dac57b18e"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+22:23:51  Acquired tunnel connection to device.
+22:23:51  Enabling developer disk image services.
+22:23:51  Acquired usage assertion.
+Launched application with com.holyher.app bundle identifier.
+Waiting for the application to terminate…

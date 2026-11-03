@@ -1,35 +1,41 @@
+import 'package:holyher/services/reading_guidance.dart';
+import 'package:holyher/core/widgets/holy_pickers.dart';
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:holyher/core/theme/app_theme.dart';
 import 'package:holyher/core/widgets/holy_ui.dart';
+import 'package:holyher/core/widgets/lesson_artwork.dart';
 import 'package:holyher/data/lessons.dart';
-import 'package:holyher/features/onboarding/personalization.dart';
-import 'package:holyher/features/support/support_screens.dart';
-import 'package:holyher/services/auth_service.dart';
+import 'package:holyher/features/onboarding/checkpoint.dart';
 import 'package:holyher/services/profile_service.dart';
+import 'package:holyher/services/progress_service.dart';
+import 'package:holyher/services/reminder_service.dart';
+import 'package:holyher/services/reading_destination.dart';
 
 class OnboardingScreen extends ConsumerStatefulWidget {
   final bool editing;
-  const OnboardingScreen({super.key, this.editing = false});
+  final String? initialStage;
+  const OnboardingScreen({super.key, this.editing = false, this.initialStage});
   @override
-  ConsumerState<OnboardingScreen> createState() => _OnboardingScreenState();
+  ConsumerState<OnboardingScreen> createState() => _OnboardingState();
 }
 
-class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
+class _OnboardingState extends ConsumerState<OnboardingScreen> {
   late UserProfile _draft;
   late TextEditingController _name;
-  int _step = 0;
-  bool _busy = false;
+  late int _step;
+  bool _busy = false, _submitted = false;
   String? _error;
+  Future<void> _writes = Future.value();
   @override
   void initState() {
     super.initState();
     _draft = ref.read(profileProvider);
-    _step = widget.editing ? 0 : _draft.onboardingStep.clamp(0, 6);
-    _name = TextEditingController(
-        text: _draft.name.isEmpty
-            ? ref.read(authProvider).user?.displayName ?? ''
-            : _draft.name);
+    _step = widget.initialStage == null
+        ? _draft.onboardingStep.clamp(0, 3)
+        : OnboardingStages.ids.indexOf(widget.initialStage!).clamp(0, 3);
+    _name = TextEditingController(text: _draft.name);
   }
 
   @override
@@ -38,442 +44,334 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
     super.dispose();
   }
 
-  bool get _valid => switch (_step) {
-        1 => _draft.familiarity.isNotEmpty,
-        2 => _draft.focus.isNotEmpty,
-        3 => _draft.obstacle.isNotEmpty,
-        _ => true
-      };
-  Future<void> _next() async {
-    if (_busy || !_valid) return;
-    FocusScope.of(context).unfocus();
+  void _update(UserProfile draft) {
+    setState(() => _draft = draft);
+    final notifier = ref.read(profileProvider.notifier);
+    _writes = _writes
+        .catchError((Object _) {})
+        .then((_) => notifier.saveDraft(draft));
+    unawaited(_writes.catchError((Object _) {
+      if (mounted) {
+        setState(() => _error =
+            'Your draft could not be saved on this device. Retry to continue.');
+      }
+    }));
+  }
+
+  Future<void> _advance() async {
+    if (_busy || _submitted) return;
     setState(() {
       _busy = true;
       _error = null;
     });
     try {
-      if (_step == 4) {
-        try {
-          await ref
-              .read(profileProvider.notifier)
-              .setReminder(_draft.reminderMinutes);
-        } catch (error) {
-          if (error is! StateError ||
-              !error.message.toString().contains('Allow notifications')) {
-            rethrow;
-          }
-          _draft = _draft.copyWith(clearReminder: true);
-          if (mounted) {
-            showNotice(context,
-                'Reminders stay off. You can enable them later in Settings.');
-          }
+      await _writes.catchError((Object _) {});
+      await ref
+          .read(profileProvider.notifier)
+          .saveDraft(_draft.copyWith(name: _name.text.trim()));
+      if (_step < 3) {
+        final next =
+            _draft.copyWith(name: _name.text.trim(), onboardingStep: _step + 1);
+        await ref.read(profileProvider.notifier).saveDraft(next);
+        if (mounted) {
+          setState(() {
+            _draft = next;
+            _step++;
+          });
         }
-      }
-      _draft = _draft.copyWith(
-          name: _name.text.trim(),
-          onboardingStep: (_step + 1).clamp(0, 6),
-          onboardingComplete: widget.editing || _step == 6);
-      await ref.read(profileProvider.notifier).save(_draft);
-      if (_step == 6) {
-        if (mounted && widget.editing) Navigator.of(context).pop();
-      } else if (mounted) {
-        setState(() => _step++);
+      } else {
+        if (!widget.editing) {
+          await ref
+              .read(progressProvider.notifier)
+              .startJourney()
+              .timeout(const Duration(seconds: 20));
+        }
+        // Set one destination before the acknowledged profile transition. The
+        // signed-in root consumes it only after both setup and journey exist.
+        if (!widget.editing && ref.read(readingDestinationProvider) == null) {
+          ref.read(readingDestinationProvider.notifier).state =
+              const ReadingDestination(1);
+        }
+        await ref
+            .read(profileProvider.notifier)
+            .save(_draft.copyWith(
+                name: _name.text.trim(),
+                onboardingStep: 3,
+                onboardingComplete: true))
+            .timeout(const Duration(seconds: 20));
+        _submitted = true;
+        if (mounted && widget.editing) Navigator.pop(context);
       }
     } catch (_) {
       if (mounted) {
         setState(() => _error =
-            'Your setup could not be saved. Check your connection and try again.');
+            'Your setup is saved here. Reconnect and Retry to finish.');
       }
     } finally {
       if (mounted) setState(() => _busy = false);
     }
   }
 
-  Future<void> _customReminder() async {
-    final time = await showTimePicker(
-        context: context,
+  Future<void> _reminder() async {
+    if (_busy) return;
+    final picked = await showHolyTimePicker(context,
         initialTime: TimeOfDay(
-            hour: (_draft.reminderMinutes ?? 480) ~/ 60,
-            minute: (_draft.reminderMinutes ?? 480) % 60));
-    if (time != null) {
-      setState(() => _draft =
-          _draft.copyWith(reminderMinutes: time.hour * 60 + time.minute));
+            hour: (_draft.suggestedReminderMinutes ?? 480) ~/ 60,
+            minute: (_draft.suggestedReminderMinutes ?? 480) % 60));
+    if (picked == null || !mounted) return;
+    final minutes = picked.hour * 60 + picked.minute;
+    // The OS prompt follows the explicit reminder opt-in, never the preview.
+    setState(() => _busy = true);
+    try {
+      final allowed = await ref.read(reminderServiceProvider).schedule(minutes);
+      _update(_draft.copyWith(
+          suggestedReminderMinutes: minutes,
+          reminderMinutes: allowed ? minutes : null,
+          clearReminder: !allowed,
+          reminderDecision: allowed ? 'enabled' : 'denied'));
+    } catch (_) {
+      if (mounted) {
+        setState(() => _error =
+            'Your reminder could not be set. You can continue and try in Settings.');
+      }
+    } finally {
+      if (mounted) setState(() => _busy = false);
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    final title = switch (_step) {
-      0 => 'Let’s make this\nyour moment.',
-      1 => 'Where are you\nstarting from?',
-      2 => 'What would you like\nto carry more of?',
-      3 => 'What makes a daily\nrhythm difficult?',
-      4 => 'A little space\nin your day.',
-      5 => 'A rhythm made\nfor you.',
-      _ => 'Here’s how\nit begins.'
-    };
-    final subtitle = switch (_step) {
-      0 => 'What would you like us to call you? Your first name is plenty.',
-      1 =>
-        'There is no right place to begin. We’ll make the reading feel welcoming.',
-      2 =>
-        'Choose one focus. Every reader follows the same 365-day journey, with a personal question to bring it into everyday life.',
-      3 => 'We’ll offer a small, practical way to help you keep showing up.',
-      4 => 'Choose an optional daily reminder. You can change it any time.',
-      5 =>
-        'One new lesson each calendar day. A verse, a confidence, a reason, hope, and something to carry.',
-      _ => 'Your first verse, exactly as it appears in your first lesson.'
-    };
-    return PopScope(
-        canPop: widget.editing && !_busy,
-        onPopInvokedWithResult: (didPop, result) {
-          if (!didPop && _step > 0 && !_busy) setState(() => _step--);
-        },
-        child: HolyScaffold(
-            body: ReadingWidth(
-                maxWidth: 650,
-                child: Column(children: [
-                  Padding(
-                      padding: const EdgeInsets.fromLTRB(18, 12, 24, 14),
-                      child: Row(children: [
-                        IconButton(
-                            tooltip: _step == 0 ? 'Back' : 'Previous step',
-                            onPressed: _busy
-                                ? null
-                                : () {
-                                    if (_step > 0) {
-                                      setState(() => _step--);
-                                    } else if (widget.editing) {
-                                      Navigator.of(context).pop();
-                                    } else {
-                                      ref.read(authProvider.notifier).signOut();
-                                    }
-                                  },
-                            icon:
-                                const Icon(Icons.arrow_back_rounded, size: 21)),
-                        const SizedBox(width: 10),
-                        Expanded(
-                            child: ClipRRect(
-                                borderRadius: BorderRadius.circular(8),
-                                child: LinearProgressIndicator(
-                                    value: (_step + 1) / 7,
-                                    minHeight: 4,
-                                    backgroundColor: AppColors.divider))),
-                        const SizedBox(width: 16),
-                        Text('${_step + 1} / 7',
-                            style: const TextStyle(
-                                fontSize: 11, color: AppColors.textSecondary))
-                      ])),
-                  Expanded(
-                      child: SingleChildScrollView(
-                          key: ValueKey('setup-$_step'),
-                          padding: const EdgeInsets.fromLTRB(28, 16, 28, 28),
-                          child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.stretch,
-                              children: [
-                                PageHeading(
-                                    eyebrow: _step < 5
-                                        ? 'Your daily rhythm'
-                                        : _step == 5
-                                            ? 'Your setup is saved'
-                                            : 'A first look',
-                                    title: title,
-                                    subtitle: subtitle),
-                                const SizedBox(height: 26),
-                                if (_step == 0) ...[
-                                  const Align(
-                                      alignment: Alignment.centerLeft,
-                                      child: HolyMark(size: 76)),
-                                  const SizedBox(height: 26),
-                                  TextField(
-                                      controller: _name,
-                                      maxLength: 40,
-                                      textCapitalization:
-                                          TextCapitalization.words,
-                                      autofillHints: const [
-                                        AutofillHints.givenName
-                                      ],
-                                      decoration: const InputDecoration(
-                                          labelText: 'Preferred name',
-                                          helperText:
-                                              'Optional. This stays in your private profile.'))
-                                ],
-                                if (_step == 1) ...[
-                                  _choice(
-                                      'New to it',
-                                      'A welcoming place to begin.',
-                                      Icons.wb_sunny_outlined,
-                                      _draft.familiarity == 'new',
-                                      () => setState(() => _draft =
-                                          _draft.copyWith(familiarity: 'new'))),
-                                  _choice(
-                                      'Returning',
-                                      'Picking up a familiar thread.',
-                                      Icons.spa_outlined,
-                                      _draft.familiarity == 'returning',
-                                      () => setState(() => _draft = _draft
-                                          .copyWith(familiarity: 'returning'))),
-                                  _choice(
-                                      'Read regularly',
-                                      'A fresh pause in a steady practice.',
-                                      Icons.menu_book_outlined,
-                                      _draft.familiarity == 'regular',
-                                      () => setState(() => _draft = _draft
-                                          .copyWith(familiarity: 'regular'))),
-                                ],
-                                if (_step == 2)
-                                  for (final choice in [
-                                    (
-                                      'peace',
-                                      'Peace',
-                                      'A calmer place to bring what weighs on you.',
-                                      Icons.waves_rounded
-                                    ),
-                                    (
-                                      'confidence',
-                                      'Confidence',
-                                      'Courage rooted in who God is.',
-                                      Icons.wb_twilight_rounded
-                                    ),
-                                    (
-                                      'hope',
-                                      'Hope',
-                                      'A reason to keep looking forward.',
-                                      Icons.auto_awesome_outlined
-                                    ),
-                                    (
-                                      'guidance',
-                                      'Guidance',
-                                      'Light for one faithful next step.',
-                                      Icons.explore_outlined
-                                    ),
-                                    (
-                                      'rest',
-                                      'Rest',
-                                      'Room to receive instead of striving.',
-                                      Icons.nightlight_outlined
-                                    )
-                                  ])
-                                    _choice(
-                                        choice.$2,
-                                        choice.$3,
-                                        choice.$4,
-                                        _draft.focus == choice.$1,
-                                        () => setState(() => _draft =
-                                            _draft.copyWith(focus: choice.$1))),
-                                if (_step == 3)
-                                  for (final choice in [
-                                    (
-                                      'busy',
-                                      'Busy days',
-                                      'There never seems to be a quiet moment.',
-                                      Icons.schedule_rounded
-                                    ),
-                                    (
-                                      'forget',
-                                      'I forget',
-                                      'A little nudge would help.',
-                                      Icons.notifications_none_rounded
-                                    ),
-                                    (
-                                      'language',
-                                      'Unfamiliar wording',
-                                      'I want help understanding what I read.',
-                                      Icons.auto_stories_outlined
-                                    ),
-                                    (
-                                      'apply',
-                                      'Putting it into practice',
-                                      'I want to connect the verse to real life.',
-                                      Icons.favorite_border_rounded
-                                    )
-                                  ])
-                                    _choice(
-                                        choice.$2,
-                                        choice.$3,
-                                        choice.$4,
-                                        _draft.obstacle == choice.$1,
-                                        () => setState(() => _draft = _draft
-                                            .copyWith(obstacle: choice.$1))),
-                                if (_step == 4) ...[
-                                  for (final choice in [
-                                    (480, 'Morning', '8:00 AM'),
-                                    (720, 'A midday pause', '12:00 PM'),
-                                    (1200, 'Evening', '8:00 PM')
-                                  ])
-                                    _choice(
-                                        choice.$2,
-                                        choice.$3,
-                                        Icons.notifications_none_rounded,
-                                        _draft.reminderMinutes == choice.$1,
-                                        () => setState(() => _draft =
-                                            _draft.copyWith(
-                                                reminderMinutes: choice.$1))),
-                                  _choice(
-                                      'Choose a time',
-                                      reminderLabel(_draft.reminderMinutes),
-                                      Icons.access_time_rounded,
-                                      _draft.reminderMinutes != null &&
-                                          ![480, 720, 1200]
-                                              .contains(_draft.reminderMinutes),
-                                      _customReminder),
-                                  _choice(
-                                      'No reminder for now',
-                                      'Your own time, your own rhythm.',
-                                      Icons.notifications_off_outlined,
-                                      _draft.reminderMinutes == null,
-                                      () => setState(() => _draft = _draft
-                                          .copyWith(clearReminder: true))),
-                                ],
-                                if (_step == 5) ...[
-                                  const Align(
-                                      alignment: Alignment.center,
-                                      child: HolyMark(size: 90)),
-                                  const SizedBox(height: 26),
-                                  GlassSurface(
-                                      highlighted: true,
-                                      child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Eyebrow(_draft.name.isEmpty
-                                                ? 'Your daily rhythm'
-                                                : '${_draft.name}’s daily rhythm'),
-                                            const SizedBox(height: 14),
-                                            Text(
-                                                'A year of faith.\nA little more ${focusLabel(_draft.focus).toLowerCase()}.',
-                                                style: Theme.of(context)
-                                                    .textTheme
-                                                    .headlineMedium),
-                                            const SizedBox(height: 20),
-                                            _planLine(Icons.menu_book_outlined,
-                                                '365 lessons, one daily step'),
-                                            _planLine(
-                                                Icons.favorite_border_rounded,
-                                                'Your focus: ${focusLabel(_draft.focus)}'),
-                                            _planLine(
-                                                Icons.schedule_rounded,
-                                                reminderLabel(
-                                                    _draft.reminderMinutes)),
-                                            const Divider(height: 30),
-                                            Text(rhythmTip(_draft.obstacle),
-                                                style: Theme.of(context)
-                                                    .textTheme
-                                                    .bodyMedium)
-                                          ])),
-                                ],
-                                if (_step == 6)
-                                  GlassSurface(
-                                      highlighted: true,
-                                      padding: const EdgeInsets.all(28),
-                                      child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            const Eyebrow('Day 1 · Verse'),
-                                            const SizedBox(height: 20),
-                                            Text(lessons.first.title,
-                                                style: Theme.of(context)
-                                                    .textTheme
-                                                    .headlineMedium),
-                                            const SizedBox(height: 24),
-                                            const Icon(
-                                                Icons.format_quote_rounded,
-                                                color: AppColors.accent,
-                                                size: 34),
-                                            const SizedBox(height: 10),
-                                            Text(lessons.first.verseText,
-                                                style: const TextStyle(
-                                                    fontSize: 20,
-                                                    height: 1.7,
-                                                    color:
-                                                        AppColors.accentDark)),
-                                            const SizedBox(height: 20),
-                                            Text(lessons.first.verseReference,
-                                                style: const TextStyle(
-                                                    fontSize: 12,
-                                                    color: AppColors
-                                                        .textSecondary)),
-                                            const SizedBox(height: 28),
-                                            const Divider(),
-                                            const SizedBox(height: 10),
-                                            const Text(
-                                                'Then turn to Confidence, Reason, Hope, and Carry. One quiet moment, with something to take into your day.',
-                                                style: TextStyle(
-                                                    fontSize: 13,
-                                                    height: 1.7,
-                                                    color: AppColors
-                                                        .textSecondary))
-                                          ])),
-                                if (_error != null)
-                                  InlineMessage(_error!, error: true),
-                                const SizedBox(height: 28),
-                                HolyButton(
-                                    label: _step == 6
-                                        ? (widget.editing
-                                            ? 'Save my rhythm'
-                                            : 'Continue to HolyHer')
-                                        : _step == 5
-                                            ? 'See my first verse'
-                                            : 'Continue',
-                                    onPressed: _valid && !_busy ? _next : null,
-                                    busy: _busy,
-                                    icon: Icons.arrow_forward_rounded),
-                                if (_step == 0)
-                                  TextButton(
-                                      onPressed: _busy ? null : _next,
-                                      child: const Text(
-                                          'Continue without a name')),
-                                const SizedBox(height: 14),
-                                const LegalFooter(),
-                              ]))),
-                ]))));
-  }
-
-  Widget _choice(String title, String subtitle, IconData icon, bool selected,
-          VoidCallback onTap) =>
-      Padding(
-          padding: const EdgeInsets.only(bottom: 12),
-          child: HolyPressable(
-              onPressed: _busy ? null : onTap,
-              selected: selected,
-              child: GlassSurface(
-                  highlighted: selected,
-                  radius: 23,
+    Theme.of(context);
+    ref.watch(profileProvider.select((p) => p.theme));
+    final title = const [
+      'A walk that feels like yours.',
+      'What does your heart need?',
+      'A gentle invitation.',
+      'Your first step awaits.'
+    ][_step];
+    return HolyScaffold(
+        body: ReadingWidth(
+            maxWidth: 560,
+            child: Column(children: [
+              Padding(
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                   child: Row(children: [
-                    Icon(icon, size: 25, color: AppColors.accent),
-                    const SizedBox(width: 16),
-                    Expanded(
-                        child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                          Text(title,
-                              style: const TextStyle(
-                                  fontSize: 16, fontWeight: FontWeight.w500)),
-                          const SizedBox(height: 5),
-                          Text(subtitle,
-                              style: const TextStyle(
-                                  fontSize: 12,
-                                  height: 1.6,
-                                  color: AppColors.textSecondary))
-                        ])),
-                    const SizedBox(width: 10),
-                    Icon(
-                        selected
-                            ? Icons.check_circle_rounded
-                            : Icons.circle_outlined,
-                        size: 21,
-                        color: selected ? AppColors.accent : AppColors.divider)
-                  ]))));
-  Widget _planLine(IconData icon, String text) => Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8),
-      child: Row(children: [
-        Icon(icon, size: 20, color: AppColors.accent),
-        const SizedBox(width: 12),
-        Expanded(
-            child:
-                Text(text, style: const TextStyle(fontSize: 13, height: 1.5)))
-      ]));
+                    IconButton(
+                        tooltip: 'Back',
+                        onPressed: _busy
+                            ? null
+                            : () => _step > 0
+                                ? setState(() => _step--)
+                                : Navigator.maybePop(context),
+                        icon: const Icon(Icons.arrow_back_rounded)),
+                    const Spacer(),
+                    const HolyMark(size: 28),
+                    const Spacer(),
+                    if (_step < 3)
+                      TextButton(
+                          onPressed: _busy
+                              ? null
+                              : () {
+                                  if (_step == 2) {
+                                    _update(_draft.copyWith(
+                                        reminderDecision: 'declined',
+                                        clearReminder: true));
+                                  }
+                                  _advance();
+                                },
+                          child: const Text('Skip'))
+                    else
+                      const SizedBox(width: 60)
+                  ])),
+              Expanded(
+                  child: SingleChildScrollView(
+                      padding: const EdgeInsets.fromLTRB(28, 24, 28, 30),
+                      child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Eyebrow(_step == 3
+                                ? 'Day 1 · 2–3 minutes'
+                                : 'A little about you · Optional'),
+                            const SizedBox(height: 18),
+                            Text(title,
+                                style: HolyTypography.display
+                                    .copyWith(color: AppColors.textPrimary)),
+                            const SizedBox(height: 20),
+                            if (_step == 0) ...[
+                              const Text(
+                                  'Come as you are. You can change any of this later.'),
+                              const SizedBox(height: 26),
+                              TextField(
+                                  controller: _name,
+                                  maxLength: 80,
+                                  textCapitalization: TextCapitalization.words,
+                                  autofillHints: const [
+                                    AutofillHints.givenName
+                                  ],
+                                  decoration: const InputDecoration(
+                                      labelText: 'Your name (optional)'),
+                                  onChanged: (v) =>
+                                      _update(_draft.copyWith(name: v.trim()))),
+                              const SizedBox(height: 20),
+                              const Text('How familiar does the Bible feel?'),
+                              const SizedBox(height: 12),
+                              for (final choice in [
+                                ('new', 'I’m finding my way'),
+                                ('returning', 'I’m coming back'),
+                                ('regular', 'It’s part of my life')
+                              ])
+                                Padding(
+                                    padding: const EdgeInsets.only(bottom: 10),
+                                    child: ChoiceChip(
+                                        label: Text(choice.$2),
+                                        selected: _draft.onboardingAnswered
+                                                .contains('starting-point') &&
+                                            _draft.familiarity == choice.$1,
+                                        onSelected: (_) => _update(_draft
+                                                .copyWith(
+                                                    familiarity: choice.$1,
+                                                    onboardingAnswered: {
+                                                  ..._draft.onboardingAnswered,
+                                                  'starting-point'
+                                                })))),
+                            ],
+                            if (_step == 1) ...[
+                              const Text(
+                                  'A little guidance for where you are today. Your Scripture journey stays the same.'),
+                              const SizedBox(height: 26),
+                              Wrap(spacing: 10, runSpacing: 12, children: [
+                                for (final choice in [
+                                  ('peace', 'Peace'),
+                                  ('courage', 'Courage'),
+                                  ('hope', 'Hope'),
+                                  ('guidance', 'Guidance'),
+                                  ('rest', 'Rest')
+                                ])
+                                  ChoiceChip(
+                                      label: Text(choice.$2),
+                                      selected: _draft.onboardingAnswered
+                                              .contains('focus') &&
+                                          _draft.focus == choice.$1,
+                                      onSelected: (_) => _update(_draft
+                                              .copyWith(
+                                                  focus: choice.$1,
+                                                  onboardingAnswered: {
+                                                ..._draft.onboardingAnswered,
+                                                'focus'
+                                              })))
+                              ])
+                            ],
+                            if (_step == 2) ...[
+                              const Text(
+                                  'Let a little Scripture meet you in the middle of your day.'),
+                              const SizedBox(height: 26),
+                              GlassSurface(
+                                  child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                    const Eyebrow('HolyHer · Reminder preview'),
+                                    const SizedBox(height: 14),
+                                    Text(
+                                        '“${lessons.first.verseText.split('.').first}.”',
+                                        style: HolyTypography.scripture),
+                                    const SizedBox(height: 12),
+                                    const Text(
+                                        'Deuteronomy 31:6 · Continue your walk with God',
+                                        style: HolyTypography.supporting)
+                                  ])),
+                              const SizedBox(height: 24),
+                              HolyButton(
+                                  label: _draft.reminderDecision == 'enabled'
+                                      ? 'Change reminder time'
+                                      : 'Choose a time',
+                                  onPressed: _busy ? null : _reminder,
+                                  icon: Icons.notifications_none_rounded),
+                              if (_draft.reminderDecision == 'denied')
+                                const Padding(
+                                    padding: EdgeInsets.only(top: 14),
+                                    child: Text(
+                                        'Notifications are off on this device. You can enable them in device Settings or continue without a reminder.')),
+                            ],
+                            if (_step == 3) ...[
+                              ClipRRect(
+                                  borderRadius: BorderRadius.circular(28),
+                                  child: LessonArtwork(
+                                      day: 1,
+                                      child: Padding(
+                                          padding: const EdgeInsets.fromLTRB(
+                                              24, 34, 24, 110),
+                                          child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                const Eyebrow(
+                                                    'Scripture · Meaning · Encouragement · Hope · Prayer'),
+                                                const SizedBox(height: 20),
+                                                Text(lessons.first.title,
+                                                    style:
+                                                        HolyTypography.heading),
+                                                const SizedBox(height: 18),
+                                                Text(lessons.first.verseText,
+                                                    style: HolyTypography
+                                                        .scripture),
+                                                const SizedBox(height: 18),
+                                                Text(
+                                                    lessons
+                                                        .first.verseReference,
+                                                    style: HolyTypography
+                                                        .supporting)
+                                              ])))),
+                              const SizedBox(height: 18),
+                              Text(
+                                  readingGuidance(
+                                      _draft.focus, _draft.familiarity),
+                                  style: HolyTypography.supporting),
+                              const SizedBox(height: 12),
+                              const Text(
+                                  'Five quiet cards. Two to three minutes. A year of walking with God, one day at a time. Free access, always.',
+                                  style: HolyTypography.supporting),
+                            ],
+                          ]))),
+              Padding(
+                  padding: const EdgeInsets.fromLTRB(28, 8, 28, 20),
+                  child: Column(children: [
+                    if (_error != null)
+                      Padding(
+                          padding: const EdgeInsets.only(bottom: 14),
+                          child: Semantics(
+                              liveRegion: true,
+                              child: Text(_error!,
+                                  textAlign: TextAlign.center,
+                                  style: const TextStyle(
+                                      color: AppColors.error)))),
+                    HolyButton(
+                        label: _busy
+                            ? 'Saving your place…'
+                            : _error != null
+                                ? 'Retry'
+                                : _step == 3
+                                    ? 'Begin my walk'
+                                    : 'Continue',
+                        onPressed: _busy ? null : _advance,
+                        icon: Icons.arrow_forward_rounded),
+                    const SizedBox(height: 16),
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: List.generate(
+                            4,
+                            (i) => Container(
+                                width: i == _step ? 24 : 5,
+                                height: 5,
+                                margin:
+                                    const EdgeInsets.symmetric(horizontal: 4),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(4),
+                                    color: i == _step
+                                        ? AppColors.accent
+                                        : AppColors.divider)))),
+                  ])),
+            ])));
+  }
 }

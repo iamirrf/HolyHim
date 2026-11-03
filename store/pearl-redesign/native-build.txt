@@ -1,0 +1,11 @@
+Building com.holyher.app for simulator (ios)...
+Running Xcode build...                                          
+Xcode build done.                                           781.8s
+Failed to build iOS app
+Swift Compiler Error (Xcode): 'excludeSynthetic' is unavailable in iOS: Unsupported
+/Users/amir/Downloads/HolyHer/ios/Runner/AppDelegate.swift:90:55
+
+Swift Compiler Error (Xcode): 'excludeSynthetic' is unavailable in iOS: Unsupported
+/Users/amir/Downloads/HolyHer/ios/Runner/AppDelegate.swift:96:47
+
+Encountered error while building for simulator.

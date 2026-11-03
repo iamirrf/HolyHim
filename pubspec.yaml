@@ -1,52 +1,54 @@
 name: holyher
-description: One daily Bible message for 365 days. One confidence, with reason, hope, and proof God is on your side.
+description: A free 365-day Scripture journey with five quiet reading cards.
 publish_to: 'none'
-version: 1.0.0+1
+version: 1.2.0+4
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
 
 dependencies:
+  audioplayers: 6.6.0
+  share_plus: 12.0.0
   cloud_firestore: ^7.1.0
   cloud_functions: ^7.0.1
   firebase_auth: ^7.0.1
   firebase_core: ^5.1.0
   flutter:
     sdk: flutter
+  flutter_web_plugins:
+    sdk: flutter
   flutter_local_notifications: ^22.3.3
   flutter_riverpod: ^2.6.1
   flutter_timezone: ^5.1.1
   google_sign_in: ^7.2.0
-  purchases_flutter: 10.10.0
   shared_preferences: ^2.5.3
   timezone: ^0.11.2
   url_launcher: ^6.3.3
+  sqflite: 2.4.2
+  go_router: ^17.5.0
+  http: ^1.6.0
+  cached_network_image: ^3.4.1
+  cupertino_icons: ^1.0.9
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^6.0.0
+  sqflite_common_ffi: 2.3.6
+  sqlite3: 2.7.6
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/sounds/
+    - assets/brand/
+    - assets/artwork/
+    - assets/fonts/manrope-OFL.txt
+    - assets/fonts/sourceserif4-OFL.txt
   fonts:
-    - family: Lexend
+    - family: Manrope
       fonts:
-        - asset: assets/fonts/Lexend-Thin.ttf
-          weight: 100
-        - asset: assets/fonts/Lexend-ExtraLight.ttf
-          weight: 200
-        - asset: assets/fonts/Lexend-Light.ttf
-          weight: 300
-        - asset: assets/fonts/Lexend-Regular.ttf
-          weight: 400
-        - asset: assets/fonts/Lexend-Medium.ttf
-          weight: 500
-        - asset: assets/fonts/Lexend-SemiBold.ttf
-          weight: 600
-        - asset: assets/fonts/Lexend-Bold.ttf
-          weight: 700
-        - asset: assets/fonts/Lexend-ExtraBold.ttf
-          weight: 800
-        - asset: assets/fonts/Lexend-Black.ttf
-          weight: 900
+        - asset: assets/fonts/Manrope[wght].ttf
+    - family: SourceSerif4
+      fonts:
+        - asset: assets/fonts/SourceSerif4[opsz,wght].ttf

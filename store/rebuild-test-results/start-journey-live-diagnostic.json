@@ -1,0 +1,17 @@
+{
+  "project": "holyher-app-production",
+  "retainedQaRole": "journey",
+  "getJourney": {
+    "http": 200,
+    "result": {
+      "started": false
+    }
+  },
+  "startJourney": {
+    "http": 403,
+    "error": {
+      "message": "Please restore your lifetime purchase.",
+      "status": "PERMISSION_DENIED"
+    }
+  }
+}
