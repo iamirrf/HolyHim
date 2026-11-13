@@ -1,0 +1,59 @@
+{
+  "verifiedAt": "2026-11-13T18:34:30.196154+00:00",
+  "projectId": "holyhim-app-production",
+  "ownerAccount": "iamirrf1@gmail.com",
+  "bundleId": "com.holyhim.app",
+  "accounts": [
+    {
+      "role": "onboarding",
+      "email": "appreview-onboarding@holyhim.example",
+      "secretName": "HOLYHIM_APP_REVIEW_ONBOARDING",
+      "credentialStoredAndVerified": true,
+      "actualSignInVerified": true,
+      "createdThisRun": true,
+      "emailVerified": false,
+      "workingMailboxProvided": false,
+      "runtimeSecretAccessGranted": false,
+      "paidAccessObserved": false,
+      "journeyObserved": false,
+      "readyForCredentialUpload": true,
+      "readyForPaidJourneyReview": false,
+      "remainingGates": [
+        "Upload credentials through the authenticated Apple owner session.",
+        "Confirm email/password sign-in on the signed iPhone/iPad app.",
+        "Complete a real Apple sandbox lifetime purchase and verify restore.",
+        "Start the journey through the normal paid app flow and verify lesson completion/sync."
+      ]
+    },
+    {
+      "role": "journey",
+      "email": "appreview-journey@holyhim.example",
+      "secretName": "HOLYHIM_APP_REVIEW_JOURNEY",
+      "credentialStoredAndVerified": true,
+      "actualSignInVerified": true,
+      "createdThisRun": true,
+      "emailVerified": false,
+      "workingMailboxProvided": false,
+      "runtimeSecretAccessGranted": false,
+      "paidAccessObserved": false,
+      "journeyObserved": false,
+      "readyForCredentialUpload": true,
+      "readyForPaidJourneyReview": false,
+      "remainingGates": [
+        "Upload credentials through the authenticated Apple owner session.",
+        "Confirm email/password sign-in on the signed iPhone/iPad app.",
+        "Complete a real Apple sandbox lifetime purchase and verify restore.",
+        "Start the journey through the normal paid app flow and verify lesson completion/sync."
+      ]
+    }
+  ],
+  "credentialsUploadedToApple": false,
+  "accessGrantedByHelper": false,
+  "journeyCreatedByHelper": false,
+  "notes": [
+    "These are reserved Firebase email/password test identities, not email inboxes.",
+    "No email verification or inbox availability is claimed.",
+    "Credentials remain only in labeled Google Secret Manager versions; the helper changes no IAM bindings.",
+    "The journey-role account has no fabricated entitlement or journey. Paid acceptance remains required."
+  ]
+}

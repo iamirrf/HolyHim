@@ -1,0 +1,48 @@
+{
+  "date": "2026-11-13T18:36:34.783418+00:00",
+  "project": "holyhim-app-production",
+  "temporaryAccount": true,
+  "checks": [
+    {
+      "name": "temporary authenticated account",
+      "passed": true
+    },
+    {
+      "name": "schema 6 profile accepted by deployed rules",
+      "passed": true
+    },
+    {
+      "name": "name edit preserves completed onboarding",
+      "passed": true
+    },
+    {
+      "name": "rewinding guide answer clears later answers",
+      "passed": true
+    },
+    {
+      "name": "lesson progress accepted",
+      "passed": true
+    },
+    {
+      "name": "saved add and remove accepted",
+      "passed": true
+    },
+    {
+      "name": "unauthenticated profile read denied",
+      "passed": true
+    },
+    {
+      "name": "new account receives no fabricated lifetime access",
+      "passed": true
+    }
+  ],
+  "accountDeleted": false,
+  "lastHttpError": {
+    "host": "us-central1-holyhim-app-production.cloudfunctions.net",
+    "status": 500,
+    "message": "INTERNAL"
+  },
+  "passed": false,
+  "error": "POST us-central1-holyhim-app-production.cloudfunctions.net: HTTP 503",
+  "cleanupError": "CheckError"
+}
