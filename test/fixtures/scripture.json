@@ -10,48 +10,48 @@
   },
   {
     "day": 2,
-    "reference": "Isaiah 41:10",
-    "text": "Don’t you be afraid, for I am with you. Don’t be dismayed, for I am your God. I will strengthen you. Yes, I will help you. Yes, I will uphold you with the right hand of my righteousness.",
+    "reference": "Psalm 119:9",
+    "text": "How can a young man keep his way pure? By living according to your word.",
     "verseKeys": [
-      "Isaiah 41:10"
+      "Psalm 119:9"
     ],
-    "verseSha256": "7b2c36abd4800c29b409567168a8ff8ab5646328a3886fcd3617efe3a12658c6"
+    "verseSha256": "3709e9242cbaacd3d0e6eef89e679e08d30e02390cfdf6abf0ff17d7a9a277ce"
   },
   {
     "day": 3,
-    "reference": "Psalm 46:1",
-    "text": "God is our refuge and strength, a very present help in trouble.",
+    "reference": "1 Corinthians 10:13",
+    "text": "No temptation has taken you except what is common to man. God is faithful, who will not allow you to be tempted above what you are able, but will with the temptation also make the way of escape, that you may be able to endure it.",
     "verseKeys": [
-      "Psalm 46:1"
+      "1 Corinthians 10:13"
     ],
-    "verseSha256": "c718e973dd14783c1687bc7377dab423bc7ccf94d8d19535d9c90591ff11cde0"
+    "verseSha256": "f68330b7d567363d8952a1053b78a7a8eaeb00c531eacfe1fed5207538c2e477"
   },
   {
     "day": 4,
-    "reference": "Romans 8:31",
-    "text": "What then shall we say about these things? If God is for us, who can be against us?",
+    "reference": "1 Samuel 16:7",
+    "text": "But the LORD said to Samuel, “Don’t look on his face, or on the height of his stature, because I have rejected him; for I don’t see as man sees. For man looks at the outward appearance, but the LORD looks at the heart.”",
     "verseKeys": [
-      "Romans 8:31"
+      "1 Samuel 16:7"
     ],
-    "verseSha256": "f4e9fd4d54c2d1faa0de517378b28b6cce335bd9a145a55f5a7caecbe290cda7"
+    "verseSha256": "e8b6126b49f158fbc726dc19de952a5c5f060cde497fe4ccd591d737b0c2e1c4"
   },
   {
     "day": 5,
-    "reference": "Jeremiah 29:11",
-    "text": "For I know the thoughts that I think toward you,” says the LORD, “thoughts of peace, and not of evil, to give you hope and a future.",
+    "reference": "Proverbs 27:17",
+    "text": "Iron sharpens iron; so a man sharpens his friend’s countenance.",
     "verseKeys": [
-      "Jeremiah 29:11"
+      "Proverbs 27:17"
     ],
-    "verseSha256": "353cdb007c1d5a178c5e96553dc30fb69b1e371e998134d4a362479f43cee275"
+    "verseSha256": "76fcd94511c05ec5b0010e626ba8e9959db2cd91af8010b47f0bd33df5549d81"
   },
   {
     "day": 6,
-    "reference": "John 14:27",
-    "text": "Peace I leave with you. My peace I give to you; not as the world gives, I give to you. Don’t let your heart be troubled, neither let it be fearful.",
+    "reference": "1 Timothy 4:12",
+    "text": "Let no man despise your youth; but be an example to those who believe, in word, in your way of life, in love, in spirit, in faith, and in purity.",
     "verseKeys": [
-      "John 14:27"
+      "1 Timothy 4:12"
     ],
-    "verseSha256": "978daffd1e7d42fda134ba51b1d60f7159799dfac19143474904dcc986f12228"
+    "verseSha256": "70336c5d908ade97c76dc23bca947d5f46b4a434aa5c0e6a8411acfaeddeca9e"
   },
   {
     "day": 7,
@@ -110,21 +110,21 @@
   },
   {
     "day": 13,
-    "reference": "Genesis 16:13",
-    "text": "She called the name of the LORD who spoke to her, “You are a God who sees,” for she said, “Have I even stayed alive after seeing him?”",
+    "reference": "Genesis 4:7",
+    "text": "If you do well, won’t it be lifted up? If you don’t do well, sin crouches at the door. Its desire is for you, but you are to rule over it.”",
     "verseKeys": [
-      "Genesis 16:13"
+      "Genesis 4:7"
     ],
-    "verseSha256": "7c94c0d082217b0bde90a7caa8a6605c656ceefc0d9daaa2b7d26527ffdde950"
+    "verseSha256": "45bd71ff9038b1c203d4bd68ad04bd373a4ed14e5208f43d954b847569a7e674"
   },
   {
     "day": 14,
-    "reference": "Genesis 21:19",
-    "text": "God opened her eyes, and she saw a well of water. She went, filled the container with water, and gave the boy a drink.",
+    "reference": "Genesis 12:1",
+    "text": "Now the LORD said to Abram, “Leave your country, and your relatives, and your father’s house, and go to the land that I will show you.",
     "verseKeys": [
-      "Genesis 21:19"
+      "Genesis 12:1"
     ],
-    "verseSha256": "9d678b22f871015f155089377364c698d3e8db89f3a51da7e015966c78d09ea0"
+    "verseSha256": "feecb0b5c12c87b8a3a260377ec06aff3f9b7bf4ccc6960401a709a76a771990"
   },
   {
     "day": 15,
@@ -499,12 +499,12 @@
   },
   {
     "day": 56,
-    "reference": "1 Samuel 16:7",
-    "text": "But the LORD said to Samuel, “Don’t look on his face, or on the height of his stature, because I have rejected him; for I don’t see as man sees. For man looks at the outward appearance, but the LORD looks at the heart.”",
+    "reference": "1 Samuel 17:47",
+    "text": "and that all this assembly may know that the LORD doesn’t save with sword and spear; for the battle is the LORD’s, and he will give you into our hand.”",
     "verseKeys": [
-      "1 Samuel 16:7"
+      "1 Samuel 17:47"
     ],
-    "verseSha256": "e8b6126b49f158fbc726dc19de952a5c5f060cde497fe4ccd591d737b0c2e1c4"
+    "verseSha256": "f04bdcd77d70749a28fc61003fe625f2a8db36d4d81cfbc90ac5fb6b595f9b90"
   },
   {
     "day": 57,
@@ -1544,12 +1544,12 @@
   },
   {
     "day": 172,
-    "reference": "Proverbs 27:17",
-    "text": "Iron sharpens iron; so a man sharpens his friend’s countenance.",
+    "reference": "Proverbs 25:28",
+    "text": "Like a city that is broken down and without walls is a man whose spirit is without restraint.",
     "verseKeys": [
-      "Proverbs 27:17"
+      "Proverbs 25:28"
     ],
-    "verseSha256": "76fcd94511c05ec5b0010e626ba8e9959db2cd91af8010b47f0bd33df5549d81"
+    "verseSha256": "1259eb5c3ac72dc28a82025cd12c3b9043e34103f65a3a6d81926169fc9499f8"
   },
   {
     "day": 173,
@@ -2374,12 +2374,12 @@
   },
   {
     "day": 264,
-    "reference": "1 Corinthians 10:13",
-    "text": "No temptation has taken you except what is common to man. God is faithful, who will not allow you to be tempted above what you are able, but will with the temptation also make the way of escape, that you may be able to endure it.",
+    "reference": "Romans 8:31",
+    "text": "What then shall we say about these things? If God is for us, who can be against us?",
     "verseKeys": [
-      "1 Corinthians 10:13"
+      "Romans 8:31"
     ],
-    "verseSha256": "f68330b7d567363d8952a1053b78a7a8eaeb00c531eacfe1fed5207538c2e477"
+    "verseSha256": "f4e9fd4d54c2d1faa0de517378b28b6cce335bd9a145a55f5a7caecbe290cda7"
   },
   {
     "day": 265,
@@ -2743,12 +2743,12 @@
   },
   {
     "day": 305,
-    "reference": "1 Timothy 4:12",
-    "text": "Let no man despise your youth; but be an example to those who believe, in word, in your way of life, in love, in spirit, in faith, and in purity.",
+    "reference": "1 Timothy 6:11",
+    "text": "But you, man of God, flee these things, and follow after righteousness, godliness, faith, love, perseverance, and gentleness.",
     "verseKeys": [
-      "1 Timothy 4:12"
+      "1 Timothy 6:11"
     ],
-    "verseSha256": "70336c5d908ade97c76dc23bca947d5f46b4a434aa5c0e6a8411acfaeddeca9e"
+    "verseSha256": "248218aff77c81643b28444bb894811389d73880dad0ab1ffc55dd62f4ef8f98"
   },
   {
     "day": 306,
