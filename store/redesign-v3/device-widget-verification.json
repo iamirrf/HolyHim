@@ -1,0 +1,11 @@
+{
+  "copiedFromRealPhone": true,
+  "transport": "localNetwork",
+  "version": 3,
+  "theme": "blush",
+  "day": 309,
+  "expectedDay": 309,
+  "matchesCalendar": true,
+  "palettePresent": true,
+  "containsCredentials": false
+}

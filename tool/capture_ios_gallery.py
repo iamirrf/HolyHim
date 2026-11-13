@@ -13,18 +13,18 @@ subprocess.run(['osascript','-e',script],check=True)
 time.sleep(1)
 
 def run(*cmd):return subprocess.check_output(cmd,text=True,timeout=80).strip()
-app=Path(run('xcrun','simctl','get_app_container',args.device,'com.holyher.app','app'))
+app=Path(run('xcrun','simctl','get_app_container',args.device,'com.holyhim.app','app'))
 artifact=app/'Frameworks/App.framework/flutter_assets/kernel_blob.bin'
 if not artifact.exists():artifact=app/'Frameworks/App.framework/App'
 artifact_sha=hashlib.sha256(artifact.read_bytes()).hexdigest()
-container=Path(run('xcrun','simctl','get_app_container',args.device,'com.holyher.app','data'))
+container=Path(run('xcrun','simctl','get_app_container',args.device,'com.holyhim.app','data'))
 for route in args.routes:
  ready=container/'tmp/preview-ready.json';errors=container/'tmp/preview-errors.txt';ready.unlink(missing_ok=True);errors.unlink(missing_ok=True)
  name=f'{route.replace(":","-")}--{args.device[:8]}--s{args.scale:g}{'-motion' if args.motion else '-reduced' if args.record_video else ''}{'-landscape' if args.orientation=='landscape' else ''}{'-split' if args.viewport=='split' else ''}'
  recorder=None
  if args.motion or args.record_video:
   recorder=subprocess.Popen(['xcrun','simctl','io',args.device,'recordVideo','--codec=h264','--force',str(out/f'{name}.mp4')],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
- run('xcrun','simctl','launch','--terminate-running-process',args.device,'com.holyher.app',f'--holyher-preview={route}',f'--holyher-scale={args.scale}',f'--holyher-motion={str(args.motion).lower()}',f'--holyher-orientation={args.orientation}',f'--holyher-viewport={args.viewport}')
+ run('xcrun','simctl','launch','--terminate-running-process',args.device,'com.holyhim.app',f'--holyhim-preview={route}',f'--holyhim-scale={args.scale}',f'--holyhim-motion={str(args.motion).lower()}',f'--holyhim-orientation={args.orientation}',f'--holyhim-viewport={args.viewport}')
  deadline=time.monotonic()+100
  while not ready.exists() and time.monotonic()<deadline:time.sleep(.25)
  if not ready.exists():

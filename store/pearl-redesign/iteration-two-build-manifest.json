@@ -1,7 +1,7 @@
 {
   "createdUtc": "2026-11-02T04:43:59.122543+00:00",
   "sourceSha256": "da4ab1eba276e75bf7ac2f88ca9375ee27dacc0e7c760ba7833d7cabfca7be40",
-  "bundleIdentifier": "com.holyher.app",
+  "bundleIdentifier": "com.holyhim.app",
   "entrypoint": "lib/main.dart",
   "runtimeMode": "profile",
   "signingVerified": true,

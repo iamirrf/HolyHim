@@ -1,4 +1,4 @@
 21:38:21  Acquired tunnel connection to device.
 21:38:21  Enabling developer disk image services.
 21:38:21  Acquired usage assertion.
-Launched application with com.holyher.app bundle identifier.
+Launched application with com.holyhim.app bundle identifier.

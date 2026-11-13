@@ -20,9 +20,9 @@ import uuid
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-PROJECT = 'holyher-app-production'
+PROJECT = 'holyhim-app-production'
 ACCOUNT = 'iamirrf1@gmail.com'
-WEBSITE = 'https://holyher-app-production.web.app'
+WEBSITE = 'https://holyhim-app-production.web.app'
 FUNCTIONS = 'https://us-central1-' + PROJECT + '.cloudfunctions.net/'
 DOCUMENTS = 'https://firestore.googleapis.com/v1/projects/' + PROJECT + '/databases/(default)/documents'
 AUTH = 'https://identitytoolkit.googleapis.com/v1/accounts:'
@@ -115,7 +115,7 @@ def verify_transport():
         record('Sole owner remains iamirrf1@gmail.com')
         for route in ('/', '/privacy', '/terms', '/support'):
             page = request('GET', WEBSITE + route, as_text=True)
-            assert '<html' in page.lower() and 'holyher' in page.lower()
+            assert '<html' in page.lower() and 'holyhim' in page.lower()
             if route == '/':
                 assert 'Planned for November 15, 2026' in page
             record('Final deployed website route ' + route)
@@ -157,12 +157,12 @@ def main():
     owners = {member for binding in owner_policy.get('bindings', []) if binding['role'] == 'roles/owner' for member in binding.get('members', [])}
     assert owners == {'user:' + ACCOUNT}
     passed('Production project and sole owner match iamirrf1@gmail.com')
-    support_email = 'qa-' + uuid.uuid4().hex + '@holyher.example'
+    support_email = 'qa-' + uuid.uuid4().hex + '@holyhim.example'
     failure = None
     try:
         for route in ('/', '/privacy', '/terms', '/support'):
             page = request('GET', WEBSITE + route, as_text=True)
-            assert '<html' in page.lower() and 'holyher' in page.lower()
+            assert '<html' in page.lower() and 'holyhim' in page.lower()
             passed('Public website route ' + route)
         response = request('GET', WEBSITE + '/api/support', expected=405)
         assert 'error' in response
@@ -170,7 +170,7 @@ def main():
         passed('Support endpoint rejects invalid method and form')
         response = request('POST', WEBSITE + '/api/support', {
             'email': support_email,
-            'message': 'Automated HolyHer release verification. Disposable QA request; safely remove after read-back.',
+            'message': 'Automated HolyHim release verification. Disposable QA request; safely remove after read-back.',
             'website': ''})
         assert response == {'received': True}
         saved_requests = collection('supportRequests', admin)
@@ -180,7 +180,7 @@ def main():
 
         for _ in range(2):
             result = request('POST', AUTH + 'signUp?key=' + api_key, {
-                'email': 'qa-' + uuid.uuid4().hex + '@holyher.example',
+                'email': 'qa-' + uuid.uuid4().hex + '@holyhim.example',
                 'password': secrets.token_urlsafe(24), 'returnSecureToken': True})
             users.append({'uid': result['localId'], 'token': result['idToken'], 'deleted': False})
         a, b = users
@@ -262,7 +262,7 @@ def main():
             'checks': checks, 'cleanup': cleanup,
             'deploymentCorrection': {
                 'reason': 'The initial deployment left all eight Cloud Run services without invoker bindings, causing transport-level HTTP 403.',
-                'change': 'Added roles/run.invoker for allUsers on the eight HolyHer function services only.',
+                'change': 'Added roles/run.invoker for allUsers on the eight HolyHim function services only.',
                 'applicationAuthorization': 'Firebase callable authentication, server purchase checks, webhook authorization and Firestore rules remain enforced.'},
             'limitations': ['No paid entitlement was fabricated.', 'The shared hourly support rate counter is retained until its configured TTL; it contains no email/message.', 'A real Apple sandbox purchase, restore, refund and native identity sign-in still require device acceptance.']}
         (ROOT / 'store/live-cloud-verification.json').write_text(json.dumps(report, indent=2) + '\n')

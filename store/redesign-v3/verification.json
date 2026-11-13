@@ -1,0 +1,110 @@
+{
+  "verifiedAt": "2026-11-05",
+  "branch": "redesign/v2",
+  "version": "2.0.0+6",
+  "flutterAnalyze": "No issues found",
+  "flutterTests": {
+    "passed": 101,
+    "failed": 0
+  },
+  "backendEmulatorTests": {
+    "passed": 25,
+    "failed": 0
+  },
+  "contentToolTests": 8,
+  "artToolTests": 9,
+  "lessons": 365,
+  "independentlyVerifiedQuotedVerses": 371,
+  "verifiedCorpusVerses": 38058,
+  "photoAssets": 25,
+  "transparentBadges": 19,
+  "rasterLayouts": 29,
+  "physicalBuild": {
+    "signed": true,
+    "sdk": "iphoneos",
+    "widgetEmbedded": true,
+    "sharedAppGroupSigned": true
+  },
+  "iphone": {
+    "verifiedAt": "2026-11-05",
+    "version": "2.0.0",
+    "build": "6",
+    "status": "launched",
+    "built": true,
+    "signed": true,
+    "installed": true,
+    "processStarted": true,
+    "processIdentifier": 37226,
+    "verifiedWirelessLaunch": true,
+    "transport": "localNetwork",
+    "installation": "xcrun devicectl device install app; in-place upgrade; application data preserved",
+    "launch": "xcrun devicectl device process launch --activate",
+    "activatedWhenStarted": true,
+    "runningProcessConfirmedAfterLaunch": true,
+    "widgetEmbedded": true,
+    "appGroup": "group.com.holyhim.app",
+    "simulatorUsed": false,
+    "executableSha256": "a465073b074e38d3f3146505774197636fa6af88ee96e532ddf048befe8c0dcc",
+    "aotSha256": "bd3da0c26c551d19350ec5006e81b880fb74f9a86e4c6de3063dbf002f8b35e6"
+  },
+  "liveBackend": {
+    "passed": true,
+    "checks": 15,
+    "temporaryAccountDeleted": true,
+    "rulesMatchPreparedSource": true,
+    "functionsActive": 6,
+    "legacyFunctionsRetained": true
+  },
+  "deviceUITest": {
+    "passed": false,
+    "blocked": "Final retry after successful foreground launch: Xcode destination timed out with Device is busy (Preparing Amir\u2019s iPhone). Earlier attempt also failed secure com.apple.mobile.notification_proxy connection.",
+    "runnerBuild": "passed on iphoneos; no simulator",
+    "latestAttempt": "2026-11-05"
+  },
+  "remainingVerification": [
+    "Native screen comparison and swipe frame times",
+    "Physical VoiceOver, large text and haptics review",
+    "Actual sandbox purchase and restore",
+    "OS widget placement/refresh and notification taps"
+  ],
+  "simulatorUsed": false,
+  "pushed": false,
+  "appStoreUploaded": false,
+  "hostingDeployed": false,
+  "hardPaywallEnabled": false,
+  "deviceWidget": {
+    "copiedFromRealPhone": true,
+    "transport": "localNetwork",
+    "version": 3,
+    "theme": "blush",
+    "day": 309,
+    "expectedDay": 309,
+    "matchesCalendar": true,
+    "palettePresent": true,
+    "containsCredentials": false
+  },
+  "deviceCache": {
+    "copiedFromRealPhone": true,
+    "transport": "localNetwork",
+    "cachedAccountCount": 1,
+    "accountSnapshots": [
+      {
+        "schema": 6,
+        "onboardingCompleted": true,
+        "theme": "blush",
+        "pendingProfileFields": 0,
+        "completedLessons": 1
+      }
+    ],
+    "privateIdentifiersRecorded": false,
+    "acknowledgmentFixVerified": true
+  },
+  "nativeWidgetTests": "passed: calendar rotation, local midnight, DST, travel, theme, artwork, JSON",
+  "reliabilityRegressions": [
+    "order-independent Firestore map acknowledgment",
+    "DateTime/Timestamp acknowledgment by instant",
+    "retry after a local completion write failure without a duplicate award",
+    "ignore previous-account cache write failures",
+    "testing paywall dismissal preserves the pending exact verse"
+  ]
+}

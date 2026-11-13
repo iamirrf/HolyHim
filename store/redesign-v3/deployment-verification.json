@@ -1,0 +1,58 @@
+{
+  "project": "holyhim-app-production",
+  "approvedByUser": true,
+  "hostingDeployed": false,
+  "hardPaywallEnabled": false,
+  "functions": [
+    {
+      "name": "revenuecatWebhook",
+      "state": "ACTIVE",
+      "updatedAt": "2026-11-05T13:56:18.553325469Z",
+      "runtime": "nodejs22"
+    },
+    {
+      "name": "getAccessStatus",
+      "state": "ACTIVE",
+      "updatedAt": "2026-11-05T13:56:22.013079778Z",
+      "runtime": "nodejs22"
+    },
+    {
+      "name": "supportRequest",
+      "state": "ACTIVE",
+      "updatedAt": "2026-11-05T13:56:18.247385160Z",
+      "runtime": "nodejs22"
+    },
+    {
+      "name": "syncAccess",
+      "state": "ACTIVE",
+      "updatedAt": "2026-11-05T13:56:25.136308972Z",
+      "runtime": "nodejs22"
+    },
+    {
+      "name": "cleanupReplacedAvatar",
+      "state": "ACTIVE",
+      "updatedAt": "2026-11-05T14:02:25.916829978Z",
+      "runtime": "nodejs22"
+    },
+    {
+      "name": "deleteAccount",
+      "state": "ACTIVE",
+      "updatedAt": "2026-11-05T13:56:23.772076166Z",
+      "runtime": "nodejs22"
+    }
+  ],
+  "rules": {
+    "firestore.rules": {
+      "matchesPreparedSource": true,
+      "sourceSha256": "689492c893951ddf5c802cc68987874c43820b350a71d3fd444de9f49bd8aa77",
+      "releaseUpdatedAt": "2026-11-05T13:55:41.204901Z"
+    },
+    "storage.rules": {
+      "matchesPreparedSource": true,
+      "sourceSha256": "b1da01d4b03232df9d3557ac40d5c48bd858dcd4f5ec6f3ab1847834d0808a65",
+      "releaseUpdatedAt": "2026-11-05T13:55:39.127499Z"
+    }
+  },
+  "previousFunctionsRetained": true,
+  "missingPreviousFunctions": []
+}

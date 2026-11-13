@@ -1,6 +1,6 @@
 {
   "checkedAt": "2026-11-03T12:26:10.837682+00:00",
-  "archive": "/Users/amir/Downloads/HolyHer/build/ios/archive/Runner.xcarchive",
+  "archive": "/Users/amir/Downloads/HolyHim/build/ios/archive/Runner.xcarchive",
   "status": "passed",
   "scope": "Completed archive identity, signing and combined bundled privacy declarations.",
   "checks": {
@@ -146,8 +146,8 @@
   },
   "failures": [],
   "application": {
-    "CFBundleIdentifier": "com.holyher.app",
-    "CFBundleDisplayName": "HolyHer",
+    "CFBundleIdentifier": "com.holyhim.app",
+    "CFBundleDisplayName": "HolyHim",
     "CFBundleShortVersionString": "1.2.0",
     "CFBundleVersion": "4",
     "ITSAppUsesNonExemptEncryption": false,
@@ -169,14 +169,14 @@
     "config/cloud.json": "097877f4c0a17a2040e4954548e17142cd9ffa48e08a5ae50d5a6b313f603398"
   },
   "firebase": {
-    "PROJECT_ID": "holyher-app-production",
+    "PROJECT_ID": "holyhim-app-production",
     "GOOGLE_APP_ID": "1:746503857955:ios:6ed10c73853d13b39f8e96",
-    "BUNDLE_ID": "com.holyher.app"
+    "BUNDLE_ID": "com.holyhim.app"
   },
   "signing": {
     "teamIdentifier": "DU9D6TAM58",
     "entitlements": {
-      "application-identifier": "DU9D6TAM58.com.holyher.app",
+      "application-identifier": "DU9D6TAM58.com.holyhim.app",
       "com.apple.developer.team-identifier": "DU9D6TAM58",
       "com.apple.developer.applesignin": [
         "Default"

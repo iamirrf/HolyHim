@@ -231,7 +231,7 @@
             "localizations": {
               "en-US": {
                 "description": "365 daily WEB lessons. One new lesson a day.",
-                "name": "HolyHer Lifetime"
+                "name": "HolyHim Lifetime"
               }
             },
             "pricing": {
@@ -244,7 +244,7 @@
                 }
               }
             },
-            "title": "HolyHer Lifetime"
+            "title": "HolyHim Lifetime"
           },
           "store_state": {
             "is_family_shareable": null,
@@ -264,7 +264,7 @@
         {
           "product_id": "prodcb08dff1bb",
           "app_id": null,
-          "store_identifier": "holyher_lifetime",
+          "store_identifier": "holyhim_lifetime",
           "action": "create",
           "diff": [
             {
@@ -1150,7 +1150,7 @@
             {
               "field": "common.localizations.en-US.name",
               "from_value": null,
-              "to_value": "HolyHer Lifetime"
+              "to_value": "HolyHim Lifetime"
             },
             {
               "field": "common.localizations.en-US.description",
@@ -1160,7 +1160,7 @@
             {
               "field": "common.title",
               "from_value": null,
-              "to_value": "HolyHer Lifetime"
+              "to_value": "HolyHim Lifetime"
             },
             {
               "field": "store_state.review_information.notes",
@@ -1182,7 +1182,7 @@
             {
               "severity": "warning",
               "field": "store_state.review_information.screenshot",
-              "message": "Product 'holyher_lifetime': No screenshot review provided. Blank screenshot will be added as fallback."
+              "message": "Product 'holyhim_lifetime': No screenshot review provided. Blank screenshot will be added as fallback."
             }
           ],
           "error_message": null,

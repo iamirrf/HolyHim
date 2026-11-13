@@ -1,0 +1,12 @@
+{
+  "builtAt": "2026-11-10T04:52:17.000000+00:00",
+  "buildCommand": "flutter build ios --profile --target lib/main.dart --build-name 2.0.0 --build-number 6",
+  "bundleId": "com.holyhim.app",
+  "version": "2.0.0",
+  "build": "6",
+  "platform": "iPhoneOS",
+  "developmentSignatureVerified": true,
+  "chapterAssetsVerified": 292,
+  "appPath": "build/ios/iphoneos/Runner.app",
+  "installLaunchReport": "store/iphone-run.json"
+}

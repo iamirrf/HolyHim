@@ -1,10 +1,10 @@
 {
   "desired_states": [
     {
-      "product_id": "prodcb08dff1bb",
+      "product_id": "REPLACE_WITH_HOLYHIM_RC_PRODUCT_ID",
       "store": "app_store",
       "common": {
-        "title": "HolyHer Lifetime",
+        "title": "HolyHim Lifetime",
         "pricing": {
           "territory_prices": {
             "US": {
@@ -15,7 +15,7 @@
         },
         "localizations": {
           "en-US": {
-            "name": "HolyHer Lifetime",
+            "name": "HolyHim Lifetime",
             "description": "365 daily WEB lessons. One new lesson a day."
           }
         },

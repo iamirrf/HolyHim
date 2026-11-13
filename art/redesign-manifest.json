@@ -1,0 +1,360 @@
+{
+  "version": 3,
+  "generator": "built-in image_gen",
+  "library": [
+    {
+      "id": "jesus-dawn",
+      "subject": "Jesus of Nazareth walking on a Galilean hillside at dawn",
+      "source": "art/generated/library/jesus-dawn.png",
+      "asset": "assets/art/library/jesus-dawn.webp",
+      "sourceSha256": "81a7dbefc9eeffd118638207f06a514b67cbf1846dc442a8bca3f80e08651161",
+      "sha256": "f361e38c2195a5c5a05d670177b7c65c3ce22b042d48372c3a3644c8d135a6c2"
+    },
+    {
+      "id": "jesus-seaside",
+      "subject": "Jesus of Nazareth seated quietly beside the Sea of Galilee at sunrise, viewed from behind",
+      "source": "art/generated/library/jesus-seaside.png",
+      "asset": "assets/art/library/jesus-seaside.webp",
+      "sourceSha256": "632ecf62b840f9a45d79e5bc8fd75ae058628eb557e1f9b25aabb805dfebcf3f",
+      "sha256": "e47b41d302b06915ab59d4ee0ce63f2f4593c26061fe4bbe507cd92933e7fabd"
+    },
+    {
+      "id": "jesus-shepherd",
+      "subject": "Jesus of Nazareth gently carrying a small lamb on his shoulders on an olive-covered hillside",
+      "source": "art/generated/library/jesus-shepherd.png",
+      "asset": "assets/art/library/jesus-shepherd.webp",
+      "sourceSha256": "4c7ea0644f3e8c332bc328355d964cd787376838d9ab5b8c7192910672ac87e6",
+      "sha256": "74daa782d59270b44374564fd532482a0a6762a1553e2f61adcbfdd4734c4b39"
+    },
+    {
+      "id": "jesus-prayer",
+      "subject": "Jesus of Nazareth praying alone beneath an olive tree in a tranquil garden at first light",
+      "source": "art/generated/library/jesus-prayer.png",
+      "asset": "assets/art/library/jesus-prayer.webp",
+      "sourceSha256": "0e63d892ef0d4949b7f80f0a745014c41027b33415951fa5e61882f5300c921c",
+      "sha256": "ba54238605562fb1f46119954bd7313ab4fddec9df2fa3f0eaf64a554201d9f6"
+    },
+    {
+      "id": "jesus-path",
+      "subject": "Jesus of Nazareth walking a dusty path beside tall grass in soft golden late-afternoon light",
+      "source": "art/generated/library/jesus-path.png",
+      "asset": "assets/art/library/jesus-path.webp",
+      "sourceSha256": "9ecfeed0253beffbe43add7dd164624c9992f666194d07ab6a58b41195ca575b",
+      "sha256": "cf51f6abaf5d6eefbabf02210f82b28f83f4700f85855d6cc97920805ea263fa"
+    },
+    {
+      "id": "sky-dawn",
+      "subject": "A vast luminous dawn sky with soft pink clouds above a distant calm horizon",
+      "source": "art/generated/library/sky-dawn.png",
+      "asset": "assets/art/library/sky-dawn.webp",
+      "sourceSha256": "6d969772573119075c0cf7e3f6f5f4027590a193eb05b473f54b92857bde5220",
+      "sha256": "714631e6f6418a4168b880f093aa8564a1b7a42041659115e4bb8f81be38bb74"
+    },
+    {
+      "id": "sky-rays",
+      "subject": "Warm sunbeams breaking softly through pale clouds, heavenly light above a distant sea",
+      "source": "art/generated/library/sky-rays.png",
+      "asset": "assets/art/library/sky-rays.webp",
+      "sourceSha256": "d6c4fd25c4261a5ebad1c9ae9082b90b2d281e62b03f76930a00fdc62ba5f4c7",
+      "sha256": "54079462cb2c047f854ed39a79890480ad17218ce6085e0b84d280dfc00d31aa"
+    },
+    {
+      "id": "sky-stillness",
+      "subject": "Soft lavender and peach clouds reflected in an absolutely calm lake at sunrise",
+      "source": "art/generated/library/sky-stillness.png",
+      "asset": "assets/art/library/sky-stillness.webp",
+      "sourceSha256": "7d063e751b664885a75d5c8f1458835448b19e381bd9e7a936ed5cac3e5c7282",
+      "sha256": "a2e07d069c658067c922c4530f898597346904b572230fbdf7dd1f5cdbd7f412"
+    },
+    {
+      "id": "sky-evening",
+      "subject": "A serene twilight sky with a single bright star, subtle dusky rose and champagne light",
+      "source": "art/generated/library/sky-evening.png",
+      "asset": "assets/art/library/sky-evening.webp",
+      "sourceSha256": "aa8b42cecbe559cf3a280b3022163a63161089b0a7899ce4eda72585340b64eb",
+      "sha256": "77a181dcf4490ed886913cf43ada701c4556b3876923428c26fa8d43c285c56c"
+    },
+    {
+      "id": "sky-clouds",
+      "subject": "Beautiful towering white clouds with softly gilded edges in a pale blue sky",
+      "source": "art/generated/library/sky-clouds.png",
+      "asset": "assets/art/library/sky-clouds.webp",
+      "sourceSha256": "cf653a5cfbf0182250a8af7e6862d13c24573a06889620bfee15d2249ca9f777",
+      "sha256": "83f01cb20ee9575083b957e4cac59ae7991c39caecd29da992a83c7b99546edf"
+    },
+    {
+      "id": "cross-hill",
+      "subject": "A simple weathered wooden cross on a grassy hill at sunrise, cross in lower right third",
+      "source": "art/generated/library/cross-hill.png",
+      "asset": "assets/art/library/cross-hill.webp",
+      "sourceSha256": "373f9d25f4b3377dd89543a16f54d80d115f1b541fa4b66dd2209b445899b1a5",
+      "sha256": "7abcc7017bb1898ad7c4e4d9569c746ad1f67ca3ae53bf5f9a578ceff870b14b"
+    },
+    {
+      "id": "cross-window",
+      "subject": "Sunlight through an old chapel window casting a cross-shaped shadow across a warm plaster wall",
+      "source": "art/generated/library/cross-window.png",
+      "asset": "assets/art/library/cross-window.webp",
+      "sourceSha256": "033ca55c48aa90ceafd03897397e5a15cc167504aeafdf30475390df4967b8f9",
+      "sha256": "92b13d074deecf60585aa4ca5dfd59b68669b430810ad88a0c92774671235445"
+    },
+    {
+      "id": "cross-meadow",
+      "subject": "A small wooden cross in a wildflower meadow with sage grasses and delicate white flowers",
+      "source": "art/generated/library/cross-meadow.png",
+      "asset": "assets/art/library/cross-meadow.webp",
+      "sourceSha256": "554d658aede908386c70fed5b8f16bce140de1ce32bbcd864d336e0a535c8793",
+      "sha256": "976c4e3c7a7404e796913759797e24f313500b88611a98fb97527502f2914901"
+    },
+    {
+      "id": "cross-mountain",
+      "subject": "Three simple wooden crosses on a distant hill beneath a vast peaceful dawn sky",
+      "source": "art/generated/library/cross-mountain.png",
+      "asset": "assets/art/library/cross-mountain.webp",
+      "sourceSha256": "3390368ff0190bd282acbaded5e22365714c6ccaee5d69dad348a2501e1824d2",
+      "sha256": "b49df3f12ce6e64ab9ba117542d4476e766e522b4467080a6a6be032735be849"
+    },
+    {
+      "id": "cross-stone",
+      "subject": "A delicate carved stone cross beside an olive tree, shallow depth of field, warm afternoon light",
+      "source": "art/generated/library/cross-stone.png",
+      "asset": "assets/art/library/cross-stone.webp",
+      "sourceSha256": "e2c581df4c04ae21b7de882372ecc333543784b8243a0f00107c98e853ca2642",
+      "sha256": "3e44d19c8953dbd7e9fd625b4b82fdc0e275170a00b372244621cd5b64b81fc7"
+    },
+    {
+      "id": "scripture-morning",
+      "subject": "An open Bible on a cream linen cloth beside a sunlit window, distant focus, no legible letters",
+      "source": "art/generated/library/scripture-morning.png",
+      "asset": "assets/art/library/scripture-morning.webp",
+      "sourceSha256": "80c55c611c2b1a0cc646c828665a573679a153c9d3a9ce8e5bcf1f3b173a0c1d",
+      "sha256": "4e2ba303d0f32a4f32c0428915e6350023c4c796936a350acd1fd1540eba12e5"
+    },
+    {
+      "id": "scripture-prayer",
+      "subject": "A quiet prayer corner with a closed linen-bound Bible, small candle and olive branch",
+      "source": "art/generated/library/scripture-prayer.png",
+      "asset": "assets/art/library/scripture-prayer.webp",
+      "sourceSha256": "2ab5a99c09491606b17f16013764b47ec019046794f678afaf35713d23036398",
+      "sha256": "8f3fbd35618d88dfbcf864a89122c669272c1b445d01767f8c16e7a68f23c73e"
+    },
+    {
+      "id": "scripture-chapel",
+      "subject": "The peaceful interior of a small sunlit stone chapel, simple wood pews and a distant cross",
+      "source": "art/generated/library/scripture-chapel.png",
+      "asset": "assets/art/library/scripture-chapel.webp",
+      "sourceSha256": "5fa56f094d12e7cb6af1309b44b13bc344344e16c37b6b7c67691ea3c0263dc7",
+      "sha256": "b59392e5f843718e090042d8834784e245ffb4613a2f86571c3ab854fa79d8d4"
+    },
+    {
+      "id": "scripture-lamp",
+      "subject": "A closed weathered Bible beside a softly glowing antique oil lamp on a wooden table",
+      "source": "art/generated/library/scripture-lamp.png",
+      "asset": "assets/art/library/scripture-lamp.webp",
+      "sourceSha256": "1e906e33bcd646492d351484de80a7ca0914351f90f2ff131cc91014f7cf54ec",
+      "sha256": "75c74a44e9d0812738150c62df318297e9a2ac41ae00731eb037127485e0590c"
+    },
+    {
+      "id": "scripture-garden",
+      "subject": "A linen-bound Bible and a small wooden cross on a stone bench in a sunlit garden",
+      "source": "art/generated/library/scripture-garden.png",
+      "asset": "assets/art/library/scripture-garden.webp",
+      "sourceSha256": "7d4e341ca49d294767d61935acee8b8deea743e3a93dec7580bb6c8f1000713c",
+      "sha256": "4f1d3455395a55ade7def904f06af03f178e4593f81dca76f0f6ca9f010bd7e7"
+    },
+    {
+      "id": "symbol-olive",
+      "subject": "An olive branch in sharp detail before a softly blurred warm sunrise and ancient olive grove",
+      "source": "art/generated/library/symbol-olive.png",
+      "asset": "assets/art/library/symbol-olive.webp",
+      "sourceSha256": "3800fd90388671f78e0dae1c9bcac4483bdcc7d7a69c3640596c6ef323c4ae8e",
+      "sha256": "b475880036f327c5f0d5b12553ddb559aa3aebf7b798b487ab0b8ff64d7a48f1"
+    },
+    {
+      "id": "symbol-dove",
+      "subject": "A white dove in gentle flight over a peaceful landscape, graceful anatomically accurate wings",
+      "source": "art/generated/library/symbol-dove.png",
+      "asset": "assets/art/library/symbol-dove.webp",
+      "sourceSha256": "da89a7a877d58bb2d58e55cfa11e78b3139679e6e211898e731d303d4d6a8e22",
+      "sha256": "34a0db74a92f1fdb2d5337a2176bf2f3be7023825d0ce1ca02a5251d11522e23"
+    },
+    {
+      "id": "landscape-water",
+      "subject": "A quiet stream flowing through a sunlit green valley, soft sage grasses and warm rocks",
+      "source": "art/generated/library/landscape-water.png",
+      "asset": "assets/art/library/landscape-water.webp",
+      "sourceSha256": "7833beedcecfd85ba5dfd3a20a5c2aa4bc2f761ef399c665afc45e265da4617f",
+      "sha256": "5589cc2f5d12ea60dfaef3ec0ee34d709ab7a972d3f49a823b94590f0bdb7c5e"
+    },
+    {
+      "id": "landscape-path",
+      "subject": "A winding footpath through an olive grove leading toward distant dawn light",
+      "source": "art/generated/library/landscape-path.png",
+      "asset": "assets/art/library/landscape-path.webp",
+      "sourceSha256": "13f7bdf5fd81afa2fc24506721b0002806c63b7f020620c11f261bb3e14b92ec",
+      "sha256": "9d8838b6bb1a8f3f5a6859f5c2eb1ec19b5a521fd63c1c84388f4ba23dcab9d2"
+    },
+    {
+      "id": "symbol-lilies",
+      "subject": "White lilies in a simple field with rose dawn light, gentle dew and a quiet open sky",
+      "source": "art/generated/library/symbol-lilies.png",
+      "asset": "assets/art/library/symbol-lilies.webp",
+      "sourceSha256": "e3a72ab98545a4fdfb51faf44ce0e32033e3887618da6e0a42a25b8cdec7182f",
+      "sha256": "6952472a1430c46a9294b2eed46fa3d49d53080dd9f9de77822ef0661cfef341"
+    }
+  ],
+  "badges": [
+    {
+      "id": "days-001",
+      "subject": "A budding olive sprig emerging from a seed",
+      "source": "art/generated/badges/days-001.png",
+      "asset": "assets/art/badges/days-001.png",
+      "sourceSha256": "9576d774b4479cdcb362ffbb5729a3b83f9ef588fbc7ffb8af7af6514f6f7a21",
+      "sha256": "99b2ac407d946d28e202d335caaa4cda68925c2440cbbd3ce0ad6035fda5bce1"
+    },
+    {
+      "id": "days-003",
+      "subject": "Three small graceful footprints leading toward a tiny cross",
+      "source": "art/generated/badges/days-003.png",
+      "asset": "assets/art/badges/days-003.png",
+      "sourceSha256": "4560238b9a9eb069bea7ac37f6e8cb35eae885b3c373d5c3cc07b9d567d78394",
+      "sha256": "99ac0d382904eb321c234c42814d1f3337c3dcca8898ed10b52a310f352bffc8"
+    },
+    {
+      "id": "days-007",
+      "subject": "A graceful seven-leaf olive wreath enclosing a small simple cross",
+      "source": "art/generated/badges/days-007.png",
+      "asset": "assets/art/badges/days-007.png",
+      "sourceSha256": "95220f36f1e77904470af177bb295f0a3bad03731bbcb5dec96c8774d0afda2e",
+      "sha256": "a6a5824a7e08ecaf95d112bc7784ce4d0697dfff7b8733d5175cfb69eb4216ed"
+    },
+    {
+      "id": "days-014",
+      "subject": "A young olive tree with visible sculpted roots",
+      "source": "art/generated/badges/days-014.png",
+      "asset": "assets/art/badges/days-014.png",
+      "sourceSha256": "e0f5f9be286cc65e6e393bf624d3608bf72e5d6c737beca00c150cdd53e1242f",
+      "sha256": "2e170011a3bbf179bae3be326e9df7657019f8cb97bf666efb0db07112e7ee73"
+    },
+    {
+      "id": "days-021",
+      "subject": "A rose-gold open heart with one pale ivory flower",
+      "source": "art/generated/badges/days-021.png",
+      "asset": "assets/art/badges/days-021.png",
+      "sourceSha256": "0f545676069021e5f4f02a989827a31123cd038ad6630281437c4b0cb9c0f23a",
+      "sha256": "064a69467287110549320c18efb43825b118c428233d1d1ead1124ea42378558"
+    },
+    {
+      "id": "days-030",
+      "subject": "A slender crescent moon embracing a small gold sun",
+      "source": "art/generated/badges/days-030.png",
+      "asset": "assets/art/badges/days-030.png",
+      "sourceSha256": "53972b7e7ea7ad07e9137e5c18988fe0472b1134a1fa99b5282c32adee818dd8",
+      "sha256": "9e24817240bf9ab795af5408004a560e6188f882aae910ab641d32270ab100b0"
+    },
+    {
+      "id": "days-050",
+      "subject": "A strong olive branch growing from a softly rounded stone",
+      "source": "art/generated/badges/days-050.png",
+      "asset": "assets/art/badges/days-050.png",
+      "sourceSha256": "d6b9cb73b0214dfa46d339a2b63209e8611d9e63c2570864b67006caf78f48fc",
+      "sha256": "852c463d6ff53b1472d54d4f6e0ac544ab3d6fa65cd61cc3d2757ccf098b749d"
+    },
+    {
+      "id": "days-075",
+      "subject": "A delicate glowing oil lantern rendered in champagne gold",
+      "source": "art/generated/badges/days-075.png",
+      "asset": "assets/art/badges/days-075.png",
+      "sourceSha256": "32bfa88a98d2c05919b1149e6a1e56e654448b29839b8bc050c0ca5cf134a9c0",
+      "sha256": "e95e00500c39c9102f1bc27fabb12045743c6b2df1620ec4392b1e0af5889d47"
+    },
+    {
+      "id": "days-100",
+      "subject": "A golden rising sun above three softly sculpted horizon lines",
+      "source": "art/generated/badges/days-100.png",
+      "asset": "assets/art/badges/days-100.png",
+      "sourceSha256": "8fe2d39b461a26e13bcb6649030a26abeff866830c636428b795718bda856776",
+      "sha256": "0508461003bfed746bb65f3265f7a6aacac236d3e730d25b13d6a5110f2abcb6"
+    },
+    {
+      "id": "days-150",
+      "subject": "A flourishing olive tree with a broad graceful crown and fine roots",
+      "source": "art/generated/badges/days-150.png",
+      "asset": "assets/art/badges/days-150.png",
+      "sourceSha256": "67230fe4d614c977b3d468d53c253f703e3c18b631a75b3e9b4c3db51011fefc",
+      "sha256": "abf01833bee666a248618942d4bbbfd9ee752b6210d5bc8aaefc3d40a55f0254"
+    },
+    {
+      "id": "days-200",
+      "subject": "A single white dove with softly sculpted wings open in flight",
+      "source": "art/generated/badges/days-200.png",
+      "asset": "assets/art/badges/days-200.png",
+      "sourceSha256": "d826e77804f15c147c98ca69e957adaa6afa4998db4e71dc13d635a5d41e0885",
+      "sha256": "e9fecf77a1b970accf3d567cef14d3ba03b357c9548cc18e0af711853a575b8e"
+    },
+    {
+      "id": "days-250",
+      "subject": "An open rose-gold heart with an ivory olive sprig nestled inside",
+      "source": "art/generated/badges/days-250.png",
+      "asset": "assets/art/badges/days-250.png",
+      "sourceSha256": "16aa5afce2c13d5dcc6394ffbeb729b8fac1aa534ba28838c428d2f4d46a9404",
+      "sha256": "dac102943ca08b56249ebc1e7dd863cca0966745c3d52b5cd7088457ab770861"
+    },
+    {
+      "id": "days-300",
+      "subject": "A graceful olive wreath encircling a champagne-gold cross with one tiny rose bud",
+      "source": "art/generated/badges/days-300.png",
+      "asset": "assets/art/badges/days-300.png",
+      "sourceSha256": "ef2704a256daec130fcdfe999fbc9a59b127266d0fc84ff25c2dd67b22fbfa29",
+      "sha256": "e7bc7f4836c7e27c0333f3c8ce1ff016084d7fdfe5b707fa7e3cda9048140ed0"
+    },
+    {
+      "id": "days-365",
+      "subject": "A refined golden sunburst surrounding a small ivory cross, exceptional luminous detail",
+      "source": "art/generated/badges/days-365.png",
+      "asset": "assets/art/badges/days-365.png",
+      "sourceSha256": "99b0f608d3acde49ba98316949246d586362485b52f33405c922b2d3d7f7ad98",
+      "sha256": "49d1eeeee23d56c29ad10676ea17765438eb6713131f35b35272d43d7eab47fc"
+    },
+    {
+      "id": "streak-007",
+      "subject": "A small elegant sculpted flame with an ivory core and rose-gold edge",
+      "source": "art/generated/badges/streak-007.png",
+      "asset": "assets/art/badges/streak-007.png",
+      "sourceSha256": "3902d725be97144a3a7370070b460d6422f4e3df0fc15cc7b20f55bf06578de6",
+      "sha256": "effdb2a0f59f7d640a7df6bd416841bbc8dcade34be1db3be1434910fed2b1b2"
+    },
+    {
+      "id": "streak-030",
+      "subject": "Three rising flame shapes intertwined like a graceful botanical sprig",
+      "source": "art/generated/badges/streak-030.png",
+      "asset": "assets/art/badges/streak-030.png",
+      "sourceSha256": "241b6cdb82601daeaef508fc81d1e814159fc132755e81bf7303779450170c47",
+      "sha256": "9cedd3c4160c0b23c587974a4c35f43071fe45be96441f5cd817df51130a0bdd"
+    },
+    {
+      "id": "streak-100",
+      "subject": "A tall sculpted flame embraced by a delicate olive wreath",
+      "source": "art/generated/badges/streak-100.png",
+      "asset": "assets/art/badges/streak-100.png",
+      "sourceSha256": "d3992a2365d8f4128854a1cb984f42bd7e00831ed3f6dff570862209f0ee0fde",
+      "sha256": "9773aac4d57f0f266ab8ba5a4a3c0d86d68ab61d159b0e22ecd4ec49a29a0a89"
+    },
+    {
+      "id": "first-saved",
+      "subject": "An open ivory book with a gold bookmark shaped like a small heart, blank pages",
+      "source": "art/generated/badges/first-saved.png",
+      "asset": "assets/art/badges/first-saved.png",
+      "sourceSha256": "43eecd6c301a109227d98bac8d537d6d807239caa8e343c3f328b277970351e2",
+      "sha256": "89ecc5f3921018c0bfb763d3522cf62ebd78bfaf44b507912e53ee9078e3f721"
+    },
+    {
+      "id": "promise-kept",
+      "subject": "A returning curved gold path ending in a tiny blooming olive sprig, symbol of beginning again",
+      "source": "art/generated/badges/promise-kept.png",
+      "asset": "assets/art/badges/promise-kept.png",
+      "sourceSha256": "69e083a2d744760e9f1096683b2a406b76e02632f5b509ab0db12c2a801afab3",
+      "sha256": "95263be4cab2a7f36ac25bef1d80272bffc900355f93e952498d63a7fe3a2a7f"
+    }
+  ]
+}

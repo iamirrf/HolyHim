@@ -23,7 +23,7 @@
     "deviceIdentifier" : "79D1760F-3CCF-5595-874B-46E260F41DCD",
     "installedApplications" : [
       {
-        "bundleID" : "com.holyher.app",
+        "bundleID" : "com.holyhim.app",
         "databaseSequenceNumber" : 4948,
         "databaseUUID" : "034CD097-6E2C-4CCC-B07D-9587F71592B6",
         "installationURL" : "file:///private/var/containers/Bundle/Application/596D4C5D-7AA3-46B9-8A5F-456AA1C3943A/Runner.app/",

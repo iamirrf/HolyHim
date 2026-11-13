@@ -12,7 +12,7 @@
     "Six authenticated browser route/history/offline checks passed",
     "Service-worker activation/reload retained local data",
     "Development-signed iOS archive passed identity/signature/privacy/font-license checks",
-    "HolyHer 1.2.0 (4) installed on the physical iPhone with version read-back"
+    "HolyHim 1.2.0 (4) installed on the physical iPhone with version read-back"
   ],
   "remaining": [
     {

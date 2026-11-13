@@ -1,0 +1,9 @@
+{
+  "basePath": "/app/",
+  "source": "web/",
+  "output": "public/app/",
+  "shellVersion": "4bf41a958383a39e",
+  "hashScope": "all generated application files",
+  "files": 274,
+  "productionDeployed": false
+}

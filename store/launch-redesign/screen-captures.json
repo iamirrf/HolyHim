@@ -1,0 +1,423 @@
+{
+  "version": 1,
+  "capturedAt": "2026-11-08",
+  "build": "current local source",
+  "images": [
+    {
+      "path": "screens/completion.png",
+      "sha256": "0c9f9e701cd75debcb675325941de5a422f9c00261d0ece4efd7963bf06e663d",
+      "kind": "Flutter raster layout capture; not an iPhone screenshot",
+      "logicalSize": [
+        393,
+        852
+      ],
+      "pixelSize": [
+        786,
+        1704
+      ]
+    },
+    {
+      "path": "screens/edit-profile.png",
+      "sha256": "3a28da18e8dfe7d9f35be9ca626c6a2e2b71426a7d391b7dd6d28d7235474658",
+      "kind": "Flutter raster layout capture; not an iPhone screenshot",
+      "logicalSize": [
+        393,
+        852
+      ],
+      "pixelSize": [
+        786,
+        1704
+      ]
+    },
+    {
+      "path": "screens/email-signin.png",
+      "sha256": "03cdce8bbd8f476dfa342ff511d2d27ec3a3bb24c10b00306d937e412338dc37",
+      "kind": "Flutter raster layout capture; not an iPhone screenshot",
+      "logicalSize": [
+        393,
+        852
+      ],
+      "pixelSize": [
+        786,
+        1704
+      ]
+    },
+    {
+      "path": "screens/email-signup.png",
+      "sha256": "64be6bb74fa7466ac21bb3cba8603eef89bf4d07aaa7b097cadfe2fa5efafce4",
+      "kind": "Flutter raster layout capture; not an iPhone screenshot",
+      "logicalSize": [
+        393,
+        852
+      ],
+      "pixelSize": [
+        786,
+        1704
+      ]
+    },
+    {
+      "path": "screens/growth-empty.png",
+      "sha256": "6280dbe6cf18b2fac40f0c48016efdc678a0cf0d7bcabaf67b8eeb9b9294bf2a",
+      "kind": "Flutter raster layout capture; not an iPhone screenshot",
+      "logicalSize": [
+        393,
+        852
+      ],
+      "pixelSize": [
+        786,
+        1704
+      ]
+    },
+    {
+      "path": "screens/growth.png",
+      "sha256": "f822db88d63692570f2bee56805da1c38d0676929ae01002df63dfa1519e8efe",
+      "kind": "Flutter raster layout capture; not an iPhone screenshot",
+      "logicalSize": [
+        393,
+        852
+      ],
+      "pixelSize": [
+        786,
+        1704
+      ]
+    },
+    {
+      "path": "screens/meaning.png",
+      "sha256": "6ca5c709914d4f77387a2801a76df84624f5338f35a27e925bb7b43f9d0918a8",
+      "kind": "Flutter raster layout capture; not an iPhone screenshot",
+      "logicalSize": [
+        393,
+        852
+      ],
+      "pixelSize": [
+        786,
+        1704
+      ]
+    },
+    {
+      "path": "screens/onboarding-1.png",
+      "sha256": "eeb9157ed432667c87094d32d437f8aaed67b950108524be5f16887cb4d8947e",
+      "kind": "Flutter raster layout capture; not an iPhone screenshot",
+      "logicalSize": [
+        393,
+        852
+      ],
+      "pixelSize": [
+        786,
+        1704
+      ]
+    },
+    {
+      "path": "screens/onboarding-10.png",
+      "sha256": "d90d885a3fed176cee340e530637b1b5da40d62d9ea79eabb5febbb6ca44a828",
+      "kind": "Flutter raster layout capture; not an iPhone screenshot",
+      "logicalSize": [
+        393,
+        852
+      ],
+      "pixelSize": [
+        786,
+        1704
+      ]
+    },
+    {
+      "path": "screens/onboarding-2.png",
+      "sha256": "6571e6b60564a2c5760c7b67b059734d0467496b19369a68696e95a7ba0c9570",
+      "kind": "Flutter raster layout capture; not an iPhone screenshot",
+      "logicalSize": [
+        393,
+        852
+      ],
+      "pixelSize": [
+        786,
+        1704
+      ]
+    },
+    {
+      "path": "screens/onboarding-3.png",
+      "sha256": "ee5ec38a291173df33c473c5d58a4cb06086035d32fe235c29fa6eaecff4521e",
+      "kind": "Flutter raster layout capture; not an iPhone screenshot",
+      "logicalSize": [
+        393,
+        852
+      ],
+      "pixelSize": [
+        786,
+        1704
+      ]
+    },
+    {
+      "path": "screens/onboarding-4.png",
+      "sha256": "8e3a9ee1804d2309abad4224eee2a0b93712a3d839a8c7b11fea0a0d86694422",
+      "kind": "Flutter raster layout capture; not an iPhone screenshot",
+      "logicalSize": [
+        393,
+        852
+      ],
+      "pixelSize": [
+        786,
+        1704
+      ]
+    },
+    {
+      "path": "screens/onboarding-5-choices.png",
+      "sha256": "b6e3b9117cb06d44095d1fb1b88345f755c41930c31f8f1bc214fcc7b57968b8",
+      "kind": "Flutter raster layout capture; not an iPhone screenshot",
+      "logicalSize": [
+        393,
+        852
+      ],
+      "pixelSize": [
+        786,
+        1704
+      ]
+    },
+    {
+      "path": "screens/onboarding-5.png",
+      "sha256": "42f4ac25ef925c5667271ae95e9254991749558b426be3ae05698970e1ac885f",
+      "kind": "Flutter raster layout capture; not an iPhone screenshot",
+      "logicalSize": [
+        393,
+        852
+      ],
+      "pixelSize": [
+        786,
+        1704
+      ]
+    },
+    {
+      "path": "screens/onboarding-6.png",
+      "sha256": "a9e400fce468d891794e32dc2112e6aaeaa01e4b1b2f72d1203f71d6c44ef3b8",
+      "kind": "Flutter raster layout capture; not an iPhone screenshot",
+      "logicalSize": [
+        393,
+        852
+      ],
+      "pixelSize": [
+        786,
+        1704
+      ]
+    },
+    {
+      "path": "screens/onboarding-7-choices.png",
+      "sha256": "b769b338341dbff2b9ffa57a6995b059a78a60c8377b99981f7a217cbfa77983",
+      "kind": "Flutter raster layout capture; not an iPhone screenshot",
+      "logicalSize": [
+        393,
+        852
+      ],
+      "pixelSize": [
+        786,
+        1704
+      ]
+    },
+    {
+      "path": "screens/onboarding-7.png",
+      "sha256": "10882fe44f813a4a31fb8a3f22ad4f9db6f1b451eba5d93b6894ec314378aae5",
+      "kind": "Flutter raster layout capture; not an iPhone screenshot",
+      "logicalSize": [
+        393,
+        852
+      ],
+      "pixelSize": [
+        786,
+        1704
+      ]
+    },
+    {
+      "path": "screens/onboarding-8.png",
+      "sha256": "56cad90eb9782ed3b337faa78fc46ce11424156dc5c33f0904b79330d542def1",
+      "kind": "Flutter raster layout capture; not an iPhone screenshot",
+      "logicalSize": [
+        393,
+        852
+      ],
+      "pixelSize": [
+        786,
+        1704
+      ]
+    },
+    {
+      "path": "screens/onboarding-9.png",
+      "sha256": "69037d255b893cdb3b32eb6c39d50ab09ae3861830b69e79422fd706499dd14f",
+      "kind": "Flutter raster layout capture; not an iPhone screenshot",
+      "logicalSize": [
+        393,
+        852
+      ],
+      "pixelSize": [
+        786,
+        1704
+      ]
+    },
+    {
+      "path": "screens/paywall-unavailable.png",
+      "sha256": "7beaea99ee2fc4d5bce7c4cb97c619c1160f026fe24a1b42ffd5420694105cd1",
+      "kind": "Flutter raster layout capture; not an iPhone screenshot",
+      "logicalSize": [
+        393,
+        852
+      ],
+      "pixelSize": [
+        786,
+        1704
+      ]
+    },
+    {
+      "path": "screens/prayer.png",
+      "sha256": "7ff9292f1d0b96d1aaeabef64521921b618ff3ed473dd3f67f59c248d4d4fa23",
+      "kind": "Flutter raster layout capture; not an iPhone screenshot",
+      "logicalSize": [
+        393,
+        852
+      ],
+      "pixelSize": [
+        786,
+        1704
+      ]
+    },
+    {
+      "path": "screens/privacy.png",
+      "sha256": "97980f3c6fdd8e9cdcb2fabe01fcc519e54bd10af0adb5c9d773d5d694d5a215",
+      "kind": "Flutter raster layout capture; not an iPhone screenshot",
+      "logicalSize": [
+        393,
+        852
+      ],
+      "pixelSize": [
+        786,
+        1704
+      ]
+    },
+    {
+      "path": "screens/profile.png",
+      "sha256": "b754b7cd77efa0abe00e2c667379920e90d9ff5213628b21384165d6062bf55b",
+      "kind": "Flutter raster layout capture; not an iPhone screenshot",
+      "logicalSize": [
+        393,
+        852
+      ],
+      "pixelSize": [
+        786,
+        1704
+      ]
+    },
+    {
+      "path": "screens/reflection.png",
+      "sha256": "137890dc011dc95af4a5da65bb8412f41182d4ecc9e7268596a39c14bf83891c",
+      "kind": "Flutter raster layout capture; not an iPhone screenshot",
+      "logicalSize": [
+        393,
+        852
+      ],
+      "pixelSize": [
+        786,
+        1704
+      ]
+    },
+    {
+      "path": "screens/saved-empty.png",
+      "sha256": "fe65eadf4909054ad53122d22a9b51a8a645b5f11549afa1e34686ba83974f75",
+      "kind": "Flutter raster layout capture; not an iPhone screenshot",
+      "logicalSize": [
+        393,
+        852
+      ],
+      "pixelSize": [
+        786,
+        1704
+      ]
+    },
+    {
+      "path": "screens/saved.png",
+      "sha256": "8028c478b157c032f02ff19a8b10769d21438d9cf0835567e84912db2415a670",
+      "kind": "Flutter raster layout capture; not an iPhone screenshot",
+      "logicalSize": [
+        393,
+        852
+      ],
+      "pixelSize": [
+        786,
+        1704
+      ]
+    },
+    {
+      "path": "screens/scripture.png",
+      "sha256": "27e654cd5908dbaea9085f249196ea16ef18274c1c8154f39125f2035776905e",
+      "kind": "Flutter raster layout capture; not an iPhone screenshot",
+      "logicalSize": [
+        393,
+        852
+      ],
+      "pixelSize": [
+        786,
+        1704
+      ]
+    },
+    {
+      "path": "screens/support.png",
+      "sha256": "c5ffaa268f6476c08eba0296775ad612aead210f4c97d8511670d6f388ff42a0",
+      "kind": "Flutter raster layout capture; not an iPhone screenshot",
+      "logicalSize": [
+        393,
+        852
+      ],
+      "pixelSize": [
+        786,
+        1704
+      ]
+    },
+    {
+      "path": "screens/themes.png",
+      "sha256": "e5398fac3055342a559f455b3c737d7e1bd9af843b0148fe80fbf02c082ad174",
+      "kind": "Flutter raster layout capture; not an iPhone screenshot",
+      "logicalSize": [
+        393,
+        852
+      ],
+      "pixelSize": [
+        786,
+        1704
+      ]
+    },
+    {
+      "path": "screens/walk-journey.png",
+      "sha256": "c0293053688aa01e8b61cdb995bb6376f0c5ffa4602f4829e77ed4b6894ddec8",
+      "kind": "Flutter raster layout capture; not an iPhone screenshot",
+      "logicalSize": [
+        393,
+        852
+      ],
+      "pixelSize": [
+        786,
+        1704
+      ]
+    },
+    {
+      "path": "screens/walk.png",
+      "sha256": "111980bb7f2351fba7240dcba5853f3ccb4c2ef6475c9c3403296ad044250fa3",
+      "kind": "Flutter raster layout capture; not an iPhone screenshot",
+      "logicalSize": [
+        393,
+        852
+      ],
+      "pixelSize": [
+        786,
+        1704
+      ]
+    },
+    {
+      "path": "screens/welcome.png",
+      "sha256": "b01047eb163d4b3cb675769b8a684836a013661f889f91180682252d5034b89b",
+      "kind": "Flutter raster layout capture; not an iPhone screenshot",
+      "logicalSize": [
+        393,
+        852
+      ],
+      "pixelSize": [
+        786,
+        1704
+      ]
+    }
+  ]
+}

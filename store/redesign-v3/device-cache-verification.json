@@ -1,0 +1,16 @@
+{
+  "copiedFromRealPhone": true,
+  "transport": "localNetwork",
+  "cachedAccountCount": 1,
+  "accountSnapshots": [
+    {
+      "schema": 6,
+      "onboardingCompleted": true,
+      "theme": "blush",
+      "pendingProfileFields": 0,
+      "completedLessons": 1
+    }
+  ],
+  "privateIdentifiersRecorded": false,
+  "acknowledgmentFixVerified": true
+}

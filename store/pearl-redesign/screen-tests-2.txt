@@ -1,4 +1,4 @@
-00:00 +0: loading /Users/amir/Downloads/HolyHer/test/screens_test.dart
+00:00 +0: loading /Users/amir/Downloads/HolyHim/test/screens_test.dart
 00:00 +0: (setUpAll)
 00:00 +0: free shell exposes Learn, Saved and Profile with roadmap search
 00:04 +1: future lesson opens a calendar explanation without a payment action
@@ -11,9 +11,9 @@ Expected: null
   Actual: FlutterError:<A RenderFlex overflowed by 51 pixels on the right.>
 
 When the exception was thrown, this was the stack:
-#4      main.tap (file:///Users/amir/Downloads/HolyHer/test/screens_test.dart:149:5)
+#4      main.tap (file:///Users/amir/Downloads/HolyHim/test/screens_test.dart:149:5)
 <asynchronous suspension>
-#5      main.<anonymous closure> (file:///Users/amir/Downloads/HolyHer/test/screens_test.dart:257:44)
+#5      main.<anonymous closure> (file:///Users/amir/Downloads/HolyHim/test/screens_test.dart:257:44)
 <asynchronous suspension>
 #6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
 <asynchronous suspension>
@@ -23,7 +23,7 @@ When the exception was thrown, this was the stack:
 (elided one frame from package:stack_trace)
 
 This was caught by the test expectation on the following line:
-  file:///Users/amir/Downloads/HolyHer/test/screens_test.dart line 149
+  file:///Users/amir/Downloads/HolyHim/test/screens_test.dart line 149
 The test description was:
   twelve onboarding stages preserve choices, summary edits, and the actual Day 1
 ════════════════════════════════════════════════════════════════════════════════════════════════════
@@ -39,7 +39,7 @@ The following assertion was thrown during layout:
 A RenderFlex overflowed by 46 pixels on the bottom.
 
 The relevant error-causing widget was:
-  Column Column:file:///Users/amir/Downloads/HolyHer/lib/features/home/home_shell.dart:60:252
+  Column Column:file:///Users/amir/Downloads/HolyHim/lib/features/home/home_shell.dart:60:252
 
 The overflowing RenderFlex has an orientation of Axis.vertical.
 The edge of the RenderFlex that is overflowing has been marked in the rendering with a yellow and
@@ -69,7 +69,7 @@ The following assertion was thrown during layout:
 A RenderFlex overflowed by 46 pixels on the bottom.
 
 The relevant error-causing widget was:
-  Column Column:file:///Users/amir/Downloads/HolyHer/lib/features/home/home_shell.dart:60:252
+  Column Column:file:///Users/amir/Downloads/HolyHim/lib/features/home/home_shell.dart:60:252
 
 The overflowing RenderFlex has an orientation of Axis.vertical.
 The edge of the RenderFlex that is overflowing has been marked in the rendering with a yellow and
@@ -99,7 +99,7 @@ The following assertion was thrown during layout:
 A RenderFlex overflowed by 94 pixels on the bottom.
 
 The relevant error-causing widget was:
-  Column Column:file:///Users/amir/Downloads/HolyHer/lib/features/home/home_shell.dart:60:252
+  Column Column:file:///Users/amir/Downloads/HolyHim/lib/features/home/home_shell.dart:60:252
 
 The overflowing RenderFlex has an orientation of Axis.vertical.
 The edge of the RenderFlex that is overflowing has been marked in the rendering with a yellow and
@@ -131,9 +131,9 @@ Expected: null
 least one was unexpected.'
 
 When the exception was thrown, this was the stack:
-#4      main.start (file:///Users/amir/Downloads/HolyHer/test/screens_test.dart:134:5)
+#4      main.start (file:///Users/amir/Downloads/HolyHim/test/screens_test.dart:134:5)
 <asynchronous suspension>
-#5      main.<anonymous closure> (file:///Users/amir/Downloads/HolyHer/test/screens_test.dart:297:9)
+#5      main.<anonymous closure> (file:///Users/amir/Downloads/HolyHim/test/screens_test.dart:297:9)
 <asynchronous suspension>
 #6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
 <asynchronous suspension>
@@ -143,7 +143,7 @@ When the exception was thrown, this was the stack:
 (elided one frame from package:stack_trace)
 
 This was caught by the test expectation on the following line:
-  file:///Users/amir/Downloads/HolyHer/test/screens_test.dart line 134
+  file:///Users/amir/Downloads/HolyHim/test/screens_test.dart line 134
 The test description was:
   phone-3x keeps learning, settings and support scrollable
 ════════════════════════════════════════════════════════════════════════════════════════════════════

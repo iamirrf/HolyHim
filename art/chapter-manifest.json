@@ -1,0 +1,5119 @@
+{
+  "version": 1,
+  "source": "content/units.json",
+  "chapters": [
+    {
+      "id": "unit-01",
+      "title": "You never walk alone",
+      "firstDay": 1,
+      "lastDay": 5,
+      "lessonTitles": [
+        "You Do Not Walk Alone",
+        "Held When You Feel Weak",
+        "A Place to Bring Trouble",
+        "Opposition Is Not the Whole Story",
+        "Hope During a Long Wait"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-01/portrait.png",
+          "sha256": "70846c707076702fc8f14bdf017e16340d8b9a987a1933a33a752a37c9174f2a"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-01/landscape.png",
+          "sha256": "237fc7a823269b34b2291e40dc077a62d705ddbfdcf2e8b867fcdc6b2ef16474"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-01/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "6c32ca9ef16d0b253f6787cb2de303aeb555e618eafe995d1c5b6d928052099b",
+          "bytes": 232072
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-01/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "7d3d6ea2046afccce4a1a9b457ee9c6626c7ea0168ae010677b7573ecf7cab19",
+          "bytes": 212630
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-01/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "a59ecfa8ca33187d87b36a48e6000ef0772595cb1ff60880924d62e651b9a7f7",
+          "bytes": 15038
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-01/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "ee4489a2509a5a9f9c3862fb9f59e8994b4e1870fdf92a27f8aeba03e6e66c80",
+          "bytes": 10992
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-01-thumb.jpg",
+        "sha256": "1a0ec7fc7341ca8503e52c58ad7588e213ffb4f5e0b562a33d6666cc49419896",
+        "bytes": 20768
+      }
+    },
+    {
+      "id": "unit-02",
+      "title": "Light for this step",
+      "firstDay": 6,
+      "lastDay": 10,
+      "lessonTitles": [
+        "Peace Before the Answer",
+        "Strength for Ordinary Walking",
+        "Known Before Achievement",
+        "Light for One Step",
+        "Rest with Things Unfinished"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-02/portrait.png",
+          "sha256": "b304400356f800395ea848d0b7536a85641759322aa27d21779d45256685757c"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-02/landscape.png",
+          "sha256": "f549b24811a7f2a0025ccc9065eb0e376f5e838bdc770a94db8dc60af78e43c0"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-02/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "349ee6818108e8f74ede806f3a4c826939e3746063651ee83fded659e129f413",
+          "bytes": 389390
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-02/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "a10a7892caed50b9ab7444db519e78333fd6e0bdf17f0d284969ab4a4626de86",
+          "bytes": 271314
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-02/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "81643ead5ecae0bb3b817f318819e83685d2420c19ae58afb8b2632da4325367",
+          "bytes": 38474
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-02/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "80259dd3c8df23d5a5f1b1c06444e85a0355c0064a785100b3336f516aa20718",
+          "bytes": 21320
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-02-thumb.jpg",
+        "sha256": "3624c493af110b13124489528e4f0830a89e7eca35926f3d636466404beab7f6",
+        "bytes": 44669
+      }
+    },
+    {
+      "id": "unit-03",
+      "title": "A life already worthy",
+      "firstDay": 11,
+      "lastDay": 15,
+      "lessonTitles": [
+        "Made in God's Image",
+        "A Rhythm That Includes Stopping",
+        "Seen in a Lonely Place",
+        "Notice the Help Nearby",
+        "God in an Ordinary Place"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-03/portrait.png",
+          "sha256": "fc39cc2dbde28125471f2c2b38696cf2cb67001aff266dc9f8bdb2953082c88b"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-03/landscape.png",
+          "sha256": "0ce898665d606f6bc1c00072b398fcade9c9d48fca43a02b185600a323e4613d"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-03/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "2e775bc8532df3f4fc980cf5ec957148e508a6cacf328a2ba3e01e996dd6349f",
+          "bytes": 175610
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-03/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "454b2bdca96585ebfb29ccb119c47f955a6b6999c66dba7b0de62efb2798de06",
+          "bytes": 191752
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-03/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "393794e56d5acb2d487611be58fbeb046e6700ce574a21cd55327ec693aa0af4",
+          "bytes": 17012
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-03/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "44f01fcd935d1cf07317e49e8aefd5b9b97a26b59119206d31a645c98b409ee7",
+          "bytes": 11812
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-03-thumb.jpg",
+        "sha256": "950efa0a7d1af35f1b2d04ff79c7c385c9d9fde2f1e9cb1289bdbd0e4117254c",
+        "bytes": 22357
+      }
+    },
+    {
+      "id": "unit-04",
+      "title": "Truth in the quiet",
+      "firstDay": 16,
+      "lastDay": 20,
+      "lessonTitles": [
+        "Stay Honest in Prayer",
+        "Integrity When No One Sees",
+        "Evil Does Not Become Good",
+        "Your Sorrow Can Be Named",
+        "Words for a Difficult Task"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-04/portrait.png",
+          "sha256": "e73302f8bd1987ef3f1f47b1b13c2290d6fe6eb2d793293b6fca12e22dda79c0"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-04/landscape.png",
+          "sha256": "7f6ce44d062e2d3ba02cd14f8b4603acbec511a55e80fce90bb1faaa3e8f1e5d"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-04/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "2431661567315d357c965bd9c165340f527365d28fa9352002695b8d0f433b80",
+          "bytes": 212670
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-04/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "7d6bba719c7b39d17d802afb4b12be1e833fcc04c7d8d295f5f1cb3a3d62aeea",
+          "bytes": 185780
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-04/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "9d7bff61cb75b53411b45d4d5996cfde2c031f4239504118e7d553fc09139269",
+          "bytes": 17050
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-04/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "91f8c7f80120870455287a526c8d3a25811d42fdaa07311468e1e9f5a9e463a1",
+          "bytes": 10150
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-04-thumb.jpg",
+        "sha256": "bcec697808b85e7bf3b96b4ba91c44b76d61a9580108f7a44fb7dc43967e453e",
+        "bytes": 23519
+      }
+    },
+    {
+      "id": "unit-05",
+      "title": "Room to receive help",
+      "firstDay": 21,
+      "lastDay": 25,
+      "lessonTitles": [
+        "Guidance Through Changing Hours",
+        "A Pause Before Panic",
+        "Today's Portion",
+        "The Load Is Too Heavy",
+        "Honor with Clear Eyes"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-05/portrait.png",
+          "sha256": "e211c355cd99b85f9ba810effb1674606dc24bc988e6bacc21396729b087ebd2"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-05/landscape.png",
+          "sha256": "88f17c8bb86d8f16563cc307fa4ec421b0bfe68d722b70d41ede573ae33cbc58"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-05/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "b953f667a81588cb407e06ad0dc5139a1e9bbbb9d32afd39e1004da4915f4f15",
+          "bytes": 184364
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-05/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "3062efa560bc3024c3adc6f2cb595f837d5de1e68cebd587582f1d8e73c48afc",
+          "bytes": 240830
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-05/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "1f9a496a48432ff69d76eb27a9ff1aa8002ca28b316d6a5545d2bf8349a2780d",
+          "bytes": 18876
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-05/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "d5939ffe9f86387a1c62f147c2e06721e5a2cf60ebca927af79631862f81ebd9",
+          "bytes": 9146
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-05-thumb.jpg",
+        "sha256": "b7073a5a349b4daa5f9e69f3a72d2b5d977509d92629666ed00197ea3d343826",
+        "bytes": 26321
+      }
+    },
+    {
+      "id": "unit-06",
+      "title": "A kindness that stays",
+      "firstDay": 26,
+      "lastDay": 30,
+      "lessonTitles": [
+        "Kindness Across a Divide",
+        "Presence Before the Next Step",
+        "Love Without Keeping Score",
+        "Receive a Blessing",
+        "A Burden Shared"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-06/portrait.png",
+          "sha256": "d2bdf7d9f078167bacf168017395c9c9c6892f0e7e8b22aff7f0814db9538982"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-06/landscape.png",
+          "sha256": "e7141590caf43e4c229462480adcfea9cea8f5c037b7b2513a37ba11252cc7d4"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-06/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "1d84e256068258688e7a7e2701ed57dc34723260ca4c827a01b10c6a40f5c3c4",
+          "bytes": 225868
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-06/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "6e85c16cdf4a87c910ea74a5cbeee78c25dba2ca7afff9a9238d5d9907fc34eb",
+          "bytes": 149156
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-06/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "6e16ca00fcc8c2e7c6af807e05d3191ca206ee72ac7dca50828b412bf7f18ee4",
+          "bytes": 26180
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-06/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "da4b4e564b7c72e56df8e4aa1b64838ead6db546410533de0e5514c8ba446a9a",
+          "bytes": 11766
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-06-thumb.jpg",
+        "sha256": "c7cefc4fb63a1112f3efe2d3eb4890e4863d532a041785aac0ec9df8016a0449",
+        "bytes": 34185
+      }
+    },
+    {
+      "id": "unit-07",
+      "title": "Remember the good",
+      "firstDay": 31,
+      "lastDay": 35,
+      "lessonTitles": [
+        "God's Words Deserve Careful Trust",
+        "Words Worth Keeping Close",
+        "Faith in Everyday Conversation",
+        "Remember the Road",
+        "Care That Becomes Practical"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-07/portrait.png",
+          "sha256": "24dd35fba5ec97088de26a96a302bcde542686d7b890b3edb247d345b05fe186"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-07/landscape.png",
+          "sha256": "0913d32728558c1c5b8a8abeee0c78d9bc4282361cfbaec0ca484410c68359eb"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-07/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "13701f1cf24e50e571e23bcd62d55ca3f4de818b7c7ef14debcbb42807a1f680",
+          "bytes": 187260
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-07/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "e364e1831c85702216796ae3388c244073793d7d97f067e4a6a3e9c3ca05509d",
+          "bytes": 164862
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-07/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "1c8a1461338f923d870642393f28438afa9e8747536246777c15bef58d6431f1",
+          "bytes": 19474
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-07/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "ddc26ece34428e294f2c9530b405c7a6f55a3a76b3ace75ec3d8259566246cb2",
+          "bytes": 10868
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-07-thumb.jpg",
+        "sha256": "4bd01a9f687861687aeff166a207836743b3c90f3113d8f2a31bd693c5bfb804",
+        "bytes": 27788
+      }
+    },
+    {
+      "id": "unit-08",
+      "title": "Open hands, clear hearts",
+      "firstDay": 36,
+      "lastDay": 40,
+      "lessonTitles": [
+        "An Open Hand",
+        "Fairness in Small Decisions",
+        "Choose What Gives Life",
+        "A Steady Character",
+        "An Image of Being Held"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-08/portrait.png",
+          "sha256": "49b0e37b19a3ec10f5e99cd9fde621a945907575a53c099e7fa02f0760ebc5e1"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-08/landscape.png",
+          "sha256": "e0732148f035e2a26417741007bc20bf62cf3c65f63bcf6cb36569ef7e3036ec"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-08/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "ba41ec4a2524ed27aaa7f55514834cae8bd09deb96b233cbc00e1637ee7a8def",
+          "bytes": 342096
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-08/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "ecc27a82ec6f812dd6c48fc91a36b9838031bf4dd52a47e334a930cffd33adda",
+          "bytes": 219310
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-08/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "b4c441179b553f73b6491ef5e8656bad01081718e2e907365e8a864c655f715f",
+          "bytes": 35322
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-08/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "27fff72ae7bcc312722f6684c379183847dc791cac908355540d02f2f5d94d67",
+          "bytes": 18888
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-08-thumb.jpg",
+        "sha256": "dc778bb89e79b59291fe679e23bd1a1cf66b4eed5e38f5ca8d69ceeaedca62cd",
+        "bytes": 41695
+      }
+    },
+    {
+      "id": "unit-09",
+      "title": "Courage to begin",
+      "firstDay": 41,
+      "lastDay": 45,
+      "lessonTitles": [
+        "Courage for a New Responsibility",
+        "A Reminder You Can Touch",
+        "A Household Direction",
+        "Small Does Not Mean Irrelevant",
+        "Name the Peace You Seek"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-09/portrait.png",
+          "sha256": "eec5627b06f34dbc4c9f7f12f6dd107a2aa5dbf7b9ad7a27a9da0fe70ff418ef"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-09/landscape.png",
+          "sha256": "8945ac5bc9e667d5a155898002d2c53be4101d22ce8b3463df06bd6fa1d6b8c8"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-09/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "419b1ee8affdcdf7ef00d3aba239f331b84cdecda7a1f72bf6626e0b762f9e98",
+          "bytes": 253558
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-09/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "d41c4ccf3f31bf25230f14541bb3356222f3c8c0704bbf7080bc09d549c476d1",
+          "bytes": 192582
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-09/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "382563b0c7261752d5586a0f358b4cd5c4c8a3211781e11baeeb5af59672ed2b",
+          "bytes": 25230
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-09/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "c79ad82e0a774172b538da6d62ae216b188468191d31cefd9d7ea669aaeb2db3",
+          "bytes": 14686
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-09-thumb.jpg",
+        "sha256": "f5b84af95815a47ca443048800caca2bfdd90e09bd6752ea2a0b3cab6d20ae77",
+        "bytes": 33048
+      }
+    },
+    {
+      "id": "unit-10",
+      "title": "Company for the road",
+      "firstDay": 46,
+      "lastDay": 50,
+      "lessonTitles": [
+        "The Gift of Steady Company",
+        "Welcome Under God's Care",
+        "Leave Room for Someone Else",
+        "A Reputation Built by Care",
+        "Celebrate Another Person's Relief"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-10/portrait.png",
+          "sha256": "12138a43cdfc7b3c1a8f9828e11117208705dfcc1dca22a2503e2eb93fb2223c"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-10/landscape.png",
+          "sha256": "e72207a42ce2b03095ca3733194ff5285c5a2fe054bf951015729b4d6df63891"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-10/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "7024d2004313a183835fc13ccd154e6ce450438e445ec10a8b19ab8efc2406bb",
+          "bytes": 351056
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-10/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "65def174304c7fe7ec9ebdd6b1b82990dc7b20cfcd2b3e19d11583998b501bfc",
+          "bytes": 208312
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-10/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "71302264084442d324382b3f96971d61ee3f7304fa4d485cc5aeae3dcb580e89",
+          "bytes": 35304
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-10/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "b7cdd618fd6b752212e1a3a0f2f0373fd49adb9f477bcf267d7991a5c5e74ec8",
+          "bytes": 16934
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-10-thumb.jpg",
+        "sha256": "d34ad4ee323e74cfecd74f8338bbebcb66eb25af12a8edc3381db3a59e114644",
+        "bytes": 41606
+      }
+    },
+    {
+      "id": "unit-11",
+      "title": "A place for your tears",
+      "firstDay": 51,
+      "lastDay": 55,
+      "lessonTitles": [
+        "Tears Belong in Prayer",
+        "Misunderstood Does Not Mean Unheard",
+        "A Listening Posture",
+        "Remember Help Already Received",
+        "Pray Beyond the Argument"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-11/portrait.png",
+          "sha256": "eecd829a99937e1776ba969022d9cc30acc74faa201804ff82ad5436f39bf2ea"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-11/landscape.png",
+          "sha256": "87faa549c5b56cb2760d444d358e41510d63be36a4c10070ffc7869b5fd4d6dc"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-11/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "32bd1a233c2eadc642644d8dd8f817a216602e2ce4a2eb322e31b090a6fad8ac",
+          "bytes": 193920
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-11/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "a217550b2030c0f23d50fb6a2fb2c7127439322d1fe76d784f11bcdbd1819a53",
+          "bytes": 158750
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-11/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "d640f81aba557337e8c0d064557a419792b98d463d298e3addfa45a72663b755",
+          "bytes": 17490
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-11/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "aacb3ce00aa12c6691b394fdaf124f12879c8e69311347309a65a169839a8a19",
+          "bytes": 6968
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-11-thumb.jpg",
+        "sha256": "9e9f2e7aa65cece5b8b704156a86029dc3309237fac1efc2117592fc3e50bbde",
+        "bytes": 25107
+      }
+    },
+    {
+      "id": "unit-12",
+      "title": "Faithful beside you",
+      "firstDay": 56,
+      "lastDay": 60,
+      "lessonTitles": [
+        "The Heart Beneath the Surface",
+        "Courage Without Showing Off",
+        "Friendship That Keeps Its Word",
+        "Strength That Refuses Revenge",
+        "Strength in a Distressing Hour"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-12/portrait.png",
+          "sha256": "5ee784599165e74be55bed5aa85f9e27ae40e8f992591b3fa6300910a1243333"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-12/landscape.png",
+          "sha256": "70b7cdef367ee36cda9c0885512d9672214ebcae99f11c79dea1c2e3539ef98c"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-12/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "46bd09d3b48eace009c1cbf4ee55a35e7ccc70e980d853b28e7417eed0bf7842",
+          "bytes": 382404
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-12/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "d71c805755529622fc274cd232a997d5ef137a6b911660631c10c34426aad48e",
+          "bytes": 234446
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-12/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "a1750940861b885a1e056e1925f5b171879aac9b648bdd77c2d4bc3a404d099d",
+          "bytes": 36612
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-12/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "e3ee4da03bf532ec70a51f1eb72c7fade36c56d385bbef04dee6ddaf3f87cad1",
+          "bytes": 17536
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-12-thumb.jpg",
+        "sha256": "a910fe8de9f75b19e59bde621b1ec328daae33c2d922413294a1cefd827362a3",
+        "bytes": 42225
+      }
+    },
+    {
+      "id": "unit-13",
+      "title": "Wisdom for enough",
+      "firstDay": 61,
+      "lastDay": 65,
+      "lessonTitles": [
+        "Gratitude Without Entitlement",
+        "Ask for an Understanding Heart",
+        "God Is Larger Than the Building",
+        "Words Confirmed by Care",
+        "Sleep and a Meal"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-13/portrait.png",
+          "sha256": "04e926204469be536997acb0297428864bac0c8eedc33819e021c8b3cab0fe53"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-13/landscape.png",
+          "sha256": "85de9f7c36d60fa69dc7904bdf23a9ee381b270b4d94605e110568dad1153775"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-13/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "451f9311eda19878fa6b2111a5b894bee6283d3e2fdbc2d80b82422f08d93dd8",
+          "bytes": 202216
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-13/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "7931bb974f181622997f154d0fb5a168cead02caa2e3db459d21e9f554ee32cd",
+          "bytes": 183342
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-13/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "51dda59ad55f55250f26919264265e5dafe17caff16d544729048d8111e98a28",
+          "bytes": 23864
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-13/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "e75240d09e966c9f7bb4e2372020595c600a4314136cb7d5fdc8949bc32f91b9",
+          "bytes": 11432
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-13-thumb.jpg",
+        "sha256": "c119894d5792f65f9502b100f13175e383f1d5a0bf3e9aa806365ee6ede693c5",
+        "bytes": 32053
+      }
+    },
+    {
+      "id": "unit-14",
+      "title": "Small and steady",
+      "firstDay": 66,
+      "lastDay": 70,
+      "lessonTitles": [
+        "Make Room for Quiet",
+        "Do Not Dismiss the Small Step",
+        "Fear Does Not See Everything",
+        "A Heart Willing to Respond",
+        "Tell a Story of Gratitude"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-14/portrait.png",
+          "sha256": "ee9ecb2ca5672d350e24c60bd20148854d67fe9c21e15e237174197706977fed"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-14/landscape.png",
+          "sha256": "60c69d7ebaf3fff1af89740b6c68ccd26520400e394634bd033405b950648763"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-14/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "ed33d87c16a145aa81a423455b31a32bcb31e86840b328ddea55138622e21b35",
+          "bytes": 213012
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-14/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "2197e978766fa0c451ee2167bb5f7a35689508e66667ce2c05285497d1c64b2c",
+          "bytes": 191868
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-14/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "34cba4cec2845aad670999a3a26eb5b23156d7722713f4adccfebcb705b672e1",
+          "bytes": 24820
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-14/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "0b809c0075e9789f6b4e784ff92e6834d2cf383091c1b6b04646c3a13eaf3785",
+          "bytes": 14666
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-14-thumb.jpg",
+        "sha256": "98a2d666db358bfe7373087a112a1cb112f0bf52f6eb5b0d012f1cfd70dbb55a",
+        "bytes": 32518
+      }
+    },
+    {
+      "id": "unit-15",
+      "title": "Listen with your life",
+      "firstDay": 71,
+      "lastDay": 75,
+      "lessonTitles": [
+        "Bring Your Whole Mind",
+        "Giving What Was First Received",
+        "Knowledge for Serving Well",
+        "When You Do Not Know What to Do",
+        "Keep Your Hands at the Work"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-15/portrait.png",
+          "sha256": "c4691d1e5ffa4950d9c8ac470b1a855d96f1dbcdd18d2af970caf0c67eb40967"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-15/landscape.png",
+          "sha256": "668e11cfe40f0cba78555ad8987d13e2d88bc3c850752c0e6f1438427b5b6909"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-15/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "80d4d1f2f62155d3483c7af5ccbdf1c52cf78860f6241c0272ff1a841ef5b003",
+          "bytes": 254936
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-15/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "4e34187ba41430c69dfc0742e6f88d05c8a89e1aea5a2e7af3fda50dd9834166",
+          "bytes": 193402
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-15/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "ca094c854b69767e2f2fc6a060016c1939c0f3d41888be81f1fbe221e0b471aa",
+          "bytes": 26842
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-15/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "f4cc580ada62d503b6d69cf833d16644e2ada9b01fa7fb20bb64b5a2ae7ad0f8",
+          "bytes": 13802
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-15-thumb.jpg",
+        "sha256": "e346f7cfdaab3db8fd80c0d461d7cd72e8efb2f76ece38088d19eb2735481a9a",
+        "bytes": 34757
+      }
+    },
+    {
+      "id": "unit-16",
+      "title": "Shared work, shared joy",
+      "firstDay": 76,
+      "lastDay": 80,
+      "lessonTitles": [
+        "Celebrate a Foundation",
+        "Learn, Practice, Then Share",
+        "A Prayer Between Question and Answer",
+        "A Shared Willingness to Work",
+        "Joy That Makes Room for Others"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-16/portrait.png",
+          "sha256": "ce7ac4c11c746f261706d6817052ef67b381764be4251f30159eac5e9f0659d4"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-16/landscape.png",
+          "sha256": "07517c04bf5c77e8d621decc0aa1509c1b56dd36d14f4cf35a10a819f88c7ce9"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-16/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "fdb0021e0d824901ebd8adfa45dbcc5af0a2d69fee6494548b8af3051229746b",
+          "bytes": 282858
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-16/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "a48810c763eedc137deffff4ec4ae317c7af642759b7522a03f4f895929e8134",
+          "bytes": 272220
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-16/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "fc9ee728d35fafc73aa6f2f0ce8194ad03929705ec8270a9604dc11009d03be6",
+          "bytes": 29386
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-16/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "f8aab7b64eed1755b199611484779e0cd70d41d5d5b5f2537546f35884f7ef38",
+          "bytes": 16884
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-16-thumb.jpg",
+        "sha256": "7918b52cc44763ff4b2c50f7aa338b5c8574b069022faf59ae2b8f129bbc33ac",
+        "bytes": 36312
+      }
+    },
+    {
+      "id": "unit-17",
+      "title": "Together in sorrow",
+      "firstDay": 81,
+      "lastDay": 85,
+      "lessonTitles": [
+        "Use the Position You Have",
+        "Ask Others to Stand With You",
+        "Grief Does Not Need a Neat Explanation",
+        "The Care of Staying Quiet",
+        "Kindness Before Agreement"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-17/portrait.png",
+          "sha256": "6ab13050b817285b1de0e760cb407cfa1e66498cf389ab403c5913d130a6ab25"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-17/landscape.png",
+          "sha256": "9f6e2482c5022f164882c77bc3a148f797496db4cb991931fad776b865dca2b8"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-17/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "e8c540f49c43544dda721c9b7e64a4a34bdee92526dd624a2ca601b2b8246417",
+          "bytes": 331282
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-17/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "3b9243bf3c92f7e61b415552046d6d3316be23c24f3ff847343f1b452c73a632",
+          "bytes": 177552
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-17/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "45d2659c511a0ef74f54e6d7e6f97c10785c02eda6c819f09e74988f46b9f577",
+          "bytes": 30284
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-17/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "8e6702d1186a10a260dc2fe576084d636084b633e71544bb30d41fcbbc2b3681",
+          "bytes": 15842
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-17-thumb.jpg",
+        "sha256": "8431555fc96c0b7dfbd794a0bd74f2cb370b117bc0bfc69ca354b38085a13e5c",
+        "bytes": 37266
+      }
+    },
+    {
+      "id": "unit-18",
+      "title": "Hope while we wait",
+      "firstDay": 86,
+      "lastDay": 90,
+      "lessonTitles": [
+        "Notice the Gift of Breath",
+        "Hope with Questions Still Open",
+        "Permission Not to Know Everything",
+        "Roots Before Visible Fruit",
+        "Lift Your Head Gently"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-18/portrait.png",
+          "sha256": "db6f07076a41ec7aaaf41b8aab319c7da40bcf7dea87abd300d653f93146a0c2"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-18/landscape.png",
+          "sha256": "a01fbc74e26489ba3c753a4dd8019520078ed2922ccc6c1d53966f799748af02"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-18/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "20f0d889eebfd0a56d8bec8305649ac1703bde29eb47eaa18d026068693a7ffa",
+          "bytes": 311406
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-18/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "f079e5b06cb5b2326dca48962826a50be56aa4b38331b35786ce1b283eccb736",
+          "bytes": 177342
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-18/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "4dd68aed703eee2587fc7adbb9520f38ace7c1626c3fae0bae476cb2a54b708c",
+          "bytes": 28724
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-18/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "ed8cecf0fea02eadb48e904e23033dc4f3a64b82229ad486af5fd4987387a3f0",
+          "bytes": 14486
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-18-thumb.jpg",
+        "sha256": "1a50c20e7fe6e7cd662e73f30f6577f5029707b901948859885a86372b8e90fa",
+        "bytes": 36245
+      }
+    },
+    {
+      "id": "unit-19",
+      "title": "Somewhere to turn",
+      "firstDay": 91,
+      "lastDay": 95,
+      "lessonTitles": [
+        "Settle for the Night",
+        "Begin with an Honest Request",
+        "A Refuge for the Oppressed",
+        "You May Ask How Long",
+        "Notice What Is Already Good"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-19/portrait.png",
+          "sha256": "9456af2649872b0712e090589e4c760d4013bb2feeff564b42a9827116681436"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-19/landscape.png",
+          "sha256": "728bb68259c142b5a04fea4f4ef6744d329bf53696c657bbe001aa6e8654a15a"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-19/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "71dec001a479915e14a11a0646b0c783b60fbd7bc9804a51deca28d4a59e6cb0",
+          "bytes": 305546
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-19/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "cad245007ef12869b978ea660682b86ff483ff62642b3b9d8aca942b0cadd794",
+          "bytes": 196320
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-19/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "d36e0355a9f67bc2d8f06f1ecd7be10149783bee712c90436e161fd63326d47a",
+          "bytes": 24160
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-19/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "909c1dc5c7405a6c8099a42711a0588a538c471856fc759fe55de0a4e0ec260a",
+          "bytes": 15514
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-19-thumb.jpg",
+        "sha256": "49bd46009960113f12058ef117d350b3af5a5f1e3a50b39ceb8ae53e874ce658",
+        "bytes": 31176
+      }
+    },
+    {
+      "id": "unit-20",
+      "title": "Words that give light",
+      "firstDay": 96,
+      "lastDay": 100,
+      "lessonTitles": [
+        "Return Your Attention",
+        "Room to Breathe",
+        "Look Up for a Moment",
+        "Words and the Thoughts Beneath Them",
+        "Let Yourself Be Guided"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-20/portrait.png",
+          "sha256": "83f1eeabcdbbb1ebf0cf7774b9462b2455035788796540731d307cc84a867a17"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-20/landscape.png",
+          "sha256": "acbce455fce80c1a2a1665f16aeb8a7253a345137e81bcaa456121775ececa4f"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-20/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "5e956486235c8a8c438ec7a5b1b49fd486d97b477c4836cae37c272884416dfc",
+          "bytes": 188746
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-20/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "629a925414919f5e2119777e562d8620fcdfca5b35c59f758831add287af9c21",
+          "bytes": 96244
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-20/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "fe7777684b0b6a33c2ca3427db0e3954416adbc61e66480daf5b80e7aeb4726b",
+          "bytes": 21020
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-20/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "fe153245358ebfaa6555cc4e6fa941e1efdf8d832c1d9f682e8fb891632525b0",
+          "bytes": 11100
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-20-thumb.jpg",
+        "sha256": "bbb3d85c8cdf6ce05bedc0c959a2203573341989205504e24b0e44ac95def187",
+        "bytes": 29278
+      }
+    },
+    {
+      "id": "unit-21",
+      "title": "The Shepherd is near",
+      "firstDay": 101,
+      "lastDay": 105,
+      "lessonTitles": [
+        "A Quieter Pace",
+        "A Restored Direction",
+        "Company in the Valley",
+        "A Place at the Table",
+        "Mercy Through the Journey"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-21/portrait.png",
+          "sha256": "db3876ebc2eddd26fa0dc008b9fe4c536c0750081303d948d249e755d6ca8813"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-21/landscape.png",
+          "sha256": "cbf5777409199890cc39bc54c30423b620582db022c3936799ec9b6e96d733d7"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-21/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "01a4cb90f55c7902c927952d4fd346d9d2b47bf77ef0f8dcafdcca6180604154",
+          "bytes": 430838
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-21/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "9019f48cc9b5887ef6c9b64f5c5ae8c4395025b1310d8257f2a3d71e612943af",
+          "bytes": 268162
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-21/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "113fa5a9b079789421ff3ad42a6efa0e5d55d55184a795567e5732a6b0533434",
+          "bytes": 37834
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-21/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "7730098c79a063069925333ac376a843ede9cee992ea0f8b16f9d6d1a9433f33",
+          "bytes": 18048
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-21-thumb.jpg",
+        "sha256": "151352d653b4fd1e223b4a492541b7b79fd8d4a2558a1185184663e3d00f1037",
+        "bytes": 43209
+      }
+    },
+    {
+      "id": "unit-22",
+      "title": "Wait with a brave heart",
+      "firstDay": 106,
+      "lastDay": 110,
+      "lessonTitles": [
+        "Teach Me the Way",
+        "Humility Makes Room for Guidance",
+        "Light When Fear Grows Loud",
+        "One Thing to Seek",
+        "Waiting Can Include Courage"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-22/portrait.png",
+          "sha256": "06783513c131d57aba3768f42fa85c9ca630ea374d72a9c02b16581fbeeb68ab"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-22/landscape.png",
+          "sha256": "d870da643123a3eb0389139dc58d8f0c8b215a2c7ff9546565321256f46148af"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-22/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "849522a305183fb75c77b2b52dff570933c98f50b3bd2b7790ab42ee1384c9e6",
+          "bytes": 187342
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-22/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "be633dfb42fae45ce8fd8bec6a1eb9304e36c58817df2540c9442f8052593212",
+          "bytes": 175510
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-22/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "5a747e2be8b9098e82bfbf315d22faef89725c021b38b754afa8aca3223252ec",
+          "bytes": 17960
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-22/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "4b6407f5488e4a7a603405b0eb52199af4d273be0d903b15bdeb9ea1392a6ada",
+          "bytes": 10508
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-22-thumb.jpg",
+        "sha256": "6a055b0ab3a4bbfb9cd8fc072ccbf1b533c3d3ff8fd4ae693efd29a7db3f85a0",
+        "bytes": 24434
+      }
+    },
+    {
+      "id": "unit-23",
+      "title": "Into faithful hands",
+      "firstDay": 111,
+      "lastDay": 115,
+      "lessonTitles": [
+        "Let Gratitude Find a Voice",
+        "Strength and Peace Together",
+        "Joy Beyond This Night",
+        "An Act of Entrusting",
+        "Your Life Is More Than a Timeline"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-23/portrait.png",
+          "sha256": "040695a56c5b0bb6ec8f7e3b7f8ccf44882ed368f6cf3472b430ec2dfeca44ab"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-23/landscape.png",
+          "sha256": "41384abffe2f76bc679bfa043c7e430923edf47aad189be468bc4f019ac91238"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-23/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "07eb4e9f8ebf6080868688b17e89bbedc03650d7d341e8b850c6a140d6a7df98",
+          "bytes": 315212
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-23/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "ef53a8668d019e801779bac034133b6d95ea1dcb0a5c3060628c33196ab27522",
+          "bytes": 274958
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-23/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "9b4fdba87d44789a1a42ace09ea14f67d8ac629d5d903463a0862df6b18edc76",
+          "bytes": 29378
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-23/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "1367428240a7c0457e7825f9afeaa79e7fc01ea2cfb422703cfed60a7a5118d0",
+          "bytes": 15504
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-23-thumb.jpg",
+        "sha256": "4b821d9aaddbb0e11b990c4cc306fa76deb16f03a1caed508adb6f395866fe26",
+        "bytes": 36366
+      }
+    },
+    {
+      "id": "unit-24",
+      "title": "Making things right",
+      "firstDay": 116,
+      "lastDay": 120,
+      "lessonTitles": [
+        "Tell the Truth and Begin Repair",
+        "Guidance with Attentive Care",
+        "Waiting Together",
+        "Bring Fear into Prayer",
+        "Receive Goodness Personally"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-24/portrait.png",
+          "sha256": "3d7cc44b7dd2bf33654d4b742d1df45e9a32695d94c93688fad85c686ebb5381"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-24/landscape.png",
+          "sha256": "e61c9b68f92af1df48212aed05da24e57a266369bcae15d2ab0f345ef09aa22b"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-24/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "c25ca5202d65ef8f5bd7b2e77960b048d7ac0544dc73cce956388a35870065c7",
+          "bytes": 205692
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-24/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "f5524c06756f1c16f4e54708d5bf2e03ae19b17c3f3cedd39c1492b688208f97",
+          "bytes": 175760
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-24/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "8092af22fdbc944fbf75015fa394b40dc0c03389c241afdbfd6288679ac917fa",
+          "bytes": 23644
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-24/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "38eaa2a12fb8b6214b972788aeb801b7f6c1f376297927d21766bab12959b950",
+          "bytes": 14058
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-24-thumb.jpg",
+        "sha256": "4a5fb00bb8d60cb28962bfa9e072e0739bb73de11fcea116729c55312863291e",
+        "bytes": 32064
+      }
+    },
+    {
+      "id": "unit-25",
+      "title": "The next good thing",
+      "firstDay": 121,
+      "lastDay": 125,
+      "lessonTitles": [
+        "Near to a Broken Heart",
+        "Trust with Something Good to Do",
+        "Commit the Way You Are Walking",
+        "Stop Measuring Against the Wrong Person",
+        "A Step Worth Taking"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-25/portrait.png",
+          "sha256": "6d02aa8d6d94596bbd643812ac413dce6f18b13abeae7b4142c7a3283838144a"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-25/landscape.png",
+          "sha256": "51c1e0d4cd88504d7127ea4bd245bc0f67696943da296c12f8a71830508e6b2c"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-25/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "da6efe2a7dcc565ce803933993dbb3a1d69df6e9a561255b20bea9705c61bf4d",
+          "bytes": 263192
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-25/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "fdf4d0eac2150d41a0cf4a32be234ad65e3ca2ebe07dbd2ca2537506cb8b18be",
+          "bytes": 266258
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-25/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "3a769b67e350121c361e97ee9fb3d77c393e0123a0d2253bf4970712397f7df3",
+          "bytes": 29798
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-25/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "4a14bcb0831112d838380573e7d8a5484b0d537de8b837f51c26ad78db6ed284",
+          "bytes": 18572
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-25-thumb.jpg",
+        "sha256": "b33e630bf70bf3ca0554317b1d427b48cb91975bb4c176151f77947b62d04fdc",
+        "bytes": 36085
+      }
+    },
+    {
+      "id": "unit-26",
+      "title": "Begin again gently",
+      "firstDay": 126,
+      "lastDay": 130,
+      "lessonTitles": [
+        "The Wait Can Be Remembered",
+        "A New Song, Honestly Sung",
+        "Speak Gently to Your Own Soul",
+        "Release the Need to Be in Charge",
+        "Ask for a Renewed Heart"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-26/portrait.png",
+          "sha256": "b1229265c1c10f72b310055326c8ff4107626507e5b8bf274cd788a252ea9b99"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-26/landscape.png",
+          "sha256": "bf735db224a22ebfd9e99aaff4512fe6c10b53e7ddd1d11e6beeb5853b5baad6"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-26/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "71a16b9742e6041e32bb9cb85c0d5809e3f51cab686b417a458610fcf48db3bf",
+          "bytes": 234896
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-26/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "7e2e16cfb2b55ebe58f9c6569e16f7556e48370161d6ce2d09d9698c2dee09a4",
+          "bytes": 169598
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-26/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "d38d2d2cedc2d01fc420ef6bd90caa2047e5c873222739e54527a5dc0f99d6f9",
+          "bytes": 18928
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-26/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "5ae4e84bcabf2976fea7b32a301e1866e8be0a4f949c5cff6a0feb9a90fedfae",
+          "bytes": 9246
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-26-thumb.jpg",
+        "sha256": "91c32d7f81fe3f4c7d0189765c89efebc826096c5f86f457dca62ced4d42969a",
+        "bytes": 27074
+      }
+    },
+    {
+      "id": "unit-27",
+      "title": "Shelter for the storm",
+      "firstDay": 131,
+      "lastDay": 135,
+      "lessonTitles": [
+        "Set Down Part of the Load",
+        "Trust Can Begin While You Are Afraid",
+        "Shelter While the Storm Continues",
+        "When Your Heart Is Overwhelmed",
+        "Wait Without Filling Every Silence"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-27/portrait.png",
+          "sha256": "da0b3d6ddff92cc4a8d1f8f9c1d6e88a1618ba0d085359175473f085064e87c3"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-27/landscape.png",
+          "sha256": "05bf02e1a45616c1726cb45721da74e974ac03b0d17833a9f2d6af283295e539"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-27/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "c24d3ebb880081cec8aca032507711cc2087a3193172677d50e1eb94416e99b1",
+          "bytes": 288846
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-27/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "532461852d963864acda23785f855137e7af2fdaa8c33bd0fe34c0ee3030d5c2",
+          "bytes": 195390
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-27/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "c908ca75d967d6de1dc8330ce9944303086cd7617ea80e7e49e0263ad23f1e85",
+          "bytes": 25682
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-27/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "d085d291ae01df45bb8f5bcb706281fdab760546e37595ff5700d960a1a37e81",
+          "bytes": 15088
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-27-thumb.jpg",
+        "sha256": "8397785d80b388bca676212cc2731d2f630d32adeb1a937b4e92cdfd8519f136",
+        "bytes": 32687
+      }
+    },
+    {
+      "id": "unit-28",
+      "title": "Water for the thirsty",
+      "firstDay": 136,
+      "lastDay": 140,
+      "lessonTitles": [
+        "Pour Out Your Heart",
+        "Name Your Thirst",
+        "Notice the Work Behind a Meal",
+        "Care for Those Without Protection",
+        "Worth Does Not Expire"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-28/portrait.png",
+          "sha256": "3e090b83312ea7b20f1e7dc48bc0d0267b8dcc8cf63f7a175072a14df9189418"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-28/landscape.png",
+          "sha256": "b3e633c40570c99a231be6492f01463950a9ec9a0c8759aa3350181cfe860450"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-28/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "c49fbf2782c00a35d04464bc1c7e5b0fcbce3b8d5357c7f0f05b0accf5d05b16",
+          "bytes": 300918
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-28/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "f39221d02aa411e568425ba1fefeabb0ced711bdf7ca2a4db0f11a620364b65c",
+          "bytes": 236270
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-28/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "90747778f42b2f63f107056dc102e7f5b8edf8335f45e0a0a587651493ee78c0",
+          "bytes": 28320
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-28/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "63e28132931f7e402506dcc286da021765248ce0ae63253d69d036a2ce342079",
+          "bytes": 13560
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-28-thumb.jpg",
+        "sha256": "cfc36c4a419f77b6770393456ef767035cc54049bce0b1c98122f24ff6fde019",
+        "bytes": 35394
+      }
+    },
+    {
+      "id": "unit-29",
+      "title": "Beyond what you achieve",
+      "firstDay": 141,
+      "lastDay": 145,
+      "lessonTitles": [
+        "More Than Your Remaining Energy",
+        "The Value of a Humble Place",
+        "An Undivided Heart",
+        "Spend a Day with Care",
+        "A Place to Turn for Shelter"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-29/portrait.png",
+          "sha256": "2435126d4fcb4d5cd70304ecd7709b2383517089a4232b0d09406b4794052abd"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-29/landscape.png",
+          "sha256": "9336b19fc5911b22c61aac518a1eb62a40e99727d6f106247964e232e47fa419"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-29/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "985df6aa2b8e16fdc1f7996fd8d4ed5ec5cf7a08647c51413668a676fc21b7a4",
+          "bytes": 306746
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-29/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "3034ac63f8e008285f672b9bb59a4e7b8107831b8f7a3909d87987aba29ffc69",
+          "bytes": 214234
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-29/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "7c66a8d4d6a14803d2d9cd20108fa2febb31c909b752bbdc32ccc6fadbbec3dd",
+          "bytes": 24452
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-29/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "fa394110fae832dfd3444340e4ac34a58ffef6bfa58d80035cbe8b546afd42ec",
+          "bytes": 10906
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-29-thumb.jpg",
+        "sha256": "82989269603e7d84d39f6b798b2102818bee3be96139697fac0ea8e1f29d23e0",
+        "bytes": 31871
+      }
+    },
+    {
+      "id": "unit-30",
+      "title": "A place to belong",
+      "firstDay": 146,
+      "lastDay": 150,
+      "lessonTitles": [
+        "Fruit in a Later Season",
+        "Comfort Among Many Thoughts",
+        "Listen Today",
+        "You Belong Before You Perform",
+        "Compassion That Meets Human Need"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-30/portrait.png",
+          "sha256": "5e1db35cc96e937b6f4f90cca28c47941384e3ce4daa7aa27225f43192527b42"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-30/landscape.png",
+          "sha256": "70ea39c1204df6ff4a1e89b126ad03f914fe9b33fd936acd7da1c7863a6df1f0"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-30/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "239e1a04df37ad6913f23a82a162869c7c2094200409c3b389f36d5d028a6ff3",
+          "bytes": 244410
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-30/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "36d474e74dd225a13f01e6e5ff30364c1a3a577edfe92cc618fb6b74ce8d10fe",
+          "bytes": 195176
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-30/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "3f4ba2a90c78d4ece5eb9acc403d59046ce818e8b749ab8f2602f6c297c34f78",
+          "bytes": 21398
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-30/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "949e66c424aef2416d53859d868004e1464486aeb7febda156acc842222b3b21",
+          "bytes": 7642
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-30-thumb.jpg",
+        "sha256": "b73c275bb94ef32e25e9cc09a0901cb65dcd48575568865a78b98e052859fe7a",
+        "bytes": 28199
+      }
+    },
+    {
+      "id": "unit-31",
+      "title": "A heart worth tending",
+      "firstDay": 151,
+      "lastDay": 155,
+      "lessonTitles": [
+        "God Knows Your Limits",
+        "Name the Deeper Hunger",
+        "Care for What Shapes Your Heart",
+        "Trust Beyond Your First Understanding",
+        "Generosity That Gives Life"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-31/portrait.png",
+          "sha256": "5468c2cf2f73b19dd11cafe78e21ec848619bfa41c5de53771253fc4f3a6585d"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-31/landscape.png",
+          "sha256": "1651e7c0ff56ead8fda50da70d22428cc55f7b4b72376dfeada89ca0e058a0c2"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-31/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "2e4b7eec5727490934a5d8dec8df8fa780d7d733664bb76f62585b4b13273a90",
+          "bytes": 215746
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-31/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "caa1b3f3b7386cc453fd169392ceff6ea017ce58bbd441774f3c8bf44d9ad6f6",
+          "bytes": 225056
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-31/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "588c32219a6c575aa88265b36d6d11c8986a58dbbb50d979efca65c2a3479bc6",
+          "bytes": 18660
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-31/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "7bcace4c152a20d19e2e32bea8ba7a02d1c25be406b9a5874ac462c41f3cdf31",
+          "bytes": 6088
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-31-thumb.jpg",
+        "sha256": "7b4cf94fb1f53f79c8f6bb5b3c023b268973dd6f4dfac5bff1677235d4462997",
+        "bytes": 25599
+      }
+    },
+    {
+      "id": "unit-32",
+      "title": "The company you keep",
+      "firstDay": 156,
+      "lastDay": 160,
+      "lessonTitles": [
+        "Words Can Leave a Wound",
+        "Choose Company That Helps You Grow",
+        "Slow the Anger Down",
+        "A Gentle Answer with a Clear Boundary",
+        "A Plan Improved by Counsel"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-32/portrait.png",
+          "sha256": "7f1da3fbe5ae526542fe1e3155a2891f976ab65fa779932d4a41d2e0d3e2e4b4"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-32/landscape.png",
+          "sha256": "74fcd40f5f053cc743d18f84d9eb7db46f39002fcba76a16769e9ddb2bd37ffe"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-32/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "d95e9a22ce52d5f2ba091e7e8fbfa1cda5f10a6105d5255886523674b2f081b1",
+          "bytes": 410242
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-32/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "f5b53105aa7fc107a76064cf460e9b1e04ed01dcee6fccb894a13c4be9dff99f",
+          "bytes": 312530
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-32/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "3cbd99c24bea35acadfc4a3455d3a61210002c06bb3dbb17fa88d7aed7ddf85b",
+          "bytes": 29804
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-32/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "6737f1891790fde9cce46214475c669da7844c351a79df74b3b835fea34a250c",
+          "bytes": 12600
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-32-thumb.jpg",
+        "sha256": "49232c18a77e7df82335db5e714365ac8b32b21f63e92a20e36dbc1e1b0b04fa",
+        "bytes": 36341
+      }
+    },
+    {
+      "id": "unit-33",
+      "title": "Leave room to learn",
+      "firstDay": 161,
+      "lastDay": 165,
+      "lessonTitles": [
+        "Plan with an Open Hand",
+        "Kind Words Are Real Nourishment",
+        "Love That Returns After the Crisis",
+        "Listen Before You Answer",
+        "Keep Receiving Instruction"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-33/portrait.png",
+          "sha256": "3f7e361f34ac0aa083baa69d6d854ab42f544fedd7b4b0aa2e6c50932c226139"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-33/landscape.png",
+          "sha256": "1933e109129aed3f0f57e2e600c2db613ec8241067d36c76f89c308b5ca6e1b2"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-33/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "9ec9c7f6928241790ea7d604f89bc10e91b6c5f105bd08544186455744503da7",
+          "bytes": 183234
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-33/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "bda1c6c20313af7a64b046c3845de04c1b535d65b7460af51cca02d1044b3815",
+          "bytes": 245750
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-33/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "cfe82fa5906632056d186745afdaf8422c93f05ed78bfadea0697c93185116b8",
+          "bytes": 21044
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-33/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "c87330d7c6400778482af6feda18787a995e36851113c35f7af810729a10d212",
+          "bytes": 9454
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-33-thumb.jpg",
+        "sha256": "b69cadcc95dd2f3bae7c49b4fbc30dbba31da4f7183d03e06e807192116a9128",
+        "bytes": 28360
+      }
+    },
+    {
+      "id": "unit-34",
+      "title": "Dignity in every room",
+      "firstDay": 166,
+      "lastDay": 170,
+      "lessonTitles": [
+        "Ask a Question That Draws Someone Out",
+        "Integrity Beyond Religious Appearance",
+        "One Maker, Shared Dignity",
+        "Getting Up After a Setback",
+        "The Right Word at the Right Time"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-34/portrait.png",
+          "sha256": "702729ef2adf2e9730b084462497ead9435cf6cd1ad47d3b15e725b52a167744"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-34/landscape.png",
+          "sha256": "017b6de319dc03eb95b98b51de293a7ebe5fedbb6cf5d2c2e9cf1b28d45f50fd"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-34/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "a28d860d341b98bc7da388c9f3f6b9521c7509ca1dbe5a80e3aeb4ec5bc69bf4",
+          "bytes": 176074
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-34/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "e368111bf84cb7a731484497158d7cd5b0a331e26feb5aaa1b649916a14fd56b",
+          "bytes": 217024
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-34/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "778164b76067c2f3eaefc98c7a516fac7b54e74a7f478aa0f794e711944b0591",
+          "bytes": 17744
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-34/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "d661d5ba87ff45585bebd106644480aaa5380d1b08dabf0b7b5be4ab1afcddc1",
+          "bytes": 5968
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-34-thumb.jpg",
+        "sha256": "f53d135c9bf6f8ccda75cc20c69e527d602407a8bd00fee43af9f45fc375c119",
+        "bytes": 24509
+      }
+    },
+    {
+      "id": "unit-35",
+      "title": "A season for everything",
+      "firstDay": 171,
+      "lastDay": 175,
+      "lessonTitles": [
+        "Advice from a Caring Friend",
+        "Grow Through Thoughtful Challenge",
+        "Use Your Voice for Fairness",
+        "Honor the Season You Are In",
+        "Beauty Beyond a Complete Explanation"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-35/portrait.png",
+          "sha256": "916474b7693ef4b3fa23d9dd58ca9bb60927d243b7a365d95f1fd6a037472932"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-35/landscape.png",
+          "sha256": "a5139fd97f2074597c79f344e7b45c8259fa2c0906bc262e82c5bd940c546293"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-35/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "5e5e0ba0caf67fd78c4277464a179003fba6245a411441168c306022cdff60a3",
+          "bytes": 373252
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-35/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "cbd00d9363803c49f4f2a13e4bb6bf3c738fd3a397a924aeb1179061bd5f368a",
+          "bytes": 274152
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-35/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "c9260aa9bd85812b3a951559ce67fa2a182735c2025dab15169e7d2e11d85573",
+          "bytes": 34792
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-35/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "2eac6a4c3edb5ddaa9b9f046cf2c976df28cf523e6ec71848fb892cfd25e9ef9",
+          "bytes": 15928
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-35-thumb.jpg",
+        "sha256": "49012847c858c47b90778ca025e27c0ac0b264c96a401f47dc6b5dfba546fb52",
+        "bytes": 40856
+      }
+    },
+    {
+      "id": "unit-36",
+      "title": "Return and find help",
+      "firstDay": 176,
+      "lastDay": 180,
+      "lessonTitles": [
+        "Let Someone Help You Up",
+        "Do Not Give Anger a Permanent Room",
+        "Give Care to the Work Before You",
+        "Begin Before Conditions Are Perfect",
+        "A Mind Returning to Trust"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-36/portrait.png",
+          "sha256": "60fce16f3a3a8ecf573d9f2245d16f3ff8ee36f09c4a9369da66b5176dc49b59"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-36/landscape.png",
+          "sha256": "841616c794f9ba91192df5737978f9afccb2c9c0c0ac5cf3c184c24d9a3ebd5e"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-36/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "bef847ac95f9d0023f42bb207a3d3d7cdd94d2add664b9c035e66db64e0a9d12",
+          "bytes": 327486
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-36/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "023cbbc482d616dd505cf274468c5f329a8c3964fab14db4fc0c34d55c19455e",
+          "bytes": 258328
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-36/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "2c05cb80a5a0411821df06598d2f1873bda2c99f36db36f9d29ce6720ec9ee9f",
+          "bytes": 26738
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-36/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "90e31838cef34ebcaae6abcf820f7053e54337efc55e34566aee4c5651b4c48f",
+          "bytes": 12726
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-36-thumb.jpg",
+        "sha256": "38a37dd558e1e5626f0f9e817059483b29a673253e7547ae437a7aca267bd32d",
+        "bytes": 33950
+      }
+    },
+    {
+      "id": "unit-37",
+      "title": "Mercy makes room",
+      "firstDay": 181,
+      "lastDay": 185,
+      "lessonTitles": [
+        "Strength in Returning and Rest",
+        "Known by Name",
+        "Justice, Mercy, and a Humble Walk",
+        "Room for Needing Help",
+        "Grief Has a Place Here"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-37/portrait.png",
+          "sha256": "ceac5dbb2d5686cf20a164c10d9cad2444599b741ad7674bc75e61f0a3c6ff45"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-37/landscape.png",
+          "sha256": "03e1504eecf0bacac73962f4cc062a829a0e8f9b54d168c8fccd473b29eeef74"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-37/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "0d1d1966724493a4d15937e720b37596d9831f27ed3c797bb49624b6b1c7db44",
+          "bytes": 165232
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-37/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "c56324effcbd803b06a9ba849eab100b0f5874a973456df368f970ce3b9fe126",
+          "bytes": 212380
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-37/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "3197e6e805866f1cba42c3b392a1a1171c100f5c321238543ffe0e60727b66c3",
+          "bytes": 19242
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-37/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "7781ce7a5c0001b4673efd0056b175b0f4fad1addbc30a6ee6b143ee5f5fe5cb",
+          "bytes": 8932
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-37-thumb.jpg",
+        "sha256": "9787b3deb82fa6d7a6ba74f7f81aeaba9dc6c8e1bc204671cd14500b046ebf42",
+        "bytes": 26651
+      }
+    },
+    {
+      "id": "unit-38",
+      "title": "The work of peace",
+      "firstDay": 186,
+      "lastDay": 190,
+      "lessonTitles": [
+        "The Strength of Gentleness",
+        "An Appetite for What Is Right",
+        "Mercy in an Ordinary Moment",
+        "A Heart Without a Disguise",
+        "Make a Little More Peace"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-38/portrait.png",
+          "sha256": "da40fbcc60d5712c63a18b70812f5868268306ace7e184dc5f441914abfaf629"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-38/landscape.png",
+          "sha256": "bea706d87db739afb6f6e9e9f10541cf9f0928aec8869f696ac98af7868ddcee"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-38/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "d687420f53f6183634d1f3efb71065e448091fd64e0064d69245f045ef479fa7",
+          "bytes": 348166
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-38/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "684fe7d7c370e9d80876318eb7624837fbf4b6ea1e9008536c25e274ccae41e6",
+          "bytes": 312222
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-38/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "9718c766b19cb23a334c2a26a468388c6f55361b43c07787b98836ab14effbac",
+          "bytes": 28638
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-38/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "9d1dad20ed00df2115ed093c5dd50b2dcfed48075f5dc333823e1ba400d82877",
+          "bytes": 11372
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-38-thumb.jpg",
+        "sha256": "29fcee34b6994b1cca908b30b69c468d8531c72f710af39598b3fea234d323be",
+        "bytes": 35574
+      }
+    },
+    {
+      "id": "unit-39",
+      "title": "An honest inward look",
+      "firstDay": 191,
+      "lastDay": 195,
+      "lessonTitles": [
+        "Goodness That Points Beyond You",
+        "A Quiet Place to Be Honest",
+        "Notice Where Your Heart Goes",
+        "Worth Beyond Your Worry",
+        "Put First Things First"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-39/portrait.png",
+          "sha256": "adc98af90e21223b70121a068c8d2adbaff405e591d0362777ca5962d9b62fdb"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-39/landscape.png",
+          "sha256": "31a4b3641ae46a6b2b98bc2e2b3f10c591ba3f06c63e5db47c4a311334b11e50"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-39/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "02a6e77d08dedf873447c4292a51175adaa41d3d0e9a60cc32cf5e30d072c63f",
+          "bytes": 228304
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-39/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "7c6a1cf3a7e4569b9055c115d4577af50232b9d0655bd539aecba17d16b3a50e",
+          "bytes": 121102
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-39/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "3a12277e7ad57814261ec4f3a9c2a6bfebda7a3aa284cadd524c233819771963",
+          "bytes": 24658
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-39/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "b78a6dc91e2bb445dfe35c3da5e9de57c9369396340538e7231ac4cbc3a32001",
+          "bytes": 9162
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-39-thumb.jpg",
+        "sha256": "96483d280c76c512503db799902260f75011bb99604ed2121b8d127240834b5c",
+        "bytes": 31864
+      }
+    },
+    {
+      "id": "unit-40",
+      "title": "Build on love",
+      "firstDay": 196,
+      "lastDay": 200,
+      "lessonTitles": [
+        "Keep the Door of Prayer Open",
+        "The Care You Would Welcome",
+        "Build With What You Hear",
+        "Seen With Compassion",
+        "Learn a Gentler Way"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-40/portrait.png",
+          "sha256": "7b5cb71f05477517ece475301246f2c1d0bcdb82378b8d5775cc3ea9787047e7"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-40/landscape.png",
+          "sha256": "ee4468f80369a29eb59f4db209f58871bc83598091e67ec29cfe74c26a651606"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-40/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "a673296f436c91aae0b8e4afa8a94caf700437b18bc43aed1a4218ed5edfb2ac",
+          "bytes": 302902
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-40/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "ed8b9a79692573a78e4b84fc70377e42db1b9d353f992fbbe59b0cfdb71961a2",
+          "bytes": 276324
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-40/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "9f21c6b3a6a4f30180977e54c1d5ed27dded83aff7fe41745269b0c3de8a6e57",
+          "bytes": 24766
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-40/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "3128493d0d7b72fb8cc159915b5c549589ac8bb1d80ab695cab0682a1c36ca58",
+          "bytes": 8764
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-40-thumb.jpg",
+        "sha256": "5559af319f3d9cd6e41ec39ecf03b6347e638529ccdab9b01cb3293a252ff146",
+        "bytes": 31620
+      }
+    },
+    {
+      "id": "unit-41",
+      "title": "Care for small faith",
+      "firstDay": 201,
+      "lastDay": 205,
+      "lessonTitles": [
+        "Care for the Faint Flame",
+        "Let the Word Take Root",
+        "A Familiar Voice in the Storm",
+        "Bring the Need You Cannot Fix",
+        "Faith in a Small Gathering"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-41/portrait.png",
+          "sha256": "1b4dddacad076791039572f28337198ed7fc1b2e1afbf08c94141cbce5e1a58c"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-41/landscape.png",
+          "sha256": "b3c24cc9ff4b15f0f8ca081dea82d81b0b05ef8987ce2014b589bdf67afca8ab"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-41/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "d7d37f136996fb6384bcfb536711a5952c6f633e565c95778ddb59075ab4a52d",
+          "bytes": 235128
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-41/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "98b490d3f7ccfe8f060a310a7da5e79da57946730176e52958b93968d3f9b078",
+          "bytes": 169362
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-41/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "3d5dd583d6a9120fa2453c07ca4a0e9d3b2aed6d54c306091fd2163d84d4a735",
+          "bytes": 16634
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-41/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "d243853383f67e053b89e71754c39d99004b585f3e7389a23b26ffde44fcc7fb",
+          "bytes": 7372
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-41-thumb.jpg",
+        "sha256": "36c0d25071300d33b779053eb2b2ed39dbbb1e542a4aa3da73cb10908d07001a",
+        "bytes": 24048
+      }
+    },
+    {
+      "id": "unit-42",
+      "title": "Serve along the way",
+      "firstDay": 206,
+      "lastDay": 210,
+      "lessonTitles": [
+        "Greatness With an Apron On",
+        "Your Neighbor Has a Name",
+        "The Person Others Miss",
+        "Willing and Still Needing Help",
+        "Company for the Long Road"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-42/portrait.png",
+          "sha256": "469c8651114f33b9b6dc873bc929e6a41b3d516de25a31ea958590421c4e7c2e"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-42/landscape.png",
+          "sha256": "a8046a18ebe736b30df835a8199a5aeb8fe1055042e40519da991b889d0df28e"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-42/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "04afc62ea72d320c7eedb7a50da5e912eb7a661ef96695b106b10d1e3e7e896c",
+          "bytes": 294842
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-42/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "da49f3e4ff7d3d7d557da26c145d7f0b9543dfd4c7c587164673da15396fcdd7",
+          "bytes": 263650
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-42/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "53bffe225ecdd1fd3f81afb56ffc304766e0c6f0b30f70247f7b64f6da7ede45",
+          "bytes": 26050
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-42/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "ac41bcf9618c15523a297de1a32a2da804d5063c7500d8872b7b24dcd1a9b01c",
+          "bytes": 10880
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-42-thumb.jpg",
+        "sha256": "fc8c8898524bb66ab6cfa01e258881dceea08073e1b0fe9460b5bff6f4ed39eb",
+        "bytes": 33275
+      }
+    },
+    {
+      "id": "unit-43",
+      "title": "Rest is welcome here",
+      "firstDay": 211,
+      "lastDay": 215,
+      "lessonTitles": [
+        "Before the Demands Begin",
+        "You Can Come as Someone in Need",
+        "Peace Is More Than Control",
+        "A Person, Not an Interruption",
+        "Rest Belongs in the Schedule"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-43/portrait.png",
+          "sha256": "7a78bae7ff1799f1eb4ef07a98d0082117c91b2e66f8fe52aeaf7b601a7a2efd"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-43/landscape.png",
+          "sha256": "1765e01bbe671e542dfd47f944f281dba4da3566db08707babc237be0d3ae1e9"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-43/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "b65b723824e17048decf8bcea0310a69bca5fe1da167d533a626c85645e14bfd",
+          "bytes": 247064
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-43/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "b1f3fa5cdd01fc2b1e6977da1b6e226c4341523b64f9997aba4d164b17470cda",
+          "bytes": 232962
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-43/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "d91aa740ec6d56a173197973c88219419d7e13e84c12ec45380d667c0ae43ae4",
+          "bytes": 21330
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-43/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "363c251308ed864b460ab8b7637cc89b11c611a2edfc6f71edbee21fcff1181f",
+          "bytes": 11448
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-43-thumb.jpg",
+        "sha256": "e9cd61763888de173e443d4651a9c1e2204edf36a8fa4863c6fc8a7d375f39ee",
+        "bytes": 29124
+      }
+    },
+    {
+      "id": "unit-44",
+      "title": "Bring your questions",
+      "firstDay": 216,
+      "lastDay": 220,
+      "lessonTitles": [
+        "An Honest Prayer With Doubt Inside",
+        "Welcome Without an Achievement",
+        "The Voice That Makes Room",
+        "Love With Your Whole Life",
+        "Value Beyond the Size of a Gift"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-44/portrait.png",
+          "sha256": "2bbb9cc59fde1810d59dc91f97cb9e08182dbcd9e9f1dbb39855db8adcfe1757"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-44/landscape.png",
+          "sha256": "418e31668d7d4aba69957664c00876eb080a5a252645c60090428d0842611c69"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-44/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "b7c3afa9a199d186592c3ead9891d315c88fc9f9f85a0686c2406f8d23bc6d2c",
+          "bytes": 267334
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-44/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "c670d8ffe641153062ccb7054b61768db91422683b964bf470b23d14286729fb",
+          "bytes": 173008
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-44/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "62f051c3467013c8d2f2f7e3ccb55b612a7ed61fbaf05c5feeacc666c6fa42a0",
+          "bytes": 26704
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-44/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "80ec3af7c194d0e476a850a0d962699c3c78e369dcca2e0ca2907c9577737bce",
+          "bytes": 11768
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-44-thumb.jpg",
+        "sha256": "438c1dec14bf86ef6b22b0589c8e5a9fb66bd99439752b11006938f5c63f5237",
+        "bytes": 34307
+      }
+    },
+    {
+      "id": "unit-45",
+      "title": "Mercy in motion",
+      "firstDay": 221,
+      "lastDay": 225,
+      "lessonTitles": [
+        "A Yes Without the Whole Map",
+        "Mercy Like the First Light",
+        "Give the Moment Time to Settle",
+        "Enough to Share",
+        "Good News Reaches the Crushed"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-45/portrait.png",
+          "sha256": "15a4299b4b746efc17e4d9a2749f74d6bec0dddfdf6b0ace26e83c68ae409dea"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-45/landscape.png",
+          "sha256": "e83a5e74054531423c337504e932efdfc55a72814de19f0680666547200da057"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-45/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "1e5d22355cb1899b5bec66915c5a59a3a82a59737be0cef0d9ec3f3d6af25f4b",
+          "bytes": 285618
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-45/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "c9145089884977db937a3c65e32bdba23d9dddd4e315cde1d545a5adbbc2b61d",
+          "bytes": 209654
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-45/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "e563a930a7a6b4d141a6e4d877d0e054a6c3ab9c5a19bd64333c4deda9422b90",
+          "bytes": 25148
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-45/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "d42cdb9e17e909fe383784bbb3ec3a0e030207e717ffe0f87510e3bf6332d44b",
+          "bytes": 12286
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-45-thumb.jpg",
+        "sha256": "831d43e747a667b055675cf552ce28812d7d04ddbc2ca5e5aef6cd3462e1cd01",
+        "bytes": 31894
+      }
+    },
+    {
+      "id": "unit-46",
+      "title": "Pause and consider",
+      "firstDay": 226,
+      "lastDay": 230,
+      "lessonTitles": [
+        "Return to the Quiet",
+        "Begin With Consideration",
+        "Mercy as a Family Resemblance",
+        "Care for the Well Within",
+        "Compassion Notices the Funeral"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-46/portrait.png",
+          "sha256": "fc02f8e1030304285e06ce18768221bebff2b7b96941ee05d6d2ba6f44bc4e61"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-46/landscape.png",
+          "sha256": "1fe11cd44c6f5c073ee65f7a36b0bd8612928ec00acac3feb921484a562a83f1"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-46/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "b7c7c44e7d8a3091cbebc85f76b19ac71c17088848dea4661a22e71a9b350a9f",
+          "bytes": 293836
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-46/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "5cdfb3ca0290ea6c9502da5de64d4f2c5f7ed5e4675111ac922ad191b5ee16c0",
+          "bytes": 247612
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-46/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "7129ff6efee47ca6bf48367d5f81d76197caf8a7b2f5806bc56a8e0fe14b9ec3",
+          "bytes": 26798
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-46/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "111555415f778f4213952e8bc77db7b0e2fdaccf8137039fa53d8333feb8346d",
+          "bytes": 11112
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-46-thumb.jpg",
+        "sha256": "74a1fd1a786340d3591e21aac4c51ac3f96c93f5414a41dbfd561fcc61432ebe",
+        "bytes": 34083
+      }
+    },
+    {
+      "id": "unit-47",
+      "title": "A generous beginning",
+      "firstDay": 231,
+      "lastDay": 235,
+      "lessonTitles": [
+        "Keep What Is Worth Growing",
+        "Compassion Crosses the Road",
+        "The Good Part of Attention",
+        "Ask for the Help of God's Spirit",
+        "You Belong to a Generous Father"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-47/portrait.png",
+          "sha256": "11e31a55c7f739f41f8828ebd52b6010c9c3c5aa56896752283dc4685741f4cd"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-47/landscape.png",
+          "sha256": "5807999fc9f0d127e7209febf688ee7ab818f7a3d18519c3b8c54b47930c55fc"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-47/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "20ccd525a1706add8cecda5687781462656db81b45c059c9d1c72d204cecd2dc",
+          "bytes": 309372
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-47/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "d34096ee80c1966205cb7f474962e8dc315570b571b3e29d67fa550194a21bf8",
+          "bytes": 238326
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-47/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "9e69c8e60c54325708ae414fb0f07de2192a160ace6868e7f8390471aef4bce4",
+          "bytes": 31234
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-47/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "82b9c1dfd98a16337a564fcb47f2fdf954f1ee56b92434c019b79b3871bba66f",
+          "bytes": 15102
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-47-thumb.jpg",
+        "sha256": "44c5dcb94fc116c1405f3cc6d81af848d90e33512c175c1f2d3593a3ac18ea1a",
+        "bytes": 37652
+      }
+    },
+    {
+      "id": "unit-48",
+      "title": "A seat at the table",
+      "firstDay": 236,
+      "lastDay": 240,
+      "lessonTitles": [
+        "The Welcome Before the Speech",
+        "Return to Say Thank You",
+        "No Comparison Required in Prayer",
+        "Being Found Is Good News",
+        "A Future Beyond a Failure"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-48/portrait.png",
+          "sha256": "805b565243c0a542d233ffe4c30ed702e8addb333773b6a734b9e00384462c03"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-48/landscape.png",
+          "sha256": "0a1eb410b2496039712b31fdb110433b09c52ebc32cc37bc8f17d9b3f4bdee8c"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-48/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "2eb0756fc2e87c59d81ab9a187fc7a3d9cf2c7c3e78dda7b3a4fdf83f84ace80",
+          "bytes": 154502
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-48/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "dcbc42ed8093e146050bd3f0c549f6b258e2e8b4c82343db1f87080192367f4c",
+          "bytes": 192950
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-48/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "41c8382cb893efa97b7af584285964cea69f4e81139fc557417f7c240ff8780e",
+          "bytes": 16660
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-48/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "a63106f2005ddb44471450d1aff583e3660dfb9013f111a66979955f93c050a4",
+          "bytes": 7764
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-48-thumb.jpg",
+        "sha256": "bb9bdbebeac102c5e5b9617f581f293e2968a7d4abc158223cdb53e8500011bd",
+        "bytes": 23687
+      }
+    },
+    {
+      "id": "unit-49",
+      "title": "Forgiveness and light",
+      "firstDay": 241,
+      "lastDay": 245,
+      "lessonTitles": [
+        "Forgiveness Does Not Call Harm Good",
+        "Understanding Along the Way",
+        "Darkness Does Not Get the Last Word",
+        "A Deeper Source of Life",
+        "Enough Light for Following"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-49/portrait.png",
+          "sha256": "e95c9cf678dadff764ce6f96fa5f9a5733cf7d6073259334af7b5a7c420b191b"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-49/landscape.png",
+          "sha256": "7d7d048f17a06204da5d8904690b44e5462b48872e88ce9053921d48a2193c48"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-49/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "73e137977a09571a69cff68d976e1bba0faf78203b6266637d8cf642b8ecf560",
+          "bytes": 310350
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-49/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "1b69b49ff430f067e172321a961e7d229d9fd3be23ef529895ec41dea6b1e4e1",
+          "bytes": 201264
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-49/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "0f21c3ae14b4c3aa3183654a31cb7b1fb80c850aa0fd6f3ccf124764e315e8a0",
+          "bytes": 22952
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-49/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "e61575dede99d74152ee1fb4e44818662eb206dfec46ff64f2d21aaa572dec85",
+          "bytes": 11478
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-49-thumb.jpg",
+        "sha256": "f8509d1eb1a5230f42fa93110d6e0658adcf2b04c3376c9e036991841546312c",
+        "bytes": 29587
+      }
+    },
+    {
+      "id": "unit-50",
+      "title": "Stay close in trouble",
+      "firstDay": 246,
+      "lastDay": 250,
+      "lessonTitles": [
+        "Known Beyond the Surface",
+        "The Towel Beside the Table",
+        "Stay Connected to the Source",
+        "Peace With Trouble Still Present",
+        "Faith Has Shared Rhythms"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-50/portrait.png",
+          "sha256": "6d4a44c5d8419de0a73649216079b97113885a8dbad48d917693fba14d26581b"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-50/landscape.png",
+          "sha256": "1fd75a3db07798b3b674804380c15faa85743d16c9d239052858db15a848578c"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-50/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "fe0cbc6cbfab5ca03d5578e40be69395a0ec11584670933362666cc687761314",
+          "bytes": 364444
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-50/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "cd609e28cba045b96a70b3bb4363c6512d048b421f40b581aa382c3a1067e584",
+          "bytes": 129374
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-50/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "26a671cc02c94f1189db01c2358c857111d39278e7b36379b1496ae532c18455",
+          "bytes": 19192
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-50/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "d60a496519d9defa86143a8f8b5146eb0bb7c38beae396f6b4b5ccae48487eed",
+          "bytes": 6652
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-50-thumb.jpg",
+        "sha256": "f38838321dd3d56e64a414e04c4d8863421de16cee219c997881697f8d2e29e5",
+        "bytes": 26935
+      }
+    },
+    {
+      "id": "unit-51",
+      "title": "Care in unfinished days",
+      "firstDay": 251,
+      "lastDay": 255,
+      "lessonTitles": [
+        "What You Have Can Serve Others",
+        "Comfort Can Help You Grow",
+        "A Song in the Unfinished Night",
+        "Seeking Is Already a Movement",
+        "Giving With Strong and Gentle Hands"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-51/portrait.png",
+          "sha256": "f9585e966d08f54973d510255817ed8429cc1264acc71afea7dc6195a5ba24ec"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-51/landscape.png",
+          "sha256": "abdff748d8da443b36aecdcedd4319ad34d44c3c3fbef666c8c3e2cbf41cc8af"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-51/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "c0497db94c09212cd392c7d174c9d1d563b2e47485a5a9fbf57d5105e28dae4f",
+          "bytes": 253794
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-51/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "fcbd18e89bc7cdf0e68d3f848dbe32f0c68f9eb84ec2c36e8be0e66aea6c7365",
+          "bytes": 175748
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-51/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "379586f466b933e3eb939608428a62b2780b0f66aac0e22d7d3d4a24cd7ca8d5",
+          "bytes": 18922
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-51/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "aeb9c5c2effaf034b891b5d0c48903d84fc7ad2b9013a8eff04e5104697b1d91",
+          "bytes": 8826
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-51-thumb.jpg",
+        "sha256": "4abc487a0225259e5d8764cce89f7604468fe983f585280c83018d3c5757eb2b",
+        "bytes": 26010
+      }
+    },
+    {
+      "id": "unit-52",
+      "title": "Peace beyond performance",
+      "firstDay": 256,
+      "lastDay": 260,
+      "lessonTitles": [
+        "Peace Before Your Performance",
+        "Shame Does Not Own Your Name",
+        "When Prayer Has No Clear Words",
+        "Give Your Mind a Better Pattern",
+        "Your Part in Making Peace"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-52/portrait.png",
+          "sha256": "18029fb5b7c14cff7122195709241e8a2a08593c2da071feff783301b4b929fd"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-52/landscape.png",
+          "sha256": "92eb50270750861d20ba15c46c805ebe77239d88169a731222a17b7ce7e68f30"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-52/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "d012ee6fce4075f62ddaef3c97cba8ff0b99dd1978b5e817e8d9707b9985f3fd",
+          "bytes": 209762
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-52/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "12c148bb290fd1e3d25e668ef3d69883613d4f62e6cb3afb63f8b25786719681",
+          "bytes": 257738
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-52/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "b1db9584c8d1a3058c7f9f37703a8173194bc2f097494a24ef94a69796b857ed",
+          "bytes": 19222
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-52/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "ba3ae83546692673086c010ad3a19f137d88303ebb2346b8be20210264ab517d",
+          "bytes": 7648
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-52-thumb.jpg",
+        "sha256": "46a0714587274f685235ed72a072c6bc1d3b0d9737f29a18d42fe8d78d37bb16",
+        "bytes": 25954
+      }
+    },
+    {
+      "id": "unit-53",
+      "title": "Your particular part",
+      "firstDay": 261,
+      "lastDay": 265,
+      "lessonTitles": [
+        "Hope Can Be Asked For",
+        "Held by Faithfulness Beyond Yours",
+        "Plant, Water, and Leave Room",
+        "Look for the Way Through Temptation",
+        "A Place Without Being Every Part"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-53/portrait.png",
+          "sha256": "ca14bcdcf44bd8f05b8aa8fa355dac745adfc2dc953f8ce177c00a3c02404eea"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-53/landscape.png",
+          "sha256": "579ba2bf36e800802ad01e3c9623e139b23f1c1ca9e912d3d2a5fa1fde6ac82b"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-53/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "1e1bf0fc13612cf5cda785ef0f4f7917917281c84dc1753a2c3d7ab22c26c893",
+          "bytes": 217612
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-53/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "5580dadac72640cbb8e3d057b7bc34f2b21ca864f27e718af4207c3e68bb89aa",
+          "bytes": 270322
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-53/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "47ddc2803dbd50c8e726162b8bb5ffc0678201feda8b75e149f6a994a31e3cc7",
+          "bytes": 23496
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-53/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "f78e4ac22694034adf7656773ca05214afd265d6b59fa5709fc29124714b5c81",
+          "bytes": 9972
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-53-thumb.jpg",
+        "sha256": "4c7d86a8d827fd3da48ae99c04400c11390c3f65558c994257f9aa67fcd6409d",
+        "bytes": 30671
+      }
+    },
+    {
+      "id": "unit-54",
+      "title": "Grace for the limits",
+      "firstDay": 266,
+      "lastDay": 270,
+      "lessonTitles": [
+        "Love Keeps Looking for Good",
+        "Comfort You Can Pass Along",
+        "Treasure in an Ordinary Vessel",
+        "A New Beginning With Real Roots",
+        "Grace Meets an Unremoved Limit"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-54/portrait.png",
+          "sha256": "b5019dc974b85c03285be2a6fe65cd2e898fda59a3bebae06ca2d1e34ffb1f13"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-54/landscape.png",
+          "sha256": "13e392ba1ffa4cda2bdc62e068ac7359af6b40cc3aedf95757e9f6bad1910b39"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-54/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "32424f1291b08ee470ce352a6ed3ad3ec121415eafe26586e003702504679062",
+          "bytes": 187812
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-54/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "abeb112f8bda0aa26dfbb016f34f9fa4570fda61d310606b7dc6b4e1079cc89b",
+          "bytes": 149940
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-54/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "f3132aa2c4cacf24bb1a363354121efb5de29fe049c4b8426966244d51216c79",
+          "bytes": 13718
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-54/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "378f2a5b28b018d888c99a601d6c2b3bda40586db18baad38cf1cd248dd13906",
+          "bytes": 6302
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-54-thumb.jpg",
+        "sha256": "495bba921785547702a215a749001af6532455b722cab7bee5b346b6266b8415",
+        "bytes": 21041
+      }
+    },
+    {
+      "id": "unit-55",
+      "title": "Love with its sleeves rolled up",
+      "firstDay": 271,
+      "lastDay": 275,
+      "lessonTitles": [
+        "Look for the Fruit of Love",
+        "A Burden Shared With Care",
+        "Made for Good Within Reach",
+        "Tenderness in the Work of Repair",
+        "The Work Is Still in Progress"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-55/portrait.png",
+          "sha256": "4676c31f6a72ac38c32a028a75f973dab61cd891d778daecd9764c9d15291132"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-55/landscape.png",
+          "sha256": "8941c633befd9783467f2164bc84ae65a7063b6970b0ab19b87acfdd1809bf45"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-55/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "3ac843b9d11bffffcc1d7bc26bfe4db5dff7fa11a2d9f293dbce5310409bc05e",
+          "bytes": 304628
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-55/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "c7b96d880e59984c81a5a7123376e5fe51cf9f294fd5c9fcc4dd3fb906330b6d",
+          "bytes": 244684
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-55/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "a62b8407c7fbe9f4f2eba6516dd9e067c64c735fc3eba9dca11902a148cf0062",
+          "bytes": 24322
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-55/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "7ecc8fab2b6bc95c837966067b159ba35be0bcfe09782049a84df663ebe6c516",
+          "bytes": 9232
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-55-thumb.jpg",
+        "sha256": "398ded5ab8f35fe70f88b5e0235d8a04157f942690a4c0e1bd51c3f3b492312c",
+        "bytes": 31294
+      }
+    },
+    {
+      "id": "unit-56",
+      "title": "Still becoming",
+      "firstDay": 276,
+      "lastDay": 280,
+      "lessonTitles": [
+        "Love That Learns to See Clearly",
+        "A Center Larger Than Achievement",
+        "Step Out of the Contest",
+        "The Willingness to Begin",
+        "Your Past Is Not the Whole Road"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-56/portrait.png",
+          "sha256": "3cbd9d14b0cd4ce22026d98b0a5ea93a613f4cf57551f6fb4033fa67e05fdb7c"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-56/landscape.png",
+          "sha256": "a7a26d715b21a43a1b154f96569b3c739b1bdf86742a2ba21d7e02b995d92e5d"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-56/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "312e0aa5083690c30b10e0e10dc4dbc72cb63f663977b962e89967e0975959b5",
+          "bytes": 439934
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-56/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "fb4c379f461b019525b6e2f49f0de3770bdcb590c32812e4df34ced3563a9de7",
+          "bytes": 200096
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-56/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "e96a0890c3db83282fcb6d78a62997e553b17de9efcf9da3ba9a603b18e889d0",
+          "bytes": 35756
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-56/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "481433b343903c5be5ffcfba86bcf6f14a038189935ad21d66deea9ed5992872",
+          "bytes": 14528
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-56-thumb.jpg",
+        "sha256": "3bedeb5bece071ad384639092d0b32565040d4610caee08cb47cb5e32fa3fb8f",
+        "bytes": 41543
+      }
+    },
+    {
+      "id": "unit-57",
+      "title": "A gentle belonging",
+      "firstDay": 281,
+      "lastDay": 285,
+      "lessonTitles": [
+        "A Belonging That Travels With You",
+        "Gentleness People Can Feel",
+        "Turn the Worry Into a Request",
+        "Give Good Things Your Attention",
+        "Strength for Staying Kind"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-57/portrait.png",
+          "sha256": "de9035ea447efffd3ba478323fde7d4ac89945403fc249fc524d7f29073ebce4"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-57/landscape.png",
+          "sha256": "5f74edb95a917ae4ebb839a7d5d502f0a2b1c41858b9f60ddc5034d2a932f9f5"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-57/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "2d55b844ce1d4e44710df5576c499467044308ef260afe04d0accffb90a9e854",
+          "bytes": 289120
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-57/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "f35442f2eec3c453cec07cf64c06b880fade4b7cf4ccc12ae4f6861014544536",
+          "bytes": 299626
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-57/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "3dd0abab4860e4c4cc80870c78f61354ab34f58909f365094c2e1f56ef370378",
+          "bytes": 26844
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-57/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "f47b88cf7647a6545801928a8c97cb6fcbf493a392aafc39235c5d6f50830805",
+          "bytes": 10412
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-57-thumb.jpg",
+        "sha256": "d4ba91f8258b856299c91188b2d1cd48f13d3180558d9811f9c996e93ee8599b",
+        "bytes": 33645
+      }
+    },
+    {
+      "id": "unit-58",
+      "title": "Roots beside living water",
+      "firstDay": 286,
+      "lastDay": 290,
+      "lessonTitles": [
+        "You Do Not Hold Everything Together",
+        "Walk the Faith You Received",
+        "Rooted Enough to Give Thanks",
+        "Choose What You Put On",
+        "Let Peace Have a Voice"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-58/portrait.png",
+          "sha256": "8ab7ef3edfe3c77db5761e8300e4fe9f431415e00d2dd60474761305ee3d9041"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-58/landscape.png",
+          "sha256": "9ad183a822a5049d092f3893a5053cab99ab7ba41fbcc85169f549dcfa93a801"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-58/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "575e205732760030c3e4b3a58925944d8ff033aa3974c0fcec14f9ebeccba8f1",
+          "bytes": 336978
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-58/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "047fc7c45be2317363c600b833a0f13f2f9996f05ad2bf56fceffde384b46d85",
+          "bytes": 264322
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-58/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "50dd4ea6bc72d218eeedc064543036dc07bb62d560fb032b1b19733eebec3c21",
+          "bytes": 29814
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-58/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "94c9584ca737a7a4f3bf39f6faa9b262dff67b12cbb9e5c579a6767c1d8c93ca",
+          "bytes": 13260
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-58-thumb.jpg",
+        "sha256": "f15935788790dfcef082b87da2e28abaf784ef3dd2fd9c2fdd153e2178d25d88",
+        "bytes": 36854
+      }
+    },
+    {
+      "id": "unit-59",
+      "title": "Words that nourish",
+      "firstDay": 291,
+      "lastDay": 295,
+      "lessonTitles": [
+        "Make Room for Words That Nourish",
+        "Words With Grace and Substance",
+        "The Work Love Keeps Doing",
+        "Offer Presence Alongside Your Words",
+        "A Wider Circle of Love"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-59/portrait.png",
+          "sha256": "2bd9b3551357b923c372401e0d2bd9d54bee5e224d555a41d7ac446ca533720a"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-59/landscape.png",
+          "sha256": "ea760401ec92acc9759aff797094ff939845ac16fb3362928a1594b39aadcc15"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-59/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "87438aebccbbeed80d4622702ece0c2bd7542b3c934d4240297720c87426a898",
+          "bytes": 149354
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-59/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "73e10093f6c7d0f633737a47ad16460ad4a69c3e1735d425b8727c21a0944cd1",
+          "bytes": 129892
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-59/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "ed1cfd229496d2e01a122175a13c004a0a436206c52c2f89c1f35ae25a3229c4",
+          "bytes": 13650
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-59/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "6e250b399dacad8bfe39b417e262b6eb5e584423ea91fffc35d3236bb01ae092",
+          "bytes": 5602
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-59-thumb.jpg",
+        "sha256": "2593bd9512e96df8e7f922c18206587d2f723c5d6aad359d29d8ed711deafee9",
+        "bytes": 21104
+      }
+    },
+    {
+      "id": "unit-60",
+      "title": "Encourage the quiet ones",
+      "firstDay": 296,
+      "lastDay": 300,
+      "lessonTitles": [
+        "The Dignity of a Quiet Life",
+        "Build Someone Up on Purpose",
+        "Thanks Within an Unfinished Day",
+        "The Caller Remains Faithful",
+        "Notice Love Getting Stronger"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-60/portrait.png",
+          "sha256": "22f620289192430859460840fbd4f5544b52f6918a47156882db4171b1a4ceba"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-60/landscape.png",
+          "sha256": "1785c6e7f2c06bfcd1968fb94a4781fe7de081e9f73fc2b197cc9936c4c4ce0c"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-60/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "cae7a7cccef97cd3a554213055241e673e6ae32feec1e728499f9903b82a5b90",
+          "bytes": 252902
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-60/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "9aec501d59ff3fb465e8d2397dba97205256f500581b0b8f0acd22069ad9b3d5",
+          "bytes": 305488
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-60/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "cee4f4fff1df26869ec10a46cbbc554c2b664e68ad54c629929aed383e84a33c",
+          "bytes": 24684
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-60/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "e4e30eb2f8bc0eb2d0cad82283fc76664b21ed134c8a4adb9cef045e355f1ec7",
+          "bytes": 11312
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-60-thumb.jpg",
+        "sha256": "8b9b491a446ff6fdfb05d0bce2dd7d8c2c573090e38259aa14a43e3807c245b1",
+        "bytes": 31720
+      }
+    },
+    {
+      "id": "unit-61",
+      "title": "Goodness that can last",
+      "firstDay": 301,
+      "lastDay": 305,
+      "lessonTitles": [
+        "Comfort Rooted in Grace",
+        "Keep the Good Sustainable",
+        "Mercy Starts With the Truth",
+        "Practice What Nourishes Your Life",
+        "You Have Something to Model"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-61/portrait.png",
+          "sha256": "d47b9f13a2f90c046727d14e3dd709289e53d6a3027028c7dbb8a6bf08bdf3ec"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-61/landscape.png",
+          "sha256": "77526f13c145a971dcf7e07930c7fdcb5ab4b09913259ee93f84c48fcbb74329"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-61/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "90126d474c53d3d22244db3158bf9f9c6549cf11fc1774cda6ead25f02917866",
+          "bytes": 272870
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-61/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "22a72bffd27ff6edfd061f397abddc85469a6c7278aafa15ba9406c964aee17a",
+          "bytes": 333294
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-61/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "d88491aa2298e5fcb45aa3985c33681eeea0b8a9733ae1b90fa0bd0e9b1aa114",
+          "bytes": 27118
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-61/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "dace98bf4aabed5e43ba3d1a9708fdccc6e695b77514b22259a3aaa28e0af683",
+          "bytes": 11102
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-61-thumb.jpg",
+        "sha256": "ddc8e064840ab8f875b1d5e29bc6e60976df0e48e62e7e796e2959c85595903b",
+        "bytes": 34452
+      }
+    },
+    {
+      "id": "unit-62",
+      "title": "Enough for the calling",
+      "firstDay": 306,
+      "lastDay": 310,
+      "lessonTitles": [
+        "Enough Without the Endless Chase",
+        "Rich in Useful Care",
+        "Courage With Love and Self-Control",
+        "Trust Has a Person at Its Center",
+        "Faithfulness When Yours Feels Thin"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-62/portrait.png",
+          "sha256": "02f0970038deda57439d202c30b1846dc42c83c2412dbd4933b06fd1cb6849ef"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-62/landscape.png",
+          "sha256": "a53972b74a42551acfb4c028b188da16c3a4b8ba7c8ca66bd908e09a1d7b9a91"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-62/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "c1e9081af29e3ba6ae46a93cc2febc7ef12fe4c1141c5dd14769de18bff0f9c4",
+          "bytes": 183528
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-62/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "4fa6e262d74e8aa42ae11f76fdc61e120ea84f7165c1772454118110d5a9e3d0",
+          "bytes": 200658
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-62/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "c0c197609ee4ddcc6cf581aeeb6ceb436e4fa592d57989a8fcd831ade91e1fe4",
+          "bytes": 16726
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-62/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "a625b461fd9fe6f4ca9b58bb6ba52ac31f0ce35e65c771a84a391249ec60b262",
+          "bytes": 7188
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-62-thumb.jpg",
+        "sha256": "2f3132113238ec39811cadee042763ba7468337ad23ccd48b994d78d763f5267",
+        "bytes": 23856
+      }
+    },
+    {
+      "id": "unit-63",
+      "title": "Grace equips us",
+      "firstDay": 311,
+      "lastDay": 315,
+      "lessonTitles": [
+        "Let Scripture Help You Grow",
+        "A Life Measured by Faithfulness",
+        "Grace Comes Toward You",
+        "Kindness at the Heart of Salvation",
+        "Good Work Meets Actual Needs"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-63/portrait.png",
+          "sha256": "afecf07bd318dbe84ebc658dc62f9f98c315a26d9f90f578883677a5056108f5"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-63/landscape.png",
+          "sha256": "a1fae4797665746f04df9f7dd7ab04723e140359aa49142a4d65e5ffd002c72d"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-63/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "cc299204b3e51c05f2f0d8146aa6df348f98b348daa1f1dda87bba8856f49507",
+          "bytes": 166100
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-63/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "e0e533a5acdc137d2d314d1f91f9807eecc3a36c52956e6b27e0afd7bd8ff57f",
+          "bytes": 203412
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-63/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "36c0a2d3c016ed5abaf7109c3060ae80f6816639d9bd4ada3aa8411d0b7f6547",
+          "bytes": 20290
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-63/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "1a4d1b725e3f86da4ce4a27a3e4e73e504642251da63e858266aa50786ce7ede",
+          "bytes": 7986
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-63-thumb.jpg",
+        "sha256": "2110fd192d5201f649d9833a05c986698467e756281705597e2c6226189b2890",
+        "bytes": 28391
+      }
+    },
+    {
+      "id": "unit-64",
+      "title": "An anchor for hope",
+      "firstDay": 316,
+      "lastDay": 320,
+      "lessonTitles": [
+        "Be a Refreshing Presence",
+        "Help From One Who Understands",
+        "Come Near in the Need",
+        "An Anchor Beneath Changing Feelings",
+        "Hold On to the Faithful One"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-64/portrait.png",
+          "sha256": "40464417c1846b2666459e4d2a9ca7bdb6ad5f6d45e471b8d83025b2eb266f0c"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-64/landscape.png",
+          "sha256": "4743666a3fc60fa3db0ac4ec22df82f6bfb38dd7e5fc2066c7bc1734130f7b7e"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-64/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "c5aa18a7fb5b80f941b4091721fbe424ca2af61d451407342c61c6581fc5de9a",
+          "bytes": 197628
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-64/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "07e09c999a7437071353ef4ca963976c62d2a1a6f9ddcf85e3ed1f49b5696aa6",
+          "bytes": 119198
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-64/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "64678f1711c09c70d7da3d51bc7517e55c0cf5a7858be2a3b85060362151b902",
+          "bytes": 16818
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-64/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "033d26637e20bd9de2172817cea6e2b180419c3bb69f52cf4f3dbfa50f5f66cb",
+          "bytes": 8482
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-64-thumb.jpg",
+        "sha256": "f25b2ba87fcf8bfb65b4b6358fe237de1e0200a944306ba7cc65c99bb242d956",
+        "bytes": 23210
+      }
+    },
+    {
+      "id": "unit-65",
+      "title": "Endure in good company",
+      "firstDay": 321,
+      "lastDay": 325,
+      "lessonTitles": [
+        "Help Goodness Catch On",
+        "Trust Without Seeing the Whole",
+        "Lay Down a Weight for the Road",
+        "Learning Can Be Uncomfortable",
+        "Company More Lasting Than Possessions"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-65/portrait.png",
+          "sha256": "f1d56b94fc6034aa0131925d5e014997bb30b8ff0bbf960b2470ecfb72b86bad"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-65/landscape.png",
+          "sha256": "8a01c5b52e33b93cc8ce44fc842bb27863e3b5228ed4b29b58bae69cb6c8bd5e"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-65/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "2d7e1e01db832526a9dcb54cd882de3c02d70d7684db2bb3a40de56c88baea09",
+          "bytes": 325778
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-65/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "4fb07930aadbc6a4ec21b4c0655b2b642e4370086ba033dda0faddb451faa0a8",
+          "bytes": 201418
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-65/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "1302d8e36b9099fec9ac70043b41d30ee3bce30be1538b473ce3b240ed9a420d",
+          "bytes": 26316
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-65/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "43c52dede0592ae3f1ca019a301f84268c5838e7bc86e20e62c8751e297ebc2a",
+          "bytes": 14578
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-65-thumb.jpg",
+        "sha256": "3ffb156da0da8fe8214c1dec480b2bd517fc9e057cb93e9453362ac0998f8ba1",
+        "bytes": 33179
+      }
+    },
+    {
+      "id": "unit-66",
+      "title": "Listen before you speak",
+      "firstDay": 326,
+      "lastDay": 330,
+      "lessonTitles": [
+        "Remember the Good You Can Do",
+        "Ask Without Being Embarrassed",
+        "Endurance With Love at Its Center",
+        "Receive the Gift and Remember the Giver",
+        "Give Listening the First Turn"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-66/portrait.png",
+          "sha256": "369ff99b2ea9130cc5bd309e870b9cd8c887ac571759ffe2a437488908299de6"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-66/landscape.png",
+          "sha256": "cd599c1d3e6be44eecefe17136143ff3b5d3b586bc1d3ef71b04b3306578a4c3"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-66/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "637bd9df266b32c0bde5dc944a4c51cd4d45740357fa173ef35f700efe396595",
+          "bytes": 183152
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-66/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "b81e9629623de3c5c48ccc62a6092b9c0be2b7680028597a698353534f5fb59a",
+          "bytes": 157638
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-66/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "96950cb511437a24fdb429d821a7093ee80a220bdba1a1bacee6789d8ef80b58",
+          "bytes": 18856
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-66/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "dca57fa310e8169cd6e3312ce11ec7fe7c86877675276902dec5d174c66f2713",
+          "bytes": 10264
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-66-thumb.jpg",
+        "sha256": "442deb53ef6081a848520add38f31206cc41144eae98f3dfa6d527cb2ea023de",
+        "bytes": 26538
+      }
+    },
+    {
+      "id": "unit-67",
+      "title": "Let faith become care",
+      "firstDay": 331,
+      "lastDay": 335,
+      "lessonTitles": [
+        "Let One Word Become a Deed",
+        "Dignity Does Not Follow Status",
+        "Faith With Hands Available",
+        "Wisdom Has a Gentle Shape",
+        "Draw Near With an Honest Heart"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-67/portrait.png",
+          "sha256": "f8fcd4c4d7399d846ab9fd1dd889b6532a9e84ab4939ec1df340a78bc9cfbff7"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-67/landscape.png",
+          "sha256": "508f2d476174fdaee66e972fd3090ee4b53f61c91cafca660e9d284eccab41ae"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-67/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "083dd997c2e7528529e3f51f8aa2eaa070ab8d09a347d5152d1bf3e77cd5197b",
+          "bytes": 237370
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-67/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "036cc4ccf48677d13f15f5e907b8f5097f44701c6fe2a2f43111b91233e4646b",
+          "bytes": 246940
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-67/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "539b3a5befd2c885ad4d9311daaeaa07f66d4d88229de5ea7f6d785701a43cad",
+          "bytes": 23542
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-67/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "653cd597fad2517a8585cc288aed0499d8978419dbc5ab03a66eedf4b8be45eb",
+          "bytes": 9832
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-67-thumb.jpg",
+        "sha256": "f9e9bce8aec2e274a5405105b9b391097fede84963cd5fcdd68405c0ed395014",
+        "bytes": 30249
+      }
+    },
+    {
+      "id": "unit-68",
+      "title": "Hope speaks honestly",
+      "firstDay": 336,
+      "lastDay": 340,
+      "lessonTitles": [
+        "There Is a Prayer for This Day",
+        "Honesty and Prayer in Safe Company",
+        "Hope With Life in It",
+        "Love Beyond What You Can See",
+        "Belonging That Becomes a Witness"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-68/portrait.png",
+          "sha256": "8ef439914d277411c9d26a13ea5dfe768f58fe5d0b15aa129733dfabc1e4d081"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-68/landscape.png",
+          "sha256": "3f1b104c29fc161513b9d7f4b77731a7cf7d971994dfa2131afe65ca80a42067"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-68/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "aa6aaa5872a3e0b1297885935f296b439eae426f2efc60e6d1b06b310a7c14cc",
+          "bytes": 213262
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-68/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "f19432c670619f63d420fae39d160a7072df53e3254f6049a486b299eeb03664",
+          "bytes": 157266
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-68/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "9d003368d5af35f2d3a0d8a8b55c467f85a340b8fad9169725597908b3d97834",
+          "bytes": 18660
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-68/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "5e76bae45d33ee3d7aef7315e06643bf4dbc3d6280a94f29b02b266759e10aba",
+          "bytes": 5500
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-68-thumb.jpg",
+        "sha256": "9815cef6552c851dde1eb4372f8ca43810ecc4e9c3b20b5623106749cc9aca95",
+        "bytes": 25786
+      }
+    },
+    {
+      "id": "unit-69",
+      "title": "The gift only you can give",
+      "firstDay": 341,
+      "lastDay": 345,
+      "lessonTitles": [
+        "Courtesy Can Carry Compassion",
+        "Love Makes Room for Imperfection",
+        "Put Your Particular Gift to Work",
+        "Care Before You Set the Burden Down",
+        "Receive Help for the Life of Faith"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-69/portrait.png",
+          "sha256": "9009d5c2397472fcea6feefb4b3d96ebbcaf3c86b1a1800fb1b08da13c0cbe45"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-69/landscape.png",
+          "sha256": "d266772f0c54cfe51633f625c9126d176f6add3b8741512dcb87f49820f3b80b"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-69/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "488d40817ecbd49032252f6e5a6852379ff24bf296ff5165afa5b559939d59aa",
+          "bytes": 162066
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-69/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "f6abbaa1f19f5d13269c030fdf3e3f8fe0ab13d8a5956d0c612d643f36a9c7e0",
+          "bytes": 133494
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-69/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "00bed39f2066650b9a1a0985612b15c5a730ac6020ca688cec38e59e238c5321",
+          "bytes": 15194
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-69/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "1730ec6f18647aa48aa85cc166ece7355a8a84fcbf072d4a2655fe7d8947c742",
+          "bytes": 7064
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-69-thumb.jpg",
+        "sha256": "daac6d268bf8011501a24ed7e4914ca3b37ae7f4979adc6a14bc46077c2e1dc4",
+        "bytes": 22552
+      }
+    },
+    {
+      "id": "unit-70",
+      "title": "The courage to repair",
+      "firstDay": 346,
+      "lastDay": 350,
+      "lessonTitles": [
+        "Add Care to Your Confidence",
+        "Keep Growing in Grace",
+        "Honesty Opens the Work of Repair",
+        "Help After You Have Fallen Short",
+        "Look Again at the Love Given"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-70/portrait.png",
+          "sha256": "1cff1fb5fd8bc6fcfea17245383ef6c07e95ba51ce424cf36fbfcb4accf0118a"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-70/landscape.png",
+          "sha256": "18efb7b361d7d5183863c117bfc56ae661f371edb5a72e77dc1aa2fd4a14d05c"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-70/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "541add7c2e829ff84a71869471dd172ef40c2572de18fd0eeaaa5dcdfc00cf41",
+          "bytes": 319858
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-70/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "832560bec3e04ef12e7f6a6ad1e0697b8c708e679f270e4facaa47a3c6f919b9",
+          "bytes": 295850
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-70/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "a02f9e1643552aba0dbfcd537afa85068e3c3792593dc090e2c5d6d82c53be62",
+          "bytes": 31004
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-70/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "99afe9f06e2e1d71b58414291b06f591a93e39b61481f9c3dac3fae30d75b616",
+          "bytes": 13118
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-70-thumb.jpg",
+        "sha256": "65f6c68e98301f227b179c5148021c2ee175c9ab53cb658805f67fd19e525f8d",
+        "bytes": 37966
+      }
+    },
+    {
+      "id": "unit-71",
+      "title": "A love you can see",
+      "firstDay": 351,
+      "lastDay": 355,
+      "lessonTitles": [
+        "Make Love True in Practice",
+        "Love Begins Before Your Response",
+        "Prayer That Leaves Room for God",
+        "Love Has a Path to Walk",
+        "The Joy of Seeing Truth Lived"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-71/portrait.png",
+          "sha256": "e4fa5bc2f2a2c7bd5f78d02bc505176043222a572af87f86fbc0f390c20cae57"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-71/landscape.png",
+          "sha256": "243365d0e49c0888ecb038d8d6a73e5498a7504e4439c45c04a32c0813fb70d4"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-71/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "30e419a86d010594aff56b1c68b25b23a296169784a9f7a2bc82c747b1d70231",
+          "bytes": 191142
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-71/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "0b18e69a6cd86379c7358bb43eca880cbb2d8acf4c439a6cf353a3d2079880c8",
+          "bytes": 236882
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-71/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "4a24537743e53d908df57d37fa513a28695d0a3e4384cceefb36356bc4bf2345",
+          "bytes": 20864
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-71/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "c77633be3be948c1d9abc1d8e9c0fe146a157e6d6ef03c6b8af2a40a0d45e805",
+          "bytes": 8008
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-71-thumb.jpg",
+        "sha256": "ac371b7ecb16c4eeb049fc6965b8fa17fc2374dcbb3dd2bb818909ad592df8e4",
+        "bytes": 28238
+      }
+    },
+    {
+      "id": "unit-72",
+      "title": "Part of a larger story",
+      "firstDay": 356,
+      "lastDay": 360,
+      "lessonTitles": [
+        "Keep Close to the Love Given",
+        "The One Able to Keep You",
+        "Your Days Within a Larger Story",
+        "Make Room for Renewed Fellowship",
+        "A Song With Room for Many Voices"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-72/portrait.png",
+          "sha256": "92281f97921c771dd9dbfc4fca7947cbe8ab5625080c30f66e5549adc41cf647"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-72/landscape.png",
+          "sha256": "7c02412430ac8ad451273797ccc649f4755a4cda0b287edd8095992ba69c02be"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-72/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "b0c3cd2064c6bd210387a11c951718b18cb369eeeaa9f10b05da0df5777ae615",
+          "bytes": 294156
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-72/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "02d1db66df66dd369b0c59ef0902848c5ee2b3bae592a154dbac684ea8adddab",
+          "bytes": 215152
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-72/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "1ea613923932620a1c7a16c1976a3b20a4dea55ace1f29e6d570327f546eda2a",
+          "bytes": 24474
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-72/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "ed3c8b4dfa6a5ffc939905b6faf537279b34002726fccc91192f77bc3da26029",
+          "bytes": 10048
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-72-thumb.jpg",
+        "sha256": "3f706fe23d149b631edfccfe0a9336b6a010fad12a17331272bd1f3456af406b",
+        "bytes": 30562
+      }
+    },
+    {
+      "id": "unit-73",
+      "title": "The invitation remains",
+      "firstDay": 361,
+      "lastDay": 365,
+      "lessonTitles": [
+        "The Shepherd at the End of Tears",
+        "Tell the Truth About Grace",
+        "A Future With Sorrow Undone",
+        "Light Beyond the Last Night",
+        "The Invitation Still Stands"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-73/portrait.png",
+          "sha256": "99937435054575e49fd6b53641b2452c74701664d3e8797e9b2ea2f135c216fe"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-73/landscape.png",
+          "sha256": "12d20376b6dbf91d730f64b1a5b316545cb60684971c48a81f7290d46fdefc9a"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-73/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "07071a1ebfe4a07ffaf8937a160e893c55c757ad3d33ea710847c16d9a5240ef",
+          "bytes": 307152
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-73/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "31e9f71e383a64a3380f137deada1181f35c6c7fa66ed7f81deb01c8a47cd5c1",
+          "bytes": 228394
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-73/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "0de00cb66bf49a0a860e17fe334ca113df39eb6e2cc126fde2bb3a56d258cfda",
+          "bytes": 26010
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-73/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "4b1caf60ab4f319c645f222df419edde54c6ec34e70cb1b8e321ec311462dc44",
+          "bytes": 12572
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-73-thumb.jpg",
+        "sha256": "e492d8fb5b2d1ea86bd2a29e880374bae82b0f466e87d17cff1c92f975050f6f",
+        "bytes": 32484
+      }
+    }
+  ],
+  "packagedAssets": 292,
+  "assetBytes": 37418520,
+  "targetAssetBytes": 47185920
+}

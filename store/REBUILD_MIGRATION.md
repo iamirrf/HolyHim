@@ -1,4 +1,4 @@
-# HolyHer free-edition rebuild — development migration
+# HolyHim free-edition rebuild — development migration
 
 This checkout is an in-progress implementation of the attached full specification. It is not the complete release. On November 1, the compatible free-edition backend functions and Firestore rules were deployed after Node 22 tests, emulator verification, and fresh inventory. Live free enrollment and completion now pass. No backfill was necessary because the pre-rollout inventory had no journeys. No hosted publication, Apple account/product change, App Store upload, submission, or release scheduling was performed.
 
@@ -9,13 +9,13 @@ The 365 original day numbers, titles, message content, and pinned WEB quotations
 ## Access rollout
 
 1. Run existing tests, the five-day content gate, and the independent Scripture verifier.
-2. With trusted project Admin credentials, run `node functions/inventory-edition.js` from the project root (or `node inventory-edition.js` from functions). It prints counts only. On October 31, 2026, the read-only inventory succeeded with explicit `GCLOUD_PROJECT=holyher-app-production`: 0 journeys, 0 legacy entitlement records, 0 retained grants. It performed no writes and did not establish purchase history or a live free-flow test.
+2. With trusted project Admin credentials, run `node functions/inventory-edition.js` from the project root (or `node inventory-edition.js` from functions). It prints counts only. On October 31, 2026, the read-only inventory succeeded with explicit `GCLOUD_PROJECT=holyhim-app-production`: 0 journeys, 0 legacy entitlement records, 0 retained grants. It performed no writes and did not establish purchase history or a live free-flow test.
 3. Review the legacy purchase population. Keep genuine purchase records, RevenueCat configuration, Apple product records, and the webhook unchanged.
 4. Deploy compatible backend and owner-only rules before distributing a new app. `getJourney`, `getAccessStatus`, and idempotent `startJourney` lazily grant existing journeys during this free phase. `node functions/inventory-edition.js --backfill` supplies an explicit transactional backfill when authorized for rollout.
 5. Verify on a test account with no purchase: server-acknowledged journey → retained edition grant → eligible lesson → completion. Do not infer this live proof from local tests.
 6. Only then distribute a verified replacement. Uploaded build 1 still contains a purchase gate and cannot be made free by changing server policy alone.
 
-`FREE_ENROLLMENT_OPEN` is a server constant. Turning it off in a future release must never remove an existing `holyher365` retained grant. Billing reconciliations write only the separate entitlement record. A free grant has no expiry or billing-event revocation path.
+`FREE_ENROLLMENT_OPEN` is a server constant. Turning it off in a future release must never remove an existing `holyhim365` retained grant. Billing reconciliations write only the separate entitlement record. A free grant has no expiry or billing-event revocation path.
 
 ## Schemas and compatibility
 
@@ -29,11 +29,11 @@ The 365 original day numbers, titles, message content, and pinned WEB quotations
 
 Reset requires recent authentication and a durable operation ID. `resetOperations/{operationId}` commits the original result with the revision advancement; retries do not perform another reset. Cleanup deletes only obsolete attempts/resumes and can be retried after interruption. The client retains its reset operation until local cleanup succeeds, preserves new-revision attempts, and clears both guided and legacy positions. Reset advances revision before deleting obsolete attempt/resume records. Start date, timezone, calendar availability, saved items, preferences, edition grant, and activity remain. Revision-less build-1 submissions are accepted only for revision 1. After reset, older clients must upgrade rather than repopulate erased progress.
 
-Deletion atomically creates the existing hashed private account marker and a server-owned `deletionGuards/{uid}` marker that rules can evaluate outside the deleted user tree, queues legacy provider cleanup when a legacy entitlement record exists, recursively removes user-owned cloud data, then removes Firebase Auth. The scheduled private worker retries provider cleanup daily. A provider outage never blocks HolyHer deletion. Queue, operation-receipt, and account-marker collections are inaccessible to clients. The local SQLite deletion transaction removes only that account and retains an erase tombstone that blocks delayed writes; legacy preferences are also removed.
+Deletion atomically creates the existing hashed private account marker and a server-owned `deletionGuards/{uid}` marker that rules can evaluate outside the deleted user tree, queues legacy provider cleanup when a legacy entitlement record exists, recursively removes user-owned cloud data, then removes Firebase Auth. The scheduled private worker retries provider cleanup daily. A provider outage never blocks HolyHim deletion. Queue, operation-receipt, and account-marker collections are inaccessible to clients. The local SQLite deletion transaction removes only that account and retains an erase tombstone that blocks delayed writes; legacy preferences are also removed.
 
 ## Local persistence and recovery
 
-`holyher-local-v1.db` uses SQLite schema version 1, account/key primary keys, and synchronous FULL commits. Each missing key is imported in a transaction; the original preferences remain untouched for recovery until account deletion. Failed imports roll back and can retry. Missing keys are recorded explicitly so stale preferences cannot later reappear. Outboxes have independent schema version 2 with legacy readers/migration.
+`holyhim-local-v1.db` uses SQLite schema version 1, account/key primary keys, and synchronous FULL commits. Each missing key is imported in a transaction; the original preferences remain untouched for recovery until account deletion. Failed imports roll back and can retry. Missing keys are recorded explicitly so stale preferences cannot later reappear. Outboxes have independent schema version 2 with legacy readers/migration.
 
 Answers and resume positions share one record. Completion outbox acceptance and resume clearing commit together. Bookmark state, operation IDs, and pending changes share one record. Onboarding profile/draft flags and legacy completion/revision writes use transactions. An unreadable outbox/profile is preserved and blocks edits; unavailable storage is distinguished from ordinary empty state. SQL failure-injection tests establish local rollback, not physical-device termination acceptance.
 
@@ -41,7 +41,7 @@ Attempt queues drain newly added work, retry stable IDs after lost acknowledgmen
 
 ## Integration evidence
 
-Four suites in `functions/test/firestore.integration.js` run against the loopback `demo-holyher` Firestore emulator. They validate real rules and real Admin SDK transactions, including the delayed-profile deletion guard. Callable HTTP/Auth transport and physical devices are still separate gates. See `REBUILD_VERIFICATION.md` for reproduction and exact limits.
+Four suites in `functions/test/firestore.integration.js` run against the loopback `demo-holyhim` Firestore emulator. They validate real rules and real Admin SDK transactions, including the delayed-profile deletion guard. Callable HTTP/Auth transport and physical devices are still separate gates. See `REBUILD_VERIFICATION.md` for reproduction and exact limits.
 
 ## Content completion
 
@@ -59,4 +59,4 @@ Build 3 fixes a Darwin-only initialization error by using `rawQuery` for the res
 
 The old production `startJourney` returned a purchase-required error to the free client. Compatible functions and matching rules are now deployed. Four real emulator suites, 29 Node 22 tests, 14 live QA flow checks and 11 live callable auth checks pass. The cleanup worker is private, and the existing billing reconciliation/webhook deployment revisions were not changed. Inventory was 0/0 journeys/grants before rollout and 2/2 afterward, with zero legacy entitlement records. No backfill or customer-account reset was performed. `free-rollout-plan.json` and `free-rollout-report.json` under `rebuild-test-results/` record scope and rollback policy; rollback must retain free grants and never restore purchase-required enrollment.
 
-Latest development artifact: `build/ios/development/HolyHer-1.1.0-3-development.ipa`. See `REBUILD_VERIFICATION.md` for its limits. The user confirmed physical Day 1 opening; physical completion acceptance remains separate from the live no-purchase QA verification; all full-catalog/presentation/device release gates still apply.
+Latest development artifact: `build/ios/development/HolyHim-1.1.0-3-development.ipa`. See `REBUILD_VERIFICATION.md` for its limits. The user confirmed physical Day 1 opening; physical completion acceptance remains separate from the live no-purchase QA verification; all full-catalog/presentation/device release gates still apply.

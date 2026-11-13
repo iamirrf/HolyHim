@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.holyher"
+    namespace = "com.holyhim.app"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -20,8 +20,8 @@ android {
     }
 
     defaultConfig {
-        // Development-only identity; production store configuration is ship-time work.
-        applicationId = "com.example.holyher"
+        // HolyHim production identity (mirrors iOS com.holyhim.app).
+        applicationId = "com.holyhim.app"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion

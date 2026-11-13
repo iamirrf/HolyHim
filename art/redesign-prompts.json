@@ -1,0 +1,190 @@
+{
+  "library": [
+    {
+      "id": "jesus-dawn",
+      "subject": "Jesus of Nazareth walking on a Galilean hillside at dawn"
+    },
+    {
+      "id": "jesus-seaside",
+      "subject": "Jesus of Nazareth seated quietly beside the Sea of Galilee at sunrise, viewed from behind"
+    },
+    {
+      "id": "jesus-shepherd",
+      "subject": "Jesus of Nazareth gently carrying a small lamb on his shoulders on an olive-covered hillside"
+    },
+    {
+      "id": "jesus-prayer",
+      "subject": "Jesus of Nazareth praying alone beneath an olive tree in a tranquil garden at first light"
+    },
+    {
+      "id": "jesus-path",
+      "subject": "Jesus of Nazareth walking a dusty path beside tall grass in soft golden late-afternoon light"
+    },
+    {
+      "id": "sky-dawn",
+      "subject": "A vast luminous dawn sky with soft pink clouds above a distant calm horizon"
+    },
+    {
+      "id": "sky-rays",
+      "subject": "Warm sunbeams breaking softly through pale clouds, heavenly light above a distant sea"
+    },
+    {
+      "id": "sky-stillness",
+      "subject": "Soft lavender and peach clouds reflected in an absolutely calm lake at sunrise"
+    },
+    {
+      "id": "sky-evening",
+      "subject": "A serene twilight sky with a single bright star, subtle dusky rose and champagne light"
+    },
+    {
+      "id": "sky-clouds",
+      "subject": "Beautiful towering white clouds with softly gilded edges in a pale blue sky"
+    },
+    {
+      "id": "cross-hill",
+      "subject": "A simple weathered wooden cross on a grassy hill at sunrise, cross in lower right third"
+    },
+    {
+      "id": "cross-window",
+      "subject": "Sunlight through an old chapel window casting a cross-shaped shadow across a warm plaster wall"
+    },
+    {
+      "id": "cross-meadow",
+      "subject": "A small wooden cross in a wildflower meadow with sage grasses and delicate white flowers"
+    },
+    {
+      "id": "cross-mountain",
+      "subject": "Three simple wooden crosses on a distant hill beneath a vast peaceful dawn sky"
+    },
+    {
+      "id": "cross-stone",
+      "subject": "A delicate carved stone cross beside an olive tree, shallow depth of field, warm afternoon light"
+    },
+    {
+      "id": "scripture-morning",
+      "subject": "An open Bible on a cream linen cloth beside a sunlit window, distant focus, no legible letters"
+    },
+    {
+      "id": "scripture-prayer",
+      "subject": "A quiet prayer corner with a closed linen-bound Bible, small candle and olive branch"
+    },
+    {
+      "id": "scripture-chapel",
+      "subject": "The peaceful interior of a small sunlit stone chapel, simple wood pews and a distant cross"
+    },
+    {
+      "id": "scripture-lamp",
+      "subject": "A closed weathered Bible beside a softly glowing antique oil lamp on a wooden table"
+    },
+    {
+      "id": "scripture-garden",
+      "subject": "A linen-bound Bible and a small wooden cross on a stone bench in a sunlit garden"
+    },
+    {
+      "id": "symbol-olive",
+      "subject": "An olive branch in sharp detail before a softly blurred warm sunrise and ancient olive grove"
+    },
+    {
+      "id": "symbol-dove",
+      "subject": "A white dove in gentle flight over a peaceful landscape, graceful anatomically accurate wings"
+    },
+    {
+      "id": "landscape-water",
+      "subject": "A quiet stream flowing through a sunlit green valley, soft sage grasses and warm rocks"
+    },
+    {
+      "id": "landscape-path",
+      "subject": "A winding footpath through an olive grove leading toward distant dawn light"
+    },
+    {
+      "id": "symbol-lilies",
+      "subject": "White lilies in a simple field with rose dawn light, gentle dew and a quiet open sky"
+    }
+  ],
+  "badges": [
+    {
+      "id": "days-001",
+      "subject": "A budding olive sprig emerging from a seed"
+    },
+    {
+      "id": "days-003",
+      "subject": "Three small graceful footprints leading toward a tiny cross"
+    },
+    {
+      "id": "days-007",
+      "subject": "A graceful seven-leaf olive wreath enclosing a small simple cross"
+    },
+    {
+      "id": "days-014",
+      "subject": "A young olive tree with visible sculpted roots"
+    },
+    {
+      "id": "days-021",
+      "subject": "A rose-gold open heart with one pale ivory flower"
+    },
+    {
+      "id": "days-030",
+      "subject": "A slender crescent moon embracing a small gold sun"
+    },
+    {
+      "id": "days-050",
+      "subject": "A strong olive branch growing from a softly rounded stone"
+    },
+    {
+      "id": "days-075",
+      "subject": "A delicate glowing oil lantern rendered in champagne gold"
+    },
+    {
+      "id": "days-100",
+      "subject": "A golden rising sun above three softly sculpted horizon lines"
+    },
+    {
+      "id": "days-150",
+      "subject": "A flourishing olive tree with a broad graceful crown and fine roots"
+    },
+    {
+      "id": "days-200",
+      "subject": "A single white dove with softly sculpted wings open in flight"
+    },
+    {
+      "id": "days-250",
+      "subject": "An open rose-gold heart with an ivory olive sprig nestled inside"
+    },
+    {
+      "id": "days-300",
+      "subject": "A graceful olive wreath encircling a champagne-gold cross with one tiny rose bud"
+    },
+    {
+      "id": "days-365",
+      "subject": "A refined golden sunburst surrounding a small ivory cross, exceptional luminous detail"
+    },
+    {
+      "id": "streak-007",
+      "subject": "A small elegant sculpted flame with an ivory core and rose-gold edge"
+    },
+    {
+      "id": "streak-030",
+      "subject": "Three rising flame shapes intertwined like a graceful botanical sprig"
+    },
+    {
+      "id": "streak-100",
+      "subject": "A tall sculpted flame embraced by a delicate olive wreath"
+    },
+    {
+      "id": "first-saved",
+      "subject": "An open ivory book with a gold bookmark shaped like a small heart, blank pages"
+    },
+    {
+      "id": "promise-kept",
+      "subject": "A returning curved gold path ending in a tiny blooming olive sprig, symbol of beginning again"
+    }
+  ],
+  "workflow": "Built-in image_gen; sources preserved separately from optimized runtime assets.",
+  "libraryStyle": "Coordinated cinematic photographic Christian scenes; warm dawn or late-afternoon light, dusty rose, ivory, muted sage and champagne gold; reverent natural composition; softly luminous atmosphere; portrait framing with calm negative space for readable Scripture; no lettering, logos, watermarks or borders.",
+  "badgeStyle": "Matching premium three-dimensional sculpted milestone keepsakes; ivory porcelain, brushed champagne gold and restrained rose-gold details; soft studio light from upper left; consistent slight three-quarter perspective, centered object, delicate contact shadow, actual transparent alpha; no text, number, logo, watermark or background.",
+  "styleReferences": {
+    "library": "art/generated/library/jesus-dawn.png",
+    "badges": "art/generated/badges/days-001.png"
+  },
+  "inspection": "All 44 outputs visually inspected in contact sheets; 19 badge alpha channels verified. Final packaging is recorded in art/redesign-manifest.json."
+}

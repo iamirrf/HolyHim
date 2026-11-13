@@ -1,7 +1,7 @@
-00:00 +0: loading /Users/amir/Downloads/HolyHer/test/navigation_presentation_test.dart
-00:00 +0: /Users/amir/Downloads/HolyHer/test/navigation_presentation_test.dart: only user vertical scrolling minimizes navigation and upward scrolling expands it
-00:01 +1: /Users/amir/Downloads/HolyHer/test/screens_test.dart: free shell exposes Learn, Saved and Profile with roadmap search
-00:03 +1: /Users/amir/Downloads/HolyHer/test/navigation_presentation_test.dart: Saved search survives tab changes and reselecting Learn returns to the top
+00:00 +0: loading /Users/amir/Downloads/HolyHim/test/navigation_presentation_test.dart
+00:00 +0: /Users/amir/Downloads/HolyHim/test/navigation_presentation_test.dart: only user vertical scrolling minimizes navigation and upward scrolling expands it
+00:01 +1: /Users/amir/Downloads/HolyHim/test/screens_test.dart: free shell exposes Learn, Saved and Profile with roadmap search
+00:03 +1: /Users/amir/Downloads/HolyHim/test/navigation_presentation_test.dart: Saved search survives tab changes and reselecting Learn returns to the top
 ══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
 The following assertion was thrown running a test:
 'package:flutter/src/widgets/scroll_activity.dart': Failed assertion: line 705 pos 15: 'duration >
@@ -16,8 +16,8 @@ When the exception was thrown, this was the stack:
 #2      new DrivenScrollActivity (package:flutter/src/widgets/scroll_activity.dart:705:15)
 #3      ScrollPositionWithSingleContext.animateTo (package:flutter/src/widgets/scroll_position_with_single_context.dart:184:22)
 #4      ScrollController.animateTo (package:flutter/src/widgets/scroll_controller.dart:214:23)
-#5      _HomeShellState._select (package:holyher/features/home/home_shell.dart:48:19)
-#6      _HomeShellState._navigation.<anonymous closure>.<anonymous closure> (package:holyher/features/home/home_shell.dart:192:56)
+#5      _HomeShellState._select (package:holyhim/features/home/home_shell.dart:48:19)
+#6      _HomeShellState._navigation.<anonymous closure>.<anonymous closure> (package:holyhim/features/home/home_shell.dart:192:56)
 #7      _InkResponseState.handleTap (package:flutter/src/material/ink_well.dart:1224:21)
 #8      GestureRecognizer.invokeCallback (package:flutter/src/gestures/recognizer.dart:345:24)
 #9      TapGestureRecognizer.handleTapUp (package:flutter/src/gestures/tap.dart:758:11)
@@ -47,7 +47,7 @@ When the exception was thrown, this was the stack:
 <asynchronous suspension>
 #37     TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
 <asynchronous suspension>
-#38     main.<anonymous closure> (file:///Users/amir/Downloads/HolyHer/test/navigation_presentation_test.dart:29:55)
+#38     main.<anonymous closure> (file:///Users/amir/Downloads/HolyHim/test/navigation_presentation_test.dart:29:55)
 <asynchronous suspension>
 #39     testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
 <asynchronous suspension>
@@ -59,8 +59,8 @@ When the exception was thrown, this was the stack:
 The test description was:
   Saved search survives tab changes and reselecting Learn returns to the top
 ════════════════════════════════════════════════════════════════════════════════════════════════════
-00:03 +1 -1: /Users/amir/Downloads/HolyHer/test/screens_test.dart: free shell exposes Learn, Saved and Profile with roadmap search
-00:03 +1 -1: /Users/amir/Downloads/HolyHer/test/navigation_presentation_test.dart: Saved search survives tab changes and reselecting Learn returns to the top [E]
+00:03 +1 -1: /Users/amir/Downloads/HolyHim/test/screens_test.dart: free shell exposes Learn, Saved and Profile with roadmap search
+00:03 +1 -1: /Users/amir/Downloads/HolyHim/test/navigation_presentation_test.dart: Saved search survives tab changes and reselecting Learn returns to the top [E]
   Test failed. See exception logs above.
   The test description was: Saved search survives tab changes and reselecting Learn returns to the top
   
@@ -74,7 +74,7 @@ When the exception was thrown, this was the stack:
 #1      _expect (package:matcher/src/expect/expect.dart:182:3)
 #2      expect (package:matcher/src/expect/expect.dart:65:3)
 #3      expect (package:flutter_test/src/widget_tester.dart:473:18)
-#4      main.<anonymous closure> (file:///Users/amir/Downloads/HolyHer/test/navigation_presentation_test.dart:29:121)
+#4      main.<anonymous closure> (file:///Users/amir/Downloads/HolyHim/test/navigation_presentation_test.dart:29:121)
 <asynchronous suspension>
 #5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
 <asynchronous suspension>
@@ -86,31 +86,31 @@ When the exception was thrown, this was the stack:
   Test failed. See exception logs above.
   The test description was: Saved search survives tab changes and reselecting Learn returns to the top
   
-00:03 +2 -1: /Users/amir/Downloads/HolyHer/test/presentation_layout_test.dart: narrow-phone text 1.0 reflows every screen family
-00:03 +3 -1: /Users/amir/Downloads/HolyHer/test/presentation_layout_test.dart: narrow-phone text 1.0 reflows every screen family
-00:04 +4 -1: /Users/amir/Downloads/HolyHer/test/presentation_layout_test.dart: narrow-phone text 1.0 reflows every screen family
-00:04 +5 -1: /Users/amir/Downloads/HolyHer/test/presentation_layout_test.dart: narrow-phone text 1.0 reflows every screen family
-00:06 +6 -1: /Users/amir/Downloads/HolyHer/test/presentation_layout_test.dart: narrow-phone text 1.0 reflows every screen family
-00:06 +7 -1: /Users/amir/Downloads/HolyHer/test/presentation_layout_test.dart: narrow-phone text 1.0 reflows every screen family
-00:06 +8 -1: /Users/amir/Downloads/HolyHer/test/presentation_layout_test.dart: narrow-phone text 1.0 reflows every screen family
-00:06 +9 -1: /Users/amir/Downloads/HolyHer/test/screens_test.dart: phone-3x keeps learning, settings and support scrollable
-00:06 +10 -1: /Users/amir/Downloads/HolyHer/test/presentation_layout_test.dart: narrow-phone text 1.3 reflows every screen family
-00:07 +11 -1: /Users/amir/Downloads/HolyHer/test/presentation_layout_test.dart: narrow-phone text 1.3 reflows every screen family
-00:07 +12 -1: /Users/amir/Downloads/HolyHer/test/presentation_layout_test.dart: narrow-phone text 1.3 reflows every screen family
-00:08 +13 -1: /Users/amir/Downloads/HolyHer/test/presentation_layout_test.dart: narrow-phone text 2.0 reflows every screen family
-00:10 +14 -1: /Users/amir/Downloads/HolyHer/test/presentation_layout_test.dart: reference-phone text 1.0 reflows every screen family
-00:11 +15 -1: /Users/amir/Downloads/HolyHer/test/presentation_layout_test.dart: reference-phone text 1.3 reflows every screen family
-00:13 +16 -1: /Users/amir/Downloads/HolyHer/test/presentation_layout_test.dart: reference-phone text 2.0 reflows every screen family
-00:14 +17 -1: /Users/amir/Downloads/HolyHer/test/presentation_layout_test.dart: 14-pro-max text 1.0 reflows every screen family
-00:15 +18 -1: /Users/amir/Downloads/HolyHer/test/presentation_layout_test.dart: 14-pro-max text 1.3 reflows every screen family
-00:17 +19 -1: /Users/amir/Downloads/HolyHer/test/presentation_layout_test.dart: 14-pro-max text 2.0 reflows every screen family
-00:18 +20 -1: /Users/amir/Downloads/HolyHer/test/presentation_layout_test.dart: ipad-portrait text 1.0 reflows every screen family
-00:19 +21 -1: /Users/amir/Downloads/HolyHer/test/presentation_layout_test.dart: ipad-portrait text 1.3 reflows every screen family
-00:22 +22 -1: /Users/amir/Downloads/HolyHer/test/presentation_layout_test.dart: ipad-portrait text 2.0 reflows every screen family
-00:23 +23 -1: /Users/amir/Downloads/HolyHer/test/presentation_layout_test.dart: ipad-landscape text 1.0 reflows every screen family
-00:24 +24 -1: /Users/amir/Downloads/HolyHer/test/presentation_layout_test.dart: ipad-landscape text 1.3 reflows every screen family
-00:26 +25 -1: /Users/amir/Downloads/HolyHer/test/presentation_layout_test.dart: ipad-landscape text 2.0 reflows every screen family
-00:27 +26 -1: /Users/amir/Downloads/HolyHer/test/presentation_layout_test.dart: ipad-split text 1.0 reflows every screen family
-00:28 +27 -1: /Users/amir/Downloads/HolyHer/test/presentation_layout_test.dart: ipad-split text 1.3 reflows every screen family
-00:29 +28 -1: /Users/amir/Downloads/HolyHer/test/presentation_layout_test.dart: ipad-split text 2.0 reflows every screen family
+00:03 +2 -1: /Users/amir/Downloads/HolyHim/test/presentation_layout_test.dart: narrow-phone text 1.0 reflows every screen family
+00:03 +3 -1: /Users/amir/Downloads/HolyHim/test/presentation_layout_test.dart: narrow-phone text 1.0 reflows every screen family
+00:04 +4 -1: /Users/amir/Downloads/HolyHim/test/presentation_layout_test.dart: narrow-phone text 1.0 reflows every screen family
+00:04 +5 -1: /Users/amir/Downloads/HolyHim/test/presentation_layout_test.dart: narrow-phone text 1.0 reflows every screen family
+00:06 +6 -1: /Users/amir/Downloads/HolyHim/test/presentation_layout_test.dart: narrow-phone text 1.0 reflows every screen family
+00:06 +7 -1: /Users/amir/Downloads/HolyHim/test/presentation_layout_test.dart: narrow-phone text 1.0 reflows every screen family
+00:06 +8 -1: /Users/amir/Downloads/HolyHim/test/presentation_layout_test.dart: narrow-phone text 1.0 reflows every screen family
+00:06 +9 -1: /Users/amir/Downloads/HolyHim/test/screens_test.dart: phone-3x keeps learning, settings and support scrollable
+00:06 +10 -1: /Users/amir/Downloads/HolyHim/test/presentation_layout_test.dart: narrow-phone text 1.3 reflows every screen family
+00:07 +11 -1: /Users/amir/Downloads/HolyHim/test/presentation_layout_test.dart: narrow-phone text 1.3 reflows every screen family
+00:07 +12 -1: /Users/amir/Downloads/HolyHim/test/presentation_layout_test.dart: narrow-phone text 1.3 reflows every screen family
+00:08 +13 -1: /Users/amir/Downloads/HolyHim/test/presentation_layout_test.dart: narrow-phone text 2.0 reflows every screen family
+00:10 +14 -1: /Users/amir/Downloads/HolyHim/test/presentation_layout_test.dart: reference-phone text 1.0 reflows every screen family
+00:11 +15 -1: /Users/amir/Downloads/HolyHim/test/presentation_layout_test.dart: reference-phone text 1.3 reflows every screen family
+00:13 +16 -1: /Users/amir/Downloads/HolyHim/test/presentation_layout_test.dart: reference-phone text 2.0 reflows every screen family
+00:14 +17 -1: /Users/amir/Downloads/HolyHim/test/presentation_layout_test.dart: 14-pro-max text 1.0 reflows every screen family
+00:15 +18 -1: /Users/amir/Downloads/HolyHim/test/presentation_layout_test.dart: 14-pro-max text 1.3 reflows every screen family
+00:17 +19 -1: /Users/amir/Downloads/HolyHim/test/presentation_layout_test.dart: 14-pro-max text 2.0 reflows every screen family
+00:18 +20 -1: /Users/amir/Downloads/HolyHim/test/presentation_layout_test.dart: ipad-portrait text 1.0 reflows every screen family
+00:19 +21 -1: /Users/amir/Downloads/HolyHim/test/presentation_layout_test.dart: ipad-portrait text 1.3 reflows every screen family
+00:22 +22 -1: /Users/amir/Downloads/HolyHim/test/presentation_layout_test.dart: ipad-portrait text 2.0 reflows every screen family
+00:23 +23 -1: /Users/amir/Downloads/HolyHim/test/presentation_layout_test.dart: ipad-landscape text 1.0 reflows every screen family
+00:24 +24 -1: /Users/amir/Downloads/HolyHim/test/presentation_layout_test.dart: ipad-landscape text 1.3 reflows every screen family
+00:26 +25 -1: /Users/amir/Downloads/HolyHim/test/presentation_layout_test.dart: ipad-landscape text 2.0 reflows every screen family
+00:27 +26 -1: /Users/amir/Downloads/HolyHim/test/presentation_layout_test.dart: ipad-split text 1.0 reflows every screen family
+00:28 +27 -1: /Users/amir/Downloads/HolyHim/test/presentation_layout_test.dart: ipad-split text 1.3 reflows every screen family
+00:29 +28 -1: /Users/amir/Downloads/HolyHim/test/presentation_layout_test.dart: ipad-split text 2.0 reflows every screen family
 00:30 +29 -1: Some tests failed.

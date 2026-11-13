@@ -4,7 +4,7 @@
     "domain" : "com.apple.dt.CoreDeviceError",
     "userInfo" : {
       "BundleIdentifier" : {
-        "string" : "com.holyher.app"
+        "string" : "com.holyhim.app"
       },
       "NSLocalizedDescription" : {
         "string" : "The application failed to launch."
@@ -21,10 +21,10 @@
               "string" : "0xfe43"
             },
             "NSLocalizedDescription" : {
-              "string" : "The request to open \"com.holyher.app\" failed."
+              "string" : "The request to open \"com.holyhim.app\" failed."
             },
             "NSLocalizedFailureReason" : {
-              "string" : "The request was denied by service delegate (SBMainWorkspace) for reason: Locked (\"Unable to launch com.holyher.app because the device was not, or could not be, unlocked\")."
+              "string" : "The request was denied by service delegate (SBMainWorkspace) for reason: Locked (\"Unable to launch com.holyhim.app because the device was not, or could not be, unlocked\")."
             },
             "NSUnderlyingError" : {
               "error" : {
@@ -35,7 +35,7 @@
                     "string" : "Locked"
                   },
                   "NSLocalizedFailureReason" : {
-                    "string" : "Unable to launch com.holyher.app because the device was not, or could not be, unlocked."
+                    "string" : "Unable to launch com.holyhim.app because the device was not, or could not be, unlocked."
                   }
                 }
               }
@@ -54,7 +54,7 @@
       "--device",
       "79D1760F-3CCF-5595-874B-46E260F41DCD",
       "--activate",
-      "com.holyher.app",
+      "com.holyhim.app",
       "--json-output",
       "store/pearl-redesign/iteration-two-phone-open.json"
     ],

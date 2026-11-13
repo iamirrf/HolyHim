@@ -5,25 +5,25 @@
       "page": "support",
       "status": 200,
       "overflow": false,
-      "title": "Support · HolyHer"
+      "title": "Support · HolyHim"
     },
     {
       "page": "privacy",
       "status": 200,
       "overflow": false,
-      "title": "Privacy · HolyHer"
+      "title": "Privacy · HolyHim"
     },
     {
       "page": "terms",
       "status": 200,
       "overflow": false,
-      "title": "Terms · HolyHer"
+      "title": "Terms · HolyHim"
     },
     {
       "page": "404.html",
       "status": 200,
       "overflow": false,
-      "title": "Page not found · HolyHer"
+      "title": "Page not found · HolyHim"
     }
   ]
 }

@@ -2,33 +2,33 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CLIENT_ID</key>
-	<string>746503857955-nvkgi8skvodb06dejass0e0rj18ef45u.apps.googleusercontent.com</string>
-	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.746503857955-nvkgi8skvodb06dejass0e0rj18ef45u</string>
 	<key>API_KEY</key>
-	<string>AIzaSyAKPKDXXcpH6jCRMwsIUO3XFMtZBdpUNQo</string>
+	<string>REPLACE_WITH_HOLYHIM_FIREBASE_API_KEY</string>
+	<key>BUNDLE_ID</key>
+	<string>com.holyhim.app</string>
+	<key>CLIENT_ID</key>
+	<string>000000000000-REPLACE_WITH_HOLYHIM.apps.googleusercontent.com</string>
 	<key>GCM_SENDER_ID</key>
-	<string>746503857955</string>
+	<string>000000000000</string>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:000000000000:ios:REPLACE_WITH_HOLYHIM_IOS_APP_ID</string>
+	<key>IS_ADS_ENABLED</key>
+	<false/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
-	<key>BUNDLE_ID</key>
-	<string>com.holyher.app</string>
 	<key>PROJECT_ID</key>
-	<string>holyher-app-production</string>
+	<string>holyhim-app-production</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.000000000000-REPLACE_WITH_HOLYHIM</string>
 	<key>STORAGE_BUCKET</key>
-	<string>holyher-app-production.firebasestorage.app</string>
-	<key>IS_ADS_ENABLED</key>
-	<false></false>
-	<key>IS_ANALYTICS_ENABLED</key>
-	<false></false>
-	<key>IS_APPINVITE_ENABLED</key>
-	<true></true>
-	<key>IS_GCM_ENABLED</key>
-	<true></true>
-	<key>IS_SIGNIN_ENABLED</key>
-	<true></true>
-	<key>GOOGLE_APP_ID</key>
-	<string>1:746503857955:ios:6ed10c73853d13b39f8e96</string>
+	<string>holyhim-app-production.firebasestorage.app</string>
 </dict>
 </plist>

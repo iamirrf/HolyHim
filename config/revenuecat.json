@@ -1,10 +1,10 @@
 {
-  "projectId": "proj802af471",
-  "appId": "app294eba1272",
-  "entitlementId": "entl62ead602f6",
+  "projectId": "holyhim-app-production",
+  "appId": "REPLACE_WITH_HOLYHIM_APP_ID",
+  "entitlementId": "REPLACE_WITH_HOLYHIM_ENTITLEMENT_ID",
   "entitlementLookupKey": "lifetime",
-  "offeringId": "ofrng6294cec645",
-  "productId": "prodcb08dff1bb",
-  "storeProductId": "holyher_lifetime",
+  "offeringId": "REPLACE_WITH_HOLYHIM_OFFERING_ID",
+  "productId": "holyhim_lifetime",
+  "storeProductId": "holyhim_lifetime",
   "priceUSD": 1.99
 }

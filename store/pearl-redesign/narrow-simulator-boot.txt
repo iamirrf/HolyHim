@@ -1,4 +1,4 @@
-Monitoring boot status for HolyHer QA Narrow 375 (4A7C6FBB-05DF-4946-9E2D-C9CFC33BEE68).
+Monitoring boot status for HolyHim QA Narrow 375 (4A7C6FBB-05DF-4946-9E2D-C9CFC33BEE68).
 [2026-11-01 22:49:06 +0000] Status=1, isTerminal=NO, Elapsed=00:03.
 	Waiting on BackBoard
 

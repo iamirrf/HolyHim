@@ -1,7 +1,7 @@
 // Credentials are supplied on stdin from the retained QA secret, kept in memory,
 // and redacted from failures. This script never writes or prints credentials.
 const fs=require('node:fs');
-const {chromium}=require(process.env.HOLYHER_PLAYWRIGHT||'playwright');
+const {chromium}=require(process.env.HOLYHIM_PLAYWRIGHT||'playwright');
 (async()=>{
  let raw='';for await(const chunk of process.stdin)raw+=chunk;
  const account=JSON.parse(raw);raw='';

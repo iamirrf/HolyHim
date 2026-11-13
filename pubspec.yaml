@@ -1,7 +1,7 @@
-name: holyher
-description: A free 365-day Scripture journey with five quiet reading cards.
+name: holyhim
+description: A 365-day Scripture journey with four guided reading screens.
 publish_to: 'none'
-version: 1.2.0+4
+version: 2.0.0+6
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
@@ -21,21 +21,27 @@ dependencies:
   flutter_riverpod: ^2.6.1
   flutter_timezone: ^5.1.1
   google_sign_in: ^7.2.0
-  shared_preferences: ^2.5.3
   timezone: ^0.11.2
   url_launcher: ^6.3.3
-  sqflite: 2.4.2
   go_router: ^17.5.0
   http: ^1.6.0
-  cached_network_image: ^3.4.1
   cupertino_icons: ^1.0.9
+  adaptive_platform_ui: 0.1.100
+  liquid_glass_easy: 4.3.1
+  liquid_glass_widgets: 0.30.2
+  sensors_plus: 7.1.1
+  home_widget: 0.10.0
+  path_provider: 2.1.6
+  shared_preferences: ^2.5.3
+  firebase_storage: ^14.0.1
+  image_picker: ^1.0.4
+  image: ^4.5.4
+  purchases_flutter: ^10.12.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^6.0.0
-  sqflite_common_ffi: 2.3.6
-  sqlite3: 2.7.6
 
 flutter:
   uses-material-design: true
@@ -43,12 +49,101 @@ flutter:
     - assets/sounds/
     - assets/brand/
     - assets/artwork/
+    - assets/art/lessons/
+    - assets/art/library/
+    - assets/art/chapters/unit-01/
+    - assets/art/chapters/unit-02/
+    - assets/art/chapters/unit-03/
+    - assets/art/chapters/unit-04/
+    - assets/art/chapters/unit-05/
+    - assets/art/chapters/unit-06/
+    - assets/art/chapters/unit-07/
+    - assets/art/chapters/unit-08/
+    - assets/art/chapters/unit-09/
+    - assets/art/chapters/unit-10/
+    - assets/art/chapters/unit-11/
+    - assets/art/chapters/unit-12/
+    - assets/art/chapters/unit-13/
+    - assets/art/chapters/unit-14/
+    - assets/art/chapters/unit-15/
+    - assets/art/chapters/unit-16/
+    - assets/art/chapters/unit-17/
+    - assets/art/chapters/unit-18/
+    - assets/art/chapters/unit-19/
+    - assets/art/chapters/unit-20/
+    - assets/art/chapters/unit-21/
+    - assets/art/chapters/unit-22/
+    - assets/art/chapters/unit-23/
+    - assets/art/chapters/unit-24/
+    - assets/art/chapters/unit-25/
+    - assets/art/chapters/unit-26/
+    - assets/art/chapters/unit-27/
+    - assets/art/chapters/unit-28/
+    - assets/art/chapters/unit-29/
+    - assets/art/chapters/unit-30/
+    - assets/art/chapters/unit-31/
+    - assets/art/chapters/unit-32/
+    - assets/art/chapters/unit-33/
+    - assets/art/chapters/unit-34/
+    - assets/art/chapters/unit-35/
+    - assets/art/chapters/unit-36/
+    - assets/art/chapters/unit-37/
+    - assets/art/chapters/unit-38/
+    - assets/art/chapters/unit-39/
+    - assets/art/chapters/unit-40/
+    - assets/art/chapters/unit-41/
+    - assets/art/chapters/unit-42/
+    - assets/art/chapters/unit-43/
+    - assets/art/chapters/unit-44/
+    - assets/art/chapters/unit-45/
+    - assets/art/chapters/unit-46/
+    - assets/art/chapters/unit-47/
+    - assets/art/chapters/unit-48/
+    - assets/art/chapters/unit-49/
+    - assets/art/chapters/unit-50/
+    - assets/art/chapters/unit-51/
+    - assets/art/chapters/unit-52/
+    - assets/art/chapters/unit-53/
+    - assets/art/chapters/unit-54/
+    - assets/art/chapters/unit-55/
+    - assets/art/chapters/unit-56/
+    - assets/art/chapters/unit-57/
+    - assets/art/chapters/unit-58/
+    - assets/art/chapters/unit-59/
+    - assets/art/chapters/unit-60/
+    - assets/art/chapters/unit-61/
+    - assets/art/chapters/unit-62/
+    - assets/art/chapters/unit-63/
+    - assets/art/chapters/unit-64/
+    - assets/art/chapters/unit-65/
+    - assets/art/chapters/unit-66/
+    - assets/art/chapters/unit-67/
+    - assets/art/chapters/unit-68/
+    - assets/art/chapters/unit-69/
+    - assets/art/chapters/unit-70/
+    - assets/art/chapters/unit-71/
+    - assets/art/chapters/unit-72/
+    - assets/art/chapters/unit-73/
+    - assets/art/badges/
+    - assets/art/scenes/
     - assets/fonts/manrope-OFL.txt
-    - assets/fonts/sourceserif4-OFL.txt
+    - assets/fonts/PlayfairDisplay-OFL.txt
+    - assets/fonts/Lora-OFL.txt
+    - assets/fonts/PinyonScript-OFL.txt
+    - assets/fonts/DancingScript-OFL.txt
   fonts:
+    - family: DancingScript
+      fonts:
+        - asset: assets/fonts/DancingScript.ttf
     - family: Manrope
       fonts:
         - asset: assets/fonts/Manrope[wght].ttf
-    - family: SourceSerif4
+    - family: PlayfairDisplay
       fonts:
-        - asset: assets/fonts/SourceSerif4[opsz,wght].ttf
+        - asset: assets/fonts/PlayfairDisplay.ttf
+    - family: Lora
+      fonts:
+        - asset: assets/fonts/Lora.ttf
+    - family: PinyonScript
+      fonts:
+        - asset: assets/fonts/PinyonScript.ttf

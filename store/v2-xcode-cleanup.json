@@ -1,0 +1,59 @@
+{
+  "date": "2026-11-04",
+  "simulatorDevicesRemoved": true,
+  "simulatorRuntimesRemoved": true,
+  "preserved": [
+    "source",
+    "signing identities and provisioning profiles",
+    "real-device app data",
+    "release archives and IPA exports"
+  ],
+  "caches": [
+    {
+      "path": "/Users/amir/Library/Developer/Xcode/DerivedData",
+      "logicalKiB": 1706456,
+      "removed": true
+    },
+    {
+      "path": "/Users/amir/Downloads/HolyHim/.dart_tool/flutter_build",
+      "logicalKiB": 1197268,
+      "removed": true
+    },
+    {
+      "path": "/Users/amir/Downloads/HolyHim/build/test_cache",
+      "logicalKiB": 729716,
+      "removed": true
+    },
+    {
+      "path": "/Users/amir/Downloads/HolyHim/build/unit_test_assets",
+      "logicalKiB": 4704,
+      "removed": true
+    },
+    {
+      "path": "/Users/amir/Downloads/HolyHim/build/native_assets",
+      "logicalKiB": 2200,
+      "removed": true
+    },
+    {
+      "path": "/Users/amir/Downloads/HolyHim/build/ios/development",
+      "logicalKiB": 366324,
+      "removed": true
+    },
+    {
+      "path": "/Users/amir/Downloads/HolyHim/build/ios/iphoneos",
+      "logicalKiB": 56224,
+      "removed": true
+    },
+    {
+      "path": "/Users/amir/Downloads/HolyHim/build/ios/XCBuildData",
+      "logicalKiB": 10328,
+      "removed": true
+    }
+  ],
+  "availableBefore": "342 MiB",
+  "availableAfter": "22 GiB",
+  "wirelessRuleGlobal": "/Users/amir/.codex/AGENTS.md",
+  "wirelessRuleProject": "AGENTS.md",
+  "physicalPhoneTransportVerified": "localNetwork",
+  "developerServiceBlocker": "CoreDevice 12040 / 12010: device rejected developer disk image unmount; user asked to restart/unlock while current v2 build runs"
+}

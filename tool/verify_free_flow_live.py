@@ -13,7 +13,7 @@ from pathlib import Path
 from prepare_review_accounts import read_secret, http, AUTH
 
 ROOT = Path(__file__).resolve().parents[1]
-PROJECT = 'holyher-app-production'
+PROJECT = 'holyhim-app-production'
 BASE = f'https://us-central1-{PROJECT}.cloudfunctions.net/'
 DOCS = f'https://firestore.googleapis.com/v1/projects/{PROJECT}/databases/(default)/documents/'
 parser = argparse.ArgumentParser(description=__doc__)
@@ -37,7 +37,7 @@ def fields(data):
 try:
     _, credential = read_secret('journey')
     native = plistlib.loads((ROOT / 'ios/Runner/GoogleService-Info.plist').read_bytes())
-    assert native['PROJECT_ID'] == PROJECT and native['BUNDLE_ID'] == 'com.holyher.app'
+    assert native['PROJECT_ID'] == PROJECT and native['BUNDLE_ID'] == 'com.holyhim.app'
     signed = http('POST', AUTH + 'accounts:signInWithPassword?key=' + native['API_KEY'],
                   {'email': credential['email'], 'password': credential['password'], 'returnSecureToken': True})
     assert signed['localId'] == credential['uid']

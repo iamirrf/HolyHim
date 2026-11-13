@@ -125,7 +125,17 @@
         "Analytics"
       ],
       "basis": "FirebaseAuth/Firestore unlinked technical diagnostics"
+    },
+    {
+      "type": "Photos or Videos",
+      "linkedToUser": true,
+      "usedForTracking": false,
+      "purposes": [
+        "App Functionality",
+        "Product Personalization"
+      ],
+      "basis": "Optional profile photo selected, cropped, and uploaded to account-scoped Firebase Storage"
     }
   ],
-  "qualification": "Includes downloaded vendor declarations. Do not narrow provider-specific categories without documentation/configuration and runtime evidence. Reconcile the final archive privacy report before entering App Store Connect answers."
+  "qualification": "Includes optional account photo upload and downloaded vendor declarations. Reconcile the final archive privacy report and App Store Connect answers before submission."
 }

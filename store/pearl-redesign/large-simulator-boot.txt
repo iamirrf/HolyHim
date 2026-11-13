@@ -1,4 +1,4 @@
-Monitoring boot status for HolyHer QA 14 Pro Max 430 (922B4F9F-9F94-4429-8404-8F8DC6B19AD1).
+Monitoring boot status for HolyHim QA 14 Pro Max 430 (922B4F9F-9F94-4429-8404-8F8DC6B19AD1).
 [2026-11-01 22:59:40 +0000] Status=2, isTerminal=NO, Elapsed=00:02.
 	Waiting on Data Migration
 		Reason:(null)

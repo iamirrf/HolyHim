@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "source": "store/REBUILD_EXECUTION_PLAN.md",
   "sourceSha256": "ebe1f3e471f7afabb3691e57af9c5dfcc4a3f0d1729c79a9a141668e9cc7a8f7",
-  "priorSpecification": "store/HOLYHER_REBUILD_SPEC.md",
+  "priorSpecification": "store/HOLYHIM_REBUILD_SPEC.md",
   "statuses": [
     "unimplemented",
     "implemented",
@@ -2010,18 +2010,18 @@
       "id": "G04-001",
       "gate": 4,
       "sourceLine": 141,
-      "requirement": "Verify that first journey creation and the retained `holyher365` grant commit atomically.",
+      "requirement": "Verify that first journey creation and the retained `holyhim365` grant commit atomically.",
       "reference": {
         "specification": "store/REBUILD_EXECUTION_PLAN.md:141",
         "cogneinFiles": [],
-        "observableBehavior": "Verify that first journey creation and the retained `holyher365` grant commit atomically."
+        "observableBehavior": "Verify that first journey creation and the retained `holyhim365` grant commit atomically."
       },
       "destinations": [
         "functions/index.js",
         "functions/inventory-edition.js",
         "firestore.rules"
       ],
-      "requiredBehavior": "Verify that first journey creation and the retained `holyher365` grant commit atomically.",
+      "requiredBehavior": "Verify that first journey creation and the retained `holyhim365` grant commit atomically.",
       "states": [
         "not applicable: logic, content or delivery requirement"
       ],
@@ -3184,7 +3184,7 @@
       "id": "G05-001",
       "gate": 5,
       "sourceLine": 198,
-      "requirement": "Match the actual reference composition and motion in HolyHer’s white, pearl, and blush palette.",
+      "requirement": "Match the actual reference composition and motion in HolyHim’s white, pearl, and blush palette.",
       "reference": {
         "specification": "store/REBUILD_EXECUTION_PLAN.md:198",
         "cogneinFiles": [
@@ -3192,7 +3192,7 @@
           "lib/core/widgets/app_top_bar.dart",
           "lib/features/main/presentation/main_app_screen.dart"
         ],
-        "observableBehavior": "Match the actual reference composition and motion in HolyHer’s white, pearl, and blush palette."
+        "observableBehavior": "Match the actual reference composition and motion in HolyHim’s white, pearl, and blush palette."
       },
       "destinations": [
         "lib/core/widgets/holy_ui.dart",
@@ -3200,7 +3200,7 @@
         "lib/core/widgets/holy_material.dart",
         "lib/features/home/home_shell.dart"
       ],
-      "requiredBehavior": "Match the actual reference composition and motion in HolyHer’s white, pearl, and blush palette.",
+      "requiredBehavior": "Match the actual reference composition and motion in HolyHim’s white, pearl, and blush palette.",
       "states": [
         "Initial loading",
         "Cached refresh",
@@ -3240,7 +3240,7 @@
       ],
       "verification": {
         "automated": [],
-        "manual": "Match the actual reference composition and motion in HolyHer’s white, pearl, and blush palette.",
+        "manual": "Match the actual reference composition and motion in HolyHim’s white, pearl, and blush palette.",
         "evidence": []
       },
       "status": "unimplemented",

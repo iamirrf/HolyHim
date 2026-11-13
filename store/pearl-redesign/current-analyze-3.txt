@@ -1,5 +1,5 @@
 Analyzing lib, preview_main.dart...
 
-warning - lib/features/lesson/lesson_cards.dart:2:8 - Unused import: 'package:holyher/features/home/lesson_presentation.dart'. Try removing the import directive. - unused_import
+warning - lib/features/lesson/lesson_cards.dart:2:8 - Unused import: 'package:holyhim/features/home/lesson_presentation.dart'. Try removing the import directive. - unused_import
 
 1 issue found.

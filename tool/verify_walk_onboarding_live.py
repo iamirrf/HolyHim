@@ -3,7 +3,7 @@ import datetime,json,plistlib,urllib.request,urllib.error
 from pathlib import Path
 from prepare_review_accounts import read_secret,http,AUTH
 ROOT=Path(__file__).resolve().parents[1]
-PROJECT='holyher-app-production'
+PROJECT='holyhim-app-production'
 _,credential=read_secret('onboarding')
 native=plistlib.loads((ROOT/'ios/Runner/GoogleService-Info.plist').read_bytes())
 signed=http('POST',AUTH+'accounts:signInWithPassword?key='+native['API_KEY'],{'email':credential['email'],'password':credential['password'],'returnSecureToken':True})

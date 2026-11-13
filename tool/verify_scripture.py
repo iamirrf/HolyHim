@@ -96,7 +96,7 @@ def main() -> int:
             raise ValueError(f'Stale or edited generated artifact: {path.relative_to(ROOT)}')
     quoted_count = len({key for lesson in lessons for key in verse_keys(lesson['reference'])})
     print(f'365 lessons verified: {quoted_count} quoted verses; all {len(cached):,} cached verses match independently parsed pinned XML.')
-    print('Archive/XML hashes, original archive entries, authored input, Dart catalog, provenance fixture, and editorial report match. No files rewritten.')
+    print('Archive/XML hashes and original archive entries verified; v2 source, Dart catalog and provenance fixture match. No files rewritten.')
     return 0
 
 

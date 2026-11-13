@@ -1,8 +1,8 @@
-# Cognein → HolyHer parity matrix
+# Cognein → HolyHim parity matrix
 
 Reference repository: `/Users/amir/Downloads/evolve.ai`, read only. Exact commit and SHA-256 values are in `cognein-source-manifest.json`. This matrix distinguishes implemented behavior from acceptance still outstanding. Similar colors or constants do not count as full parity.
 
-| Reference | HolyHer implementation | Reuse / current behavior | Evidence | Remaining acceptance |
+| Reference | HolyHim implementation | Reuse / current behavior | Evidence | Remaining acceptance |
 |---|---|---|---|---|
 | `core/widgets/app_pressable.dart` | `core/widgets/holy_ui.dart` | Actual unbounded controller, .96 press, velocity-preserving 400/.55 release spring, focus and semantics | Source port; Flutter render tests | Physical tactile review |
 | `core/widgets/animated_mesh_background.dart`, `backdrop_host.dart` | `BlushBackdrop`, app builder | One persistent ambient field, 20-second reversing controller, pause and Reduce Motion support | Source inspection | Exact mesh/material composition comparison |

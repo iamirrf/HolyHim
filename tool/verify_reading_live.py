@@ -2,7 +2,7 @@
 import datetime,json,plistlib,urllib.error,urllib.request,uuid
 from pathlib import Path
 from prepare_review_accounts import read_secret,http,AUTH
-ROOT=Path(__file__).resolve().parents[1];PROJECT='holyher-app-production';BASE=f'https://us-central1-{PROJECT}.cloudfunctions.net/'
+ROOT=Path(__file__).resolve().parents[1];PROJECT='holyhim-app-production';BASE=f'https://us-central1-{PROJECT}.cloudfunctions.net/'
 _,credential=read_secret('journey');native=plistlib.loads((ROOT/'ios/Runner/GoogleService-Info.plist').read_bytes())
 signed=http('POST',AUTH+'accounts:signInWithPassword?key='+native['API_KEY'],{'email':credential['email'],'password':credential['password'],'returnSecureToken':True});assert signed['localId']==credential['uid']
 checks=[]

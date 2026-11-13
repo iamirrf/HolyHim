@@ -1,13 +1,13 @@
 {
   "verifiedAt": "2026-10-31T02:48:06.695060+00:00",
-  "projectId": "holyher-app-production",
+  "projectId": "holyhim-app-production",
   "ownerAccount": "iamirrf1@gmail.com",
-  "bundleId": "com.holyher.app",
+  "bundleId": "com.holyhim.app",
   "accounts": [
     {
       "role": "onboarding",
-      "email": "appreview-onboarding@holyher.example",
-      "secretName": "HOLYHER_APP_REVIEW_ONBOARDING",
+      "email": "appreview-onboarding@holyhim.example",
+      "secretName": "HOLYHIM_APP_REVIEW_ONBOARDING",
       "credentialStoredAndVerified": true,
       "actualSignInVerified": true,
       "createdThisRun": false,
@@ -28,8 +28,8 @@
     },
     {
       "role": "journey",
-      "email": "appreview-journey@holyher.example",
-      "secretName": "HOLYHER_APP_REVIEW_JOURNEY",
+      "email": "appreview-journey@holyhim.example",
+      "secretName": "HOLYHIM_APP_REVIEW_JOURNEY",
       "credentialStoredAndVerified": true,
       "actualSignInVerified": true,
       "createdThisRun": false,

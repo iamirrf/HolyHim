@@ -23,7 +23,7 @@ source = (ROOT / 'lib/services/durable_store.dart').read_text()
 configuration = source.split('onConfigure:', 1)[1].split('onCreate:', 1)[0]
 calls = re.findall(r"await db\.(execute|rawQuery)\(\s*'([^']+)'\s*\)", configuration)
 assert len(calls) == 2, 'Review native fixture extraction after changing onConfigure.'
-with tempfile.TemporaryDirectory(prefix='holyher-native-sqlite-') as temp:
+with tempfile.TemporaryDirectory(prefix='holyhim-native-sqlite-') as temp:
     executable = Path(temp) / 'verify'
     subprocess.run(['xcrun', 'clang', '-fobjc-arc', '-w', '-I', str(sources),
                     str(ROOT / 'test/native/sqlite_configuration_test.m'),

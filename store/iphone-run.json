@@ -1,0 +1,18 @@
+{
+  "attemptedAt": "2026-11-10T04:53:36.868221+00:00",
+  "status": "failed",
+  "bundleId": "com.holyhim.app",
+  "built": false,
+  "installed": false,
+  "processStarted": false,
+  "verifiedWirelessLaunch": false,
+  "stage": "preflight",
+  "version": "2.0.0",
+  "build": "6",
+  "mode": "profile",
+  "chapterAssetsVerified": 292,
+  "transport": "localNetwork",
+  "failure": {
+    "reason": "The iPhone's wireless tunnel is not connected. Keep it unlocked and available on the local network."
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "kind": "Flutter raster layout capture; not a physical-device screenshot",
+  "sizePoints": [
+    393,
+    852
+  ],
+  "pixelRatio": 2,
+  "images": [
+    {
+      "path": "screens/welcome.png",
+      "sha256": "080ce6a524231cf4b6bbdfedc082b60baeb804aa7d86e0f1435d00a523fb0b35"
+    },
+    {
+      "path": "screens/email-signin.png",
+      "sha256": "e548a535483e84055a208d33ae61bf191cdfb7753223f35bb93b0436de0ef79d"
+    },
+    {
+      "path": "screens/email-signup.png",
+      "sha256": "b4bea8191149192ea00bb84926cf54b9cdc6a042eef581b956dbb55061ebfa62"
+    },
+    {
+      "path": "screens/onboarding-1.png",
+      "sha256": "7c5243859e2449e9ee25ec8a81afc4fcf99ede69ea8817adf3ec58f033662578"
+    },
+    {
+      "path": "screens/onboarding-2.png",
+      "sha256": "fedf4d160f643fcaf88f1eefc330a998a7920a450995665f66266473a9825063"
+    },
+    {
+      "path": "screens/onboarding-3.png",
+      "sha256": "0e24c67d7b514f5ccb71976902b011b468f309fe02298570114fb7764997bafd"
+    },
+    {
+      "path": "screens/onboarding-4.png",
+      "sha256": "02e002dcdcab82a54d273ad1fb27ea79d81e1ee8590d20d8ea4e1ea8cad5a8d9"
+    },
+    {
+      "path": "screens/onboarding-5.png",
+      "sha256": "cfc655617466e48474f78881542b2ced0783966b4ac32d711a996623d9d4e457"
+    },
+    {
+      "path": "screens/onboarding-6.png",
+      "sha256": "46ea99c226a8fa6f9dc0d419b0274fba1947d97c657ac98901dc6194fbe261cf"
+    },
+    {
+      "path": "screens/onboarding-7.png",
+      "sha256": "adc1b3cae1e8bb5d2bc248a9cdcca00eff128ef7f45b22c419c75434098dc767"
+    },
+    {
+      "path": "screens/onboarding-8.png",
+      "sha256": "2bfab59d5278af3e122d6ee72c4e4b4b8fb7e8bd364d2a18d9cf48bd1ac00871"
+    },
+    {
+      "path": "screens/onboarding-9.png",
+      "sha256": "a4b34296512b83bdc0ab555e0855dcd25039b39930f26471be7f3c068d50e3b5"
+    },
+    {
+      "path": "screens/onboarding-10.png",
+      "sha256": "29394e6f0e552e4a7ee01c8cd63c419bd0f3ab2b85a0e54af3d2b98806aca0f7"
+    },
+    {
+      "path": "screens/paywall-unavailable.png",
+      "sha256": "7e983cf5eca1caa181d6934d6370f19678f093e47320d7fd6e2972174ba2e495"
+    },
+    {
+      "path": "screens/walk.png",
+      "sha256": "013af7e608433b5f1fe6f19971819e4e6c4ef5cce22b6819e5f60b28aa02fb76"
+    },
+    {
+      "path": "screens/scripture.png",
+      "sha256": "236e41a803c78a3a041561a68f96e85417fd3e77b814e664f5b5bfc2d0ab5981"
+    },
+    {
+      "path": "screens/meaning.png",
+      "sha256": "e511bf64747b09dfc5ad6b75476865c5c22a2917bbd2776c8f830f47a22fc9a0"
+    },
+    {
+      "path": "screens/reflection.png",
+      "sha256": "303ea1fc6610318dbfb40ff3e185654b68a3cef088242cec48feaee6ffa080c3"
+    },
+    {
+      "path": "screens/prayer.png",
+      "sha256": "c2c8a12ba42f9292abe03166f8860fc1d22a69be293f034d8d2943b112699c7e"
+    },
+    {
+      "path": "screens/completion.png",
+      "sha256": "48256d47c7ff4084b9175af19ecc0c732f9523acdf80bf55a6eeb045b554be65"
+    },
+    {
+      "path": "screens/saved.png",
+      "sha256": "77a18e4fd0402437650ef31b9aa08605ca9b313f109485c5e40fc481293f5dd0"
+    },
+    {
+      "path": "screens/saved-empty.png",
+      "sha256": "e1623717313d1ee298d80513abd1351dd194db2fa5f9a894b1b38f3d033cf28d"
+    },
+    {
+      "path": "screens/growth.png",
+      "sha256": "63835c883850b89e23c20708125e145dde2a215a204a67248bb5cf05515c2dd5"
+    },
+    {
+      "path": "screens/growth-empty.png",
+      "sha256": "f20900976e57cbbc5a2639b10c01d5715caadb5cb207040f0da70a34895a5ad2"
+    },
+    {
+      "path": "screens/profile.png",
+      "sha256": "eca165935f6db58649749f6b6f6add454f16f83c588874d31ef76f32b32cdb74"
+    },
+    {
+      "path": "screens/edit-profile.png",
+      "sha256": "b8000c4f2132e8877fb3f9559444230174a48da54b90e12ad51502a948119cd0"
+    },
+    {
+      "path": "screens/themes.png",
+      "sha256": "69e93f23c8a7852729e9698a302b8f438ac16e8b1165e52041a8cb3f6775a572"
+    },
+    {
+      "path": "screens/support.png",
+      "sha256": "45c58a486a5a33394140915774c72b5094f4953e083678938b5287a395097e39"
+    },
+    {
+      "path": "screens/privacy.png",
+      "sha256": "82316eacccc6bbb6570be384d5c9b9b10b353188b26cdea4269945189e0fbbd8"
+    }
+  ]
+}

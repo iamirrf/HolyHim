@@ -22,6 +22,7 @@ import zlib
 from verify_archive import (
     ROOT, BUNDLE, TEAM, PROJECT, GOOGLE_APP, inspect_privacy, load_plist, run, sha,
 )
+from release_gate import production_gate_disabled
 
 
 def ipa_sha(path):
@@ -85,12 +86,13 @@ def audit(ipa, output, archive_report):
             report['failures'].append(name)
 
     try:
+        check('production_paywall_gate_disabled', production_gate_disabled(ROOT))
         check('explicit_ipa_file', ipa.is_file() and ipa.suffix.lower() == '.ipa')
         if not report['checks']['explicit_ipa_file']:
             raise ValueError('Supply the actual exported .ipa file explicitly.')
         report['ipaSha256'] = ipa_sha(ipa)
         report['ipaBytes'] = ipa.stat().st_size
-        with tempfile.TemporaryDirectory(prefix='holyher-distribution-') as temp:
+        with tempfile.TemporaryDirectory(prefix='holyhim-distribution-') as temp:
             root = Path(temp)
             extract(ipa, root)
             check('safe_zip_extraction', True)
@@ -100,9 +102,14 @@ def audit(ipa, output, archive_report):
                 raise ValueError('IPA must contain exactly one direct Payload/*.app application.')
             app = apps[0]
             info = load_plist(app / 'Info.plist')
+            source_version = re.search(r'^version:\s*([^+\s]+)\+(\d+)',
+                                       (ROOT / 'pubspec.yaml').read_text(), re.MULTILINE)
+            if source_version is None:
+                raise ValueError('pubspec.yaml has no Flutter version and build number.')
             for key, expected in (
-                ('CFBundleIdentifier', BUNDLE), ('CFBundleDisplayName', 'HolyHer'),
-                ('CFBundleShortVersionString', '1.0.0'), ('CFBundleVersion', '1'),
+                ('CFBundleIdentifier', BUNDLE), ('CFBundleDisplayName', 'HolyHim'),
+                ('CFBundleShortVersionString', source_version.group(1)),
+                ('CFBundleVersion', source_version.group(2)),
                 ('UIDeviceFamily', [1, 2]), ('ITSAppUsesNonExemptEncryption', False),
             ):
                 check(key, key in info and (info[key] is False

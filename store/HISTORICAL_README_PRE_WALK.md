@@ -1,8 +1,8 @@
 > Development rebuild in progress (October 31, 2026). The active source now uses free edition access and Learn/Saved/Profile. Only the first five lessons have the new guided format. See [rebuild status and migration](store/REBUILD_MIGRATION.md) and [parity matrix](store/COGNEIN_SCREEN_MAP.md). Historical build-1 billing and release notes below are not the current implementation or proof of a completed rebuild.
 
-# HolyHer
+# HolyHim
 
-HolyHer is a women-focused daily Bible companion for iPhone and iPad. The current source contains **365 complete lessons**, a personalized onboarding flow, Today / Journey / Profile, and a **US$1.99 one-time lifetime purchase**. Version `1.0.0+1` uses production bundle identifier `com.holyher.app` under Codellion LLC.
+HolyHim is a women-focused daily Bible companion for iPhone and iPad. The current source contains **365 complete lessons**, a personalized onboarding flow, Today / Journey / Profile, and a **US$1.99 one-time lifetime purchase**. Version `1.0.0+1` uses production bundle identifier `com.holyhim.app` under Codellion LLC.
 
 The implementation, production cloud deployment, Apple product setup, and automated checks are complete. The signed iPhone/iPad archive passed identity, signature, and bundled-privacy verification and installed on iPhone 14 Pro Max. **Apple accepted the upload of version 1.0.0 (1) and began processing it.** This checkout is **not yet a verified App Store submission candidate**: native account/purchase acceptance, completed Apple processing, and listing/submission gates remain open. iOS blocked the phone launch while it was locked. See [delivery status](DELIVERY.md), [verification evidence](store/VERIFICATION.md), and [owner actions](store/OWNER_ACTIONS.md).
 
@@ -14,13 +14,13 @@ Each lesson moves through **Verse → Confidence → Reason → Hope → Carry**
 
 All readers receive the same ordered curriculum. Onboarding saves preferred name, Bible familiarity, focus, routine obstacle, and optional reminder. These choices inform presentation, reading guidance, and application prompts. Previously unlocked lessons remain available for rereading and catch-up.
 
-The design adapts relevant Cognein surfaces and interactions in HolyHer's pearl, blush, and Lexend system. [The screen map](store/COGNEIN_SCREEN_MAP.md) records the corresponding screens and intentional product boundaries. The supplied HolyHer icon set is recorded in [icon provenance](config/icon-provenance.json).
+The design adapts relevant Cognein surfaces and interactions in HolyHim's pearl, blush, and Lexend system. [The screen map](store/COGNEIN_SCREEN_MAP.md) records the corresponding screens and intentional product boundaries. The supplied HolyHim icon set is recorded in [icon provenance](config/icon-provenance.json).
 
 ## Accounts, access, and daily release
 
 Sign-in is required through Apple, Google, or email/password. Firebase Authentication and Firestore support the account and synced setup/progress. All eight Cloud Functions and Hosting are deployed to the correct production project. Live email authentication, account isolation, receipt reconciliation for an unpaid account, support submission, and account deletion passed. Native provider and purchase acceptance remain open. Apple Sign-In's separate Services ID/signing-key setup is documented in [the owner setup guide](store/APPLE_OWNER_SETUP.md).
 
-`holyher_lifetime` is the sole non-consumable product, granting the RevenueCat `lifetime` entitlement. Localized prices come from the App Store product. Purchase and Restore Purchases use RevenueCat and backend confirmation; a local boolean does not grant production access. RevenueCat identifiers are recorded in [purchase configuration](config/revenuecat.json). The [Apple product plan](store/iap-plan.json) has been applied: live read-back verified availability and localized prices in all 175 storefronts, including US$1.99. Apple read-back also confirms the actual paywall review image with matching checksum/byte size. These setup results do not prove a real purchase, restore, refund, or webhook flow.
+`holyhim_lifetime` is the sole non-consumable product, granting the RevenueCat `lifetime` entitlement. Localized prices come from the App Store product. Purchase and Restore Purchases use RevenueCat and backend confirmation; a local boolean does not grant production access. RevenueCat identifiers are recorded in [purchase configuration](config/revenuecat.json). The [Apple product plan](store/iap-plan.json) has been applied: live read-back verified availability and localized prices in all 175 storefronts, including US$1.99. Apple read-back also confirms the actual paywall review image with matching checksum/byte size. These setup results do not prove a real purchase, restore, refund, or webhook flow.
 
 The purchased journey begins with Day 1. One new lesson unlocks per calendar day in the journey's saved time zone, using server dates. Missed days accumulate rather than disappear. Previously unlocked content supports offline reading after successful setup; reconnect to sync and obtain new unlocks. Account-specific caches and generation checks isolate sign-in sessions.
 
@@ -48,16 +48,16 @@ Latest recorded results: **53 Flutter tests passed, including the store capture*
 
 ## Development and production services
 
-Install Flutter/Dart and the native Apple toolchain, resolve the declared packages, and use the HolyHer Firebase project configuration before running:
+Install Flutter/Dart and the native Apple toolchain, resolve the declared packages, and use the HolyHim Firebase project configuration before running:
 
 ```sh
 flutter pub get
 flutter run
 ```
 
-`flutter run` does not bypass account, purchase, or backend requirements. The production project is `holyher-app-production`, controlled by `iamirrf1@gmail.com` with billing verified. All eight functions and Hosting are deployed, server-secret access/bindings are verified, and support/billing TTL policies are active. Billing on the earlier project is disabled, and the temporary editor grant to the intended owner on that old project has been removed. Keep HolyHer services separate from Cognein.
+`flutter run` does not bypass account, purchase, or backend requirements. The production project is `holyhim-app-production`, controlled by `iamirrf1@gmail.com` with billing verified. All eight functions and Hosting are deployed, server-secret access/bindings are verified, and support/billing TTL policies are active. Billing on the earlier project is disabled, and the temporary editor grant to the intended owner on that old project has been removed. Keep HolyHim services separate from Cognein.
 
-The deployed website is `https://holyher-app-production.web.app`, with `/privacy`, `/terms`, and `/support`. Live checks passed for public pages, persisted support submission, the actual inactive RevenueCat entitlement, and account deletion. Native sign-in and active purchase/restore acceptance remain separate release gates.
+The deployed website is `https://holyhim-app-production.web.app`, with `/privacy`, `/terms`, and `/support`. Live checks passed for public pages, persisted support submission, the actual inactive RevenueCat entitlement, and account deletion. Native sign-in and active purchase/restore acceptance remain separate release gates.
 
 The deployed webhook accepted an authenticated smoke request and an idempotent retry without creating user/access data; its QA marker was removed. RevenueCat's endpoint is correct, but its API redacts the configured header. A real RevenueCat-delivered transaction and full purchase lifecycle remain unverified.
 

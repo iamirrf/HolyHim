@@ -1,25 +1,25 @@
-# HolyHer production handoffs
+# HolyHim production handoffs
 
 Updated October 30, 2026. The 365-lesson implementation, automated checks, icons, and store materials are prepared. The items below concern production account control, live acceptance, and the Apple release. They are not a request to repeat configuration already reported complete.
 
 ## Only owner-required steps
 
 1. Run the private [Apple Terminal login command](APPLE_OWNER_SETUP.md#3-one-private-terminal-login-for-the-app-store-listing), entering the hidden password and Apple's two-factor code locally. The saved session lets the agent continue listing/privacy/release automation while it remains valid; no password belongs in chat.
-2. Create the separate HolyHer-only **Sign in with Apple** key and Services ID in the Apple portal, following [the exact setup guide](APPLE_OWNER_SETUP.md#1-create-the-separate-sign-in-with-apple-key). Keep the downloaded `.p8` outside the repositories and use the secure importer. RevenueCat purchase keys are already connected and do not replace this authentication key.
+2. Create the separate HolyHim-only **Sign in with Apple** key and Services ID in the Apple portal, following [the exact setup guide](APPLE_OWNER_SETUP.md#1-create-the-separate-sign-in-with-apple-key). Keep the downloaded `.p8` outside the repositories and use the secure importer. RevenueCat purchase keys are already connected and do not replace this authentication key.
 3. Confirm a monitored App Review contact when needed, and respond to Apple sign-in, StoreKit, and notification prompts during final real-device acceptance.
 
 The agent continues archive validation, store uploads/read-backs, reviewer-account preparation, and release configuration. Their remaining gates are recorded below; they are not extra manual setup assignments for the owner.
 
 ## Google account and production cloud
 
-The controlling Google account is **`iamirrf1@gmail.com`**, using the separate **`holyher-app-production`** project, with owner access and billing verified. This replaces the earlier project created through a different account. The earlier project's billing is disabled, and the temporary editor grant to the intended owner on that old project has been removed. Keep Cognein's project and data separate.
+The controlling Google account is **`iamirrf1@gmail.com`**, using the separate **`holyhim-app-production`** project, with owner access and billing verified. This replaces the earlier project created through a different account. The earlier project's billing is disabled, and the temporary editor grant to the intended owner on that old project has been removed. Keep Cognein's project and data separate.
 
-The final source deployment completed for all eight HolyHer functions and Hosting in the correct production project. Support/billing TTL policies are active. **All 17 live cloud checks and 14 additional read-only transport checks passed**, including support persistence, an actual inactive RevenueCat entitlement, and account deletion. [Live evidence](live-cloud-verification.json) preserves both runs. The public routes are:
+The final source deployment completed for all eight HolyHim functions and Hosting in the correct production project. Support/billing TTL policies are active. **All 17 live cloud checks and 14 additional read-only transport checks passed**, including support persistence, an actual inactive RevenueCat entitlement, and account deletion. [Live evidence](live-cloud-verification.json) preserves both runs. The public routes are:
 
-- `https://holyher-app-production.web.app/`
-- `https://holyher-app-production.web.app/privacy`
-- `https://holyher-app-production.web.app/terms`
-- `https://holyher-app-production.web.app/support`
+- `https://holyhim-app-production.web.app/`
+- `https://holyhim-app-production.web.app/privacy`
+- `https://holyhim-app-production.web.app/terms`
+- `https://holyhim-app-production.web.app/support`
 
 The live checks confirmed public pages and persisted support submission. A monitored operations workflow remains necessary for handling and replying to real requests. TTL cleanup is asynchronous, so avoid promising removal at an exact clock time.
 
@@ -31,7 +31,7 @@ Verify email signup/sign-in/reset and the production Apple and Google providers 
 
 RevenueCat Apple credentials are connected. The expected Secret Manager entries, server access, and deployed function bindings are verified in the new Google project; do not repeat successful secret setup. No secret value belongs in these documents or chat. The server secrets are `REVENUECAT_SECRET_API_KEY` and `REVENUECAT_WEBHOOK_SECRET`.
 
-Confirm the App Store non-consumable `holyher_lifetime`, RevenueCat `lifetime` entitlement, and offering agree with `config/revenuecat.json`. The launch price is **US$1.99 once**. Do not add a recurring plan. Test purchase, cancellation/pending approval, restore after reinstall, purchase transfer behavior, and refund/revocation propagation through the authenticated webhook. A connected key or dashboard product alone does not establish those results.
+Confirm the App Store non-consumable `holyhim_lifetime`, RevenueCat `lifetime` entitlement, and offering agree with `config/revenuecat.json`. The launch price is **US$1.99 once**. Do not add a recurring plan. Test purchase, cancellation/pending approval, restore after reinstall, purchase transfer behavior, and refund/revocation propagation through the authenticated webhook. A connected key or dashboard product alone does not establish those results.
 
 The nonpublic [IAP catalog](iap-catalog.json) and [persisted plan](iap-plan.json) have been **applied**. Live read-back verified available, localized prices in all **175 Apple storefronts**, including **US$1.99**; future territories are enabled. Do not regenerate or reapply the creation plan. The app's distribution must not exceed territories with an available, priced lifetime product. The actual paywall App Review image **fcad9c60-08c3-42ef-9a8d-1c99fb217ea2** is confirmed in Apple's live read-back, with checksum and byte size matching the uploaded capture. Product configuration and screenshot acceptance do not establish successful sandbox purchase/restore or App Review approval.
 
@@ -39,7 +39,7 @@ The helper scripts configure real services and may create or update secrets or Q
 
 ## Native and device acceptance
 
-The fresh signed archive for `com.holyher.app` under Codellion LLC passed production identity, deep signature, iPhone/iPad support, Apple sign-in entitlement, compiled branding, and bundled privacy checks. Its root privacy file plus 28 SDK manifests are covered by the prepared disclosure. **Xcode distribution export/upload succeeded; Apple began processing version 1.0.0 (1).** The production build installed on iPhone 14 Pro Max; iOS blocked opening it because the phone was locked. [Archive evidence](archive-verification.json), [upload evidence](apple-upload-verification.json), and [device evidence](device-verification.json) record the limits of these checks. Completed Apple processing, physical iPad and native-flow acceptance remain open.
+The fresh signed archive for `com.holyhim.app` under Codellion LLC passed production identity, deep signature, iPhone/iPad support, Apple sign-in entitlement, compiled branding, and bundled privacy checks. Its root privacy file plus 28 SDK manifests are covered by the prepared disclosure. **Xcode distribution export/upload succeeded; Apple began processing version 1.0.0 (1).** The production build installed on iPhone 14 Pro Max; iOS blocked opening it because the phone was locked. [Archive evidence](archive-verification.json), [upload evidence](apple-upload-verification.json), and [device evidence](device-verification.json) record the limits of these checks. Completed Apple processing, physical iPad and native-flow acceptance remain open.
 
 On iPhone and iPad, exercise onboarding, purchase/restore, reading all five cards, final-card completion, rereading, catch-up days, account switching, reminders, deletion, and offline return to previously unlocked lessons. Check restart/resume and cross-device sync. Use controlled backend dates for calendar acceptance rather than changing a public user's device clock or adding a production bypass.
 

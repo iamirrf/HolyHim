@@ -18,9 +18,9 @@ import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-PROJECT = 'holyher-app-production'
+PROJECT = 'holyhim-app-production'
 ACCOUNT = 'iamirrf1@gmail.com'
-BUNDLE = 'com.holyher.app'
+BUNDLE = 'com.holyhim.app'
 ROLES = ('onboarding', 'journey')
 AUTH = 'https://identitytoolkit.googleapis.com/v1/'
 DOCUMENTS = 'https://firestore.googleapis.com/v1/projects/' + PROJECT + '/databases/(default)/documents/'
@@ -52,16 +52,16 @@ def http(method, url, body=None, token=None, allow_missing=False):
 
 
 def secret_name(role):
-    return 'HOLYHER_APP_REVIEW_' + role.upper()
+    return 'HOLYHIM_APP_REVIEW_' + role.upper()
 
 
 def email_for(role):
-    return 'appreview-' + role + '@holyher.example'
+    return 'appreview-' + role + '@holyhim.example'
 
 
 def labels_for(role):
-    return {'app': 'holyher', 'purpose': 'app-review-' + role,
-            'managed_by': 'holyher-release', 'schema': 'v1'}
+    return {'app': 'holyhim', 'purpose': 'app-review-' + role,
+            'managed_by': 'holyhim-release', 'schema': 'v1'}
 
 
 def lookup(admin, **selector):
@@ -109,7 +109,7 @@ def read_secret(role):
     except (TypeError, ValueError):
         raise RuntimeError('Existing review credentials have an unrecognized format') from None
     expected = {'schema': 1, 'projectId': PROJECT, 'bundleId': BUNDLE,
-                'purpose': 'holyher-app-review', 'role': role, 'email': email_for(role)}
+                'purpose': 'holyhim-app-review', 'role': role, 'email': email_for(role)}
     if any(credential.get(key) != value for key, value in expected.items()):
         raise RuntimeError('Existing review credentials target a different app/account; left untouched')
     if not isinstance(credential.get('uid'), str) or not credential['uid']:
@@ -187,7 +187,7 @@ def prepare_one(role, admin, api_key):
         signup = http('POST', AUTH + 'accounts:signUp?key=' + urllib.parse.quote(api_key),
             {'email': email_for(role), 'password': password, 'returnSecureToken': True})
         credential = {'schema': 1, 'projectId': PROJECT, 'bundleId': BUNDLE,
-            'purpose': 'holyher-app-review', 'role': role, 'email': email_for(role),
+            'purpose': 'holyhim-app-review', 'role': role, 'email': email_for(role),
             'uid': signup['localId'], 'password': password,
             'createdAt': datetime.datetime.now(datetime.timezone.utc).isoformat()}
         if not save_credential(role, credential):
@@ -229,7 +229,7 @@ def main():
     policy = http('POST', 'https://cloudresourcemanager.googleapis.com/v1/projects/' + PROJECT + ':getIamPolicy', {}, admin)
     owners = {member for binding in policy.get('bindings', []) if binding.get('role') == 'roles/owner' for member in binding.get('members', [])}
     if owners != {'user:' + ACCOUNT}:
-        raise RuntimeError('Review account setup requires the verified HolyHer project owner')
+        raise RuntimeError('Review account setup requires the verified HolyHim project owner')
     report = {'verifiedAt': datetime.datetime.now(datetime.timezone.utc).isoformat(),
         'projectId': PROJECT, 'ownerAccount': ACCOUNT, 'bundleId': BUNDLE,
         'accounts': [], 'credentialsUploadedToApple': False,

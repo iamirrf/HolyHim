@@ -1,6 +1,6 @@
 {
   "checkedAt": "2026-10-31T02:43:49.713695+00:00",
-  "ipa": "/Users/amir/Downloads/HolyHer/build/ios/ipa/holyher.ipa",
+  "ipa": "/Users/amir/Downloads/HolyHim/build/ios/ipa/holyhim.ipa",
   "status": "passed",
   "checks": {
     "explicit_ipa_file": true,
@@ -156,8 +156,8 @@
   "ipaSha256": "23759ba48d47f9ab24642f1f27b05bcf6d948b2595df8fdbcc88f8ebcdf7f066",
   "ipaBytes": 53292109,
   "application": {
-    "CFBundleIdentifier": "com.holyher.app",
-    "CFBundleDisplayName": "HolyHer",
+    "CFBundleIdentifier": "com.holyhim.app",
+    "CFBundleDisplayName": "HolyHim",
     "CFBundleShortVersionString": "1.0.0",
     "CFBundleVersion": "1",
     "UIDeviceFamily": [
@@ -170,15 +170,15 @@
     "DTXcode": "2660"
   },
   "firebase": {
-    "PROJECT_ID": "holyher-app-production",
+    "PROJECT_ID": "holyhim-app-production",
     "GOOGLE_APP_ID": "1:746503857955:ios:6ed10c73853d13b39f8e96",
-    "BUNDLE_ID": "com.holyher.app"
+    "BUNDLE_ID": "com.holyhim.app"
   },
   "signing": {
     "teamIdentifier": "DU9D6TAM58",
     "distributionAuthorityPresent": true,
     "entitlements": {
-      "application-identifier": "DU9D6TAM58.com.holyher.app",
+      "application-identifier": "DU9D6TAM58.com.holyhim.app",
       "com.apple.developer.team-identifier": "DU9D6TAM58",
       "com.apple.developer.applesignin": [
         "Default"
@@ -921,7 +921,7 @@
     "qualification": "Bundled declarations only; not a runtime data-use audit or Apple validation."
   },
   "archiveComparison": {
-    "report": "/Users/amir/Downloads/HolyHer/store/archive-verification.json",
+    "report": "/Users/amir/Downloads/HolyHim/store/archive-verification.json",
     "reportSha256": "56fbd7f4cab8ec257379deed714561f102ef6e989d9c309f7d13a8bcf2c4c412",
     "manifestCount": 29
   },

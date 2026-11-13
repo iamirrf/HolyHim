@@ -1,10 +1,10 @@
 {
-  "projectId": "holyher-app-production",
-  "appId": "1:746503857955:web:b0c6ecf2df60ab209f8e96",
-  "storageBucket": "holyher-app-production.firebasestorage.app",
-  "apiKey": "AIzaSyDPv9e6_jZ-x_TWXRS6yNy-P-qJS_uKqZ8",
-  "authDomain": "holyher-app-production.web.app",
-  "messagingSenderId": "746503857955",
-  "projectNumber": "746503857955",
+  "projectId": "holyhim-app-production",
+  "appId": "REPLACE_WITH_HOLYHIM_APP_ID",
+  "storageBucket": "holyhim-app-production.firebasestorage.app",
+  "apiKey": "REPLACE_WITH_HOLYHIM_KEY",
+  "authDomain": "holyhim-app-production.web.app",
+  "messagingSenderId": "000000000000",
+  "projectNumber": "000000000000",
   "version": "2"
 }

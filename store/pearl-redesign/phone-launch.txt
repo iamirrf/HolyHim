@@ -1,6 +1,6 @@
 21:29:13  Acquired tunnel connection to device.
 21:29:13  Enabling developer disk image services.
 21:29:13  Acquired usage assertion.
-Launched application with com.holyher.app bundle identifier.
+Launched application with com.holyhim.app bundle identifier.
 Waiting for the application to terminate…
 App terminated due to signal 10.

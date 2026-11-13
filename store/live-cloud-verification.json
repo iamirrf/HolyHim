@@ -1,8 +1,8 @@
 {
   "verifiedAt": "2026-10-31T02:24:41.221714+00:00",
-  "projectId": "holyher-app-production",
+  "projectId": "holyhim-app-production",
   "ownerAccount": "iamirrf1@gmail.com",
-  "website": "https://holyher-app-production.web.app",
+  "website": "https://holyhim-app-production.web.app",
   "checks": [
     {
       "check": "Production project and sole owner match iamirrf1@gmail.com",
@@ -89,7 +89,7 @@
   ],
   "deploymentCorrection": {
     "reason": "The initial deployment left all eight Cloud Run services without invoker bindings, causing transport-level HTTP 403.",
-    "change": "Added roles/run.invoker for allUsers on the eight HolyHer function services only.",
+    "change": "Added roles/run.invoker for allUsers on the eight HolyHim function services only.",
     "applicationAuthorization": "Firebase callable authentication, server purchase checks, webhook authorization and Firestore rules remain enforced.",
     "verifiedServiceBindings": [
       "syncaccess",
@@ -185,7 +185,7 @@
     "verifiedAt": "2026-10-31T02:33:02.763678+00:00",
     "checks": [
       {
-        "check": "RevenueCat webhook URL targets the correct deployed HolyHer endpoint",
+        "check": "RevenueCat webhook URL targets the correct deployed HolyHim endpoint",
         "passed": true
       },
       {

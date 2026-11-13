@@ -8,7 +8,7 @@
       "--device",
       "79D1760F-3CCF-5595-874B-46E260F41DCD",
       "--activate",
-      "com.holyher.app",
+      "com.holyhim.app",
       "--json-output",
       "store/pearl-redesign/phone-open-final.json"
     ],

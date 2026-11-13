@@ -1,18 +1,18 @@
-00:00 +0: loading /Users/amir/Downloads/HolyHer/test/streak_test.dart
+00:00 +0: loading /Users/amir/Downloads/HolyHim/test/streak_test.dart
 lib/services/learning_service.dart:120:85: Error: The getter 'date' isn't defined for the type 'AttemptSync'.
- - 'AttemptSync' is from 'package:holyher/services/learning_service.dart' ('lib/services/learning_service.dart').
+ - 'AttemptSync' is from 'package:holyhim/services/learning_service.dart' ('lib/services/learning_service.dart').
 Try correcting the name to the name of an existing getter, or defining a getter or field named 'date'.
           ref.read(progressProvider.notifier).acceptAttemptLocally(attempt.day,date:date);
                                                                                     ^^^^
-00:00 +0 -1: loading /Users/amir/Downloads/HolyHer/test/learning_sync_test.dart [E]
-  Failed to load "/Users/amir/Downloads/HolyHer/test/learning_sync_test.dart":
-  Compilation failed for testPath=/Users/amir/Downloads/HolyHer/test/learning_sync_test.dart: lib/services/learning_service.dart:120:85: Error: The getter 'date' isn't defined for the type 'AttemptSync'.
-   - 'AttemptSync' is from 'package:holyher/services/learning_service.dart' ('lib/services/learning_service.dart').
+00:00 +0 -1: loading /Users/amir/Downloads/HolyHim/test/learning_sync_test.dart [E]
+  Failed to load "/Users/amir/Downloads/HolyHim/test/learning_sync_test.dart":
+  Compilation failed for testPath=/Users/amir/Downloads/HolyHim/test/learning_sync_test.dart: lib/services/learning_service.dart:120:85: Error: The getter 'date' isn't defined for the type 'AttemptSync'.
+   - 'AttemptSync' is from 'package:holyhim/services/learning_service.dart' ('lib/services/learning_service.dart').
   Try correcting the name to the name of an existing getter, or defining a getter or field named 'date'.
             ref.read(progressProvider.notifier).acceptAttemptLocally(attempt.day,date:date);
                                                                                       ^^^^
   .
-00:00 +0 -2: loading /Users/amir/Downloads/HolyHer/test/streak_test.dart [E]
+00:00 +0 -2: loading /Users/amir/Downloads/HolyHim/test/streak_test.dart [E]
   Error: The Dart compiler exited unexpectedly.
   package:flutter_tools/src/base/common.dart 34:3  throwToolExit
   package:flutter_tools/src/compile.dart 939:11    DefaultResidentCompiler._compile.<fn>
@@ -32,60 +32,60 @@ Try correcting the name to the name of an existing getter, or defining a getter 
   dart:isolate-patch/isolate_patch.dart 127:13     _runPendingImmediateCallback
   dart:isolate-patch/isolate_patch.dart 194:5      _RawReceivePort._handleMessage
   
-00:00 +0 -2: /Users/amir/Downloads/HolyHer/test/streak_test.dart: fresh, concurrent, same-day, consecutive, and missed-day opens
-00:00 +1 -2: /Users/amir/Downloads/HolyHer/test/streak_test.dart: backwards clock and duplicate dates leave state untouched
-00:00 +2 -2: /Users/amir/Downloads/HolyHer/test/streak_test.dart: both DST boundaries use calendar yesterday, including late evening
-00:00 +3 -2: /Users/amir/Downloads/HolyHer/test/streak_test.dart: timezone-style repeated/skipped/backwards local dates remain sane
-00:00 +4 -2: /Users/amir/Downloads/HolyHer/test/streak_test.dart: invalid history resets; malformed counters are reconstructed
-00:00 +5 -2: /Users/amir/Downloads/HolyHer/test/streak_test.dart: restart reconstructs counters after write boundary 1
-00:00 +6 -2: /Users/amir/Downloads/HolyHer/test/streak_test.dart: restart reconstructs counters after write boundary 2
-00:00 +7 -2: /Users/amir/Downloads/HolyHer/test/streak_test.dart: restart reconstructs counters after write boundary 3
-00:00 +8 -2: /Users/amir/Downloads/HolyHer/test/streak_test.dart: failed history write keeps session coherent, does not write counters
-00:00 +9 -2: /Users/amir/Downloads/HolyHer/test/activity_sync_test.dart: offline streak uses account dates and survives restart before merging
-00:00 +10 -2: /Users/amir/Downloads/HolyHer/test/activity_sync_test.dart: a saved activity outbox recovers history interrupted before its write
-00:00 +11 -2: /Users/amir/Downloads/HolyHer/test/activity_sync_test.dart: account calendar remains correct through repeated DST hours
-00:00 +12 -2: /Users/amir/Downloads/HolyHer/test/activity_sync_test.dart: pending activity dates reject future and invalid entries and stay bounded
-00:02 +13 -2: /Users/amir/Downloads/HolyHer/test/reminder_service_test.dart: reconciliation follows a changed device zone without changing wall time
-00:03 +14 -2: /Users/amir/Downloads/HolyHer/test/durable_store_test.dart: migration is repeatable and preserves original preference bytes
-00:03 +15 -2: /Users/amir/Downloads/HolyHer/test/durable_store_test.dart: a failed second write rolls back an entire completion transaction
-00:03 +16 -2: /Users/amir/Downloads/HolyHer/test/durable_store_test.dart: a failed migration can retry without losing the source
-00:03 +17 -2: /Users/amir/Downloads/HolyHer/test/durable_store_test.dart: deletion isolates accounts and prevents delayed writes or migration from recreating data
-00:03 +18 -2: /Users/amir/Downloads/HolyHer/test/progress_paywall_test.dart: calendar state separates daily release, catch-up and year completion
-00:03 +19 -2: /Users/amir/Downloads/HolyHer/test/progress_paywall_test.dart: calendar state separates daily release, catch-up and year completion
-00:04 +20 -2: /Users/amir/Downloads/HolyHer/test/progress_paywall_test.dart: future lessons stay locked and queued completion survives restart
-00:04 +21 -2: /Users/amir/Downloads/HolyHer/test/progress_paywall_test.dart: failed persistence does not complete and does not poison next retry
-00:04 +22 -2: /Users/amir/Downloads/HolyHer/test/progress_paywall_test.dart: corrupt cache and the old development unlock do not start a paid journey
-00:04 +23 -2: /Users/amir/Downloads/HolyHer/test/progress_paywall_test.dart: all 365 real lessons participate in release and progress calculations
-00:04 +24 -2: /Users/amir/Downloads/HolyHer/test/progress_paywall_test.dart: completion outbox survives missing journey cache and validates against server release
-00:04 +25 -2: /Users/amir/Downloads/HolyHer/test/progress_paywall_test.dart: completion outbox survives corrupt journey cache and validates against server release
-00:04 +26 -2: /Users/amir/Downloads/HolyHer/test/progress_paywall_test.dart: legacy completions added during a request drain without overwriting their outbox
-00:04 +27 -2: /Users/amir/Downloads/HolyHer/test/profile_persistence_test.dart: profile and pending draft flag roll back together when storage fails
-00:04 +28 -2: /Users/amir/Downloads/HolyHer/test/profile_persistence_test.dart: unreadable setup cannot be replaced by a new draft
+00:00 +0 -2: /Users/amir/Downloads/HolyHim/test/streak_test.dart: fresh, concurrent, same-day, consecutive, and missed-day opens
+00:00 +1 -2: /Users/amir/Downloads/HolyHim/test/streak_test.dart: backwards clock and duplicate dates leave state untouched
+00:00 +2 -2: /Users/amir/Downloads/HolyHim/test/streak_test.dart: both DST boundaries use calendar yesterday, including late evening
+00:00 +3 -2: /Users/amir/Downloads/HolyHim/test/streak_test.dart: timezone-style repeated/skipped/backwards local dates remain sane
+00:00 +4 -2: /Users/amir/Downloads/HolyHim/test/streak_test.dart: invalid history resets; malformed counters are reconstructed
+00:00 +5 -2: /Users/amir/Downloads/HolyHim/test/streak_test.dart: restart reconstructs counters after write boundary 1
+00:00 +6 -2: /Users/amir/Downloads/HolyHim/test/streak_test.dart: restart reconstructs counters after write boundary 2
+00:00 +7 -2: /Users/amir/Downloads/HolyHim/test/streak_test.dart: restart reconstructs counters after write boundary 3
+00:00 +8 -2: /Users/amir/Downloads/HolyHim/test/streak_test.dart: failed history write keeps session coherent, does not write counters
+00:00 +9 -2: /Users/amir/Downloads/HolyHim/test/activity_sync_test.dart: offline streak uses account dates and survives restart before merging
+00:00 +10 -2: /Users/amir/Downloads/HolyHim/test/activity_sync_test.dart: a saved activity outbox recovers history interrupted before its write
+00:00 +11 -2: /Users/amir/Downloads/HolyHim/test/activity_sync_test.dart: account calendar remains correct through repeated DST hours
+00:00 +12 -2: /Users/amir/Downloads/HolyHim/test/activity_sync_test.dart: pending activity dates reject future and invalid entries and stay bounded
+00:02 +13 -2: /Users/amir/Downloads/HolyHim/test/reminder_service_test.dart: reconciliation follows a changed device zone without changing wall time
+00:03 +14 -2: /Users/amir/Downloads/HolyHim/test/durable_store_test.dart: migration is repeatable and preserves original preference bytes
+00:03 +15 -2: /Users/amir/Downloads/HolyHim/test/durable_store_test.dart: a failed second write rolls back an entire completion transaction
+00:03 +16 -2: /Users/amir/Downloads/HolyHim/test/durable_store_test.dart: a failed migration can retry without losing the source
+00:03 +17 -2: /Users/amir/Downloads/HolyHim/test/durable_store_test.dart: deletion isolates accounts and prevents delayed writes or migration from recreating data
+00:03 +18 -2: /Users/amir/Downloads/HolyHim/test/progress_paywall_test.dart: calendar state separates daily release, catch-up and year completion
+00:03 +19 -2: /Users/amir/Downloads/HolyHim/test/progress_paywall_test.dart: calendar state separates daily release, catch-up and year completion
+00:04 +20 -2: /Users/amir/Downloads/HolyHim/test/progress_paywall_test.dart: future lessons stay locked and queued completion survives restart
+00:04 +21 -2: /Users/amir/Downloads/HolyHim/test/progress_paywall_test.dart: failed persistence does not complete and does not poison next retry
+00:04 +22 -2: /Users/amir/Downloads/HolyHim/test/progress_paywall_test.dart: corrupt cache and the old development unlock do not start a paid journey
+00:04 +23 -2: /Users/amir/Downloads/HolyHim/test/progress_paywall_test.dart: all 365 real lessons participate in release and progress calculations
+00:04 +24 -2: /Users/amir/Downloads/HolyHim/test/progress_paywall_test.dart: completion outbox survives missing journey cache and validates against server release
+00:04 +25 -2: /Users/amir/Downloads/HolyHim/test/progress_paywall_test.dart: completion outbox survives corrupt journey cache and validates against server release
+00:04 +26 -2: /Users/amir/Downloads/HolyHim/test/progress_paywall_test.dart: legacy completions added during a request drain without overwriting their outbox
+00:04 +27 -2: /Users/amir/Downloads/HolyHim/test/profile_persistence_test.dart: profile and pending draft flag roll back together when storage fails
+00:04 +28 -2: /Users/amir/Downloads/HolyHim/test/profile_persistence_test.dart: unreadable setup cannot be replaced by a new draft
 lib/services/learning_service.dart:120:85: Error: The getter 'date' isn't defined for the type 'AttemptSync'.
- - 'AttemptSync' is from 'package:holyher/services/learning_service.dart' ('lib/services/learning_service.dart').
+ - 'AttemptSync' is from 'package:holyhim/services/learning_service.dart' ('lib/services/learning_service.dart').
 Try correcting the name to the name of an existing getter, or defining a getter or field named 'date'.
           ref.read(progressProvider.notifier).acceptAttemptLocally(attempt.day,date:date);
                                                                                     ^^^^
-00:06 +29 -3: loading /Users/amir/Downloads/HolyHer/test/screens_test.dart [E]
-  Failed to load "/Users/amir/Downloads/HolyHer/test/screens_test.dart":
-  Compilation failed for testPath=/Users/amir/Downloads/HolyHer/test/screens_test.dart: lib/services/learning_service.dart:120:85: Error: The getter 'date' isn't defined for the type 'AttemptSync'.
-   - 'AttemptSync' is from 'package:holyher/services/learning_service.dart' ('lib/services/learning_service.dart').
+00:06 +29 -3: loading /Users/amir/Downloads/HolyHim/test/screens_test.dart [E]
+  Failed to load "/Users/amir/Downloads/HolyHim/test/screens_test.dart":
+  Compilation failed for testPath=/Users/amir/Downloads/HolyHim/test/screens_test.dart: lib/services/learning_service.dart:120:85: Error: The getter 'date' isn't defined for the type 'AttemptSync'.
+   - 'AttemptSync' is from 'package:holyhim/services/learning_service.dart' ('lib/services/learning_service.dart').
   Try correcting the name to the name of an existing getter, or defining a getter or field named 'date'.
             ref.read(progressProvider.notifier).acceptAttemptLocally(attempt.day,date:date);
                                                                                       ^^^^
   .
-00:09 +29 -3: /Users/amir/Downloads/HolyHer/test/reading_parts_test.dart: all Scripture is preserved exactly across reading widths and text scales
-00:09 +30 -3: /Users/amir/Downloads/HolyHer/test/reading_parts_test.dart: all Scripture is preserved exactly across reading widths and text scales
-00:09 +31 -3: /Users/amir/Downloads/HolyHer/test/reading_parts_test.dart: all Scripture is preserved exactly across reading widths and text scales
-00:09 +32 -3: /Users/amir/Downloads/HolyHer/test/reading_parts_test.dart: reflow resumes at or before the first unread source offset
-00:10 +33 -3: /Users/amir/Downloads/HolyHer/test/content_test.dart: all 365 complete lessons match pinned public-domain WEB evidence
-00:10 +34 -3: /Users/amir/Downloads/HolyHer/test/content_test.dart: each day has distinct confidence, reason, hope, and reflection prose
-00:10 +35 -3: /Users/amir/Downloads/HolyHer/test/content_test.dart: source evidence retains edition and corpus identity for every lesson
-00:10 +36 -3: /Users/amir/Downloads/HolyHer/test/onboarding_migration_test.dart: all v1 and v2 numeric positions migrate through their semantic meaning
-00:10 +37 -3: /Users/amir/Downloads/HolyHer/test/onboarding_migration_test.dart: v3 semantic ID wins over numeric position and survives termination
-00:10 +38 -3: /Users/amir/Downloads/HolyHer/test/onboarding_migration_test.dart: completed older accounts keep their answers and enabled reminder
-00:10 +39 -3: /Users/amir/Downloads/HolyHer/test/onboarding_migration_test.dart: invalid stage identifiers fall back safely and settings defaults survive
-00:11 +40 -3: /Users/amir/Downloads/HolyHer/test/session_isolation_test.dart: late account A streak load cannot overwrite account B
-00:11 +41 -3: /Users/amir/Downloads/HolyHer/test/session_isolation_test.dart: queued account A completions cannot complete account B lessons
-00:11 +42 -3: /Users/amir/Downloads/HolyHer/test/session_isolation_test.dart: account deletion removes only that accounts local cache
+00:09 +29 -3: /Users/amir/Downloads/HolyHim/test/reading_parts_test.dart: all Scripture is preserved exactly across reading widths and text scales
+00:09 +30 -3: /Users/amir/Downloads/HolyHim/test/reading_parts_test.dart: all Scripture is preserved exactly across reading widths and text scales
+00:09 +31 -3: /Users/amir/Downloads/HolyHim/test/reading_parts_test.dart: all Scripture is preserved exactly across reading widths and text scales
+00:09 +32 -3: /Users/amir/Downloads/HolyHim/test/reading_parts_test.dart: reflow resumes at or before the first unread source offset
+00:10 +33 -3: /Users/amir/Downloads/HolyHim/test/content_test.dart: all 365 complete lessons match pinned public-domain WEB evidence
+00:10 +34 -3: /Users/amir/Downloads/HolyHim/test/content_test.dart: each day has distinct confidence, reason, hope, and reflection prose
+00:10 +35 -3: /Users/amir/Downloads/HolyHim/test/content_test.dart: source evidence retains edition and corpus identity for every lesson
+00:10 +36 -3: /Users/amir/Downloads/HolyHim/test/onboarding_migration_test.dart: all v1 and v2 numeric positions migrate through their semantic meaning
+00:10 +37 -3: /Users/amir/Downloads/HolyHim/test/onboarding_migration_test.dart: v3 semantic ID wins over numeric position and survives termination
+00:10 +38 -3: /Users/amir/Downloads/HolyHim/test/onboarding_migration_test.dart: completed older accounts keep their answers and enabled reminder
+00:10 +39 -3: /Users/amir/Downloads/HolyHim/test/onboarding_migration_test.dart: invalid stage identifiers fall back safely and settings defaults survive
+00:11 +40 -3: /Users/amir/Downloads/HolyHim/test/session_isolation_test.dart: late account A streak load cannot overwrite account B
+00:11 +41 -3: /Users/amir/Downloads/HolyHim/test/session_isolation_test.dart: queued account A completions cannot complete account B lessons
+00:11 +42 -3: /Users/amir/Downloads/HolyHim/test/session_isolation_test.dart: account deletion removes only that accounts local cache
 00:11 +43 -3: Some tests failed.

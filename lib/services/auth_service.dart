@@ -1,5 +1,3 @@
-import 'platform_store_native.dart'
-    if (dart.library.js_interop) 'platform_store_web.dart' as platform;
 import 'dart:async';
 import 'package:cloud_functions/cloud_functions.dart';
 import 'package:firebase_auth/firebase_auth.dart' as fb;
@@ -7,25 +5,35 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:holyher/services/reminder_service.dart';
-import 'package:holyher/services/account_cache.dart';
-import 'package:holyher/firebase_options.dart';
+import 'package:holyhim/services/notifications.dart';
+import 'package:holyhim/firebase_options.dart';
+import 'firebase_runtime.dart';
+import 'widget_bridge.dart';
+import 'account_cache.dart';
 
 class AuthUser {
   final String uid;
   final String email;
   final String displayName;
-  final bool emailVerified;
+  final String? photoUrl;
+  final bool emailVerified, isNewAccount;
   const AuthUser(
       {required this.uid,
       this.email = '',
       this.displayName = '',
-      this.emailVerified = false});
+      this.photoUrl,
+      this.emailVerified = false,
+      this.isNewAccount = false});
   factory AuthUser.fromFirebase(fb.User user) => AuthUser(
       uid: user.uid,
       email: user.email ?? '',
       displayName: user.displayName ?? '',
-      emailVerified: user.emailVerified);
+      photoUrl: user.photoURL,
+      emailVerified: user.emailVerified,
+      isNewAccount: user.metadata.creationTime != null &&
+          user.metadata.lastSignInTime != null &&
+          user.metadata.creationTime!
+              .isAtSameMomentAs(user.metadata.lastSignInTime!));
 }
 
 enum AuthAction {
@@ -59,7 +67,9 @@ class AuthNotifier extends Notifier<AuthState> {
   @override
   AuthState build() {
     _disposed = false;
-    if (Firebase.apps.isEmpty) return const AuthState(configured: false);
+    if (!ref.watch(firebaseReadyProvider) || Firebase.apps.isEmpty) {
+      return const AuthState(configured: false);
+    }
     _subscription = fb.FirebaseAuth.instance.authStateChanges().listen((user) {
       if (!_disposed) {
         state =
@@ -87,7 +97,7 @@ class AuthNotifier extends Notifier<AuthState> {
     _running = true;
     state = AuthState(user: state.user, loading: true, action: kind);
     try {
-      await action();
+      await action().timeout(const Duration(seconds: 30));
       final user = fb.FirebaseAuth.instance.currentUser;
       if (!_disposed) {
         state =
@@ -134,7 +144,12 @@ class AuthNotifier extends Notifier<AuthState> {
             .createUserWithEmailAndPassword(
                 email: email.trim(), password: password);
         try {
-          await result.user?.sendEmailVerification();
+          final verification = result.user?.sendEmailVerification();
+          if (verification != null) {
+            unawaited(verification
+                .timeout(const Duration(seconds: 5))
+                .catchError((Object _) {}));
+          }
         } catch (_) {/* Account remains usable; verification can be retried. */}
       }, kind: AuthAction.createAccount);
   Future<void> resetPassword(String email) => _run(() async {
@@ -156,11 +171,11 @@ class AuthNotifier extends Notifier<AuthState> {
         }
       }, kind: AuthAction.apple);
   Future<fb.OAuthCredential> _googleCredential() async {
-    if (HolyHerFirebaseOptions.googleClientId.isEmpty) {
+    if (HolyHimFirebaseOptions.googleClientId.isEmpty) {
       throw fb.FirebaseAuthException(code: 'operation-not-allowed');
     }
     _googleInitialization ??= GoogleSignIn.instance
-        .initialize(clientId: HolyHerFirebaseOptions.googleClientId);
+        .initialize(clientId: HolyHimFirebaseOptions.googleClientId);
     await _googleInitialization;
     final account = await GoogleSignIn.instance.authenticate();
     final token = account.authentication.idToken;
@@ -178,12 +193,9 @@ class AuthNotifier extends Notifier<AuthState> {
         }
       }, kind: AuthAction.google);
   Future<void> signOut() => _run(() async {
-        await ref.read(reminderServiceProvider).cancel();
-        final accountUid = fb.FirebaseAuth.instance.currentUser?.uid;
         await fb.FirebaseAuth.instance.signOut();
-        if (kIsWeb && accountUid != null) {
-          platform.releaseBrowserAccount('user:$accountUid');
-        }
+        unawaited(ref.read(notificationServiceProvider).cancel());
+        unawaited(ref.read(widgetBridgeProvider).clear());
         if (!kIsWeb) {
           try {
             await GoogleSignIn.instance.signOut();
@@ -236,9 +248,10 @@ class AuthNotifier extends Notifier<AuthState> {
         await FirebaseFunctions.instance
             .httpsCallable('deleteAccount')
             .call<void>();
-        await ref.read(reminderServiceProvider).cancel();
+        await ref.read(accountCacheProvider).remove(user.uid);
         await fb.FirebaseAuth.instance.signOut();
-        await eraseAccountCache(user.uid);
+        unawaited(ref.read(notificationServiceProvider).cancel());
+        unawaited(ref.read(widgetBridgeProvider).clear());
       });
 }
 
@@ -248,7 +261,7 @@ String authErrorMessage(String code) => switch (code) {
       'web-context-cancelled' =>
         '',
       'popup-blocked' =>
-        'Your browser blocked sign-in. Allow pop-ups for HolyHer and try again.',
+        'Your browser blocked sign-in. Allow pop-ups for HolyHim and try again.',
       'invalid-email' => 'Please enter a valid email address.',
       'email-already-in-use' =>
         'There is already an account with this email. Try signing in.',
@@ -262,9 +275,7 @@ String authErrorMessage(String code) => switch (code) {
       'too-many-requests' => 'Please wait a moment before trying again.',
       'requires-recent-login' =>
         'Please sign in again before deleting your account.',
-      'web-context-cancelled' ||
-      'canceled' =>
-        'Sign-in was cancelled. You can try again anytime.',
+      'canceled' => 'Sign-in was cancelled. You can try again anytime.',
       'operation-not-allowed' =>
         'This sign-in method is temporarily unavailable. Please try email.',
       _ => 'We could not finish signing you in. Please try again.'

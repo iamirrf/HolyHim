@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Import a HolyHer-only Apple Sign In key without creating a local key copy.
+"""Import a HolyHim-only Apple Sign In key without creating a local key copy.
 
 The owner creates the Sign in with Apple key and Services ID in Apple's portal.
 This script uses the documented GCP Secret Manager and Identity Platform APIs;
@@ -30,11 +30,11 @@ import urllib.request
 
 
 ROOT = Path(__file__).resolve().parents[1]
-PROJECT = "holyher-app-production"
+PROJECT = "holyhim-app-production"
 ACCOUNT = "iamirrf1@gmail.com"
 TEAM_ID = "DU9D6TAM58"
-BUNDLE_ID = "com.holyher.app"
-DEFAULT_SERVICE_ID = "com.holyher.app.signin"
+BUNDLE_ID = "com.holyhim.app"
+DEFAULT_SERVICE_ID = "com.holyhim.app.signin"
 IDP_NAME = f"projects/{PROJECT}/defaultSupportedIdpConfigs/apple.com"
 IDP_URL = f"https://identitytoolkit.googleapis.com/admin/v2/{IDP_NAME}"
 SECRET_BASE = f"https://secretmanager.googleapis.com/v1/projects/{PROJECT}/secrets"
@@ -55,13 +55,13 @@ def cloud_config() -> dict:
         config = json.loads((ROOT / "config/cloud.json").read_text())
         ios = plistlib.loads((ROOT / "ios/Runner/GoogleService-Info.plist").read_bytes())
     except (OSError, ValueError, plistlib.InvalidFileException):
-        raise SetupError("Could not read the public HolyHer cloud/iOS configuration.") from None
+        raise SetupError("Could not read the public HolyHim cloud/iOS configuration.") from None
     if config.get("projectId") != PROJECT or config.get("account") != ACCOUNT:
-        raise SetupError("Cloud configuration must select holyher-app-production and iamirrf1@gmail.com.")
+        raise SetupError("Cloud configuration must select holyhim-app-production and iamirrf1@gmail.com.")
     if config.get("ownerVerified") is not True:
         raise SetupError("The Google project owner must be verified in config/cloud.json first.")
     if ios.get("PROJECT_ID") != PROJECT or ios.get("BUNDLE_ID") != BUNDLE_ID:
-        raise SetupError("The native Firebase configuration does not match HolyHer production.")
+        raise SetupError("The native Firebase configuration does not match HolyHim production.")
     return config
 
 
@@ -156,20 +156,20 @@ def safe_provider(provider: dict) -> dict:
 def check_existing(provider: dict, service_id: str, key_id: str, replace_key: bool) -> None:
     existing = safe_provider(provider)
     if existing["serviceId"] not in ("", BUNDLE_ID, service_id):
-        raise SetupError("The Apple provider uses another Services ID; resolve it before this HolyHer-only import.")
+        raise SetupError("The Apple provider uses another Services ID; resolve it before this HolyHim-only import.")
     if set(existing["bundleIds"]) - {BUNDLE_ID}:
         raise SetupError("The Apple provider includes other apps. This importer will not change a shared provider.")
     if existing["teamId"] not in ("", TEAM_ID):
         raise SetupError("The Apple provider belongs to another developer team.")
     if existing["keyId"] not in ("", key_id) and not replace_key:
-        raise SetupError("Another signing key is already configured. Use --replace-key only for an intentional HolyHer key rotation.")
+        raise SetupError("Another signing key is already configured. Use --replace-key only for an intentional HolyHim key rotation.")
 
 
 def backup_key(api: GoogleApi, key: bytes, key_id: str) -> tuple[str, bool]:
-    secret_id = f"holyher-apple-sign-in-{key_id.lower()}"
+    secret_id = f"holyhim-apple-sign-in-{key_id.lower()}"
     secret_url = f"{SECRET_BASE}/{secret_id}"
-    expected_labels = {"app": "holyher", "purpose": "apple-sign-in", "key-id": key_id.lower(),
-                       "team-id": TEAM_ID.lower(), "managed-by": "holyher-setup"}
+    expected_labels = {"app": "holyhim", "purpose": "apple-sign-in", "key-id": key_id.lower(),
+                       "team-id": TEAM_ID.lower(), "managed-by": "holyhim-setup"}
     run_gcloud(["services", "enable", "secretmanager.googleapis.com"])
     try:
         secret = api.request("GET", secret_url, "Read the scoped secret metadata")
@@ -180,7 +180,7 @@ def backup_key(api: GoogleApi, key: bytes, key_id: str) -> tuple[str, bool]:
                              "Create the scoped signing-key backup",
                              {"replication": {"automatic": {}}, "labels": expected_labels})
     if any(secret.get("labels", {}).get(name) != value for name, value in expected_labels.items()):
-        raise SetupError("A secret with this name exists without the expected HolyHer ownership labels.")
+        raise SetupError("A secret with this name exists without the expected HolyHim ownership labels.")
     try:
         latest = api.request("GET", secret_url + "/versions/latest:access", "Verify the existing key backup")
         stored = base64.b64decode(latest["payload"]["data"], validate=True)
@@ -211,17 +211,17 @@ def backup_key(api: GoogleApi, key: bytes, key_id: str) -> tuple[str, bool]:
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--p8", help="Owner-downloaded HolyHer-only Sign in with Apple key outside the repo")
+    parser.add_argument("--p8", help="Owner-downloaded HolyHim-only Sign in with Apple key outside the repo")
     parser.add_argument("--key-id", help="Ten-character Apple key ID")
     parser.add_argument("--service-id", default=DEFAULT_SERVICE_ID, help=f"Configured Apple Services ID (default {DEFAULT_SERVICE_ID})")
-    parser.add_argument("--replace-key", action="store_true", help="Allow an intentional rotation of an existing HolyHer signing key")
+    parser.add_argument("--replace-key", action="store_true", help="Allow an intentional rotation of an existing HolyHim signing key")
     parser.add_argument("--dry-run", action="store_true", help="Validate the local key/configuration and show the public plan; no network or upload")
     parser.add_argument("--verify", action="store_true", help="Read the provider's non-secret setup status; no key import")
     parser.add_argument("--check", action="store_true", help="Check public local project configuration only")
     args = parser.parse_args(argv)
     cloud_config()
-    if args.service_id == BUNDLE_ID or re.fullmatch(r"com\.holyher\.[A-Za-z0-9.-]+", args.service_id) is None:
-        raise SetupError("Use the separately registered HolyHer Services ID, not the native bundle ID.")
+    if args.service_id == BUNDLE_ID or re.fullmatch(r"com\.holyhim\.[A-Za-z0-9.-]+", args.service_id) is None:
+        raise SetupError("Use the separately registered HolyHim Services ID, not the native bundle ID.")
     plan = {"projectId": PROJECT, "account": ACCOUNT, "teamId": TEAM_ID, "serviceId": args.service_id,
             "bundleIds": [BUNDLE_ID], "returnUrl": f"https://{PROJECT}.firebaseapp.com/__/auth/handler"}
     if args.check:
@@ -238,7 +238,7 @@ def main(argv: list[str] | None = None) -> int:
     key = read_key(args.p8, args.key_id)
     if args.dry_run:
         print(json.dumps({**plan, "keyId": args.key_id, "keyValid": True, "uploaded": False,
-                          "secretId": f"holyher-apple-sign-in-{args.key_id.lower()}"}, indent=2))
+                          "secretId": f"holyhim-apple-sign-in-{args.key_id.lower()}"}, indent=2))
         return 0
     api = GoogleApi()
     provider = api.request("GET", IDP_URL, "Read the existing Apple provider")

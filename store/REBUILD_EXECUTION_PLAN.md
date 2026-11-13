@@ -50,7 +50,7 @@ For every screen and shared interaction, record:
 | Field | What it must contain |
 |---|---|
 | Reference | Exact Cognein file and observable behavior |
-| HolyHer destination | Screen, component, or service responsible |
+| HolyHim destination | Screen, component, or service responsible |
 | Required behavior | Concrete actions and resulting states |
 | Applicable states | Loading, cached, empty, offline, saving, failure, and others |
 | Adaptive behavior | Compact phone, tablet, landscape, split view, large text |
@@ -138,7 +138,7 @@ The backend implementation has useful local tests. It now needs integration veri
 
 **Retained free-edition access**
 
-- Verify that first journey creation and the retained `holyher365` grant commit atomically.
+- Verify that first journey creation and the retained `holyhim365` grant commit atomically.
 - Verify that repeated starts preserve the original date, timezone, and completions.
 - Keep eligibility, retained edition access, and genuine purchase ownership distinct in responses and UI.
 - Test a future enrollment-policy change against previously granted accounts.
@@ -195,7 +195,7 @@ This should be completed before polishing every remaining route.
 
 **Backdrop and materials**
 
-- Match the actual reference composition and motion in HolyHer’s white, pearl, and blush palette.
+- Match the actual reference composition and motion in HolyHim’s white, pearl, and blush palette.
 - Confirm that there is one persistent ambient controller.
 - Preserve its position across tabs and pushed routes.
 - Stop decorative work when backgrounded or otherwise inactive.
@@ -654,4 +654,4 @@ The immediate execution order is therefore:
 6. Integrate all 365 days into one guided format.
 7. Complete production verification, device testing, evidence, and signed delivery.
 
-The existing [parity matrix](/Users/amir/Downloads/HolyHer/store/COGNEIN_SCREEN_MAP.md) and [migration report](/Users/amir/Downloads/HolyHer/store/REBUILD_MIGRATION.md) should remain the records updated as each gate is satisfied.
+The existing [parity matrix](/Users/amir/Downloads/HolyHim/store/COGNEIN_SCREEN_MAP.md) and [migration report](/Users/amir/Downloads/HolyHim/store/REBUILD_MIGRATION.md) should remain the records updated as each gate is satisfied.

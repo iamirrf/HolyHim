@@ -1,0 +1,47 @@
+{
+  "references": [
+    {
+      "reference": "/Users/amir/Downloads/evolve.ai/lib/core/widgets/morphing_progress_indicator.dart",
+      "sha256": "28360d63824f3b6563c2f96ce4875ea11d14713799e18ad0388b09e19d9e3bca",
+      "adaptedTarget": "lib/design/widgets/morphing_progress_indicator.dart",
+      "targetSha256": "23b28d9e560fbe656d72dddd7fa9611fbf2d7fbbc7f6a4b15c51741414750037"
+    },
+    {
+      "reference": "/Users/amir/Downloads/evolve.ai/lib/features/courses/presentation/widgets/lesson_celebration.dart",
+      "sha256": "1b0d9b6470bc2dd40a23d779eba008d16c8776a8400be7e33c19d991b90b52de",
+      "adaptedTarget": "lib/design/widgets/lesson_celebration.dart",
+      "targetSha256": "cd157f9863396f3237e7b03f8030b3090804dc5a298544e477ff2274ec377137"
+    },
+    {
+      "reference": "/Users/amir/Downloads/evolve.ai/lib/features/onboarding/presentation/steps/age_step.dart",
+      "sha256": "c741e9af5cf88d0516ff8c1305f3716cbf810c1a8178e359d6346baad6012be8",
+      "adaptedTarget": "lib/features/onboarding/birthday_step.dart",
+      "targetSha256": "67e503b9e08444ed3adf95ddfa8da34820dc38e18fa5242a469cb8d6fca1813f"
+    },
+    {
+      "reference": "/Users/amir/Downloads/evolve.ai/lib/features/onboarding/presentation/chat/onboarding_chat_step.dart",
+      "sha256": "ef6c2e68e7d027a68f1646705a13f5c65ea03a6a11ca074c8a5d05ed508df203",
+      "adaptedTarget": "lib/features/onboarding/chat_step.dart",
+      "targetSha256": "37ebd99d4de6b61dcae5c933e41f480a83a12bcdfcce89d6712f72e747e5fbb3"
+    },
+    {
+      "reference": "/Users/amir/Downloads/evolve.ai/lib/features/profile/presentation/profile_screen.dart",
+      "sha256": "58b7b153df7bd3ede9fc0e5007bd5bf08e544b33804ac0456039ce162879c406",
+      "adaptedTarget": "lib/features/profile/profile_screen.dart",
+      "targetSha256": "3548537778a1004d3eea8cdb823429c9cd7d32310fc759a014fe38a8be662958"
+    },
+    {
+      "reference": "/Users/amir/Downloads/Business/SunRize/code/lib/features/auth/screens/email_auth_screen.dart",
+      "sha256": "2ea857dcde3f68c49a754a554bd29f185146ecd8ccb881e1f0996a3729a78468",
+      "adaptedTarget": "lib/features/auth/email_sheet.dart",
+      "targetSha256": "f08d37695e1739553877265a3c71c43372b5ba88104efc58fefbfc7f0ad4364b"
+    },
+    {
+      "reference": "/Users/amir/Downloads/Business/SunRize/code/lib/features/profile/screens/theme_settings_screen.dart",
+      "sha256": "8e4680b770c59ef5f32ef99c2de16a3e4ee131d6df2bdf122b8b9fcf9d98f2fa",
+      "adaptedTarget": "lib/features/profile/theme_screen.dart",
+      "targetSha256": "fa95cef8a51c879a68fb72937840251975e5a9c823c47d14969cadd0468f52d0"
+    }
+  ],
+  "note": "Hashes identify reviewed reference sources. Adapted targets are not claimed byte-identical."
+}

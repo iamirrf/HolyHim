@@ -44,7 +44,7 @@ def frame(raw, caption, size):
     draw = ImageDraw.Draw(result)
     ink = '#382331'
     plum = '#8b365c'
-    eyebrow = 'HOLYHER  ·  A LITTLE FAITH. EVERY DAY.'
+    eyebrow = 'HOLYHIM  ·  A LITTLE FAITH. EVERY DAY.'
     eyebrow_font = font(32 if tablet else 24, 'Medium')
     draw.text((w/2, 66 if not tablet else 85), eyebrow, fill=plum, font=eyebrow_font, anchor='mt')
     title_font = font(102 if tablet else 77)

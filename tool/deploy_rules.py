@@ -1,4 +1,4 @@
-"""Compile, publish, and read back HolyHer rules using the owner's gcloud login.
+"""Compile, publish, and read back HolyHim rules using the owner's gcloud login.
 
 Tokens remain in memory. This changes the production rules only with --deploy.
 """
@@ -10,7 +10,7 @@ import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-PROJECT = 'holyher-app-production'
+PROJECT = 'holyhim-app-production'
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
@@ -45,7 +45,7 @@ def main():
         'compiled': True, 'deployed': True, 'readBackMatches': True,
         'release': release}
     (ROOT / 'store/walk-rules-deployment.json').write_text(json.dumps(report, indent=2) + '\n')
-    print('Rules compiled, deployed, and read-back verified for HolyHer production.')
+    print('Rules compiled, deployed, and read-back verified for HolyHim production.')
 
 if __name__ == '__main__':
     main()

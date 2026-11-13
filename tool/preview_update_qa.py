@@ -7,8 +7,8 @@ class UpdateHandler(Handler):
   if self.path=='/qa/revision/2':
    type(self).revision=2
    self.send_response(204);self.end_headers();return
-  if self.path.split('?')[0]=='/app/holyher-sw.js':
-   raw=(ROOT/'public/app/holyher-sw.js').read_text().replace("const VERSION='holyher-shell-",f"const VERSION='holyher-shell-update-qa-{type(self).revision}-")
+  if self.path.split('?')[0]=='/app/holyhim-sw.js':
+   raw=(ROOT/'public/app/holyhim-sw.js').read_text().replace("const VERSION='holyhim-shell-",f"const VERSION='holyhim-shell-update-qa-{type(self).revision}-")
    raw=raw.encode()
    self.send_response(200);self.send_header('Content-Type','text/javascript');self.send_header('Cache-Control','no-store');self.send_header('Content-Length',str(len(raw)));self.end_headers();self.wfile.write(raw);return
   return super().do_GET()

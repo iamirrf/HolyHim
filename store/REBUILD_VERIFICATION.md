@@ -41,11 +41,11 @@ This does not establish physical completion/resume/sharing/reset/deletion accept
 
 ## Development artifacts and preserved inputs
 
-Latest: `build/ios/development/HolyHer-1.1.0-3-development.ipa`. This is an AOT/release-mode app signed for development with the existing team/profile, so it does not require debugger attachment. Its SHA-256, archive integrity, extracted signature and identity checks are recorded in `startup-fix-artifact.json`. It is not the final accepted distribution delivery.
+Latest: `build/ios/development/HolyHim-1.1.0-3-development.ipa`. This is an AOT/release-mode app signed for development with the existing team/profile, so it does not require debugger attachment. Its SHA-256, archive integrity, extracted signature and identity checks are recorded in `startup-fix-artifact.json`. It is not the final accepted distribution delivery.
 
 Build 2's debug app/IPA and development-signed AOT app/IPA remain preserved separately. Initial debug attachment attempts stalled; no debugger-authority setting was changed. A removed Flutter temporary helper workspace caused an Xcode warning; that stale window was closed and the intact permanent `ios/Runner.xcworkspace` reopened. No source was lost.
 
-The pre-edit source checkpoint is `/Users/amir/Downloads/HolyHer-checkpoint-20261031-202900/`. Original archive/IPA, signing/project configuration, supplied artwork, original curriculum, `store/VERIFICATION.md`, and `store/device-verification.json` remain preserved. `tool/verify_checkpoint.py` verifies the recorded working tree, preserved native artifacts, reference repository, dependency locks, and pre-edit archive. No checkpoint commit/index mutation was made.
+The pre-edit source checkpoint is `/Users/amir/Downloads/HolyHim-checkpoint-20261031-202900/`. Original archive/IPA, signing/project configuration, supplied artwork, original curriculum, `store/VERIFICATION.md`, and `store/device-verification.json` remain preserved. `tool/verify_checkpoint.py` verifies the recorded working tree, preserved native artifacts, reference repository, dependency locks, and pre-edit archive. No checkpoint commit/index mutation was made.
 
 A requested cleanup reclaimed approximately 10.3 GiB by removing outdated iOS 27.0 device symbols and regenerable compiler/npm/editor installer caches. Current iOS 27.2 support, installed dependencies/extensions, simulators, personal files, and app/source artifacts were kept. Native build retries no longer lack disk capacity; some compiler caches naturally regenerate. See `disk-cleanup.json`.
 
@@ -66,7 +66,7 @@ python3 tool/build_teaching.py --check
 python3 tool/verify_teaching.py --slice
 python3 tool/build_legal.py --check
 python3 tool/verify_acceptance.py
-JAVA_HOME=/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home PATH=/opt/homebrew/opt/openjdk@21/bin:$PATH firebase emulators:exec --config firebase.emulators.json --only firestore --project demo-holyher 'node --test functions/test/firestore.integration.js'
+JAVA_HOME=/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home PATH=/opt/homebrew/opt/openjdk@21/bin:$PATH firebase emulators:exec --config firebase.emulators.json --only firestore --project demo-holyhim 'node --test functions/test/firestore.integration.js'
 ```
 
 `tool/verify_free_flow_live.py --run-qa-flow` intentionally creates real QA attempt activity on the recognized retained journey account; it is not a read-only command. It never resets/deletes an account or writes purchase ownership. Native storage verification requires macOS/Xcode. Emulator verification refuses a non-loopback host or non-demo project.

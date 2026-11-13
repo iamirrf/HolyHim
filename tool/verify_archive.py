@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Inspect a completed HolyHer archive, never substitute source files for it.
+"""Inspect a completed HolyHim archive, never substitute source files for it.
 
 This records signing, identity and bundled privacy declarations. It does not
 claim App Store validation, live provider acceptance or runtime data auditing.
@@ -14,12 +14,13 @@ import plistlib
 import re
 import subprocess
 import sys
+from release_gate import production_gate_disabled
 
 ROOT = Path(__file__).resolve().parents[1]
-BUNDLE = 'com.holyher.app'
+BUNDLE = 'com.holyhim.app'
 TEAM = 'DU9D6TAM58'
-PROJECT = 'holyher-app-production'
-GOOGLE_APP = '1:746503857955:ios:6ed10c73853d13b39f8e96'
+PROJECT = 'holyhim-app-production'
+GOOGLE_APP = '1:000000000000:ios:REPLACE_WITH_HOLYHIM_IOS_APP_ID'
 CATEGORIES = {
     'Name': 'Name', 'EmailAddress': 'Email Address',
     'PhoneNumber': 'Phone Number', 'CoarseLocation': 'Coarse Location',
@@ -28,6 +29,7 @@ CATEGORIES = {
     'ProductInteraction': 'Product Interaction', 'OtherUsageData': 'Other Usage Data',
     'CustomerSupport': 'Customer Support', 'OtherDataTypes': 'Other Data Types',
     'OtherDiagnosticData': 'Other Diagnostic Data',
+    'PhotosorVideos': 'Photos or Videos',
 }
 PURPOSES = {
     'AppFunctionality': 'App Functionality',
@@ -142,6 +144,7 @@ def audit(archive, output):
             report['failures'].append(name)
 
     try:
+        check('production_paywall_gate_disabled', production_gate_disabled(ROOT))
         check('archive_directory', archive.is_dir() and archive.suffix == '.xcarchive')
         check('archive_metadata', (archive / 'Info.plist').is_file())
         apps = sorted((archive / 'Products/Applications').glob('*.app'))
@@ -155,7 +158,7 @@ def audit(archive, output):
         check('bundled_firebase_config', cloud_path.is_file())
         check('root_privacy_manifest', privacy_path.is_file())
         for key, expected in [('CFBundleIdentifier', BUNDLE),
-                              ('CFBundleDisplayName', 'HolyHer'),
+                              ('CFBundleDisplayName', 'HolyHim'),
                               ('CFBundleShortVersionString', re.search(r'^version:\s*([^+\s]+)', (ROOT/'pubspec.yaml').read_text(),re.M)[1]),
                               ('CFBundleVersion', re.search(r'^version:\s*[^+]+\+(\d+)', (ROOT/'pubspec.yaml').read_text(),re.M)[1]), ('UIDeviceFamily', [1, 2]),
                               ('ITSAppUsesNonExemptEncryption', False)]:
@@ -225,7 +228,7 @@ def audit(archive, output):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('archive', nargs='?', type=Path,
-                        default=ROOT / 'build/ios/archive/HolyHer.xcarchive')
+                        default=ROOT / 'build/ios/archive/HolyHim.xcarchive')
     parser.add_argument('--output', type=Path,
                         default=ROOT / 'store/archive-verification.json')
     args = parser.parse_args()

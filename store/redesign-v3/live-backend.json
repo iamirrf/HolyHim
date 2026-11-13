@@ -1,0 +1,69 @@
+{
+  "date": "2026-11-05T14:07:31.045710+00:00",
+  "project": "holyhim-app-production",
+  "temporaryAccount": true,
+  "checks": [
+    {
+      "name": "temporary authenticated account",
+      "passed": true
+    },
+    {
+      "name": "schema 6 profile accepted by deployed rules",
+      "passed": true
+    },
+    {
+      "name": "name edit preserves completed onboarding",
+      "passed": true
+    },
+    {
+      "name": "rewinding guide answer clears later answers",
+      "passed": true
+    },
+    {
+      "name": "lesson progress accepted",
+      "passed": true
+    },
+    {
+      "name": "saved add and remove accepted",
+      "passed": true
+    },
+    {
+      "name": "unauthenticated profile read denied",
+      "passed": true
+    },
+    {
+      "name": "new account receives no fabricated lifetime access",
+      "passed": true
+    },
+    {
+      "name": "server RevenueCat verification preserves non-ownership",
+      "passed": true
+    },
+    {
+      "name": "unsigned webhook denied",
+      "passed": true
+    },
+    {
+      "name": "owner JPEG avatar upload and profile reference accepted",
+      "passed": true
+    },
+    {
+      "name": "unauthenticated avatar metadata read denied",
+      "passed": true
+    },
+    {
+      "name": "accepted photo replacement cleans old object",
+      "passed": true
+    },
+    {
+      "name": "photo removal cleans object and preserves explicit removal",
+      "passed": true
+    },
+    {
+      "name": "account deletion purges photos, profile and progress",
+      "passed": true
+    }
+  ],
+  "accountDeleted": true,
+  "passed": true
+}

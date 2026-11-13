@@ -1,8 +1,8 @@
-# HolyHer privacy disclosure preparation
+# HolyHim privacy disclosure preparation
 
 Prepared October 29, 2026 from the app/backend source, downloaded iOS SDK manifests, and primary provider documentation. These are recommended App Store Connect answers awaiting final archive verification and entry in the portal. They are not evidence that a privacy label has been submitted.
 
-HolyHer has no advertising, advertising attribution integration, Firebase Analytics, or Crashlytics package. Nevertheless, its service providers declare technical or purchase analytics. Do not select “Data Not Collected” or claim that no analytics of any kind occur.
+HolyHim has no advertising, advertising attribution integration, Firebase Analytics, or Crashlytics package. Nevertheless, its service providers declare technical or purchase analytics. Do not select “Data Not Collected” or claim that no analytics of any kind occur.
 
 ## Recommended disclosure baseline
 
@@ -12,27 +12,28 @@ All listed categories are **not used for tracking** under the currently inspecte
 |---|---|---|---|
 | Name | Yes | App Functionality; Product Personalization | Provider-supplied/display name, saved preferred name, greeting. |
 | Email Address | Yes | App Functionality | Email and federated authentication; password reset; support replies. |
-| Phone Number | Yes | App Functionality | Google Sign-In SDK declares this category. HolyHer has no phone-auth UI; retain the vendor-declared baseline unless provider-specific evidence justifies narrowing. |
-| Coarse Location | Yes | App Functionality | Google Sign-In SDK declaration. HolyHer requests no GPS permission; that does not negate provider collection. |
+| Phone Number | Yes | App Functionality | Google Sign-In SDK declares this category. HolyHim has no phone-auth UI; retain the vendor-declared baseline unless provider-specific evidence justifies narrowing. |
+| Coarse Location | Yes | App Functionality | Google Sign-In SDK declaration. HolyHim requests no GPS permission; that does not negate provider collection. |
 | Sensitive Info | Yes | App Functionality; Product Personalization | Saved Bible familiarity and faith-oriented focus can disclose religious information. |
 | User ID | Yes | App Functionality; Analytics | Firebase UID, authentication provider identifiers, and the same UID used in RevenueCat's purchase reporting. |
-| Device ID | Yes | Analytics | Google Sign-In SDK declaration. No advertising-identifier integration was found in HolyHer. |
+| Device ID | Yes | Analytics | Google Sign-In SDK declaration. No advertising-identifier integration was found in HolyHim. |
 | Purchase History | Yes | App Functionality; Analytics | RevenueCat entitlement/restore validation and purchase dashboard features; linked by the custom UID. |
 | Product Interaction | Yes | App Functionality | Completed lesson numbers, activity dates, journey start and synced reading state. |
 | Other Usage Data | Yes | Analytics | Google Sign-In SDK declaration. |
 | Customer Support | Yes | App Functionality | The support website stores the submitted email and message. Include this accessible support surface in the baseline. |
 | Other Data Types | Yes | App Functionality; Product Personalization; Analytics | Saved routine/reminder preferences and journey time zone; backend invocation/security metadata; Google Sign-In's additional data declaration. |
 | Other Diagnostic Data | No | Analytics | FirebaseAuth and FirebaseFirestore SDK manifests declare unlinked technical diagnostics. |
+| Photos or Videos | Yes | App Functionality; Product Personalization | Optional profile photo uploaded for account identity and display. |
 
-Do not add payment-card information simply because the app uses StoreKit: Apple handles payment and HolyHer does not receive card details. No app code requests contacts, photos, microphone, health, or precise location. Recheck the final dependency set and actual provider behavior before using these exclusions as portal answers.
+Do not add payment-card information simply because the app uses StoreKit: Apple handles payment and HolyHim does not receive card details. The app requests an optional profile photo, crops it locally, and uploads it to account-scoped Firebase Storage. No app code requests contacts, microphone, health, or precise location. Recheck the final dependency set and actual provider behavior before using these exclusions as portal answers.
 
 Google Sign-In's downloaded manifest declares linked Name, Email Address, Phone Number, Coarse Location, User ID, Device ID, Other Usage Data, and Other Data Types. The baseline above intentionally retains that declaration. Do not remove categories solely because the Dart layer does not read them. If narrowing is justified, record the provider documentation/configuration and runtime evidence before changing the label.
 
-RevenueCat's SDK manifest alone describes an unlinked purchase record for basic operation. HolyHer supplies an account-identifiable UID, and RevenueCat's official disclosure guide additionally requires purchase Analytics and App Functionality. The app-level declaration therefore correctly treats its purchase history as linked and includes both purposes.
+RevenueCat's SDK manifest alone describes an unlinked purchase record for basic operation. HolyHim supplies an account-identifiable UID, and RevenueCat's official disclosure guide additionally requires purchase Analytics and App Functionality. The app-level declaration therefore correctly treats its purchase history as linked and includes both purposes.
 
 ## App manifest and archived SDKs
 
-`ios/Runner/PrivacyInfo.xcprivacy` declares HolyHer's direct collection and app-local UserDefaults use with approved reason **CA92.1**. SharedPreferences caches account-specific preferences and journey state within the app container. The SDKs' own manifests retain their separate API reasons and data declarations; do not copy wrapper-only reasons into the app manifest.
+`ios/Runner/PrivacyInfo.xcprivacy` declares HolyHim's direct collection and app-local UserDefaults use with approved reason **CA92.1**. SharedPreferences caches account-specific preferences and journey state within the app container. The SDKs' own manifests retain their separate API reasons and data declarations; do not copy wrapper-only reasons into the app manifest.
 
 The app manifest must be included in the Runner resources. This task does not edit the Xcode project. Generate and inspect Xcode's combined privacy report from the actual distribution archive before submission, including Flutter, Firebase, Google Sign-In, RevenueCat, and all transitive resources. Downloaded source manifests and their hashes are inventoried in `metadata/sdk_privacy_audit.json`; a source inventory does not prove the archive contains them.
 

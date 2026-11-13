@@ -13,11 +13,11 @@ import 'package:evolve/features/onboarding/presentation/widgets/onboarding_scaff
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  final args = await const MethodChannel('holyher/typography')
+  final args = await const MethodChannel('holyhim/typography')
           .invokeListMethod<String>('previewArguments') ??
       [];
   final route = args
-          .where((v) => v.startsWith('--holyher-preview='))
+          .where((v) => v.startsWith('--holyhim-preview='))
           .firstOrNull
           ?.split('=')
           .last ??

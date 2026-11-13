@@ -1,4 +1,4 @@
 Traceback (most recent call last):
-  File "/Users/amir/Downloads/HolyHer/tool/capture_ios_gallery.py", line 24, in <module>
+  File "/Users/amir/Downloads/HolyHim/tool/capture_ios_gallery.py", line 24, in <module>
     raise RuntimeError(f'{route} never reached ready: {errors.read_text() if errors.exists() else "inspect simulator log"}')
 RuntimeError: learn never reached ready: inspect simulator log

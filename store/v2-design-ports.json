@@ -1,0 +1,74 @@
+{
+  "version": 2,
+  "sources": [
+    {
+      "source": "/Users/amir/Downloads/evolve.ai/lib/core/widgets/animated_mesh_background.dart",
+      "sha256": "bebbb647eef0727657559a53bc83ee666407ff6f5ba9d4819f84ebd8ac62e3c1"
+    },
+    {
+      "source": "/Users/amir/Downloads/evolve.ai/lib/core/widgets/backdrop_host.dart",
+      "sha256": "4c97b15ade1622382aa42c7429cf63b6e98cfcb2a72074d966d8ff654daeecca"
+    },
+    {
+      "source": "/Users/amir/Downloads/evolve.ai/lib/core/widgets/particle_field.dart",
+      "sha256": "b2f644bd485a2c38d032b9ace181af95c5907c7db96e9f6e92058915b8d76c56"
+    },
+    {
+      "source": "/Users/amir/Downloads/evolve.ai/lib/core/widgets/app_pressable.dart",
+      "sha256": "ab932628fe1544bd3789e93c46843b9c61bf7aa322897001bdbfb315c951937d"
+    },
+    {
+      "source": "/Users/amir/Downloads/evolve.ai/lib/core/widgets/app_top_bar.dart",
+      "sha256": "47158e3c7fc0592f48c569ab8676c417f86ba11c2432b78a95e1ae206838090f"
+    },
+    {
+      "source": "/Users/amir/Downloads/evolve.ai/lib/core/widgets/minimizing_glass_nav_bar.dart",
+      "sha256": "a7a43183a0bac68ec45b25caedf79946794851bb74dc84b673e68778ca54059e"
+    },
+    {
+      "source": "/Users/amir/Downloads/evolve.ai/lib/core/widgets/app_notification.dart",
+      "sha256": "91b368c55498658ec2af71296b5ed7f8f756e7106d676babdc30db5f4758eaea"
+    },
+    {
+      "source": "/Users/amir/Downloads/evolve.ai/lib/core/widgets/sapphire_edge_glow.dart",
+      "sha256": "ade4269b0c5ac35d1d709c321462e3d51c1fdbc1fea530031454b0e985f62e3d"
+    },
+    {
+      "source": "/Users/amir/Downloads/evolve.ai/lib/core/animation/cognein_motion.dart",
+      "sha256": "aa54ee37989016b1ed3a166b2e0b801941ad9240bcccf9e2ee2f5bc22050381d"
+    },
+    {
+      "source": "/Users/amir/Downloads/evolve.ai/lib/core/animation/cognein_haptics.dart",
+      "sha256": "e1d3292fb337725f351c33b31ac171915b8082024ef508f6bfa7b3d23c6941fe"
+    },
+    {
+      "source": "/Users/amir/Downloads/evolve.ai/lib/core/animation/cognein_sounds.dart",
+      "sha256": "2a6023b6615890ee03047a1802a551c491d8f7d38c307cc81bc460e29a0989f4"
+    },
+    {
+      "source": "/Users/amir/Downloads/evolve.ai/lib/features/courses/presentation/widgets/lesson_deck.dart",
+      "sha256": "23ff7327346f08941a6b51d756ea4614c9f7705d78227b7c132619e6f92bc73a"
+    },
+    {
+      "source": "/Users/amir/Downloads/Business/SunRize/code/lib/core/theme/color_themes.dart",
+      "sha256": "f3baf61ded16d375bcc50749d5e58a83f4fdcadd64ea172aa93a8a13f438634d"
+    },
+    {
+      "source": "/Users/amir/Downloads/Business/SunRize/code/lib/core/widgets/hold_to_complete_button.dart",
+      "sha256": "5b4ba70100f77ec094f200debdc7b1ccf42548189a4f31c9d2c905c4fa2b0456"
+    },
+    {
+      "source": "/Users/amir/Downloads/Business/SunRize/code/lib/core/widgets/badge_reveal_dialog.dart",
+      "sha256": "54796bc0dab4f1fc02b1341aabd11caa0f28578dcebe5f843cab982dac57b18e"
+    }
+  ],
+  "adaptations": [
+    "Blush and seven whole-surface themes",
+    "Rose-gold edge-light palette",
+    "Scroll-driven progressive top material",
+    "Four destinations and opaque glass fallback",
+    "Pointer-local four-degree press tilt",
+    "1.2 second heartbeat hold",
+    "Porcelain badge with spin and finite petals"
+  ]
+}

@@ -1,16 +1,13 @@
 {
-  "bundleId": "com.holyher.app",
-  "version": "1.2.0",
-  "buildNumber": 4,
-  "releaseDate": "2026-11-15",
-  "releaseTimeZone": "America/New_York",
-  "releaseTime": "06:00",
-  "releaseTimestamp": "2026-11-15T11:00:00Z",
+  "bundleId": "com.holyhim.app",
+  "version": "2.0.0",
+  "buildNumber": 6,
   "platforms": [
     "iPhone",
     "iPad"
   ],
   "publisher": "Codellion LLC",
-  "firebaseProject": "holyher-app-production",
-  "website": "https://holyher-app-production.web.app"
+  "firebaseProject": "holyhim-app-production",
+  "website": "https://holyhim-app-production.web.app",
+  "releasePolicy": "completion-dependent; prepare only after final acceptance and explicit submission approval"
 }

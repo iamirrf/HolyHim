@@ -1,0 +1,22 @@
+{
+  "verifiedAt": "2026-11-05",
+  "version": "2.0.0",
+  "build": "6",
+  "status": "launched",
+  "built": true,
+  "signed": true,
+  "installed": true,
+  "processStarted": true,
+  "processIdentifier": 37226,
+  "verifiedWirelessLaunch": true,
+  "transport": "localNetwork",
+  "installation": "xcrun devicectl device install app; in-place upgrade; application data preserved",
+  "launch": "xcrun devicectl device process launch --activate",
+  "activatedWhenStarted": true,
+  "runningProcessConfirmedAfterLaunch": true,
+  "widgetEmbedded": true,
+  "appGroup": "group.com.holyhim.app",
+  "simulatorUsed": false,
+  "executableSha256": "a465073b074e38d3f3146505774197636fa6af88ee96e532ddf048befe8c0dcc",
+  "aotSha256": "bd3da0c26c551d19350ec5006e81b880fb74f9a86e4c6de3063dbf002f8b35e6"
+}

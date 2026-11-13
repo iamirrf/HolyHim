@@ -1,7 +1,7 @@
 {
   "checkedAt": "2026-10-31T18:57:21.808764+00:00",
   "model": "iPhone 14 Pro Max",
-  "bundleId": "com.holyher.app",
+  "bundleId": "com.holyhim.app",
   "version": "1.0.0",
   "buildNumber": "1",
   "installed": true,
@@ -10,5 +10,5 @@
     "Successful installation and launch do not establish native authentication, purchase/restore, reminders, cross-device synchronization, or account deletion acceptance.",
     "No physical iPad acceptance recorded."
   ],
-  "launchEvidence": "Apple devicectl reported successful launch of com.holyher.app on the paired iPhone."
+  "launchEvidence": "Apple devicectl reported successful launch of com.holyhim.app on the paired iPhone."
 }
