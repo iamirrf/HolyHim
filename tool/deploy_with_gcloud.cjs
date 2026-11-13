@@ -9,5 +9,5 @@ const cli=require(root);
 const token=execFileSync('gcloud',['auth','print-access-token','--account=iamirrf1@gmail.com','--verbosity=error'],{encoding:'utf8',stdio:['ignore','pipe','pipe']}).trim();
 require(path.join(root,'apiv2')).setAccessToken(token);
 const only=process.argv[2];
-if(!only||!/^functions:[a-zA-Z0-9,:-]+$|^hosting$/.test(only))throw Error('Specify exact functions or hosting.');
-cli.deploy({project:'holyhim-app-production',cwd:process.cwd(),only,nonInteractive:true,user:{email:'iamirrf1@gmail.com'},tokens:{access_token:token,expires_at:Date.now()+3500000,scopes:[]}}).then(()=>console.log('Deployment finished.')).catch(error=>{console.error(error.message);process.exitCode=1;});
+if(!only||!/^functions:[a-zA-Z0-9,:-]+$|^hosting$|^storage$/.test(only))throw Error('Specify exact functions or hosting.');
+cli.deploy({project:'holyhim-app-production',cwd:process.cwd(),only,nonInteractive:true,force:process.env.DEPLOY_FORCE==='1',user:{email:'iamirrf1@gmail.com'},tokens:{access_token:token,expires_at:Date.now()+3500000,scopes:[]}}).then(()=>console.log('Deployment finished.')).catch(error=>{console.error(error.message);process.exitCode=1;});

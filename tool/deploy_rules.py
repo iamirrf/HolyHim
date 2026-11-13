@@ -6,6 +6,7 @@ import argparse
 import hashlib
 import json
 import subprocess
+import urllib.error
 import urllib.request
 from pathlib import Path
 
@@ -34,8 +35,14 @@ def main():
         raise RuntimeError('Rules compilation failed; production unchanged.')
     created = call('POST', '/rulesets', {'source': source})
     name = f'projects/{PROJECT}/releases/cloud.firestore'
-    call('PATCH', '/releases/cloud.firestore', {'release': {
-        'name': name, 'rulesetName': created['name']}, 'updateMask': 'rulesetName'})
+    try:
+        call('PATCH', '/releases/cloud.firestore', {'release': {
+            'name': name, 'rulesetName': created['name']}, 'updateMask': 'rulesetName'})
+    except urllib.error.HTTPError as error:
+        if error.code != 404:
+            raise
+        # A new project has no release yet: create the first one.
+        call('POST', '/releases', {'name': name, 'rulesetName': created['name']})
     release = call('GET', '/releases/cloud.firestore')
     assert release['rulesetName'] == created['name']
     fetched = call('GET', '/rulesets/' + created['name'].rsplit('/', 1)[-1])
