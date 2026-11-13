@@ -9,6 +9,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:holyhim/design/design.dart';
 import 'package:holyhim/features/celebration/celebration_screen.dart';
 import 'package:holyhim/features/lesson/lesson_screen.dart';
+import 'package:holyhim/features/paywall/paywall_screen.dart';
 import 'package:holyhim/features/shell/home_shell.dart';
 import 'package:holyhim/services/billing.dart';
 import 'package:holyhim/services/repository.dart';
@@ -28,7 +29,9 @@ void main() {
   });
 
   Future<void> shot(WidgetTester tester, String id, Widget screen,
-      {required WalkState walk, Future<void> Function()? action}) async {
+      {required WalkState walk,
+      bool owned = true,
+      Future<void> Function()? action}) async {
     debugDefaultTargetPlatformOverride = TargetPlatform.iOS;
     SharedPreferences.setMockInitialValues({});
     await capture(tester, '$out/$id.png', screen,
@@ -37,8 +40,8 @@ void main() {
         action: action,
         wrap: (app) => scope(app,
             walk: walk,
-            billing: const LifetimeState(
-                loading: false, purchased: true, product: product)));
+            billing: LifetimeState(
+                loading: false, purchased: owned, product: product)));
     final error = tester.takeException();
     if (error != null) debugPrint('!! $id: $error');
     await tester.pumpWidget(const SizedBox());
@@ -66,5 +69,8 @@ void main() {
         walk: WalkState(profile: profile(), completed: history(2, today: true)));
     await shot(tester, '05-growth', const HomeShell(initialTab: 2), walk: kept);
     await shot(tester, '06-saved', const HomeShell(initialTab: 1), walk: kept);
+    // The in-app purchase as App Review sees it (not a marketing screenshot).
+    await shot(tester, 'iap-offer', OfferScreen(onboarding: true, onContinue: () {}),
+        walk: WalkState(profile: profile(), completed: history(0)), owned: false);
   });
 }
