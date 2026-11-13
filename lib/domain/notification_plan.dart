@@ -52,6 +52,15 @@ String _first(String name) {
   return part.length > 18 ? '' : part;
 }
 
+/// The title of a lesson note at [hour], shared with the onboarding preview
+/// so the picture she approves is the note she gets.
+String lessonNoteTitle(int hour, String name) {
+  final greeting =
+      hour < 12 ? 'Good morning' : hour < 17 ? 'Good afternoon' : 'Good evening';
+  final first = _first(name);
+  return first.isEmpty ? greeting : '$greeting, $first';
+}
+
 /// The notes HolyHim sends, all about Scripture and her walk, never about
 /// buying anything:
 ///
@@ -130,13 +139,12 @@ List<PlannedNotification> notificationPlan(
         ? pacing.currentDay
         : null;
     final next = result.isEmpty ? lessonFor(lessonDay ?? 0) : null;
-    final greeting = at.hour < 12 ? 'Good morning' : at.hour < 17 ? 'Good afternoon' : 'Good evening';
     if (next != null) {
       result.add(PlannedNotification(
           id: id,
           day: next.day,
           at: at,
-          title: first.isEmpty ? greeting : '$greeting, $first',
+          title: lessonNoteTitle(at.hour, name),
           subtitle: 'Day ${next.day} · ${next.title}',
           body: teaserExcerpt(next.teaser),
           kind: NotificationKind.daily));

@@ -7,7 +7,7 @@ const legalDocuments = <String, List<(String, String)>>{
     ),
     (
       "Your account and your walk",
-      "When you sign in with Apple, Google, or email, we process your account identifier, email address, and any name supplied by that provider. You can choose the name HolyHim uses for you.\n\nWe save the heart focuses you select, your reminder preference and time, theme, reading text size, haptics and sound preferences, time zone, birthday, life season, onboarding answers and unfinished step, optional profile photo reference, and onboarding dates. Your completed lesson numbers and their calendar dates support lesson pacing, streaks, badges, and your reading calendar. Saved lesson numbers and save dates let you find your kept verses again.",
+      "When you sign in with Apple, Google, or email, we process your account identifier, email address, and any name supplied by that provider. You can choose the name HolyHim uses for you.\n\nWe save the heart focuses you select, your reminder preference and time, theme, reading text size, haptics and sound preferences, time zone, birthday, life season, onboarding answers and unfinished step, onboarding dates, and a profile photo reference only if you added a photo in an earlier version. HolyHim 2.0 does not ask for or upload photos. Your completed lesson numbers and their calendar dates support lesson pacing, streaks, badges, and your reading calendar. Saved lesson numbers and save dates let you find your kept verses again.",
     ),
     (
       "Local storage and synchronization",
@@ -19,7 +19,7 @@ const legalDocuments = <String, List<(String, String)>>{
     ),
     (
       "Service providers",
-      "Google Firebase provides authentication, cloud data storage, backend functions, and website hosting. Apple and Google handle their respective sign-in services. Firebase Storage holds optional profile photos; replaced photos and account photos are removed by our backend. RevenueCat and Apple process purchase identifiers and entitlement information to provide lifetime access and restore purchases. We do not receive your payment card details. These providers process the technical information needed to deliver and protect their services. Your data may be processed in the United States and in locations used by these service providers.",
+      "Google Firebase provides authentication, cloud data storage, backend functions, and website hosting. Apple and Google handle their respective sign-in services. Firebase Storage holds profile photos added in earlier versions; they are removed when replaced or when you delete your account. RevenueCat and Apple process purchase identifiers and entitlement information to provide lifetime access and restore purchases. We do not receive your payment card details. These providers process the technical information needed to deliver and protect their services. Your data may be processed in the United States and in locations used by these service providers.",
     ),
     (
       "Support messages",
@@ -27,7 +27,7 @@ const legalDocuments = <String, List<(String, String)>>{
     ),
     (
       "Keeping and deleting information",
-      "Your account data remains while your account is active. You can export your data in Profile. To delete your account, open Profile → Delete account. HolyHim asks you to confirm and sign in again, then removes your account, optional uploaded photos, and cloud records. Purchase transaction records may remain with Apple and RevenueCat under their retention policies. Deletion requires a network connection.\n\nA private deletion guard prevents late writes from recreating deleted account data. Support records are retained as needed to resolve requests and meet applicable obligations. We may disclose information when required by applicable law.",
+      "Your account data remains while your account is active. You can export your data in Profile. To delete your account, open Profile → Account → Delete account. HolyHim asks you to confirm and sign in again, then removes your account, any photo added in an earlier version, and cloud records. Purchase transaction records may remain with Apple and RevenueCat under their retention policies. Deletion requires a network connection.\n\nA private deletion guard prevents late writes from recreating deleted account data. Support records are retained as needed to resolve requests and meet applicable obligations. We may disclose information when required by applicable law.",
     ),
     (
       "Your choices",
@@ -45,7 +45,7 @@ const legalDocuments = <String, List<(String, String)>>{
     ),
     (
       "Your Scripture journey and lifetime access",
-      "HolyHim offers one lifetime purchase, with the one-time price shown in your local App Store currency before confirmation. It is not a subscription. Restore Purchases recovers eligible ownership through the same Apple account. Existing retained access remains recognized. After you finish a lesson, the next lesson opens on the following calendar day. Missed days do not create a backlog. Completed lessons remain available to read again.",
+      "The first seven daily lessons are free. HolyHim offers one lifetime purchase that opens every later lesson, with the one-time price shown in your local App Store currency before confirmation. It is not a subscription. Reminders, saved verses, widgets, your history and lessons you have already completed stay available without purchase. Restore Purchases recovers eligible ownership through the same Apple account. Existing retained access remains recognized. After you finish a lesson, the next lesson opens on the following calendar day. Missed days do not create a backlog. Completed lessons remain available to read again.",
     ),
     (
       "Your account",

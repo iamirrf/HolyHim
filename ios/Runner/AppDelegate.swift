@@ -1,5 +1,6 @@
 import Flutter
 import UIKit
+import StoreKit
 import UserNotifications
 import flutter_local_notifications
 
@@ -59,6 +60,29 @@ import flutter_local_notifications
       }
       NotificationCenter.default.addObserver(self, selector: #selector(transparencyChanged),
         name: UIAccessibility.reduceTransparencyStatusDidChangeNotification, object: nil)
+    }
+    if let registrar = engineBridge.pluginRegistry.registrar(forPlugin: "HolyHimReview") {
+      let channel = FlutterMethodChannel(name: "holyhim/review", binaryMessenger: registrar.messenger())
+      channel.setMethodCallHandler { [weak self] call, result in
+        if call.method == "request" {
+          self?.requestReview()
+          result(nil)
+        } else {
+          result(FlutterMethodNotImplemented)
+        }
+      }
+    }
+  }
+
+  /// iOS decides whether to show its rating prompt and how often.
+  private func requestReview() {
+    if let scene = UIApplication.shared.connectedScenes
+      .first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {
+      if #available(iOS 18.0, *) {
+        AppStore.requestReview(in: scene)
+      } else {
+        SKStoreReviewController.requestReview(in: scene)
+      }
     }
   }
 

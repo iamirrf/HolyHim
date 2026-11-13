@@ -110,7 +110,7 @@ def audit(ipa, output, archive_report):
                 ('CFBundleIdentifier', BUNDLE), ('CFBundleDisplayName', 'HolyHim'),
                 ('CFBundleShortVersionString', source_version.group(1)),
                 ('CFBundleVersion', source_version.group(2)),
-                ('UIDeviceFamily', [1, 2]), ('ITSAppUsesNonExemptEncryption', False),
+                ('UIDeviceFamily', [1]), ('ITSAppUsesNonExemptEncryption', False),
             ):
                 check(key, key in info and (info[key] is False
                     if key == 'ITSAppUsesNonExemptEncryption' else info[key] == expected))

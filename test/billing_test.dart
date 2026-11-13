@@ -12,6 +12,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:holyhim/services/auth_service.dart';
 import 'package:holyhim/services/billing.dart';
+import 'package:purchases_flutter/purchases_flutter.dart';
 
 class BillingAuth extends AuthNotifier {
   @override
@@ -22,6 +23,16 @@ class BillingAuth extends AuthNotifier {
 class PresentationBilling extends LifetimeController {
   @override
   LifetimeState build() => const LifetimeState(loading: false);
+}
+
+class PricedBilling extends LifetimeController {
+  final String price;
+  PricedBilling(this.price);
+  @override
+  LifetimeState build() => LifetimeState(
+      loading: false,
+      product: StoreProduct(lifetimeProductId, 'All 365 lessons',
+          'HolyHim Lifetime', 1.99, price, 'USD'));
 }
 
 Map<String, dynamic> info(String uid, bool owned) {
@@ -206,5 +217,29 @@ void main() {
     heldRestore!.complete(info('alice', true));
     expect(await result, isFalse);
     expect(container.read(lifetimeProvider).active, isFalse);
+  });
+  testWidgets('the offer shows the store price, and never a blank one',
+      (tester) async {
+    Future<void> offer(String price) => tester.pumpWidget(ProviderScope(
+            overrides: [
+              authProvider.overrideWith(BillingAuth.new),
+              lifetimeProvider.overrideWith(() => PricedBilling(price))
+            ],
+            child: MaterialApp(
+                theme: HolyThemeData.build(HolyThemes.blush),
+                builder: (context, child) =>
+                    ThemeHost(theme: HolyThemes.blush, child: child!),
+                home: const OfferScreen(lockedDay: 8))));
+    await offer(r'$1.99');
+    await tester.pump();
+    expect(find.text(r'Unlock for life · $1.99'), findsOneWidget);
+    await tester.pumpWidget(const SizedBox());
+    await offer('  ');
+    await tester.pump();
+    expect(find.text('Unlock for life'), findsOneWidget);
+    expect(find.textContaining('Unlock for life ·'), findsNothing);
+    await tester.pumpWidget(const SizedBox());
+    await tester.pump(const Duration(milliseconds: 500));
+    debugDefaultTargetPlatformOverride = null;
   });
 }

@@ -82,12 +82,13 @@ Widget scope(Widget app,
     {WalkState? walk,
     AuthUser? user = const AuthUser(uid: 'review', email: 'mira@example.com'),
     AuthState? auth,
+    String? lastSignIn = 'apple',
     LifetimeState billing = const LifetimeState(loading: false, product: product)}) {
   return ProviderScope(overrides: [
     authProvider.overrideWith(() => FakeAuth(user, fixed: auth)),
     repositoryProvider.overrideWith(
         () => FakeRepository(walk ?? WalkState(profile: profile()))),
     lifetimeProvider.overrideWith(() => FakeBilling(billing)),
-    lastSignInProvider.overrideWith((ref) async => 'apple'),
+    lastSignInProvider.overrideWith((ref) async => lastSignIn),
   ], child: app);
 }
