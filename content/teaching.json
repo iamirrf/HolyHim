@@ -1,0 +1,301 @@
+{
+  "version": "holyhim365-teaching-v1",
+  "status": "vertical-slice",
+  "lessons": [
+    {
+      "day": 1,
+      "id": "day-001",
+      "objective": "Explain why Moses connects courage with God’s presence.",
+      "context": "Moses is preparing Israel for life under Joshua’s leadership. Being strong does not mean pretending the transition is easy. The reason for courage is the LORD’s faithfulness, rather than a guarantee that every encounter will be painless.",
+      "takeaway": "Before one difficult conversation, pause and remember that courage can include asking for help.",
+      "questions": [
+        {
+          "id": "day-001-q1",
+          "prompt": "What reason does Moses give Israel for courage?",
+          "options": [
+            {
+              "id": "day-001-q1-a",
+              "text": "The LORD goes with them and will not forsake them."
+            },
+            {
+              "id": "day-001-q1-b",
+              "text": "They already know how every challenge will end."
+            },
+            {
+              "id": "day-001-q1-c",
+              "text": "Strong people never experience fear."
+            },
+            {
+              "id": "day-001-q1-d",
+              "text": "Joshua will remove the need to trust God."
+            }
+          ],
+          "correctOptionId": "day-001-q1-a",
+          "explanation": "The verse grounds courage in God going with his people. It does not say they already know the outcome or cannot feel fear.",
+          "teachingSource": "day-001/understand"
+        },
+        {
+          "id": "day-001-q2",
+          "prompt": "Which response fits this lesson when a hard conversation approaches?",
+          "options": [
+            {
+              "id": "day-001-q2-a",
+              "text": "Acknowledge the fear and take a thoughtful step with trust in God."
+            },
+            {
+              "id": "day-001-q2-b",
+              "text": "Wait until every trace of fear disappears."
+            },
+            {
+              "id": "day-001-q2-c",
+              "text": "Assume God’s presence guarantees agreement."
+            },
+            {
+              "id": "day-001-q2-d",
+              "text": "Hide the difficulty so that needing help stays secret."
+            }
+          ],
+          "correctOptionId": "day-001-q2-a",
+          "explanation": "Courage can coexist with fear. Pausing, seeking support, and acting wisely fit the teaching without claiming a certain outcome.",
+          "teachingSource": "day-001/hope"
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "id": "day-002",
+      "objective": "Recognize God’s help as the basis for strength in Isaiah 41:10.",
+      "context": "Isaiah addresses God’s people as those whom God has chosen and will not abandon. The repeated “I will” directs attention to God’s action. Strength here is received from God; it is not a test of whether someone can make herself feel capable.",
+      "takeaway": "Ask someone trustworthy for help with one task, and bring that need to God in prayer.",
+      "questions": [
+        {
+          "id": "day-002-q1",
+          "prompt": "Where does the support described in this verse come from?",
+          "options": [
+            {
+              "id": "day-002-q1-a",
+              "text": "God promises to strengthen, help, and uphold his people."
+            },
+            {
+              "id": "day-002-q1-b",
+              "text": "People must prove their independence before God helps."
+            },
+            {
+              "id": "day-002-q1-c",
+              "text": "Feeling confident is the condition for receiving help."
+            },
+            {
+              "id": "day-002-q1-d",
+              "text": "The verse asks people to ignore their limitations."
+            }
+          ],
+          "correctOptionId": "day-002-q1-a",
+          "explanation": "God is the subject of the promises to strengthen, help, and uphold. The lesson does not make self-sufficiency a condition of care.",
+          "teachingSource": "day-002/understand"
+        },
+        {
+          "id": "day-002-q2",
+          "prompt": "What is a fitting response when your energy runs low?",
+          "options": [
+            {
+              "id": "day-002-q2-a",
+              "text": "Name your need and ask for appropriate support."
+            },
+            {
+              "id": "day-002-q2-b",
+              "text": "Conceal weakness so that God can see your strength."
+            },
+            {
+              "id": "day-002-q2-c",
+              "text": "Treat exhaustion as proof that God has abandoned you."
+            },
+            {
+              "id": "day-002-q2-d",
+              "text": "Take on more tasks to earn God’s help."
+            }
+          ],
+          "correctOptionId": "day-002-q2-a",
+          "explanation": "Asking for support acknowledges a real need. It follows the lesson’s invitation to receive help without disguising weakness.",
+          "teachingSource": "day-002/hope"
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "id": "day-003",
+      "objective": "Describe what it means to call God a present refuge in trouble.",
+      "context": "A refuge provides shelter while danger is real. Psalm 46 continues with images of a shaking earth and roaring waters. Its confidence does not depend on a stable world: God’s nearness is the reason the community can turn to him in upheaval.",
+      "takeaway": "Before replying to a stressful message, take a short pause for prayer and choose a measured response.",
+      "questions": [
+        {
+          "id": "day-003-q1",
+          "prompt": "What does “a very present help in trouble” emphasize?",
+          "options": [
+            {
+              "id": "day-003-q1-a",
+              "text": "God can be turned to while the trouble is happening."
+            },
+            {
+              "id": "day-003-q1-b",
+              "text": "Prayer only becomes appropriate after the problem is solved."
+            },
+            {
+              "id": "day-003-q1-c",
+              "text": "Faithful people never encounter instability."
+            },
+            {
+              "id": "day-003-q1-d",
+              "text": "A refuge removes every practical responsibility."
+            }
+          ],
+          "correctOptionId": "day-003-q1-a",
+          "explanation": "The psalm names God as help in trouble, not merely afterward. Refuge describes support amid instability.",
+          "teachingSource": "day-003/understand"
+        },
+        {
+          "id": "day-003-q2",
+          "prompt": "Which action applies the lesson to a stressful message?",
+          "options": [
+            {
+              "id": "day-003-q2-a",
+              "text": "Pause for prayer, then respond with care even if the problem remains."
+            },
+            {
+              "id": "day-003-q2-b",
+              "text": "Assume that prayer means no reply will ever be needed."
+            },
+            {
+              "id": "day-003-q2-c",
+              "text": "Wait to approach God until you have solved the problem."
+            },
+            {
+              "id": "day-003-q2-d",
+              "text": "Treat feeling stressed as a failure of faith."
+            }
+          ],
+          "correctOptionId": "day-003-q2-a",
+          "explanation": "A pause for prayer makes room for dependence and a thoughtful response. The lesson does not promise an instant resolution.",
+          "teachingSource": "day-003/hope"
+        }
+      ]
+    },
+    {
+      "day": 4,
+      "id": "day-004",
+      "objective": "Distinguish God’s commitment from a promise of a life without opposition.",
+      "context": "Romans 8 speaks of suffering as well as hope. Paul’s question points to God’s saving commitment, expressed in Christ, as the decisive ground for confidence. Opposition remains real; it does not have the final authority to separate believers from God’s love.",
+      "takeaway": "Consider whether a criticism contains useful truth; receive what helps and avoid letting the comment define your worth.",
+      "questions": [
+        {
+          "id": "day-004-q1",
+          "prompt": "What is Paul emphasizing when he asks, “If God is for us, who can be against us?”",
+          "options": [
+            {
+              "id": "day-004-q1-a",
+              "text": "God’s saving commitment is greater than the opposition believers face."
+            },
+            {
+              "id": "day-004-q1-b",
+              "text": "Believers will never encounter anyone who disagrees with them."
+            },
+            {
+              "id": "day-004-q1-c",
+              "text": "Every personal decision receives God’s approval."
+            },
+            {
+              "id": "day-004-q1-d",
+              "text": "Winning arguments proves a person belongs to God."
+            }
+          ],
+          "correctOptionId": "day-004-q1-a",
+          "explanation": "In context, Paul grounds confidence in God’s saving work. He does not deny suffering or promise universal approval.",
+          "teachingSource": "day-004/understand"
+        },
+        {
+          "id": "day-004-q2",
+          "prompt": "How can this teaching guide a response to criticism?",
+          "options": [
+            {
+              "id": "day-004-q2-a",
+              "text": "Consider useful correction without making the comment your final verdict."
+            },
+            {
+              "id": "day-004-q2-b",
+              "text": "Dismiss all correction because no critic can ever be right."
+            },
+            {
+              "id": "day-004-q2-c",
+              "text": "Win every argument before allowing yourself to rest."
+            },
+            {
+              "id": "day-004-q2-d",
+              "text": "Assume a painful comment means God has stopped caring."
+            }
+          ],
+          "correctOptionId": "day-004-q2-a",
+          "explanation": "God’s love offers a stable basis for worth while leaving room for honest correction. Confidence does not require winning every argument.",
+          "teachingSource": "day-004/hope"
+        }
+      ]
+    },
+    {
+      "day": 5,
+      "id": "day-005",
+      "objective": "Read Jeremiah’s promise of hope in the setting of a long exile.",
+      "context": "Jeremiah’s letter tells exiles to build homes and seek the welfare of the city where they live. Restoration lies beyond a long wait. The promise addresses a community’s future under God’s care; it is not a timetable for individual success or an assurance of wealth.",
+      "takeaway": "Choose one useful action within today’s limits while allowing yourself to be honest about the waiting.",
+      "questions": [
+        {
+          "id": "day-005-q1",
+          "prompt": "What setting helps explain Jeremiah 29:11?",
+          "options": [
+            {
+              "id": "day-005-q1-a",
+              "text": "A community in exile faces a long wait for restoration."
+            },
+            {
+              "id": "day-005-q1-b",
+              "text": "A traveler is guaranteed immediate success in a new business."
+            },
+            {
+              "id": "day-005-q1-c",
+              "text": "A community has already escaped every hardship."
+            },
+            {
+              "id": "day-005-q1-d",
+              "text": "Jeremiah promises that each personal plan will succeed."
+            }
+          ],
+          "correctOptionId": "day-005-q1-a",
+          "explanation": "The promise belongs to Jeremiah’s letter to the exiles. The surrounding instruction anticipates patient life in exile, rather than immediate escape.",
+          "teachingSource": "day-005/understand"
+        },
+        {
+          "id": "day-005-q2",
+          "prompt": "Which response best fits this lesson during a slow season?",
+          "options": [
+            {
+              "id": "day-005-q2-a",
+              "text": "Take one faithful, useful step without demanding an immediate outcome."
+            },
+            {
+              "id": "day-005-q2-b",
+              "text": "Treat waiting as proof that life has lost all meaning."
+            },
+            {
+              "id": "day-005-q2-c",
+              "text": "Read the promise as a guarantee of quick financial gain."
+            },
+            {
+              "id": "day-005-q2-d",
+              "text": "Stop contributing until the entire future is clear."
+            }
+          ],
+          "correctOptionId": "day-005-q2-a",
+          "explanation": "Patient hope can support useful action today. It does not require a promised deadline or a particular personal outcome.",
+          "teachingSource": "day-005/hope"
+        }
+      ]
+    }
+  ]
+}

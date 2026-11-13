@@ -1,0 +1,17 @@
+{
+  "projectId": "holyhim-app-production",
+  "account": "REPLACE_WITH_HOLYHIM_ACCOUNT",
+  "region": "us-central1",
+  "runtimeServiceAccount": "REPLACE_WITH_HOLYHIM_ACCOUNT",
+  "website": "https://holyhim-app-production.web.app",
+  "previousProjectId": "holyhim-app-production",
+  "previousAccount": "REPLACE_WITH_HOLYHIM_ACCOUNT",
+  "migrationStatus": "complete",
+  "billingAccountName": "REPLACE_WITH_HOLYHIM_BILLING_ACCOUNT",
+  "billingAccountId": "REPLACE_WITH_HOLYHIM_BILLING_ACCOUNT",
+  "ownerVerified": true,
+  "billingVerified": true,
+  "firebaseIosAppId": "REPLACE_WITH_HOLYHIM_APP_ID",
+  "previousProjectBillingDisabled": true,
+  "previousProjectTemporaryAccessRemoved": true
+}

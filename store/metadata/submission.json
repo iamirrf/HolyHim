@@ -1,0 +1,55 @@
+{
+  "status": "prepared-not-submitted",
+  "bundleId": "com.holyhim.app",
+  "name": "HolyHim",
+  "primaryLocale": "en-US",
+  "version": "2.0.0",
+  "buildNumber": 6,
+  "publisher": "Codellion LLC",
+  "copyright": "2026 Codellion LLC",
+  "platforms": [
+    "iPhone",
+    "iPad"
+  ],
+  "primaryCategory": "REFERENCE",
+  "secondaryCategory": "LIFESTYLE",
+  "ageRating": "Complete the current App Store Connect questionnaire; no final rating claimed here.",
+  "pricing": {
+    "appDownload": "Free with in-app purchase",
+    "productId": "holyhim_lifetime",
+    "productType": "NON_CONSUMABLE",
+    "entitlementId": "lifetime",
+    "launchPriceUSD": "1.99",
+    "subscription": false,
+    "localizedPriceSource": "App Store product"
+  },
+  "release": {
+    "policy": "completion-dependent",
+    "scheduledAt": null,
+    "note": "Set an explicit reviewed release time only after final acceptance and separate App Store submission approval."
+  },
+  "urls": {
+    "marketing": "https://holyhim-app-production.web.app",
+    "support": "https://holyhim-app-production.web.app/support",
+    "privacy": "https://holyhim-app-production.web.app/privacy",
+    "terms": "https://holyhim-app-production.web.app/terms"
+  },
+  "screenshots": {
+    "iphone": "store/screenshots/app-store/iphone-1206x2622",
+    "ipad": "store/screenshots/app-store/ipad-2064x2752",
+    "count": 10,
+    "provenance": "Existing framed raster screenshots predate the current redesign. Current review rasters are in store/launch-redesign/screens and are not device screenshots or submission assets.",
+    "status": "prior-design reference only; replace before submission"
+  },
+  "reviewerCredentials": "PENDING: configure real review accounts and enter credentials securely in App Store Connect. Do not commit passwords.",
+  "requiredBeforeSubmission": [
+    "Replace prior-design screenshots with final current-build device captures covering daily experience, all four cards, onboarding, chapter journey, Saved, Growth, and widgets",
+    "Production signed archive and App Store validation",
+    "Live authentication, purchase/restore, journey and deletion acceptance",
+    "Final archive privacy report and saved App Privacy answers",
+    "Real reviewer credentials and contact information",
+    "Updated age-rating and export-compliance questionnaire",
+    "Confirm public privacy/terms/support URLs and working support delivery",
+    "Attach the non-consumable purchase to the first version submission"
+  ]
+}

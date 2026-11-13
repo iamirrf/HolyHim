@@ -1,0 +1,10 @@
+{
+  "projectId": "holyhim-app-production",
+  "appId": "REPLACE_WITH_HOLYHIM_APP_ID",
+  "storageBucket": "holyhim-app-production.firebasestorage.app",
+  "apiKey": "REPLACE_WITH_HOLYHIM_KEY",
+  "authDomain": "holyhim-app-production.web.app",
+  "messagingSenderId": "000000000000",
+  "projectNumber": "000000000000",
+  "version": "2"
+}

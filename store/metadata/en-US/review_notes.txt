@@ -1,0 +1,7 @@
+Prepared review notes for HolyHim 2.0.0 (6); this version has not been submitted.
+
+HolyHim is a 365-day Scripture journey. Sign in with Apple, Google, or email. The eleven onboarding screens are name, birthday, life season, Scripture routine, Guide obstacle, intentions, daily rhythm, routine preview, profile setup, saving/ready, and lifetime access. Access after onboarding requires the holyhim_lifetime non-consumable purchase or a verified retained-access grant. The offer displays the App Store's localized price and provides Restore Purchases; dismissing an offer does not grant access. Account export, sign-out, deletion, support, Terms, and Privacy remain available without purchase.
+
+Each lesson has exactly four cards: Scripture, Meaning, Reflection, and Prayer. Holding Amen for 1.2 seconds completes the lesson; an accessible direct activation is also available. One new journey lesson opens each local calendar day after the previous one is completed. The independent Verse of the Day, widget, and notification links do not advance journey progress.
+
+Before submission, confirm the current signed build, deployed backend rules, sandbox purchase and restore, wireless iPhone verification, reviewer account details, and final screenshots. Earlier development installation and Firebase deployment predate this redesign and do not establish acceptance of this build.

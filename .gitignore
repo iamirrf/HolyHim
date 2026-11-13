@@ -67,3 +67,8 @@ __pycache__/
 firebase-debug*.log
 firestore-debug*.log
 ui-debug*.log
+
+# Local leftovers
+ios/Pods.incomplete-*/
+.github/modernize/
+__pycache__/

@@ -1,0 +1,1980 @@
+{
+  "version": 1,
+  "source": "content/units.json",
+  "chapters": [
+    {
+      "id": "unit-01",
+      "title": "You never walk alone",
+      "firstDay": 1,
+      "lastDay": 5,
+      "lessonTitles": [
+        "You Do Not Walk Alone",
+        "Held When You Feel Weak",
+        "A Place to Bring Trouble",
+        "Opposition Is Not the Whole Story",
+        "Hope During a Long Wait"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-02",
+      "title": "Light for this step",
+      "firstDay": 6,
+      "lastDay": 10,
+      "lessonTitles": [
+        "Peace Before the Answer",
+        "Strength for Ordinary Walking",
+        "Known Before Achievement",
+        "Light for One Step",
+        "Rest with Things Unfinished"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-03",
+      "title": "A life already worthy",
+      "firstDay": 11,
+      "lastDay": 15,
+      "lessonTitles": [
+        "Made in God's Image",
+        "A Rhythm That Includes Stopping",
+        "Seen in a Lonely Place",
+        "Notice the Help Nearby",
+        "God in an Ordinary Place"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-04",
+      "title": "Truth in the quiet",
+      "firstDay": 16,
+      "lastDay": 20,
+      "lessonTitles": [
+        "Stay Honest in Prayer",
+        "Integrity When No One Sees",
+        "Evil Does Not Become Good",
+        "Your Sorrow Can Be Named",
+        "Words for a Difficult Task"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-05",
+      "title": "Room to receive help",
+      "firstDay": 21,
+      "lastDay": 25,
+      "lessonTitles": [
+        "Guidance Through Changing Hours",
+        "A Pause Before Panic",
+        "Today's Portion",
+        "The Load Is Too Heavy",
+        "Honor with Clear Eyes"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-06",
+      "title": "A kindness that stays",
+      "firstDay": 26,
+      "lastDay": 30,
+      "lessonTitles": [
+        "Kindness Across a Divide",
+        "Presence Before the Next Step",
+        "Love Without Keeping Score",
+        "Receive a Blessing",
+        "A Burden Shared"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-07",
+      "title": "Remember the good",
+      "firstDay": 31,
+      "lastDay": 35,
+      "lessonTitles": [
+        "God's Words Deserve Careful Trust",
+        "Words Worth Keeping Close",
+        "Faith in Everyday Conversation",
+        "Remember the Road",
+        "Care That Becomes Practical"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-08",
+      "title": "Open hands, clear hearts",
+      "firstDay": 36,
+      "lastDay": 40,
+      "lessonTitles": [
+        "An Open Hand",
+        "Fairness in Small Decisions",
+        "Choose What Gives Life",
+        "A Steady Character",
+        "An Image of Being Held"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-09",
+      "title": "Courage to begin",
+      "firstDay": 41,
+      "lastDay": 45,
+      "lessonTitles": [
+        "Courage for a New Responsibility",
+        "A Reminder You Can Touch",
+        "A Household Direction",
+        "Small Does Not Mean Irrelevant",
+        "Name the Peace You Seek"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-10",
+      "title": "Company for the road",
+      "firstDay": 46,
+      "lastDay": 50,
+      "lessonTitles": [
+        "The Gift of Steady Company",
+        "Welcome Under God's Care",
+        "Leave Room for Someone Else",
+        "A Reputation Built by Care",
+        "Celebrate Another Person's Relief"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-11",
+      "title": "A place for your tears",
+      "firstDay": 51,
+      "lastDay": 55,
+      "lessonTitles": [
+        "Tears Belong in Prayer",
+        "Misunderstood Does Not Mean Unheard",
+        "A Listening Posture",
+        "Remember Help Already Received",
+        "Pray Beyond the Argument"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-12",
+      "title": "Faithful beside you",
+      "firstDay": 56,
+      "lastDay": 60,
+      "lessonTitles": [
+        "The Heart Beneath the Surface",
+        "Courage Without Showing Off",
+        "Friendship That Keeps Its Word",
+        "Strength That Refuses Revenge",
+        "Strength in a Distressing Hour"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-13",
+      "title": "Wisdom for enough",
+      "firstDay": 61,
+      "lastDay": 65,
+      "lessonTitles": [
+        "Gratitude Without Entitlement",
+        "Ask for an Understanding Heart",
+        "God Is Larger Than the Building",
+        "Words Confirmed by Care",
+        "Sleep and a Meal"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-14",
+      "title": "Small and steady",
+      "firstDay": 66,
+      "lastDay": 70,
+      "lessonTitles": [
+        "Make Room for Quiet",
+        "Do Not Dismiss the Small Step",
+        "Fear Does Not See Everything",
+        "A Heart Willing to Respond",
+        "Tell a Story of Gratitude"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-15",
+      "title": "Listen with your life",
+      "firstDay": 71,
+      "lastDay": 75,
+      "lessonTitles": [
+        "Bring Your Whole Mind",
+        "Giving What Was First Received",
+        "Knowledge for Serving Well",
+        "When You Do Not Know What to Do",
+        "Keep Your Hands at the Work"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-16",
+      "title": "Shared work, shared joy",
+      "firstDay": 76,
+      "lastDay": 80,
+      "lessonTitles": [
+        "Celebrate a Foundation",
+        "Learn, Practice, Then Share",
+        "A Prayer Between Question and Answer",
+        "A Shared Willingness to Work",
+        "Joy That Makes Room for Others"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-17",
+      "title": "Together in sorrow",
+      "firstDay": 81,
+      "lastDay": 85,
+      "lessonTitles": [
+        "Use the Position You Have",
+        "Ask Others to Stand With You",
+        "Grief Does Not Need a Neat Explanation",
+        "The Care of Staying Quiet",
+        "Kindness Before Agreement"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-18",
+      "title": "Hope while we wait",
+      "firstDay": 86,
+      "lastDay": 90,
+      "lessonTitles": [
+        "Notice the Gift of Breath",
+        "Hope with Questions Still Open",
+        "Permission Not to Know Everything",
+        "Roots Before Visible Fruit",
+        "Lift Your Head Gently"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-19",
+      "title": "Somewhere to turn",
+      "firstDay": 91,
+      "lastDay": 95,
+      "lessonTitles": [
+        "Settle for the Night",
+        "Begin with an Honest Request",
+        "A Refuge for the Oppressed",
+        "You May Ask How Long",
+        "Notice What Is Already Good"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-20",
+      "title": "Words that give light",
+      "firstDay": 96,
+      "lastDay": 100,
+      "lessonTitles": [
+        "Return Your Attention",
+        "Room to Breathe",
+        "Look Up for a Moment",
+        "Words and the Thoughts Beneath Them",
+        "Let Yourself Be Guided"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-21",
+      "title": "The Shepherd is near",
+      "firstDay": 101,
+      "lastDay": 105,
+      "lessonTitles": [
+        "A Quieter Pace",
+        "A Restored Direction",
+        "Company in the Valley",
+        "A Place at the Table",
+        "Mercy Through the Journey"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-22",
+      "title": "Wait with a brave heart",
+      "firstDay": 106,
+      "lastDay": 110,
+      "lessonTitles": [
+        "Teach Me the Way",
+        "Humility Makes Room for Guidance",
+        "Light When Fear Grows Loud",
+        "One Thing to Seek",
+        "Waiting Can Include Courage"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-23",
+      "title": "Into faithful hands",
+      "firstDay": 111,
+      "lastDay": 115,
+      "lessonTitles": [
+        "Let Gratitude Find a Voice",
+        "Strength and Peace Together",
+        "Joy Beyond This Night",
+        "An Act of Entrusting",
+        "Your Life Is More Than a Timeline"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-24",
+      "title": "Making things right",
+      "firstDay": 116,
+      "lastDay": 120,
+      "lessonTitles": [
+        "Tell the Truth and Begin Repair",
+        "Guidance with Attentive Care",
+        "Waiting Together",
+        "Bring Fear into Prayer",
+        "Receive Goodness Personally"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-25",
+      "title": "The next good thing",
+      "firstDay": 121,
+      "lastDay": 125,
+      "lessonTitles": [
+        "Near to a Broken Heart",
+        "Trust with Something Good to Do",
+        "Commit the Way You Are Walking",
+        "Stop Measuring Against the Wrong Person",
+        "A Step Worth Taking"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-26",
+      "title": "Begin again gently",
+      "firstDay": 126,
+      "lastDay": 130,
+      "lessonTitles": [
+        "The Wait Can Be Remembered",
+        "A New Song, Honestly Sung",
+        "Speak Gently to Your Own Soul",
+        "Release the Need to Be in Charge",
+        "Ask for a Renewed Heart"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-27",
+      "title": "Shelter for the storm",
+      "firstDay": 131,
+      "lastDay": 135,
+      "lessonTitles": [
+        "Set Down Part of the Load",
+        "Trust Can Begin While You Are Afraid",
+        "Shelter While the Storm Continues",
+        "When Your Heart Is Overwhelmed",
+        "Wait Without Filling Every Silence"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-28",
+      "title": "Water for the thirsty",
+      "firstDay": 136,
+      "lastDay": 140,
+      "lessonTitles": [
+        "Pour Out Your Heart",
+        "Name Your Thirst",
+        "Notice the Work Behind a Meal",
+        "Care for Those Without Protection",
+        "Worth Does Not Expire"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-29",
+      "title": "Beyond what you achieve",
+      "firstDay": 141,
+      "lastDay": 145,
+      "lessonTitles": [
+        "More Than Your Remaining Energy",
+        "The Value of a Humble Place",
+        "An Undivided Heart",
+        "Spend a Day with Care",
+        "A Place to Turn for Shelter"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-30",
+      "title": "A place to belong",
+      "firstDay": 146,
+      "lastDay": 150,
+      "lessonTitles": [
+        "Fruit in a Later Season",
+        "Comfort Among Many Thoughts",
+        "Listen Today",
+        "You Belong Before You Perform",
+        "Compassion That Meets Human Need"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-31",
+      "title": "A heart worth tending",
+      "firstDay": 151,
+      "lastDay": 155,
+      "lessonTitles": [
+        "God Knows Your Limits",
+        "Name the Deeper Hunger",
+        "Care for What Shapes Your Heart",
+        "Trust Beyond Your First Understanding",
+        "Generosity That Gives Life"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-32",
+      "title": "The company you keep",
+      "firstDay": 156,
+      "lastDay": 160,
+      "lessonTitles": [
+        "Words Can Leave a Wound",
+        "Choose Company That Helps You Grow",
+        "Slow the Anger Down",
+        "A Gentle Answer with a Clear Boundary",
+        "A Plan Improved by Counsel"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-33",
+      "title": "Leave room to learn",
+      "firstDay": 161,
+      "lastDay": 165,
+      "lessonTitles": [
+        "Plan with an Open Hand",
+        "Kind Words Are Real Nourishment",
+        "Love That Returns After the Crisis",
+        "Listen Before You Answer",
+        "Keep Receiving Instruction"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-34",
+      "title": "Dignity in every room",
+      "firstDay": 166,
+      "lastDay": 170,
+      "lessonTitles": [
+        "Ask a Question That Draws Someone Out",
+        "Integrity Beyond Religious Appearance",
+        "One Maker, Shared Dignity",
+        "Getting Up After a Setback",
+        "The Right Word at the Right Time"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-35",
+      "title": "A season for everything",
+      "firstDay": 171,
+      "lastDay": 175,
+      "lessonTitles": [
+        "Advice from a Caring Friend",
+        "Grow Through Thoughtful Challenge",
+        "Use Your Voice for Fairness",
+        "Honor the Season You Are In",
+        "Beauty Beyond a Complete Explanation"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-36",
+      "title": "Return and find help",
+      "firstDay": 176,
+      "lastDay": 180,
+      "lessonTitles": [
+        "Let Someone Help You Up",
+        "Do Not Give Anger a Permanent Room",
+        "Give Care to the Work Before You",
+        "Begin Before Conditions Are Perfect",
+        "A Mind Returning to Trust"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-37",
+      "title": "Mercy makes room",
+      "firstDay": 181,
+      "lastDay": 185,
+      "lessonTitles": [
+        "Strength in Returning and Rest",
+        "Known by Name",
+        "Justice, Mercy, and a Humble Walk",
+        "Room for Needing Help",
+        "Grief Has a Place Here"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-38",
+      "title": "The work of peace",
+      "firstDay": 186,
+      "lastDay": 190,
+      "lessonTitles": [
+        "The Strength of Gentleness",
+        "An Appetite for What Is Right",
+        "Mercy in an Ordinary Moment",
+        "A Heart Without a Disguise",
+        "Make a Little More Peace"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-39",
+      "title": "An honest inward look",
+      "firstDay": 191,
+      "lastDay": 195,
+      "lessonTitles": [
+        "Goodness That Points Beyond You",
+        "A Quiet Place to Be Honest",
+        "Notice Where Your Heart Goes",
+        "Worth Beyond Your Worry",
+        "Put First Things First"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-40",
+      "title": "Build on love",
+      "firstDay": 196,
+      "lastDay": 200,
+      "lessonTitles": [
+        "Keep the Door of Prayer Open",
+        "The Care You Would Welcome",
+        "Build With What You Hear",
+        "Seen With Compassion",
+        "Learn a Gentler Way"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-41",
+      "title": "Care for small faith",
+      "firstDay": 201,
+      "lastDay": 205,
+      "lessonTitles": [
+        "Care for the Faint Flame",
+        "Let the Word Take Root",
+        "A Familiar Voice in the Storm",
+        "Bring the Need You Cannot Fix",
+        "Faith in a Small Gathering"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-42",
+      "title": "Serve along the way",
+      "firstDay": 206,
+      "lastDay": 210,
+      "lessonTitles": [
+        "Greatness With an Apron On",
+        "Your Neighbor Has a Name",
+        "The Person Others Miss",
+        "Willing and Still Needing Help",
+        "Company for the Long Road"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-43",
+      "title": "Rest is welcome here",
+      "firstDay": 211,
+      "lastDay": 215,
+      "lessonTitles": [
+        "Before the Demands Begin",
+        "You Can Come as Someone in Need",
+        "Peace Is More Than Control",
+        "A Person, Not an Interruption",
+        "Rest Belongs in the Schedule"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-44",
+      "title": "Bring your questions",
+      "firstDay": 216,
+      "lastDay": 220,
+      "lessonTitles": [
+        "An Honest Prayer With Doubt Inside",
+        "Welcome Without an Achievement",
+        "The Voice That Makes Room",
+        "Love With Your Whole Life",
+        "Value Beyond the Size of a Gift"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-45",
+      "title": "Mercy in motion",
+      "firstDay": 221,
+      "lastDay": 225,
+      "lessonTitles": [
+        "A Yes Without the Whole Map",
+        "Mercy Like the First Light",
+        "Give the Moment Time to Settle",
+        "Enough to Share",
+        "Good News Reaches the Crushed"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-46",
+      "title": "Pause and consider",
+      "firstDay": 226,
+      "lastDay": 230,
+      "lessonTitles": [
+        "Return to the Quiet",
+        "Begin With Consideration",
+        "Mercy as a Family Resemblance",
+        "Care for the Well Within",
+        "Compassion Notices the Funeral"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-47",
+      "title": "A generous beginning",
+      "firstDay": 231,
+      "lastDay": 235,
+      "lessonTitles": [
+        "Keep What Is Worth Growing",
+        "Compassion Crosses the Road",
+        "The Good Part of Attention",
+        "Ask for the Help of God's Spirit",
+        "You Belong to a Generous Father"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-48",
+      "title": "A seat at the table",
+      "firstDay": 236,
+      "lastDay": 240,
+      "lessonTitles": [
+        "The Welcome Before the Speech",
+        "Return to Say Thank You",
+        "No Comparison Required in Prayer",
+        "Being Found Is Good News",
+        "A Future Beyond a Failure"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-49",
+      "title": "Forgiveness and light",
+      "firstDay": 241,
+      "lastDay": 245,
+      "lessonTitles": [
+        "Forgiveness Does Not Call Harm Good",
+        "Understanding Along the Way",
+        "Darkness Does Not Get the Last Word",
+        "A Deeper Source of Life",
+        "Enough Light for Following"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-50",
+      "title": "Stay close in trouble",
+      "firstDay": 246,
+      "lastDay": 250,
+      "lessonTitles": [
+        "Known Beyond the Surface",
+        "The Towel Beside the Table",
+        "Stay Connected to the Source",
+        "Peace With Trouble Still Present",
+        "Faith Has Shared Rhythms"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-51",
+      "title": "Care in unfinished days",
+      "firstDay": 251,
+      "lastDay": 255,
+      "lessonTitles": [
+        "What You Have Can Serve Others",
+        "Comfort Can Help You Grow",
+        "A Song in the Unfinished Night",
+        "Seeking Is Already a Movement",
+        "Giving With Strong and Gentle Hands"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-52",
+      "title": "Peace beyond performance",
+      "firstDay": 256,
+      "lastDay": 260,
+      "lessonTitles": [
+        "Peace Before Your Performance",
+        "Shame Does Not Own Your Name",
+        "When Prayer Has No Clear Words",
+        "Give Your Mind a Better Pattern",
+        "Your Part in Making Peace"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-53",
+      "title": "Your particular part",
+      "firstDay": 261,
+      "lastDay": 265,
+      "lessonTitles": [
+        "Hope Can Be Asked For",
+        "Held by Faithfulness Beyond Yours",
+        "Plant, Water, and Leave Room",
+        "Look for the Way Through Temptation",
+        "A Place Without Being Every Part"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-54",
+      "title": "Grace for the limits",
+      "firstDay": 266,
+      "lastDay": 270,
+      "lessonTitles": [
+        "Love Keeps Looking for Good",
+        "Comfort You Can Pass Along",
+        "Treasure in an Ordinary Vessel",
+        "A New Beginning With Real Roots",
+        "Grace Meets an Unremoved Limit"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-55",
+      "title": "Love with its sleeves rolled up",
+      "firstDay": 271,
+      "lastDay": 275,
+      "lessonTitles": [
+        "Look for the Fruit of Love",
+        "A Burden Shared With Care",
+        "Made for Good Within Reach",
+        "Tenderness in the Work of Repair",
+        "The Work Is Still in Progress"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-56",
+      "title": "Still becoming",
+      "firstDay": 276,
+      "lastDay": 280,
+      "lessonTitles": [
+        "Love That Learns to See Clearly",
+        "A Center Larger Than Achievement",
+        "Step Out of the Contest",
+        "The Willingness to Begin",
+        "Your Past Is Not the Whole Road"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-57",
+      "title": "A gentle belonging",
+      "firstDay": 281,
+      "lastDay": 285,
+      "lessonTitles": [
+        "A Belonging That Travels With You",
+        "Gentleness People Can Feel",
+        "Turn the Worry Into a Request",
+        "Give Good Things Your Attention",
+        "Strength for Staying Kind"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-58",
+      "title": "Roots beside living water",
+      "firstDay": 286,
+      "lastDay": 290,
+      "lessonTitles": [
+        "You Do Not Hold Everything Together",
+        "Walk the Faith You Received",
+        "Rooted Enough to Give Thanks",
+        "Choose What You Put On",
+        "Let Peace Have a Voice"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-59",
+      "title": "Words that nourish",
+      "firstDay": 291,
+      "lastDay": 295,
+      "lessonTitles": [
+        "Make Room for Words That Nourish",
+        "Words With Grace and Substance",
+        "The Work Love Keeps Doing",
+        "Offer Presence Alongside Your Words",
+        "A Wider Circle of Love"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-60",
+      "title": "Encourage the quiet ones",
+      "firstDay": 296,
+      "lastDay": 300,
+      "lessonTitles": [
+        "The Dignity of a Quiet Life",
+        "Build Someone Up on Purpose",
+        "Thanks Within an Unfinished Day",
+        "The Caller Remains Faithful",
+        "Notice Love Getting Stronger"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-61",
+      "title": "Goodness that can last",
+      "firstDay": 301,
+      "lastDay": 305,
+      "lessonTitles": [
+        "Comfort Rooted in Grace",
+        "Keep the Good Sustainable",
+        "Mercy Starts With the Truth",
+        "Practice What Nourishes Your Life",
+        "You Have Something to Model"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-62",
+      "title": "Enough for the calling",
+      "firstDay": 306,
+      "lastDay": 310,
+      "lessonTitles": [
+        "Enough Without the Endless Chase",
+        "Rich in Useful Care",
+        "Courage With Love and Self-Control",
+        "Trust Has a Person at Its Center",
+        "Faithfulness When Yours Feels Thin"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-63",
+      "title": "Grace equips us",
+      "firstDay": 311,
+      "lastDay": 315,
+      "lessonTitles": [
+        "Let Scripture Help You Grow",
+        "A Life Measured by Faithfulness",
+        "Grace Comes Toward You",
+        "Kindness at the Heart of Salvation",
+        "Good Work Meets Actual Needs"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-64",
+      "title": "An anchor for hope",
+      "firstDay": 316,
+      "lastDay": 320,
+      "lessonTitles": [
+        "Be a Refreshing Presence",
+        "Help From One Who Understands",
+        "Come Near in the Need",
+        "An Anchor Beneath Changing Feelings",
+        "Hold On to the Faithful One"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-65",
+      "title": "Endure in good company",
+      "firstDay": 321,
+      "lastDay": 325,
+      "lessonTitles": [
+        "Help Goodness Catch On",
+        "Trust Without Seeing the Whole",
+        "Lay Down a Weight for the Road",
+        "Learning Can Be Uncomfortable",
+        "Company More Lasting Than Possessions"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-66",
+      "title": "Listen before you speak",
+      "firstDay": 326,
+      "lastDay": 330,
+      "lessonTitles": [
+        "Remember the Good You Can Do",
+        "Ask Without Being Embarrassed",
+        "Endurance With Love at Its Center",
+        "Receive the Gift and Remember the Giver",
+        "Give Listening the First Turn"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-67",
+      "title": "Let faith become care",
+      "firstDay": 331,
+      "lastDay": 335,
+      "lessonTitles": [
+        "Let One Word Become a Deed",
+        "Dignity Does Not Follow Status",
+        "Faith With Hands Available",
+        "Wisdom Has a Gentle Shape",
+        "Draw Near With an Honest Heart"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-68",
+      "title": "Hope speaks honestly",
+      "firstDay": 336,
+      "lastDay": 340,
+      "lessonTitles": [
+        "There Is a Prayer for This Day",
+        "Honesty and Prayer in Safe Company",
+        "Hope With Life in It",
+        "Love Beyond What You Can See",
+        "Belonging That Becomes a Witness"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-69",
+      "title": "The gift only you can give",
+      "firstDay": 341,
+      "lastDay": 345,
+      "lessonTitles": [
+        "Courtesy Can Carry Compassion",
+        "Love Makes Room for Imperfection",
+        "Put Your Particular Gift to Work",
+        "Care Before You Set the Burden Down",
+        "Receive Help for the Life of Faith"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-70",
+      "title": "The courage to repair",
+      "firstDay": 346,
+      "lastDay": 350,
+      "lessonTitles": [
+        "Add Care to Your Confidence",
+        "Keep Growing in Grace",
+        "Honesty Opens the Work of Repair",
+        "Help After You Have Fallen Short",
+        "Look Again at the Love Given"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-71",
+      "title": "A love you can see",
+      "firstDay": 351,
+      "lastDay": 355,
+      "lessonTitles": [
+        "Make Love True in Practice",
+        "Love Begins Before Your Response",
+        "Prayer That Leaves Room for God",
+        "Love Has a Path to Walk",
+        "The Joy of Seeing Truth Lived"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-72",
+      "title": "Part of a larger story",
+      "firstDay": 356,
+      "lastDay": 360,
+      "lessonTitles": [
+        "Keep Close to the Love Given",
+        "The One Able to Keep You",
+        "Your Days Within a Larger Story",
+        "Make Room for Renewed Fellowship",
+        "A Song With Room for Many Voices"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    },
+    {
+      "id": "unit-73",
+      "title": "The invitation remains",
+      "firstDay": 361,
+      "lastDay": 365,
+      "lessonTitles": [
+        "The Shepherd at the End of Tears",
+        "Tell the Truth About Grace",
+        "A Future With Sorrow Undone",
+        "Light Beyond the Last Night",
+        "The Invitation Still Stands"
+      ],
+      "focalPoints": {
+        "portrait": [
+          0.5,
+          0.7
+        ],
+        "landscape": [
+          0.5,
+          0.5
+        ]
+      },
+      "status": "pending originals",
+      "visualReview": "pending",
+      "masters": {},
+      "assets": {}
+    }
+  ],
+  "packagedAssets": 0,
+  "assetBytes": 0,
+  "targetAssetBytes": 47185920
+}
