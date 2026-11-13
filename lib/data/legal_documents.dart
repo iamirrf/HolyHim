@@ -3,69 +3,85 @@ const legalDocuments = <String, List<(String, String)>>{
   "privacy": [
     (
       "About this document",
-      "YOUR TRUST MATTERS\n\nEffective November 13, 2026 · HolyHim 1.0 · Codellion LLC\n\nHolyHim uses the information you share to keep your Scripture journey, saved verses, and preferences together. We do not sell your personal information. The app has no advertising or marketing analytics.",
+      "Privacy policy\n\nEffective November 13, 2026 · HolyHim 1.0 · Codellion LLC\n\nHolyHim is a daily Scripture app made by Codellion LLC. We use the information described here only to run the app for you. We do not sell your personal information, show advertising, or use analytics or tracking tools.",
     ),
     (
-      "Your account and your walk",
-      "When you sign in with Apple, Google, or email, we process your account identifier, email address, and any name supplied by that provider. You can choose the name HolyHim uses for you.\n\nWe save the heart focuses you select, your reminder preference and time, theme, reading text size, haptics and sound preferences, time zone, birthday, life season, onboarding answers and unfinished step, optional profile photo reference, and onboarding dates. Your completed lesson numbers and their calendar dates support lesson pacing, streaks, badges, and your reading calendar. Saved lesson numbers and save dates let you find your kept verses again.",
+      "Your account",
+      "You can sign in with Apple, Google or an email address. We receive an account identifier, your email address and, if the provider shares it, your name. If no name is shared, the app asks for your first name.",
     ),
     (
-      "Local storage and synchronization",
-      "Your app reads and saves changes locally through Firebase Firestore's offline cache, then synchronizes account data when a connection is available. An account-specific local snapshot keeps pending edits, onboarding completion, theme, progress, and saved verses available offline. The app also saves your current lesson card and scroll position on this device, keyed to your account, so you can resume a reading. It clears that position after the lesson is completed. The app also caches public lesson content and artwork. Some features, including first sign-in, account deletion, and sending a support message, require a connection.\n\nWhen an existing account moves to HolyHim 2.0, the app reads its earlier profile and journey dates once to transfer prior progress. Existing account records are included when you delete the account.",
+      "What the app saves with your account",
+      "Your first name; your answers during setup (what you need most, where you are in life, how well you know the Bible and what tends to get in the way); your reminder choice and time; your birthday if you choose to add it, used only for a birthday blessing; your theme, reading text size, sound and haptic settings; your time zone; the lessons you completed and when; the verses you saved and when; and the dates your account and setup were created and updated.",
+    ),
+    (
+      "What stays on your device",
+      "The app keeps an offline copy of your account data so it works without a connection, remembers where you stopped in a lesson, and remembers whether you own lifetime access. If you add the home screen widget, today's verse and a small picture are shared with the widget on your device.",
     ),
     (
       "Reminders",
-      "On supported devices, reminders are local notifications scheduled with your permission. The schedule holds no more than 30 pending reminders. Each reminder shows the calendar-based Verse of the Day, its Scripture reference, and a short excerpt. Opening it does not advance lesson progress. Permission is specific to each device. You can change the time or turn reminders off in HolyHim or in your device settings.",
+      "Reminders are local notifications scheduled on your device with your permission. They contain a verse or the title of your next lesson, and may include an evening note when today's lesson is waiting, a short note after a few quiet days, and a blessing on your birthday. We never use them for advertising. You can change or turn them off in the app or in your device settings.",
+    ),
+    (
+      "Purchases",
+      "Days 1 to 7 are free. All 365 days are a one-time purchase through Apple. Apple handles the payment; we never receive your card details. RevenueCat receives purchase and entitlement records linked to your account identifier so that lifetime access can be confirmed and restored, and our server checks that record with RevenueCat.",
     ),
     (
       "Service providers",
-      "Google Firebase provides authentication, cloud data storage, backend functions, and website hosting. Apple and Google handle their respective sign-in services. Firebase Storage holds optional profile photos; replaced photos and account photos are removed by our backend. RevenueCat and Apple process purchase identifiers and entitlement information to provide lifetime access and restore purchases. We do not receive your payment card details. These providers process the technical information needed to deliver and protect their services. Your data may be processed in the United States and in locations used by these service providers.",
+      "Google Firebase provides sign-in, cloud data storage, server functions and this website. Apple and Google provide their sign-in services. RevenueCat and Apple process purchases. These providers handle the technical information needed to run their services, and your data may be processed in the United States.",
     ),
     (
       "Support messages",
-      "The support form collects your email address and message so we can respond. A temporary one-way identifier derived from the request address limits repeated submissions and is scheduled for removal after 24 hours. Please leave passwords and payment details out of support messages.",
+      "If you contact us, we receive your email address and message so we can reply. To limit repeated messages, we keep a temporary one-way identifier derived from the request for up to 24 hours. Please leave passwords and payment details out of messages.",
     ),
     (
-      "Keeping and deleting information",
-      "Your account data remains while your account is active. You can export your data in Profile. To delete your account, open Profile → Delete account. HolyHim asks you to confirm and sign in again, then removes your account, optional uploaded photos, and cloud records. Purchase transaction records may remain with Apple and RevenueCat under their retention policies. Deletion requires a network connection.\n\nA private deletion guard prevents late writes from recreating deleted account data. Support records are retained as needed to resolve requests and meet applicable obligations. We may disclose information when required by applicable law.",
+      "Keeping, exporting and deleting",
+      "We keep your account data while your account exists. You can export it from Profile. To delete your account, open Profile, then Account, then Delete account, and confirm. This permanently deletes your profile, progress and saved verses. A lifetime purchase belongs to your Apple account and can be restored if you sign up again.",
     ),
     (
-      "Your choices",
-      "You can edit your name and preferences, remove saved verses, disable reminders, export data, sign out, or delete your account. For access, correction, deletion help, or privacy questions, use our support form.",
+      "Children",
+      "HolyHim is not directed to children under 13, and we do not knowingly collect their information.",
     ),
     (
-      "Updates to this page",
-      "We revise the effective date when these practices change.",
+      "Security",
+      "Your data is protected by sign-in and by rules that let only your own account read and change it. No system is perfect, so we keep what we collect to what the app needs.",
+    ),
+    (
+      "Questions and changes",
+      "For access, correction, deletion help or privacy questions, use our support form. We update the effective date above when these practices change.",
     ),
   ],
   "terms": [
     (
       "About this document",
-      "A CLEAR UNDERSTANDING\n\nEffective November 13, 2026 · HolyHim 1.0 · Codellion LLC\n\nThese terms apply to HolyHim, provided by Codellion LLC. By using HolyHim, you agree to use the app lawfully and to keep your sign-in details secure.",
+      "Terms of use\n\nEffective November 13, 2026 · HolyHim 1.0 · Codellion LLC\n\nThese terms apply to HolyHim, provided by Codellion LLC. By using HolyHim you agree to use it lawfully and to keep your sign-in details secure.",
     ),
     (
-      "Your Scripture journey and lifetime access",
-      "HolyHim offers one lifetime purchase, with the one-time price shown in your local App Store currency before confirmation. It is not a subscription. Restore Purchases recovers eligible ownership through the same Apple account. Existing retained access remains recognized. After you finish a lesson, the next lesson opens on the following calendar day. Missed days do not create a backlog. Completed lessons remain available to read again.",
+      "Free week and lifetime access",
+      "Days 1 to 7 are free. Reading every day after that needs lifetime access, a one-time purchase at the price shown in your local App Store currency before you confirm. It is not a subscription and does not renew. Restore Purchase recovers it on the same Apple account. Refunds are handled by Apple under its policies.",
+    ),
+    (
+      "How lessons open",
+      "One new lesson opens each calendar day after you finish the one before. Missed days do not pile up, and completed lessons stay open to read again.",
     ),
     (
       "Your account",
-      "Your account synchronizes completed lessons, saved verses, and preferences across supported devices. You can export your account data or request deletion from Profile. Features that contact a server need an internet connection. See our privacy policy for the information used to provide the service.",
+      "Your account keeps your progress, saved verses and settings in sync across your devices. You can export your data or delete your account from Profile. Features that contact our server need an internet connection. Our privacy policy explains the information we use.",
     ),
     (
-      "Scripture and reflections",
-      "Bible quotations use the public-domain World English Bible. HolyHim's explanations, personal applications, takeaways, and prayers are original reading material presented separately from Scripture. You choose how to apply a reading to your life. HolyHim does not promise particular financial, health, or life outcomes.",
+      "Scripture and lessons",
+      "Bible quotations use the public-domain World English Bible. HolyHim's explanations, applications and prayers are original material shown separately from Scripture. They are for encouragement and reflection, not professional advice, and HolyHim does not promise any financial, health or life outcome. If you are struggling, please reach out to a trusted person or a qualified professional.",
     ),
     (
       "Content and use",
-      "World English Bible text is public domain. HolyHim's original writing, design, and branding belong to their respective owners. You may read the app for personal use and use its sharing features. Please do not misrepresent HolyHim's original material as your own.",
+      "HolyHim's original writing, design and artwork belong to Codellion LLC. You may use the app and its sharing features for personal use. Please do not copy or present HolyHim's original material as your own.",
     ),
     (
       "Availability and changes",
-      "We work to keep HolyHim available and correct errors. Network, device, and platform interruptions can occur. We may update the app and these terms as the service changes. Nothing in these terms removes rights provided by applicable consumer law.",
+      "We work to keep HolyHim available and to fix errors, but network, device and platform problems can happen. We may update the app and these terms; we will change the effective date when we do. Nothing here removes rights you have under consumer law.",
     ),
     (
       "Questions",
-      "If you need help with your account, an earlier purchase, or these terms, send us a message.",
+      "If you need help with your account, a purchase or these terms, send us a message.",
     ),
   ],
 };
