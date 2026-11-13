@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Frame HolyHim's real rendered screens as App Store screenshots.
 
-Input: build/render/store/*.png from `flutter test tool/render/store_test.dart`
+Input: build/render/store/*.png from `flutter test tool/render/him_screenshots_test.dart`
 (real app screens at 1290 x 2796). Output: store/screenshots/iphone-6.9/*.png,
 1290 x 2796 RGB, each with a two-line headline in the brand type on First
 Watch charcoal. Nothing on the phone is drawn by this script.

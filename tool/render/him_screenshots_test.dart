@@ -2,7 +2,7 @@
 // Renders the real screens used for App Store screenshots at 6.9-inch
 // resolution (430 x 932 points at 3x = 1290 x 2796) to build/render/store.
 // Frame them with: python3 tool/store_screenshots.py
-// Run: flutter test tool/render/store_test.dart
+// Run: flutter test tool/render/him_screenshots_test.dart
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';

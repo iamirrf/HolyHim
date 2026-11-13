@@ -80,6 +80,22 @@ def validate_app(app: Path, version: AppVersion) -> None:
         raise RunFailure("The cached app is a debug build. Rebuild in profile mode for a direct physical-device launch.")
 
 
+def validate_library_assets(app: Path, root: Path) -> int:
+    """HolyHim ships no chapter art; every chapter uses the First Watch library."""
+    try:
+        library = json.loads((root / "art/first-watch-manifest.json").read_text())["library"]
+    except (OSError, ValueError, KeyError, TypeError):
+        raise RunFailure("The First Watch art manifest is unavailable or invalid; the iPhone build cannot be verified.") from None
+    bundle = app / "Frameworks/App.framework/flutter_assets"
+    for row in library:
+        for key in ("asset", "thumb"):
+            relative = row[key]["path"]
+            path = bundle / relative
+            if not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest() != row[key]["sha256"]:
+                raise RunFailure("The signed iPhone app is missing or has changed library artwork. Rebuild before installation.")
+    return len(library)
+
+
 def validate_chapter_assets(app: Path, root: Path) -> int:
     """Reject a signed build if a chapter image is absent or differs from the source manifest."""
     try:
@@ -87,6 +103,8 @@ def validate_chapter_assets(app: Path, root: Path) -> int:
         chapters = manifest["chapters"]
     except (OSError, ValueError, KeyError, TypeError):
         raise RunFailure("The chapter manifest is unavailable or invalid; the iPhone build cannot be verified.") from None
+    if len(chapters) == 73 and manifest.get("packagedAssets") == 0:
+        return validate_library_assets(app, root)
     if len(chapters) != 73 or manifest.get("packagedAssets") != 292:
         raise RunFailure("The chapter manifest is incomplete; all 292 assets are required for this build.")
     bundle = app / "Frameworks/App.framework/flutter_assets"

@@ -1,7 +1,13 @@
-Prepared review notes for HolyHim 2.0.0 (6); this version has not been submitted.
+HolyHim is a daily Bible app for young men: one short lesson a day (Scripture, what it means, for your life, a prayer), then the reader holds a button to say Amen.
 
-HolyHim is a 365-day Scripture journey. Sign in with Apple, Google, or email. The eleven onboarding screens are name, birthday, life season, Scripture routine, Guide obstacle, intentions, daily rhythm, routine preview, profile setup, saving/ready, and lifetime access. Access after onboarding requires the holyhim_lifetime non-consumable purchase or a verified retained-access grant. The offer displays the App Store's localized price and provides Restore Purchases; dismissing an offer does not grant access. Account export, sign-out, deletion, support, Terms, and Privacy remain available without purchase.
+Sign-in: Sign in with Apple, Google, or email and password. Any of these creates an account in a few seconds.
 
-Each lesson has exactly four cards: Scripture, Meaning, Reflection, and Prayer. Holding Amen for 1.2 seconds completes the lesson; an accessible direct activation is also available. One new journey lesson opens each local calendar day after the previous one is completed. The independent Verse of the Day, widget, and notification links do not advance journey progress.
+Free week and purchase: Days 1 to 7 are free. Day 8 onward requires the one-time, non-consumable in-app purchase "HolyHim Lifetime" (holyhim_lifetime). There is no subscription. The offer appears at the end of onboarding ("Unlock for life" or "Start my 7 free days"), from Profile, and on Day 8. Restore Purchase is on the offer screen and in Profile. Lessons open one per calendar day, so the Day 8 lock is reached on the eighth day, but the purchase can be made at any time from the offer or Profile.
 
-Before submission, confirm the current signed build, deployed backend rules, sandbox purchase and restore, wireless iPhone verification, reviewer account details, and final screenshots. Earlier development installation and Firebase deployment predate this redesign and do not establish acceptance of this build.
+Account deletion: Profile > Account > Delete account. This permanently deletes the account, progress and saved verses.
+
+Notifications are optional. Permission is requested only when the reader chooses a reminder time.
+
+Scripture quotations use the public-domain World English Bible. All lesson text is original.
+
+HolyHim is its own product, separate from our app HolyHer (for women): it has its own 365 lessons written for young men, its own reading plan, design, artwork, onboarding and listing.
