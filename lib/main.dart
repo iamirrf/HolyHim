@@ -26,8 +26,7 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   LicenseRegistry.addLicense(() async* {
     for (final (family, file) in const [
-      ('Cormorant Garamond', 'CormorantGaramond-OFL.txt'),
-      ('Lora', 'Lora-OFL.txt'),
+      ('Source Serif 4', 'SourceSerif4-OFL.txt'),
       ('Manrope', 'manrope-OFL.txt'),
     ]) {
       yield LicenseEntryWithLineBreaks(

@@ -1,10 +1,10 @@
 {
   "projectId": "holyhim-app-production",
-  "appId": "REPLACE_WITH_HOLYHIM_APP_ID",
+  "appId": "1:924772723375:web:ac02534a895e83d85d425a",
   "storageBucket": "holyhim-app-production.firebasestorage.app",
-  "apiKey": "REPLACE_WITH_HOLYHIM_KEY",
+  "apiKey": "AIzaSyAIBe1UIEMC0pB1Hn_eYjpGZN1EQjg7wM4",
   "authDomain": "holyhim-app-production.web.app",
-  "messagingSenderId": "000000000000",
-  "projectNumber": "000000000000",
+  "messagingSenderId": "924772723375",
+  "projectNumber": "924772723375",
   "version": "2"
 }

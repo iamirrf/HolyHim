@@ -1,0 +1,662 @@
+{
+  "version": 1,
+  "grade": "First Watch",
+  "mastersFrom": "HolyHer 5ccc9bc77e2d8f2a6a4ffb8cc7fce64ddd408731",
+  "library": [
+    {
+      "id": "jesus-dawn",
+      "source": "jesus-dawn",
+      "masterSha256": "81a7dbefc9eeffd118638207f06a514b67cbf1846dc442a8bca3f80e08651161",
+      "asset": {
+        "path": "assets/art/library/jesus-dawn.webp",
+        "sha256": "a3a4c0c2593d72ac8ab7121817a5e60a83e3a0aabf7e0fd96bae0af8e78570af"
+      },
+      "thumb": {
+        "path": "assets/art/library/jesus-dawn-thumb.webp",
+        "sha256": "0bef8d2fabec0d029c985de2c1e067aa37f9ca3625e41330d7a7b5df4686e87b"
+      },
+      "widget": {
+        "path": "ios/HolyHimWidget/Art/jesus-dawn-thumb.jpg",
+        "sha256": "33986d99c1ad37dfd0c74ae3b0edccd2d8207666fcbb75eb9fa5df453991e28e"
+      }
+    },
+    {
+      "id": "jesus-seaside",
+      "source": "jesus-seaside",
+      "masterSha256": "632ecf62b840f9a45d79e5bc8fd75ae058628eb557e1f9b25aabb805dfebcf3f",
+      "asset": {
+        "path": "assets/art/library/jesus-seaside.webp",
+        "sha256": "31c04924adda76e5cf431a056e411cd7d1361c642b513d5321b94644d5cf1332"
+      },
+      "thumb": {
+        "path": "assets/art/library/jesus-seaside-thumb.webp",
+        "sha256": "5c6c6b797daabca834cfd2be742c8a0441dbfdf718269b73e291275d47ef468b"
+      },
+      "widget": {
+        "path": "ios/HolyHimWidget/Art/jesus-seaside-thumb.jpg",
+        "sha256": "0b179dc0a24d45614f74e3ded3b1721165916a3a0b39a6e96ecc684dce6b267c"
+      }
+    },
+    {
+      "id": "jesus-shepherd",
+      "source": "jesus-shepherd",
+      "masterSha256": "4c7ea0644f3e8c332bc328355d964cd787376838d9ab5b8c7192910672ac87e6",
+      "asset": {
+        "path": "assets/art/library/jesus-shepherd.webp",
+        "sha256": "bf45ef63a7c115a818878e7d22fa44f64dc33cf0814566df5c1b3774ab394732"
+      },
+      "thumb": {
+        "path": "assets/art/library/jesus-shepherd-thumb.webp",
+        "sha256": "b58ed6082adf2913d6966418b75bd4f7eb1c198b0a4835b789fb8bedd7c9ecac"
+      },
+      "widget": {
+        "path": "ios/HolyHimWidget/Art/jesus-shepherd-thumb.jpg",
+        "sha256": "00be144db0eec6183b2a1648adb9a6c11ea11e13b68ea2a96c966c9ed66d0fda"
+      }
+    },
+    {
+      "id": "jesus-prayer",
+      "source": "jesus-prayer",
+      "masterSha256": "0e63d892ef0d4949b7f80f0a745014c41027b33415951fa5e61882f5300c921c",
+      "asset": {
+        "path": "assets/art/library/jesus-prayer.webp",
+        "sha256": "72be053b2286eac33e16001cd322cd6f85f317bff048243143030897729d93d1"
+      },
+      "thumb": {
+        "path": "assets/art/library/jesus-prayer-thumb.webp",
+        "sha256": "9da4d8756349a3fc5ec712e1204b5e1fa3dd6d171d394b6b9d2251fc4e005023"
+      },
+      "widget": {
+        "path": "ios/HolyHimWidget/Art/jesus-prayer-thumb.jpg",
+        "sha256": "6d3c8b03ada8a1f09995ead334f7a94c3d7b4da39eb106520947616ed8ada199"
+      }
+    },
+    {
+      "id": "jesus-path",
+      "source": "jesus-path",
+      "masterSha256": "9ecfeed0253beffbe43add7dd164624c9992f666194d07ab6a58b41195ca575b",
+      "asset": {
+        "path": "assets/art/library/jesus-path.webp",
+        "sha256": "7ce1806fe1df1cd16775aea78bfec4cabff55ddd6c05f5e522125c5df6035e3b"
+      },
+      "thumb": {
+        "path": "assets/art/library/jesus-path-thumb.webp",
+        "sha256": "8df0fda99e71e7afe2cba58af67c9ec37070a459c1189c87594f89ce98a7dfa3"
+      },
+      "widget": {
+        "path": "ios/HolyHimWidget/Art/jesus-path-thumb.jpg",
+        "sha256": "2521dae0720beac5c68594edc3bd2df54de5771deafa6e4080119e83e63afae8"
+      }
+    },
+    {
+      "id": "sky-dawn",
+      "source": "sky-dawn",
+      "masterSha256": "6d969772573119075c0cf7e3f6f5f4027590a193eb05b473f54b92857bde5220",
+      "asset": {
+        "path": "assets/art/library/sky-dawn.webp",
+        "sha256": "858344d7ad97ecb2f9ce351067d6e687157f53d00ccdb2aa8431027bf9ceb70c"
+      },
+      "thumb": {
+        "path": "assets/art/library/sky-dawn-thumb.webp",
+        "sha256": "6ba5bbf3f8e775a464afcf1a13e0fb90b4b25539fe51dd1ec5de2f85c108d4e1"
+      },
+      "widget": {
+        "path": "ios/HolyHimWidget/Art/sky-dawn-thumb.jpg",
+        "sha256": "edbaac3edb7ce643a6319a74f352218b4436d3670ef8cb923867f22f94677a5b"
+      }
+    },
+    {
+      "id": "sky-rays",
+      "source": "sky-rays",
+      "masterSha256": "d6c4fd25c4261a5ebad1c9ae9082b90b2d281e62b03f76930a00fdc62ba5f4c7",
+      "asset": {
+        "path": "assets/art/library/sky-rays.webp",
+        "sha256": "af8fee2f0ab82456059a399d94a66e60b83903dd261d64b411d71fe6a03d04a0"
+      },
+      "thumb": {
+        "path": "assets/art/library/sky-rays-thumb.webp",
+        "sha256": "188b94eaf0f4ce5cd76f6b4da562cfddcf959ff79c33eabe6b149b8df3e1dc0b"
+      },
+      "widget": {
+        "path": "ios/HolyHimWidget/Art/sky-rays-thumb.jpg",
+        "sha256": "cf134cb2c2e72512325dd949a0857c0eae0191752d7b39c0fa5b1059c54c11cb"
+      }
+    },
+    {
+      "id": "sky-stillness",
+      "source": "sky-stillness",
+      "masterSha256": "7d063e751b664885a75d5c8f1458835448b19e381bd9e7a936ed5cac3e5c7282",
+      "asset": {
+        "path": "assets/art/library/sky-stillness.webp",
+        "sha256": "da826f04707b6eaa83e06607b9eb0df616f819bc35f8438717d24af033a628fc"
+      },
+      "thumb": {
+        "path": "assets/art/library/sky-stillness-thumb.webp",
+        "sha256": "956ba16e6fbaebb0926f5cc75877131f8f14397f5cc6870d19169cd310bb717c"
+      },
+      "widget": {
+        "path": "ios/HolyHimWidget/Art/sky-stillness-thumb.jpg",
+        "sha256": "40fd407c972fee2443b185bd0f010b4c4e13ade1cd1f9925d96960ca1dd99cd4"
+      }
+    },
+    {
+      "id": "sky-evening",
+      "source": "sky-evening",
+      "masterSha256": "aa8b42cecbe559cf3a280b3022163a63161089b0a7899ce4eda72585340b64eb",
+      "asset": {
+        "path": "assets/art/library/sky-evening.webp",
+        "sha256": "8003f075fdd3b0e204ae40e7c372d0cfd4264767ef1af2e603714a2cd2ef106f"
+      },
+      "thumb": {
+        "path": "assets/art/library/sky-evening-thumb.webp",
+        "sha256": "c9a52f120fb96dc7b55828e4986a2bb6aa9e1dde91bf3c69c80806eca84c773b"
+      },
+      "widget": {
+        "path": "ios/HolyHimWidget/Art/sky-evening-thumb.jpg",
+        "sha256": "875572b036f3c6cb83c6b4efd2e45a09681b1bd7529334aade4b10f3e72f3596"
+      }
+    },
+    {
+      "id": "sky-clouds",
+      "source": "sky-clouds",
+      "masterSha256": "cf653a5cfbf0182250a8af7e6862d13c24573a06889620bfee15d2249ca9f777",
+      "asset": {
+        "path": "assets/art/library/sky-clouds.webp",
+        "sha256": "23d4beac4e7cd6f904c93e3e80fd0530b7aa03652f605b5fc4cc147e7606669d"
+      },
+      "thumb": {
+        "path": "assets/art/library/sky-clouds-thumb.webp",
+        "sha256": "6cf5e9c4d26d192f3cddb45d1ebf66648055250502d5f88dc0c46b9351915d3d"
+      },
+      "widget": {
+        "path": "ios/HolyHimWidget/Art/sky-clouds-thumb.jpg",
+        "sha256": "af4f31d848717a816639f19b906d9439fa4e0d52891568102a85ff4788d09e2b"
+      }
+    },
+    {
+      "id": "cross-hill",
+      "source": "cross-hill",
+      "masterSha256": "373f9d25f4b3377dd89543a16f54d80d115f1b541fa4b66dd2209b445899b1a5",
+      "asset": {
+        "path": "assets/art/library/cross-hill.webp",
+        "sha256": "6df2fa7cef194b5115e9fd40fa8d72ba5d1fd277302c8a7ea4c80480b6aac506"
+      },
+      "thumb": {
+        "path": "assets/art/library/cross-hill-thumb.webp",
+        "sha256": "48bb597e418f30ba316de21022a43687aab1ca20079ddaa26192ec5f681b3e50"
+      },
+      "widget": {
+        "path": "ios/HolyHimWidget/Art/cross-hill-thumb.jpg",
+        "sha256": "03e9cc859601d9917ac690dfd8536cb39e45749304ebc8d36c0071b3f2b0f09d"
+      }
+    },
+    {
+      "id": "cross-window",
+      "source": "cross-hill",
+      "masterSha256": "373f9d25f4b3377dd89543a16f54d80d115f1b541fa4b66dd2209b445899b1a5",
+      "asset": {
+        "path": "assets/art/library/cross-window.webp",
+        "sha256": "6df2fa7cef194b5115e9fd40fa8d72ba5d1fd277302c8a7ea4c80480b6aac506"
+      },
+      "thumb": {
+        "path": "assets/art/library/cross-window-thumb.webp",
+        "sha256": "48bb597e418f30ba316de21022a43687aab1ca20079ddaa26192ec5f681b3e50"
+      },
+      "widget": {
+        "path": "ios/HolyHimWidget/Art/cross-window-thumb.jpg",
+        "sha256": "03e9cc859601d9917ac690dfd8536cb39e45749304ebc8d36c0071b3f2b0f09d"
+      }
+    },
+    {
+      "id": "cross-meadow",
+      "source": "cross-stone",
+      "masterSha256": "e2c581df4c04ae21b7de882372ecc333543784b8243a0f00107c98e853ca2642",
+      "asset": {
+        "path": "assets/art/library/cross-meadow.webp",
+        "sha256": "b2293b7035ec2d1f8782d2b562d13765038aba28d43f7f71f0cc9fc340ac5a19"
+      },
+      "thumb": {
+        "path": "assets/art/library/cross-meadow-thumb.webp",
+        "sha256": "42561a6e0dd818483f56b7cac622d2c19929403432e5cd65f4976a844e8c9452"
+      },
+      "widget": {
+        "path": "ios/HolyHimWidget/Art/cross-meadow-thumb.jpg",
+        "sha256": "d6132caec90f5d998ecd0478d07ce2fc289407bc9e851d0a3f9d7abb19422e50"
+      }
+    },
+    {
+      "id": "cross-mountain",
+      "source": "cross-mountain",
+      "masterSha256": "3390368ff0190bd282acbaded5e22365714c6ccaee5d69dad348a2501e1824d2",
+      "asset": {
+        "path": "assets/art/library/cross-mountain.webp",
+        "sha256": "f8846dd6f6c69910ef7fca2cf4d55f64f3e5eaa7ac73e09ad30880ac43541f34"
+      },
+      "thumb": {
+        "path": "assets/art/library/cross-mountain-thumb.webp",
+        "sha256": "afb161932dde17ffaf007777c16fd015336ec661eda253ddcb02af783f8171a0"
+      },
+      "widget": {
+        "path": "ios/HolyHimWidget/Art/cross-mountain-thumb.jpg",
+        "sha256": "674265fd2ba04a39c0ef008edc2486c26afe70917ff86681310fb8444746b6eb"
+      }
+    },
+    {
+      "id": "cross-stone",
+      "source": "cross-stone",
+      "masterSha256": "e2c581df4c04ae21b7de882372ecc333543784b8243a0f00107c98e853ca2642",
+      "asset": {
+        "path": "assets/art/library/cross-stone.webp",
+        "sha256": "b2293b7035ec2d1f8782d2b562d13765038aba28d43f7f71f0cc9fc340ac5a19"
+      },
+      "thumb": {
+        "path": "assets/art/library/cross-stone-thumb.webp",
+        "sha256": "42561a6e0dd818483f56b7cac622d2c19929403432e5cd65f4976a844e8c9452"
+      },
+      "widget": {
+        "path": "ios/HolyHimWidget/Art/cross-stone-thumb.jpg",
+        "sha256": "d6132caec90f5d998ecd0478d07ce2fc289407bc9e851d0a3f9d7abb19422e50"
+      }
+    },
+    {
+      "id": "scripture-morning",
+      "source": "jesus-dawn",
+      "masterSha256": "81a7dbefc9eeffd118638207f06a514b67cbf1846dc442a8bca3f80e08651161",
+      "asset": {
+        "path": "assets/art/library/scripture-morning.webp",
+        "sha256": "a3a4c0c2593d72ac8ab7121817a5e60a83e3a0aabf7e0fd96bae0af8e78570af"
+      },
+      "thumb": {
+        "path": "assets/art/library/scripture-morning-thumb.webp",
+        "sha256": "0bef8d2fabec0d029c985de2c1e067aa37f9ca3625e41330d7a7b5df4686e87b"
+      },
+      "widget": {
+        "path": "ios/HolyHimWidget/Art/scripture-morning-thumb.jpg",
+        "sha256": "33986d99c1ad37dfd0c74ae3b0edccd2d8207666fcbb75eb9fa5df453991e28e"
+      }
+    },
+    {
+      "id": "scripture-prayer",
+      "source": "scripture-prayer",
+      "masterSha256": "2ab5a99c09491606b17f16013764b47ec019046794f678afaf35713d23036398",
+      "asset": {
+        "path": "assets/art/library/scripture-prayer.webp",
+        "sha256": "12b371f20c6a08cc42ecffc732b014c416c9faa312f8a7c18fa37352f9206c72"
+      },
+      "thumb": {
+        "path": "assets/art/library/scripture-prayer-thumb.webp",
+        "sha256": "ebbdc6cee0ab2d3eb7635a9764399d613db4c9bde67f9a470101bf6647a371d0"
+      },
+      "widget": {
+        "path": "ios/HolyHimWidget/Art/scripture-prayer-thumb.jpg",
+        "sha256": "a597e29632af8aa71c29f01bdef0e844b07dffe027667e31d29f7dfb4a8c16b3"
+      }
+    },
+    {
+      "id": "scripture-chapel",
+      "source": "scripture-chapel",
+      "masterSha256": "5fa56f094d12e7cb6af1309b44b13bc344344e16c37b6b7c67691ea3c0263dc7",
+      "asset": {
+        "path": "assets/art/library/scripture-chapel.webp",
+        "sha256": "3c0c09ddbc9c61d15e8d563a6b5d4ee833054b71c515cd14ce094b055dce7131"
+      },
+      "thumb": {
+        "path": "assets/art/library/scripture-chapel-thumb.webp",
+        "sha256": "c779d881d5e798b593b36c84e1d78eac6d4c3affb6f18ca968d7cb950780193e"
+      },
+      "widget": {
+        "path": "ios/HolyHimWidget/Art/scripture-chapel-thumb.jpg",
+        "sha256": "a6aa5bfd7deb338575e857c58f1621041c59ac9a1f14073a091fcff12499980e"
+      }
+    },
+    {
+      "id": "scripture-lamp",
+      "source": "scripture-lamp",
+      "masterSha256": "1e906e33bcd646492d351484de80a7ca0914351f90f2ff131cc91014f7cf54ec",
+      "asset": {
+        "path": "assets/art/library/scripture-lamp.webp",
+        "sha256": "c57b8ed7174e3330b971708e4df4816cb447c716ed2b62be7f08d216b7e445c5"
+      },
+      "thumb": {
+        "path": "assets/art/library/scripture-lamp-thumb.webp",
+        "sha256": "a5e50cf1dd26f02eeae3f3a6d571d97043de4c629f69aabbac40fa51527afad2"
+      },
+      "widget": {
+        "path": "ios/HolyHimWidget/Art/scripture-lamp-thumb.jpg",
+        "sha256": "db0f76f968818f5c4946253ce98fe17907228790082412d5ad94074a2aba1335"
+      }
+    },
+    {
+      "id": "scripture-garden",
+      "source": "jesus-seaside",
+      "masterSha256": "632ecf62b840f9a45d79e5bc8fd75ae058628eb557e1f9b25aabb805dfebcf3f",
+      "asset": {
+        "path": "assets/art/library/scripture-garden.webp",
+        "sha256": "31c04924adda76e5cf431a056e411cd7d1361c642b513d5321b94644d5cf1332"
+      },
+      "thumb": {
+        "path": "assets/art/library/scripture-garden-thumb.webp",
+        "sha256": "5c6c6b797daabca834cfd2be742c8a0441dbfdf718269b73e291275d47ef468b"
+      },
+      "widget": {
+        "path": "ios/HolyHimWidget/Art/scripture-garden-thumb.jpg",
+        "sha256": "0b179dc0a24d45614f74e3ded3b1721165916a3a0b39a6e96ecc684dce6b267c"
+      }
+    },
+    {
+      "id": "symbol-olive",
+      "source": "symbol-olive",
+      "masterSha256": "3800fd90388671f78e0dae1c9bcac4483bdcc7d7a69c3640596c6ef323c4ae8e",
+      "asset": {
+        "path": "assets/art/library/symbol-olive.webp",
+        "sha256": "5773c82e4d09470b5e2761be3f269a8a1b0cce8cdbfd70692465b45ee77fe714"
+      },
+      "thumb": {
+        "path": "assets/art/library/symbol-olive-thumb.webp",
+        "sha256": "b90c6640e56982ed3342380d9c2dc6f8e080c3fd83f3eca94400417a973ec77f"
+      },
+      "widget": {
+        "path": "ios/HolyHimWidget/Art/symbol-olive-thumb.jpg",
+        "sha256": "93db8b6d8c70173caec91eaf7f665e76729938e2ba198ef680721dfd3f81251f"
+      }
+    },
+    {
+      "id": "symbol-dove",
+      "source": "symbol-dove",
+      "masterSha256": "da89a7a877d58bb2d58e55cfa11e78b3139679e6e211898e731d303d4d6a8e22",
+      "asset": {
+        "path": "assets/art/library/symbol-dove.webp",
+        "sha256": "7e6d3c0c5f740d8bd0362b74908f516af6448c45eefd805f0efa56fbb545aff0"
+      },
+      "thumb": {
+        "path": "assets/art/library/symbol-dove-thumb.webp",
+        "sha256": "44b1142e67baaf1d38d0540f947b0e08aec62c5ec01cbdadd85ea08bdc083bdd"
+      },
+      "widget": {
+        "path": "ios/HolyHimWidget/Art/symbol-dove-thumb.jpg",
+        "sha256": "070146dbe58c6d0c68ada5b7547bde62689741c5fc921e9d66f702096cab6e59"
+      }
+    },
+    {
+      "id": "landscape-water",
+      "source": "landscape-water",
+      "masterSha256": "7833beedcecfd85ba5dfd3a20a5c2aa4bc2f761ef399c665afc45e265da4617f",
+      "asset": {
+        "path": "assets/art/library/landscape-water.webp",
+        "sha256": "588cfff792bd7ba4aa81b6afd94cbe12c2c7d594e5481907a5a73ed2319dd0f4"
+      },
+      "thumb": {
+        "path": "assets/art/library/landscape-water-thumb.webp",
+        "sha256": "5e5fff9c527b20f3d9497bf9cc00f0cb6c025e8a05a16dae592bbaec4b19cb61"
+      },
+      "widget": {
+        "path": "ios/HolyHimWidget/Art/landscape-water-thumb.jpg",
+        "sha256": "5a6a8ee63516cd249f14252c9e49a854175eeb8e29665c9cb9ce057ced8aecb2"
+      }
+    },
+    {
+      "id": "landscape-path",
+      "source": "landscape-path",
+      "masterSha256": "13f7bdf5fd81afa2fc24506721b0002806c63b7f020620c11f261bb3e14b92ec",
+      "asset": {
+        "path": "assets/art/library/landscape-path.webp",
+        "sha256": "750f20e492ead3211c520aa3f1c875d1729f0815471c1baa56d25cdc2df51b32"
+      },
+      "thumb": {
+        "path": "assets/art/library/landscape-path-thumb.webp",
+        "sha256": "4cbf7fae76feda88ad9a0ac20436b5cd36e025629574d666d26d58ed2c688253"
+      },
+      "widget": {
+        "path": "ios/HolyHimWidget/Art/landscape-path-thumb.jpg",
+        "sha256": "4d6488ba477a0921d1e0a146453d8360fb1222ad6fcb58249fc5d8d8870b5cc7"
+      }
+    },
+    {
+      "id": "symbol-lilies",
+      "source": "cross-mountain",
+      "masterSha256": "3390368ff0190bd282acbaded5e22365714c6ccaee5d69dad348a2501e1824d2",
+      "asset": {
+        "path": "assets/art/library/symbol-lilies.webp",
+        "sha256": "f8846dd6f6c69910ef7fca2cf4d55f64f3e5eaa7ac73e09ad30880ac43541f34"
+      },
+      "thumb": {
+        "path": "assets/art/library/symbol-lilies-thumb.webp",
+        "sha256": "afb161932dde17ffaf007777c16fd015336ec661eda253ddcb02af783f8171a0"
+      },
+      "widget": {
+        "path": "ios/HolyHimWidget/Art/symbol-lilies-thumb.jpg",
+        "sha256": "674265fd2ba04a39c0ef008edc2486c26afe70917ff86681310fb8444746b6eb"
+      }
+    }
+  ],
+  "badges": [
+    {
+      "id": "days-001",
+      "masterSha256": "9576d774b4479cdcb362ffbb5729a3b83f9ef588fbc7ffb8af7af6514f6f7a21",
+      "asset": {
+        "path": "assets/art/badges/days-001.png",
+        "sha256": "ed720359e926a86d707a0c3346328a2713d20e6be2f21c5bbe9ba016b74d459e"
+      },
+      "thumb": {
+        "path": "assets/art/badges/days-001-thumb.png",
+        "sha256": "79177980036e85df73d037a1eb2f2bc175e84f3813f029795744f88d995aa3ef"
+      }
+    },
+    {
+      "id": "days-003",
+      "masterSha256": "4560238b9a9eb069bea7ac37f6e8cb35eae885b3c373d5c3cc07b9d567d78394",
+      "asset": {
+        "path": "assets/art/badges/days-003.png",
+        "sha256": "ab144fc8d5124a5a1af4093f75f21e9d58a84554420fe77570e8cd1c9923bf7b"
+      },
+      "thumb": {
+        "path": "assets/art/badges/days-003-thumb.png",
+        "sha256": "89b6fd397deaec318878043b3ba8101c348b7b9ed6388271d970544f6981ed08"
+      }
+    },
+    {
+      "id": "days-007",
+      "masterSha256": "95220f36f1e77904470af177bb295f0a3bad03731bbcb5dec96c8774d0afda2e",
+      "asset": {
+        "path": "assets/art/badges/days-007.png",
+        "sha256": "f22f8cd652108aea9d9acc95737a3cb0bf3e109b6000b5ee2d578b6bab2c8325"
+      },
+      "thumb": {
+        "path": "assets/art/badges/days-007-thumb.png",
+        "sha256": "8e278b1e414117c044386e5231e3b7ec5651c9513ec00f3434a4573b35531f7f"
+      }
+    },
+    {
+      "id": "days-014",
+      "masterSha256": "e0f5f9be286cc65e6e393bf624d3608bf72e5d6c737beca00c150cdd53e1242f",
+      "asset": {
+        "path": "assets/art/badges/days-014.png",
+        "sha256": "4e46d40cdb4921afe6fadc53d5c91ab8ae97eb1e5112906453fffa223cb42f11"
+      },
+      "thumb": {
+        "path": "assets/art/badges/days-014-thumb.png",
+        "sha256": "17497287cf282287985be51a8e985416dcd2e8331f15344b70f07aa6feb9b7fd"
+      }
+    },
+    {
+      "id": "days-021",
+      "masterSha256": "0f545676069021e5f4f02a989827a31123cd038ad6630281437c4b0cb9c0f23a",
+      "asset": {
+        "path": "assets/art/badges/days-021.png",
+        "sha256": "d1b30d40a261136a273bd4e3213b15315d9de8ca88d8fcff4f8a0728b7ad305f"
+      },
+      "thumb": {
+        "path": "assets/art/badges/days-021-thumb.png",
+        "sha256": "f46112d434df200307ea012f1af0d022e2bc03f6bb749347951988a65e0f075c"
+      }
+    },
+    {
+      "id": "days-030",
+      "masterSha256": "241b6cdb82601daeaef508fc81d1e814159fc132755e81bf7303779450170c47",
+      "asset": {
+        "path": "assets/art/badges/days-030.png",
+        "sha256": "2e15588a80889127b96b8488239d5a12c2862f40806ad6870c2a2f899d8e0634"
+      },
+      "thumb": {
+        "path": "assets/art/badges/days-030-thumb.png",
+        "sha256": "a35768126c2e9c5f6b1d02198622f01ef3879565e4d36e5e0f2e8e11812fe040"
+      }
+    },
+    {
+      "id": "days-050",
+      "masterSha256": "d6b9cb73b0214dfa46d339a2b63209e8611d9e63c2570864b67006caf78f48fc",
+      "asset": {
+        "path": "assets/art/badges/days-050.png",
+        "sha256": "c27a8c8c9d54d1330800c2cf0d7ed74175b14211b5c283f8096fb21718ef225c"
+      },
+      "thumb": {
+        "path": "assets/art/badges/days-050-thumb.png",
+        "sha256": "81ec5395264aa8d88cfc24a10d0e54f7a40db6002c8ae720bf04718f2fa8be39"
+      }
+    },
+    {
+      "id": "days-075",
+      "masterSha256": "32bfa88a98d2c05919b1149e6a1e56e654448b29839b8bc050c0ca5cf134a9c0",
+      "asset": {
+        "path": "assets/art/badges/days-075.png",
+        "sha256": "988c042569ddb4490045084835784573ff41feb181f36bdb776639b75155c15b"
+      },
+      "thumb": {
+        "path": "assets/art/badges/days-075-thumb.png",
+        "sha256": "8e519d2f559ef0599b1128c0af118a70513ff943b226aea32de23fd43278df36"
+      }
+    },
+    {
+      "id": "days-100",
+      "masterSha256": "8fe2d39b461a26e13bcb6649030a26abeff866830c636428b795718bda856776",
+      "asset": {
+        "path": "assets/art/badges/days-100.png",
+        "sha256": "aec3b98c287fd0b6a65322937a83c47c95e06696c017cb797f630f6f3b0135c0"
+      },
+      "thumb": {
+        "path": "assets/art/badges/days-100-thumb.png",
+        "sha256": "d8fcda20363e50262b9020a147b25fc79216850aa91551ce0eb50699e6549464"
+      }
+    },
+    {
+      "id": "days-150",
+      "masterSha256": "67230fe4d614c977b3d468d53c253f703e3c18b631a75b3e9b4c3db51011fefc",
+      "asset": {
+        "path": "assets/art/badges/days-150.png",
+        "sha256": "555eebf8e0187167c85799c224e2a5109c399eca9c7afceeca6489c2904471b3"
+      },
+      "thumb": {
+        "path": "assets/art/badges/days-150-thumb.png",
+        "sha256": "bf1cc9aa2050e8a2d24dfe923500eb41a8d1145f9a6466d2b8c5968cd7a9ab88"
+      }
+    },
+    {
+      "id": "days-200",
+      "masterSha256": "d826e77804f15c147c98ca69e957adaa6afa4998db4e71dc13d635a5d41e0885",
+      "asset": {
+        "path": "assets/art/badges/days-200.png",
+        "sha256": "9a46dfb4d19c8f610ca8a64ff5b5aa2282d22d605b67793573a496d195f71e0d"
+      },
+      "thumb": {
+        "path": "assets/art/badges/days-200-thumb.png",
+        "sha256": "5e2631919e9acde6fbc7d21daaf89130b9a339fb555bff300ca22bd72d1357e3"
+      }
+    },
+    {
+      "id": "days-250",
+      "masterSha256": "16aa5afce2c13d5dcc6394ffbeb729b8fac1aa534ba28838c428d2f4d46a9404",
+      "asset": {
+        "path": "assets/art/badges/days-250.png",
+        "sha256": "0739b6eac85536add5fb677c88fbb087c526f1c6f115d070e4a2269f3790db7d"
+      },
+      "thumb": {
+        "path": "assets/art/badges/days-250-thumb.png",
+        "sha256": "707c94f4d250deff1b69b1624bf2caaf0780e6bac708c133015087f78bc2afb9"
+      }
+    },
+    {
+      "id": "days-300",
+      "masterSha256": "ef2704a256daec130fcdfe999fbc9a59b127266d0fc84ff25c2dd67b22fbfa29",
+      "asset": {
+        "path": "assets/art/badges/days-300.png",
+        "sha256": "1738c13261e83ac3007bf0c287b984deb47a1a8ff72ae45a63109281dd1d87f7"
+      },
+      "thumb": {
+        "path": "assets/art/badges/days-300-thumb.png",
+        "sha256": "3b8726c484ba013f44106623b48bb3e569c9c9095b8b0ef1adb94d2f4967c195"
+      }
+    },
+    {
+      "id": "days-365",
+      "masterSha256": "99b0f608d3acde49ba98316949246d586362485b52f33405c922b2d3d7f7ad98",
+      "asset": {
+        "path": "assets/art/badges/days-365.png",
+        "sha256": "f524cdd9fe1a727ecf9ecc1749eff53c951df212dcf5ef30c1ecce313e3b1e81"
+      },
+      "thumb": {
+        "path": "assets/art/badges/days-365-thumb.png",
+        "sha256": "2a1cba203f5b996318e60d4558130cbec59c4a25688834948e14257690d74e2e"
+      }
+    },
+    {
+      "id": "streak-007",
+      "masterSha256": "3902d725be97144a3a7370070b460d6422f4e3df0fc15cc7b20f55bf06578de6",
+      "asset": {
+        "path": "assets/art/badges/streak-007.png",
+        "sha256": "11e628e84066b7062b2d4aefbdd65d5fe5c6187feeadcee65f60b5d087500008"
+      },
+      "thumb": {
+        "path": "assets/art/badges/streak-007-thumb.png",
+        "sha256": "f1dc8a10c294d8d03681f977f59c82b5a86d0d8952b1a02a9ea3b0cf1176040c"
+      }
+    },
+    {
+      "id": "streak-030",
+      "masterSha256": "241b6cdb82601daeaef508fc81d1e814159fc132755e81bf7303779450170c47",
+      "asset": {
+        "path": "assets/art/badges/streak-030.png",
+        "sha256": "2e15588a80889127b96b8488239d5a12c2862f40806ad6870c2a2f899d8e0634"
+      },
+      "thumb": {
+        "path": "assets/art/badges/streak-030-thumb.png",
+        "sha256": "a35768126c2e9c5f6b1d02198622f01ef3879565e4d36e5e0f2e8e11812fe040"
+      }
+    },
+    {
+      "id": "streak-100",
+      "masterSha256": "d3992a2365d8f4128854a1cb984f42bd7e00831ed3f6dff570862209f0ee0fde",
+      "asset": {
+        "path": "assets/art/badges/streak-100.png",
+        "sha256": "83a0870f3b173db18a8f2214704f6cc28f806fe34021bb1148efcc8b26a8a1d1"
+      },
+      "thumb": {
+        "path": "assets/art/badges/streak-100-thumb.png",
+        "sha256": "626a20ca960d509050f9e14562f18985d83ca78816e266f2fd10a1f032d13399"
+      }
+    },
+    {
+      "id": "first-saved",
+      "masterSha256": "43eecd6c301a109227d98bac8d537d6d807239caa8e343c3f328b277970351e2",
+      "asset": {
+        "path": "assets/art/badges/first-saved.png",
+        "sha256": "cb2514a8457adc06d302b4c232cdca67c3a1158b6e277d3ef69710517000e4cf"
+      },
+      "thumb": {
+        "path": "assets/art/badges/first-saved-thumb.png",
+        "sha256": "87f1a184576324552f29553096512904d4f88428475804c6426e11c8c0619f54"
+      }
+    },
+    {
+      "id": "promise-kept",
+      "masterSha256": "69e083a2d744760e9f1096683b2a406b76e02632f5b509ab0db12c2a801afab3",
+      "asset": {
+        "path": "assets/art/badges/promise-kept.png",
+        "sha256": "2c77789c917a960ec7eadbdaba652cb70a9b40ab15b6e45560cafb98377d913a"
+      },
+      "thumb": {
+        "path": "assets/art/badges/promise-kept-thumb.png",
+        "sha256": "4c8daf4e86f0f0d4757a78c76348e5cfd42e9c0088999f7a4d406e65c7b47fd2"
+      }
+    }
+  ]
+}

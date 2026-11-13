@@ -48,7 +48,7 @@ Future<void> loadFonts() async {
       .map((f) => f.path)
       .where((p) => p.endsWith('.ttf'))
       .toList();
-  for (final name in ['CormorantGaramond', 'Lora', 'Manrope']) {
+  for (final name in ['SourceSerif4Display', 'SourceSerif4', 'Manrope']) {
     await family(name, fonts.where((p) => p.contains('/$name-')).toList());
   }
   final icons = FontLoader('packages/cupertino_icons/CupertinoIcons')

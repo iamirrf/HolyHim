@@ -1,57 +1,61 @@
 import 'package:flutter/widgets.dart';
 
-/// Three families, each with one job.
+import 'themes.dart';
+
+/// "First Watch" type: two families, each with one job, always upright.
 ///
-/// * Cormorant Garamond: display and accent. Titles, verse pull-quotes,
-///   numerals, "Amen" and the wordmark. Never below 22 pt: its fine hairlines
-///   and small x-height need size to read.
-/// * Lora: reading. Lesson prose at 19 to 22 pt.
+/// * Source Serif 4 Display (optical size 36): titles, verse pull-quotes,
+///   numerals, "Amen" and the wordmark. Sturdy, low-contrast serifs that hold
+///   up on photographs and dark paper.
+/// * Source Serif 4 (optical size 20): lesson prose at 18 to 21 pt.
 /// * Manrope: interface. Buttons, labels, tabs and settings.
 class HolyTypography {
   HolyTypography._();
-  static const _display = 'CormorantGaramond';
-  static const _reading = 'Lora';
+  static const _display = 'SourceSerif4Display';
+  static const _reading = 'SourceSerif4';
   static const _ui = 'Manrope';
 
   static const display = TextStyle(
       fontFamily: _display,
-      fontSize: 46,
-      height: 1.02,
-      fontWeight: FontWeight.w600,
-      letterSpacing: -.6);
+      fontSize: 42,
+      height: 1.06,
+      fontWeight: FontWeight.w700,
+      letterSpacing: -.9);
   static const title = TextStyle(
       fontFamily: _display,
-      fontSize: 34,
-      height: 1.08,
+      fontSize: 31,
+      height: 1.1,
       fontWeight: FontWeight.w600,
-      letterSpacing: -.3);
+      letterSpacing: -.6);
   static const headline = TextStyle(
       fontFamily: _display,
-      fontSize: 27,
-      height: 1.12,
+      fontSize: 24,
+      height: 1.16,
       fontWeight: FontWeight.w600,
-      letterSpacing: -.1);
+      letterSpacing: -.3);
 
-  /// Scripture as a pull-quote.
+  /// Scripture as a pull-quote: upright, measured, never decorative.
   static const verse = TextStyle(
       fontFamily: _display,
-      fontSize: 29,
-      height: 1.24,
+      fontSize: 25,
+      height: 1.32,
       fontWeight: FontWeight.w500,
-      fontStyle: FontStyle.italic);
+      letterSpacing: -.2);
 
   /// Long-form lesson prose.
   static const reading = TextStyle(
       fontFamily: _reading,
-      fontSize: 20,
-      height: 1.55,
+      fontSize: 19,
+      height: 1.56,
       fontWeight: FontWeight.w400);
+
+  /// Secondary prose lines (teasers, summaries). Upright: HolyHim has no
+  /// italic cut, and a synthesised slant would look broken.
   static const readingItalic = TextStyle(
       fontFamily: _reading,
-      fontSize: 20,
-      height: 1.55,
-      fontWeight: FontWeight.w400,
-      fontStyle: FontStyle.italic);
+      fontSize: 19,
+      height: 1.5,
+      fontWeight: FontWeight.w500);
 
   static const ui = TextStyle(
       fontFamily: _ui,
@@ -67,7 +71,7 @@ class HolyTypography {
       fontFamily: _ui,
       fontSize: 14,
       height: 1.3,
-      fontWeight: FontWeight.w600);
+      fontWeight: FontWeight.w700);
   static const caption = TextStyle(
       fontFamily: _ui,
       fontSize: 13,
@@ -77,57 +81,64 @@ class HolyTypography {
       fontFamily: _ui,
       fontSize: 16,
       height: 1.2,
-      fontWeight: FontWeight.w700,
-      letterSpacing: .1);
+      fontWeight: FontWeight.w800,
+      letterSpacing: .2);
   static const eyebrow = TextStyle(
       fontFamily: _ui,
       fontSize: 11.5,
       height: 1.3,
-      fontWeight: FontWeight.w700,
-      letterSpacing: 1.6);
+      fontWeight: FontWeight.w800,
+      letterSpacing: 1.8);
 
   /// Numerals in counters and dates.
   static const numeral = TextStyle(
       fontFamily: _display,
       fontSize: 40,
       height: 1,
-      fontWeight: FontWeight.w600,
+      fontWeight: FontWeight.w700,
       fontFeatures: [FontFeature.liningFigures()]);
 
-  /// Accent line in italic display, e.g. "Amen."
+  /// The closing word, e.g. "Amen."
   static const accent = TextStyle(
       fontFamily: _display,
       fontSize: 36,
       height: 1.1,
-      fontWeight: FontWeight.w600,
-      fontStyle: FontStyle.italic);
+      fontWeight: FontWeight.w700,
+      letterSpacing: -.4);
 
   static const wordmark = TextStyle(
       fontFamily: _display,
       fontSize: 40,
       height: 1,
-      fontWeight: FontWeight.w600,
-      letterSpacing: -.4);
+      fontWeight: FontWeight.w700,
+      letterSpacing: -.8);
 }
 
-/// **Holy** in roman, *Her* in italic.
+/// **Holy** in the given colour, **Him** in brass. Upright, one weight.
 class Wordmark extends StatelessWidget {
   final double size;
   final Color color;
-  const Wordmark({super.key, this.size = 40, required this.color});
+
+  /// Colour of "Him". Defaults to brass on photographs and the theme accent
+  /// on paper.
+  final Color? accent;
+  const Wordmark({super.key, this.size = 40, required this.color, this.accent});
   @override
-  Widget build(BuildContext context) => Semantics(
-      label: 'HolyHim',
-      excludeSemantics: true,
-      child: Text.rich(
-          TextSpan(children: [
-            const TextSpan(text: 'Holy'),
-            TextSpan(
-                text: 'Her',
-                style: const TextStyle(fontStyle: FontStyle.italic)
-                    .copyWith(letterSpacing: -.2)),
-          ]),
-          textScaler: TextScaler.noScaling,
-          style: HolyTypography.wordmark
-              .copyWith(fontSize: size, color: color)));
+  Widget build(BuildContext context) {
+    final him = accent ??
+        (color == HolyTheme.photoInk
+            ? HolyTheme.photoBrass
+            : HolyThemeScope.of(context).accent);
+    return Semantics(
+        label: 'HolyHim',
+        excludeSemantics: true,
+        child: Text.rich(
+            TextSpan(children: [
+              const TextSpan(text: 'Holy'),
+              TextSpan(text: 'Him', style: TextStyle(color: him)),
+            ]),
+            textScaler: TextScaler.noScaling,
+            style: HolyTypography.wordmark
+                .copyWith(fontSize: size, color: color)));
+  }
 }

@@ -1,17 +1,10 @@
 {
   "projectId": "holyhim-app-production",
-  "account": "REPLACE_WITH_HOLYHIM_ACCOUNT",
+  "account": "iamirrf1@gmail.com",
   "region": "us-central1",
-  "runtimeServiceAccount": "REPLACE_WITH_HOLYHIM_ACCOUNT",
+  "runtimeServiceAccount": "holyhim-runtime@holyhim-app-production.iam.gserviceaccount.com",
   "website": "https://holyhim-app-production.web.app",
-  "previousProjectId": "holyhim-app-production",
-  "previousAccount": "REPLACE_WITH_HOLYHIM_ACCOUNT",
-  "migrationStatus": "complete",
-  "billingAccountName": "REPLACE_WITH_HOLYHIM_BILLING_ACCOUNT",
-  "billingAccountId": "REPLACE_WITH_HOLYHIM_BILLING_ACCOUNT",
-  "ownerVerified": true,
-  "billingVerified": true,
-  "firebaseIosAppId": "REPLACE_WITH_HOLYHIM_APP_ID",
-  "previousProjectBillingDisabled": true,
-  "previousProjectTemporaryAccessRemoved": true
+  "billingAccountName": "My Billing Account",
+  "billingAccountId": "01675C-CF2D9B-974DEE",
+  "firebaseIosAppId": "1:924772723375:ios:e77948fc5cf114955d425a"
 }

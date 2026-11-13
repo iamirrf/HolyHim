@@ -77,7 +77,7 @@ class PersonalLetter extends StatelessWidget {
         child: LineReveal(step: const Duration(milliseconds: 650), lines: [
           Text(name.isEmpty ? 'Dear friend,' : 'Dear $name,',
               style: HolyTypography.headline.copyWith(
-                  color: t.ink, fontStyle: FontStyle.italic)),
+                  color: t.ink, fontStyle: FontStyle.normal)),
           SizedBox(height: compact ? 10 : 14),
           Text(heartLine(answers.hearts.firstOrNull), style: prose),
           SizedBox(height: compact ? 8 : 12),

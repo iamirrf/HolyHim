@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// "First Light": a quiet morning in a printed devotional.
+/// "First Watch": the hour before sunrise. Dark paper, bone ink, brass.
 ///
 /// Every theme is a set of semantic tokens. Screens ask for a role (paper,
 /// ink, accent), never a hex value, so the eight saved theme IDs can be
@@ -28,16 +28,16 @@ class HolyTheme {
   /// One-pixel rules and outlines.
   final Color hairline;
 
-  /// Rosewood: selection, progress, links, emphasis.
+  /// Brass or bronze: selection, progress, links, emphasis.
   final Color accent;
 
   /// Filled primary controls and the ink that sits on them.
   final Color primary, onPrimary;
 
-  /// Antique gold, for ornament only (never for text that must be read).
+  /// Brass, for ornament only (never for text that must be read).
   final Color gold;
 
-  /// Olive, for growth and completion.
+  /// Pine, for growth and completion.
   final Color olive;
 
   const HolyTheme(
@@ -52,8 +52,8 @@ class HolyTheme {
       required this.accent,
       required this.primary,
       required this.onPrimary,
-      this.gold = const Color(0xFFB4904F),
-      this.olive = const Color(0xFF68724A),
+      this.gold = const Color(0xFFD8A657),
+      this.olive = const Color(0xFF8FB08A),
       this.isDark = false});
 
   // Compatibility roles for widgets that predate the token names.
@@ -68,8 +68,11 @@ class HolyTheme {
   Color get navTint => surface.withValues(alpha: .62);
 
   /// Text on photographs always uses this pair, independent of theme.
-  static const photoInk = Color(0xFFFFFBF6);
-  static const photoShade = Color(0xFF1E1216);
+  static const photoInk = Color(0xFFF5F1EA);
+  static const photoShade = Color(0xFF0B0E13);
+
+  /// Brass for accents that sit on photographs (the wordmark's "Him").
+  static const photoBrass = Color(0xFFE2B66A);
 
   static HolyTheme lerp(HolyTheme a, HolyTheme b, double t) => HolyTheme(
       id: b.id,
@@ -103,118 +106,137 @@ class HolyTheme {
 class HolyThemes {
   HolyThemes._();
 
-  /// The default: ivory paper, plum-brown ink, rosewood.
+  // Dart names and stored IDs are kept from the shared engine so saved
+  // profiles and merges stay stable; the names people see are HolyHim's.
+
+  /// The default: charcoal-navy before dawn, bone text, brass.
   static const blush = HolyTheme(
       id: 'blush',
-      name: 'First Light',
-      paper: Color(0xFFF8F1E9),
-      surface: Color(0xFFFFFBF6),
-      sunk: Color(0xFFF0E5DA),
-      ink: Color(0xFF33202A),
-      muted: Color(0xFF6E5560),
-      hairline: Color(0xFFE5D6C9),
-      accent: Color(0xFF9B4560),
-      primary: Color(0xFF4A2638),
-      onPrimary: Color(0xFFFFF8F2));
+      name: 'First Watch',
+      isDark: true,
+      paper: Color(0xFF0E1217),
+      surface: Color(0xFF171D25),
+      sunk: Color(0xFF0A0D11),
+      ink: Color(0xFFF2EDE4),
+      muted: Color(0xFFA7AEB8),
+      hairline: Color(0xFF27303C),
+      accent: Color(0xFFD8A657),
+      primary: Color(0xFFD8A657),
+      onPrimary: Color(0xFF14110B),
+      gold: Color(0xFFD8A657),
+      olive: Color(0xFF8FB08A));
+
+  /// Daylight: stone-white paper, graphite ink, bronze.
   static const rose = HolyTheme(
       id: 'rose',
-      name: 'Rosé',
-      paper: Color(0xFFFAEEEE),
-      surface: Color(0xFFFFF9F8),
-      sunk: Color(0xFFF3E1E2),
-      ink: Color(0xFF38202A),
-      muted: Color(0xFF725560),
-      hairline: Color(0xFFEBD3D6),
-      accent: Color(0xFFA2405C),
-      primary: Color(0xFF6B2840),
-      onPrimary: Color(0xFFFFF7F6));
+      name: 'Limestone',
+      paper: Color(0xFFEFECE6),
+      surface: Color(0xFFFBFAF7),
+      sunk: Color(0xFFE4E0D8),
+      ink: Color(0xFF1A1F26),
+      muted: Color(0xFF545B66),
+      hairline: Color(0xFFD7D2C8),
+      accent: Color(0xFF85561C),
+      primary: Color(0xFF1F2630),
+      onPrimary: Color(0xFFF5F1E8),
+      gold: Color(0xFFA77B33),
+      olive: Color(0xFF4E6B4A));
   static const lavender = HolyTheme(
       id: 'lavender',
-      name: 'Lavender',
-      paper: Color(0xFFF3EFF5),
-      surface: Color(0xFFFCFAFD),
-      sunk: Color(0xFFE8E1EE),
-      ink: Color(0xFF2D2238),
-      muted: Color(0xFF64576F),
-      hairline: Color(0xFFDDD3E5),
-      accent: Color(0xFF74558E),
-      primary: Color(0xFF473161),
-      onPrimary: Color(0xFFFBF8FF));
+      name: 'Iron',
+      isDark: true,
+      paper: Color(0xFF121314),
+      surface: Color(0xFF1C1D1F),
+      sunk: Color(0xFF0B0C0D),
+      ink: Color(0xFFEDEDED),
+      muted: Color(0xFFA3A6AA),
+      hairline: Color(0xFF2E3033),
+      accent: Color(0xFFC9CED4),
+      primary: Color(0xFFE4E6E9),
+      onPrimary: Color(0xFF141516),
+      gold: Color(0xFFC9A15F),
+      olive: Color(0xFF9DB394));
   static const sunrise = HolyTheme(
       id: 'sunrise',
-      name: 'Sunrise',
-      paper: Color(0xFFFAEFE3),
-      surface: Color(0xFFFFFAF3),
-      sunk: Color(0xFFF2E1D0),
-      ink: Color(0xFF3A2419),
-      muted: Color(0xFF725A4C),
-      hairline: Color(0xFFEBD7C4),
-      accent: Color(0xFFA0552F),
-      primary: Color(0xFF5B301E),
-      onPrimary: Color(0xFFFFF8F0));
+      name: 'Ember',
+      isDark: true,
+      paper: Color(0xFF140F0C),
+      surface: Color(0xFF1F1813),
+      sunk: Color(0xFF0D0907),
+      ink: Color(0xFFF4EAE0),
+      muted: Color(0xFFBCA999),
+      hairline: Color(0xFF352A21),
+      accent: Color(0xFFE8924D),
+      primary: Color(0xFFE8924D),
+      onPrimary: Color(0xFF1A0F08),
+      gold: Color(0xFFE2A55B),
+      olive: Color(0xFFA3B57F));
   static const pearl = HolyTheme(
       id: 'pearl',
-      name: 'Pearl',
-      paper: Color(0xFFF5F2ED),
-      surface: Color(0xFFFFFDFA),
-      sunk: Color(0xFFEAE4DC),
-      ink: Color(0xFF2E2725),
-      muted: Color(0xFF675B57),
-      hairline: Color(0xFFDFD7CF),
-      accent: Color(0xFF85605A),
-      primary: Color(0xFF3D3130),
-      onPrimary: Color(0xFFFFFBF7));
+      name: 'Sandstone',
+      paper: Color(0xFFF3EDE3),
+      surface: Color(0xFFFCF9F3),
+      sunk: Color(0xFFE9E0D2),
+      ink: Color(0xFF2A231C),
+      muted: Color(0xFF625646),
+      hairline: Color(0xFFDDD2C0),
+      accent: Color(0xFF925529),
+      primary: Color(0xFF3A2E24),
+      onPrimary: Color(0xFFFBF6EE),
+      gold: Color(0xFFA7793A),
+      olive: Color(0xFF5A6B45));
   static const sage = HolyTheme(
       id: 'sage',
-      name: 'Olive Grove',
-      paper: Color(0xFFF1F1E6),
-      surface: Color(0xFFFCFCF5),
-      sunk: Color(0xFFE5E6D6),
-      ink: Color(0xFF25302A),
-      muted: Color(0xFF58655A),
-      hairline: Color(0xFFD9DCC9),
-      accent: Color(0xFF52704C),
-      primary: Color(0xFF33463A),
-      onPrimary: Color(0xFFF9FBF2),
-      olive: Color(0xFF52704C));
+      name: 'Cedar',
+      isDark: true,
+      paper: Color(0xFF0F1512),
+      surface: Color(0xFF17201B),
+      sunk: Color(0xFF0A0F0C),
+      ink: Color(0xFFEBF0EA),
+      muted: Color(0xFFA4B2A7),
+      hairline: Color(0xFF27332C),
+      accent: Color(0xFFA9C79A),
+      primary: Color(0xFFA9C79A),
+      onPrimary: Color(0xFF0F1A12),
+      gold: Color(0xFFCDB077),
+      olive: Color(0xFFA9C79A));
   static const midnightRose = HolyTheme(
       id: 'midnight-rose',
-      name: 'Evening',
+      name: 'Midnight',
       isDark: true,
-      paper: Color(0xFF1B1317),
-      surface: Color(0xFF271B21),
-      sunk: Color(0xFF140E11),
-      ink: Color(0xFFF6EAE5),
-      muted: Color(0xFFC5AFB6),
-      hairline: Color(0xFF3D2C34),
-      accent: Color(0xFFE6A3B7),
-      primary: Color(0xFFF3DCE2),
-      onPrimary: Color(0xFF2A1720),
-      gold: Color(0xFFD8B67C),
-      olive: Color(0xFFB4BF8E));
+      paper: Color(0xFF0B1020),
+      surface: Color(0xFF141B30),
+      sunk: Color(0xFF070A15),
+      ink: Color(0xFFEEF1F8),
+      muted: Color(0xFFA8B1C7),
+      hairline: Color(0xFF242D47),
+      accent: Color(0xFF93B4FF),
+      primary: Color(0xFFDCE5FF),
+      onPrimary: Color(0xFF10172B),
+      gold: Color(0xFFD6B672),
+      olive: Color(0xFF9FC29A));
   static const starlight = HolyTheme(
       id: 'starlight',
-      name: 'Starlight',
-      isDark: true,
-      paper: Color(0xFF141526),
-      surface: Color(0xFF1F2035),
-      sunk: Color(0xFF0F1020),
-      ink: Color(0xFFF2EFFA),
-      muted: Color(0xFFB7B3CC),
-      hairline: Color(0xFF35364F),
-      accent: Color(0xFFC9B8F1),
-      primary: Color(0xFFE8E1FA),
-      onPrimary: Color(0xFF1E1D36),
-      gold: Color(0xFFDCC28A),
-      olive: Color(0xFFB9C69A));
+      name: 'Slate',
+      paper: Color(0xFFECEFF2),
+      surface: Color(0xFFFAFBFC),
+      sunk: Color(0xFFDFE4E9),
+      ink: Color(0xFF18202A),
+      muted: Color(0xFF4F5B68),
+      hairline: Color(0xFFD1D8DF),
+      accent: Color(0xFF2D5A86),
+      primary: Color(0xFF1E2B3A),
+      onPrimary: Color(0xFFF2F5F8),
+      gold: Color(0xFF9E7A3A),
+      olive: Color(0xFF4C6A4F));
   static const all = [
     blush,
     rose,
     lavender,
     sunrise,
-    pearl,
     sage,
     midnightRose,
+    pearl,
     starlight
   ];
   static HolyTheme byId(String id) => all.firstWhere((t) => t.id == id,

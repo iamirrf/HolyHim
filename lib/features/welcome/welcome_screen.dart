@@ -79,7 +79,7 @@ class WelcomeScreen extends ConsumerWidget {
                         textAlign: TextAlign.center,
                         style: HolyTypography.headline.copyWith(
                             color: HolyTheme.photoInk.withValues(alpha: .92),
-                            fontStyle: FontStyle.italic,
+                            fontStyle: FontStyle.normal,
                             fontWeight: FontWeight.w500,
                             fontSize: compact ? 23 : 26,
                             shadows: const [

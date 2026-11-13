@@ -317,7 +317,7 @@ class _LessonScreenState extends ConsumerState<LessonScreen>
               const SizedBox(height: 10),
               Text('Carry this today: ${lesson.holdOn}',
                   style: HolyTypography.caption
-                      .copyWith(color: t.muted, fontStyle: FontStyle.italic)),
+                      .copyWith(color: t.muted, fontStyle: FontStyle.normal)),
             ],
           ]));
     }

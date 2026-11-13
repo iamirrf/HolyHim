@@ -23,12 +23,12 @@ class HolySpace {
 /// outer radius so corners stay concentric: see [HolyRadius.inner].
 class HolyRadius {
   HolyRadius._();
-  static const chip = 14.0,
-      field = 18.0,
-      button = 22.0,
-      card = 30.0,
-      sheet = 36.0,
-      photo = 34.0;
+  static const chip = 10.0,
+      field = 14.0,
+      button = 14.0,
+      card = 20.0,
+      sheet = 28.0,
+      photo = 24.0;
   static double inner(double outer, double inset) =>
       (outer - inset).clamp(4.0, outer);
 }
@@ -36,22 +36,22 @@ class HolyRadius {
 class HolyDepth {
   HolyDepth._();
 
-  /// One soft, physically plausible shadow: a close contact shadow plus a
-  /// broad ambient one, both warm rather than grey.
+  /// One physically plausible shadow: a close contact shadow plus a broad
+  /// ambient one, cool and neutral.
   static List<BoxShadow> paper(HolyTheme t, {double lift = 1}) => t.isDark
       ? [
           BoxShadow(
-              color: Colors.black.withValues(alpha: .28 * lift),
+              color: Colors.black.withValues(alpha: .38 * lift),
               blurRadius: 24 * lift,
               offset: Offset(0, 10 * lift)),
         ]
       : [
           BoxShadow(
-              color: const Color(0xFF5A3426).withValues(alpha: .05 * lift),
+              color: const Color(0xFF0B0E13).withValues(alpha: .07 * lift),
               blurRadius: 2,
               offset: const Offset(0, 1)),
           BoxShadow(
-              color: const Color(0xFF5A3426).withValues(alpha: .09 * lift),
+              color: const Color(0xFF0B0E13).withValues(alpha: .12 * lift),
               blurRadius: 30 * lift,
               offset: Offset(0, 14 * lift)),
         ];
@@ -61,7 +61,7 @@ class HolyDepth {
     if (n == 0) return const [];
     return [
       BoxShadow(
-          color: (dark ? Colors.black : const Color(0xFF5A3426))
+          color: (dark ? Colors.black : const Color(0xFF0B0E13))
               .withValues(alpha: dark ? .25 : .05 + n * .012),
           blurRadius: 10 + n * 6,
           offset: Offset(0, n * 3)),
