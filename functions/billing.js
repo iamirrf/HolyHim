@@ -1,7 +1,7 @@
 'use strict';
 const crypto = require('node:crypto');
-const PROJECT = 'REPLACE_WITH_HOLYHIM_REVENUECAT_PROJECT';
-const ENTITLEMENT = 'REPLACE_WITH_HOLYHIM_REVENUECAT_ENTITLEMENT';
+const PROJECT = 'proj1b08bf4e';
+const ENTITLEMENT = 'entld8cfd982e8';
 function lifetimeActive(body, now = Date.now()) {
   if (body?.object !== 'list' || !Array.isArray(body.items)) throw new TypeError('Invalid entitlement response');
   return body.items.some(item => item?.entitlement_id === ENTITLEMENT &&
