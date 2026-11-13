@@ -1526,21 +1526,21 @@
   },
   {
     "day": 170,
-    "reference": "Proverbs 25:11",
-    "text": "A word fitly spoken is like apples of gold in settings of silver.",
+    "reference": "Proverbs 22:29",
+    "text": "Do you see a man skilled in his work? He will serve kings. He won’t serve obscure men.",
     "verseKeys": [
-      "Proverbs 25:11"
+      "Proverbs 22:29"
     ],
-    "verseSha256": "815f2e7f339d82e089b7d00d5d45916e50d4af6372ede613302b1b55afb68330"
+    "verseSha256": "6b19623800cc7fee22c0c7eece2f77f24c773d620b6af69d75a819b7f12296bd"
   },
   {
     "day": 171,
-    "reference": "Proverbs 27:9",
-    "text": "Perfume and incense bring joy to the heart; so does earnest counsel from a man’s friend.",
+    "reference": "Proverbs 20:7",
+    "text": "A righteous man walks in integrity. Blessed are his children after him.",
     "verseKeys": [
-      "Proverbs 27:9"
+      "Proverbs 20:7"
     ],
-    "verseSha256": "7ee706b1a8bd8dcf37ef3aa7bbe9c5a0b4d07a679260d085ce1168ffa5f253d8"
+    "verseSha256": "eda9168442787bf7f21429571ee9fc8c1a54e382bb9b65e9fcee67155857c11e"
   },
   {
     "day": 172,
@@ -1591,12 +1591,12 @@
   },
   {
     "day": 177,
-    "reference": "Ecclesiastes 7:9",
-    "text": "Don’t be hasty in your spirit to be angry, for anger rests in the bosom of fools.",
+    "reference": "Daniel 1:8",
+    "text": "But Daniel purposed in his heart that he would not defile himself with the king’s delicacies, nor with the wine which he drank. Therefore he requested of the prince of the eunuchs that he might not defile himself.",
     "verseKeys": [
-      "Ecclesiastes 7:9"
+      "Daniel 1:8"
     ],
-    "verseSha256": "f4ff667ca5849d041bac1f4e557125ea5c29d134aab4f39aa8a72c4e9e9c7784"
+    "verseSha256": "d4c667c4da5bea1da0fc9e09a2ca89c801e5a512efe677cbe4751d459d52c4ac"
   },
   {
     "day": 178,
@@ -1609,12 +1609,13 @@
   },
   {
     "day": 179,
-    "reference": "Ecclesiastes 11:4",
-    "text": "He who observes the wind won’t sow; and he who regards the clouds won’t reap.",
+    "reference": "Daniel 3:17-18",
+    "text": "If it happens, our God whom we serve is able to deliver us from the burning fiery furnace; and he will deliver us out of your hand, O king. But if not, let it be known to you, O king, that we will not serve your gods or worship the golden image which you have set up.”",
     "verseKeys": [
-      "Ecclesiastes 11:4"
+      "Daniel 3:17",
+      "Daniel 3:18"
     ],
-    "verseSha256": "ddee4aba900be7998b79d9a70590976eb8ad52721a5f5e9bd9e357867389d348"
+    "verseSha256": "6e5161a35555b23c4666b878245c412a0214f0338f9d8fde57d1ce057c7984a3"
   },
   {
     "day": 180,
