@@ -1,0 +1,62 @@
+[
+  {
+    "file": "store/screenshots/iphone-6.9/01-today.png",
+    "source": "build/render/store/01-today.png",
+    "caption": "Five minutes. Every morning.",
+    "size": [
+      1290,
+      2796
+    ],
+    "mode": "RGB"
+  },
+  {
+    "file": "store/screenshots/iphone-6.9/02-scripture.png",
+    "source": "build/render/store/02-scripture.png",
+    "caption": "Scripture first, word for word.",
+    "size": [
+      1290,
+      2796
+    ],
+    "mode": "RGB"
+  },
+  {
+    "file": "store/screenshots/iphone-6.9/03-life.png",
+    "source": "build/render/store/03-life.png",
+    "caption": "Plain words for real life.",
+    "size": [
+      1290,
+      2796
+    ],
+    "mode": "RGB"
+  },
+  {
+    "file": "store/screenshots/iphone-6.9/04-amen.png",
+    "source": "build/render/store/04-amen.png",
+    "caption": "Hold to say Amen.",
+    "size": [
+      1290,
+      2796
+    ],
+    "mode": "RGB"
+  },
+  {
+    "file": "store/screenshots/iphone-6.9/05-growth.png",
+    "source": "build/render/store/05-growth.png",
+    "caption": "Stay on track, with grace days.",
+    "size": [
+      1290,
+      2796
+    ],
+    "mode": "RGB"
+  },
+  {
+    "file": "store/screenshots/iphone-6.9/06-saved.png",
+    "source": "build/render/store/06-saved.png",
+    "caption": "Keep the verses that hit home.",
+    "size": [
+      1290,
+      2796
+    ],
+    "mode": "RGB"
+  }
+]
