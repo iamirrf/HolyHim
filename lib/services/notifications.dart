@@ -215,7 +215,7 @@ class NotificationService {
                     presentSound: profile.sounds),
                 android: AndroidNotificationDetails(
                     'holyhim.daily', 'Your daily word',
-                    channelDescription: 'Gentle Scripture reminders',
+                    channelDescription: 'Daily Scripture reminders',
                     playSound: profile.sounds,
                     styleInformation: BigTextStyleInformation(item.body,
                         contentTitle: item.title, summaryText: item.subtitle))),

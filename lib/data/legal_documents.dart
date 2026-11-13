@@ -3,7 +3,7 @@ const legalDocuments = <String, List<(String, String)>>{
   "privacy": [
     (
       "About this document",
-      "YOUR TRUST MATTERS\n\nEffective November 4, 2026 · HolyHim 2.0 · Codellion LLC\n\nHolyHim uses the information you share to keep your Scripture journey, saved verses, and preferences together. We do not sell your personal information. The app has no advertising or marketing analytics.",
+      "YOUR TRUST MATTERS\n\nEffective November 13, 2026 · HolyHim 1.0 · Codellion LLC\n\nHolyHim uses the information you share to keep your Scripture journey, saved verses, and preferences together. We do not sell your personal information. The app has no advertising or marketing analytics.",
     ),
     (
       "Your account and your walk",
@@ -41,7 +41,7 @@ const legalDocuments = <String, List<(String, String)>>{
   "terms": [
     (
       "About this document",
-      "A CLEAR UNDERSTANDING\n\nEffective November 4, 2026 · HolyHim 2.0 · Codellion LLC\n\nThese terms apply to HolyHim, provided by Codellion LLC. By using HolyHim, you agree to use the app lawfully and to keep your sign-in details secure.",
+      "A CLEAR UNDERSTANDING\n\nEffective November 13, 2026 · HolyHim 1.0 · Codellion LLC\n\nThese terms apply to HolyHim, provided by Codellion LLC. By using HolyHim, you agree to use the app lawfully and to keep your sign-in details secure.",
     ),
     (
       "Your Scripture journey and lifetime access",

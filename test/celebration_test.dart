@@ -112,7 +112,7 @@ void main() {
     expect(container.read(completionMomentProvider), isNull);
     expect(find.text('Amen.'), findsOneWidget);
     expect(find.text('NEW MEDALLION'), findsOneWidget);
-    expect(find.text('A Faithful Week'), findsOneWidget);
+    expect(find.text('A Full Week'), findsOneWidget);
     expect(tester.takeException(), isNull);
     await tester.pumpWidget(const SizedBox());
     await tester.pumpWidget(screen());
@@ -134,7 +134,7 @@ void main() {
     }), scale: 1));
     const badge = WalkBadge(
         id: 'days-7',
-        title: 'A Faithful Week',
+        title: 'A Full Week',
         description: 'Spend seven days in Scripture.',
         progress: 7,
         goal: 7);

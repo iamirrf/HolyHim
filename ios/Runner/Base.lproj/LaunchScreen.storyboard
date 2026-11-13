@@ -16,20 +16,15 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="LaunchBackground" translatesAutoresizingMaskIntoConstraints="NO" id="blush-background"/>
                             <imageView opaque="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="LaunchImage" translatesAutoresizingMaskIntoConstraints="NO" id="YRO-k0-Ey4">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="96" id="launch-icon-width"/>
-                                    <constraint firstAttribute="height" constant="96" id="launch-icon-height"/>
+                                    <constraint firstAttribute="width" constant="188" id="launch-icon-width"/>
+                                    <constraint firstAttribute="height" constant="68" id="launch-icon-height"/>
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.9803921569" blue="0.9686274510" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.05490196078" green="0.07058823529" blue="0.09019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="blush-background" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="blush-left"/>
-                            <constraint firstItem="blush-background" firstAttribute="trailing" secondItem="Ze5-6b-2t3" secondAttribute="trailing" id="blush-right"/>
-                            <constraint firstItem="blush-background" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="blush-top"/>
-                            <constraint firstItem="blush-background" firstAttribute="bottom" secondItem="Ze5-6b-2t3" secondAttribute="bottom" id="blush-bottom"/>
                             <constraint firstItem="YRO-k0-Ey4" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="1a2-6s-vTC"/>
                             <constraint firstItem="YRO-k0-Ey4" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="4X2-HB-R7a"/>
                         </constraints>
@@ -41,7 +36,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="LaunchBackground" width="390" height="844"/>
-        <image name="LaunchImage" width="108" height="108"/>
+        <image name="LaunchImage" width="188" height="68"/>
     </resources>
 </document>

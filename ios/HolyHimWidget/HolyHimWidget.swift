@@ -30,16 +30,17 @@ private struct VerseProvider: TimelineProvider {
 }
 
 private enum Palette {
-  static let ivory = Color(red: 1, green: 0.98, blue: 0.96)
-  static let petal = Color(red: 0.98, green: 0.87, blue: 0.89)
-  static let peach = Color(red: 1, green: 0.91, blue: 0.85)
-  static let rose = Color(red: 0.61, green: 0.27, blue: 0.37)
-  static let ink = Color(red: 0.25, green: 0.16, blue: 0.20)
+  // First Watch: charcoal-navy paper, bone ink, brass accent.
+  static let ivory = Color(red: 0.055, green: 0.071, blue: 0.090)
+  static let petal = Color(red: 0.090, green: 0.114, blue: 0.145)
+  static let peach = Color(red: 0.039, green: 0.051, blue: 0.067)
+  static let rose = Color(red: 0.847, green: 0.651, blue: 0.341)
+  static let ink = Color(red: 0.949, green: 0.929, blue: 0.894)
 }
 
 private extension Color {
   init(hex: String) {
-    let value = UInt64(hex, radix: 16) ?? 0xFF9D3156
+    let value = UInt64(hex, radix: 16) ?? 0xFFD8A657
     self.init(.sRGB, red: Double((value >> 16) & 255) / 255, green: Double((value >> 8) & 255) / 255,
               blue: Double(value & 255) / 255, opacity: Double((value >> 24) & 255) / 255)
   }

@@ -96,7 +96,7 @@ void main() {
             phone: p,
             walk: WalkState(
                 profile: profile(
-                    name: step == 'name' ? '' : 'Mira Rose',
+                    name: step == 'name' ? '' : 'Daniel Reyes',
                     onboarded: step == 'letter' || step == 'building',
                     hearts: step == 'heart' ? const ['peace'] : const ['peace'],
                     draft: draft)));

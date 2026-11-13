@@ -39,21 +39,21 @@ class Choice {
 }
 
 const heartChoices = [
-  Choice('peace', 'Peace', 'Quiet for a busy mind'),
-  Choice('strength', 'Strength', 'For a hard season'),
-  Choice('hope', 'Hope', 'Something good to hold'),
-  Choice('guidance', 'Guidance', 'Help with a choice'),
-  Choice('rest', 'Rest', 'Room to breathe'),
-  Choice('joy', 'Joy', 'Gladness again'),
+  Choice('strength', 'Strength', 'For hard days'),
+  Choice('purpose', 'Purpose', 'Why I am here'),
+  Choice('peace', 'Peace', 'A calm mind'),
+  Choice('discipline', 'Discipline', 'Build good habits'),
+  Choice('wisdom', 'Wisdom', 'Make good calls'),
+  Choice('courage', 'Courage', 'Face my fears'),
 ];
 
 const seasonChoices = [
-  Choice('full', 'My days are full'),
-  Choice('change', 'Things are changing'),
-  Choice('hurting', 'I am hurting'),
+  Choice('full', 'My days are packed'),
+  Choice('change', 'Life is changing fast'),
+  Choice('hurting', 'Something is hard right now'),
   Choice('waiting', 'I am waiting on something'),
   Choice('growing', 'I want to grow'),
-  Choice('steady', 'Life feels steady'),
+  Choice('steady', 'Things are steady'),
 ];
 
 const familiarityChoices = [

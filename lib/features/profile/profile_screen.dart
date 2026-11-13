@@ -249,7 +249,7 @@ class _RemindersScreenState extends ConsumerState<RemindersScreen> {
     final p = ref.watch(repositoryProvider).profile;
     return ScreenFrame(
         title: 'Reminders',
-        subtitle: 'One quiet note a day with a verse. Never an advert.',
+        subtitle: 'One short note a day with a verse. Never an ad.',
         children: [
           RowGroup(rows: [
             HolyRow(

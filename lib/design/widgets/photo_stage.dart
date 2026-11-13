@@ -182,7 +182,7 @@ class _PhotoStageState extends State<PhotoStage> with TickerProviderStateMixin {
         excluding: true,
         child: ClipRect(
             child: Stack(fit: StackFit.expand, children: [
-          const ColoredBox(color: Color(0xFF2A1A20)),
+          const ColoredBox(color: Color(0xFF0E1217)),
           AnimatedBuilder(
               animation: Listenable.merge([_drift, _exposure, _tilt]),
               child: photo,

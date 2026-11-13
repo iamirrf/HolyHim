@@ -43,7 +43,7 @@ class WelcomeScreen extends ConsumerWidget {
             ]);
 
     return Scaffold(
-        backgroundColor: const Color(0xFF2A1A20),
+        backgroundColor: const Color(0xFF0E1217),
         body: Stack(fit: StackFit.expand, children: [
           // The photograph fills the space above the panel, bottom-aligned
           // so each scene's subject sits just above the paper.
@@ -75,7 +75,7 @@ class WelcomeScreen extends ConsumerWidget {
                 const SizedBox(height: 10),
                 Rise(
                     delay: const Duration(milliseconds: 650),
-                    child: Text('A quiet word with God,\nevery morning.',
+                    child: Text('A word to stand on,\nevery morning.',
                         textAlign: TextAlign.center,
                         style: HolyTypography.headline.copyWith(
                             color: HolyTheme.photoInk.withValues(alpha: .92),
@@ -108,7 +108,7 @@ class WelcomeScreen extends ConsumerWidget {
                               mainAxisSize: MainAxisSize.min,
                               crossAxisAlignment: CrossAxisAlignment.stretch,
                               children: [
-                                Text('Begin your walk',
+                                Text('Start with the Word',
                                     textAlign: TextAlign.center,
                                     style: HolyTypography.title.copyWith(
                                         color: t.ink,

@@ -339,9 +339,9 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
         final hearts = a.hearts;
         return _Panel(
             title: name.isEmpty
-                ? 'What does your heart need?'
-                : 'Hi $name. What does your heart need?',
-            subtitle: 'Choose up to three. We will shape your walk around them.',
+                ? 'What do you need most?'
+                : '$name, what do you need most?',
+            subtitle: 'Pick up to three. Your lessons will meet you there.',
             footer: HolyButton('Continue',
                 onPressed: hearts.isEmpty ? null : () => _go(2)),
             children: [
@@ -358,7 +358,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
             ]);
       case 2:
         return _Panel(
-            title: 'What season are you in?',
+            title: 'Where are you right now?',
             subtitle: 'There is no wrong answer.',
             children: [
               for (final c in seasonChoices)

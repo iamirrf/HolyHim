@@ -15,19 +15,19 @@ class WalkBadge {
 }
 
 const dayBadgeTitles = <int, String>{
-  1: 'A Beautiful Beginning',
-  3: 'Small Faithful Steps',
-  7: 'A Faithful Week',
-  14: 'Roots of Trust',
-  21: 'A Growing Heart',
-  30: 'A Month of Grace',
-  50: 'Quiet Strength',
-  75: 'A Steady Light',
+  1: 'First Step',
+  3: 'Three Mornings',
+  7: 'A Full Week',
+  14: 'Two Weeks Strong',
+  21: 'Twenty-One Days',
+  30: 'A Month Standing',
+  50: 'Fifty Mornings',
+  75: 'A Lamp to My Feet',
   100: 'One Hundred Mornings',
-  150: 'Deepening Roots',
+  150: 'Deep Roots',
   200: 'Living Hope',
-  250: 'An Open Heart',
-  300: 'A Faithful Season',
+  250: 'A Faithful Heart',
+  300: 'Three Hundred Mornings',
   365: 'A Year with God'
 };
 
@@ -63,8 +63,8 @@ List<WalkBadge> badgesFor(
     for (final goal in [7, 30, 100])
       WalkBadge(
           id: 'streak-$goal',
-          title: '$goal Days of Faithfulness',
-          description: 'Grow a $goal-reading streak.',
+          title: '$goal Days Straight',
+          description: 'Read $goal days in a row.',
           progress: streak.longest,
           goal: goal),
     WalkBadge(
@@ -75,10 +75,10 @@ List<WalkBadge> badgesFor(
         goal: 1),
     WalkBadge(
         id: 'promise',
-        title: promiseRead >= 7 ? 'Your Promise Kept' : 'Returning with Grace',
+        title: promiseRead >= 7 ? 'Promise Kept' : 'Back on Track',
         description: promiseRead >= 7
             ? 'Your seven-day promise, remembered.'
-            : 'Return to your walk after a missed day.',
+            : 'Come back after a missed day.',
         progress: promiseRead >= 7 || returned ? 1 : 0,
         goal: 1),
   ];

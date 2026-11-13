@@ -1,11 +1,11 @@
 abstract final class AppConstants {
-  static const versionName = '2.0.0',
-      buildNumber = '6',
-      versionLabel = '2.0.0 (6)',
-      wireVersion = '2.0.0+6';
+  static const versionName = '1.0.0',
+      buildNumber = '1',
+      versionLabel = '1.0.0 (1)',
+      wireVersion = '1.0.0+1';
   static const appName = 'HolyHim',
       totalDays = 365,
-      tagline = 'A quiet word with God, every morning.';
+      tagline = 'A word to stand on, every morning.';
   static const websiteUrl = 'https://holyhim-app-production.web.app';
   static const privacyUrl = '$websiteUrl/privacy',
       termsUrl = '$websiteUrl/terms',

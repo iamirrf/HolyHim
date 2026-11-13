@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import '../../design/design.dart';
 
 /// The first Flutter frame. It matches the native launch screen exactly:
-/// the ivory wordmark centred on deep plum, so launch has no visible seam.
+/// the wordmark centred on First Watch charcoal, so launch has no seam.
 class SplashScreen extends StatelessWidget {
-  static const background = Color(0xFF2A1A20);
+  static const background = Color(0xFF0E1217);
   const SplashScreen({super.key});
   @override
   Widget build(BuildContext context) => const ColoredBox(

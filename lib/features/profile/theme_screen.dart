@@ -12,7 +12,7 @@ class ThemeScreen extends ConsumerWidget {
     final current = ref.watch(repositoryProvider.select((s) => s.profile.theme));
     return ScreenFrame(
         title: 'Theme',
-        subtitle: 'Paper and ink for every time of day.',
+        subtitle: 'Colors for every hour of the day.',
         children: [
           FitFlex(
               min: 360,

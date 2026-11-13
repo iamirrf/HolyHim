@@ -26,7 +26,7 @@ class Lesson {
   static const cardTitles = [
     "Today's Word",
     'What it means',
-    'For your heart',
+    'For your life',
     'Prayer'
   ];
 }

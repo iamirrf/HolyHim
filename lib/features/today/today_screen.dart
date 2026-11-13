@@ -90,7 +90,7 @@ class _TodayScreenState extends ConsumerState<TodayScreen> {
                                       maxLines: 2,
                                       style: HolyTypography.title.copyWith(
                                           color: t.ink,
-                                          fontSize: compact ? 28 : 32))),
+                                          fontSize: compact ? 26 : 30))),
                             ])),
                         const SizedBox(width: 12),
                         _StreakBadge(days: streak.current),

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../design/design.dart';
 import '../../domain/onboarding_flow.dart';
 
-/// A short letter built from her answers. Plain words, no promises the app
+/// A short letter built from his answers. Plain words, no promises the app
 /// cannot keep.
 class PersonalLetter extends StatelessWidget {
   final String name;
@@ -18,32 +18,32 @@ class PersonalLetter extends StatelessWidget {
 
   static String heartLine(String? heart) => switch (heart) {
         'strength' =>
-          'You asked for strength. Some days ask a lot of you. Each morning we will put one strong promise in your hands before the day begins.',
-        'hope' =>
-          'You asked for hope. Each morning we will hold up one thing God has said and kept, so you have something good to carry.',
-        'guidance' =>
-          'You asked for guidance. Each lesson ends with one small step, so what you read can help with the choice in front of you.',
-        'rest' =>
-          'You asked for rest. These lessons are short on purpose. Come as you are, read for five minutes, and breathe.',
-        'joy' =>
-          'You asked for joy. We will look for God’s goodness in ordinary places, one morning at a time.',
+          'You asked for strength. Some days ask a lot of you. Each morning you get one promise from God to stand on before the day starts.',
+        'purpose' =>
+          'You asked about purpose. You were made on purpose, by Someone who knows your name. Each lesson ends with one step you can take today.',
+        'discipline' =>
+          'You asked for discipline. It is built like strength: small reps, every day. Five minutes in the Word is a good first rep.',
+        'wisdom' =>
+          'You asked for wisdom. God gives it freely to anyone who asks. Each lesson ends with one good call you can make today.',
+        'courage' =>
+          'You asked for courage. God told Joshua to be strong and brave because He would go with him. That promise still stands.',
         _ =>
-          'You asked for peace. Each morning starts with one verse and a few quiet minutes, so the noise does not get the first word.',
+          'You asked for peace. Each morning starts with one verse and five quiet minutes, so the noise does not get the first word.',
       };
 
   static String seasonLine(String? season) => switch (season) {
         'change' =>
-          'Change can make the ground feel soft under your feet. God’s word does not move.',
+          'When life moves fast, stand on something that does not move. God’s word does not.',
         'hurting' =>
-          'If you are hurting, you do not have to pretend here. God stays close to the brokenhearted.',
+          'If something is hard right now, you do not have to act fine here. God stays close to the brokenhearted.',
         'waiting' =>
-          'Waiting is hard. We will walk through it together, one day at a time.',
+          'Waiting is hard. We will take it one day at a time, together.',
         'growing' =>
           'You want to grow. Small steps, taken every day, go a long way.',
         'steady' =>
           'A steady season is a gift. It is a good time to put down deep roots.',
         _ =>
-          'Your days are full, so each lesson takes about five minutes. That is enough.',
+          'Your days are packed, so each lesson takes about five minutes. That is enough.',
       };
 
   String stepLine() {
@@ -54,7 +54,7 @@ class PersonalLetter extends StatelessWidget {
       'understanding' =>
         'Every verse comes with a plain explanation, so you never have to guess what it means.',
       'forgetting' => reminderOn
-          ? 'We will send you one quiet note at $time, and your place is always saved.'
+          ? 'We will send you one short note at $time, and your place is always saved.'
           : 'Your place is always saved, so you can come back whenever you remember.',
       'starting' => 'You do not have to start big. Day 1 takes five minutes.',
       'busy' => reminderOn
@@ -86,7 +86,7 @@ class PersonalLetter extends StatelessWidget {
           Row(children: [
             Flourish(color: t.gold, width: 36),
             const SizedBox(width: 12),
-            Text('Walking with you, HolyHim',
+            Text('In your corner, HolyHim',
                 style: HolyTypography.label.copyWith(color: t.muted)),
           ]),
         ]));

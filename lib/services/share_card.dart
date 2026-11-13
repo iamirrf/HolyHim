@@ -129,7 +129,7 @@ Future<void> shareVerseCard(BuildContext context, Lesson lesson,
           XFile.fromData(bytes.buffer.asUint8List(),
               mimeType: 'image/png', name: 'holyhim-day-${lesson.day}.png')
         ],
-        text: '${lesson.reference}. A quiet word with God, every morning: '
+        text: '${lesson.reference}. A word to stand on, every morning: '
             '${AppConstants.shareUrl}',
         sharePositionOrigin:
             box == null ? null : box.localToGlobal(Offset.zero) & box.size));

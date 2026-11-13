@@ -195,7 +195,7 @@ void main() {
   testWidgets('a name from Apple or Google is never asked for', (tester) async {
     final h = await _mount(tester);
     expect(find.text('What should we call you?'), findsNothing);
-    expect(find.text('Hi Mira. What does your heart need?'), findsOneWidget);
+    expect(find.text('Mira, what do you need most?'), findsOneWidget);
     await h.dispose(tester);
   });
 
@@ -207,11 +207,11 @@ void main() {
     await tester.enterText(find.byType(TextField), 'Mira');
     await _tap(tester, 'Continue');
     expect(h.container.read(repositoryProvider).profile.name, 'Mira');
-    expect(find.text('Hi Mira. What does your heart need?'), findsOneWidget);
+    expect(find.text('Mira, what do you need most?'), findsOneWidget);
     await _tap(tester, 'Peace');
-    await _tap(tester, 'Hope');
+    await _tap(tester, 'Courage');
     await _tap(tester, 'Continue');
-    await _tap(tester, 'Things are changing');
+    await _tap(tester, 'Life is changing fast');
     await _tap(tester, 'I am coming back to it');
     await _tap(tester, 'It is hard to understand');
     expect(find.text('When should today’s word arrive?'), findsOneWidget);
@@ -226,7 +226,7 @@ void main() {
     expect(draft['obstacle'], 'understanding');
     expect(draft['reminder'], 'off');
     expect(h.container.read(repositoryProvider).profile.hearts,
-        ['peace', 'hope']);
+        ['peace', 'courage']);
     // Building, then the letter.
     await tester.pump(const Duration(seconds: 1));
     await tester.pump(const Duration(seconds: 1));

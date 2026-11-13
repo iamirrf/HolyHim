@@ -44,7 +44,7 @@ const product = StoreProduct('holyhim_lifetime', 'All 365 lessons',
     'HolyHim Lifetime', 1.99, r'$1.99', 'USD');
 
 AppProfile profile(
-        {String name = 'Mira Rose',
+        {String name = 'Daniel Reyes',
         bool onboarded = true,
         Map<String, dynamic> draft = const {},
         List<String> hearts = const ['peace', 'hope'],
