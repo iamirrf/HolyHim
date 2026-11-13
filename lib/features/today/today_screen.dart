@@ -104,7 +104,10 @@ class _TodayScreenState extends ConsumerState<TodayScreen> {
                           today: local)),
                   SizedBox(height: compact ? 12 : 18),
                   FitFlex(
-                      min: 250,
+                      // The text block grows with the reader's text size;
+                      // the photograph above it gives way first.
+                      min: 250 * MediaQuery.textScalerOf(context).scale(16) / 16 +
+                          (MediaQuery.textScalerOf(context).scale(16) > 17 ? 60 : 0),
                       child: Rise(
                           index: 2,
                           child: _LessonCard(

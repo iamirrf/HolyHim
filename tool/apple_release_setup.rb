@@ -658,21 +658,16 @@ if options[:metadata]
   FileUtils.cp(copyright, File.join(metadata, 'copyright.txt')) if File.file?(copyright)
   review_notes = File.read(File.join(ROOT, 'store', 'metadata', 'en-US', 'review_notes.txt')).strip
   abort('The prepared review narrative is empty; metadata was not uploaded.') if review_notes.empty?
-  %w[iphone-1206x2622 ipad-2064x2752].each do |device|
-    images = Dir.glob(File.join(ROOT, 'store', 'screenshots', 'app-store', device, '*.png')).sort
-    abort("Expected five prepared screenshots for #{device}.") unless images.length == 5
-    # fastlane 2.229.1 predates the new capture sizes. These slightly smaller
-    # alternatives are also accepted by Apple's current screenshot specification.
-    # Convert staged copies only; preserve the original reviewed upload artwork.
-    width, height, prefix = device.start_with?('iphone') ? [1179, 2556, 'APP_IPHONE_61'] : [2048, 2732, 'IPAD_PRO_3GEN_129']
-    images.each do |image|
-      target = File.join(screenshots, "#{prefix}-#{File.basename(image)}")
-      converted = system('/usr/bin/sips', '-z', height.to_s, width.to_s, image, '--out', target,
-        out: File::NULL, err: File::NULL)
-      abort('A staged screenshot could not be converted.') unless converted
-      classified = Deliver::AppScreenshot.new(target, 'en-US')
-      abort('The installed SDK does not recognize a staged screenshot.') unless classified.device_type
-    end
+  # iPhone only, at 1290 x 2796; App Store Connect scales them for smaller
+  # iPhones. fastlane classifies this size as APP_IPHONE_67, so no resizing.
+  images = Dir.glob(File.join(ROOT, 'store', 'screenshots', 'app-store', 'iphone-1290x2796', '0*.png')).sort
+  expected = submission.dig('screenshots', 'count')
+  abort("Expected #{expected} prepared iPhone screenshots; found #{images.length}.") unless images.length == expected
+  images.each do |image|
+    target = File.join(screenshots, File.basename(image))
+    FileUtils.cp(image, target)
+    classified = Deliver::AppScreenshot.new(target, 'en-US')
+    abort('The installed SDK does not recognize a staged screenshot.') unless classified.device_type == 'APP_IPHONE_67'
   end
   values = {
     username: email, app_identifier: BUNDLE_ID, app_version: VERSION, platform: 'ios',
@@ -680,6 +675,7 @@ if options[:metadata]
     app_review_information: { notes: review_notes },
     primary_category: submission['primaryCategory'], secondary_category: submission['secondaryCategory'],
     skip_binary_upload: true, submit_for_review: false, force: true,
+    overwrite_screenshots: true,
     run_precheck_before_submit: false
   }
   config = FastlaneCore::Configuration.create(Deliver::Options.available_options, values)

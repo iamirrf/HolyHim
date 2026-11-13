@@ -242,16 +242,15 @@ class AuthNotifier extends Notifier<AuthState> {
           final result =
               await user.reauthenticateWithProvider(fb.AppleAuthProvider());
           final code = result.additionalUserInfo?.authorizationCode;
-          if (code == null) {
-            throw StateError('Apple authorization could not be renewed');
-          }
-          try {
-            // Revocation needs the Sign in with Apple key in Firebase. If it
-            // is unavailable, deleting the account must still go ahead.
-            await fb.FirebaseAuth.instance
-                .revokeTokenWithAuthorizationCode(code);
-          } on fb.FirebaseAuthException catch (e) {
-            debugPrint('Apple token revocation failed: ${e.code}');
+          // Revoking her Apple token needs the provider's server key. Deleting
+          // her account and data must never depend on it.
+          if (code != null) {
+            try {
+              await fb.FirebaseAuth.instance
+                  .revokeTokenWithAuthorizationCode(code);
+            } catch (error) {
+              debugPrint('Apple token revocation failed: $error');
+            }
           }
         } else if (providers.contains('google.com')) {
           if (kIsWeb) {

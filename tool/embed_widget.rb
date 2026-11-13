@@ -30,6 +30,7 @@ widget.build_configurations.each do |config|
  config.build_settings['MARKETING_VERSION'] = version[1]
  config.build_settings['CURRENT_PROJECT_VERSION'] = version[2]
 end
-runner.build_configurations.each { |config| config.build_settings['CURRENT_PROJECT_VERSION'] = version[2] }
+# Runner reads its build number from pubspec through Flutter's xcconfig.
+runner.build_configurations.each { |config| config.build_settings['CURRENT_PROJECT_VERSION'] = '$(FLUTTER_BUILD_NUMBER)' }
 project.save
 puts "Runner embeds HolyHimWidget with its verified verse catalog and #{paths.length - 1} thumbnails."

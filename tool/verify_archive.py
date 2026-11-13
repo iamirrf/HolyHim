@@ -160,10 +160,16 @@ def audit(archive, output):
         for key, expected in [('CFBundleIdentifier', BUNDLE),
                               ('CFBundleDisplayName', 'HolyHim'),
                               ('CFBundleShortVersionString', re.search(r'^version:\s*([^+\s]+)', (ROOT/'pubspec.yaml').read_text(),re.M)[1]),
-                              ('CFBundleVersion', re.search(r'^version:\s*[^+]+\+(\d+)', (ROOT/'pubspec.yaml').read_text(),re.M)[1]), ('UIDeviceFamily', [1, 2]),
+                              ('CFBundleVersion', re.search(r'^version:\s*[^+]+\+(\d+)', (ROOT/'pubspec.yaml').read_text(),re.M)[1]), ('UIDeviceFamily', [1]),
                               ('ITSAppUsesNonExemptEncryption', False)]:
             check(key, info.get(key) == expected)
         check('compiled_asset_catalog', (app / 'Assets.car').is_file())
+        widget = app / 'PlugIns/HolyHimWidget.appex'
+        widget_info = load_plist(widget / 'Info.plist') if (widget / 'Info.plist').is_file() else {}
+        check('widget_embedded', widget.is_dir())
+        check('widget_version_matches', widget_info.get('CFBundleVersion') == info.get('CFBundleVersion')
+              and widget_info.get('CFBundleShortVersionString') == info.get('CFBundleShortVersionString'))
+        check('widget_verse_catalog', (widget / 'WidgetVerses.json').is_file())
         check('compiled_launch_storyboard', (app / 'Base.lproj/LaunchScreen.storyboardc').is_dir())
         report['application'] = {key: info.get(key) for key in (
             'CFBundleIdentifier', 'CFBundleDisplayName', 'CFBundleShortVersionString', 'CFBundleVersion',

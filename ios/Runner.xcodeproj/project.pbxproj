@@ -7,53 +7,152 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		000B8FC0A61B129494BB1B07 /* unit-68-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 653960F660A854959AB74F78 /* unit-68-thumb.jpg */; };
+		017B1241D7838CB8554B1FF7 /* WidgetVerses.json in Resources */ = {isa = PBXBuildFile; fileRef = B7626D13A02D28A891D264A1 /* WidgetVerses.json */; };
+		01ACAF9A95A65B8093E38CB5 /* unit-05-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1F8D07B6C656A6ED3423F8B7 /* unit-05-thumb.jpg */; };
+		02365A3CC97C000C5F6BBB92 /* cross-meadow-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A0D3A0493F65033D6065919A /* cross-meadow-thumb.jpg */; };
+		031977774B31574E7F7445A0 /* unit-01-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AC64785A375B9D8F7DCE3B8C /* unit-01-thumb.jpg */; };
+		05761BBD3CAD0A345326FC23 /* unit-26-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8B58E2AC5E48366CCA60AB17 /* unit-26-thumb.jpg */; };
+		079993E81821D3CF660F8244 /* sky-stillness-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6C17B98EFDD0F12EB220DD4F /* sky-stillness-thumb.jpg */; };
 		09F6E71BEBE1A843AD4C4E6D /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFC80917C5E4A07CA2F7F8B4 /* WidgetKit.framework */; };
+		1392249AE212CC0DC3025034 /* unit-19-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BB858044875D4BD3EF7B3DBA /* unit-19-thumb.jpg */; };
 		1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */; };
+		14A014E4FE6C069D85551325 /* unit-20-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 768CF872EE5C300156D41185 /* unit-20-thumb.jpg */; };
 		170C56B6206DDE3867D7BC47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74858FAE1ED2DC5600515810 /* AppDelegate.swift */; };
 		17CAC6D41E181E2B141C1859 /* Pods_Runner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2898385D9DBF30A4A1859E2E /* Pods_Runner.framework */; };
+		1A3B5D501C3E8E0A4F2A1F4F /* unit-21-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 509CAC7BBBF1130582E250B1 /* unit-21-thumb.jpg */; };
+		1B2AD46B4AF15D34E21A37A6 /* unit-65-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8B6369E3FF4279E21452CF4C /* unit-65-thumb.jpg */; };
+		1D41943FB6F3E14C400AAB08 /* jesus-prayer-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 59A8D6B991FE437E7634244E /* jesus-prayer-thumb.jpg */; };
 		1EEAB44368AAEE1EBF8C8FC2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7884E8672EC3CC0400C636F2 /* SceneDelegate.swift */; };
+		201D542994A7F92FC3510267 /* unit-13-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26A59442962F5EDE3A9E3873 /* unit-13-thumb.jpg */; };
+		2051FDE7780E1FB167A30557 /* unit-24-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 132C4A6E7439FAFA9AAADC53 /* unit-24-thumb.jpg */; };
+		206B4F6F98B02B857693109C /* unit-52-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E5E01BA8FFBA508C17B6BE2E /* unit-52-thumb.jpg */; };
+		22B46661BE6C85D469E32A80 /* unit-40-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EF3C078E7F8B2FDDA4C18908 /* unit-40-thumb.jpg */; };
+		23C9620534D578D4AF97CCF3 /* unit-23-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3BFA29CA8878EE280990E1BE /* unit-23-thumb.jpg */; };
+		2449DC428E0E320CD22DD92F /* unit-59-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EDA7A0D02836FCBAFBFCBD2F /* unit-59-thumb.jpg */; };
+		245893A0EE4E927317BBEF66 /* unit-38-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A29F558668CBF1C5CE4536C5 /* unit-38-thumb.jpg */; };
+		253039EFD5A0D1E0CC87FD04 /* cross-mountain-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BB0F64241E0A4699CCF0D33C /* cross-mountain-thumb.jpg */; };
+		285A189332D4C5A4FD3ADCFF /* unit-57-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DDCEA0CD4D50AC58A71B8F96 /* unit-57-thumb.jpg */; };
+		2B435EE97EBC1A3A1964EBE3 /* unit-15-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D4809479FC0A2749F396A066 /* unit-15-thumb.jpg */; };
+		2E1D0A73554275CF6A99A37B /* unit-03-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B78BA99D06C104FEFABDA5FF /* unit-03-thumb.jpg */; };
+		2F4D54DD4E011C9639E4D62F /* unit-34-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5CE9E7D33E3E769B1B57A2E1 /* unit-34-thumb.jpg */; };
+		30B87B0C96BBEFE67C0FCE65 /* unit-44-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F1818EDEF7FECD915CDC7C5B /* unit-44-thumb.jpg */; };
+		31C6DBBA982EA69616D37E09 /* unit-42-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 66990581DDF2EB975F31C318 /* unit-42-thumb.jpg */; };
 		331C808B294A63AB00263BE5 /* RunnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331C807B294A618700263BE5 /* RunnerTests.swift */; };
+		37250623A365F7311EF52D26 /* sky-evening-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FF90F993469ADF2AB2672776 /* sky-evening-thumb.jpg */; };
+		396C5299A52703632C1E8625 /* cross-hill-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1C10666938F04F95E0DCB965 /* cross-hill-thumb.jpg */; };
 		3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */; };
+		3F0DB79C40D91C5C05B79908 /* unit-49-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 360CEDFA248535906463749E /* unit-49-thumb.jpg */; };
+		3F6096A9532818A0884B1FB0 /* unit-53-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E075437175230C0DF49F0C46 /* unit-53-thumb.jpg */; };
+		3FE626163D866E6761383193 /* unit-31-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1126303ED70B5A4802431BB7 /* unit-31-thumb.jpg */; };
 		41FE0203852A979973B984FD /* Pods_Runner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2898385D9DBF30A4A1859E2E /* Pods_Runner.framework */; };
+		491B03FD99684F3871F29557 /* unit-39-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 68B8C9F2BAAD7EB58858E137 /* unit-39-thumb.jpg */; };
+		4979DA3213F5A67DB4B8762A /* cross-window-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3D1F091D620A5344DAC72877 /* cross-window-thumb.jpg */; };
 		4AAA8FC140E48A66463D34D1 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = A11000000000000000000004 /* PrivacyInfo.xcprivacy */; };
+		4BB1462DDB3DB7C21CE44E2E /* unit-73-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D0D92A4547FDF0C1F24B1BC /* unit-73-thumb.jpg */; };
+		4D0C405D377928976EFDB7B9 /* unit-27-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A8E1DA61D50F434D518CAF2 /* unit-27-thumb.jpg */; };
+		4E2111040C3EDED7912E063F /* unit-63-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9CA9FF2E612881E53A9E4E88 /* unit-63-thumb.jpg */; };
+		4F15E85AF307B17D66C8F3B8 /* jesus-path-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7C26360DD231DB2650CC1FFA /* jesus-path-thumb.jpg */; };
+		4FA4F284A5A922709D4238E4 /* unit-66-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 20FE5FCCF3DCACE63D945C05 /* unit-66-thumb.jpg */; };
 		4FC0120602CEAF2631D51AE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FA1CF9000F007C117D /* Main.storyboard */; };
+		508A0716F227A62E0510163F /* jesus-dawn-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 669DB083CD5B516601F40D5B /* jesus-dawn-thumb.jpg */; };
+		5779ECE8956C7EE1F54B547C /* unit-43-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3100090F59DDF9E7C35997CF /* unit-43-thumb.jpg */; };
 		5B529F564C8521D1457CCEE5 /* Pods_RunnerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E11CCBD98B8CA7006EE6D368 /* Pods_RunnerTests.framework */; };
+		61E899E2145A15A1AF6FC9E3 /* unit-28-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2DAAE53BA3D9DD7F53FDC77D /* unit-28-thumb.jpg */; };
+		647D6DA0F7F3753CAC9712FE /* unit-62-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7BE26C0DB996D897B18DAC23 /* unit-62-thumb.jpg */; };
+		648A058F4A655B1C0CDC77E7 /* sky-clouds-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F1372879625FCC05CB69890F /* sky-clouds-thumb.jpg */; };
+		674FC4165652CD8BA3DE4E81 /* unit-17-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BFDB339F0213BBC3377B31BE /* unit-17-thumb.jpg */; };
 		69B1276D776428F90483FB99 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E9BFE2248D5DC9D6CEB0294 /* SwiftUI.framework */; };
+		6A5D5987386FD33E34B81131 /* unit-11-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 248FD781B550679B79A3CB9F /* unit-11-thumb.jpg */; };
+		6F44A3F3144E916A7D4080C6 /* unit-14-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C2417B45273621740704AF58 /* unit-14-thumb.jpg */; };
+		72F98EB50615453EE3DA1BA1 /* unit-10-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AC176DD549347E9D697A3E73 /* unit-10-thumb.jpg */; };
+		73B412D024D49735CAF769E4 /* unit-70-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 18A53E4F9E34E6D343DC35A4 /* unit-70-thumb.jpg */; };
 		74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74858FAE1ED2DC5600515810 /* AppDelegate.swift */; };
 		7884E8682EC3CC0700C636F2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7884E8672EC3CC0400C636F2 /* SceneDelegate.swift */; };
+		7AA84A9A34E09D2AF3A59839 /* unit-12-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CAE7FB3BC418DBDE2BC57C42 /* unit-12-thumb.jpg */; };
+		8288BAC8DF946350A492CF1D /* unit-47-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84DCB99CAE3AA669DA481FD8 /* unit-47-thumb.jpg */; };
+		831C21A9CF41B2B9D364A868 /* cross-stone-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0A4B864C557CF97E03795873 /* cross-stone-thumb.jpg */; };
+		83B7CD08F7E7C558FDF59359 /* unit-71-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 093088B8DCE956B08E6BCCF1 /* unit-71-thumb.jpg */; };
+		84BE05C0E659BA931C5213A0 /* landscape-water-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 076FC2909BB83BB9D64D9AB1 /* landscape-water-thumb.jpg */; };
+		850EDD3EA3F4D094118E962B /* unit-72-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 23E51A34E0C20E07525E8F64 /* unit-72-thumb.jpg */; };
+		876E732BD80A9579C580A4E4 /* unit-25-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FB7EF805C5E487B6A5152A2A /* unit-25-thumb.jpg */; };
+		8A1FC2E00DF0548FD30F0EE5 /* unit-55-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3B5596CA8312447D2934A513 /* unit-55-thumb.jpg */; };
+		8B60EA879924948D8D938C26 /* scripture-chapel-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 010D84E2BD99D6CCCDE6421E /* scripture-chapel-thumb.jpg */; };
+		8C61DA208723197CAA6DBCC2 /* unit-48-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 75FC51DAD7EF6ED85BC5CFDE /* unit-48-thumb.jpg */; };
+		903D3C534F2C911B70E9FACD /* unit-35-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8498A0EC53B88709D3BAB357 /* unit-35-thumb.jpg */; };
+		9260B40D7A12FA69FBAF4457 /* scripture-lamp-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 20D0536150F4ABB7D1EE0C0C /* scripture-lamp-thumb.jpg */; };
+		92F2CB501CE1AD940F3A60E4 /* unit-51-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9B2DC2021A3E90EE3C0832DC /* unit-51-thumb.jpg */; };
+		93A601D9B358C2589264ECC7 /* unit-22-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CFE3BF56BD83D5B70A56F088 /* unit-22-thumb.jpg */; };
+		96C6AAA4DAD7E52571A24872 /* unit-06-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 59E1DA9C95A4861A52460FA6 /* unit-06-thumb.jpg */; };
 		97C146FC1CF9000F007C117D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FA1CF9000F007C117D /* Main.storyboard */; };
 		97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FD1CF9000F007C117D /* Assets.xcassets */; };
 		97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */; };
+		9842A1DA0794824980E04CB5 /* unit-61-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FCAFF25E026C7F3E8B444D24 /* unit-61-thumb.jpg */; };
+		9AEC06297FCEB35411753B9D /* scripture-morning-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E5623B785775C8523DB4A7B2 /* scripture-morning-thumb.jpg */; };
+		9B4AE06F0855C1334C3650BC /* unit-50-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D38E23483664DE9966FF7146 /* unit-50-thumb.jpg */; };
+		9FDFBA9DF052C1D51C1A5128 /* unit-29-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E1EAE6E36369526F66EC4E61 /* unit-29-thumb.jpg */; };
 		A11000000000000000000001 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A11000000000000000000002 /* GoogleService-Info.plist */; };
 		A11000000000000000000005 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = A11000000000000000000004 /* PrivacyInfo.xcprivacy */; };
+		A1DC5BCF5092EBCD247D89EA /* landscape-path-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 638B8F0569A690D96EFEEE90 /* landscape-path-thumb.jpg */; };
+		A623C1FE02E3B2673517848F /* unit-30-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 50F47F4FE948902571C1E741 /* unit-30-thumb.jpg */; };
 		A740AEF45DAA647DD8F492AC /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 8E3B470B055F227970C19ADB /* PrivacyInfo.xcprivacy */; };
+		A8843ADBA43BA33B54E0B20D /* sky-rays-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D12F97FE5948D8656ECB2C4 /* sky-rays-thumb.jpg */; };
+		B06EFBD960CDC8CCAB3953E9 /* symbol-lilies-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BDE9C51364DDB4D04F0FDAF1 /* symbol-lilies-thumb.jpg */; };
+		B41EB59DB900C0E22B3D70D7 /* jesus-seaside-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 184F0A8C663CDB389DFEF0F2 /* jesus-seaside-thumb.jpg */; };
+		B437B806EAC545EF999791EE /* unit-04-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AEA3F07EF5537C099B904EE3 /* unit-04-thumb.jpg */; };
 		B509AF1C24091D0039BE2282 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5901FB94E3B5E83CD2E9096 /* Foundation.framework */; };
+		B673BF94270D7649609B5C92 /* unit-16-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DC6873117FE499F033616A94 /* unit-16-thumb.jpg */; };
+		B7793B50BF405846E1C7426C /* unit-46-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CAE5CFAC6C639172A81516B2 /* unit-46-thumb.jpg */; };
 		BA57025084353864978E1369 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FD1CF9000F007C117D /* Assets.xcassets */; };
+		BB64DC09F7B4577A7353F2AD /* unit-45-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F31224E0366723FC1B930B1D /* unit-45-thumb.jpg */; };
+		BB7645D64DB8826CCF414D71 /* unit-41-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0E52C4EDE763E1A9B3950DE4 /* unit-41-thumb.jpg */; };
+		BBEBBC3BED70D34876809A40 /* unit-08-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1FFC42A002E4B574805145D2 /* unit-08-thumb.jpg */; };
+		BE8BE460926ABE812782D088 /* unit-18-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 409CE25C157765A3BF73ED92 /* unit-18-thumb.jpg */; };
+		BF1CE0C95D3DA25F5CC690B1 /* unit-69-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AE96B5AB18D39549B132AD32 /* unit-69-thumb.jpg */; };
 		C159ADFE3D84CEB49F911206 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A11000000000000000000002 /* GoogleService-Info.plist */; };
 		C1DCE3CE20E6D26D157CC614 /* GeneratedPluginRegistrant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */; };
+		C328ABF6704D27D831E52242 /* HolyHimWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5F9C2C41017F96CC1AB1A2C0 /* HolyHimWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C43C2262D3ACE1EC55964BCF /* scripture-garden-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8B325F6A4F2AA01A00F7A8B9 /* scripture-garden-thumb.jpg */; };
+		CA3218C583D85E0DF05E2DA6 /* unit-64-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 19EE275361908358AF9D00F2 /* unit-64-thumb.jpg */; };
+		CA8550F6BE11E4C2BC5A7658 /* sky-dawn-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7FA6B4131EA890BC7ABC00B1 /* sky-dawn-thumb.jpg */; };
+		CD0CE6B278466DB679B5F7DA /* symbol-dove-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0D844480AE18BF11FCE61DF8 /* symbol-dove-thumb.jpg */; };
+		CE9EF91E8C161F555BC64D88 /* unit-56-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F293113FD0AB2753EAE53E03 /* unit-56-thumb.jpg */; };
+		D6121B3A9500584313F457D5 /* scripture-prayer-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 182355312F24280B7BEB7696 /* scripture-prayer-thumb.jpg */; };
+		DBCCBD78C6BB675C42D9AD19 /* unit-02-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7A50B64B6F4D3A9CDE6D4B50 /* unit-02-thumb.jpg */; };
+		E045FB40CAEFF043357C2E26 /* jesus-shepherd-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4CEA33C39F55E3EC7E7F93F4 /* jesus-shepherd-thumb.jpg */; };
+		E11400AA2EDA468B4E2D4091 /* unit-33-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 38029BED415E4DEB7E13E6EF /* unit-33-thumb.jpg */; };
 		E291F85A0491665D087B0C37 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81F616F0681A00967721C9DE /* UIKit.framework */; };
+		E3F72F417735D9D12D1C67CA /* unit-54-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B05E398626D675CE2A1668E9 /* unit-54-thumb.jpg */; };
+		E516A42AE194D88684124A30 /* unit-58-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E7067BF1B5586DC761909E1 /* unit-58-thumb.jpg */; };
+		E6AE9EEBA8C0B2E13410439D /* unit-37-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0A587FAFA816B57A7BCAC95D /* unit-37-thumb.jpg */; };
 		E8BB560295FC1A48727347F4 /* HolyHimWidgetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE444BD6EB3BBAA56A49CAAB /* HolyHimWidgetData.swift */; };
-		E94003190065DEC3D7421A5F /* HolyHimWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5F9C2C41017F96CC1AB1A2C0 /* HolyHimWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		EB28E71401A93589CC079C58 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5901FB94E3B5E83CD2E9096 /* Foundation.framework */; };
+		ECE161BD710FACAD2D8FA1B8 /* symbol-olive-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C2A4202C39229C53DE1C099F /* symbol-olive-thumb.jpg */; };
 		EE5781996A265E33924B964C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */; };
+		EEBB04BAB7725EB7856963BF /* unit-60-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 85308CD906542503E17FF86A /* unit-60-thumb.jpg */; };
+		EF8C017881E79D65CAC109B7 /* unit-09-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1BFD5BBC7A742FF77490A7E2 /* unit-09-thumb.jpg */; };
+		F30E8A45FF7FD53485FFA191 /* unit-32-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 50D5C5D62006F18ECB7A4EFC /* unit-32-thumb.jpg */; };
+		F6C8810F65489D8C6A21D8B6 /* unit-36-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D6ADF5BC7C0346FE93456E6D /* unit-36-thumb.jpg */; };
 		F98DA16B228CB43A4BCE9B4A /* AppFrameworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */; };
 		FA75336A8FAF4CE893493ED5 /* HolyHimWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978E88630B0685C8B8E3F20B /* HolyHimWidget.swift */; };
+		FE4D1E0F8444738E7B0FA659 /* unit-67-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 08C8424F0DBFDAE7F1C03310 /* unit-67-thumb.jpg */; };
+		FE976F6666108D2E45706EEB /* unit-07-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ABF6B08D5ADA0E88ED8371C9 /* unit-07-thumb.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		155F5643969FB984C58D1EE0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 97C146E61CF9000F007C117D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5CEA94179353809C8A23E34E;
-			remoteInfo = HolyHimWidget;
-		};
 		331C8085294A63A400263BE5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 97C146E61CF9000F007C117D /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 97C146ED1CF9000F007C117D;
 			remoteInfo = Runner;
+		};
+		9301D8ABED4E74A0BFF6E3C5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 97C146E61CF9000F007C117D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5CEA94179353809C8A23E34E;
+			remoteInfo = HolyHimWidget;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -78,13 +177,13 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BB329949D059CB4E62F4A9F4 /* Embed App Extensions */ = {
+		C1598BD705D198D7F98672A1 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				E94003190065DEC3D7421A5F /* HolyHimWidget.appex in Embed App Extensions */,
+				C328ABF6704D27D831E52242 /* HolyHimWidget.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -92,25 +191,82 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		010D84E2BD99D6CCCDE6421E /* scripture-chapel-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "scripture-chapel-thumb.jpg"; path = "Art/scripture-chapel-thumb.jpg"; sourceTree = "<group>"; };
+		076FC2909BB83BB9D64D9AB1 /* landscape-water-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "landscape-water-thumb.jpg"; path = "Art/landscape-water-thumb.jpg"; sourceTree = "<group>"; };
+		08C8424F0DBFDAE7F1C03310 /* unit-67-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-67-thumb.jpg"; path = "Art/unit-67-thumb.jpg"; sourceTree = "<group>"; };
+		093088B8DCE956B08E6BCCF1 /* unit-71-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-71-thumb.jpg"; path = "Art/unit-71-thumb.jpg"; sourceTree = "<group>"; };
+		0A4B864C557CF97E03795873 /* cross-stone-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "cross-stone-thumb.jpg"; path = "Art/cross-stone-thumb.jpg"; sourceTree = "<group>"; };
+		0A587FAFA816B57A7BCAC95D /* unit-37-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-37-thumb.jpg"; path = "Art/unit-37-thumb.jpg"; sourceTree = "<group>"; };
+		0D844480AE18BF11FCE61DF8 /* symbol-dove-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "symbol-dove-thumb.jpg"; path = "Art/symbol-dove-thumb.jpg"; sourceTree = "<group>"; };
+		0E52C4EDE763E1A9B3950DE4 /* unit-41-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-41-thumb.jpg"; path = "Art/unit-41-thumb.jpg"; sourceTree = "<group>"; };
+		1126303ED70B5A4802431BB7 /* unit-31-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-31-thumb.jpg"; path = "Art/unit-31-thumb.jpg"; sourceTree = "<group>"; };
+		132C4A6E7439FAFA9AAADC53 /* unit-24-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-24-thumb.jpg"; path = "Art/unit-24-thumb.jpg"; sourceTree = "<group>"; };
 		1498D2321E8E86230040F4C2 /* GeneratedPluginRegistrant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeneratedPluginRegistrant.h; sourceTree = "<group>"; };
 		1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneratedPluginRegistrant.m; sourceTree = "<group>"; };
+		182355312F24280B7BEB7696 /* scripture-prayer-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "scripture-prayer-thumb.jpg"; path = "Art/scripture-prayer-thumb.jpg"; sourceTree = "<group>"; };
+		184F0A8C663CDB389DFEF0F2 /* jesus-seaside-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "jesus-seaside-thumb.jpg"; path = "Art/jesus-seaside-thumb.jpg"; sourceTree = "<group>"; };
+		18A53E4F9E34E6D343DC35A4 /* unit-70-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-70-thumb.jpg"; path = "Art/unit-70-thumb.jpg"; sourceTree = "<group>"; };
+		19EE275361908358AF9D00F2 /* unit-64-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-64-thumb.jpg"; path = "Art/unit-64-thumb.jpg"; sourceTree = "<group>"; };
+		1BFD5BBC7A742FF77490A7E2 /* unit-09-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-09-thumb.jpg"; path = "Art/unit-09-thumb.jpg"; sourceTree = "<group>"; };
+		1C10666938F04F95E0DCB965 /* cross-hill-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "cross-hill-thumb.jpg"; path = "Art/cross-hill-thumb.jpg"; sourceTree = "<group>"; };
+		1F8D07B6C656A6ED3423F8B7 /* unit-05-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-05-thumb.jpg"; path = "Art/unit-05-thumb.jpg"; sourceTree = "<group>"; };
+		1FFC42A002E4B574805145D2 /* unit-08-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-08-thumb.jpg"; path = "Art/unit-08-thumb.jpg"; sourceTree = "<group>"; };
 		20185F16459F8E83D6BF8581 /* HolyHimWidget.entitlements */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.entitlements; path = HolyHimWidget.entitlements; sourceTree = "<group>"; };
+		20D0536150F4ABB7D1EE0C0C /* scripture-lamp-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "scripture-lamp-thumb.jpg"; path = "Art/scripture-lamp-thumb.jpg"; sourceTree = "<group>"; };
+		20FE5FCCF3DCACE63D945C05 /* unit-66-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-66-thumb.jpg"; path = "Art/unit-66-thumb.jpg"; sourceTree = "<group>"; };
+		23E51A34E0C20E07525E8F64 /* unit-72-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-72-thumb.jpg"; path = "Art/unit-72-thumb.jpg"; sourceTree = "<group>"; };
+		248FD781B550679B79A3CB9F /* unit-11-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-11-thumb.jpg"; path = "Art/unit-11-thumb.jpg"; sourceTree = "<group>"; };
+		26A59442962F5EDE3A9E3873 /* unit-13-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-13-thumb.jpg"; path = "Art/unit-13-thumb.jpg"; sourceTree = "<group>"; };
 		2898385D9DBF30A4A1859E2E /* Pods_Runner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A8E1DA61D50F434D518CAF2 /* unit-27-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-27-thumb.jpg"; path = "Art/unit-27-thumb.jpg"; sourceTree = "<group>"; };
+		2DAAE53BA3D9DD7F53FDC77D /* unit-28-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-28-thumb.jpg"; path = "Art/unit-28-thumb.jpg"; sourceTree = "<group>"; };
 		2FB2A151A9A865BB7C5D771E /* Pods-Runner.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.profile.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.profile.xcconfig"; sourceTree = "<group>"; };
+		3100090F59DDF9E7C35997CF /* unit-43-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-43-thumb.jpg"; path = "Art/unit-43-thumb.jpg"; sourceTree = "<group>"; };
 		331C807B294A618700263BE5 /* RunnerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunnerTests.swift; sourceTree = "<group>"; };
 		331C8081294A63A400263BE5 /* RunnerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RunnerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		358F76B123BDD11A98C5F827 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		360CEDFA248535906463749E /* unit-49-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-49-thumb.jpg"; path = "Art/unit-49-thumb.jpg"; sourceTree = "<group>"; };
+		38029BED415E4DEB7E13E6EF /* unit-33-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-33-thumb.jpg"; path = "Art/unit-33-thumb.jpg"; sourceTree = "<group>"; };
 		3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = AppFrameworkInfo.plist; path = Flutter/AppFrameworkInfo.plist; sourceTree = "<group>"; };
+		3B5596CA8312447D2934A513 /* unit-55-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-55-thumb.jpg"; path = "Art/unit-55-thumb.jpg"; sourceTree = "<group>"; };
+		3BFA29CA8878EE280990E1BE /* unit-23-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-23-thumb.jpg"; path = "Art/unit-23-thumb.jpg"; sourceTree = "<group>"; };
+		3D1F091D620A5344DAC72877 /* cross-window-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "cross-window-thumb.jpg"; path = "Art/cross-window-thumb.jpg"; sourceTree = "<group>"; };
 		3E9BFE2248D5DC9D6CEB0294 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.0.sdk/System/Library/Frameworks/SwiftUI.framework; sourceTree = DEVELOPER_DIR; };
+		409CE25C157765A3BF73ED92 /* unit-18-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-18-thumb.jpg"; path = "Art/unit-18-thumb.jpg"; sourceTree = "<group>"; };
 		4944360C58223C1428DC9432 /* Pods-RunnerTests.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunnerTests.profile.xcconfig"; path = "Target Support Files/Pods-RunnerTests/Pods-RunnerTests.profile.xcconfig"; sourceTree = "<group>"; };
 		4AF573AD56A14882189E0E72 /* Pods-Runner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.debug.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.debug.xcconfig"; sourceTree = "<group>"; };
+		4CEA33C39F55E3EC7E7F93F4 /* jesus-shepherd-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "jesus-shepherd-thumb.jpg"; path = "Art/jesus-shepherd-thumb.jpg"; sourceTree = "<group>"; };
+		509CAC7BBBF1130582E250B1 /* unit-21-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-21-thumb.jpg"; path = "Art/unit-21-thumb.jpg"; sourceTree = "<group>"; };
+		50D5C5D62006F18ECB7A4EFC /* unit-32-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-32-thumb.jpg"; path = "Art/unit-32-thumb.jpg"; sourceTree = "<group>"; };
+		50F47F4FE948902571C1E741 /* unit-30-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-30-thumb.jpg"; path = "Art/unit-30-thumb.jpg"; sourceTree = "<group>"; };
+		59A8D6B991FE437E7634244E /* jesus-prayer-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "jesus-prayer-thumb.jpg"; path = "Art/jesus-prayer-thumb.jpg"; sourceTree = "<group>"; };
+		59E1DA9C95A4861A52460FA6 /* unit-06-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-06-thumb.jpg"; path = "Art/unit-06-thumb.jpg"; sourceTree = "<group>"; };
+		5CE9E7D33E3E769B1B57A2E1 /* unit-34-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-34-thumb.jpg"; path = "Art/unit-34-thumb.jpg"; sourceTree = "<group>"; };
 		5F9C2C41017F96CC1AB1A2C0 /* HolyHimWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = HolyHimWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FDB037C2155BC666BDE4A01 /* Pods-RunnerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunnerTests.debug.xcconfig"; path = "Target Support Files/Pods-RunnerTests/Pods-RunnerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		638B8F0569A690D96EFEEE90 /* landscape-path-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "landscape-path-thumb.jpg"; path = "Art/landscape-path-thumb.jpg"; sourceTree = "<group>"; };
+		653960F660A854959AB74F78 /* unit-68-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-68-thumb.jpg"; path = "Art/unit-68-thumb.jpg"; sourceTree = "<group>"; };
+		66990581DDF2EB975F31C318 /* unit-42-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-42-thumb.jpg"; path = "Art/unit-42-thumb.jpg"; sourceTree = "<group>"; };
+		669DB083CD5B516601F40D5B /* jesus-dawn-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "jesus-dawn-thumb.jpg"; path = "Art/jesus-dawn-thumb.jpg"; sourceTree = "<group>"; };
+		68B8C9F2BAAD7EB58858E137 /* unit-39-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-39-thumb.jpg"; path = "Art/unit-39-thumb.jpg"; sourceTree = "<group>"; };
+		6C17B98EFDD0F12EB220DD4F /* sky-stillness-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "sky-stillness-thumb.jpg"; path = "Art/sky-stillness-thumb.jpg"; sourceTree = "<group>"; };
 		74858FAD1ED2DC5600515810 /* Runner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Runner-Bridging-Header.h"; sourceTree = "<group>"; };
 		74858FAE1ED2DC5600515810 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		75FC51DAD7EF6ED85BC5CFDE /* unit-48-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-48-thumb.jpg"; path = "Art/unit-48-thumb.jpg"; sourceTree = "<group>"; };
+		768CF872EE5C300156D41185 /* unit-20-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-20-thumb.jpg"; path = "Art/unit-20-thumb.jpg"; sourceTree = "<group>"; };
 		7884E8672EC3CC0400C636F2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		7A50B64B6F4D3A9CDE6D4B50 /* unit-02-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-02-thumb.jpg"; path = "Art/unit-02-thumb.jpg"; sourceTree = "<group>"; };
 		7AFA3C8E1D35360C0083082E /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Release.xcconfig; path = Flutter/Release.xcconfig; sourceTree = "<group>"; };
+		7BE26C0DB996D897B18DAC23 /* unit-62-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-62-thumb.jpg"; path = "Art/unit-62-thumb.jpg"; sourceTree = "<group>"; };
+		7C26360DD231DB2650CC1FFA /* jesus-path-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "jesus-path-thumb.jpg"; path = "Art/jesus-path-thumb.jpg"; sourceTree = "<group>"; };
+		7FA6B4131EA890BC7ABC00B1 /* sky-dawn-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "sky-dawn-thumb.jpg"; path = "Art/sky-dawn-thumb.jpg"; sourceTree = "<group>"; };
 		81F616F0681A00967721C9DE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		8498A0EC53B88709D3BAB357 /* unit-35-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-35-thumb.jpg"; path = "Art/unit-35-thumb.jpg"; sourceTree = "<group>"; };
+		84DCB99CAE3AA669DA481FD8 /* unit-47-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-47-thumb.jpg"; path = "Art/unit-47-thumb.jpg"; sourceTree = "<group>"; };
+		85308CD906542503E17FF86A /* unit-60-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-60-thumb.jpg"; path = "Art/unit-60-thumb.jpg"; sourceTree = "<group>"; };
+		8B325F6A4F2AA01A00F7A8B9 /* scripture-garden-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "scripture-garden-thumb.jpg"; path = "Art/scripture-garden-thumb.jpg"; sourceTree = "<group>"; };
+		8B58E2AC5E48366CCA60AB17 /* unit-26-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-26-thumb.jpg"; path = "Art/unit-26-thumb.jpg"; sourceTree = "<group>"; };
+		8B6369E3FF4279E21452CF4C /* unit-65-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-65-thumb.jpg"; path = "Art/unit-65-thumb.jpg"; sourceTree = "<group>"; };
 		8E3B470B055F227970C19ADB /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		9740EEB21CF90195004384FC /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Debug.xcconfig; path = Flutter/Debug.xcconfig; sourceTree = "<group>"; };
 		9740EEB31CF90195004384FC /* Generated.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Generated.xcconfig; path = Flutter/Generated.xcconfig; sourceTree = "<group>"; };
@@ -120,16 +276,58 @@
 		97C146FD1CF9000F007C117D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97C147001CF9000F007C117D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97C147021CF9000F007C117D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9B2DC2021A3E90EE3C0832DC /* unit-51-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-51-thumb.jpg"; path = "Art/unit-51-thumb.jpg"; sourceTree = "<group>"; };
+		9CA9FF2E612881E53A9E4E88 /* unit-63-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-63-thumb.jpg"; path = "Art/unit-63-thumb.jpg"; sourceTree = "<group>"; };
+		9D0D92A4547FDF0C1F24B1BC /* unit-73-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-73-thumb.jpg"; path = "Art/unit-73-thumb.jpg"; sourceTree = "<group>"; };
+		9D12F97FE5948D8656ECB2C4 /* sky-rays-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "sky-rays-thumb.jpg"; path = "Art/sky-rays-thumb.jpg"; sourceTree = "<group>"; };
+		9E7067BF1B5586DC761909E1 /* unit-58-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-58-thumb.jpg"; path = "Art/unit-58-thumb.jpg"; sourceTree = "<group>"; };
+		A0D3A0493F65033D6065919A /* cross-meadow-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "cross-meadow-thumb.jpg"; path = "Art/cross-meadow-thumb.jpg"; sourceTree = "<group>"; };
 		A11000000000000000000002 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A11000000000000000000003 /* Runner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Runner.entitlements; sourceTree = "<group>"; };
 		A11000000000000000000004 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		A29F558668CBF1C5CE4536C5 /* unit-38-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-38-thumb.jpg"; path = "Art/unit-38-thumb.jpg"; sourceTree = "<group>"; };
+		ABF6B08D5ADA0E88ED8371C9 /* unit-07-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-07-thumb.jpg"; path = "Art/unit-07-thumb.jpg"; sourceTree = "<group>"; };
+		AC176DD549347E9D697A3E73 /* unit-10-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-10-thumb.jpg"; path = "Art/unit-10-thumb.jpg"; sourceTree = "<group>"; };
+		AC64785A375B9D8F7DCE3B8C /* unit-01-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-01-thumb.jpg"; path = "Art/unit-01-thumb.jpg"; sourceTree = "<group>"; };
+		AE96B5AB18D39549B132AD32 /* unit-69-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-69-thumb.jpg"; path = "Art/unit-69-thumb.jpg"; sourceTree = "<group>"; };
+		AEA3F07EF5537C099B904EE3 /* unit-04-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-04-thumb.jpg"; path = "Art/unit-04-thumb.jpg"; sourceTree = "<group>"; };
+		B05E398626D675CE2A1668E9 /* unit-54-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-54-thumb.jpg"; path = "Art/unit-54-thumb.jpg"; sourceTree = "<group>"; };
+		B7626D13A02D28A891D264A1 /* WidgetVerses.json */ = {isa = PBXFileReference; includeInIndex = 1; path = WidgetVerses.json; sourceTree = "<group>"; };
+		B78BA99D06C104FEFABDA5FF /* unit-03-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-03-thumb.jpg"; path = "Art/unit-03-thumb.jpg"; sourceTree = "<group>"; };
+		BB0F64241E0A4699CCF0D33C /* cross-mountain-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "cross-mountain-thumb.jpg"; path = "Art/cross-mountain-thumb.jpg"; sourceTree = "<group>"; };
+		BB858044875D4BD3EF7B3DBA /* unit-19-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-19-thumb.jpg"; path = "Art/unit-19-thumb.jpg"; sourceTree = "<group>"; };
+		BDE9C51364DDB4D04F0FDAF1 /* symbol-lilies-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "symbol-lilies-thumb.jpg"; path = "Art/symbol-lilies-thumb.jpg"; sourceTree = "<group>"; };
 		BFC80917C5E4A07CA2F7F8B4 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.0.sdk/System/Library/Frameworks/WidgetKit.framework; sourceTree = DEVELOPER_DIR; };
+		BFDB339F0213BBC3377B31BE /* unit-17-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-17-thumb.jpg"; path = "Art/unit-17-thumb.jpg"; sourceTree = "<group>"; };
+		C2417B45273621740704AF58 /* unit-14-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-14-thumb.jpg"; path = "Art/unit-14-thumb.jpg"; sourceTree = "<group>"; };
+		C2A4202C39229C53DE1C099F /* symbol-olive-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "symbol-olive-thumb.jpg"; path = "Art/symbol-olive-thumb.jpg"; sourceTree = "<group>"; };
 		C37FE1DEFD89927373F49BC8 /* Pods-RunnerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunnerTests.release.xcconfig"; path = "Target Support Files/Pods-RunnerTests/Pods-RunnerTests.release.xcconfig"; sourceTree = "<group>"; };
 		C5901FB94E3B5E83CD2E9096 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		C62970FBC25F4135889510E5 /* HolyHimVisualQA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HolyHimVisualQA.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CAE5CFAC6C639172A81516B2 /* unit-46-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-46-thumb.jpg"; path = "Art/unit-46-thumb.jpg"; sourceTree = "<group>"; };
+		CAE7FB3BC418DBDE2BC57C42 /* unit-12-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-12-thumb.jpg"; path = "Art/unit-12-thumb.jpg"; sourceTree = "<group>"; };
+		CFE3BF56BD83D5B70A56F088 /* unit-22-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-22-thumb.jpg"; path = "Art/unit-22-thumb.jpg"; sourceTree = "<group>"; };
+		D38E23483664DE9966FF7146 /* unit-50-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-50-thumb.jpg"; path = "Art/unit-50-thumb.jpg"; sourceTree = "<group>"; };
+		D4809479FC0A2749F396A066 /* unit-15-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-15-thumb.jpg"; path = "Art/unit-15-thumb.jpg"; sourceTree = "<group>"; };
+		D6ADF5BC7C0346FE93456E6D /* unit-36-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-36-thumb.jpg"; path = "Art/unit-36-thumb.jpg"; sourceTree = "<group>"; };
+		DC6873117FE499F033616A94 /* unit-16-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-16-thumb.jpg"; path = "Art/unit-16-thumb.jpg"; sourceTree = "<group>"; };
+		DDCEA0CD4D50AC58A71B8F96 /* unit-57-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-57-thumb.jpg"; path = "Art/unit-57-thumb.jpg"; sourceTree = "<group>"; };
+		E075437175230C0DF49F0C46 /* unit-53-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-53-thumb.jpg"; path = "Art/unit-53-thumb.jpg"; sourceTree = "<group>"; };
 		E11CCBD98B8CA7006EE6D368 /* Pods_RunnerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RunnerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1EAE6E36369526F66EC4E61 /* unit-29-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-29-thumb.jpg"; path = "Art/unit-29-thumb.jpg"; sourceTree = "<group>"; };
+		E5623B785775C8523DB4A7B2 /* scripture-morning-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "scripture-morning-thumb.jpg"; path = "Art/scripture-morning-thumb.jpg"; sourceTree = "<group>"; };
+		E5E01BA8FFBA508C17B6BE2E /* unit-52-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-52-thumb.jpg"; path = "Art/unit-52-thumb.jpg"; sourceTree = "<group>"; };
 		E7110D7B172E720B9F7C2A93 /* Pods-Runner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.release.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.release.xcconfig"; sourceTree = "<group>"; };
+		EDA7A0D02836FCBAFBFCBD2F /* unit-59-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-59-thumb.jpg"; path = "Art/unit-59-thumb.jpg"; sourceTree = "<group>"; };
+		EF3C078E7F8B2FDDA4C18908 /* unit-40-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-40-thumb.jpg"; path = "Art/unit-40-thumb.jpg"; sourceTree = "<group>"; };
+		F1372879625FCC05CB69890F /* sky-clouds-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "sky-clouds-thumb.jpg"; path = "Art/sky-clouds-thumb.jpg"; sourceTree = "<group>"; };
+		F1818EDEF7FECD915CDC7C5B /* unit-44-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-44-thumb.jpg"; path = "Art/unit-44-thumb.jpg"; sourceTree = "<group>"; };
+		F293113FD0AB2753EAE53E03 /* unit-56-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-56-thumb.jpg"; path = "Art/unit-56-thumb.jpg"; sourceTree = "<group>"; };
+		F31224E0366723FC1B930B1D /* unit-45-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-45-thumb.jpg"; path = "Art/unit-45-thumb.jpg"; sourceTree = "<group>"; };
+		FB7EF805C5E487B6A5152A2A /* unit-25-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-25-thumb.jpg"; path = "Art/unit-25-thumb.jpg"; sourceTree = "<group>"; };
+		FCAFF25E026C7F3E8B444D24 /* unit-61-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-61-thumb.jpg"; path = "Art/unit-61-thumb.jpg"; sourceTree = "<group>"; };
 		FE444BD6EB3BBAA56A49CAAB /* HolyHimWidgetData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HolyHimWidgetData.swift; sourceTree = "<group>"; };
+		FF90F993469ADF2AB2672776 /* sky-evening-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "sky-evening-thumb.jpg"; path = "Art/sky-evening-thumb.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -274,6 +472,105 @@
 				358F76B123BDD11A98C5F827 /* Info.plist */,
 				20185F16459F8E83D6BF8581 /* HolyHimWidget.entitlements */,
 				8E3B470B055F227970C19ADB /* PrivacyInfo.xcprivacy */,
+				B7626D13A02D28A891D264A1 /* WidgetVerses.json */,
+				1C10666938F04F95E0DCB965 /* cross-hill-thumb.jpg */,
+				A0D3A0493F65033D6065919A /* cross-meadow-thumb.jpg */,
+				BB0F64241E0A4699CCF0D33C /* cross-mountain-thumb.jpg */,
+				0A4B864C557CF97E03795873 /* cross-stone-thumb.jpg */,
+				3D1F091D620A5344DAC72877 /* cross-window-thumb.jpg */,
+				669DB083CD5B516601F40D5B /* jesus-dawn-thumb.jpg */,
+				7C26360DD231DB2650CC1FFA /* jesus-path-thumb.jpg */,
+				59A8D6B991FE437E7634244E /* jesus-prayer-thumb.jpg */,
+				184F0A8C663CDB389DFEF0F2 /* jesus-seaside-thumb.jpg */,
+				4CEA33C39F55E3EC7E7F93F4 /* jesus-shepherd-thumb.jpg */,
+				638B8F0569A690D96EFEEE90 /* landscape-path-thumb.jpg */,
+				076FC2909BB83BB9D64D9AB1 /* landscape-water-thumb.jpg */,
+				010D84E2BD99D6CCCDE6421E /* scripture-chapel-thumb.jpg */,
+				8B325F6A4F2AA01A00F7A8B9 /* scripture-garden-thumb.jpg */,
+				20D0536150F4ABB7D1EE0C0C /* scripture-lamp-thumb.jpg */,
+				E5623B785775C8523DB4A7B2 /* scripture-morning-thumb.jpg */,
+				182355312F24280B7BEB7696 /* scripture-prayer-thumb.jpg */,
+				F1372879625FCC05CB69890F /* sky-clouds-thumb.jpg */,
+				7FA6B4131EA890BC7ABC00B1 /* sky-dawn-thumb.jpg */,
+				FF90F993469ADF2AB2672776 /* sky-evening-thumb.jpg */,
+				9D12F97FE5948D8656ECB2C4 /* sky-rays-thumb.jpg */,
+				6C17B98EFDD0F12EB220DD4F /* sky-stillness-thumb.jpg */,
+				0D844480AE18BF11FCE61DF8 /* symbol-dove-thumb.jpg */,
+				BDE9C51364DDB4D04F0FDAF1 /* symbol-lilies-thumb.jpg */,
+				C2A4202C39229C53DE1C099F /* symbol-olive-thumb.jpg */,
+				AC64785A375B9D8F7DCE3B8C /* unit-01-thumb.jpg */,
+				7A50B64B6F4D3A9CDE6D4B50 /* unit-02-thumb.jpg */,
+				B78BA99D06C104FEFABDA5FF /* unit-03-thumb.jpg */,
+				AEA3F07EF5537C099B904EE3 /* unit-04-thumb.jpg */,
+				1F8D07B6C656A6ED3423F8B7 /* unit-05-thumb.jpg */,
+				59E1DA9C95A4861A52460FA6 /* unit-06-thumb.jpg */,
+				ABF6B08D5ADA0E88ED8371C9 /* unit-07-thumb.jpg */,
+				1FFC42A002E4B574805145D2 /* unit-08-thumb.jpg */,
+				1BFD5BBC7A742FF77490A7E2 /* unit-09-thumb.jpg */,
+				AC176DD549347E9D697A3E73 /* unit-10-thumb.jpg */,
+				248FD781B550679B79A3CB9F /* unit-11-thumb.jpg */,
+				CAE7FB3BC418DBDE2BC57C42 /* unit-12-thumb.jpg */,
+				26A59442962F5EDE3A9E3873 /* unit-13-thumb.jpg */,
+				C2417B45273621740704AF58 /* unit-14-thumb.jpg */,
+				D4809479FC0A2749F396A066 /* unit-15-thumb.jpg */,
+				DC6873117FE499F033616A94 /* unit-16-thumb.jpg */,
+				BFDB339F0213BBC3377B31BE /* unit-17-thumb.jpg */,
+				409CE25C157765A3BF73ED92 /* unit-18-thumb.jpg */,
+				BB858044875D4BD3EF7B3DBA /* unit-19-thumb.jpg */,
+				768CF872EE5C300156D41185 /* unit-20-thumb.jpg */,
+				509CAC7BBBF1130582E250B1 /* unit-21-thumb.jpg */,
+				CFE3BF56BD83D5B70A56F088 /* unit-22-thumb.jpg */,
+				3BFA29CA8878EE280990E1BE /* unit-23-thumb.jpg */,
+				132C4A6E7439FAFA9AAADC53 /* unit-24-thumb.jpg */,
+				FB7EF805C5E487B6A5152A2A /* unit-25-thumb.jpg */,
+				8B58E2AC5E48366CCA60AB17 /* unit-26-thumb.jpg */,
+				2A8E1DA61D50F434D518CAF2 /* unit-27-thumb.jpg */,
+				2DAAE53BA3D9DD7F53FDC77D /* unit-28-thumb.jpg */,
+				E1EAE6E36369526F66EC4E61 /* unit-29-thumb.jpg */,
+				50F47F4FE948902571C1E741 /* unit-30-thumb.jpg */,
+				1126303ED70B5A4802431BB7 /* unit-31-thumb.jpg */,
+				50D5C5D62006F18ECB7A4EFC /* unit-32-thumb.jpg */,
+				38029BED415E4DEB7E13E6EF /* unit-33-thumb.jpg */,
+				5CE9E7D33E3E769B1B57A2E1 /* unit-34-thumb.jpg */,
+				8498A0EC53B88709D3BAB357 /* unit-35-thumb.jpg */,
+				D6ADF5BC7C0346FE93456E6D /* unit-36-thumb.jpg */,
+				0A587FAFA816B57A7BCAC95D /* unit-37-thumb.jpg */,
+				A29F558668CBF1C5CE4536C5 /* unit-38-thumb.jpg */,
+				68B8C9F2BAAD7EB58858E137 /* unit-39-thumb.jpg */,
+				EF3C078E7F8B2FDDA4C18908 /* unit-40-thumb.jpg */,
+				0E52C4EDE763E1A9B3950DE4 /* unit-41-thumb.jpg */,
+				66990581DDF2EB975F31C318 /* unit-42-thumb.jpg */,
+				3100090F59DDF9E7C35997CF /* unit-43-thumb.jpg */,
+				F1818EDEF7FECD915CDC7C5B /* unit-44-thumb.jpg */,
+				F31224E0366723FC1B930B1D /* unit-45-thumb.jpg */,
+				CAE5CFAC6C639172A81516B2 /* unit-46-thumb.jpg */,
+				84DCB99CAE3AA669DA481FD8 /* unit-47-thumb.jpg */,
+				75FC51DAD7EF6ED85BC5CFDE /* unit-48-thumb.jpg */,
+				360CEDFA248535906463749E /* unit-49-thumb.jpg */,
+				D38E23483664DE9966FF7146 /* unit-50-thumb.jpg */,
+				9B2DC2021A3E90EE3C0832DC /* unit-51-thumb.jpg */,
+				E5E01BA8FFBA508C17B6BE2E /* unit-52-thumb.jpg */,
+				E075437175230C0DF49F0C46 /* unit-53-thumb.jpg */,
+				B05E398626D675CE2A1668E9 /* unit-54-thumb.jpg */,
+				3B5596CA8312447D2934A513 /* unit-55-thumb.jpg */,
+				F293113FD0AB2753EAE53E03 /* unit-56-thumb.jpg */,
+				DDCEA0CD4D50AC58A71B8F96 /* unit-57-thumb.jpg */,
+				9E7067BF1B5586DC761909E1 /* unit-58-thumb.jpg */,
+				EDA7A0D02836FCBAFBFCBD2F /* unit-59-thumb.jpg */,
+				85308CD906542503E17FF86A /* unit-60-thumb.jpg */,
+				FCAFF25E026C7F3E8B444D24 /* unit-61-thumb.jpg */,
+				7BE26C0DB996D897B18DAC23 /* unit-62-thumb.jpg */,
+				9CA9FF2E612881E53A9E4E88 /* unit-63-thumb.jpg */,
+				19EE275361908358AF9D00F2 /* unit-64-thumb.jpg */,
+				8B6369E3FF4279E21452CF4C /* unit-65-thumb.jpg */,
+				20FE5FCCF3DCACE63D945C05 /* unit-66-thumb.jpg */,
+				08C8424F0DBFDAE7F1C03310 /* unit-67-thumb.jpg */,
+				653960F660A854959AB74F78 /* unit-68-thumb.jpg */,
+				AE96B5AB18D39549B132AD32 /* unit-69-thumb.jpg */,
+				18A53E4F9E34E6D343DC35A4 /* unit-70-thumb.jpg */,
+				093088B8DCE956B08E6BCCF1 /* unit-71-thumb.jpg */,
+				23E51A34E0C20E07525E8F64 /* unit-72-thumb.jpg */,
+				9D0D92A4547FDF0C1F24B1BC /* unit-73-thumb.jpg */,
 			);
 			name = HolyHimWidget;
 			path = HolyHimWidget;
@@ -359,13 +656,14 @@
 				97C146EB1CF9000F007C117D /* Frameworks */,
 				97C146EC1CF9000F007C117D /* Resources */,
 				9705A1C41CF9048500538489 /* Embed Frameworks */,
+				C1598BD705D198D7F98672A1 /* Embed App Extensions */,
 				3B06AD1E1E4923F5004D2608 /* Thin Binary */,
-				8C44226B455D78BFCA06C773 /* [CP] Embed Pods Frameworks */,
 				B8AC0BF6B242F2BD80485587 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				04A3402152C962BC48D5A326 /* PBXTargetDependency */,
 			);
 			name = Runner;
 			productName = Runner;
@@ -459,6 +757,105 @@
 			buildActionMask = 2147483647;
 			files = (
 				A740AEF45DAA647DD8F492AC /* PrivacyInfo.xcprivacy in Resources */,
+				017B1241D7838CB8554B1FF7 /* WidgetVerses.json in Resources */,
+				396C5299A52703632C1E8625 /* cross-hill-thumb.jpg in Resources */,
+				02365A3CC97C000C5F6BBB92 /* cross-meadow-thumb.jpg in Resources */,
+				253039EFD5A0D1E0CC87FD04 /* cross-mountain-thumb.jpg in Resources */,
+				831C21A9CF41B2B9D364A868 /* cross-stone-thumb.jpg in Resources */,
+				4979DA3213F5A67DB4B8762A /* cross-window-thumb.jpg in Resources */,
+				508A0716F227A62E0510163F /* jesus-dawn-thumb.jpg in Resources */,
+				4F15E85AF307B17D66C8F3B8 /* jesus-path-thumb.jpg in Resources */,
+				1D41943FB6F3E14C400AAB08 /* jesus-prayer-thumb.jpg in Resources */,
+				B41EB59DB900C0E22B3D70D7 /* jesus-seaside-thumb.jpg in Resources */,
+				E045FB40CAEFF043357C2E26 /* jesus-shepherd-thumb.jpg in Resources */,
+				A1DC5BCF5092EBCD247D89EA /* landscape-path-thumb.jpg in Resources */,
+				84BE05C0E659BA931C5213A0 /* landscape-water-thumb.jpg in Resources */,
+				8B60EA879924948D8D938C26 /* scripture-chapel-thumb.jpg in Resources */,
+				C43C2262D3ACE1EC55964BCF /* scripture-garden-thumb.jpg in Resources */,
+				9260B40D7A12FA69FBAF4457 /* scripture-lamp-thumb.jpg in Resources */,
+				9AEC06297FCEB35411753B9D /* scripture-morning-thumb.jpg in Resources */,
+				D6121B3A9500584313F457D5 /* scripture-prayer-thumb.jpg in Resources */,
+				648A058F4A655B1C0CDC77E7 /* sky-clouds-thumb.jpg in Resources */,
+				CA8550F6BE11E4C2BC5A7658 /* sky-dawn-thumb.jpg in Resources */,
+				37250623A365F7311EF52D26 /* sky-evening-thumb.jpg in Resources */,
+				A8843ADBA43BA33B54E0B20D /* sky-rays-thumb.jpg in Resources */,
+				079993E81821D3CF660F8244 /* sky-stillness-thumb.jpg in Resources */,
+				CD0CE6B278466DB679B5F7DA /* symbol-dove-thumb.jpg in Resources */,
+				B06EFBD960CDC8CCAB3953E9 /* symbol-lilies-thumb.jpg in Resources */,
+				ECE161BD710FACAD2D8FA1B8 /* symbol-olive-thumb.jpg in Resources */,
+				031977774B31574E7F7445A0 /* unit-01-thumb.jpg in Resources */,
+				DBCCBD78C6BB675C42D9AD19 /* unit-02-thumb.jpg in Resources */,
+				2E1D0A73554275CF6A99A37B /* unit-03-thumb.jpg in Resources */,
+				B437B806EAC545EF999791EE /* unit-04-thumb.jpg in Resources */,
+				01ACAF9A95A65B8093E38CB5 /* unit-05-thumb.jpg in Resources */,
+				96C6AAA4DAD7E52571A24872 /* unit-06-thumb.jpg in Resources */,
+				FE976F6666108D2E45706EEB /* unit-07-thumb.jpg in Resources */,
+				BBEBBC3BED70D34876809A40 /* unit-08-thumb.jpg in Resources */,
+				EF8C017881E79D65CAC109B7 /* unit-09-thumb.jpg in Resources */,
+				72F98EB50615453EE3DA1BA1 /* unit-10-thumb.jpg in Resources */,
+				6A5D5987386FD33E34B81131 /* unit-11-thumb.jpg in Resources */,
+				7AA84A9A34E09D2AF3A59839 /* unit-12-thumb.jpg in Resources */,
+				201D542994A7F92FC3510267 /* unit-13-thumb.jpg in Resources */,
+				6F44A3F3144E916A7D4080C6 /* unit-14-thumb.jpg in Resources */,
+				2B435EE97EBC1A3A1964EBE3 /* unit-15-thumb.jpg in Resources */,
+				B673BF94270D7649609B5C92 /* unit-16-thumb.jpg in Resources */,
+				674FC4165652CD8BA3DE4E81 /* unit-17-thumb.jpg in Resources */,
+				BE8BE460926ABE812782D088 /* unit-18-thumb.jpg in Resources */,
+				1392249AE212CC0DC3025034 /* unit-19-thumb.jpg in Resources */,
+				14A014E4FE6C069D85551325 /* unit-20-thumb.jpg in Resources */,
+				1A3B5D501C3E8E0A4F2A1F4F /* unit-21-thumb.jpg in Resources */,
+				93A601D9B358C2589264ECC7 /* unit-22-thumb.jpg in Resources */,
+				23C9620534D578D4AF97CCF3 /* unit-23-thumb.jpg in Resources */,
+				2051FDE7780E1FB167A30557 /* unit-24-thumb.jpg in Resources */,
+				876E732BD80A9579C580A4E4 /* unit-25-thumb.jpg in Resources */,
+				05761BBD3CAD0A345326FC23 /* unit-26-thumb.jpg in Resources */,
+				4D0C405D377928976EFDB7B9 /* unit-27-thumb.jpg in Resources */,
+				61E899E2145A15A1AF6FC9E3 /* unit-28-thumb.jpg in Resources */,
+				9FDFBA9DF052C1D51C1A5128 /* unit-29-thumb.jpg in Resources */,
+				A623C1FE02E3B2673517848F /* unit-30-thumb.jpg in Resources */,
+				3FE626163D866E6761383193 /* unit-31-thumb.jpg in Resources */,
+				F30E8A45FF7FD53485FFA191 /* unit-32-thumb.jpg in Resources */,
+				E11400AA2EDA468B4E2D4091 /* unit-33-thumb.jpg in Resources */,
+				2F4D54DD4E011C9639E4D62F /* unit-34-thumb.jpg in Resources */,
+				903D3C534F2C911B70E9FACD /* unit-35-thumb.jpg in Resources */,
+				F6C8810F65489D8C6A21D8B6 /* unit-36-thumb.jpg in Resources */,
+				E6AE9EEBA8C0B2E13410439D /* unit-37-thumb.jpg in Resources */,
+				245893A0EE4E927317BBEF66 /* unit-38-thumb.jpg in Resources */,
+				491B03FD99684F3871F29557 /* unit-39-thumb.jpg in Resources */,
+				22B46661BE6C85D469E32A80 /* unit-40-thumb.jpg in Resources */,
+				BB7645D64DB8826CCF414D71 /* unit-41-thumb.jpg in Resources */,
+				31C6DBBA982EA69616D37E09 /* unit-42-thumb.jpg in Resources */,
+				5779ECE8956C7EE1F54B547C /* unit-43-thumb.jpg in Resources */,
+				30B87B0C96BBEFE67C0FCE65 /* unit-44-thumb.jpg in Resources */,
+				BB64DC09F7B4577A7353F2AD /* unit-45-thumb.jpg in Resources */,
+				B7793B50BF405846E1C7426C /* unit-46-thumb.jpg in Resources */,
+				8288BAC8DF946350A492CF1D /* unit-47-thumb.jpg in Resources */,
+				8C61DA208723197CAA6DBCC2 /* unit-48-thumb.jpg in Resources */,
+				3F0DB79C40D91C5C05B79908 /* unit-49-thumb.jpg in Resources */,
+				9B4AE06F0855C1334C3650BC /* unit-50-thumb.jpg in Resources */,
+				92F2CB501CE1AD940F3A60E4 /* unit-51-thumb.jpg in Resources */,
+				206B4F6F98B02B857693109C /* unit-52-thumb.jpg in Resources */,
+				3F6096A9532818A0884B1FB0 /* unit-53-thumb.jpg in Resources */,
+				E3F72F417735D9D12D1C67CA /* unit-54-thumb.jpg in Resources */,
+				8A1FC2E00DF0548FD30F0EE5 /* unit-55-thumb.jpg in Resources */,
+				CE9EF91E8C161F555BC64D88 /* unit-56-thumb.jpg in Resources */,
+				285A189332D4C5A4FD3ADCFF /* unit-57-thumb.jpg in Resources */,
+				E516A42AE194D88684124A30 /* unit-58-thumb.jpg in Resources */,
+				2449DC428E0E320CD22DD92F /* unit-59-thumb.jpg in Resources */,
+				EEBB04BAB7725EB7856963BF /* unit-60-thumb.jpg in Resources */,
+				9842A1DA0794824980E04CB5 /* unit-61-thumb.jpg in Resources */,
+				647D6DA0F7F3753CAC9712FE /* unit-62-thumb.jpg in Resources */,
+				4E2111040C3EDED7912E063F /* unit-63-thumb.jpg in Resources */,
+				CA3218C583D85E0DF05E2DA6 /* unit-64-thumb.jpg in Resources */,
+				1B2AD46B4AF15D34E21A37A6 /* unit-65-thumb.jpg in Resources */,
+				4FA4F284A5A922709D4238E4 /* unit-66-thumb.jpg in Resources */,
+				FE4D1E0F8444738E7B0FA659 /* unit-67-thumb.jpg in Resources */,
+				000B8FC0A61B129494BB1B07 /* unit-68-thumb.jpg in Resources */,
+				BF1CE0C95D3DA25F5CC690B1 /* unit-69-thumb.jpg in Resources */,
+				73B412D024D49735CAF769E4 /* unit-70-thumb.jpg in Resources */,
+				83B7CD08F7E7C558FDF59359 /* unit-71-thumb.jpg in Resources */,
+				850EDD3EA3F4D094118E962B /* unit-72-thumb.jpg in Resources */,
+				4BB1462DDB3DB7C21CE44E2E /* unit-73-thumb.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -542,23 +939,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8C44226B455D78BFCA06C773 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Runner/Pods-Runner-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Runner/Pods-Runner-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Runner/Pods-Runner-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		933613D84B0CB15816AE54E3 /* Thin Binary */ = {
@@ -656,16 +1036,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		04A3402152C962BC48D5A326 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = HolyHimWidget;
+			target = 5CEA94179353809C8A23E34E /* HolyHimWidget */;
+			targetProxy = 9301D8ABED4E74A0BFF6E3C5 /* PBXContainerItemProxy */;
+		};
 		331C8086294A63A400263BE5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 97C146ED1CF9000F007C117D /* Runner */;
 			targetProxy = 331C8085294A63A400263BE5 /* PBXContainerItemProxy */;
-		};
-		BD5553D81E36B7CE3B14A389 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = HolyHimWidget;
-			target = 5CEA94179353809C8A23E34E /* HolyHimWidget */;
-			targetProxy = 155F5643969FB984C58D1EE0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -696,7 +1076,7 @@
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_ENTITLEMENTS = HolyHimWidget/HolyHimWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = DU9D6TAM58;
 				ENABLE_BITCODE = NO;
 				GENERATE_INFOPLIST_FILE = NO;
@@ -728,7 +1108,7 @@
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_ENTITLEMENTS = HolyHimWidget/HolyHimWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = DU9D6TAM58;
 				ENABLE_BITCODE = NO;
 				GENERATE_INFOPLIST_FILE = NO;
@@ -1101,7 +1481,7 @@
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_ENTITLEMENTS = HolyHimWidget/HolyHimWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = DU9D6TAM58;
 				ENABLE_BITCODE = NO;
 				GENERATE_INFOPLIST_FILE = NO;

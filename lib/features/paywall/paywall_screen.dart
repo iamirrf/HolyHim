@@ -67,7 +67,9 @@ class _OfferScreenState extends ConsumerState<OfferScreen> {
     final access = ref.watch(lifetimeProvider);
     final media = MediaQuery.of(context);
     final compact = media.size.height < 720;
-    final price = access.product?.priceString;
+    // A blank store price reads as no price, never "Unlock for life · ".
+    final storePrice = access.product?.priceString.trim() ?? '';
+    final String? price = storePrice.isEmpty ? null : storePrice;
     final owned = access.active;
     final title = owned || thanked
         ? 'Every day is open'

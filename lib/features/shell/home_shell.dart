@@ -14,7 +14,10 @@ const tabBarHeight = 64.0;
 class HomeShell extends StatefulWidget {
   final int initialTab;
   final ValueChanged<double>? onMood;
-  const HomeShell({super.key, this.initialTab = 0, this.onMood});
+
+  /// Fixes Today's clock; for rendering only.
+  final DateTime? now;
+  const HomeShell({super.key, this.initialTab = 0, this.onMood, this.now});
   @override
   State<HomeShell> createState() => _HomeShellState();
 }
@@ -70,11 +73,11 @@ class _HomeShellState extends State<HomeShell>
     final t = HolyThemeScope.of(context);
     final media = MediaQuery.of(context);
     final barBottom = media.padding.bottom > 16 ? media.padding.bottom - 8 : 8.0;
-    const tabs = [
-      TodayScreen(),
-      SavedScreen(),
-      GrowthScreen(),
-      ProfileScreen()
+    final tabs = [
+      TodayScreen(now: widget.now),
+      const SavedScreen(),
+      const GrowthScreen(),
+      const ProfileScreen()
     ];
     return Scaffold(
         backgroundColor: t.paper,

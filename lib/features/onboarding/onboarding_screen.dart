@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../data/lessons.g.dart';
 import '../../design/design.dart';
+import '../../domain/notification_plan.dart';
 import '../../domain/onboarding_flow.dart';
 import '../../services/account_cache.dart';
 import '../../services/auth_service.dart';
@@ -396,6 +397,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
             initial: a.reminder,
             busy: asking,
             onChoose: _reminder,
+            name: name,
             preview: lessons.first.teaser);
       case 6:
         return _BirthdayStep(
@@ -508,11 +510,12 @@ class _ReminderStep extends StatefulWidget {
   final String? initial;
   final bool busy;
   final Future<void> Function(String? answer) onChoose;
-  final String preview;
+  final String name, preview;
   const _ReminderStep(
       {required this.initial,
       required this.busy,
       required this.onChoose,
+      required this.name,
       required this.preview});
   @override
   State<_ReminderStep> createState() => _ReminderStepState();
@@ -579,7 +582,10 @@ class _ReminderStepState extends State<_ReminderStep> {
         ]),
         children: [
           _NotificationPreview(
-              time: _format(choice), body: widget.preview),
+              time: _format(choice),
+              title: lessonNoteTitle(
+                  reminderMinutesFor(choice)! ~/ 60, widget.name),
+              body: teaserExcerpt(widget.preview)),
           const SizedBox(height: 16),
           Row(children: [
             for (final p in reminderPresets) ...[
@@ -648,13 +654,14 @@ class _TimeChip extends StatelessWidget {
 
 /// A faithful picture of the iOS banner she will see.
 class _NotificationPreview extends StatelessWidget {
-  final String time, body;
-  const _NotificationPreview({required this.time, required this.body});
+  final String time, title, body;
+  const _NotificationPreview(
+      {required this.time, required this.title, required this.body});
   @override
   Widget build(BuildContext context) {
     final t = HolyThemeScope.of(context);
     return Semantics(
-        label: 'Preview: HolyHim at $time. $body',
+        label: 'Preview: HolyHim at $time. $title. $body',
         excludeSemantics: true,
         child: DecoratedBox(
             decoration: ShapeDecoration(
@@ -691,7 +698,7 @@ class _NotificationPreview extends StatelessWidget {
                                       : Colors.black54)),
                         ]),
                         const SizedBox(height: 2),
-                        Text('Today’s word is ready',
+                        Text(title,
                             style: HolyTypography.label.copyWith(
                                 color:
                                     t.isDark ? Colors.white : Colors.black)),
