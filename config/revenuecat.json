@@ -1,10 +1,10 @@
 {
-  "projectId": "REPLACE_WITH_HOLYHIM_REVENUECAT_PROJECT",
-  "appId": "REPLACE_WITH_HOLYHIM_REVENUECAT_APP",
-  "entitlementId": "REPLACE_WITH_HOLYHIM_REVENUECAT_ENTITLEMENT",
+  "projectId": "proj1b08bf4e",
+  "appId": "app9d001a6c4f",
+  "entitlementId": "entld8cfd982e8",
   "entitlementLookupKey": "lifetime",
-  "offeringId": "REPLACE_WITH_HOLYHIM_REVENUECAT_OFFERING",
-  "productId": "REPLACE_WITH_HOLYHIM_REVENUECAT_PRODUCT",
+  "offeringId": "ofrng037e1d566a",
+  "productId": "prod43ec70add6",
   "storeProductId": "holyhim_lifetime",
   "priceUSD": 1.99
 }
