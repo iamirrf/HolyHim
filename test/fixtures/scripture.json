@@ -1835,12 +1835,12 @@
   },
   {
     "day": 204,
-    "reference": "Matthew 15:28",
-    "text": "Then Jesus answered her, “Woman, great is your faith! Be it done to you even as you desire.” And her daughter was healed from that hour.",
+    "reference": "Matthew 16:24",
+    "text": "Then Jesus said to his disciples, “If anyone desires to come after me, let him deny himself, take up his cross, and follow me.",
     "verseKeys": [
-      "Matthew 15:28"
+      "Matthew 16:24"
     ],
-    "verseSha256": "799f2df4a48498387ed97d0766d04d092a6439ec0df9ae6db299bc0423c16afa"
+    "verseSha256": "e1d37e0c0a3c72ba0484360839dd19d461bce3d73c8404fc3fbf3996bb476926"
   },
   {
     "day": 205,
@@ -1925,12 +1925,12 @@
   },
   {
     "day": 214,
-    "reference": "Mark 5:34",
-    "text": "He said to her, “Daughter, your faith has made you well. Go in peace, and be cured of your disease.”",
+    "reference": "Mark 8:36",
+    "text": "For what does it profit a man to gain the whole world and forfeit his life?",
     "verseKeys": [
-      "Mark 5:34"
+      "Mark 8:36"
     ],
-    "verseSha256": "24c149bdd9770f6d4a7b1393f9d9f59def914f1ec28102399ca512c6729665df"
+    "verseSha256": "b62883237217f901a09709f8845d0d45ad1d2aee855172e26cd8996bfdf3dbec"
   },
   {
     "day": 215,
@@ -1979,21 +1979,21 @@
   },
   {
     "day": 220,
-    "reference": "Mark 12:44",
-    "text": "for they all gave out of their abundance, but she, out of her poverty, gave all that she had to live on.”",
+    "reference": "Mark 1:17",
+    "text": "Jesus said to them, “Come after me, and I will make you into fishers for men.”",
     "verseKeys": [
-      "Mark 12:44"
+      "Mark 1:17"
     ],
-    "verseSha256": "4aa99a77ea088afa0da193059b35d7ef5776ac92cabf4e6b7214607fdad010b1"
+    "verseSha256": "3f42040b20acbd50d8baaefd1556e5806d057e17151be705d4c85bb71fca6d89"
   },
   {
     "day": 221,
-    "reference": "Luke 1:38",
-    "text": "Mary said, “Behold, the servant of the Lord; let it be done to me according to your word.” Then the angel departed from her.",
+    "reference": "John 14:27",
+    "text": "Peace I leave with you. My peace I give to you; not as the world gives, I give to you. Don’t let your heart be troubled, neither let it be fearful.",
     "verseKeys": [
-      "Luke 1:38"
+      "John 14:27"
     ],
-    "verseSha256": "ff96c99c20311c176fdb6c8d3f8d2ac0adf965a10c9644efe7c4950a45f70ad0"
+    "verseSha256": "978daffd1e7d42fda134ba51b1d60f7159799dfac19143474904dcc986f12228"
   },
   {
     "day": 222,
@@ -2006,12 +2006,12 @@
   },
   {
     "day": 223,
-    "reference": "Luke 2:19",
-    "text": "But Mary kept all these sayings, pondering them in her heart.",
+    "reference": "Luke 2:52",
+    "text": "And Jesus increased in wisdom and stature, and in favor with God and men.",
     "verseKeys": [
-      "Luke 2:19"
+      "Luke 2:52"
     ],
-    "verseSha256": "e1b2c899c3c6d520dc81997bc84766f3042d856b6155de3d91a707e8875e302d"
+    "verseSha256": "da3fd338fb1b7007517a6895ff0523ba1666f63ac5e0143251a80c8b0682e147"
   },
   {
     "day": 224,
