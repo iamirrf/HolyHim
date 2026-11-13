@@ -1,2 +1,0 @@
-365 lessons verified: 371 quoted verses; all 38,058 cached verses match independently parsed pinned XML.
-Archive/XML hashes, original archive entries, authored input, Dart catalog, provenance fixture, and editorial report match. No files rewritten.

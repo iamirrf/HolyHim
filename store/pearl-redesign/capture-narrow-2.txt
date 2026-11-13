@@ -1,7 +1,0 @@
-welcome:0 375.0 667.0 OK
-auth 375.0 667.0 OK
-onboarding:moment 375.0 667.0 OK
-learn 375.0 667.0 OK
-saved:populated 375.0 667.0 OK
-profile 375.0 667.0 OK
-lesson:verse 375.0 667.0 OK

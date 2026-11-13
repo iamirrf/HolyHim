@@ -1,6 +1,0 @@
-00:00 +0: loading /Users/amir/Downloads/HolyHer/test/navigation_presentation_test.dart
-00:00 +0: late journey reveals current lesson lazily at 1.0x text
-00:01 +1: late journey reveals current lesson lazily at 2.0x text
-00:01 +2: only user vertical scrolling minimizes navigation and upward scrolling expands it
-00:01 +3: Saved search survives tab changes and reselecting Learn returns to the top
-00:02 +4: All tests passed!

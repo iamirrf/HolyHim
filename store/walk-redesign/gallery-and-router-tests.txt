@@ -1,6 +1,0 @@
-00:00 +0: loading /Users/amir/Downloads/HolyHer/test/walk_visual_test.dart
-00:00 +0: /Users/amir/Downloads/HolyHer/test/walk_visual_test.dart: (setUpAll)
-00:00 +0: /Users/amir/Downloads/HolyHer/test/walk_visual_test.dart: capture real HolyHer widgets across six themes and adaptive surfaces
-00:05 +1: /Users/amir/Downloads/HolyHer/test/walk_visual_test.dart: capture real HolyHer widgets across six themes and adaptive surfaces
-00:50 +2: /Users/amir/Downloads/HolyHer/test/walk_visual_test.dart: (tearDownAll)
-00:50 +2: All tests passed!

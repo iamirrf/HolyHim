@@ -6,13 +6,13 @@ from pathlib import Path
 from PIL import Image
 
 ROOT=Path(__file__).resolve().parents[1]
-source=ROOT/'HolyHer_AppIcon_Set.zip'
+source=ROOT/'HolyHim_AppIcon_Set.zip'
 target=ROOT/'ios/Runner/Assets.xcassets/AppIcon.appiconset'
 manifest=json.loads((target/'Contents.json').read_text())
 with zipfile.ZipFile(source) as archive:
     for item in manifest['images']:
         filename=item['filename']
-        (target/filename).write_bytes(archive.read('HolyHer_AppIcon_Set/'+filename))
+        (target/filename).write_bytes(archive.read('HolyHim_AppIcon_Set/'+filename))
         with Image.open(target/filename) as image:
             pixels=round(float(item['size'].split('x')[0])*float(item['scale'][:-1]))
             assert image.size==(pixels,pixels),filename

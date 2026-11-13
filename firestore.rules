@@ -6,35 +6,642 @@ service cloud.firestore {
       return !exists(/databases/$(database)/documents/deletionGuards/$(uid))
         || get(/databases/$(database)/documents/deletionGuards/$(uid)).data.deleting != true;
     }
+    function shortText(value, maximum) { return value is string && value.size() <= maximum; }
+    function nullableTimestamp(value) { return value == null || value is timestamp; }
+    function validProfile(data) {
+      return data.keys().hasOnly(['schema','name','hearts','reminder','theme','readingScale','haptics','sounds','promise','timeZone','onboardedAt','createdAt','updatedAt','migratedAt','username','birthday','avatarUrl','onboardingDraft','familiarity','focus','obstacle','reminderMinutes','onboardingComplete','tips','largerText','onboardingVersion','onboardingStepId','onboardingStep','onboardingAnswered','suggestedReminderMinutes','reminderDecision','guidedExampleAnswer','guidedExampleRevealed'])
+        && data.keys().hasAll(['schema','name','hearts','reminder','theme','readingScale','haptics','sounds','promise','timeZone','createdAt','updatedAt'])
+        && data.schema is int && data.schema in [5,6]
+        && shortText(data.get('username',''),40)
+        && (data.get('birthday',null)==null || (data.birthday is string && data.birthday.matches('^[0-9]{4}-[0-9]{2}-[0-9]{2}$')))
+        && (data.get('avatarUrl',null)==null || data.avatarUrl == '' || (shortText(data.avatarUrl,2000) && data.avatarUrl.matches('^https://firebasestorage[.]googleapis[.]com/.*')))
+        && data.get('onboardingDraft',{}) is map
+        && data.get('onboardingDraft',{}).keys().hasOnly(['step','stepId','flowVersion','firstName','lastName','lifeSeason','faithRoutine','source','sourceDetail','familiarity','needs','obstacle','pace','reminder','intention','termsAccepted'])
+        && data.get('onboardingDraft',{}).get('step',0) is int
+        && data.get('onboardingDraft',{}).get('step',0) >= 0 && data.get('onboardingDraft',{}).get('step',0) <= 10
+        && data.get('onboardingDraft',{}).get('flowVersion',0) is int
+        && data.get('onboardingDraft',{}).get('flowVersion',0) >= 0 && data.get('onboardingDraft',{}).get('flowVersion',0) <= 3
+        && data.get('onboardingDraft',{}).get('stepId','') in ['', 'name', 'birthday', 'lifeSeason', 'scriptureRoutine', 'guideObstacle', 'intentions', 'dailyRhythm', 'routinePreview', 'profileSetup', 'saving', 'lifetimeAccess', 'heart', 'season', 'familiarity', 'obstacle', 'reminder', 'building', 'letter', 'offer', 'complete']
+        && data.get('onboardingDraft',{}).get('obstacle','') in ['', 'My days are full', 'Understanding Scripture is hard', 'I forget to return', 'Beginning feels hard', 'No particular obstacle', 'busy', 'understanding', 'forgetting', 'starting', 'none']
+        && data.get('onboardingDraft',{}).get('termsAccepted',false) is bool
+        && shortText(data.get('onboardingDraft',{}).get('firstName',''), 80)
+        && shortText(data.get('onboardingDraft',{}).get('lastName',''), 80)
+        && shortText(data.get('onboardingDraft',{}).get('lifeSeason',''), 120)
+        && shortText(data.get('onboardingDraft',{}).get('faithRoutine',''), 120)
+        && shortText(data.get('onboardingDraft',{}).get('source',''), 120)
+        && shortText(data.get('onboardingDraft',{}).get('sourceDetail',''), 120)
+        && shortText(data.get('onboardingDraft',{}).get('familiarity',''), 120)
+        && shortText(data.get('onboardingDraft',{}).get('needs',''), 120)
+        && shortText(data.get('onboardingDraft',{}).get('pace',''), 120)
+        && shortText(data.get('onboardingDraft',{}).get('reminder',''), 120)
+        && shortText(data.get('onboardingDraft',{}).get('intention',''), 120)
+        && shortText(data.name, 80)
+        && data.hearts is list && data.hearts.size() <= 3
+        && (data.hearts.size() < 1 || shortText(data.hearts[0], 20))
+        && (data.hearts.size() < 2 || shortText(data.hearts[1], 20))
+        && (data.hearts.size() < 3 || shortText(data.hearts[2], 20))
+        && data.reminder is map && data.reminder.keys().hasOnly(['enabled','minutes'])
+        && data.reminder.enabled is bool && data.reminder.minutes is int
+        && data.reminder.minutes >= 0 && data.reminder.minutes < 1440
+        && shortText(data.theme, 40)
+        && data.readingScale is number && data.readingScale >= 1 && data.readingScale <= 2
+        && data.haptics is bool && data.sounds is bool
+        && data.promise is map && data.promise.keys().hasOnly(['startedAt'])
+        && nullableTimestamp(data.promise.get('startedAt', null))
+        && shortText(data.timeZone, 100)
+        && data.createdAt is timestamp && data.updatedAt is timestamp
+        && nullableTimestamp(data.get('onboardedAt', null))
+        && nullableTimestamp(data.get('migratedAt', null));
+    }
+    function validLegacyProfile(data) {
+      return !('schema' in data) && data.keys().hasOnly(['name','familiarity','focus','obstacle','reminderMinutes','onboardingComplete','haptics','sounds','tips','largerText','theme','readingScale','onboardingVersion','onboardingStepId','onboardingStep','onboardingAnswered','suggestedReminderMinutes','reminderDecision','guidedExampleAnswer','guidedExampleRevealed'])
+        && data.name is string && data.name.size() <= 80
+        && data.familiarity in ['new','returning','regular']
+        && data.focus in ['peace','confidence','courage','hope','guidance','rest']
+        && data.obstacle in ['busy','forget','language','apply']
+        && (data.reminderMinutes == null || (data.reminderMinutes is int && data.reminderMinutes >= 0 && data.reminderMinutes < 1440))
+        && data.onboardingComplete is bool && data.haptics is bool
+        && (!('sounds' in data) || data.sounds is bool)
+        && (!('tips' in data) || data.tips is bool)
+        && (!('largerText' in data) || data.largerText is bool)
+        && (!('theme' in data) || data.theme in ['pearl','rose','lavender','sage','dawn','midnight'])
+        && (!('readingScale' in data) || (data.readingScale is number && data.readingScale >= 1 && data.readingScale <= 2))
+        && (!('onboardingVersion' in data) || data.onboardingVersion in [2,3,4])
+        && (!('onboardingStepId' in data) || data.onboardingStepId in ['name','starting-point','focus','barrier','suggested-rhythm','reminder','learning-preview','summary','save','day-one','moment','guided-example','daily-rhythm','arrival'])
+        && (!('onboardingAnswered' in data) || (data.onboardingAnswered is list && data.onboardingAnswered.size() <= 12 && data.onboardingAnswered.hasOnly(['name','moment','starting-point','barrier','guided-example','daily-rhythm','focus','reminder','summary','save','day-one','arrival'])))
+        && (!('suggestedReminderMinutes' in data) || data.suggestedReminderMinutes == null || (data.suggestedReminderMinutes is int && data.suggestedReminderMinutes >= 0 && data.suggestedReminderMinutes < 1440))
+        && (!('reminderDecision' in data) || data.reminderDecision in ['pending','enabled','declined','denied'])
+        && (!('guidedExampleAnswer' in data) || data.guidedExampleAnswer == null || data.guidedExampleAnswer in ['day-001-q1-a','day-001-q1-b','day-001-q1-c','day-001-q1-d'])
+        && (!('guidedExampleRevealed' in data) || data.guidedExampleRevealed is bool)
+        && data.onboardingStep is int && data.onboardingStep >= 0 && data.onboardingStep <= (('onboardingVersion' in data && data.onboardingVersion == 4) ? 3 : (('onboardingVersion' in data && data.onboardingVersion == 3) ? 11 : 9));
+    }
+    function validDayKeys(data) {
+      let keys = data.keys();
+      let joined = keys.join(',');
+      // Map keys are strings. Matching the range and separator count rejects
+      // aliases, leading zeroes and delimiter injection without a 365-key scan.
+      return keys.size() == 0 || (joined.split(',').size() == keys.size()
+        && joined.matches('^([1-9]|[1-9][0-9]|[12][0-9]{2}|3[0-5][0-9]|36[0-5])(,([1-9]|[1-9][0-9]|[12][0-9]{2}|3[0-5][0-9]|36[0-5]))*$'));
+    }
+    function validProgress() {
+      let data = request.resource.data;
+      let next = data.completed;
+      let joined = next.values().join('|');
+      // The exact length enforces one 10-character date per map member. It
+      // prevents a delimiter inside a value from impersonating another entry.
+      return data.keys().hasOnly(['completed']) && next is map && next.size() <= 365
+        && validDayKeys(next)
+        && (next.size() == 0 || (joined.size() == next.size() * 11 - 1
+          && joined.matches('^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])(\\|[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01]))*$')));
+    }
+    // Rules have no arbitrary-map iteration and a 1,000-expression budget.
+    // A binary choice reaches one fixed 20-day block, then validates its values.
+    // Migration groups saved keys by floor((day - 1) / 20); normal writes touch
+    // a single field. The ternaries avoid evaluating all 365 timestamp checks.
+    function savedDays1To20(next, changed) {
+      return changed.hasOnly(['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20']) ? (
+           (!('1' in next) || next['1'] is timestamp)
+        && (!('2' in next) || next['2'] is timestamp)
+        && (!('3' in next) || next['3'] is timestamp)
+        && (!('4' in next) || next['4'] is timestamp)
+        && (!('5' in next) || next['5'] is timestamp)
+        && (!('6' in next) || next['6'] is timestamp)
+        && (!('7' in next) || next['7'] is timestamp)
+        && (!('8' in next) || next['8'] is timestamp)
+        && (!('9' in next) || next['9'] is timestamp)
+        && (!('10' in next) || next['10'] is timestamp)
+        && (!('11' in next) || next['11'] is timestamp)
+        && (!('12' in next) || next['12'] is timestamp)
+        && (!('13' in next) || next['13'] is timestamp)
+        && (!('14' in next) || next['14'] is timestamp)
+        && (!('15' in next) || next['15'] is timestamp)
+        && (!('16' in next) || next['16'] is timestamp)
+        && (!('17' in next) || next['17'] is timestamp)
+        && (!('18' in next) || next['18'] is timestamp)
+        && (!('19' in next) || next['19'] is timestamp)
+        && (!('20' in next) || next['20'] is timestamp)
+        ) : false;
+    }
+    function savedDays21To40(next, changed) {
+      return changed.hasOnly(['21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40']) ? (
+           (!('21' in next) || next['21'] is timestamp)
+        && (!('22' in next) || next['22'] is timestamp)
+        && (!('23' in next) || next['23'] is timestamp)
+        && (!('24' in next) || next['24'] is timestamp)
+        && (!('25' in next) || next['25'] is timestamp)
+        && (!('26' in next) || next['26'] is timestamp)
+        && (!('27' in next) || next['27'] is timestamp)
+        && (!('28' in next) || next['28'] is timestamp)
+        && (!('29' in next) || next['29'] is timestamp)
+        && (!('30' in next) || next['30'] is timestamp)
+        && (!('31' in next) || next['31'] is timestamp)
+        && (!('32' in next) || next['32'] is timestamp)
+        && (!('33' in next) || next['33'] is timestamp)
+        && (!('34' in next) || next['34'] is timestamp)
+        && (!('35' in next) || next['35'] is timestamp)
+        && (!('36' in next) || next['36'] is timestamp)
+        && (!('37' in next) || next['37'] is timestamp)
+        && (!('38' in next) || next['38'] is timestamp)
+        && (!('39' in next) || next['39'] is timestamp)
+        && (!('40' in next) || next['40'] is timestamp)
+        ) : false;
+    }
+    function savedDays1To40(next, changed) {
+      return changed.hasOnly(['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20'])
+        ? savedDays1To20(next, changed) : savedDays21To40(next, changed);
+    }
+    function savedDays41To60(next, changed) {
+      return changed.hasOnly(['41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51', '52', '53', '54', '55', '56', '57', '58', '59', '60']) ? (
+           (!('41' in next) || next['41'] is timestamp)
+        && (!('42' in next) || next['42'] is timestamp)
+        && (!('43' in next) || next['43'] is timestamp)
+        && (!('44' in next) || next['44'] is timestamp)
+        && (!('45' in next) || next['45'] is timestamp)
+        && (!('46' in next) || next['46'] is timestamp)
+        && (!('47' in next) || next['47'] is timestamp)
+        && (!('48' in next) || next['48'] is timestamp)
+        && (!('49' in next) || next['49'] is timestamp)
+        && (!('50' in next) || next['50'] is timestamp)
+        && (!('51' in next) || next['51'] is timestamp)
+        && (!('52' in next) || next['52'] is timestamp)
+        && (!('53' in next) || next['53'] is timestamp)
+        && (!('54' in next) || next['54'] is timestamp)
+        && (!('55' in next) || next['55'] is timestamp)
+        && (!('56' in next) || next['56'] is timestamp)
+        && (!('57' in next) || next['57'] is timestamp)
+        && (!('58' in next) || next['58'] is timestamp)
+        && (!('59' in next) || next['59'] is timestamp)
+        && (!('60' in next) || next['60'] is timestamp)
+        ) : false;
+    }
+    function savedDays1To60(next, changed) {
+      return changed.hasOnly(['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40'])
+        ? savedDays1To40(next, changed) : savedDays41To60(next, changed);
+    }
+    function savedDays61To80(next, changed) {
+      return changed.hasOnly(['61', '62', '63', '64', '65', '66', '67', '68', '69', '70', '71', '72', '73', '74', '75', '76', '77', '78', '79', '80']) ? (
+           (!('61' in next) || next['61'] is timestamp)
+        && (!('62' in next) || next['62'] is timestamp)
+        && (!('63' in next) || next['63'] is timestamp)
+        && (!('64' in next) || next['64'] is timestamp)
+        && (!('65' in next) || next['65'] is timestamp)
+        && (!('66' in next) || next['66'] is timestamp)
+        && (!('67' in next) || next['67'] is timestamp)
+        && (!('68' in next) || next['68'] is timestamp)
+        && (!('69' in next) || next['69'] is timestamp)
+        && (!('70' in next) || next['70'] is timestamp)
+        && (!('71' in next) || next['71'] is timestamp)
+        && (!('72' in next) || next['72'] is timestamp)
+        && (!('73' in next) || next['73'] is timestamp)
+        && (!('74' in next) || next['74'] is timestamp)
+        && (!('75' in next) || next['75'] is timestamp)
+        && (!('76' in next) || next['76'] is timestamp)
+        && (!('77' in next) || next['77'] is timestamp)
+        && (!('78' in next) || next['78'] is timestamp)
+        && (!('79' in next) || next['79'] is timestamp)
+        && (!('80' in next) || next['80'] is timestamp)
+        ) : false;
+    }
+    function savedDays81To100(next, changed) {
+      return changed.hasOnly(['81', '82', '83', '84', '85', '86', '87', '88', '89', '90', '91', '92', '93', '94', '95', '96', '97', '98', '99', '100']) ? (
+           (!('81' in next) || next['81'] is timestamp)
+        && (!('82' in next) || next['82'] is timestamp)
+        && (!('83' in next) || next['83'] is timestamp)
+        && (!('84' in next) || next['84'] is timestamp)
+        && (!('85' in next) || next['85'] is timestamp)
+        && (!('86' in next) || next['86'] is timestamp)
+        && (!('87' in next) || next['87'] is timestamp)
+        && (!('88' in next) || next['88'] is timestamp)
+        && (!('89' in next) || next['89'] is timestamp)
+        && (!('90' in next) || next['90'] is timestamp)
+        && (!('91' in next) || next['91'] is timestamp)
+        && (!('92' in next) || next['92'] is timestamp)
+        && (!('93' in next) || next['93'] is timestamp)
+        && (!('94' in next) || next['94'] is timestamp)
+        && (!('95' in next) || next['95'] is timestamp)
+        && (!('96' in next) || next['96'] is timestamp)
+        && (!('97' in next) || next['97'] is timestamp)
+        && (!('98' in next) || next['98'] is timestamp)
+        && (!('99' in next) || next['99'] is timestamp)
+        && (!('100' in next) || next['100'] is timestamp)
+        ) : false;
+    }
+    function savedDays61To100(next, changed) {
+      return changed.hasOnly(['61', '62', '63', '64', '65', '66', '67', '68', '69', '70', '71', '72', '73', '74', '75', '76', '77', '78', '79', '80'])
+        ? savedDays61To80(next, changed) : savedDays81To100(next, changed);
+    }
+    function savedDays1To100(next, changed) {
+      return changed.hasOnly(['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51', '52', '53', '54', '55', '56', '57', '58', '59', '60'])
+        ? savedDays1To60(next, changed) : savedDays61To100(next, changed);
+    }
+    function savedDays101To120(next, changed) {
+      return changed.hasOnly(['101', '102', '103', '104', '105', '106', '107', '108', '109', '110', '111', '112', '113', '114', '115', '116', '117', '118', '119', '120']) ? (
+           (!('101' in next) || next['101'] is timestamp)
+        && (!('102' in next) || next['102'] is timestamp)
+        && (!('103' in next) || next['103'] is timestamp)
+        && (!('104' in next) || next['104'] is timestamp)
+        && (!('105' in next) || next['105'] is timestamp)
+        && (!('106' in next) || next['106'] is timestamp)
+        && (!('107' in next) || next['107'] is timestamp)
+        && (!('108' in next) || next['108'] is timestamp)
+        && (!('109' in next) || next['109'] is timestamp)
+        && (!('110' in next) || next['110'] is timestamp)
+        && (!('111' in next) || next['111'] is timestamp)
+        && (!('112' in next) || next['112'] is timestamp)
+        && (!('113' in next) || next['113'] is timestamp)
+        && (!('114' in next) || next['114'] is timestamp)
+        && (!('115' in next) || next['115'] is timestamp)
+        && (!('116' in next) || next['116'] is timestamp)
+        && (!('117' in next) || next['117'] is timestamp)
+        && (!('118' in next) || next['118'] is timestamp)
+        && (!('119' in next) || next['119'] is timestamp)
+        && (!('120' in next) || next['120'] is timestamp)
+        ) : false;
+    }
+    function savedDays121To140(next, changed) {
+      return changed.hasOnly(['121', '122', '123', '124', '125', '126', '127', '128', '129', '130', '131', '132', '133', '134', '135', '136', '137', '138', '139', '140']) ? (
+           (!('121' in next) || next['121'] is timestamp)
+        && (!('122' in next) || next['122'] is timestamp)
+        && (!('123' in next) || next['123'] is timestamp)
+        && (!('124' in next) || next['124'] is timestamp)
+        && (!('125' in next) || next['125'] is timestamp)
+        && (!('126' in next) || next['126'] is timestamp)
+        && (!('127' in next) || next['127'] is timestamp)
+        && (!('128' in next) || next['128'] is timestamp)
+        && (!('129' in next) || next['129'] is timestamp)
+        && (!('130' in next) || next['130'] is timestamp)
+        && (!('131' in next) || next['131'] is timestamp)
+        && (!('132' in next) || next['132'] is timestamp)
+        && (!('133' in next) || next['133'] is timestamp)
+        && (!('134' in next) || next['134'] is timestamp)
+        && (!('135' in next) || next['135'] is timestamp)
+        && (!('136' in next) || next['136'] is timestamp)
+        && (!('137' in next) || next['137'] is timestamp)
+        && (!('138' in next) || next['138'] is timestamp)
+        && (!('139' in next) || next['139'] is timestamp)
+        && (!('140' in next) || next['140'] is timestamp)
+        ) : false;
+    }
+    function savedDays101To140(next, changed) {
+      return changed.hasOnly(['101', '102', '103', '104', '105', '106', '107', '108', '109', '110', '111', '112', '113', '114', '115', '116', '117', '118', '119', '120'])
+        ? savedDays101To120(next, changed) : savedDays121To140(next, changed);
+    }
+    function savedDays141To160(next, changed) {
+      return changed.hasOnly(['141', '142', '143', '144', '145', '146', '147', '148', '149', '150', '151', '152', '153', '154', '155', '156', '157', '158', '159', '160']) ? (
+           (!('141' in next) || next['141'] is timestamp)
+        && (!('142' in next) || next['142'] is timestamp)
+        && (!('143' in next) || next['143'] is timestamp)
+        && (!('144' in next) || next['144'] is timestamp)
+        && (!('145' in next) || next['145'] is timestamp)
+        && (!('146' in next) || next['146'] is timestamp)
+        && (!('147' in next) || next['147'] is timestamp)
+        && (!('148' in next) || next['148'] is timestamp)
+        && (!('149' in next) || next['149'] is timestamp)
+        && (!('150' in next) || next['150'] is timestamp)
+        && (!('151' in next) || next['151'] is timestamp)
+        && (!('152' in next) || next['152'] is timestamp)
+        && (!('153' in next) || next['153'] is timestamp)
+        && (!('154' in next) || next['154'] is timestamp)
+        && (!('155' in next) || next['155'] is timestamp)
+        && (!('156' in next) || next['156'] is timestamp)
+        && (!('157' in next) || next['157'] is timestamp)
+        && (!('158' in next) || next['158'] is timestamp)
+        && (!('159' in next) || next['159'] is timestamp)
+        && (!('160' in next) || next['160'] is timestamp)
+        ) : false;
+    }
+    function savedDays101To160(next, changed) {
+      return changed.hasOnly(['101', '102', '103', '104', '105', '106', '107', '108', '109', '110', '111', '112', '113', '114', '115', '116', '117', '118', '119', '120', '121', '122', '123', '124', '125', '126', '127', '128', '129', '130', '131', '132', '133', '134', '135', '136', '137', '138', '139', '140'])
+        ? savedDays101To140(next, changed) : savedDays141To160(next, changed);
+    }
+    function savedDays161To180(next, changed) {
+      return changed.hasOnly(['161', '162', '163', '164', '165', '166', '167', '168', '169', '170', '171', '172', '173', '174', '175', '176', '177', '178', '179', '180']) ? (
+           (!('161' in next) || next['161'] is timestamp)
+        && (!('162' in next) || next['162'] is timestamp)
+        && (!('163' in next) || next['163'] is timestamp)
+        && (!('164' in next) || next['164'] is timestamp)
+        && (!('165' in next) || next['165'] is timestamp)
+        && (!('166' in next) || next['166'] is timestamp)
+        && (!('167' in next) || next['167'] is timestamp)
+        && (!('168' in next) || next['168'] is timestamp)
+        && (!('169' in next) || next['169'] is timestamp)
+        && (!('170' in next) || next['170'] is timestamp)
+        && (!('171' in next) || next['171'] is timestamp)
+        && (!('172' in next) || next['172'] is timestamp)
+        && (!('173' in next) || next['173'] is timestamp)
+        && (!('174' in next) || next['174'] is timestamp)
+        && (!('175' in next) || next['175'] is timestamp)
+        && (!('176' in next) || next['176'] is timestamp)
+        && (!('177' in next) || next['177'] is timestamp)
+        && (!('178' in next) || next['178'] is timestamp)
+        && (!('179' in next) || next['179'] is timestamp)
+        && (!('180' in next) || next['180'] is timestamp)
+        ) : false;
+    }
+    function savedDays181To200(next, changed) {
+      return changed.hasOnly(['181', '182', '183', '184', '185', '186', '187', '188', '189', '190', '191', '192', '193', '194', '195', '196', '197', '198', '199', '200']) ? (
+           (!('181' in next) || next['181'] is timestamp)
+        && (!('182' in next) || next['182'] is timestamp)
+        && (!('183' in next) || next['183'] is timestamp)
+        && (!('184' in next) || next['184'] is timestamp)
+        && (!('185' in next) || next['185'] is timestamp)
+        && (!('186' in next) || next['186'] is timestamp)
+        && (!('187' in next) || next['187'] is timestamp)
+        && (!('188' in next) || next['188'] is timestamp)
+        && (!('189' in next) || next['189'] is timestamp)
+        && (!('190' in next) || next['190'] is timestamp)
+        && (!('191' in next) || next['191'] is timestamp)
+        && (!('192' in next) || next['192'] is timestamp)
+        && (!('193' in next) || next['193'] is timestamp)
+        && (!('194' in next) || next['194'] is timestamp)
+        && (!('195' in next) || next['195'] is timestamp)
+        && (!('196' in next) || next['196'] is timestamp)
+        && (!('197' in next) || next['197'] is timestamp)
+        && (!('198' in next) || next['198'] is timestamp)
+        && (!('199' in next) || next['199'] is timestamp)
+        && (!('200' in next) || next['200'] is timestamp)
+        ) : false;
+    }
+    function savedDays161To200(next, changed) {
+      return changed.hasOnly(['161', '162', '163', '164', '165', '166', '167', '168', '169', '170', '171', '172', '173', '174', '175', '176', '177', '178', '179', '180'])
+        ? savedDays161To180(next, changed) : savedDays181To200(next, changed);
+    }
+    function savedDays101To200(next, changed) {
+      return changed.hasOnly(['101', '102', '103', '104', '105', '106', '107', '108', '109', '110', '111', '112', '113', '114', '115', '116', '117', '118', '119', '120', '121', '122', '123', '124', '125', '126', '127', '128', '129', '130', '131', '132', '133', '134', '135', '136', '137', '138', '139', '140', '141', '142', '143', '144', '145', '146', '147', '148', '149', '150', '151', '152', '153', '154', '155', '156', '157', '158', '159', '160'])
+        ? savedDays101To160(next, changed) : savedDays161To200(next, changed);
+    }
+    function savedDays1To200(next, changed) {
+      return changed.hasOnly(['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51', '52', '53', '54', '55', '56', '57', '58', '59', '60', '61', '62', '63', '64', '65', '66', '67', '68', '69', '70', '71', '72', '73', '74', '75', '76', '77', '78', '79', '80', '81', '82', '83', '84', '85', '86', '87', '88', '89', '90', '91', '92', '93', '94', '95', '96', '97', '98', '99', '100'])
+        ? savedDays1To100(next, changed) : savedDays101To200(next, changed);
+    }
+    function savedDays201To220(next, changed) {
+      return changed.hasOnly(['201', '202', '203', '204', '205', '206', '207', '208', '209', '210', '211', '212', '213', '214', '215', '216', '217', '218', '219', '220']) ? (
+           (!('201' in next) || next['201'] is timestamp)
+        && (!('202' in next) || next['202'] is timestamp)
+        && (!('203' in next) || next['203'] is timestamp)
+        && (!('204' in next) || next['204'] is timestamp)
+        && (!('205' in next) || next['205'] is timestamp)
+        && (!('206' in next) || next['206'] is timestamp)
+        && (!('207' in next) || next['207'] is timestamp)
+        && (!('208' in next) || next['208'] is timestamp)
+        && (!('209' in next) || next['209'] is timestamp)
+        && (!('210' in next) || next['210'] is timestamp)
+        && (!('211' in next) || next['211'] is timestamp)
+        && (!('212' in next) || next['212'] is timestamp)
+        && (!('213' in next) || next['213'] is timestamp)
+        && (!('214' in next) || next['214'] is timestamp)
+        && (!('215' in next) || next['215'] is timestamp)
+        && (!('216' in next) || next['216'] is timestamp)
+        && (!('217' in next) || next['217'] is timestamp)
+        && (!('218' in next) || next['218'] is timestamp)
+        && (!('219' in next) || next['219'] is timestamp)
+        && (!('220' in next) || next['220'] is timestamp)
+        ) : false;
+    }
+    function savedDays221To240(next, changed) {
+      return changed.hasOnly(['221', '222', '223', '224', '225', '226', '227', '228', '229', '230', '231', '232', '233', '234', '235', '236', '237', '238', '239', '240']) ? (
+           (!('221' in next) || next['221'] is timestamp)
+        && (!('222' in next) || next['222'] is timestamp)
+        && (!('223' in next) || next['223'] is timestamp)
+        && (!('224' in next) || next['224'] is timestamp)
+        && (!('225' in next) || next['225'] is timestamp)
+        && (!('226' in next) || next['226'] is timestamp)
+        && (!('227' in next) || next['227'] is timestamp)
+        && (!('228' in next) || next['228'] is timestamp)
+        && (!('229' in next) || next['229'] is timestamp)
+        && (!('230' in next) || next['230'] is timestamp)
+        && (!('231' in next) || next['231'] is timestamp)
+        && (!('232' in next) || next['232'] is timestamp)
+        && (!('233' in next) || next['233'] is timestamp)
+        && (!('234' in next) || next['234'] is timestamp)
+        && (!('235' in next) || next['235'] is timestamp)
+        && (!('236' in next) || next['236'] is timestamp)
+        && (!('237' in next) || next['237'] is timestamp)
+        && (!('238' in next) || next['238'] is timestamp)
+        && (!('239' in next) || next['239'] is timestamp)
+        && (!('240' in next) || next['240'] is timestamp)
+        ) : false;
+    }
+    function savedDays201To240(next, changed) {
+      return changed.hasOnly(['201', '202', '203', '204', '205', '206', '207', '208', '209', '210', '211', '212', '213', '214', '215', '216', '217', '218', '219', '220'])
+        ? savedDays201To220(next, changed) : savedDays221To240(next, changed);
+    }
+    function savedDays241To260(next, changed) {
+      return changed.hasOnly(['241', '242', '243', '244', '245', '246', '247', '248', '249', '250', '251', '252', '253', '254', '255', '256', '257', '258', '259', '260']) ? (
+           (!('241' in next) || next['241'] is timestamp)
+        && (!('242' in next) || next['242'] is timestamp)
+        && (!('243' in next) || next['243'] is timestamp)
+        && (!('244' in next) || next['244'] is timestamp)
+        && (!('245' in next) || next['245'] is timestamp)
+        && (!('246' in next) || next['246'] is timestamp)
+        && (!('247' in next) || next['247'] is timestamp)
+        && (!('248' in next) || next['248'] is timestamp)
+        && (!('249' in next) || next['249'] is timestamp)
+        && (!('250' in next) || next['250'] is timestamp)
+        && (!('251' in next) || next['251'] is timestamp)
+        && (!('252' in next) || next['252'] is timestamp)
+        && (!('253' in next) || next['253'] is timestamp)
+        && (!('254' in next) || next['254'] is timestamp)
+        && (!('255' in next) || next['255'] is timestamp)
+        && (!('256' in next) || next['256'] is timestamp)
+        && (!('257' in next) || next['257'] is timestamp)
+        && (!('258' in next) || next['258'] is timestamp)
+        && (!('259' in next) || next['259'] is timestamp)
+        && (!('260' in next) || next['260'] is timestamp)
+        ) : false;
+    }
+    function savedDays201To260(next, changed) {
+      return changed.hasOnly(['201', '202', '203', '204', '205', '206', '207', '208', '209', '210', '211', '212', '213', '214', '215', '216', '217', '218', '219', '220', '221', '222', '223', '224', '225', '226', '227', '228', '229', '230', '231', '232', '233', '234', '235', '236', '237', '238', '239', '240'])
+        ? savedDays201To240(next, changed) : savedDays241To260(next, changed);
+    }
+    function savedDays261To280(next, changed) {
+      return changed.hasOnly(['261', '262', '263', '264', '265', '266', '267', '268', '269', '270', '271', '272', '273', '274', '275', '276', '277', '278', '279', '280']) ? (
+           (!('261' in next) || next['261'] is timestamp)
+        && (!('262' in next) || next['262'] is timestamp)
+        && (!('263' in next) || next['263'] is timestamp)
+        && (!('264' in next) || next['264'] is timestamp)
+        && (!('265' in next) || next['265'] is timestamp)
+        && (!('266' in next) || next['266'] is timestamp)
+        && (!('267' in next) || next['267'] is timestamp)
+        && (!('268' in next) || next['268'] is timestamp)
+        && (!('269' in next) || next['269'] is timestamp)
+        && (!('270' in next) || next['270'] is timestamp)
+        && (!('271' in next) || next['271'] is timestamp)
+        && (!('272' in next) || next['272'] is timestamp)
+        && (!('273' in next) || next['273'] is timestamp)
+        && (!('274' in next) || next['274'] is timestamp)
+        && (!('275' in next) || next['275'] is timestamp)
+        && (!('276' in next) || next['276'] is timestamp)
+        && (!('277' in next) || next['277'] is timestamp)
+        && (!('278' in next) || next['278'] is timestamp)
+        && (!('279' in next) || next['279'] is timestamp)
+        && (!('280' in next) || next['280'] is timestamp)
+        ) : false;
+    }
+    function savedDays281To300(next, changed) {
+      return changed.hasOnly(['281', '282', '283', '284', '285', '286', '287', '288', '289', '290', '291', '292', '293', '294', '295', '296', '297', '298', '299', '300']) ? (
+           (!('281' in next) || next['281'] is timestamp)
+        && (!('282' in next) || next['282'] is timestamp)
+        && (!('283' in next) || next['283'] is timestamp)
+        && (!('284' in next) || next['284'] is timestamp)
+        && (!('285' in next) || next['285'] is timestamp)
+        && (!('286' in next) || next['286'] is timestamp)
+        && (!('287' in next) || next['287'] is timestamp)
+        && (!('288' in next) || next['288'] is timestamp)
+        && (!('289' in next) || next['289'] is timestamp)
+        && (!('290' in next) || next['290'] is timestamp)
+        && (!('291' in next) || next['291'] is timestamp)
+        && (!('292' in next) || next['292'] is timestamp)
+        && (!('293' in next) || next['293'] is timestamp)
+        && (!('294' in next) || next['294'] is timestamp)
+        && (!('295' in next) || next['295'] is timestamp)
+        && (!('296' in next) || next['296'] is timestamp)
+        && (!('297' in next) || next['297'] is timestamp)
+        && (!('298' in next) || next['298'] is timestamp)
+        && (!('299' in next) || next['299'] is timestamp)
+        && (!('300' in next) || next['300'] is timestamp)
+        ) : false;
+    }
+    function savedDays261To300(next, changed) {
+      return changed.hasOnly(['261', '262', '263', '264', '265', '266', '267', '268', '269', '270', '271', '272', '273', '274', '275', '276', '277', '278', '279', '280'])
+        ? savedDays261To280(next, changed) : savedDays281To300(next, changed);
+    }
+    function savedDays201To300(next, changed) {
+      return changed.hasOnly(['201', '202', '203', '204', '205', '206', '207', '208', '209', '210', '211', '212', '213', '214', '215', '216', '217', '218', '219', '220', '221', '222', '223', '224', '225', '226', '227', '228', '229', '230', '231', '232', '233', '234', '235', '236', '237', '238', '239', '240', '241', '242', '243', '244', '245', '246', '247', '248', '249', '250', '251', '252', '253', '254', '255', '256', '257', '258', '259', '260'])
+        ? savedDays201To260(next, changed) : savedDays261To300(next, changed);
+    }
+    function savedDays301To320(next, changed) {
+      return changed.hasOnly(['301', '302', '303', '304', '305', '306', '307', '308', '309', '310', '311', '312', '313', '314', '315', '316', '317', '318', '319', '320']) ? (
+           (!('301' in next) || next['301'] is timestamp)
+        && (!('302' in next) || next['302'] is timestamp)
+        && (!('303' in next) || next['303'] is timestamp)
+        && (!('304' in next) || next['304'] is timestamp)
+        && (!('305' in next) || next['305'] is timestamp)
+        && (!('306' in next) || next['306'] is timestamp)
+        && (!('307' in next) || next['307'] is timestamp)
+        && (!('308' in next) || next['308'] is timestamp)
+        && (!('309' in next) || next['309'] is timestamp)
+        && (!('310' in next) || next['310'] is timestamp)
+        && (!('311' in next) || next['311'] is timestamp)
+        && (!('312' in next) || next['312'] is timestamp)
+        && (!('313' in next) || next['313'] is timestamp)
+        && (!('314' in next) || next['314'] is timestamp)
+        && (!('315' in next) || next['315'] is timestamp)
+        && (!('316' in next) || next['316'] is timestamp)
+        && (!('317' in next) || next['317'] is timestamp)
+        && (!('318' in next) || next['318'] is timestamp)
+        && (!('319' in next) || next['319'] is timestamp)
+        && (!('320' in next) || next['320'] is timestamp)
+        ) : false;
+    }
+    function savedDays321To340(next, changed) {
+      return changed.hasOnly(['321', '322', '323', '324', '325', '326', '327', '328', '329', '330', '331', '332', '333', '334', '335', '336', '337', '338', '339', '340']) ? (
+           (!('321' in next) || next['321'] is timestamp)
+        && (!('322' in next) || next['322'] is timestamp)
+        && (!('323' in next) || next['323'] is timestamp)
+        && (!('324' in next) || next['324'] is timestamp)
+        && (!('325' in next) || next['325'] is timestamp)
+        && (!('326' in next) || next['326'] is timestamp)
+        && (!('327' in next) || next['327'] is timestamp)
+        && (!('328' in next) || next['328'] is timestamp)
+        && (!('329' in next) || next['329'] is timestamp)
+        && (!('330' in next) || next['330'] is timestamp)
+        && (!('331' in next) || next['331'] is timestamp)
+        && (!('332' in next) || next['332'] is timestamp)
+        && (!('333' in next) || next['333'] is timestamp)
+        && (!('334' in next) || next['334'] is timestamp)
+        && (!('335' in next) || next['335'] is timestamp)
+        && (!('336' in next) || next['336'] is timestamp)
+        && (!('337' in next) || next['337'] is timestamp)
+        && (!('338' in next) || next['338'] is timestamp)
+        && (!('339' in next) || next['339'] is timestamp)
+        && (!('340' in next) || next['340'] is timestamp)
+        ) : false;
+    }
+    function savedDays301To340(next, changed) {
+      return changed.hasOnly(['301', '302', '303', '304', '305', '306', '307', '308', '309', '310', '311', '312', '313', '314', '315', '316', '317', '318', '319', '320'])
+        ? savedDays301To320(next, changed) : savedDays321To340(next, changed);
+    }
+    function savedDays341To360(next, changed) {
+      return changed.hasOnly(['341', '342', '343', '344', '345', '346', '347', '348', '349', '350', '351', '352', '353', '354', '355', '356', '357', '358', '359', '360']) ? (
+           (!('341' in next) || next['341'] is timestamp)
+        && (!('342' in next) || next['342'] is timestamp)
+        && (!('343' in next) || next['343'] is timestamp)
+        && (!('344' in next) || next['344'] is timestamp)
+        && (!('345' in next) || next['345'] is timestamp)
+        && (!('346' in next) || next['346'] is timestamp)
+        && (!('347' in next) || next['347'] is timestamp)
+        && (!('348' in next) || next['348'] is timestamp)
+        && (!('349' in next) || next['349'] is timestamp)
+        && (!('350' in next) || next['350'] is timestamp)
+        && (!('351' in next) || next['351'] is timestamp)
+        && (!('352' in next) || next['352'] is timestamp)
+        && (!('353' in next) || next['353'] is timestamp)
+        && (!('354' in next) || next['354'] is timestamp)
+        && (!('355' in next) || next['355'] is timestamp)
+        && (!('356' in next) || next['356'] is timestamp)
+        && (!('357' in next) || next['357'] is timestamp)
+        && (!('358' in next) || next['358'] is timestamp)
+        && (!('359' in next) || next['359'] is timestamp)
+        && (!('360' in next) || next['360'] is timestamp)
+        ) : false;
+    }
+    function savedDays361To365(next, changed) {
+      return changed.hasOnly(['361', '362', '363', '364', '365']) ? (
+           (!('361' in next) || next['361'] is timestamp)
+        && (!('362' in next) || next['362'] is timestamp)
+        && (!('363' in next) || next['363'] is timestamp)
+        && (!('364' in next) || next['364'] is timestamp)
+        && (!('365' in next) || next['365'] is timestamp)
+        ) : false;
+    }
+    function savedDays341To365(next, changed) {
+      return changed.hasOnly(['341', '342', '343', '344', '345', '346', '347', '348', '349', '350', '351', '352', '353', '354', '355', '356', '357', '358', '359', '360'])
+        ? savedDays341To360(next, changed) : savedDays361To365(next, changed);
+    }
+    function savedDays301To365(next, changed) {
+      return changed.hasOnly(['301', '302', '303', '304', '305', '306', '307', '308', '309', '310', '311', '312', '313', '314', '315', '316', '317', '318', '319', '320', '321', '322', '323', '324', '325', '326', '327', '328', '329', '330', '331', '332', '333', '334', '335', '336', '337', '338', '339', '340'])
+        ? savedDays301To340(next, changed) : savedDays341To365(next, changed);
+    }
+    function savedDays201To365(next, changed) {
+      return changed.hasOnly(['201', '202', '203', '204', '205', '206', '207', '208', '209', '210', '211', '212', '213', '214', '215', '216', '217', '218', '219', '220', '221', '222', '223', '224', '225', '226', '227', '228', '229', '230', '231', '232', '233', '234', '235', '236', '237', '238', '239', '240', '241', '242', '243', '244', '245', '246', '247', '248', '249', '250', '251', '252', '253', '254', '255', '256', '257', '258', '259', '260', '261', '262', '263', '264', '265', '266', '267', '268', '269', '270', '271', '272', '273', '274', '275', '276', '277', '278', '279', '280', '281', '282', '283', '284', '285', '286', '287', '288', '289', '290', '291', '292', '293', '294', '295', '296', '297', '298', '299', '300'])
+        ? savedDays201To300(next, changed) : savedDays301To365(next, changed);
+    }
+    function savedDays1To365(next, changed) {
+      return changed.hasOnly(['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51', '52', '53', '54', '55', '56', '57', '58', '59', '60', '61', '62', '63', '64', '65', '66', '67', '68', '69', '70', '71', '72', '73', '74', '75', '76', '77', '78', '79', '80', '81', '82', '83', '84', '85', '86', '87', '88', '89', '90', '91', '92', '93', '94', '95', '96', '97', '98', '99', '100', '101', '102', '103', '104', '105', '106', '107', '108', '109', '110', '111', '112', '113', '114', '115', '116', '117', '118', '119', '120', '121', '122', '123', '124', '125', '126', '127', '128', '129', '130', '131', '132', '133', '134', '135', '136', '137', '138', '139', '140', '141', '142', '143', '144', '145', '146', '147', '148', '149', '150', '151', '152', '153', '154', '155', '156', '157', '158', '159', '160', '161', '162', '163', '164', '165', '166', '167', '168', '169', '170', '171', '172', '173', '174', '175', '176', '177', '178', '179', '180', '181', '182', '183', '184', '185', '186', '187', '188', '189', '190', '191', '192', '193', '194', '195', '196', '197', '198', '199', '200'])
+        ? savedDays1To200(next, changed) : savedDays201To365(next, changed);
+    }
+    function validSaved(previous) {
+      let data = request.resource.data;
+      let next = data.verses;
+      let changed = next.diff(previous).affectedKeys();
+      return data.keys().hasOnly(['verses']) && next is map && next.size() <= 365
+        && validDayKeys(next) && savedDays1To365(next, changed);
+    }
     match /users/{uid} {
       allow read: if owner(uid);
-      allow create, update: if owner(uid) && activeAccount(uid)
-        && request.resource.data.keys().hasOnly(['name','familiarity','focus','obstacle','reminderMinutes','onboardingComplete','haptics','sounds','tips','largerText','theme','readingScale','onboardingVersion','onboardingStepId','onboardingStep','onboardingAnswered','suggestedReminderMinutes','reminderDecision','guidedExampleAnswer','guidedExampleRevealed'])
-        && request.resource.data.name is string && request.resource.data.name.size() <= 80
-        && request.resource.data.familiarity in ['new','returning','regular']
-        && request.resource.data.focus in ['peace','confidence','courage','hope','guidance','rest']
-        && request.resource.data.obstacle in ['busy','forget','language','apply']
-        && (request.resource.data.reminderMinutes == null || (request.resource.data.reminderMinutes is int && request.resource.data.reminderMinutes >= 0 && request.resource.data.reminderMinutes < 1440))
-        && request.resource.data.onboardingComplete is bool && request.resource.data.haptics is bool
-        && (!('sounds' in request.resource.data) || request.resource.data.sounds is bool)
-        && (!('tips' in request.resource.data) || request.resource.data.tips is bool)
-        && (!('largerText' in request.resource.data) || request.resource.data.largerText is bool)
-        && (!('theme' in request.resource.data) || request.resource.data.theme in ['pearl','rose','lavender','sage','dawn','midnight'])
-        && (!('readingScale' in request.resource.data) || (request.resource.data.readingScale is number && request.resource.data.readingScale >= 1 && request.resource.data.readingScale <= 2))
-        && (!('onboardingVersion' in request.resource.data) || request.resource.data.onboardingVersion in [2,3,4])
-        && (!('onboardingStepId' in request.resource.data) || request.resource.data.onboardingStepId in ['name','starting-point','focus','barrier','suggested-rhythm','reminder','learning-preview','summary','save','day-one','moment','guided-example','daily-rhythm','arrival'])
-        && (!('onboardingAnswered' in request.resource.data) || (request.resource.data.onboardingAnswered is list && request.resource.data.onboardingAnswered.size() <= 12 && request.resource.data.onboardingAnswered.hasOnly(['name','moment','starting-point','barrier','guided-example','daily-rhythm','focus','reminder','summary','save','day-one','arrival'])))
-        && (!('suggestedReminderMinutes' in request.resource.data) || request.resource.data.suggestedReminderMinutes == null || (request.resource.data.suggestedReminderMinutes is int && request.resource.data.suggestedReminderMinutes >= 0 && request.resource.data.suggestedReminderMinutes < 1440))
-        && (!('reminderDecision' in request.resource.data) || request.resource.data.reminderDecision in ['pending','enabled','declined','denied'])
-        && (!('guidedExampleAnswer' in request.resource.data) || request.resource.data.guidedExampleAnswer == null || request.resource.data.guidedExampleAnswer in ['day-001-q1-a','day-001-q1-b','day-001-q1-c','day-001-q1-d'])
-        && (!('guidedExampleRevealed' in request.resource.data) || request.resource.data.guidedExampleRevealed is bool)
-        && request.resource.data.onboardingStep is int && request.resource.data.onboardingStep >= 0 && request.resource.data.onboardingStep <= (('onboardingVersion' in request.resource.data && request.resource.data.onboardingVersion == 4) ? 3 : (('onboardingVersion' in request.resource.data && request.resource.data.onboardingVersion == 3) ? 11 : 9));
+      allow create, update: if owner(uid) && activeAccount(uid) && (validProfile(request.resource.data) || validLegacyProfile(request.resource.data));
       allow delete: if false;
-      match /attempts/{attempt} { allow read: if owner(uid); allow write: if false; }
-      match /resumes/{lesson} { allow read: if owner(uid); allow write: if false; }
-      match /readingResumes/{lesson} { allow read: if owner(uid); allow write: if false; }
-      match /saved/{lesson} { allow read: if owner(uid); allow write: if false; }
-      match /private/{document} { allow read: if owner(uid); allow write: if false; }
+      match /walk/progress {
+        allow read: if owner(uid);
+        allow create: if owner(uid) && activeAccount(uid) && validProgress();
+        allow update: if owner(uid) && activeAccount(uid) && validProgress();
+        allow delete: if false;
+      }
+      match /walk/saved {
+        allow read: if owner(uid);
+        allow create: if owner(uid) && activeAccount(uid) && validSaved({});
+        allow update: if owner(uid) && activeAccount(uid) && validSaved(resource.data.verses);
+        allow delete: if false;
+      }
+      match /attempts/{document} { allow read: if owner(uid); allow write: if false; }
+      match /resumes/{document} { allow read: if owner(uid); allow write: if false; }
+      match /readingResumes/{document} { allow read: if owner(uid); allow write: if false; }
+      match /saved/{document} { allow read: if owner(uid); allow write: if false; }
+      match /private/{document} {
+        allow read: if owner(uid) && document in ['journey','savedCatalog','editionAccess','entitlement'];
+        allow write: if false;
+      }
     }
     match /{document=**} { allow read, write: if false; }
   }

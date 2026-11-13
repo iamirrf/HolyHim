@@ -1,8 +1,0 @@
-Building com.holyher.app for device (ios)...
-Automatically signing iOS for device deployment using specified development team in Xcode project: DU9D6TAM58
-Running Xcode build...                                          
-Xcode build done.                                           61.4s
-Failed to build iOS app
-Error (Xcode): Build input file cannot be found: '/Users/amir/Downloads/HolyHer/ios/Pods/BoringSSL-GRPC/src/ssl/ssl_lib.cc'. Did you forget to declare this file as an output of a script phase or custom build rule which produces it?
-
-Encountered error while building for device.

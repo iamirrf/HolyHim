@@ -1,5 +1,0 @@
-Traceback (most recent call last):
-  File "/Users/amir/Downloads/HolyHer/tool/verify_teaching.py", line 11, in <module>
-    assert [v['day'] for v in source['lessons']]==expected, f"Only {len(source['lessons'])}/365 enhanced lessons are authored. Release blocked."
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-AssertionError: Only 5/365 enhanced lessons are authored. Release blocked.

@@ -1,29 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:holyher/core/widgets/holy_loader.dart';
-import 'package:holyher/core/theme/app_theme.dart';
-import 'package:holyher/core/widgets/holy_ui.dart';
+import '../../design/design.dart';
 
+/// The first Flutter frame. It matches the native launch screen exactly:
+/// the ivory wordmark centred on deep plum, so launch has no visible seam.
 class SplashScreen extends StatelessWidget {
+  static const background = Color(0xFF2A1A20);
   const SplashScreen({super.key});
   @override
-  Widget build(BuildContext context) => useHolyPalette(
-      context,
-      () => Scaffold(
-          backgroundColor: AppColors.background,
-          body: LayoutBuilder(
-              builder: (context, box) => Stack(children: [
-                    const Center(child: HolyMark(size: 96, launch: true)),
-                    Positioned(
-                        left: 24,
-                        right: 24,
-                        top: box.maxHeight / 2 + 72,
-                        child: const Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Text('HolyHer', style: HolyTypography.heading),
-                              SizedBox(height: 28),
-                              PulsingDotsLoader(
-                                  semanticsLabel: 'Opening your journey')
-                            ]))
-                  ]))));
+  Widget build(BuildContext context) => const ColoredBox(
+      color: background,
+      child: Center(child: Wordmark(size: 46, color: HolyTheme.photoInk)));
 }

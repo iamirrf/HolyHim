@@ -1,6 +1,0 @@
-welcome:0 1024.0 1366.0 OK
-onboarding:moment 1024.0 1366.0 OK
-learn 1024.0 1366.0 OK
-saved:populated 1024.0 1366.0 OK
-profile 1024.0 1366.0 OK
-lesson:verse 1024.0 1366.0 OK

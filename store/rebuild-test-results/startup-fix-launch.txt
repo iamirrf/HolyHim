@@ -1,4 +1,0 @@
-10:36:13  Acquired tunnel connection to device.
-10:36:13  Enabling developer disk image services.
-10:36:13  Acquired usage assertion.
-Launched application with com.holyher.app bundle identifier.

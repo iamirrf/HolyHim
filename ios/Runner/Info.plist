@@ -7,7 +7,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>HolyHer</string>
+	<string>HolyHim</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -15,7 +15,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>holyher</string>
+	<string>holyhim</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -27,18 +27,30 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.googleusercontent.apps.746503857955-nvkgi8skvodb06dejass0e0rj18ef45u</string>
+				<string>com.googleusercontent.apps.000000000000-REPLACE_WITH_HOLYHIM</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>com.holyhim.app.walk</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>holyhim</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
 	<key>GIDClientID</key>
-	<string>746503857955-nvkgi8skvodb06dejass0e0rj18ef45u.apps.googleusercontent.com</string>
+	<string>000000000000-REPLACE_WITH_HOLYHIM.apps.googleusercontent.com</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSMotionUsageDescription</key>
+	<string>HolyHim uses gentle device movement to add depth to lesson art. You can disable motion in Accessibility.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Choose a photo for your HolyHim profile.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

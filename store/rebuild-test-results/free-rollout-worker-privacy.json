@@ -1,5 +1,0 @@
-{
-  "worker": "retryLegacyBillingCleanup",
-  "publicInvoker": false,
-  "policyReadBack": true
-}

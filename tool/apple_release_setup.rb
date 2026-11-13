@@ -23,7 +23,7 @@ require 'spaceship'
 # https://github.com/fastlane/fastlane/blob/master/spaceship/lib/spaceship/client.rb
 # A fresh connection sends no cookies and does NOT follow the signout redirect.
 # The removed Olympus config endpoint and its stale /tmp cache are never used.
-module HolyHerAppleDiscovery
+module HolyHimAppleDiscovery
   def self.fetch
     return @result if @result
     connection = Faraday.new(url: 'https://appstoreconnect.apple.com') do |http|
@@ -41,51 +41,50 @@ module HolyHerAppleDiscovery
   end
 end
 
-module HolyHerSpaceshipCompatibility
+module HolyHimSpaceshipCompatibility
   def itc_service_key
-    @service_key ||= HolyHerAppleDiscovery.fetch.fetch(:key)
+    @service_key ||= HolyHimAppleDiscovery.fetch.fetch(:key)
   end
 
   # Older fastlane logs every HTTP body. Keep credentials, cookies and SRP
   # exchanges out of persistent logs; normal SDK status output remains visible.
   def logger
-    @holyher_safe_logger ||= Logger.new(File::NULL)
+    @holyhim_safe_logger ||= Logger.new(File::NULL)
   end
 end
-Spaceship::Client.prepend(HolyHerSpaceshipCompatibility)
+Spaceship::Client.prepend(HolyHimSpaceshipCompatibility)
 
-BUNDLE_ID = 'com.holyher.app'
+BUNDLE_ID = 'com.holyhim.app'
 DEVELOPER_TEAM = 'DU9D6TAM58'
 TEAM_NAME = 'Codellion LLC'
-VERSION = '1.0.0'
-RELEASE_AT = Time.iso8601('2026-11-15T06:00:00-05:00').utc
 ROOT = File.expand_path('..', __dir__)
+VERSION = JSON.parse(File.read(File.join(ROOT, 'config/release.json'))).fetch('version')
 
 # Session reuse is deliberately separate from Client#login: that SDK method
 # reads Keychain credentials BEFORE checking a saved session. These interfaces
 # are present in the installed fastlane 2.229.1 source (client.rb:673,728 and
 # connect_api/client.rb:75); no password, placeholder password, or environment
 # session is passed to the SDK when --reuse-session is selected.
-class HolyHerSessionError < StandardError; end
-class HolyHerReviewNotesError < StandardError; end
+class HolyHimSessionError < StandardError; end
+class HolyHimReviewNotesError < StandardError; end
 
-module HolyHerSessionOnlyClient
+module HolyHimSessionOnlyClient
   def login(*)
-    raise HolyHerSessionError, 'Saved-session mode never requests credentials. Run the owner Terminal login command again.'
+    raise HolyHimSessionError, 'Saved-session mode never requests credentials. Run the owner Terminal login command again.'
   end
 
   private
 
   def do_login(*)
-    raise HolyHerSessionError, 'The saved Apple session expired. Run the owner Terminal login command again.'
+    raise HolyHimSessionError, 'The saved Apple session expired. Run the owner Terminal login command again.'
   end
 
   def send_shared_login_request(*)
-    raise HolyHerSessionError, 'Saved-session mode does not start an Apple login.'
+    raise HolyHimSessionError, 'Saved-session mode does not start an Apple login.'
   end
 end
 
-class HolyHerSavedSession
+class HolyHimSavedSession
   def initialize(email)
     @email = email
   end
@@ -95,7 +94,7 @@ class HolyHerSavedSession
     path = client.persistent_cookie_path
     info = File.lstat(path)
     unless info.file? && !info.symlink? && info.uid == Process.uid && (info.mode & 0o077).zero? && info.size.between?(1, 1_048_576)
-      raise HolyHerSessionError, 'The saved Apple cookie is not a private, owner-controlled file.'
+      raise HolyHimSessionError, 'The saved Apple cookie is not a private, owner-controlled file.'
     end
     # The old SDK prints parser exceptions. Suppress only the cookie loader's
     # output so malformed credential contents cannot enter a terminal/log.
@@ -106,30 +105,30 @@ class HolyHerSavedSession
     ensure
       $stdout, $stderr = previous_out, previous_err
     end
-    raise HolyHerSessionError, 'No usable saved Apple session exists. Run the owner Terminal login command once.' unless loaded
+    raise HolyHimSessionError, 'No usable saved Apple session exists. Run the owner Terminal login command once.' unless loaded
     client
   rescue Errno::ENOENT
-    raise HolyHerSessionError, 'No saved Apple session exists. Run the owner Terminal login command once.'
+    raise HolyHimSessionError, 'No saved Apple session exists. Run the owner Terminal login command once.'
   end
 
   def tunes
     return @tunes if @tunes
     client = load_cookie(Spaceship::TunesClient.new)
-    raise HolyHerSessionError, 'The saved Apple session expired. Run the owner Terminal login command again.' unless client.fetch_olympus_session
+    raise HolyHimSessionError, 'The saved Apple session expired. Run the owner Terminal login command again.' unless client.fetch_olympus_session
     if !client.user_email.to_s.empty? && !client.user_email.casecmp(@email).zero?
-      raise HolyHerSessionError, 'The saved cookie belongs to a different Apple account.'
+      raise HolyHimSessionError, 'The saved cookie belongs to a different Apple account.'
     end
     teams = client.teams
     matches = teams.select { |team| team['publicProviderId'] == DEVELOPER_TEAM }
     matches = teams.select { |team| team['name'] == TEAM_NAME } if matches.empty?
-    raise HolyHerSessionError, 'The saved session does not uniquely identify Codellion LLC.' unless matches.length == 1
+    raise HolyHimSessionError, 'The saved session does not uniquely identify Codellion LLC.' unless matches.length == 1
     team = matches.first
     if !team['publicProviderId'].to_s.empty? && team['publicProviderId'] != DEVELOPER_TEAM
-      raise HolyHerSessionError, 'The saved session belongs to a different developer team.'
+      raise HolyHimSessionError, 'The saved session belongs to a different developer team.'
     end
     expected_id = team.fetch('providerId').to_s
     client.select_team(team_id: expected_id)
-    raise HolyHerSessionError, 'Apple did not select the expected App Store team.' unless client.team_id.to_s == expected_id
+    raise HolyHimSessionError, 'Apple did not select the expected App Store team.' unless client.team_id.to_s == expected_id
     Spaceship::Tunes.client = client
     @tunes = client
   end
@@ -138,10 +137,10 @@ class HolyHerSavedSession
     return @portal if @portal
     client = load_cookie(Spaceship::PortalClient.new)
     unless client.teams.any? { |team| team['teamId'] == DEVELOPER_TEAM }
-      raise HolyHerSessionError, 'The saved session does not include the HolyHer developer team.'
+      raise HolyHimSessionError, 'The saved session does not include the HolyHim developer team.'
     end
     client.select_team(team_id: DEVELOPER_TEAM)
-    raise HolyHerSessionError, 'Apple did not select the expected developer team.' unless client.team_id == DEVELOPER_TEAM
+    raise HolyHimSessionError, 'Apple did not select the expected developer team.' unless client.team_id == DEVELOPER_TEAM
     Spaceship::Portal.client = client
     @portal = client
   end
@@ -149,32 +148,32 @@ class HolyHerSavedSession
   def client(user = nil, password = nil, use_portal: true, use_tunes: true,
              portal_team_id: nil, tunes_team_id: nil, team_name: nil, **)
     if (!user.to_s.empty? && !user.to_s.casecmp(@email).zero?) || !password.to_s.empty?
-      raise HolyHerSessionError, 'Saved-session mode cannot switch account or accept a password.'
+      raise HolyHimSessionError, 'Saved-session mode cannot switch account or accept a password.'
     end
     if (!portal_team_id.to_s.empty? && portal_team_id != DEVELOPER_TEAM) || (!team_name.to_s.empty? && team_name != TEAM_NAME)
-      raise HolyHerSessionError, 'Saved-session mode cannot switch developer teams.'
+      raise HolyHimSessionError, 'Saved-session mode cannot switch developer teams.'
     end
     tunes_client = use_tunes ? tunes : nil
     if !tunes_team_id.to_s.empty? && tunes_client&.team_id.to_s != tunes_team_id.to_s
-      raise HolyHerSessionError, 'Saved-session mode cannot switch App Store teams.'
+      raise HolyHimSessionError, 'Saved-session mode cannot switch App Store teams.'
     end
     portal_client = use_portal ? portal : nil
     Spaceship::ConnectAPI.client = Spaceship::ConnectAPI::Client.new(tunes_client: tunes_client, portal_client: portal_client)
-  rescue HolyHerSessionError
+  rescue HolyHimSessionError
     raise
   rescue StandardError
-    raise HolyHerSessionError, 'Apple could not validate the saved session. Run the owner Terminal login command again; no password fallback was attempted.'
+    raise HolyHimSessionError, 'Apple could not validate the saved session. Run the owner Terminal login command again; no password fallback was attempted.'
   end
 end
 
 # Deliver and the privacy action call ConnectAPI.login themselves. In reuse
 # mode intercept that adapter call and return only the verified cookie clients.
-module HolyHerSessionOnlyConnectAPI
-  attr_accessor :holyher_saved_session
+module HolyHimSessionOnlyConnectAPI
+  attr_accessor :holyhim_saved_session
 
   def login(*args, **kwargs)
-    raise HolyHerSessionError, 'No saved-session factory is configured.' unless holyher_saved_session
-    holyher_saved_session.client(*args, **kwargs)
+    raise HolyHimSessionError, 'No saved-session factory is configured.' unless holyhim_saved_session
+    holyhim_saved_session.client(*args, **kwargs)
   end
 end
 
@@ -184,18 +183,18 @@ end
 # Source: deliver/lib/deliver/upload_metadata.rb:654-685 and the installed
 # AppStoreVersion / AppStoreReviewDetail models. Private fields stay in memory;
 # they are never copied into Deliver options, a file, or a terminal message.
-module HolyHerNotesOnlyReview
+module HolyHimNotesOnlyReview
   PRESERVED_FIELDS = %i[contact_first_name contact_last_name contact_phone contact_email
                        demo_account_name demo_account_password demo_account_required].freeze
 
   private
 
-  def holyher_review_details(version)
+  def holyhim_review_details(version)
     # An included optional relationship distinguishes "no detail yet" from an
     # authorization/server failure without rescuing a 404-shaped error string.
     snapshot = Spaceship::ConnectAPI::AppStoreVersion.get(
       app_store_version_id: version.id, includes: 'appStoreReviewDetail')
-    raise HolyHerReviewNotesError, 'Apple did not return the requested version for review notes.' unless snapshot&.id == version.id
+    raise HolyHimReviewNotesError, 'Apple did not return the requested version for review notes.' unless snapshot&.id == version.id
     snapshot.app_store_review_detail
   end
 
@@ -203,27 +202,27 @@ module HolyHerNotesOnlyReview
     info = options[:app_review_information]
     return if info.nil? || info.empty?
     unless info.is_a?(Hash) && info.keys.map(&:to_sym).sort == [:notes]
-      raise HolyHerReviewNotesError, 'This helper accepts prepared review notes only; enter reviewer contact and credentials securely in App Store Connect.'
+      raise HolyHimReviewNotesError, 'This helper accepts prepared review notes only; enter reviewer contact and credentials securely in App Store Connect.'
     end
     notes = (info[:notes] || info['notes']).to_s.strip
-    raise HolyHerReviewNotesError, 'The prepared review narrative is empty.' if notes.empty?
-    existing = holyher_review_details(version)
+    raise HolyHimReviewNotesError, 'The prepared review narrative is empty.' if notes.empty?
+    existing = holyhim_review_details(version)
     preserved = existing && PRESERVED_FIELDS.to_h { |field| [field, existing.public_send(field)] }
     if existing
       existing.update(attributes: { notes: notes })
     else
       version.create_app_store_review_detail(attributes: { notes: notes })
     end
-    readback = holyher_review_details(version)
-    raise HolyHerReviewNotesError, 'Apple review-notes read-back did not match.' unless readback&.notes == notes
+    readback = holyhim_review_details(version)
+    raise HolyHimReviewNotesError, 'Apple review-notes read-back did not match.' unless readback&.notes == notes
     if preserved && PRESERVED_FIELDS.any? { |field| readback.public_send(field) != preserved[field] }
-      raise HolyHerReviewNotesError, 'Reviewer details changed during notes upload. No contact or credential values were sent or printed; inspect the current details securely in App Store Connect.'
+      raise HolyHimReviewNotesError, 'Reviewer details changed during notes upload. No contact or credential values were sent or printed; inspect the current details securely in App Store Connect.'
     end
     puts 'Prepared review notes saved and verified. Existing reviewer contact, demo credentials, and demo requirement were preserved.'
-  rescue HolyHerReviewNotesError
+  rescue HolyHimReviewNotesError
     raise
   rescue StandardError => error
-    raise HolyHerReviewNotesError, "The notes-only review upload stopped (#{error.class}); no private reviewer values were printed or included in the update."
+    raise HolyHimReviewNotesError, "The notes-only review upload stopped (#{error.class}); no private reviewer values were printed or included in the update."
   end
 
   def review_attachment_file(version)
@@ -240,7 +239,7 @@ end
 # https://developer.apple.com/sample-code/app-store-connect/app-store-connect-openapi-specification.zip
 # SHA256 7b826ae9ca3e45b0e7df2643cbb811c9930632640944db11a8af4586fab9db46
 # No POST/PATCH/DELETE domain request or automatic questionnaire answer exists.
-module HolyHerReleaseGates
+module HolyHimReleaseGates
   SPEC_VERSION = '4.5.1'
   SPEC_SHA256 = '7b826ae9ca3e45b0e7df2643cbb811c9930632640944db11a8af4586fab9db46'
   AGE_FIELDS = %w[advertising alcoholTobaccoOrDrugUseOrReferences contests gambling gamblingSimulated
@@ -275,7 +274,7 @@ module HolyHerReleaseGates
 
   def self.check
     yield.merge(inspected: true)
-  rescue HolyHerSessionError
+  rescue HolyHimSessionError
     raise
   rescue StandardError => error
     # Apple responses may contain reviewer details. Emit only the class, never
@@ -370,7 +369,7 @@ module HolyHerReleaseGates
 
   def self.purchases(app_id, version_id)
     purchases = many("v1/apps/#{app_id}/inAppPurchasesV2", 'include' => 'appStoreReviewScreenshot,versions')
-    lifetime = purchases['data'].find { |item| item.dig('attributes', 'productId') == 'holyher_lifetime' }
+    lifetime = purchases['data'].find { |item| item.dig('attributes', 'productId') == 'holyhim_lifetime' }
     expected_versions = Array(related(lifetime, 'versions')).map { |item| item['id'] }
     submissions = many("v1/apps/#{app_id}/reviewSubmissions", 'include' => 'appStoreVersionForReview')
     matches = version_id ? submissions['data'].select { |item| related(item, 'appStoreVersionForReview')&.fetch('id', nil) == version_id } : []
@@ -405,14 +404,14 @@ module HolyHerReleaseGates
   end
 end
 
-module HolyHerPrivacy
+module HolyHimPrivacy
   CATEGORY_IDS = {
     'Name' => 'NAME', 'Email Address' => 'EMAIL_ADDRESS', 'Phone Number' => 'PHONE_NUMBER',
     'Coarse Location' => 'COARSE_LOCATION', 'Sensitive Info' => 'SENSITIVE_INFO',
     'User ID' => 'USER_ID', 'Device ID' => 'DEVICE_ID', 'Purchase History' => 'PURCHASE_HISTORY',
     'Product Interaction' => 'PRODUCT_INTERACTION', 'Other Usage Data' => 'OTHER_USAGE_DATA',
     'Customer Support' => 'CUSTOMER_SUPPORT', 'Other Data Types' => 'OTHER_DATA',
-    'Other Diagnostic Data' => 'OTHER_DIAGNOSTIC_DATA'
+    'Other Diagnostic Data' => 'OTHER_DIAGNOSTIC_DATA', 'Photos or Videos' => 'PHOTOS_OR_VIDEOS'
   }.freeze
   PURPOSE_IDS = {
     'App Functionality' => 'APP_FUNCTIONALITY',
@@ -494,15 +493,16 @@ parser = OptionParser.new do |p|
   p.on('--check-auth-discovery', 'Verify the public cookie-free Apple login redirect; no account login') { options[:discovery] = true }
   p.on('--apple-id EMAIL', 'Apple ID; password is requested privately in Terminal') { |v| options[:email] = v }
   p.on('--reuse-session', 'Use only the private saved Apple cookie; never prompt, inspect Keychain, or fall back to login') { options[:reuse_session] = true }
-  p.on('--inspect', 'Log in and read the existing HolyHer app/version') { options[:inspect] = true }
+  p.on('--inspect', 'Log in and read the existing HolyHim app/version') { options[:inspect] = true }
   p.on('--inspect-release-gates', 'Read pricing, availability, current age answers, review completeness, builds/encryption and IAP review association; never answer or mutate') { options[:release_gates] = true }
-  p.on('--create-app', 'Create missing HolyHer bundle ID and App Store app record') { options[:create] = true }
+  p.on('--create-app', 'Create missing HolyHim bundle ID and App Store app record') { options[:create] = true }
   p.on('--upload-metadata', 'Upload prepared listing/screenshots; never upload a build or submit review') { options[:metadata] = true }
   p.on('--upload-archive PATH', 'Export/upload an existing xcarchive using the signed-in Xcode account') { |v| options[:archive] = v }
   p.on('--privacy-preview', 'Print the exact converted privacy baseline; no login or upload') { options[:privacy_preview] = true }
   p.on('--upload-privacy', 'Back up existing answers and replace the privacy draft; do not publish') { options[:privacy_upload] = true }
   p.on('--publish-privacy', 'Publish only when the remote draft exactly matches the reviewed baseline') { options[:privacy_publish] = true }
-  p.on('--schedule-release', 'Set no-earlier-than Nov 15, 2026, 06:00 EST; never submit review') { options[:schedule] = true }
+  p.on('--schedule-release', 'Set a reviewed release time; requires --release-at') { options[:schedule] = true }
+  p.on('--release-at ISO8601', 'Reviewed release time with an explicit UTC offset') { |v| options[:release_at] = v }
   p.on('-h', '--help', 'Show this help') { puts p; exit }
 end
 parser.parse!
@@ -528,21 +528,21 @@ if options[:check]
   require 'fastlane'
   require 'fastlane/actions/upload_app_privacy_details_to_app_store'
   checks[:privacy_action] = Fastlane::Actions::UploadAppPrivacyDetailsToAppStoreAction.respond_to?(:run)
-  privacy, = HolyHerPrivacy.reviewed_baseline(File.join(ROOT, 'store', 'metadata', 'privacy_labels.json'))
-  checks[:privacy_baseline] = privacy.length == 13
+  privacy, = HolyHimPrivacy.reviewed_baseline(File.join(ROOT, 'store', 'metadata', 'privacy_labels.json'))
+  checks[:privacy_baseline] = privacy.length == 14
   checks[:xcodebuild] = File.executable?('/usr/bin/xcodebuild')
-  puts JSON.pretty_generate(checks.merge(release_utc: RELEASE_AT.iso8601, release_milliseconds: (RELEASE_AT.to_f * 1000).to_i))
+  puts JSON.pretty_generate(checks.merge(release_policy: 'completion-dependent'))
   exit(checks.values.all? ? 0 : 1)
 end
 
 if options[:privacy_preview]
-  privacy, digest = HolyHerPrivacy.reviewed_baseline(File.join(ROOT, 'store', 'metadata', 'privacy_labels.json'))
+  privacy, digest = HolyHimPrivacy.reviewed_baseline(File.join(ROOT, 'store', 'metadata', 'privacy_labels.json'))
   puts JSON.pretty_generate(source: 'store/metadata/privacy_labels.json', source_sha256: digest, categories: privacy.length, entries: privacy)
   exit
 end
 
 if options[:discovery]
-  result = HolyHerAppleDiscovery.fetch
+  result = HolyHimAppleDiscovery.fetch
   puts JSON.pretty_generate(status: result[:status], redirect_host: result[:redirect_host], widget_key_present: !result[:key].empty?, cookies_sent: false, redirects_followed: false)
   exit
 end
@@ -557,14 +557,14 @@ if options[:archive]
   apps = Dir.glob(File.join(archive_path, 'Products', 'Applications', '*.app'))
   abort('Provide a complete .xcarchive containing exactly one application.') unless archive_path.end_with?('.xcarchive') && apps.length == 1
   identifier, _, status = Open3.capture3('/usr/bin/plutil', '-extract', 'CFBundleIdentifier', 'raw', '-o', '-', File.join(apps.first, 'Info.plist'))
-  abort('The archive does not contain com.holyher.app.') unless status.success? && identifier.strip == BUNDLE_ID
+  abort('The archive does not contain com.holyhim.app.') unless status.success? && identifier.strip == BUNDLE_ID
   options[:archive] = archive_path
 end
 # Archive-only uploads can use the existing Xcode account without asking for a
 # second Apple ID password or opening a new Spaceship session.
 if options[:archive] && !options.values_at(:inspect, :release_gates, :create, :metadata, :schedule, :privacy_upload, :privacy_publish).any?
   File.umask(0o077)
-  standalone_state = File.join(Dir.home, 'Library', 'Application Support', 'HolyHer', 'apple-release')
+  standalone_state = File.join(Dir.home, 'Library', 'Application Support', 'HolyHim', 'apple-release')
   FileUtils.mkdir_p(standalone_state, mode: 0o700)
   File.chmod(0o700, standalone_state)
   upload_archive(options[:archive], standalone_state)
@@ -572,7 +572,7 @@ if options[:archive] && !options.values_at(:inspect, :release_gates, :create, :m
 end
 begin
 File.umask(0o077)
-state_dir = File.join(Dir.home, 'Library', 'Application Support', 'HolyHer', 'apple-release')
+state_dir = File.join(Dir.home, 'Library', 'Application Support', 'HolyHim', 'apple-release')
 FileUtils.mkdir_p(state_dir, mode: 0o700)
 File.chmod(0o700, state_dir)
 # Spaceship will persist its own authenticated cookie here with restrictive umask.
@@ -584,20 +584,20 @@ email = options[:email].to_s.strip
 password = nil
 if options[:reuse_session]
   if email.empty?
-    abort('No saved HolyHer Apple account exists. Run the owner Terminal login command once.') unless File.file?(account_path)
+    abort('No saved HolyHim Apple account exists. Run the owner Terminal login command once.') unless File.file?(account_path)
     email = JSON.parse(File.read(account_path)).fetch('apple_id')
   end
   abort('The saved Apple ID is invalid.') unless email.include?('@') && !email.match?(%r{[\\/\s]})
-  Spaceship::Client.prepend(HolyHerSessionOnlyClient)
-  Spaceship::ConnectAPI.singleton_class.prepend(HolyHerSessionOnlyConnectAPI)
-  session = HolyHerSavedSession.new(email)
-  Spaceship::ConnectAPI.holyher_saved_session = session
+  Spaceship::Client.prepend(HolyHimSessionOnlyClient)
+  Spaceship::ConnectAPI.singleton_class.prepend(HolyHimSessionOnlyConnectAPI)
+  session = HolyHimSavedSession.new(email)
+  Spaceship::ConnectAPI.holyhim_saved_session = session
   session.client(email, use_portal: !!options[:create], use_tunes: true,
     portal_team_id: DEVELOPER_TEAM, team_name: TEAM_NAME)
-  puts 'Using the verified private HolyHer Apple session. Password login and Keychain access are disabled.'
+  puts 'Using the verified private HolyHim Apple session. Password login and Keychain access are disabled.'
 else
   # Fail before requesting credentials if public Apple discovery is unavailable.
-  HolyHerAppleDiscovery.fetch
+  HolyHimAppleDiscovery.fetch
   abort('Run this helper directly in Terminal so credentials and 2FA stay private.') unless $stdin.tty? && $stdout.tty?
   if email.empty?
     print 'Apple ID: '
@@ -615,22 +615,22 @@ else
     team['providerId'].to_s == Spaceship::ConnectAPI.client.tunes_team_id.to_s
   end
   correct_team = selected_team && (selected_team['publicProviderId'].to_s.empty? ? selected_team['name'] == TEAM_NAME : selected_team['publicProviderId'] == DEVELOPER_TEAM)
-  abort('Apple selected a different App Store team; no HolyHer records were changed.') unless correct_team
+  abort('Apple selected a different App Store team; no HolyHim records were changed.') unless correct_team
   if options[:create] && Spaceship::ConnectAPI.client.portal_team_id != DEVELOPER_TEAM
-    abort('Apple selected a different developer team; no HolyHer records were changed.')
+    abort('Apple selected a different developer team; no HolyHim records were changed.')
   end
   File.write(account_path, JSON.pretty_generate(apple_id: email, developer_team_id: DEVELOPER_TEAM) + "\n", mode: 'w', perm: 0o600)
 end
 
 if options[:create]
   bundle = Spaceship::ConnectAPI::BundleId.find(BUNDLE_ID)
-  bundle ||= Spaceship::ConnectAPI::BundleId.create(name: 'HolyHer', identifier: BUNDLE_ID, platform: 'IOS')
+  bundle ||= Spaceship::ConnectAPI::BundleId.create(name: 'HolyHim', identifier: BUNDLE_ID, platform: 'IOS')
   abort('Apple did not return the expected bundle identifier.') unless bundle&.identifier == BUNDLE_ID
 end
 
 app = Spaceship::ConnectAPI::App.find(BUNDLE_ID)
 if app.nil? && options[:create]
-  Spaceship::ConnectAPI::App.create(name: 'HolyHer', version_string: VERSION,
+  Spaceship::ConnectAPI::App.create(name: 'HolyHim', version_string: VERSION,
     sku: BUNDLE_ID, primary_locale: 'en-US', bundle_id: BUNDLE_ID, platforms: ['IOS'])
   6.times do
     app = Spaceship::ConnectAPI::App.find(BUNDLE_ID)
@@ -638,11 +638,11 @@ if app.nil? && options[:create]
     sleep 1
   end
 end
-abort('No HolyHer App Store record exists. Run again with --create-app.') unless app
+abort('No HolyHim App Store record exists. Run again with --create-app.') unless app
 
 if options[:metadata]
   require 'deliver'
-  Deliver::UploadMetadata.prepend(HolyHerNotesOnlyReview)
+  Deliver::UploadMetadata.prepend(HolyHimNotesOnlyReview)
   submission = JSON.parse(File.read(File.join(ROOT, 'store', 'metadata', 'submission.json')))
   abort('The prepared metadata belongs to a different bundle.') unless submission['bundleId'] == BUNDLE_ID
   stage = Dir.mktmpdir('metadata-stage-', state_dir)
@@ -698,15 +698,15 @@ end
 if options[:privacy_upload] || options[:privacy_publish]
   require 'fastlane'
   require 'fastlane/actions/upload_app_privacy_details_to_app_store'
-  privacy, privacy_digest = HolyHerPrivacy.reviewed_baseline(File.join(ROOT, 'store', 'metadata', 'privacy_labels.json'))
+  privacy, privacy_digest = HolyHimPrivacy.reviewed_baseline(File.join(ROOT, 'store', 'metadata', 'privacy_labels.json'))
   # Check Apple's current vocabulary before invoking the built-in replacement.
   categories = Spaceship::ConnectAPI::AppDataUsageCategory.all.map(&:id)
   purposes = Spaceship::ConnectAPI::AppDataUsagePurpose.all.map(&:id)
   abort('Apple privacy categories or purposes no longer match the reviewed baseline.') unless privacy.all? { |row| categories.include?(row['category']) && (row['purposes'] - purposes).empty? }
-  desired = HolyHerPrivacy.triples(privacy)
+  desired = HolyHimPrivacy.triples(privacy)
   if options[:privacy_upload]
     backup = File.join(state_dir, "privacy-before-#{Time.now.utc.strftime('%Y%m%dT%H%M%S')}.json")
-    File.write(backup, JSON.pretty_generate(HolyHerPrivacy.remote_rows(app)) + "\n", mode: 'w', perm: 0o600)
+    File.write(backup, JSON.pretty_generate(HolyHimPrivacy.remote_rows(app)) + "\n", mode: 'w', perm: 0o600)
     converted_path = File.join(state_dir, "privacy-reviewed-#{privacy_digest[0, 12]}.json")
     File.write(converted_path, JSON.pretty_generate(privacy) + "\n", mode: 'w', perm: 0o600)
     action = Fastlane::Actions::UploadAppPrivacyDetailsToAppStoreAction
@@ -719,7 +719,7 @@ if options[:privacy_upload] || options[:privacy_publish]
   end
   actual = []
   5.times do
-    actual = HolyHerPrivacy.remote_rows(app).map { |row| [row[:category], row[:purpose], row[:protection]] }.uniq.sort
+    actual = HolyHimPrivacy.remote_rows(app).map { |row| [row[:category], row[:purpose], row[:protection]] }.uniq.sort
     break if actual == desired
     sleep 1
   end
@@ -736,20 +736,23 @@ if options[:privacy_upload] || options[:privacy_publish]
 end
 
 if options[:schedule]
-  abort('The requested release date has passed; update the reviewed release configuration.') unless RELEASE_AT > Time.now
+  abort('Provide --release-at after final acceptance; the old fixed target has been retired.') unless options[:release_at]
+  abort('Use ISO8601 with an explicit time-zone offset.') unless options[:release_at].match?(/(?:Z|[+-]\d\d:\d\d)\z/)
+  release_at = Time.iso8601(options[:release_at]).utc
+  abort('The reviewed release time must be in the future.') unless release_at > Time.now
   app.ensure_version!(VERSION, platform: Spaceship::ConnectAPI::Platform::IOS)
   version = app.get_edit_app_store_version(platform: Spaceship::ConnectAPI::Platform::IOS)
-  abort('The expected editable 1.0.0 version was not returned.') unless version&.version_string == VERSION
+  abort("The expected editable #{VERSION} version was not returned.") unless version&.version_string == VERSION
   version.update(attributes: { releaseType: Spaceship::ConnectAPI::AppStoreVersion::ReleaseType::SCHEDULED,
-    earliestReleaseDate: RELEASE_AT.iso8601 })
+    earliestReleaseDate: release_at.iso8601 })
   readback = Spaceship::ConnectAPI::AppStoreVersion.get(app_store_version_id: version.id)
-  abort('Release policy read-back did not match.') unless readback.release_type == 'SCHEDULED' && Time.parse(readback.earliest_release_date) == RELEASE_AT
-  puts "Saved: automatic release after approval, no earlier than #{RELEASE_AT.iso8601} (Nov 15, 06:00 EST)."
+  abort('Release policy read-back did not match.') unless readback.release_type == 'SCHEDULED' && Time.parse(readback.earliest_release_date) == release_at
+  puts "Saved: automatic release after approval, no earlier than #{release_at.iso8601}."
 end
 
 version = app.get_edit_app_store_version(platform: Spaceship::ConnectAPI::Platform::IOS)
 if options[:release_gates]
-  gates = HolyHerReleaseGates.inspect(app, version)
+  gates = HolyHimReleaseGates.inspect(app, version)
   gates_path = File.join(state_dir, 'release-gates.json')
   File.write(gates_path, JSON.pretty_generate(gates) + "\n", mode: 'w', perm: 0o600)
   puts JSON.pretty_generate(gates)
@@ -767,7 +770,7 @@ config_path = File.join(state_dir, 'app.json')
 File.write(config_path, JSON.pretty_generate(public_config) + "\n", mode: 'w', perm: 0o600)
 puts JSON.pretty_generate(public_config)
 puts "Non-secret app configuration saved to #{config_path}. Credentials were not written to the project."
-rescue HolyHerSessionError, HolyHerReviewNotesError => error
+rescue HolyHimSessionError, HolyHimReviewNotesError => error
   abort(error.message)
 rescue StandardError => error
   if options[:reuse_session]

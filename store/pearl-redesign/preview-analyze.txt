@@ -1,6 +1,0 @@
-Analyzing dev, preview_main.dart...
-
-warning - lib/dev/preview_fixtures.dart:4:8 - Unused import: 'package:holyher/core/theme/app_theme.dart'. Try removing the import directive. - unused_import
-warning - lib/dev/preview_fixtures.dart:88:26 - The method doesn't override an inherited method. Try updating this class to match the superclass, or removing the override annotation. - override_on_non_overriding_member
-
-2 issues found.

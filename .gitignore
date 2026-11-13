@@ -55,3 +55,15 @@ config/private/
 
 # Reproducible authenticated-web output; build with tool/build_web.py
 /public/app/
+
+# Python caches
+__pycache__/
+
+# Abandoned CocoaPods installs and editor-agent scratch
+/ios/Pods.incomplete-*/
+/.github/modernize/
+
+# Emulator and CLI debug output
+firebase-debug*.log
+firestore-debug*.log
+ui-debug*.log

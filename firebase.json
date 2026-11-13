@@ -2,7 +2,7 @@
   "functions": [
     {
       "source": "functions",
-      "codebase": "holyher",
+      "codebase": "holyhim",
       "ignore": [
         "node_modules",
         ".git",
@@ -36,29 +36,20 @@
         ]
       },
       {
-        "source": "/artwork/v1/*.webp",
+        "source": "/app/holyhim-sw.js",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache"
+          }
+        ]
+      },
+      {
+        "source": "/art/v2/**/*.webp",
         "headers": [
           {
             "key": "Cache-Control",
             "value": "public,max-age=31536000,immutable"
-          }
-        ]
-      },
-      {
-        "source": "/app/holyher-sw.js",
-        "headers": [
-          {
-            "key": "Cache-Control",
-            "value": "no-cache"
-          }
-        ]
-      },
-      {
-        "source": "/artwork/v1/manifest.json",
-        "headers": [
-          {
-            "key": "Cache-Control",
-            "value": "no-cache"
           }
         ]
       }
@@ -76,5 +67,8 @@
         "destination": "/app/index.html"
       }
     ]
+  },
+  "storage": {
+    "rules": "storage.rules"
   }
 }

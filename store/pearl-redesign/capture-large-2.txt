@@ -1,5 +1,0 @@
-welcome:0 430.0 932.0 OK
-onboarding:summary 430.0 932.0 OK
-saved:populated 430.0 932.0 OK
-profile 430.0 932.0 OK
-lesson:verse 430.0 932.0 OK

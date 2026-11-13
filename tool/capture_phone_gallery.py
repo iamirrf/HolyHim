@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Capture explicitly invoked HolyHer QA states on the connected physical iPhone.
+"""Capture explicitly invoked HolyHim QA states on the connected physical iPhone.
 
 Uses the installed app's non-release diagnostic branch, memory-only fixtures,
 and Xcode Devices screenshots. Restores the actual app at the end of the batch.
@@ -9,7 +9,7 @@ from pathlib import Path
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
-BUNDLE = 'com.holyher.app'
+BUNDLE = 'com.holyhim.app'
 p = argparse.ArgumentParser()
 p.add_argument('--device', default='79D1760F-3CCF-5595-874B-46E260F41DCD')
 p.add_argument('--routes', nargs='+', required=True)
@@ -35,7 +35,7 @@ def fetch(source, target):
         '--domain-type', 'appDataContainer', '--domain-identifier', BUNDLE,
         '--source', source, '--destination', str(target), check=False, timeout=12).returncode == 0
 
-def is_holyher_image(path):
+def is_holyhim_image(path):
     # Validate only palette/geometry before opening a capture for visual review.
     # A switched app is discarded, never archived or presented to the agent.
     with Image.open(path) as im:
@@ -47,12 +47,12 @@ def is_holyher_image(path):
                    for r,g,b in pixels) / len(pixels) > .78
 
 try:
-    with tempfile.TemporaryDirectory(prefix='holyher-phone-capture-') as temporary:
+    with tempfile.TemporaryDirectory(prefix='holyhim-phone-capture-') as temporary:
         temp = Path(temporary)
         for route in a.routes:
             session = uuid.uuid4().hex
-            launch(f'--holyher-preview={route}', f'--holyher-session={session}',
-                   f'--holyher-scale={a.scale}', f'--holyher-motion={str(a.motion).lower()}')
+            launch(f'--holyhim-preview={route}', f'--holyhim-session={session}',
+                   f'--holyhim-scale={a.scale}', f'--holyhim-motion={str(a.motion).lower()}')
             ready = temp/'ready.json'
             ready.unlink(missing_ok=True)
             deadline = time.monotonic()+95
@@ -70,7 +70,7 @@ try:
             fetch(f'tmp/preview-errors-{session}.txt', errors)
             if errors.exists() and errors.read_text().strip():
                 raise RuntimeError(errors.read_text())
-            # Deliberately foreground HolyHer immediately before its screenshot.
+            # Deliberately foreground HolyHim immediately before its screenshot.
             run('xcrun', 'devicectl', 'device', 'process', 'launch', '--device', a.device, '--activate', BUNDLE)
             time.sleep(.6)
             desktop = Path.home()/'Desktop'
@@ -95,8 +95,8 @@ try:
             if shot is None:
                 raise RuntimeError('Xcode did not save a screenshot')
             try:
-                if not is_holyher_image(shot):
-                    raise RuntimeError('Capture was outside the expected HolyHer palette; discarded')
+                if not is_holyhim_image(shot):
+                    raise RuntimeError('Capture was outside the expected HolyHim palette; discarded')
                 name=f'{route.replace(":","-")}--iphone14promax--s{a.scale:g}' + ('--motion' if a.motion else '')
                 shutil.copy2(shot, out/f'{name}.png')
                 data.update(capture='Xcode Devices screenshot from physical iPhone',
@@ -107,4 +107,4 @@ try:
             finally:
                 shot.unlink(missing_ok=True)
 finally:
-    launch()  # Normal HolyHer, actual account and persistence, no fixture arguments.
+    launch()  # Normal HolyHim, actual account and persistence, no fixture arguments.

@@ -1,8 +1,0 @@
-Building com.holyher.app for simulator (ios)...
-Running Xcode build...                                          
-Xcode build done.                                           35.6s
-Failed to build iOS app
-Error (Xcode): Launch screens may not contain user-defined runtime attributes. [12]
-/Users/amir/Downloads/HolyHer/ios/Runner/Base.lproj/LaunchScreen.storyboard
-
-Encountered error while building for simulator.

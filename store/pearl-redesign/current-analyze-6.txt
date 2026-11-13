@@ -1,6 +1,0 @@
-Analyzing lib, preview_main.dart...
-
-   info - lib/features/support/support_screens.dart:86:20 - Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation. - prefer_const_constructors
-   info - lib/main.dart:27:71 - Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation. - prefer_const_constructors
-
-2 issues found.

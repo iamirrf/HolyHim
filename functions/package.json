@@ -1,1 +1,1 @@
-{"name":"holyher-functions","private":true,"main":"index.js","engines":{"node":"22"},"scripts":{"test":"node --test test/*.test.js"},"dependencies":{"firebase-admin":"^13.6.0","firebase-functions":"^7.0.0"}}
+{"name":"holyhim-functions","private":true,"main":"index.js","engines":{"node":"22"},"scripts":{"test":"node --test test/*.test.js"},"dependencies":{"firebase-admin":"^13.6.0","firebase-functions":"^7.0.0"}}

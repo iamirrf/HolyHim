@@ -1,9 +1,0 @@
-21:15:26  Acquired tunnel connection to device.
-21:15:26  Enabling developer disk image services.
-21:15:27  Acquired usage assertion.
-Apps installed:
-Name      Bundle Identifier     Version   Bundle Version
--------   -------------------   -------   --------------
-Cognein   ai.evolve.app         2.0.1     9             
-HolyHer   com.example.holyher   1.0.0     1             
-HolyHer   com.holyher.app       1.1.0     3             

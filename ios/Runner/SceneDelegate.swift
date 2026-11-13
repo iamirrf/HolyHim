@@ -1,6 +1,6 @@
 import Flutter
 import UIKit
 
-class SceneDelegate: FlutterSceneDelegate {
-
-}
+// Keep FlutterSceneDelegate's connection-option forwarding intact for cold-start
+// notification responses and custom/universal links.
+class SceneDelegate: FlutterSceneDelegate {}

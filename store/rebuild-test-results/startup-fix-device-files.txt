@@ -1,7 +1,0 @@
-10:36:20  Acquired tunnel connection to device.
-10:36:20  Enabling developer disk image services.
-10:36:20  Acquired usage assertion.
-1 file:
-Name                  URL Resources        Size    Modification date
--------------------   ------------------   -----   -----------------
-holyher-local-v1.db   Writable, Readable   20 KB   11/1/26, 10:36 AM
