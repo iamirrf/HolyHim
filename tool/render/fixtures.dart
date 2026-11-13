@@ -80,7 +80,7 @@ Map<int, String> history(int read, {bool today = false, DateTime? now}) {
 
 Widget scope(Widget app,
     {WalkState? walk,
-    AuthUser? user = const AuthUser(uid: 'review', email: 'mira@example.com'),
+    AuthUser? user = const AuthUser(uid: 'review', email: 'daniel@example.com'),
     AuthState? auth,
     LifetimeState billing = const LifetimeState(loading: false, product: product)}) {
   return ProviderScope(overrides: [

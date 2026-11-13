@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import '../../data/lessons.g.dart';
 import '../../design/chapter_catalog.g.dart';
 import '../../design/design.dart';
+import '../../design/art_catalog.dart';
 import '../../domain/access.dart';
 import '../../domain/pacing.dart';
 import '../../services/billing.dart';
@@ -159,7 +160,9 @@ class _ChapterPage extends StatelessWidget {
               },
               child: Stack(fit: StackFit.expand, children: [
                 Image.asset(
-                    'assets/art/chapters/${chapter.id}/portrait.webp',
+                    // The chapter's own photograph when it has one, otherwise
+                    // the library photograph for its first day.
+                    HolyArtCatalog.assetForDay(chapter.firstDay),
                     fit: BoxFit.cover,
                     alignment: const Alignment(0, -.3),
                     excludeFromSemantics: true,
