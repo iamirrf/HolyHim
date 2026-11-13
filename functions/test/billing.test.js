@@ -2,7 +2,7 @@
 const {test} = require('node:test');
 const assert = require('node:assert/strict');
 const {lifetimeActive, customerIds, createBilling} = require('../billing');
-const entitlement = {entitlement_id: 'REPLACE_WITH_HOLYHIM_REVENUECAT_ENTITLEMENT', expires_at: null};
+const entitlement = {entitlement_id: 'entld8cfd982e8', expires_at: null};
 test('only the verified lifetime entitlement activates ownership; a refund removes it', () => {
   assert.equal(lifetimeActive({object:'list',items:[entitlement]}),true);
   assert.equal(lifetimeActive({object:'list',items:[]}),false);
