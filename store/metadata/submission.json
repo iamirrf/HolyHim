@@ -1,32 +1,28 @@
 {
   "status": "prepared-not-submitted",
   "bundleId": "com.holyhim.app",
-  "name": "HolyHim",
+  "name": "HolyHim: Daily Bible for Men",
   "primaryLocale": "en-US",
-  "version": "2.0.0",
-  "buildNumber": 6,
+  "version": "1.0.0",
+  "buildNumber": 1,
   "publisher": "Codellion LLC",
   "copyright": "2026 Codellion LLC",
   "platforms": [
-    "iPhone",
-    "iPad"
+    "iPhone"
   ],
   "primaryCategory": "REFERENCE",
   "secondaryCategory": "LIFESTYLE",
-  "ageRating": "Complete the current App Store Connect questionnaire; no final rating claimed here.",
   "pricing": {
     "appDownload": "Free with in-app purchase",
     "productId": "holyhim_lifetime",
     "productType": "NON_CONSUMABLE",
     "entitlementId": "lifetime",
     "launchPriceUSD": "1.99",
-    "subscription": false,
-    "localizedPriceSource": "App Store product"
+    "freeDays": 7,
+    "subscription": false
   },
   "release": {
-    "policy": "completion-dependent",
-    "scheduledAt": null,
-    "note": "Set an explicit reviewed release time only after final acceptance and separate App Store submission approval."
+    "policy": "automatic after approval"
   },
   "urls": {
     "marketing": "https://holyhim-app-production.web.app",
@@ -35,21 +31,9 @@
     "terms": "https://holyhim-app-production.web.app/terms"
   },
   "screenshots": {
-    "iphone": "store/screenshots/app-store/iphone-1206x2622",
-    "ipad": "store/screenshots/app-store/ipad-2064x2752",
-    "count": 10,
-    "provenance": "Existing framed raster screenshots predate the current redesign. Current review rasters are in store/launch-redesign/screens and are not device screenshots or submission assets.",
-    "status": "prior-design reference only; replace before submission"
+    "iphone": "store/screenshots/app-store/iphone-1290x2796",
+    "count": 6,
+    "provenance": "Real app screens rendered at 1290 x 2796 by tool/render/him_screenshots_test.dart and framed by tool/store_screenshots.py."
   },
-  "reviewerCredentials": "PENDING: configure real review accounts and enter credentials securely in App Store Connect. Do not commit passwords.",
-  "requiredBeforeSubmission": [
-    "Replace prior-design screenshots with final current-build device captures covering daily experience, all four cards, onboarding, chapter journey, Saved, Growth, and widgets",
-    "Production signed archive and App Store validation",
-    "Live authentication, purchase/restore, journey and deletion acceptance",
-    "Final archive privacy report and saved App Privacy answers",
-    "Real reviewer credentials and contact information",
-    "Updated age-rating and export-compliance questionnaire",
-    "Confirm public privacy/terms/support URLs and working support delivery",
-    "Attach the non-consumable purchase to the first version submission"
-  ]
+  "iapReviewScreenshot": "build/render/store/iap-offer.png (rendered with the store screens)"
 }

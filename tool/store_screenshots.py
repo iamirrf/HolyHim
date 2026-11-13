@@ -2,7 +2,7 @@
 """Frame HolyHim's real rendered screens as App Store screenshots.
 
 Input: build/render/store/*.png from `flutter test tool/render/him_screenshots_test.dart`
-(real app screens at 1290 x 2796). Output: store/screenshots/iphone-6.9/*.png,
+(real app screens at 1290 x 2796). Output: store/screenshots/app-store/iphone-1290x2796/*.png,
 1290 x 2796 RGB, each with a two-line headline in the brand type on First
 Watch charcoal. Nothing on the phone is drawn by this script.
 
@@ -18,7 +18,7 @@ from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 ROOT = Path(__file__).resolve().parents[1]
 RAW = ROOT / 'build/render/store'
-OUT = ROOT / 'store/screenshots/iphone-6.9'
+OUT = ROOT / 'store/screenshots/app-store/iphone-1290x2796'
 FONTS = ROOT / 'assets/fonts'
 W, H = 1290, 2796
 BONE, BRASS, MUTED = (242, 237, 228), (216, 166, 87), (167, 174, 184)
