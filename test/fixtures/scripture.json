@@ -571,12 +571,12 @@
   },
   {
     "day": 64,
-    "reference": "1 Kings 17:24",
-    "text": "The woman said to Elijah, “Now I know that you are a man of God, and that the LORD’s word in your mouth is truth.”",
+    "reference": "1 Kings 2:2",
+    "text": "“I am going the way of all the earth. You be strong therefore, and show yourself a man;",
     "verseKeys": [
-      "1 Kings 17:24"
+      "1 Kings 2:2"
     ],
-    "verseSha256": "deabcbfb02bfaca40224068cf4d95bb374da2a4a01c4755411c570b326035413"
+    "verseSha256": "ae72eb907f254e58d90133b86168c07c52528e232dce68bb382a141025b05afa"
   },
   {
     "day": 65,
@@ -733,12 +733,12 @@
   },
   {
     "day": 82,
-    "reference": "Esther 4:16",
-    "text": "“Go, gather together all the Jews who are present in Susa, and fast for me, and neither eat nor drink three days, night or day. I and my maidens will also fast the same way. Then I will go in to the king, which is against the law; and if I perish, I perish.”",
+    "reference": "Isaiah 41:10",
+    "text": "Don’t you be afraid, for I am with you. Don’t be dismayed, for I am your God. I will strengthen you. Yes, I will help you. Yes, I will uphold you with the right hand of my righteousness.",
     "verseKeys": [
-      "Esther 4:16"
+      "Isaiah 41:10"
     ],
-    "verseSha256": "4c949297fd35d726b2a3278362c16d8923408582c45665a220062a91a7f91503"
+    "verseSha256": "7b2c36abd4800c29b409567168a8ff8ab5646328a3886fcd3617efe3a12658c6"
   },
   {
     "day": 83,
