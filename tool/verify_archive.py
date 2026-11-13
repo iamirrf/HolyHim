@@ -20,7 +20,7 @@ ROOT = Path(__file__).resolve().parents[1]
 BUNDLE = 'com.holyhim.app'
 TEAM = 'DU9D6TAM58'
 PROJECT = 'holyhim-app-production'
-GOOGLE_APP = '1:000000000000:ios:REPLACE_WITH_HOLYHIM_IOS_APP_ID'
+GOOGLE_APP = '1:924772723375:ios:e77948fc5cf114955d425a'
 CATEGORIES = {
     'Name': 'Name', 'EmailAddress': 'Email Address',
     'PhoneNumber': 'Phone Number', 'CoarseLocation': 'Coarse Location',
