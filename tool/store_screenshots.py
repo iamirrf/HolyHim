@@ -23,12 +23,14 @@ FONTS = ROOT / 'assets/fonts'
 W, H = 1290, 2796
 BONE, BRASS, MUTED = (242, 237, 228), (216, 166, 87), (167, 174, 184)
 CAPTIONS = {
-    '01-today': ('Five minutes.', 'Every morning.'),
-    '02-scripture': ('Scripture first,', 'word for word.'),
-    '03-life': ('Plain words', 'for real life.'),
-    '04-amen': ('Hold to say', 'Amen.'),
-    '05-growth': ('Stay on track,', 'with grace days.'),
-    '06-saved': ('Keep the verses', 'that hit home.'),
+    '01-walk': ('A word to stand on.', 'Every morning.'),
+    '02-road': ('Walk the road,', 'one day at a time.'),
+    '03-scripture': ('Scripture first,', 'word for word.'),
+    '04-life': ('Plain words', 'for real life.'),
+    '05-amen': ('Hold to say', 'Amen.'),
+    '06-brothers': ('Iron sharpens', 'iron.'),
+    '07-ranks': ('Stand with', 'your brothers.'),
+    '08-growth': ('Earn every', 'medallion.'),
 }
 
 

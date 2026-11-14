@@ -1,39 +1,39 @@
 {
-  "status": "prepared-not-submitted",
-  "bundleId": "com.holyhim.app",
-  "name": "HolyHim: Daily Bible for Men",
-  "primaryLocale": "en-US",
-  "version": "1.0.0",
-  "buildNumber": 1,
-  "publisher": "Codellion LLC",
-  "copyright": "2026 Codellion LLC",
-  "platforms": [
-    "iPhone"
-  ],
-  "primaryCategory": "REFERENCE",
-  "secondaryCategory": "LIFESTYLE",
-  "pricing": {
-    "appDownload": "Free with in-app purchase",
-    "productId": "holyhim_lifetime",
-    "productType": "NON_CONSUMABLE",
-    "entitlementId": "lifetime",
-    "launchPriceUSD": "1.99",
-    "freeDays": 7,
-    "subscription": false
-  },
-  "release": {
-    "policy": "automatic after approval"
-  },
-  "urls": {
-    "marketing": "https://holyhim-app-production.web.app",
-    "support": "https://holyhim-app-production.web.app/support",
-    "privacy": "https://holyhim-app-production.web.app/privacy",
-    "terms": "https://holyhim-app-production.web.app/terms"
-  },
-  "screenshots": {
-    "iphone": "store/screenshots/app-store/iphone-1290x2796",
-    "count": 6,
-    "provenance": "Real app screens rendered at 1290 x 2796 by tool/render/him_screenshots_test.dart and framed by tool/store_screenshots.py."
-  },
-  "iapReviewScreenshot": "build/render/store/iap-offer.png (rendered with the store screens)"
+ "status": "prepared-not-submitted",
+ "bundleId": "com.holyhim.app",
+ "name": "HolyHim: Daily Bible for Men",
+ "primaryLocale": "en-US",
+ "version": "1.0.0",
+ "buildNumber": 1,
+ "publisher": "Codellion LLC",
+ "copyright": "2026 Codellion LLC",
+ "platforms": [
+  "iPhone"
+ ],
+ "primaryCategory": "REFERENCE",
+ "secondaryCategory": "LIFESTYLE",
+ "pricing": {
+  "appDownload": "Free with in-app purchase",
+  "productId": "holyhim_lifetime",
+  "productType": "NON_CONSUMABLE",
+  "entitlementId": "lifetime",
+  "launchPriceUSD": "1.99",
+  "freeDays": 7,
+  "subscription": false
+ },
+ "release": {
+  "policy": "automatic after approval"
+ },
+ "urls": {
+  "marketing": "https://holyhim-app-production.web.app",
+  "support": "https://holyhim-app-production.web.app/support",
+  "privacy": "https://holyhim-app-production.web.app/privacy",
+  "terms": "https://holyhim-app-production.web.app/terms"
+ },
+ "screenshots": {
+  "iphone": "store/screenshots/app-store/iphone-1290x2796",
+  "count": 8,
+  "provenance": "Real app screens rendered at 1290 x 2796 by tool/render/him_screenshots_test.dart and framed by tool/store_screenshots.py."
+ },
+ "iapReviewScreenshot": "build/render/store/iap-offer.png (rendered with the store screens)"
 }

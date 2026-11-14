@@ -60,6 +60,12 @@ void main() {
       await tester.drag(find.byType(CustomScrollView).first, const Offset(0, -1250));
       await tester.pump(const Duration(milliseconds: 400));
     });
+    await shot(tester, 'walk-today', const HomeShell(), walk: kept, action: () async {
+      await tester.drag(find.byType(CustomScrollView).first, const Offset(0, -900));
+      await tester.pump(const Duration(milliseconds: 400));
+      await tester.tap(find.text('Back to today'));
+      await tester.pump(const Duration(milliseconds: 1200));
+    });
     await shot(tester, 'walk-new', const HomeShell(),
         walk: WalkState(profile: profile(), completed: history(0)), owned: false);
     await shot(tester, 'walk-locked', const HomeShell(),

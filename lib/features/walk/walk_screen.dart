@@ -70,7 +70,10 @@ class _WalkScreenState extends ConsumerState<WalkScreen> {
   /// header scrolls out of the list as you walk down the road.
   double? _roadStart;
 
-  double? _measureRoad() {
+  /// Measured after layout only: inside a scroll listener the boxes still
+  /// sit where the last frame put them, which would count the scroll twice.
+  double? _measureRoad({bool fresh = false}) {
+    if (!fresh && _roadStart != null) return _roadStart;
     final box = _roadKey.currentContext?.findRenderObject() as RenderBox?;
     final page = context.findRenderObject() as RenderBox?;
     if (box != null && page != null && box.attached && _scroll.hasClients) {
@@ -98,8 +101,8 @@ class _WalkScreenState extends ConsumerState<WalkScreen> {
         _nodeGap / 2;
   }
 
-  void _measure() {
-    final road = _measureRoad();
+  void _measure({bool fresh = false}) {
+    final road = _measureRoad(fresh: fresh);
     if (road == null || !_scroll.hasClients) {
       _todayAway.value = 0;
       return;
@@ -180,7 +183,7 @@ class _WalkScreenState extends ConsumerState<WalkScreen> {
     }
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (mounted) _measure();
+      if (mounted) _measure(fresh: true);
     });
 
     final greeting = local.hour < 12

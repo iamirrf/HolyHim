@@ -40,6 +40,7 @@ void main() {
         action: action,
         wrap: (app) => scope(app,
             walk: walk,
+            community: true,
             billing: LifetimeState(
                 loading: false, purchased: owned, product: product)));
     final error = tester.takeException();
@@ -54,8 +55,17 @@ void main() {
       saved: {3: DateTime(2026, 11, 5), 6: DateTime(2026, 11, 8), 7: DateTime(2026, 11, 9)});
 
   testWidgets('App Store screens', (tester) async {
-    await shot(tester, '01-today', const HomeShell(), walk: kept);
-    for (final (card, id) in [(0, '02-scripture'), (2, '03-life')]) {
+    await shot(tester, '01-walk', const HomeShell(), walk: kept);
+    await shot(tester, '02-road', const HomeShell(), walk: kept, action: () async {
+      await tester.drag(find.byType(CustomScrollView).first, const Offset(0, -900));
+      await tester.pump(const Duration(milliseconds: 400));
+      await tester.tap(find.text('Back to today'));
+      await tester.pump(const Duration(milliseconds: 1200));
+      // A little higher, so the walked road shows above today's stop.
+      await tester.drag(find.byType(CustomScrollView).first, const Offset(0, 160));
+      await tester.pump(const Duration(milliseconds: 400));
+    });
+    for (final (card, id) in [(0, '03-scripture'), (2, '04-life')]) {
       await shot(tester, id, const LessonScreen(day: 3),
           walk: WalkState(profile: profile(), completed: history(2)),
           action: () async {
@@ -65,10 +75,15 @@ void main() {
         }
       });
     }
-    await shot(tester, '04-amen', const CelebrationScreen(day: 3),
+    await shot(tester, '05-amen', const CelebrationScreen(day: 3),
         walk: WalkState(profile: profile(), completed: history(2, today: true)));
-    await shot(tester, '05-growth', const HomeShell(initialTab: 2), walk: kept);
-    await shot(tester, '06-saved', const HomeShell(initialTab: 1), walk: kept);
+    await shot(tester, '06-brothers', const HomeShell(initialTab: 1), walk: kept);
+    await shot(tester, '07-ranks', const HomeShell(initialTab: 2), walk: kept);
+    await shot(tester, '08-growth', const HomeShell(initialTab: 3), walk: kept,
+        action: () async {
+      await tester.drag(find.byType(CustomScrollView).first, const Offset(0, -700));
+      await tester.pump(const Duration(milliseconds: 400));
+    });
     // The in-app purchase as App Review sees it (not a marketing screenshot).
     await shot(tester, 'iap-offer', OfferScreen(onboarding: true, onContinue: () {}),
         walk: WalkState(profile: profile(), completed: history(0)), owned: false);

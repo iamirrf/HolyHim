@@ -60,7 +60,7 @@ cd /Users/amir/Downloads/HolyHim
 - Create the purchase in App Store Connect from RevenueCat (`rc products store sync` / `push`),
   upload its review screenshot (`build/render/store/iap-offer.png`).
 - Redeploy the two billing functions so they read the new server key:
-  `DEPLOY_FORCE=1 node tool/deploy_with_gcloud.cjs functions:holyhim:syncAccess,holyhim:revenuecatWebhook`.
+  `DEPLOY_FORCE=1 node tool/deploy_with_gcloud.cjs functions:holyhim:syncAccess,functions:holyhim:revenuecatWebhook`.
 - Build, verify and upload:
 
   ```sh
