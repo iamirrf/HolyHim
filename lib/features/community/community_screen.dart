@@ -36,6 +36,11 @@ class _CommunityScreenState extends ConsumerState<CommunityScreen> {
       final member = next.valueOrNull;
       if (member != null) ref.read(communityProvider).syncStats(member).ignore();
     });
+    // A finished lesson moves his numbers on the board at once.
+    ref.listen(repositoryProvider.select((s) => s.completed.length), (_, __) {
+      final member = ref.read(myMemberProvider).valueOrNull;
+      if (member != null) ref.read(communityProvider).syncStats(member).ignore();
+    });
     final joined = me.valueOrNull != null;
     return Scaffold(
         backgroundColor: Colors.transparent,
