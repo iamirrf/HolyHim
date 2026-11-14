@@ -77,6 +77,15 @@ void main() {
     await shot(tester, 'brothers', const HomeShell(initialTab: 1), walk: kept);
     await shot(tester, 'brothers-join', const HomeShell(initialTab: 1), walk: kept, community: false);
     await shot(tester, 'ranks', const HomeShell(initialTab: 2), walk: kept);
+    await shot(tester, 'composer', const HomeShell(initialTab: 1), walk: kept, action: () async {
+      await tester.tap(find.text('Prayer').first);
+      await tester.pump(const Duration(milliseconds: 600));
+    });
+    await shot(tester, 'join-sheet', const HomeShell(initialTab: 1), walk: kept, community: false,
+        action: () async {
+      await tester.tap(find.text('Join the brothers').last);
+      await tester.pump(const Duration(milliseconds: 600));
+    });
     await shot(tester, 'growth', const HomeShell(initialTab: 3), walk: kept);
     await shot(tester, 'growth-medals', const HomeShell(initialTab: 3), walk: kept,
         action: () async {
