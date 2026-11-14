@@ -46,6 +46,17 @@ own brand, lessons, art, store listing and cloud identity.
 The Nov 10 renamed copy is preserved on `archive/nov10-rename`. HolyHer's
 history before the split (`snapshot/walk-v1`, `master`) is kept unchanged.
 
+### Where HolyHim diverges (Nov 14)
+
+HolyHer built its own version of the same redesign ("The Circle", commits
+7eba051 to b8de237). HolyHim keeps its own: when merging
+`upstream/holyher-renamed` past HolyHer `52414f5`, keep HolyHim's side for
+`lib/features/{shell,walk,community,growth,profile}`, `lib/services/community.dart`,
+`lib/design/widgets/{coin,atmosphere,holy_header}.dart`, `functions/community.js`,
+`functions/moderation.json` and the community block of `firestore.rules`, and
+take engine fixes everywhere else. The Guideline 3.1.1 wording fix (HolyHer
+ab7964d) is already applied here.
+
 ## Run and verify
 
 Flutter 3.41+ / Dart 3.11+, Xcode 26, Node 22+.
