@@ -9,6 +9,23 @@ Version **1.0.0 (1)**, in development on `redesign/v2`. Nothing has been
 pushed, deployed or uploaded for HolyHim yet. Release steps and their status
 live in [docs/RELEASE.md](docs/RELEASE.md).
 
+## What is in the app
+
+- **Walk**: today's lesson on its photograph, then the whole road: 73 chapters,
+  each lesson a 3D coin on a winding brass path, milestones beside it and
+  Back to today.
+- **Brothers**: a community after Cognein's, with words, prayer requests and
+  wins, Amens, replies, sorting, report and block. Joining means agreeing to
+  the rules; the server moderates every post, reply and name
+  (`functions/community.js`, patterns in `functions/moderation.json`, shared
+  with the app). Owner tooling: `tool/moderation.py`.
+- **Ranks**: the board by streak or days read, with the crowned podium.
+- **Growth**: streak ring, next medallion, the month, every medallion as a coin
+  you can spin, and the road so far.
+- **Profile**: photo, numbers, next milestone and every setting.
+- Five tabs swipe left and right without end under Cognein's liquid glass:
+  the native iOS 26 tab bar, or the refracting minimizing bar elsewhere.
+
 ## How HolyHim relates to HolyHer
 
 HolyHim runs on HolyHer's engine (`/Users/amir/Downloads/HolyHer`) with its
