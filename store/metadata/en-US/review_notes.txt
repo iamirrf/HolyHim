@@ -2,7 +2,7 @@ HolyHim is a daily Bible app for young men: one short lesson a day (Scripture, w
 
 Sign-in: Sign in with Apple, Google, or email and password. Any of these creates an account in a few seconds.
 
-Free week and purchase: Days 1 to 7 are free. Day 8 onward requires the one-time, non-consumable in-app purchase "HolyHim Lifetime" (holyhim_lifetime). There is no subscription. The offer appears at the end of onboarding ("Unlock for life" or "Start my 7 free days"), from Profile, and on Day 8. Restore Purchase is on the offer screen and in Profile. Lessons open one per calendar day, so the Day 8 lock is reached on the eighth day, but the purchase can be made at any time from the offer or Profile.
+Free lessons and purchase: Days 1 to 7 are free lessons for everyone, with no time limit; this is not a time-based trial. Day 8 onward requires the one-time, non-consumable in-app purchase "HolyHim Lifetime" (holyhim_lifetime). There is no subscription. The offer appears at the end of onboarding ("Unlock for life" or "Start with Days 1 to 7 free"), from Profile, and on Day 8. Restore Purchase is on the offer screen and in Profile. Lessons open one per calendar day, so the Day 8 lock is reached on the eighth day, but the purchase can be made at any time from the offer or Profile.
 
 Account deletion: Profile > Account > Delete account. This permanently deletes the account, progress and saved verses.
 

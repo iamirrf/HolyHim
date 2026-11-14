@@ -115,7 +115,7 @@ class WelcomeScreen extends ConsumerWidget {
                                         fontSize: compact ? 30 : 34)),
                                 const SizedBox(height: 6),
                                 Text(
-                                    'One short lesson a day. Your first week is free.',
+                                    'One short lesson a day. Days 1 to 7 are free.',
                                     textAlign: TextAlign.center,
                                     style: HolyTypography.body
                                         .copyWith(color: t.muted)),

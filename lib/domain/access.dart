@@ -11,7 +11,7 @@ library;
 const freeDays = 7;
 
 enum LessonAccess {
-  /// Inside the free week.
+  /// One of the free lessons, Days 1 to 7.
   free,
 
   /// Owned through the lifetime unlock.

@@ -8,10 +8,10 @@ import '../../domain/access.dart';
 import '../../services/billing.dart';
 import '../common.dart';
 
-/// The offer: seven free days, then one price, once. Plain and honest: no
+/// The offer: Days 1 to 7 free to read and keep, then one price, once. Plain and honest: no
 /// countdowns, no invented discounts, no testimonials.
 class OfferScreen extends ConsumerStatefulWidget {
-  /// Shown at the end of onboarding, with "Start my 7 free days".
+  /// Shown at the end of onboarding, with "Start with Days 1 to 7 free".
   final bool onboarding;
 
   /// The locked lesson that brought her here, if any.
@@ -74,13 +74,13 @@ class _OfferScreenState extends ConsumerState<OfferScreen> {
     final title = owned || thanked
         ? 'Every day is open'
         : widget.onboarding
-            ? 'Your first week is free'
+            ? 'Days 1 to $freeDays are free'
             : 'Keep walking past Day $freeDays';
     final subtitle = owned || thanked
         ? 'Thank you. Every lesson is yours, for life.'
         : widget.onboarding
-            ? 'Read Days 1 to $freeDays on us. Unlock lifetime access whenever you are ready.'
-            : 'You finished your free week. One payment opens every lesson, for life.';
+            ? 'Read and keep them on us. Unlock lifetime access whenever you are ready.'
+            : 'Days 1 to $freeDays were free. One payment opens every lesson, for life.';
     final photoHeight = media.size.height * (compact ? .27 : .36);
 
     return Scaffold(
@@ -185,7 +185,7 @@ class _OfferScreenState extends ConsumerState<OfferScreen> {
                           const SizedBox(height: 10),
                           HolyButton.secondary(
                               widget.onboarding
-                                  ? 'Start my $freeDays free days'
+                                  ? 'Start with Days 1 to $freeDays free'
                                   : 'Not now',
                               onPressed: access.busy ? null : _leave),
                         ],

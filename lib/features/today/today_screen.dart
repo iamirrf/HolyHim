@@ -410,7 +410,7 @@ class _LessonCard extends ConsumerWidget {
                                                 ? lesson.holdOn
                                                 : 'Tomorrow: ${next.title}. ${next.teaser}',
                                             _CardState.locked =>
-                                              'Your free week is done. One payment opens every day that follows.',
+                                              'Days 1 to 7 were free. One payment opens every lesson, for life.',
                                             _CardState.finished =>
                                               'You walked the whole road. Every lesson is still yours.',
                                             _ => lesson.teaser,

@@ -60,8 +60,8 @@ const legalDocuments = <String, List<(String, String)>>{
       "Terms of use\n\nEffective November 13, 2026 · HolyHim 1.0 · Codellion LLC\n\nThese terms apply to HolyHim, provided by Codellion LLC. By using HolyHim you agree to use it lawfully and to keep your sign-in details secure.",
     ),
     (
-      "Free week and lifetime access",
-      "Days 1 to 7 are free. Reading every day after that needs lifetime access, a one-time purchase at the price shown in your local App Store currency before you confirm. It is not a subscription and does not renew. Restore Purchase recovers it on the same Apple account. Refunds are handled by Apple under its policies.",
+      "Free lessons and lifetime access",
+      "Days 1 to 7 are free lessons with no time limit. Reading every day after that needs lifetime access, a one-time purchase at the price shown in your local App Store currency before you confirm. It is not a subscription and does not renew. Restore Purchase recovers it on the same Apple account. Refunds are handled by Apple under its policies.",
     ),
     (
       "How lessons open",

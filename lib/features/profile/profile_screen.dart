@@ -295,8 +295,8 @@ class _Membership extends StatelessWidget {
                   owned
                       ? 'Lifetime member'
                       : left > 0
-                          ? 'Free week · $left ${left == 1 ? 'day' : 'days'} left'
-                          : 'Free week complete',
+                          ? '$left free ${left == 1 ? 'lesson' : 'lessons'} left'
+                          : 'Free lessons read',
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: HolyTypography.caption.copyWith(
@@ -376,7 +376,7 @@ class _Unlock extends StatelessWidget {
                         Text(
                             left > 0
                                 ? 'Every lesson, for life. One payment.'
-                                : 'Your free week is done. One payment opens every lesson.',
+                                : 'Days 1 to 7 were free. One payment opens every lesson.',
                             style: HolyTypography.caption.copyWith(color: t.muted)),
                       ])),
                       Icon(CupertinoIcons.chevron_right, size: 14, color: t.accent),

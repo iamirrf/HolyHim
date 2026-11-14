@@ -235,7 +235,7 @@ void main() {
     expect(find.text('Dear Mira,'), findsOneWidget);
     await _tap(tester, 'Continue');
     expect(find.byType(OfferScreen), findsOneWidget);
-    await _tap(tester, 'Start my 7 free days');
+    await _tap(tester, 'Start with Days 1 to 7 free');
     await tester.pump(const Duration(milliseconds: 500));
     expect(find.byType(LessonScreen), findsOneWidget);
     expect(_draft(tester, h)['stepId'], onboardingDoneStepId);
