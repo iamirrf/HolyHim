@@ -50,7 +50,7 @@ function site({offline = false, storageBlocked = false} = {}) {
       setItem: (key, value) => {if (storageBlocked) throw new Error('blocked'); saved.set(key, value);}},
     fetch: async url => {if (offline) throw new Error('offline'); return {ok: true, json: async () =>
       url === '/chapters.json' ? JSON.parse(fs.readFileSync(path.join(root, 'public/chapters.json'), 'utf8')) : sample};},
-    getComputedStyle: () => ({getPropertyValue: () => '#fff8f6'}), performance: {now: () => 1000},
+    getComputedStyle: () => ({getPropertyValue: () => '#0E1116'}), performance: {now: () => 1000},
     requestAnimationFrame() {throw new Error('Canvas should be absent in this fixture');}};
   vm.runInNewContext(fs.readFileSync(path.join(root, 'public/site.js'), 'utf8'), context);
   return {ids, themes, cardButtons, steps, segments, documentRoot, saved, note, meta};
@@ -118,8 +118,8 @@ test('all eight themes change the page and persist the selected theme', async ()
     assert.equal(theme.attributes['aria-pressed'], 'true');
     assert.equal(state.saved.get('holyhim-site-theme'), theme.dataset.themeChoice);
   }
-  assert.equal(state.ids['#theme-name'].textContent, 'Starlight');
-  assert.equal(state.meta.attributes.content, '#fff8f6');
+  assert.equal(state.ids['#theme-name'].textContent, 'Gold');
+  assert.equal(state.meta.attributes.content, '#0E1116');
 });
 test('offline sample keeps Scripture readable and storage restrictions do not stop themes', async () => {
   const state = site({offline: true, storageBlocked: true}); await flush();
@@ -127,7 +127,7 @@ test('offline sample keeps Scripture readable and storage restrictions do not st
   assert.equal(state.ids['#sample-next'].disabled, true);
   assert.equal(state.note.textContent, 'Day 1 · A word to carry into your day.');
   await state.themes[6].fire('click');
-  assert.equal(state.documentRoot.dataset.theme, 'midnight-rose');
+  assert.equal(state.documentRoot.dataset.theme, 'midnight');
 });
 async function support(response) {
   const button = new Element(), status = new Element(), form = new Element();

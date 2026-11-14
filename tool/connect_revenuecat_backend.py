@@ -4,7 +4,7 @@ from pathlib import Path
 import argparse, json, re, secrets, subprocess, urllib.request, urllib.error, urllib.parse
 
 CLOUD=json.loads((Path(__file__).resolve().parents[1]/'config/cloud.json').read_text())
-PROJECT=CLOUD['projectId'];ACCOUNT=CLOUD['account'];RC_PROJECT='proj1b08bf4e'
+PROJECT=CLOUD['projectId'];ACCOUNT=CLOUD['account'];RC_PROJECT=CLOUD.get('revenueCatProjectId', 'REPLACE_WITH_HOLYHIM_REVENUECAT_PROJECT')
 BASE=['npx','--yes','@revenuecat/cli@0.1.7']
 def verify_projects(data):
     return any(item.get('id')==RC_PROJECT for item in data.get('items',[]))
