@@ -142,6 +142,10 @@ def ensure_runtime_account() -> None:
     for role in RUNTIME_ROLES:
         gcloud('projects', 'add-iam-policy-binding', PROJECT, f'--member=serviceAccount:{RUNTIME_EMAIL}',
                f'--role={role}', '--condition=None', '--format=none')
+    # Account deletion and avatar cleanup list and delete photos in the
+    # Firebase bucket; without this every account deletion fails.
+    gcloud('storage', 'buckets', 'add-iam-policy-binding', f'gs://{PROJECT}.firebasestorage.app',
+           f'--member=serviceAccount:{RUNTIME_EMAIL}', '--role=roles/storage.objectAdmin', '--format=none')
 
 
 def ensure_apps() -> None:

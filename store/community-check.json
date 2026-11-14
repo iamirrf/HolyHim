@@ -1,0 +1,51 @@
+{
+  "verifiedAt": "2026-11-14T12:50:43.537019+00:00",
+  "project": "holyhim-app-production",
+  "checks": [
+    {
+      "check": "Two disposable accounts",
+      "passed": true
+    },
+    {
+      "check": "Joining writes only your own card",
+      "passed": true
+    },
+    {
+      "check": "Server posts clean text for members and refuses unclean text and non-members",
+      "passed": true
+    },
+    {
+      "check": "Amen needs membership and can change nothing else",
+      "passed": true
+    },
+    {
+      "check": "Reply counted on the post",
+      "passed": true
+    },
+    {
+      "check": "Report stored for review and private from members",
+      "passed": true
+    },
+    {
+      "check": "Block list saved and private",
+      "passed": true
+    },
+    {
+      "check": "Only the author edits",
+      "passed": true
+    },
+    {
+      "check": "Post author removes a reply and the count follows",
+      "passed": true
+    },
+    {
+      "check": "Leaving deletes the card and posts",
+      "passed": true
+    },
+    {
+      "check": "Deleting an account deletes the community card too",
+      "passed": true
+    }
+  ],
+  "passed": true
+}
