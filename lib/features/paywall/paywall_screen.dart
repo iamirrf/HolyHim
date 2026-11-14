@@ -77,10 +77,10 @@ class _OfferScreenState extends ConsumerState<OfferScreen> {
             ? 'Your first week is free'
             : 'Keep walking past Day $freeDays';
     final subtitle = owned || thanked
-        ? 'Thank you. All 365 lessons are yours, for good.'
+        ? 'Thank you. Every lesson is yours, for life.'
         : widget.onboarding
-            ? 'Read Days 1 to $freeDays on us. Unlock the whole year whenever you are ready.'
-            : 'You have finished your free week. One small payment opens the rest of the year.';
+            ? 'Read Days 1 to $freeDays on us. Unlock lifetime access whenever you are ready.'
+            : 'You finished your free week. One payment opens every lesson, for life.';
     final photoHeight = media.size.height * (compact ? .27 : .36);
 
     return Scaffold(
@@ -151,7 +151,7 @@ class _OfferScreenState extends ConsumerState<OfferScreen> {
                         SizedBox(height: compact ? 16 : 24),
                         const _Value(
                             icon: CupertinoIcons.book,
-                            text: 'All 365 lessons, a fresh word every morning'),
+                            text: 'Every lesson, a fresh word every morning, for life'),
                         const _Value(
                             icon: CupertinoIcons.heart,
                             text: 'One price, paid once. No subscription.'),

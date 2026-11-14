@@ -1,6 +1,6 @@
 {
   "status": "prepared-not-submitted",
-  "auditedOn": "2026-10-29",
+  "auditedOn": "2026-11-13",
   "dataUsedForTracking": false,
   "dataTypes": [
     {
@@ -135,6 +135,15 @@
         "Product Personalization"
       ],
       "basis": "Optional profile photo selected, cropped, and uploaded to account-scoped Firebase Storage"
+    },
+    {
+      "type": "Other User Content",
+      "linkedToUser": true,
+      "usedForTracking": false,
+      "purposes": [
+        "App Functionality"
+      ],
+      "basis": "Community posts, replies, Amens, reports and blocks"
     }
   ],
   "qualification": "Includes optional account photo upload and downloaded vendor declarations. Reconcile the final archive privacy report and App Store Connect answers before submission."

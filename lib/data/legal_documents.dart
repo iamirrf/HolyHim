@@ -22,8 +22,12 @@ const legalDocuments = <String, List<(String, String)>>{
       "Reminders are local notifications scheduled on your device with your permission. They contain a verse or the title of your next lesson, and may include an evening note when today's lesson is waiting, a short note after a few quiet days, and a blessing on your birthday. We never use them for advertising. You can change or turn them off in the app or in your device settings.",
     ),
     (
+      "Brothers (the community)",
+      "The community is optional. If you join, other signed-in members can see your community card: the name you choose for it, the coin you choose or, if you turn it on, your profile photo, your current and longest streak, how many days you have read, and your highest medallion. They can also see what you post and reply, when you posted, and whether you said Amen to a post. Your own reading, saved verses and setup answers stay private. Posts, replies and names are checked by our server before they appear. If you report something, we keep the report, the reported text and who it concerns so we can review it; reports are never shown to the person reported. People you block and posts you report are saved with your account so they stay hidden for you. You can delete any post or reply, leave the community from Profile to delete your card, posts and replies, or delete your account to remove everything.",
+    ),
+    (
       "Purchases",
-      "Days 1 to 7 are free. All 365 days are a one-time purchase through Apple. Apple handles the payment; we never receive your card details. RevenueCat receives purchase and entitlement records linked to your account identifier so that lifetime access can be confirmed and restored, and our server checks that record with RevenueCat.",
+      "Days 1 to 7 are free. Lifetime access to every lesson is a one-time purchase through Apple. Apple handles the payment; we never receive your card details. RevenueCat receives purchase and entitlement records linked to your account identifier so that lifetime access can be confirmed and restored, and our server checks that record with RevenueCat.",
     ),
     (
       "Service providers",
@@ -35,7 +39,7 @@ const legalDocuments = <String, List<(String, String)>>{
     ),
     (
       "Keeping, exporting and deleting",
-      "We keep your account data while your account exists. You can export it from Profile. To delete your account, open Profile, then Account, then Delete account, and confirm. This permanently deletes your profile, progress and saved verses. A lifetime purchase belongs to your Apple account and can be restored if you sign up again.",
+      "We keep your account data while your account exists. You can export it from Profile. To delete your account, open Profile, then Account, then Delete account, and confirm. This permanently deletes your profile, progress, saved verses, and your community card, posts and replies. A lifetime purchase belongs to your Apple account and can be restored if you sign up again.",
     ),
     (
       "Children",
@@ -65,7 +69,11 @@ const legalDocuments = <String, List<(String, String)>>{
     ),
     (
       "Your account",
-      "Your account keeps your progress, saved verses and settings in sync across your devices. You can export your data or delete your account from Profile. Features that contact our server need an internet connection. Our privacy policy explains the information we use.",
+      "Your account keeps your progress, saved verses, settings and community card in sync across your devices. You can export your data or delete your account from Profile. Features that contact our server need an internet connection. Our privacy policy explains the information we use.",
+    ),
+    (
+      "Community rules",
+      "The Brothers community is for encouragement. By joining it you agree to these rules. Be real: share what is true for you. Be kind: no mocking, bullying, harassment, hate or slurs. Keep it clean: no sexual content, nudity, violence, threats, self-harm encouragement, illegal activity, spam, selling or links. Protect each other: report anything that breaks these rules, and if someone may be in danger, contact local emergency services (911 in the US) or the 988 Suicide & Crisis Lifeline.\n\nThere is no tolerance for objectionable content or abusive users. Every post, reply and name is filtered before it appears. Anyone can report a post or reply or block another member. We review reports within 24 hours, remove content that breaks these rules, and remove the accounts of people who post it. Content reported by several members is hidden until it is reviewed. You are responsible for what you post, and you keep ownership of it, but you allow us to show it to other members inside HolyHim. You can delete it at any time.",
     ),
     (
       "Scripture and lessons",

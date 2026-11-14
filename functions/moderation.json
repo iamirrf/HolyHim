@@ -1,0 +1,30 @@
+{
+ "patterns": [
+  "\\bf+u+c*k",
+  "\\bf+c+k",
+  "\\bsh+[i1]+t",
+  "\\bbitch",
+  "\\bcunt",
+  "\\bdick(s|head)?\\b",
+  "\\bcock(s|sucker)?\\b",
+  "\\bpuss(y|ies)\\b",
+  "\\bwhore",
+  "\\bslut",
+  "\\bbastard",
+  "\\ba(ss|rse)hole",
+  "\\bnigg(a|er|ah|az|as|ers)",
+  "\\bfag(s|got|gots)?\\b",
+  "\\bretard(s|ed)?\\b",
+  "\\btrann(y|ies)\\b",
+  "\\bkike",
+  "\\bspics?\\b",
+  "\\bchinks?\\b",
+  "\\bporn",
+  "\\bnudes?\\b",
+  "\\bonlyfans",
+  "\\bsex ?chat",
+  "\\bkys\\b",
+  "kill (yo)?urself",
+  "\\bgo die\\b"
+ ]
+}

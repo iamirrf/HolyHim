@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
@@ -98,8 +99,13 @@ void main() {
     expect(badges.length, 19);
     final paths =
         badges.map((badge) => HolyArtAssets.badgePath(badge.id)).toSet();
-    expect(paths.length, 19);
+    // Thirty days and thirty straight share one struck medallion.
+    expect(paths.length, 18);
     expect(paths, isNot(contains(null)));
+    expect(HolyArtAssets.badgePath('days-30'), 'assets/art/badges/streak-030.png');
+    for (final path in paths) {
+      expect(File(path!).existsSync(), isTrue, reason: path);
+    }
     expect(HolyArtAssets.badgePath('days-1'), 'assets/art/badges/days-001.png');
     expect(
         HolyArtAssets.badgePath('days-365'), 'assets/art/badges/days-365.png');

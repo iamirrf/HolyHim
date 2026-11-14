@@ -411,7 +411,8 @@ module HolyHimPrivacy
     'User ID' => 'USER_ID', 'Device ID' => 'DEVICE_ID', 'Purchase History' => 'PURCHASE_HISTORY',
     'Product Interaction' => 'PRODUCT_INTERACTION', 'Other Usage Data' => 'OTHER_USAGE_DATA',
     'Customer Support' => 'CUSTOMER_SUPPORT', 'Other Data Types' => 'OTHER_DATA',
-    'Other Diagnostic Data' => 'OTHER_DIAGNOSTIC_DATA', 'Photos or Videos' => 'PHOTOS_OR_VIDEOS'
+    'Other Diagnostic Data' => 'OTHER_DIAGNOSTIC_DATA', 'Photos or Videos' => 'PHOTOS_OR_VIDEOS',
+    'Other User Content' => 'OTHER_USER_CONTENT'
   }.freeze
   PURPOSE_IDS = {
     'App Functionality' => 'APP_FUNCTIONALITY',

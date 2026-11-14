@@ -77,7 +77,7 @@ class KeepsakeCard extends StatelessWidget {
             ]),
             if (story) ...[
               const SizedBox(height: 28),
-              Text('Day ${lesson.day} of a year with God',
+              Text('Day ${lesson.day} · HolyHim',
                   style: HolyTypography.caption.copyWith(
                       color: HolyTheme.photoInk.withValues(alpha: .8))),
             ],

@@ -17,6 +17,7 @@ import 'package:holyhim/features/paywall/paywall_screen.dart';
 import 'package:holyhim/features/profile/profile_screen.dart';
 import 'package:holyhim/features/profile/theme_screen.dart';
 import 'package:holyhim/features/shell/home_shell.dart';
+import 'package:holyhim/features/saved/saved_screen.dart';
 import 'package:holyhim/features/support/support_screen.dart';
 import 'package:holyhim/features/welcome/welcome_screen.dart';
 import 'package:holyhim/services/repository.dart';
@@ -51,10 +52,12 @@ final screens = <String, (Widget, WalkState)>{
     ),
   'offer': (OfferScreen(onboarding: true, onContinue: () {}), _walk()),
   'offer-locked': (const OfferScreen(lockedDay: 8), _walk()),
-  'today': (const HomeShell(), _walk()),
-  'saved': (const HomeShell(initialTab: 1), _walk()),
-  'growth': (const HomeShell(initialTab: 2), _walk()),
-  'profile': (const HomeShell(initialTab: 3), _walk()),
+  'walk': (const HomeShell(), _walk()),
+  'brothers': (const HomeShell(initialTab: 1), _walk()),
+  'ranks': (const HomeShell(initialTab: 2), _walk()),
+  'growth': (const HomeShell(initialTab: 3), _walk()),
+  'profile': (const HomeShell(initialTab: 4), _walk()),
+  'saved': (const SavedScreen(standalone: true), _walk()),
   'journey': (const JourneyScreen(), _walk()),
   'lesson': (const LessonScreen(day: 3), _walk()),
   'celebration': (const CelebrationScreen(day: 2), _walk()),

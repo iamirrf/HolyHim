@@ -292,7 +292,7 @@ class _LessonCard extends ConsumerWidget {
                           : _CardState.begin;
           final eyebrow = switch (state) {
             _CardState.done => 'Day $day · Complete',
-            _CardState.finished => 'All 365 days · Complete',
+            _CardState.finished => 'The whole road · Complete',
             _ => 'Day $day · ${lesson.theme}',
           };
           void open() {
@@ -311,7 +311,7 @@ class _LessonCard extends ConsumerWidget {
             _CardState.begin => 'Begin Day $day',
             _CardState.resume => 'Continue Day $day',
             _CardState.done => 'Read again',
-            _CardState.locked => 'Unlock all 365 days',
+            _CardState.locked => 'Unlock lifetime access',
             _CardState.finished => 'Start again at Day 1',
           };
 
@@ -412,7 +412,7 @@ class _LessonCard extends ConsumerWidget {
                                             _CardState.locked =>
                                               'Your free week is done. One payment opens every day that follows.',
                                             _CardState.finished =>
-                                              'You walked the whole year. Every lesson is still here.',
+                                              'You walked the whole road. Every lesson is still yours.',
                                             _ => lesson.teaser,
                                           },
                                           maxLines: compact ? 2 : 3,
@@ -494,7 +494,7 @@ class _JourneyRow extends StatelessWidget {
         onPressed: () => context.push('/journey'),
         pressedScale: .98,
         semanticLabel:
-            'Your journey. Chapter $index of 73, ${chapter?.title ?? ''}. $done of 365 days read.',
+            'Your journey. Chapter $index of 73, ${chapter?.title ?? ''}. $done days read.',
         child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
             child: Row(children: [
@@ -510,7 +510,7 @@ class _JourneyRow extends StatelessWidget {
                     ClipRRect(
                         borderRadius: BorderRadius.circular(2),
                         child: LinearProgressIndicator(
-                            value: done / 365,
+                            value: (done % 5) / 5,
                             minHeight: 3,
                             color: t.accent,
                             backgroundColor: t.hairline)),

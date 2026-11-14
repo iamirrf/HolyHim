@@ -618,6 +618,51 @@ service cloud.firestore {
       return data.keys().hasOnly(['verses']) && next is map && next.size() <= 365
         && validDayKeys(next) && savedDays1To365(next, changed);
     }
+    // The brothers. A member's card is public to signed-in people; he writes
+    // only his own, only these fields, and never his join or agreement time.
+    // Posts and replies are written by the server, which moderates them;
+    // a member may only add or take back his own Amen.
+    function count(v) { return v is int && v >= 0 && v <= 100000; }
+    function validMember(d) {
+      return d.keys().hasOnly(['name','metal','photo','streak','best','days','medal','agreedAt','joinedAt','updatedAt'])
+        && d.keys().hasAll(['name','metal','photo','streak','best','days','medal','agreedAt','joinedAt','updatedAt'])
+        && d.name is string && d.name.size() >= 2 && d.name.size() <= 24
+        && d.metal in ['brass','silver','bronze','steel','pine']
+        && d.photo is string && (d.photo == '' || (d.photo.size() <= 2000
+          && d.photo.matches('^https://(firebasestorage[.]googleapis[.]com|lh3[.]googleusercontent[.]com)/.*')))
+        && d.medal is string && (d.medal == '' || d.medal.matches('^days-[0-9]{1,3}$'))
+        && count(d.streak) && count(d.best) && count(d.days) && d.streak <= d.best
+        && d.agreedAt is timestamp && d.joinedAt is timestamp && d.updatedAt is timestamp;
+    }
+    function member(uid) { return exists(/databases/$(database)/documents/members/$(uid)); }
+    function banned(uid) { return exists(/databases/$(database)/documents/bans/$(uid)); }
+    function amenToggle(before, after) {
+      let me = request.auth.uid;
+      return after.diff(before).affectedKeys().hasOnly(['amens','amenBy'])
+        && before.amenBy is list && after.amenBy is list
+        && ((!(me in before.amenBy) && after.amenBy == before.amenBy.concat([me]) && after.amens == before.amens + 1)
+          || ((me in before.amenBy) && after.amenBy == before.amenBy.removeAll([me]) && after.amens == before.amens - 1));
+    }
+    match /members/{uid} {
+      allow read: if request.auth != null;
+      allow create: if owner(uid) && activeAccount(uid) && !banned(uid) && validMember(request.resource.data);
+      allow update: if owner(uid) && activeAccount(uid) && validMember(request.resource.data)
+        && request.resource.data.agreedAt == resource.data.agreedAt
+        && request.resource.data.joinedAt == resource.data.joinedAt;
+      allow delete: if false;
+    }
+    match /posts/{postId} {
+      allow read: if request.auth != null;
+      allow create, delete: if false;
+      allow update: if request.auth != null && activeAccount(request.auth.uid) && member(request.auth.uid)
+        && amenToggle(resource.data, request.resource.data);
+      match /comments/{commentId} {
+        allow read: if request.auth != null;
+        allow create, delete: if false;
+        allow update: if request.auth != null && activeAccount(request.auth.uid) && member(request.auth.uid)
+          && amenToggle(resource.data, request.resource.data);
+      }
+    }
     match /users/{uid} {
       allow read: if owner(uid);
       allow create, update: if owner(uid) && activeAccount(uid) && (validProfile(request.resource.data) || validLegacyProfile(request.resource.data));
@@ -638,6 +683,15 @@ service cloud.firestore {
       match /resumes/{document} { allow read: if owner(uid); allow write: if false; }
       match /readingResumes/{document} { allow read: if owner(uid); allow write: if false; }
       match /saved/{document} { allow read: if owner(uid); allow write: if false; }
+      // Who he blocked and what he reported: his alone.
+      match /social/{document} {
+        allow read: if owner(uid);
+        allow create, update: if owner(uid) && activeAccount(uid) && document == 'hidden'
+          && request.resource.data.keys().hasOnly(['users','posts'])
+          && request.resource.data.get('users', []) is list && request.resource.data.get('users', []).size() <= 500
+          && request.resource.data.get('posts', []) is list && request.resource.data.get('posts', []).size() <= 2000;
+        allow delete: if false;
+      }
       match /private/{document} {
         allow read: if owner(uid) && document in ['journey','savedCatalog','editionAccess','entitlement'];
         allow write: if false;

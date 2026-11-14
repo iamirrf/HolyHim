@@ -11,7 +11,9 @@ import '../common.dart';
 
 /// Saved verses as keepsake cards on a snap carousel.
 class SavedScreen extends ConsumerStatefulWidget {
-  const SavedScreen({super.key});
+  /// Opened from the profile rather than shown as a tab: adds a way back.
+  final bool standalone;
+  const SavedScreen({super.key, this.standalone = false});
   @override
   ConsumerState<SavedScreen> createState() => _SavedScreenState();
 }
@@ -57,6 +59,10 @@ class _SavedScreenState extends ConsumerState<SavedScreen> {
             padding: EdgeInsets.only(
                 top: media.padding.top + 16, bottom: media.padding.bottom),
             child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              if (widget.standalone)
+                const Padding(
+                    padding: EdgeInsets.fromLTRB(HolySpace.gutter - 8, 0, 0, 8),
+                    child: BackControl()),
               Padding(
                   padding:
                       const EdgeInsets.symmetric(horizontal: HolySpace.gutter),

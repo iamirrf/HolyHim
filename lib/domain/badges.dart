@@ -28,7 +28,7 @@ const dayBadgeTitles = <int, String>{
   200: 'Living Hope',
   250: 'A Faithful Heart',
   300: 'Three Hundred Mornings',
-  365: 'A Year with God'
+  365: 'The Whole Road'
 };
 
 List<WalkBadge> badgesFor(
@@ -56,8 +56,9 @@ List<WalkBadge> badgesFor(
       WalkBadge(
           id: 'days-${entry.key}',
           title: entry.value,
-          description:
-              'Spend ${entry.key} ${entry.key == 1 ? 'day' : 'days'} in Scripture.',
+          description: entry.key == 365
+              ? 'Finish every lesson on the road.'
+              : 'Spend ${entry.key} ${entry.key == 1 ? 'day' : 'days'} in Scripture.',
           progress: completed.length,
           goal: entry.key),
     for (final goal in [7, 30, 100])

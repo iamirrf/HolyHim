@@ -13,7 +13,7 @@ import 'package:holyhim/features/lesson/lesson_screen.dart';
 import 'package:holyhim/features/onboarding/onboarding_screen.dart';
 import 'package:holyhim/features/paywall/paywall_screen.dart';
 import 'package:holyhim/features/shell/home_shell.dart';
-import 'package:holyhim/features/today/today_screen.dart';
+import 'package:holyhim/features/walk/walk_screen.dart';
 import 'package:holyhim/features/welcome/welcome_screen.dart';
 import 'package:holyhim/main.dart';
 import 'package:holyhim/services/app_router.dart';
@@ -162,7 +162,8 @@ Future<_Harness> _mount(WidgetTester tester,
 Future<void> _tap(WidgetTester tester, String text,
     {Duration settle = const Duration(milliseconds: 500)}) async {
   final target = find.text(text).last;
-  await tester.ensureVisible(target);
+  // Centred, so a floating header or tab bar never sits over it.
+  await Scrollable.ensureVisible(tester.element(target), alignment: .5);
   await tester.pump();
   await tester.tap(target);
   await tester.pump();
@@ -300,7 +301,7 @@ void main() {
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 600));
     expect(tester.state(find.byType(HomeShell)), same(shell));
-    expect(find.byType(TodayScreen), findsOneWidget);
+    expect(find.byType(WalkScreen), findsOneWidget);
     await h.dispose(tester);
   });
 

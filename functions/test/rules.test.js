@@ -153,3 +153,34 @@ rulesTest('v6 onboarding/profile edits and legacy migration preserve owner acces
   assert.equal((await request(`users/${uid}/private/editionAccess`,{uid})).status,200);
   assert.equal((await request(`users/${uid}/private/editionAccess`,{uid,data:{edition:'holyhim365',retained:true}})).status,403);
 });
+
+rulesTest('brothers: own card only, Amen toggles only, posts server-written, block list private', async () => {
+  const card = {name: 'Daniel', metal: 'brass', photo: '', streak: 3, best: 5, days: 9, medal: 'days-7', agreedAt: stamp, joinedAt: stamp, updatedAt: stamp};
+  assert.equal((await request('members/bro-a', {uid: 'bro-a', data: card})).status, 200);
+  assert.equal((await request('members/bro-a', {uid: 'bro-b', data: card})).status, 403);
+  for (const bad of [{name: 'D'}, {name: 'x'.repeat(25)}, {metal: 'gold'}, {streak: 9}, {days: -1}, {medal: 'admin'},
+    {photo: 'https://evil.example/x.jpg'}, {verified: true}]) {
+    assert.equal((await request('members/bro-a', {uid: 'bro-a', data: {...card, ...bad}})).status, 403, JSON.stringify(bad));
+  }
+  assert.equal((await request('members/bro-a', {uid: 'bro-a', data: {...card, joinedAt: new Date('2020-01-01T00:00:00Z')}})).status, 403);
+  assert.equal((await request('members/bro-a', {uid: 'bro-a', data: {streak: 4, best: 5, updatedAt: stamp}, mask: ['streak', 'best', 'updatedAt']})).status, 200);
+  assert.equal((await request('members/bro-a', {uid: 'bro-c'})).status, 200);
+  assert.equal((await request('members/bro-a', {})).status, 403);
+  await request('bans/bro-banned', {admin: true, data: {reason: 'test'}});
+  assert.equal((await request('members/bro-banned', {uid: 'bro-banned', data: card})).status, 403);
+
+  const post = {authorId: 'bro-z', authorName: 'Z', text: 'Pray for me', kind: 'prayer', amens: 0, amenBy: [], comments: 0, reports: 0, hidden: false, createdAt: stamp};
+  assert.equal((await request('posts/p-new', {uid: 'bro-a', data: post})).status, 403);
+  await request('posts/p1', {admin: true, data: post});
+  assert.equal((await request('posts/p1', {uid: 'bro-a', data: {amens: 1, amenBy: ['bro-a']}, mask: ['amens', 'amenBy']})).status, 200);
+  assert.equal((await request('posts/p1', {uid: 'bro-a', data: {amens: 3, amenBy: ['bro-a', 'bro-x']}, mask: ['amens', 'amenBy']})).status, 403);
+  assert.equal((await request('posts/p1', {uid: 'bro-a', data: {text: 'hacked'}, mask: ['text']})).status, 403);
+  assert.equal((await request('posts/p1', {uid: 'bro-a', data: {amens: 0, amenBy: []}, mask: ['amens', 'amenBy']})).status, 200);
+  assert.equal((await request('posts/p1', {uid: 'not-a-member', data: {amens: 1, amenBy: ['not-a-member']}, mask: ['amens', 'amenBy']})).status, 403);
+  assert.equal((await request('posts/p1', {uid: 'bro-a', method: 'DELETE'})).status, 403);
+
+  assert.equal((await request('users/bro-a/social/hidden', {uid: 'bro-a', data: {users: ['bro-z'], posts: ['p1']}})).status, 200);
+  assert.equal((await request('users/bro-a/social/hidden', {uid: 'bro-b'})).status, 403);
+  assert.equal((await request('users/bro-a/social/other', {uid: 'bro-a', data: {users: []}})).status, 403);
+  assert.equal((await request('reports/r1', {uid: 'bro-a', data: {reason: 'spam'}})).status, 403);
+});

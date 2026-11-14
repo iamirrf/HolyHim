@@ -1,5 +1,5 @@
 name: holyhim
-description: A word to stand on, every morning. 365 short Scripture lessons for men.
+description: A word to stand on, every morning. Short daily Scripture lessons for men.
 publish_to: 'none'
 version: 1.0.0+1
 
@@ -31,6 +31,15 @@ dependencies:
   path_provider: 2.1.6
   shared_preferences: ^2.5.3
   purchases_flutter: ^10.12.0
+  # Cognein's liquid glass: the native iOS 26 tab bar, and the refracting
+  # portable bar and progressive blur everywhere else.
+  adaptive_platform_ui: 0.1.100
+  liquid_glass_easy: 4.3.1
+  liquid_glass_widgets: 0.30.2
+  # Profile photos.
+  firebase_storage: ^14.0.1
+  image_picker: ^1.0.4
+  image: ^4.5.4
 
 dev_dependencies:
   flutter_test:

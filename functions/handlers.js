@@ -2,7 +2,7 @@
 const crypto = require('node:crypto');
 
 // Injection keeps these handlers verifiable without network credentials.
-function createHandlers({db, auth, HttpsError, FieldValue, Timestamp, storage, now = Date.now}) {
+function createHandlers({db, auth, HttpsError, FieldValue, Timestamp, storage, purgeCommunity, now = Date.now}) {
   function requireIdentity(request) {
     if (!request.auth || typeof request.auth.uid !== 'string' || !request.auth.uid) {
       throw new HttpsError('unauthenticated', 'Please sign in.');
@@ -18,6 +18,8 @@ function createHandlers({db, auth, HttpsError, FieldValue, Timestamp, storage, n
     // This guard survives deletion and rejects another device's offline writes.
     await db.doc(`deletionGuards/${uid}`).set({deleting: true, createdAt: FieldValue.serverTimestamp()});
     if (storage) await storage.deleteFiles({prefix: `users/${uid}/avatars/`});
+    // Posts, replies, Amens and the public card go with the account.
+    if (purgeCommunity) await purgeCommunity(uid);
     await db.recursiveDelete(db.doc(`users/${uid}`));
     try {
       await auth.deleteUser(uid);

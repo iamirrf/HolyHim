@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math' as math;
 import 'dart:convert';
 import 'package:firebase_auth/firebase_auth.dart' as firebase;
 import 'package:firebase_core/firebase_core.dart';
@@ -9,6 +10,16 @@ import 'package:go_router/go_router.dart';
 import 'package:share_plus/share_plus.dart';
 import '../../core/constants/app_constants.dart';
 import '../../design/design.dart';
+import '../../design/widgets/coin.dart';
+import '../../design/widgets/glass.dart';
+import '../../design/widgets/holy_header.dart';
+import '../../domain/badges.dart';
+import '../../domain/streak.dart';
+import '../../services/avatar_service.dart';
+import '../../services/community.dart';
+import '../community/community_screen.dart';
+import '../community/community_widgets.dart';
+import 'edit_profile_screen.dart';
 import '../../domain/access.dart';
 import '../../services/auth_service.dart';
 import '../../services/billing.dart';
@@ -26,7 +37,8 @@ String _time(int minutes) {
 void _open(BuildContext context, Widget screen) => Navigator.of(context)
     .push(CupertinoPageRoute<void>(builder: (_) => screen));
 
-/// Identity, access, and six rows. Each row opens a composed sub-screen.
+/// The profile: who you are, what you have walked, and every setting, in
+/// the layout HolyHim began with.
 class ProfileScreen extends ConsumerWidget {
   const ProfileScreen({super.key});
   @override
@@ -35,154 +47,344 @@ class ProfileScreen extends ConsumerWidget {
     final state = ref.watch(repositoryProvider);
     final user = ref.watch(authProvider).user;
     final owned = ref.watch(lifetimeProvider.select((a) => a.active));
+    final member = ref.watch(myMemberProvider).valueOrNull;
+    final hidden = ref.watch(hiddenProvider).valueOrNull;
     final p = state.profile;
-    final name = p.name.trim().isEmpty ? 'Friend' : p.name.trim();
+    final name = p.name.trim().isEmpty ? 'Brother' : p.name.trim();
     final media = MediaQuery.of(context);
     final left = freeDaysLeft(state.completed);
-    return ColoredBox(
-        color: t.paper,
-        child: Padding(
-            padding: EdgeInsets.only(top: media.padding.top),
-            child: FitColumn(
-                padding: EdgeInsets.fromLTRB(HolySpace.gutter, 16,
-                    HolySpace.gutter, media.padding.bottom),
-                children: [
-                  Row(children: [
-                    _Avatar(name: name, url: p.avatarUrl),
-                    const SizedBox(width: 14),
-                    Expanded(
-                        child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                          Semantics(
-                              header: true,
-                              child: Text(name,
-                                  maxLines: 1,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: HolyTypography.title
-                                      .copyWith(color: t.ink, fontSize: 30))),
-                          if (user?.email.isNotEmpty == true)
-                            Text(user!.email,
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                                style: HolyTypography.caption
-                                    .copyWith(color: t.muted)),
-                        ])),
-                  ]),
-                  SizedBox(height: media.size.height < 740 ? 12 : 18),
-                  Paper(
-                      radius: HolyRadius.card - 6,
-                      padding: const EdgeInsets.fromLTRB(18, 14, 14, 14),
-                      color: owned
-                          ? null
-                          : Color.alphaBlend(
-                              t.gold.withValues(alpha: .10), t.surface),
-                      child: Row(children: [
-                        Icon(
-                            owned
-                                ? CupertinoIcons.checkmark_seal_fill
-                                : CupertinoIcons.sun_haze,
-                            color: owned ? t.olive : t.gold),
-                        const SizedBox(width: 12),
-                        Expanded(
-                            child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                              Text(
-                                  owned
-                                      ? 'Lifetime access'
-                                      : left > 0
-                                          ? 'Free week · $left ${left == 1 ? 'day' : 'days'} left'
-                                          : 'Free week complete',
-                                  style: HolyTypography.label
-                                      .copyWith(color: t.ink)),
-                              Text(
-                                  owned
-                                      ? 'All 365 days are yours.'
-                                      : 'Unlock every day with one payment.',
-                                  style: HolyTypography.caption
-                                      .copyWith(color: t.muted)),
-                            ])),
-                        if (!owned)
-                          TextAction('Unlock',
-                              onPressed: () => context.push('/offer')),
-                      ])),
-                  SizedBox(height: media.size.height < 740 ? 12 : 18),
-                  RowGroup(rows: [
-                    HolyRow(
-                        icon: CupertinoIcons.bell,
-                        title: 'Reminders',
-                        value: p.reminderEnabled
-                            ? _time(p.reminderMinutes)
-                            : 'Off',
-                        onPressed: () =>
-                            _open(context, const RemindersScreen())),
-                    HolyRow(
-                        icon: CupertinoIcons.paintbrush,
-                        title: 'Theme',
-                        value: HolyThemes.byId(p.theme).name,
-                        onPressed: () => _open(context, const ThemeScreen())),
-                    HolyRow(
-                        icon: CupertinoIcons.textformat_size,
-                        title: 'Reading',
-                        value: '${(p.readingScale * 100).round()}%',
-                        onPressed: () =>
-                            _open(context, const ReadingScreen())),
-                    HolyRow(
-                        icon: CupertinoIcons.person_crop_circle,
-                        title: 'Account',
-                        onPressed: () =>
-                            _open(context, const AccountScreen())),
-                    HolyRow(
-                        icon: CupertinoIcons.chat_bubble_text,
-                        title: 'Help and feedback',
-                        onPressed: () =>
-                            _open(context, const SupportScreen())),
-                    HolyRow(
-                        icon: CupertinoIcons.doc_text,
-                        title: 'Privacy and terms',
-                        onPressed: () => _open(context, const _LegalIndex())),
-                  ]),
-                  const Spacer(),
-                  const SizedBox(height: 16),
-                  Center(
-                      child: Text('HolyHim ${AppConstants.versionLabel}',
-                          style:
-                              HolyTypography.caption.copyWith(color: t.muted))),
-                  const SizedBox(height: 8),
-                ])));
+    final streak = streakFor(state.completed, DateTime.now(), p.timeZone);
+    final photo = visibleAvatarUrl(p.avatarUrl, user?.photoUrl);
+    final next = dayBadgeTitles.keys.firstWhere(
+        (n) => n > state.completed.length,
+        orElse: () => dayBadgeTitles.keys.last);
+    Widget section(String label) => Padding(
+        padding: const EdgeInsets.fromLTRB(6, 26, 0, 10),
+        child: Eyebrow(label, color: t.muted));
+    return Scaffold(
+        backgroundColor: Colors.transparent,
+        extendBodyBehindAppBar: true,
+        appBar: HolyHeader(streak: streak.current),
+        body: ListView(
+            key: const PageStorageKey('profile'),
+            physics: const BouncingScrollPhysics(
+                parent: AlwaysScrollableScrollPhysics()),
+            padding: EdgeInsets.fromLTRB(
+                16, HolyHeader.inset(context), 16, media.padding.bottom + 24),
+            children: [
+              Rise(
+                  child: Pressable(
+                      semanticLabel: 'Edit profile',
+                      pressedScale: .985,
+                      onPressed: () => _open(context, const EditProfileScreen()),
+                      child: Glass(
+                          radius: 28,
+                          elevation: 3,
+                          padding: const EdgeInsets.fromLTRB(18, 18, 16, 18),
+                          child: Row(children: [
+                            MemberAvatar(
+                                name: name,
+                                metal: member?.metal ?? 'brass',
+                                photo: photo,
+                                size: 78,
+                                glow: .45),
+                            const SizedBox(width: 16),
+                            Expanded(
+                                child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                  Semantics(
+                                      header: true,
+                                      child: Text(name,
+                                          maxLines: 1,
+                                          overflow: TextOverflow.ellipsis,
+                                          style: HolyTypography.title.copyWith(
+                                              color: t.ink, fontSize: 26))),
+                                  const SizedBox(height: 2),
+                                  Text(
+                                      p.username.isNotEmpty
+                                          ? '@${p.username}'
+                                          : user?.email ?? '',
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: HolyTypography.caption
+                                          .copyWith(color: t.muted)),
+                                  const SizedBox(height: 10),
+                                  _Membership(owned: owned, left: left),
+                                ])),
+                            Icon(CupertinoIcons.pencil, size: 18, color: t.accent),
+                          ])))),
+              const SizedBox(height: 12),
+              Rise(
+                  index: 1,
+                  child: Row(children: [
+                    _Stat(
+                        value: state.completed.length,
+                        label: 'Days read',
+                        icon: CupertinoIcons.book_fill),
+                    const SizedBox(width: 10),
+                    _Stat(
+                        value: streak.current,
+                        label: 'Day streak',
+                        icon: CupertinoIcons.flame_fill),
+                    const SizedBox(width: 10),
+                    _Stat(
+                        value: state.saved.length,
+                        label: 'Verses kept',
+                        icon: CupertinoIcons.bookmark_fill),
+                  ])),
+              const SizedBox(height: 12),
+              Rise(
+                  index: 2,
+                  child: Pressable(
+                      semanticLabel: 'Your next milestone',
+                      pressedScale: .985,
+                      onPressed: () => context.go('/growth'),
+                      child: Glass(
+                          radius: 24,
+                          padding: const EdgeInsets.fromLTRB(14, 14, 16, 14),
+                          child: Row(children: [
+                            CoinBadge(
+                                size: 66,
+                                image: HolyArtAssets.badgePath('days-$next'),
+                                muted: true,
+                                idle: true),
+                            const SizedBox(width: 14),
+                            Expanded(
+                                child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                  Eyebrow('Your next milestone', color: t.accent),
+                                  const SizedBox(height: 3),
+                                  Text(dayBadgeTitles[next]!,
+                                      style: HolyTypography.headline
+                                          .copyWith(color: t.ink, fontSize: 19)),
+                                  const SizedBox(height: 8),
+                                  ClipRRect(
+                                      borderRadius: BorderRadius.circular(3),
+                                      child: LinearProgressIndicator(
+                                          value: (state.completed.length / next)
+                                              .clamp(0.0, 1.0),
+                                          minHeight: 5,
+                                          color: t.accent,
+                                          backgroundColor:
+                                              t.ink.withValues(alpha: .08))),
+                                  const SizedBox(height: 5),
+                                  Text('${state.completed.length} of $next days',
+                                      style: HolyTypography.caption
+                                          .copyWith(color: t.muted)),
+                                ])),
+                            Icon(CupertinoIcons.chevron_right, size: 14, color: t.muted),
+                          ])))),
+              if (state.syncError != null) ...[
+                const SizedBox(height: 12),
+                Glass(
+                    radius: 22,
+                    padding: const EdgeInsets.fromLTRB(16, 12, 10, 8),
+                    child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                      Text(state.syncError!,
+                          style: HolyTypography.body.copyWith(color: t.muted)),
+                      TextAction('Retry sync',
+                          onPressed: () =>
+                              ref.read(repositoryProvider.notifier).retrySync()),
+                    ])),
+              ],
+              if (!owned) ...[
+                const SizedBox(height: 12),
+                _Unlock(left: left),
+              ],
+              section('Your walk'),
+              RowGroup(rows: [
+                HolyRow(
+                    icon: CupertinoIcons.bookmark,
+                    title: 'Saved verses',
+                    value: '${state.saved.length}',
+                    onPressed: () => context.push('/saved')),
+                HolyRow(
+                    icon: CupertinoIcons.map,
+                    title: 'All chapters',
+                    onPressed: () => context.push('/journey')),
+                HolyRow(
+                    icon: CupertinoIcons.bell,
+                    title: 'Reminders',
+                    value: p.reminderEnabled ? _time(p.reminderMinutes) : 'Off',
+                    onPressed: () => _open(context, const RemindersScreen())),
+              ]),
+              section('Brothers'),
+              RowGroup(rows: [
+                HolyRow(
+                    icon: CupertinoIcons.person_crop_square,
+                    title: 'Your card',
+                    value: member == null ? 'Not joined' : member.name,
+                    onPressed: () =>
+                        _open(context, const CommunityCardScreen())),
+                HolyRow(
+                    icon: CupertinoIcons.nosign,
+                    title: 'Blocked',
+                    value: '${hidden?.users.length ?? 0}',
+                    onPressed: () => _open(context, const BlockedScreen())),
+                HolyRow(
+                    icon: CupertinoIcons.shield_lefthalf_fill,
+                    title: 'Community rules',
+                    onPressed: () => openLegal(context, 'Terms of Use', 'terms')),
+              ]),
+              section('Preferences'),
+              RowGroup(rows: [
+                HolyRow(
+                    icon: CupertinoIcons.paintbrush,
+                    title: 'Theme',
+                    value: HolyThemes.byId(p.theme).name,
+                    onPressed: () => _open(context, const ThemeScreen())),
+                HolyRow(
+                    icon: CupertinoIcons.textformat_size,
+                    title: 'Reading',
+                    value: '${(p.readingScale * 100).round()}%',
+                    onPressed: () => _open(context, const ReadingScreen())),
+              ]),
+              section('Support'),
+              RowGroup(rows: [
+                HolyRow(
+                    icon: CupertinoIcons.person_crop_circle,
+                    title: 'Account',
+                    onPressed: () => _open(context, const AccountScreen())),
+                HolyRow(
+                    icon: CupertinoIcons.chat_bubble_text,
+                    title: 'Help and feedback',
+                    onPressed: () => _open(context, const SupportScreen())),
+                HolyRow(
+                    icon: CupertinoIcons.doc_text,
+                    title: 'Privacy and terms',
+                    onPressed: () => _open(context, const _LegalIndex())),
+              ]),
+              const SizedBox(height: 28),
+              const Center(
+                  child: HolyCoin(
+                      size: 34, metal: CoinMetal.steel, turn: math.pi, thickness: .08)),
+              const SizedBox(height: 8),
+              Center(
+                  child: Text('HolyHim ${AppConstants.versionLabel}',
+                      style: HolyTypography.caption.copyWith(color: t.muted))),
+            ]));
   }
 }
 
-class _Avatar extends StatelessWidget {
-  final String name;
-  final String? url;
-  const _Avatar({required this.name, this.url});
+class _Membership extends StatelessWidget {
+  final bool owned;
+  final int left;
+  const _Membership({required this.owned, required this.left});
   @override
   Widget build(BuildContext context) {
     final t = HolyThemeScope.of(context);
-    final initial = name.isEmpty ? 'H' : name.characters.first.toUpperCase();
     return Container(
-        width: 64,
-        height: 64,
+        padding: const EdgeInsets.fromLTRB(8, 4, 10, 4),
         decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: Color.alphaBlend(t.accent.withValues(alpha: .12), t.surface),
-            border: Border.all(color: t.hairline)),
-        clipBehavior: Clip.antiAlias,
-        child: url != null && url!.isNotEmpty
-            ? Image.network(url!,
-                fit: BoxFit.cover,
-                errorBuilder: (c, e, s) => _letter(initial, t))
-            : _letter(initial, t));
+            gradient: owned
+                ? LinearGradient(colors: [
+                    Color.lerp(t.accent, Colors.white, .25)!,
+                    t.accent,
+                  ])
+                : null,
+            color: owned ? null : t.accent.withValues(alpha: .12),
+            borderRadius: BorderRadius.circular(20)),
+        child: Row(mainAxisSize: MainAxisSize.min, children: [
+          Icon(owned ? CupertinoIcons.checkmark_seal_fill : CupertinoIcons.sunrise_fill,
+              size: 12, color: owned ? t.onPrimary : t.accent),
+          const SizedBox(width: 5),
+          Flexible(
+              child: Text(
+                  owned
+                      ? 'Lifetime member'
+                      : left > 0
+                          ? 'Free week · $left ${left == 1 ? 'day' : 'days'} left'
+                          : 'Free week complete',
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: HolyTypography.caption.copyWith(
+                      color: owned ? t.onPrimary : t.accent,
+                      fontWeight: FontWeight.w800))),
+        ]));
   }
-
-  Widget _letter(String initial, HolyTheme t) => Center(
-      child: Text(initial,
-          style: HolyTypography.title.copyWith(color: t.accent, fontSize: 30)));
 }
 
-/// Daily reminder: on/off, time, and the note she will see.
+class _Stat extends StatelessWidget {
+  final int value;
+  final String label;
+  final IconData icon;
+  const _Stat({required this.value, required this.label, required this.icon});
+  @override
+  Widget build(BuildContext context) {
+    final t = HolyThemeScope.of(context);
+    return Expanded(
+        child: Semantics(
+            label: '$value $label',
+            excludeSemantics: true,
+            child: Glass(
+                radius: 22,
+                padding: const EdgeInsets.fromLTRB(12, 12, 10, 12),
+                child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                  Icon(icon, size: 16, color: t.accent),
+                  const SizedBox(height: 6),
+                  RollingNumber(
+                      value: value,
+                      style: HolyTypography.numeral.copyWith(color: t.ink, fontSize: 28)),
+                  Text(label,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: HolyTypography.caption.copyWith(color: t.muted)),
+                ]))));
+  }
+}
+
+class _Unlock extends StatelessWidget {
+  final int left;
+  const _Unlock({required this.left});
+  @override
+  Widget build(BuildContext context) {
+    final t = HolyThemeScope.of(context);
+    return Pressable(
+        semanticLabel: 'Unlock lifetime access',
+        pressedScale: .985,
+        onPressed: () => context.push('/offer'),
+        child: DecoratedBox(
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(24),
+                gradient: LinearGradient(colors: [
+                  t.accent.withValues(alpha: .65),
+                  t.accent.withValues(alpha: .15),
+                  t.accent.withValues(alpha: .55),
+                ]),
+                boxShadow: [
+                  BoxShadow(color: t.accent.withValues(alpha: .25), blurRadius: 24),
+                ]),
+            child: Padding(
+                padding: const EdgeInsets.all(1.2),
+                child: Glass(
+                    radius: 23,
+                    padding: const EdgeInsets.fromLTRB(14, 14, 16, 14),
+                    child: Row(children: [
+                      const HolyCoin(
+                          size: 52,
+                          glow: .5,
+                          face: Icon(CupertinoIcons.infinite)),
+                      const SizedBox(width: 14),
+                      Expanded(
+                          child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                        Text('Lifetime access',
+                            style: HolyTypography.headline
+                                .copyWith(color: t.ink, fontSize: 19)),
+                        const SizedBox(height: 2),
+                        Text(
+                            left > 0
+                                ? 'Every lesson, for life. One payment.'
+                                : 'Your free week is done. One payment opens every lesson.',
+                            style: HolyTypography.caption.copyWith(color: t.muted)),
+                      ])),
+                      Icon(CupertinoIcons.chevron_right, size: 14, color: t.accent),
+                    ])))));
+  }
+}
+
+/// Daily reminder: on/off, time, and the note he will see.
 class RemindersScreen extends ConsumerStatefulWidget {
   const RemindersScreen({super.key});
   @override

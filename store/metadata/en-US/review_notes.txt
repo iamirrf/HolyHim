@@ -10,4 +10,6 @@ Notifications are optional. Permission is requested only when the reader chooses
 
 Scripture quotations use the public-domain World English Bible. All lesson text is original.
 
-HolyHim is its own product, separate from our app HolyHer (for women): it has its own 365 lessons written for young men, its own reading plan, design, artwork, onboarding and listing.
+HolyHim is its own product, separate from our app HolyHer (for women): it has its own lessons written for young men, its own reading plan, design, artwork, onboarding and listing.
+
+Community (the Brothers and Ranks tabs): before anyone can see or post, they join and agree to the Community Rules and the Terms of Use, which state zero tolerance for objectionable content and abusive users. Every post, reply and display name is checked on our server (slurs, sexual content, threats, links) before it appears. Each post and reply has Report (seven reasons) and Block in its menu. Reported content disappears for the reporter at once; content reported three times is hidden for everyone until reviewed. We review every report within 24 hours and remove the content, and the user where needed. Blocked people are listed in Profile > Blocked. People can delete their own posts and replies, leave the community (which deletes their card, posts and replies), or delete their account. Contact: https://holyhim-app-production.web.app/support

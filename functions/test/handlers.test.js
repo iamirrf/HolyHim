@@ -109,5 +109,5 @@ test('support permits three submissions per IP/hour then returns 429; storage er
 });
 
 test('production entry point includes reviewed billing and avatar cleanup endpoints', () => {
-  assert.deepEqual(Object.keys(require('../index')).sort(), ['cleanupReplacedAvatar', 'deleteAccount', 'getAccessStatus', 'revenuecatWebhook', 'supportRequest', 'syncAccess']);
+  assert.deepEqual(Object.keys(require('../index')).sort(), ['cleanupReplacedAvatar', 'communityComment', 'communityDelete', 'communityEdit', 'communityLeave', 'communityPost', 'communityReport', 'deleteAccount', 'getAccessStatus', 'moderateMember', 'revenuecatWebhook', 'supportRequest', 'syncAccess']);
 });

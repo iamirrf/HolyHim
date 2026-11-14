@@ -50,7 +50,8 @@ abstract final class HolyArtAssets {
     final match = RegExp(r'^(days|streak)-(\d{1,3})$').firstMatch(id ?? '');
     if (match == null) return null;
     final number = int.parse(match[2]!);
-    final prefix = match[1]!;
+    // The thirty-day milestone shares the thirty-straight medallion.
+    final prefix = match[1] == 'days' && number == 30 ? 'streak' : match[1]!;
     if (!(prefix == 'days' ? _days : _streaks).contains(number)) return null;
     return 'assets/art/badges/$prefix-${number.toString().padLeft(3, '0')}.png';
   }

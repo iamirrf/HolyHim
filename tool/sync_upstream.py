@@ -49,7 +49,7 @@ OWNED = (
     'ios/HolyHimWidget/Art/', 'ios/HolyHimWidget/WidgetVerses.json',
     'android/app/src/main/res/mipmap-*/',
     'lib/firebase_options.dart', 'lib/services/billing_config.dart',
-    'lib/data/lessons.g.dart', 'lib/design/art_catalog.dart',
+    'lib/data/lessons.g.dart', 'lib/data/chapters.g.dart', 'tool/build_chapters.py', 'lib/design/art_catalog.dart',
     'lib/design/chapter_catalog.g.dart',
     'test/fixtures/',
 )

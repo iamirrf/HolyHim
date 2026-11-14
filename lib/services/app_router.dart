@@ -17,7 +17,9 @@ import '../features/lesson/lesson_screen.dart';
 import '../features/celebration/celebration_screen.dart';
 import '../features/journey/journey_screen.dart';
 import '../features/paywall/paywall_screen.dart';
-import '../features/profile/profile_screen.dart';
+import '../features/community/community_screen.dart';
+import '../features/saved/saved_screen.dart';
+import '../design/art_catalog.dart';
 import '../features/support/support_screen.dart';
 import '../services/share_card.dart';
 import 'billing.dart';
@@ -35,7 +37,9 @@ final appRouterProvider = Provider<GoRouter>((ref) {
   return router;
 });
 
-const _pushed = ['lesson', 'verse', 'celebration', 'journey', 'offer', 'paywall'];
+const _pushed = [
+  'lesson', 'verse', 'celebration', 'journey', 'offer', 'paywall', 'saved', 'post'
+];
 
 /// Full-screen routes sit above the retained tab route, so the Today card
 /// can fly into the lesson as a shared element.
@@ -129,7 +133,9 @@ class AppGate extends ConsumerWidget {
           });
     }
     if (requested == '/journey') return const JourneyScreen();
-    if (requested == '/account') return const ProfileScreen();
+    if (requested == '/saved') {
+      return const Scaffold(body: SavedScreen(standalone: true));
+    }
     if (requested == '/support') return const SupportScreen();
     if (requested == '/legal') {
       return LegalScreen(document: uri.queryParameters['document'] ?? 'terms');
@@ -157,6 +163,9 @@ class AppGate extends ConsumerWidget {
               'This lesson is still ahead of you. One a day is plenty; today’s is waiting on Today.',
           action: 'Back to Today');
     }
+    if (parts.length == 2 && parts.first == 'post') {
+      return PostScreen(key: ValueKey('post-${parts[1]}'), id: parts[1]);
+    }
     if (parts.length == 2 && parts.first == 'verse') {
       final day = int.tryParse(parts[1]);
       if (day != null && day >= 1 && day <= 365) return VerseScreen(day: day);
@@ -167,7 +176,14 @@ class AppGate extends ConsumerWidget {
         return CelebrationScreen(day: day);
       }
     }
-    const tabs = {'/': 0, '/saved': 1, '/growth': 2, '/profile': 3};
+    const tabs = {
+      '/': 0,
+      '/brothers': 1,
+      '/ranks': 2,
+      '/growth': 3,
+      '/profile': 4,
+      '/account': 4
+    };
     final tab = tabs[normalized.path];
     if (tab == null) {
       return const StatusScreen(
@@ -192,7 +208,7 @@ class VerseScreen extends StatelessWidget {
     return Scaffold(
         backgroundColor: HolyTheme.photoShade,
         body: PhotoStage(
-            images: ['assets/art/chapters/${_chapterId(day)}/portrait.webp'],
+            images: [HolyArtCatalog.assetForDay(day)],
             alignment: const Alignment(0, -.3),
             topVeil: .45,
             bottomVeil: .85,
@@ -240,10 +256,5 @@ class VerseScreen extends StatelessWidget {
                           style: HolyButtonStyle.photoPrimary,
                           onPressed: () => context.go('/lesson/today')),
                     ]))));
-  }
-
-  static String _chapterId(int day) {
-    final n = ((day - 1) ~/ 5 + 1).clamp(1, 73);
-    return 'unit-${n.toString().padLeft(2, '0')}';
   }
 }
