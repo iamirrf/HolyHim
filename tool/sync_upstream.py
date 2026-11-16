@@ -52,6 +52,7 @@ OWNED = (
     'lib/data/lessons.g.dart', 'lib/data/chapters.g.dart', 'tool/build_chapters.py', 'lib/design/art_catalog.dart',
     'lib/design/chapter_catalog.g.dart',
     'test/fixtures/',
+    'tool/verify_site.cjs',  # tests HolyHim's own public/ pages
 )
 # Never needed in HolyHim even as a seed: HolyHer's art masters alone are
 # about 470 MB, and its release evidence would be false for HolyHim.

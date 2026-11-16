@@ -23,6 +23,7 @@ from verify_archive import (
     ROOT, BUNDLE, TEAM, PROJECT, GOOGLE_APP, inspect_privacy, load_plist, run, sha,
 )
 from release_gate import production_gate_disabled
+from check_identity import problems as identity_problems
 
 
 def ipa_sha(path):
@@ -87,6 +88,7 @@ def audit(ipa, output, archive_report):
 
     try:
         check('production_paywall_gate_disabled', production_gate_disabled(ROOT))
+        check('identity_is_holyhim', not identity_problems(ROOT))
         check('explicit_ipa_file', ipa.is_file() and ipa.suffix.lower() == '.ipa')
         if not report['checks']['explicit_ipa_file']:
             raise ValueError('Supply the actual exported .ipa file explicitly.')

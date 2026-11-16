@@ -15,6 +15,7 @@ import re
 import subprocess
 import sys
 from release_gate import production_gate_disabled
+from check_identity import problems as identity_problems
 
 ROOT = Path(__file__).resolve().parents[1]
 BUNDLE = 'com.holyhim.app'
@@ -145,6 +146,7 @@ def audit(archive, output):
 
     try:
         check('production_paywall_gate_disabled', production_gate_disabled(ROOT))
+        check('identity_is_holyhim', not identity_problems(ROOT))
         check('archive_directory', archive.is_dir() and archive.suffix == '.xcarchive')
         check('archive_metadata', (archive / 'Info.plist').is_file())
         apps = sorted((archive / 'Products/Applications').glob('*.app'))

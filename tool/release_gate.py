@@ -1,4 +1,4 @@
-"""Reject an enabled development paywall exit in distributable preparation."""
+"""Reject an enabled development paywall exit, a placeholder or HolyHer's identity in distributable preparation."""
 import base64
 import re
 from pathlib import Path
@@ -25,3 +25,9 @@ if __name__ == '__main__':
     if not production_gate_disabled(root):
         raise SystemExit('Release rejected: the testing paywall exit is enabled or build defines are unreadable.')
     print('Production paywall gate is disabled in source and current build defines.')
+    from check_identity import problems
+    found = problems(root)
+    if found:
+        print('\n'.join(found))
+        raise SystemExit(f'Release rejected: {len(found)} identity problem(s). Run python3 tool/check_identity.py.')
+    print("Identity is HolyHim's: no placeholders, nothing of HolyHer's.")
