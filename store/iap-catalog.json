@@ -1,7 +1,7 @@
 {
   "desired_states": [
     {
-      "product_id": "REPLACE_WITH_HOLYHIM_RC_PRODUCT_ID",
+      "product_id": "REPLACE_WITH_HOLYHIM_REVENUECAT_PRODUCT",
       "store": "app_store",
       "common": {
         "title": "HolyHim Lifetime",

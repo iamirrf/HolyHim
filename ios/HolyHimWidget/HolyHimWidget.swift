@@ -30,24 +30,25 @@ private struct VerseProvider: TimelineProvider {
 }
 
 private enum Palette {
-  static let charcoal = Color(red: 14/255, green: 17/255, blue: 22/255)
-  static let midnight = Color(red: 16/255, green: 20/255, blue: 24/255)
-  static let surface = Color(red: 23/255, green: 28/255, blue: 34/255)
-  static let gold = Color(red: 201/255, green: 162/255, blue: 39/255)
-  static let ivory = Color(red: 242/255, green: 239/255, blue: 233/255)
+  // First Watch: charcoal-navy paper, bone ink, brass accent.
+  static let ivory = Color(red: 0.055, green: 0.071, blue: 0.090)
+  static let petal = Color(red: 0.090, green: 0.114, blue: 0.145)
+  static let peach = Color(red: 0.039, green: 0.051, blue: 0.067)
+  static let rose = Color(red: 0.847, green: 0.651, blue: 0.341)
+  static let ink = Color(red: 0.949, green: 0.929, blue: 0.894)
 }
 
 private extension Color {
   init(hex: String) {
-    let value = UInt64(hex, radix: 16) ?? 0xFFC9A227
+    let value = UInt64(hex, radix: 16) ?? 0xFFD8A657
     self.init(.sRGB, red: Double((value >> 16) & 255) / 255, green: Double((value >> 8) & 255) / 255,
               blue: Double(value & 255) / 255, opacity: Double((value >> 24) & 255) / 255)
   }
 }
 private extension HolyHimWidgetData {
-  var backgroundColors: [Color] { colors?.map { Color(hex: $0) } ?? [Palette.charcoal, Palette.midnight, Palette.surface] }
-  var accentColor: Color { accent.map { Color(hex: $0) } ?? Palette.gold }
-  var inkColor: Color { ink.map { Color(hex: $0) } ?? Palette.ivory }
+  var backgroundColors: [Color] { colors?.map { Color(hex: $0) } ?? [Palette.ivory, Palette.petal, Palette.peach] }
+  var accentColor: Color { accent.map { Color(hex: $0) } ?? Palette.rose }
+  var inkColor: Color { ink.map { Color(hex: $0) } ?? Palette.ink }
   var artImage: UIImage? {
     if let artPath, let image = UIImage(contentsOfFile: artPath) { return image }
     return artAsset.flatMap { Bundle.main.url(forResource: $0 + "-thumb", withExtension: "jpg") }.flatMap { UIImage(contentsOfFile: $0.path) }

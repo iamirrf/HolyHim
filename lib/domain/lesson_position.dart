@@ -14,7 +14,6 @@ class LessonPosition {
       this.contentRevision, this.updatedAt);
 
   static String revision(Lesson lesson) {
-    var hash = 0x81C9A227;
     var hash = 0x811c9dc5;
     for (final unit
         in '${lesson.title}|${lesson.verse}|${lesson.meaning}|${lesson.heart}|${lesson.prayer}'
