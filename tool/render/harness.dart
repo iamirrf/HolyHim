@@ -32,7 +32,10 @@ class DiskBundle extends CachingAssetBundle {
 
 final diskBundle = DiskBundle();
 
-Future<void> loadFonts() async {
+/// Loads the app's fonts. [emoji] also loads the Mac's colour emoji font, so
+/// renders meant to be seen (screens, store frames) show emoji as the phone
+/// does; layout tests leave it out and keep their fixed glyph boxes.
+Future<void> loadFonts({bool emoji = false}) async {
   Future<void> family(String name, List<String> files) async {
     final loader = FontLoader(name);
     for (final f in files) {
@@ -58,6 +61,10 @@ Future<void> loadFonts() async {
   final material = FontLoader('MaterialIcons')
     ..addFont(rootBundle.load('fonts/MaterialIcons-Regular.otf'));
   await material.load();
+  const emojiFont = '/System/Library/Fonts/Apple Color Emoji.ttc';
+  if (emoji && File(emojiFont).existsSync()) {
+    await family('Apple Color Emoji', [emojiFont]);
+  }
 }
 
 /// Phone sizes the layouts must fit, with their safe-area insets.
@@ -73,7 +80,15 @@ class Phone {
       Phone('max', Size(430, 932), EdgeInsets.only(top: 59, bottom: 34));
   static const max17 =
       Phone('max17', Size(440, 956), EdgeInsets.only(top: 62, bottom: 34));
-  static const all = [se, pro, max, max17];
+  // iPhone Duo (2026): the inner display is inferred from its App Store
+  // screenshot size (2007 x 2853 px at 3x); the app must read sizes at runtime.
+  static const duo =
+      Phone('duo', Size(669, 951), EdgeInsets.only(top: 32, bottom: 20));
+  static const duoOpenWide =
+      Phone('duo-wide', Size(951, 669), EdgeInsets.only(top: 24, bottom: 20));
+  static const duoOuter =
+      Phone('duo-outer', Size(466, 678), EdgeInsets.only(top: 48, bottom: 24));
+  static const all = [se, pro, max, max17, duoOuter, duo];
 }
 
 /// Pumps [child] at [phone] size inside the app theme and writes a PNG.

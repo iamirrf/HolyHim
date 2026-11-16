@@ -55,6 +55,19 @@ rulesTest('profile rejects wrong owner, anonymous, extra keys, invalid types and
   assert.equal((await request('users/profile-reader', {uid: 'profile-reader', method: 'DELETE'})).status, 403);
 });
 
+rulesTest('circle: members read the board, only the server writes, profile fields validate', async () => {
+  assert.equal((await request('users/circle-reader', {uid: 'circle-reader', data: {...profile, circle: true, circleAvatar: 'symbol-dove', blocked: ['someone']}})).status, 200);
+  for (const change of [{circle: 'yes'}, {circleAvatar: '../x'}, {circleAvatar: 'A'}, {blocked: 'someone'}, {blocked: Array.from({length: 201}, (_, i) => `u${i}`)}]) {
+    assert.equal((await request('users/circle-reader', {uid: 'circle-reader', data: {...profile, ...change}})).status, 403, JSON.stringify(change));
+  }
+  assert.equal((await request('circle/circle-reader', {uid: 'circle-reader', data: {name: 'Me', walk: 999}})).status, 403);
+  assert.equal((await request('circle/anyone', {uid: 'circle-reader'})).status === 403, false);
+  assert.equal((await request('circle/anyone')).status, 403);
+  assert.equal((await request('circle/anyone/amens/x', {uid: 'circle-reader'})).status, 403);
+  assert.equal((await request('circleReports/x', {uid: 'circle-reader', data: {reason: 'spam'}})).status, 403);
+  assert.equal((await request('circleSuspended/circle-reader', {uid: 'circle-reader'})).status, 403);
+});
+
 rulesTest('completion map accepts all 365 days and merges remain valid at end of journey', async () => {
   const completed = Object.fromEntries(Array.from({length: 365}, (_, i) => [i + 1, '2026-11-03']));
   assert.equal((await request('users/full-reader/walk/progress', {uid: 'full-reader', data: {completed}})).status, 200);

@@ -4,7 +4,7 @@ const {initializeApp} = require('firebase-admin/app');
 const {getFirestore, FieldValue, Timestamp} = require('firebase-admin/firestore');
 const {getAuth} = require('firebase-admin/auth');
 const {getStorage} = require('firebase-admin/storage');
-const {onDocumentUpdated} = require('firebase-functions/v2/firestore');
+const {onDocumentUpdated, onDocumentWritten} = require('firebase-functions/v2/firestore');
 const {defineSecret} = require('firebase-functions/params');
 const {createBilling} = require('./billing');
 const {createHandlers} = require('./handlers');
@@ -35,3 +35,15 @@ const cleanupAvatar = createAvatarCleanup({deleteObject: path => getStorage().bu
 exports.cleanupReplacedAvatar = onDocumentUpdated({region: options.region, maxInstances: 3, retry:true, serviceAccount: options.serviceAccount, document: 'users/{uid}'}, event => cleanupAvatar({
   uid:event.params.uid, before:event.data?.before.data()?.avatarUrl, after:event.data?.after.data()?.avatarUrl,
 }));
+
+// The Circle: server-computed public projections for members who opt in.
+const {createCircle} = require('./circle');
+const circle = createCircle({db: getFirestore(), HttpsError, FieldValue});
+const circleTrigger = {region: options.region, maxInstances: 20, retry: true,
+  serviceAccount: options.serviceAccount};
+exports.circleProfile = onDocumentWritten({...circleTrigger, document: 'users/{uid}'},
+  event => circle.refresh(event.params.uid));
+exports.circleProgress = onDocumentWritten({...circleTrigger, document: 'users/{uid}/walk/{doc}'},
+  event => circle.refresh(event.params.uid));
+exports.sendAmen = onCall(callable, circle.sendAmen);
+exports.reportMember = onCall(callable, circle.reportMember);

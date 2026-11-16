@@ -9,7 +9,7 @@ The current app uses **25 coordinated Christian photographs and 19 transparent 3
 - Shared day mapping: `assets/art/library/catalog.json`, generated `lib/design/art_catalog.dart`.
 - Reviews: `store/redesign-v3/library-review.jpg`, `store/redesign-v3/badges-review.jpg`.
 
-The library contains five Jesus scenes, five sky/light scenes, five crosses, five Scripture/prayer settings and five landscapes/symbols. Warm light, rose, ivory, champagne and sage tie them together. All badge originals have actual transparency and use matching sculpted porcelain/gold materials, perspective and lighting.
+The library contains five Jesus scenes, five sky/light scenes, five crosses, five Scripture/prayer settings and five landscapes/symbols. Six night scenes (`night-jesus`, `night-stars`, `night-moon`, `night-village`, `night-bible`, `night-cross`) were added on 2026-11-14 with Gemini's image generation in the owner's signed-in browser, each inspected at full size. They are packaged with the library, and the welcome screen shows three of them after dark, but the `night-` prefix keeps them out of the 365-day lesson mapping, so no lesson's artwork changed. Warm light, rose, ivory, champagne and sage tie them together. All badge originals have actual transparency and use matching sculpted porcelain/gold materials, perspective and lighting.
 
 Rebuild local packages and the content-aware 365-day mapping with:
 

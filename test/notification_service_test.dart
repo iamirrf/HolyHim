@@ -61,11 +61,14 @@ void main() {
     expect(taps.single.day, 42);
     expect(taps.single.verseOnly, isTrue);
   });
+  const native = MethodChannel('holyhim/notifications');
+
   test('a transient native initialization failure can be retried', () async {
     debugDefaultTargetPlatformOverride = TargetPlatform.iOS;
     var attempts = 0;
-    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-        .setMockMethodCallHandler(channel, (call) async {
+    final messenger =
+        TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger;
+    messenger.setMockMethodCallHandler(channel, (call) async {
       if (call.method == 'initialize') {
         if (++attempts == 1) {
           throw PlatformException(code: 'temporary-unavailable');
@@ -75,47 +78,80 @@ void main() {
       if (call.method == 'getNotificationAppLaunchDetails') {
         return {'notificationLaunchedApp': false};
       }
-      if (call.method == 'requestPermissions') return true;
       return null;
     });
+    messenger.setMockMethodCallHandler(native, (call) async =>
+        call.method == 'status' ? 'notDetermined' : call.method == 'request');
+    addTearDown(() => messenger.setMockMethodCallHandler(native, null));
     final service = NotificationService(deviceZone: () async => 'UTC');
     addTearDown(service.dispose);
     expect(await service.requestPermission(), isFalse);
     expect(await service.requestPermission(), isTrue);
     expect(attempts, 2);
   });
-  testWidgets(
-      'an unanswered native permission prompt returns after five seconds',
+
+  testWidgets('iOS prompt waits for her answer, however long she reads',
       (tester) async {
     final permission = Completer<bool>();
-    var requested = false, answered = false;
-    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-        .setMockMethodCallHandler(channel, (call) async {
+    var requests = 0;
+    final messenger =
+        TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger;
+    messenger.setMockMethodCallHandler(channel, (call) async {
       if (call.method == 'initialize') return true;
       if (call.method == 'getNotificationAppLaunchDetails') {
         return {'notificationLaunchedApp': false};
       }
-      if (call.method == 'requestPermissions') {
-        requested = true;
+      return null;
+    });
+    messenger.setMockMethodCallHandler(native, (call) async {
+      if (call.method == 'status') return 'notDetermined';
+      if (call.method == 'request') {
+        requests++;
         return permission.future;
       }
       return null;
     });
+    addTearDown(() => messenger.setMockMethodCallHandler(native, null));
     final service = NotificationService(deviceZone: () async => 'UTC');
     addTearDown(service.dispose);
+    var answered = false;
     final result = service.requestPermission().then((value) {
       answered = true;
       return value;
     });
     await tester.pump();
-    expect(requested, isTrue);
-    await tester.pump(const Duration(milliseconds: 4999));
+    expect(requests, 1);
+    await tester.pump(const Duration(seconds: 30));
     expect(answered, isFalse);
-    await tester.pump(const Duration(milliseconds: 1));
-    expect(await result, isFalse);
-    expect(permission.isCompleted, isFalse);
-    expect(tester.takeException(), isNull);
+    permission.complete(true);
+    await tester.pump();
+    expect(await result, isTrue);
   }, variant: TargetPlatformVariant.only(TargetPlatform.iOS));
+
+  test('once she said no, iOS is not asked again', () async {
+    debugDefaultTargetPlatformOverride = TargetPlatform.iOS;
+    var requests = 0;
+    final messenger =
+        TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger;
+    messenger.setMockMethodCallHandler(channel, (call) async {
+      if (call.method == 'initialize') return true;
+      if (call.method == 'getNotificationAppLaunchDetails') {
+        return {'notificationLaunchedApp': false};
+      }
+      return null;
+    });
+    messenger.setMockMethodCallHandler(native, (call) async {
+      if (call.method == 'request') requests++;
+      return call.method == 'status' ? 'denied' : true;
+    });
+    addTearDown(() => messenger.setMockMethodCallHandler(native, null));
+    final service = NotificationService(deviceZone: () async => 'UTC');
+    addTearDown(service.dispose);
+    expect(await service.permissionStatus(), 'denied');
+    expect(await service.requestPermission(), isFalse);
+    expect(requests, 0);
+    debugDefaultTargetPlatformOverride = null;
+  });
   testWidgets('a hanging optional thumbnail does not stop the daily queue',
       (tester) async {
     var scheduled = 0, lookups = 0;

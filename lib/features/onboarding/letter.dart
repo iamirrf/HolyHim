@@ -9,12 +9,17 @@ class PersonalLetter extends StatelessWidget {
   final OnboardingAnswers answers;
   final bool reminderOn;
   final int reminderMinutes;
+
+  /// False when the letter is set on a surface of its own, such as the
+  /// glass panel in the welcome.
+  final bool framed;
   const PersonalLetter(
       {super.key,
       required this.name,
       required this.answers,
       required this.reminderOn,
-      required this.reminderMinutes});
+      required this.reminderMinutes,
+      this.framed = true});
 
   static String heartLine(String? heart) => switch (heart) {
         'strength' =>
@@ -70,25 +75,31 @@ class PersonalLetter extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = HolyThemeScope.of(context);
     final compact = MediaQuery.sizeOf(context).height < 720;
-    final prose = HolyTypography.reading
-        .copyWith(color: t.ink, fontSize: compact ? 17 : 18.5, height: 1.5);
+    final prose = HolyTypography.ui.copyWith(
+        color: t.ink,
+        fontSize: compact ? 15.5 : 16.5,
+        height: 1.52,
+        fontWeight: FontWeight.w500);
+    final letter = LineReveal(step: const Duration(milliseconds: 650), lines: [
+      Text(name.isEmpty ? 'Dear friend,' : 'Dear $name,',
+          style: HolyTypography.headline
+              .copyWith(color: t.ink, fontStyle: FontStyle.italic)),
+      SizedBox(height: compact ? 10 : 14),
+      Text(heartLine(answers.hearts.firstOrNull), style: prose),
+      SizedBox(height: compact ? 8 : 12),
+      Text('${seasonLine(answers.season)} ${stepLine()}', style: prose),
+      SizedBox(height: compact ? 12 : 16),
+      Row(children: [
+        Flourish(color: t.gold, width: 36),
+        const SizedBox(width: 12),
+        Text('Walking with you, HolyHim',
+            style: HolyTypography.label.copyWith(color: t.muted)),
+      ]),
+    ]);
+    if (!framed) return letter;
     return Paper(
-        padding: EdgeInsets.fromLTRB(24, compact ? 20 : 26, 24, compact ? 20 : 24),
-        child: LineReveal(step: const Duration(milliseconds: 650), lines: [
-          Text(name.isEmpty ? 'Dear friend,' : 'Dear $name,',
-              style: HolyTypography.headline.copyWith(
-                  color: t.ink, fontStyle: FontStyle.italic)),
-          SizedBox(height: compact ? 10 : 14),
-          Text(heartLine(answers.hearts.firstOrNull), style: prose),
-          SizedBox(height: compact ? 8 : 12),
-          Text('${seasonLine(answers.season)} ${stepLine()}', style: prose),
-          SizedBox(height: compact ? 12 : 16),
-          Row(children: [
-            Flourish(color: t.gold, width: 36),
-            const SizedBox(width: 12),
-            Text('Walking with you, HolyHim',
-                style: HolyTypography.label.copyWith(color: t.muted)),
-          ]),
-        ]));
+        padding:
+            EdgeInsets.fromLTRB(24, compact ? 20 : 26, 24, compact ? 20 : 24),
+        child: letter);
   }
 }

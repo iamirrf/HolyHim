@@ -1,18 +1,19 @@
 import 'dart:async';
 import 'package:timezone/data/latest.dart' as tzdata;
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:holyhim/design/design.dart';
 import 'package:holyhim/features/paywall/paywall_screen.dart';
-import 'package:holyhim/services/navigation_state.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:holyhim/services/auth_service.dart';
 import 'package:holyhim/services/billing.dart';
-import 'package:purchases_flutter/purchases_flutter.dart';
+import 'package:holyhim/services/repository.dart';
+import '../tool/render/fixtures.dart'
+    show FakeBilling, FakeRepository, offerState, trialPlan, plainPlan, profile;
 
 class BillingAuth extends AuthNotifier {
   @override
@@ -20,44 +21,95 @@ class BillingAuth extends AuthNotifier {
   void change(String uid) => state = AuthState(user: AuthUser(uid: uid));
 }
 
-class PresentationBilling extends LifetimeController {
-  @override
-  LifetimeState build() => const LifetimeState(loading: false);
-}
+/// What the store holds for an account: nothing, a lifetime unlock, or a
+/// membership (in its trial or paid, live or lapsed).
+enum Holding { none, lifetime, trial, member, lapsed }
 
-class PricedBilling extends LifetimeController {
-  final String price;
-  PricedBilling(this.price);
-  @override
-  LifetimeState build() => LifetimeState(
-      loading: false,
-      product: StoreProduct(lifetimeProductId, 'All 365 lessons',
-          'HolyHim Lifetime', 1.99, price, 'USD'));
-}
+Map<String, dynamic> _entitlement(String id, String product,
+        {String? period, String? expires, bool renews = false}) =>
+    {
+      'identifier': id,
+      'isActive': true,
+      'willRenew': renews,
+      'latestPurchaseDate': '2026-11-15T12:00:00Z',
+      'originalPurchaseDate': '2026-11-15T12:00:00Z',
+      'productIdentifier': product,
+      'isSandbox': true,
+      if (period != null) 'periodType': period,
+      if (expires != null) 'expirationDate': expires,
+    };
 
-Map<String, dynamic> info(String uid, bool owned) {
-  final entitlement = {
-    'identifier': 'lifetime',
-    'isActive': true,
-    'willRenew': false,
-    'latestPurchaseDate': '2026-11-04T12:00:00Z',
-    'originalPurchaseDate': '2026-11-04T12:00:00Z',
-    'productIdentifier': lifetimeProductId,
-    'isSandbox': true
+Map<String, dynamic> info(String uid, Holding holding) {
+  final active = <String, dynamic>{
+    if (holding == Holding.lifetime)
+      'lifetime': _entitlement('lifetime', lifetimeProductId),
+    if (holding == Holding.trial)
+      'member': _entitlement('member', memberTrialProductId,
+          period: 'TRIAL', expires: '2099-11-22T12:00:00Z', renews: true),
+    if (holding == Holding.member)
+      'member': _entitlement('member', memberProductId,
+          period: 'NORMAL', expires: '2099-11-15T12:00:00Z', renews: true),
   };
   return {
-    'entitlements': {
-      'all': owned ? {'lifetime': entitlement} : {},
-      'active': owned ? {'lifetime': entitlement} : {}
-    },
+    'entitlements': {'all': active, 'active': active},
     'allPurchaseDates': {},
     'activeSubscriptions': [],
-    'allPurchasedProductIdentifiers': owned ? [lifetimeProductId] : [],
+    'allPurchasedProductIdentifiers': [],
     'nonSubscriptionTransactions': [],
     'firstSeen': '2026-11-04T12:00:00Z',
     'originalAppUserId': uid,
     'allExpirationDates': {},
-    'requestDate': '2026-11-04T12:00:00Z'
+    'requestDate': '2026-11-15T12:00:00Z'
+  };
+}
+
+Map<String, dynamic> _package(String id, String type, String product,
+        {bool trial = false}) =>
+    {
+      'identifier': id,
+      'packageType': type,
+      'product': {
+        'identifier': product,
+        'description': 'Every lesson, every morning',
+        'title': 'HolyHim Membership',
+        'price': 1.99,
+        'priceString': r'$1.99',
+        'currencyCode': 'USD',
+        'productCategory': 'SUBSCRIPTION',
+        'subscriptionPeriod': 'P1Y',
+        if (trial)
+          'introPrice': {
+            'price': 0,
+            'priceString': r'$0.00',
+            'period': 'P1W',
+            'cycles': 1,
+            'periodUnit': 'WEEK',
+            'periodNumberOfUnits': 1
+          },
+      },
+      'presentedOfferingContext': {
+        'offeringIdentifier': 'default',
+        'placementIdentifier': null,
+        'targetingContext': null
+      },
+    };
+
+Map<String, dynamic> offerings({required bool available}) {
+  final offering = {
+    'identifier': 'default',
+    'serverDescription': 'Membership',
+    'metadata': <String, Object>{},
+    'availablePackages': available
+        ? [
+            _package(r'$rc_custom_annual_trial', 'CUSTOM', memberTrialProductId,
+                trial: true),
+            _package(r'$rc_annual', 'ANNUAL', memberProductId),
+          ]
+        : [],
+  };
+  return {
+    'all': {'default': offering},
+    'current': offering
   };
 }
 
@@ -67,7 +119,14 @@ void main() {
   const channel = MethodChannel('purchases_flutter');
   late ProviderContainer container;
   String current = 'alice';
-  bool configured = false, owned = false, unavailable = false;
+  bool configured = false, available = true;
+  Holding holding = Holding.none;
+
+  /// What a purchase gives, by product.
+  Holding Function(String product)? bought;
+
+  /// 2 is eligible, 1 is not (IntroEligibilityStatus by index).
+  int eligibility = 2;
   String? purchaseError;
   Completer<Map<String, dynamic>>? heldRestore;
   setUp(() {
@@ -75,8 +134,10 @@ void main() {
     debugDefaultTargetPlatformOverride = TargetPlatform.iOS;
     current = 'alice';
     configured = false;
-    owned = false;
-    unavailable = false;
+    available = true;
+    holding = Holding.none;
+    bought = null;
+    eligibility = 2;
     purchaseError = null;
     heldRestore = null;
     TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
@@ -92,29 +153,39 @@ void main() {
           return current;
         case 'logIn':
           current = call.arguments['appUserID'] as String;
-          owned = false;
-          return {'customerInfo': info(current, false), 'created': false};
+          holding = Holding.none;
+          return {
+            'customerInfo': info(current, Holding.none),
+            'created': false
+          };
         case 'getCustomerInfo':
-          return info(current, owned);
-        case 'getProductInfo':
-          return unavailable
-              ? []
-              : [
-                  {
-                    'identifier': lifetimeProductId,
-                    'description': 'Lifetime',
-                    'title': 'HolyHim lifetime',
-                    'price': 1.99,
-                    'priceString': '€1,99',
-                    'currencyCode': 'EUR',
-                    'productCategory': 'NON_SUBSCRIPTION'
-                  }
-                ];
-        case 'purchaseProduct':
-          throw PlatformException(
-              code: purchaseError ?? '1', message: 'Fixture purchase result');
+          return info(current, holding);
+        case 'getOfferings':
+          return offerings(available: available);
+        case 'checkTrialOrIntroductoryPriceEligibility':
+          return {
+            memberTrialProductId: {'status': eligibility, 'description': ''}
+          };
+        case 'purchasePackage':
+          if (purchaseError != null) {
+            throw PlatformException(
+                code: purchaseError!, message: 'Fixture purchase result');
+          }
+          final package = call.arguments['packageIdentifier'] as String;
+          final product = package.contains('trial')
+              ? memberTrialProductId
+              : memberProductId;
+          holding = bought?.call(product) ?? holding;
+          return {
+            'customerInfo': info(current, holding),
+            'transaction': {
+              'transactionIdentifier': 'fixture',
+              'productIdentifier': product,
+              'purchaseDate': '2026-11-15T12:00:00Z'
+            }
+          };
         case 'restorePurchases':
-          return heldRestore?.future ?? info(current, owned);
+          return heldRestore?.future ?? info(current, holding);
       }
       return null;
     });
@@ -127,119 +198,215 @@ void main() {
     TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
         .setMockMethodCallHandler(channel, null);
   });
+  AccessState read() => container.read(accessProvider);
   Future<void> ready() async {
-    container.read(lifetimeProvider);
+    container.read(accessProvider);
     await Future<void>.delayed(Duration.zero);
-    for (var i = 0; i < 50 && container.read(lifetimeProvider).loading; i++) {
+    for (var i = 0; i < 50 && read().loading; i++) {
       await Future<void>.delayed(const Duration(milliseconds: 10));
     }
   }
 
-  test(
-      'localized lifetime product and production default never fabricate ownership',
+  test('trial on: the store’s free week and yearly price load, nothing opens',
       () async {
     await ready();
-    expect(container.read(lifetimeProvider).product!.priceString, '€1,99');
-    container.read(lifetimeProvider.notifier).dismissForTesting();
-    expect(testingPaywallExit, isFalse);
-    expect(container.read(lifetimeProvider).testingDismissed, isFalse);
-    expect(container.read(lifetimeProvider).active, isFalse);
+    expect(read().trialPlan!.trialDays, 7);
+    expect(read().trialPlan!.price, r'$1.99');
+    expect(read().plainPlan!.hasTrial, isFalse);
+    expect(read().canTrial, isTrue);
+    expect(read().active, isFalse);
   });
-  test('unavailable product and cancelled or pending purchases remain unowned',
+
+  test('trial off: an Apple ID that used its free week is not offered one',
       () async {
+    eligibility = 1;
+    await ready();
+    expect(read().trialEligible, isFalse);
+    expect(read().canTrial, isFalse);
+    expect(read().plainPlan, isNotNull);
+  });
+
+  test('starting the free week opens every lesson, and says it is a trial',
+      () async {
+    bought = (_) => Holding.trial;
+    await ready();
+    expect(await container.read(accessProvider.notifier).purchase(trialPlan),
+        isTrue);
+    expect(read().active, isTrue);
+    expect(read().member, isTrue);
+    expect(read().inTrial, isTrue);
+    expect(read().memberUntil, DateTime.utc(2099, 11, 22, 12));
+    // Kept on the phone for the walk offline.
+    final prefs = await SharedPreferences.getInstance();
+    expect(prefs.getString('holyhim.member.v1.alice'), isNotNull);
+  });
+
+  test('subscribing without the trial opens every lesson', () async {
+    bought = (_) => Holding.member;
+    await ready();
+    expect(await container.read(accessProvider.notifier).purchase(plainPlan),
+        isTrue);
+    expect(read().member, isTrue);
+    expect(read().inTrial, isFalse);
+  });
+
+  test('restore finds a membership bought on another phone', () async {
+    await ready();
+    holding = Holding.member;
+    expect(await container.read(accessProvider.notifier).restore(), isTrue);
+    expect(read().active, isTrue);
+  });
+
+  test('a lifetime owner keeps every lesson', () async {
+    SharedPreferences.setMockInitialValues(
+        {'holyhim.access.v1.alice': 'purchased'});
+    await ready();
+    expect(read().purchased, isTrue);
+    expect(read().active, isTrue);
+  });
+
+  test('an expired membership closes the door, cached or not', () async {
+    SharedPreferences.setMockInitialValues(
+        {'holyhim.member.v1.alice': '2026-01-01T00:00:00.000Z'});
+    holding = Holding.lapsed;
+    await ready();
+    expect(read().member, isFalse);
+    expect(read().active, isFalse);
+  });
+
+  test('the store’s word ends a membership the phone still remembers',
+      () async {
+    SharedPreferences.setMockInitialValues(
+        {'holyhim.member.v1.alice': '2099-01-01T00:00:00.000Z'});
+    holding = Holding.none;
+    await ready();
+    expect(read().member, isFalse);
+    final prefs = await SharedPreferences.getInstance();
+    expect(prefs.getString('holyhim.member.v1.alice'), isNull);
+  });
+
+  test('cancelled or pending purchases leave her outside', () async {
     await ready();
     purchaseError = '1';
-    expect(await container.read(lifetimeProvider.notifier).purchase(), isFalse);
-    expect(container.read(lifetimeProvider).error, isNull);
-    expect(container.read(lifetimeProvider).active, isFalse);
+    expect(await container.read(accessProvider.notifier).purchase(trialPlan),
+        isFalse);
+    expect(read().error, isNull);
+    expect(read().active, isFalse);
     purchaseError = '20';
-    expect(await container.read(lifetimeProvider.notifier).purchase(), isFalse);
-    expect(
-        container.read(lifetimeProvider).error, contains('awaiting approval'));
-    unavailable = true;
-    await container.read(lifetimeProvider.notifier).load();
-    expect(container.read(lifetimeProvider).error, contains('unavailable'));
+    expect(await container.read(accessProvider.notifier).purchase(trialPlan),
+        isFalse);
+    expect(read().error, contains('awaiting approval'));
   });
-  test('unverified SDK restoration does not grant access across accounts',
+
+  test('a store without the plans says so', () async {
+    available = false;
+    await ready();
+    expect(read().plansReady, isFalse);
+    expect(read().error, contains('unavailable'));
+  });
+
+  test('an unverified lifetime restore does not grant access across accounts',
       () async {
     await ready();
-    owned = true;
-    expect(await container.read(lifetimeProvider.notifier).restore(), isFalse);
-    expect(container.read(lifetimeProvider).purchased, isFalse);
-    container.read(lifetimeProvider.notifier).dismissForTesting();
+    holding = Holding.lifetime;
+    expect(await container.read(accessProvider.notifier).restore(), isFalse);
+    expect(read().purchased, isFalse);
     (container.read(authProvider.notifier) as BillingAuth).change('bob');
     await ready();
-    expect(container.read(lifetimeProvider).active, isFalse);
-    expect(container.read(lifetimeProvider).testingDismissed, isFalse);
+    expect(read().active, isFalse);
     expect(current, 'bob');
   });
-  testWidgets('an unowned paywall cannot dismiss a pending verse',
-      (tester) async {
-    container.dispose();
-    container = ProviderContainer(overrides: [
-      authProvider.overrideWith(BillingAuth.new),
-      lifetimeProvider.overrideWith(PresentationBilling.new)
-    ]);
-    final router = GoRouter(initialLocation: '/paywall', routes: [
-      GoRoute(
-          path: '/paywall', builder: (context, state) => const OfferScreen()),
-      GoRoute(
-          path: '/verse/:day',
-          builder: (context, state) =>
-              const Scaffold(body: Text('Exact daily verse'))),
-    ]);
-    container.read(pendingDestinationProvider.notifier).state = '/verse/42';
-    await tester.pumpWidget(UncontrolledProviderScope(
-        container: container,
-        child: MaterialApp.router(
-            theme: HolyThemeData.build(HolyThemes.blush),
-            routerConfig: router,
-            builder: (context, child) =>
-                ThemeHost(theme: HolyThemes.blush, child: child!))));
-    await tester.pump();
-    expect(find.byTooltip('Close paywall for testing'), findsNothing);
-    expect(router.routeInformationProvider.value.uri.path, '/paywall');
-    expect(container.read(pendingDestinationProvider), '/verse/42');
-    expect(container.read(lifetimeProvider).active, isFalse);
-    await tester.pumpWidget(const SizedBox());
-    await tester.pump(const Duration(milliseconds: 500));
-    router.dispose();
-    debugDefaultTargetPlatformOverride = null;
-  });
+
   test('a late restore result cannot grant access to the next account',
       () async {
     await ready();
     heldRestore = Completer();
-    final result = container.read(lifetimeProvider.notifier).restore();
+    final result = container.read(accessProvider.notifier).restore();
     await Future<void>.delayed(Duration.zero);
     (container.read(authProvider.notifier) as BillingAuth).change('bob');
     await ready();
-    heldRestore!.complete(info('alice', true));
+    heldRestore!.complete(info('alice', Holding.member));
     expect(await result, isFalse);
-    expect(container.read(lifetimeProvider).active, isFalse);
+    expect(read().active, isFalse);
   });
-  testWidgets('the offer shows the store price, and never a blank one',
-      (tester) async {
-    Future<void> offer(String price) => tester.pumpWidget(ProviderScope(
-            overrides: [
-              authProvider.overrideWith(BillingAuth.new),
-              lifetimeProvider.overrideWith(() => PricedBilling(price))
-            ],
-            child: MaterialApp(
-                theme: HolyThemeData.build(HolyThemes.blush),
-                builder: (context, child) =>
-                    ThemeHost(theme: HolyThemes.blush, child: child!),
-                home: const OfferScreen(lockedDay: 8))));
-    await offer(r'$1.99');
-    await tester.pump();
-    expect(find.text(r'Unlock for life · $1.99'), findsOneWidget);
-    await tester.pumpWidget(const SizedBox());
-    await offer('  ');
-    await tester.pump();
-    expect(find.text('Unlock for life'), findsOneWidget);
-    expect(find.textContaining('Unlock for life ·'), findsNothing);
-    await tester.pumpWidget(const SizedBox());
-    await tester.pump(const Duration(milliseconds: 500));
-    debugDefaultTargetPlatformOverride = null;
+
+  group('the gate', () {
+    Future<void> pump(WidgetTester tester, AccessState state) async {
+      await tester.pumpWidget(ProviderScope(
+          overrides: [
+            authProvider.overrideWith(BillingAuth.new),
+            accessProvider.overrideWith(() => FakeBilling(state)),
+            repositoryProvider.overrideWith(
+                () => FakeRepository(WalkState(profile: profile()))),
+          ],
+          child: MaterialApp(
+              theme: HolyThemeData.build(HolyThemes.blush),
+              builder: (context, child) =>
+                  ThemeHost(theme: HolyThemes.blush, child: child!),
+              home: const OfferScreen(locked: true))));
+      await tester.pump(const Duration(milliseconds: 100));
+    }
+
+    Future<void> done(WidgetTester tester) async {
+      await tester.pumpWidget(const SizedBox());
+      await tester.pump(const Duration(seconds: 2));
+      debugDefaultTargetPlatformOverride = null;
+    }
+
+    testWidgets('has no way past but the offer, and keeps every exit in reach',
+        (tester) async {
+      await pump(tester, offerState);
+      expect(find.byTooltip('Close'), findsNothing);
+      expect(find.byIcon(CupertinoIcons.xmark), findsNothing);
+      for (final link in [
+        'Restore purchases',
+        'Terms',
+        'Privacy',
+        'Sign out',
+        'Delete account'
+      ]) {
+        expect(find.text(link), findsOneWidget, reason: link);
+      }
+      expect(find.text('Start my 7 days free'), findsOneWidget);
+      expect(find.textContaining('Renews automatically each year'),
+          findsOneWidget);
+      expect(find.textContaining('7 days free, then \$1.99 per year'),
+          findsOneWidget);
+      await done(tester);
+    });
+
+    testWidgets('the trial switch moves between the two plans', (tester) async {
+      await pump(tester, offerState);
+      expect(find.text('Free trial enabled'), findsOneWidget);
+      await tester.tap(find.byKey(const ValueKey('paywall-trial-switch')));
+      await tester.pump(const Duration(milliseconds: 400));
+      expect(find.text('Enable 7-day free trial'), findsOneWidget);
+      expect(find.text('Subscribe for \$1.99 a year'), findsOneWidget);
+      expect(find.textContaining('charged when you confirm'), findsOneWidget);
+      await done(tester);
+    });
+
+    testWidgets('an Apple ID without the trial never reads the word free',
+        (tester) async {
+      await pump(
+          tester,
+          const AccessState(
+              loading: false,
+              trialPlan: trialPlan,
+              plainPlan: plainPlan,
+              trialEligible: false));
+      expect(find.text('Subscribe for \$1.99 a year'), findsOneWidget);
+      expect(find.textContaining(RegExp('free', caseSensitive: false)),
+          findsNothing);
+      await done(tester);
+    });
+
+    testWidgets('a member sees that she is in', (tester) async {
+      await pump(tester,
+          const AccessState(loading: false, member: true, inTrial: true));
+      expect(find.text('You’re in 🤍'), findsOneWidget);
+      expect(find.textContaining('Your free week has begun'), findsOneWidget);
+      await done(tester);
+    });
   });
 }

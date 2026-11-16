@@ -15,10 +15,15 @@ class AccountCache {
   Future<void> _writes = Future.value();
   static const _prefix = 'holyhim.account.v3.';
   static const _onboardedPrefix = 'holyhim.onboarded_at.v2.';
+  static const _legacySharedOnboarded = '${_onboardedPrefix}last_active';
 
   Future<void> initialize() async {
     try {
       _preferences = await SharedPreferences.getInstance();
+      // Earlier builds also kept one device-wide "last onboarded" date and
+      // lent it to any account without its own, so a new account on a phone
+      // that had seen another skipped the welcome. It is never read now.
+      unawaited(_preferences!.remove(_legacySharedOnboarded));
       for (final key
           in _preferences!.getKeys().where((k) => k.startsWith(_prefix))) {
         final value = jsonDecode(_preferences!.getString(key) ?? '{}');
@@ -32,11 +37,12 @@ class AccountCache {
     }
   }
 
+  /// When this account finished the welcome on this device. Only its own
+  /// record counts: another account's never stands in for it.
   DateTime? readOnboardedAt(String uid) {
     final prefs = _preferences;
     if (prefs == null) return null;
-    final iso = prefs.getString('$_onboardedPrefix$uid') ??
-        prefs.getString('${_onboardedPrefix}last_active');
+    final iso = prefs.getString('$_onboardedPrefix$uid');
     if (iso != null && iso.isNotEmpty) {
       return DateTime.tryParse(iso);
     }
@@ -47,10 +53,7 @@ class AccountCache {
     final instant = at ?? DateTime.now();
     final iso = instant.toIso8601String();
     final prefs = _preferences;
-    if (prefs != null) {
-      await prefs.setString('$_onboardedPrefix$uid', iso);
-      await prefs.setString('${_onboardedPrefix}last_active', iso);
-    }
+    if (prefs != null) await prefs.setString('$_onboardedPrefix$uid', iso);
   }
 
   Map<String, dynamic>? read(String uid) =>

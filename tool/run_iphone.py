@@ -258,7 +258,9 @@ class IPhoneRunner:
         self.report["stage"] = "unlock check"
         lock = self._device(["device", "info", "lockState", "--device", identifier], timeout)
         self._same_device(lock)
-        if lock.get("passcodeRequired") is True or lock.get("unlockedSinceBoot") is False:
+        # iOS installs on a locked phone once it has been unlocked since boot;
+        # only launching needs the screen open, which is checked again below.
+        if lock.get("unlockedSinceBoot") is False:
             raise RunFailure("Unlock the iPhone with its passcode after restarting, then retry wirelessly.")
         if not skip_build:
             self.report["stage"] = "build"
@@ -289,6 +291,10 @@ class IPhoneRunner:
         self.report["installed"] = True
         self.report["stage"] = "launch transport check"
         self.wireless(identifier, timeout)
+        lock = self._device(["device", "info", "lockState", "--device", identifier], timeout)
+        self._same_device(lock)
+        if lock.get("passcodeRequired") is True:
+            raise RunFailure("HolyHim is installed. The iPhone screen is locked, so it was not launched; open it from the Home Screen.")
         self.report["stage"] = "launch"
         launched = self._device(["device", "process", "launch", "--device", identifier,
                                  "--activate", BUNDLE_ID], timeout)

@@ -8,16 +8,29 @@ import '../../services/auth_service.dart';
 import '../auth/email_screen.dart';
 import '../common.dart';
 
-/// Three dawn scenes dissolve behind a paper panel that rises from below.
+/// Three scenes dissolve behind a paper panel that rises from below: dawn
+/// by day, and after dark a candle, a prayer and the stars.
 /// Apple first and black, Google second, email as a quiet link.
 class WelcomeScreen extends ConsumerWidget {
-  const WelcomeScreen({super.key});
+  /// Fixes the hour, for rendering; the phone's clock otherwise.
+  final DateTime? now;
+  const WelcomeScreen({super.key, this.now});
 
   static const scenes = [
     'assets/art/library/scripture-morning.webp',
     'assets/art/library/jesus-path.webp',
     'assets/art/library/symbol-dove.webp',
   ];
+
+  /// The same three subjects at night: Scripture, Jesus, the sky.
+  static const nightScenes = [
+    'assets/art/library/night-bible.webp',
+    'assets/art/library/night-jesus.webp',
+    'assets/art/library/night-stars.webp',
+  ];
+
+  /// From seven in the evening until five in the morning.
+  static bool isNight(DateTime time) => time.hour >= 19 || time.hour < 5;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -31,16 +44,12 @@ class WelcomeScreen extends ConsumerWidget {
         defaultTargetPlatform == TargetPlatform.iOS ||
         defaultTargetPlatform == TargetPlatform.macOS;
 
-    Widget tagged(String method, Widget button) => Stack(
-            clipBehavior: Clip.none,
-            children: [
-              button,
-              if (last == method)
-                Positioned(
-                    top: -9,
-                    right: 18,
-                    child: _LastUsed(color: t.accent)),
-            ]);
+    Widget tagged(String method, Widget button) =>
+        Stack(clipBehavior: Clip.none, children: [
+          button,
+          if (last == method)
+            Positioned(top: -9, right: 18, child: _LastUsed(color: t.accent)),
+        ]);
 
     return Scaffold(
         backgroundColor: const Color(0xFF2A1A20),
@@ -52,11 +61,11 @@ class WelcomeScreen extends ConsumerWidget {
               left: 0,
               right: 0,
               bottom: compact ? 300 : 330,
-              child: const PhotoStage(
-                  images: scenes,
+              child: PhotoStage(
+                  images: isNight(now ?? DateTime.now()) ? nightScenes : scenes,
                   expose: true,
-                  alignment: Alignment(0, .75),
-                  topVeil: .45,
+                  alignment: const Alignment(0, .75),
+                  topVeil: .56,
                   bottomVeil: .15)),
           const LightMotes(count: 18),
           // Wordmark and promise over the calm upper sky.
@@ -67,124 +76,113 @@ class WelcomeScreen extends ConsumerWidget {
               child: Column(children: [
                 Rise(
                     delay: const Duration(milliseconds: 300),
-                    child: LightSweep(
-                        delay: const Duration(milliseconds: 900),
-                        child: Wordmark(
-                            size: compact ? 44 : 52,
-                            color: HolyTheme.photoInk))),
-                const SizedBox(height: 10),
+                    child: TextHalo(
+                        text: TextHalo.wordmark(),
+                        style: HolyTypography.wordmark
+                            .copyWith(fontSize: compact ? 52 : 64))),
+                SizedBox(height: compact ? 8 : 12),
                 Rise(
                     delay: const Duration(milliseconds: 650),
-                    child: Text('A quiet word with God,\nevery morning.',
-                        textAlign: TextAlign.center,
+                    child: TextHalo(
+                        text: const TextSpan(
+                            text: 'A quiet word with God,\nevery morning.'),
+                        strength: .45,
+                        sweep: false,
+                        scaleText: true,
                         style: HolyTypography.headline.copyWith(
-                            color: HolyTheme.photoInk.withValues(alpha: .92),
                             fontStyle: FontStyle.italic,
-                            fontWeight: FontWeight.w500,
-                            fontSize: compact ? 23 : 26,
-                            shadows: const [
-                              Shadow(color: Color(0x66000000), blurRadius: 18)
-                            ]))),
+                            fontWeight: FontWeight.w600,
+                            fontSize: compact ? 27 : 31,
+                            height: 1.16))),
               ])),
-          // The rising paper panel.
+          // The paper panel, there from the first frame: she came to sign
+          // in, and the buttons should be waiting for her.
           Align(
               alignment: Alignment.bottomCenter,
-              child: Rise(
-                  delay: const Duration(milliseconds: 900),
-                  distance: 60,
-                  child: ConstrainedBox(
-                      constraints: const BoxConstraints(maxWidth: 560),
-                      child: Paper(
-                          lift: 2,
-                          hairline: false,
-                          borderRadius: const BorderRadius.vertical(
-                              top: Radius.circular(HolyRadius.sheet)),
-                          padding: EdgeInsets.fromLTRB(
-                              HolySpace.gutter,
-                              compact ? 22 : 28,
-                              HolySpace.gutter,
-                              media.padding.bottom + (compact ? 10 : 16)),
-                          child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              crossAxisAlignment: CrossAxisAlignment.stretch,
-                              children: [
-                                Text('Begin your walk',
-                                    textAlign: TextAlign.center,
-                                    style: HolyTypography.title.copyWith(
-                                        color: t.ink,
-                                        fontSize: compact ? 30 : 34)),
-                                const SizedBox(height: 6),
-                                Text(
-                                    'One short lesson a day. Your first week is free.',
-                                    textAlign: TextAlign.center,
-                                    style: HolyTypography.body
-                                        .copyWith(color: t.muted)),
-                                SizedBox(height: compact ? 16 : 22),
-                                if (apple) ...[
-                                  tagged(
-                                      'apple',
-                                      AppleButton(
-                                          white: t.isDark,
-                                          loading: busy &&
-                                              auth.action == AuthAction.apple,
-                                          onPressed: busy
-                                              ? null
-                                              : () => ref
-                                                  .read(authProvider.notifier)
-                                                  .signInApple())),
-                                  const SizedBox(height: 10),
-                                ],
-                                tagged(
-                                    'google',
-                                    HolyButton.secondary('Continue with Google',
-                                        leading: const SizedBox.square(
-                                            dimension: 20,
-                                            child: GoogleMark()),
-                                        loading: busy &&
-                                            auth.action == AuthAction.google,
-                                        onPressed: busy
-                                            ? null
-                                            : () => ref
-                                                .read(authProvider.notifier)
-                                                .signInGoogle())),
-                                const SizedBox(height: 4),
-                                Center(
-                                    child: Stack(
-                                        clipBehavior: Clip.none,
-                                        children: [
-                                      TextAction('Continue with email',
-                                          color: t.ink,
-                                          onPressed: busy
-                                              ? null
-                                              : () => Navigator.of(context)
-                                                  .push(EmailScreen.route())),
-                                      if (last == 'email')
-                                        Positioned(
-                                            top: -4,
-                                            right: -64,
-                                            child: _LastUsed(color: t.accent)),
-                                    ])),
-                                AnimatedSize(
-                                    duration:
-                                        const Duration(milliseconds: 220),
-                                    child: auth.error == null ||
-                                            auth.error!.isEmpty
-                                        ? const SizedBox(width: double.infinity)
-                                        : Padding(
-                                            padding:
-                                                const EdgeInsets.only(top: 4),
-                                            child: Semantics(
-                                                liveRegion: true,
-                                                child: Text(auth.error!,
-                                                    textAlign: TextAlign.center,
-                                                    style: HolyTypography
-                                                        .caption
-                                                        .copyWith(
-                                                            color:
-                                                                t.accent))))),
-                                SizedBox(height: compact ? 6 : 10),
-                                _LegalLine(color: t.muted, link: t.ink),
-                              ]))))),
+              child: ConstrainedBox(
+                  constraints: const BoxConstraints(maxWidth: 560),
+                  child: Paper(
+                      lift: 2,
+                      hairline: false,
+                      borderRadius: const BorderRadius.vertical(
+                          top: Radius.circular(HolyRadius.sheet)),
+                      padding: EdgeInsets.fromLTRB(
+                          HolySpace.gutter,
+                          compact ? 22 : 28,
+                          HolySpace.gutter,
+                          media.padding.bottom + (compact ? 10 : 16)),
+                      child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            Text('Begin your walk',
+                                textAlign: TextAlign.center,
+                                style: HolyTypography.title.copyWith(
+                                    color: t.ink, fontSize: compact ? 30 : 34)),
+                            const SizedBox(height: 6),
+                            Text('One short lesson a day.',
+                                textAlign: TextAlign.center,
+                                style: HolyTypography.body
+                                    .copyWith(color: t.muted)),
+                            SizedBox(height: compact ? 16 : 22),
+                            if (apple) ...[
+                              tagged(
+                                  'apple',
+                                  AppleButton(
+                                      white: t.isDark,
+                                      loading: busy &&
+                                          auth.action == AuthAction.apple,
+                                      onPressed: busy
+                                          ? null
+                                          : () => ref
+                                              .read(authProvider.notifier)
+                                              .signInApple())),
+                              const SizedBox(height: 10),
+                            ],
+                            tagged(
+                                'google',
+                                HolyButton.secondary('Continue with Google',
+                                    leading: const SizedBox.square(
+                                        dimension: 20, child: GoogleMark()),
+                                    loading: busy &&
+                                        auth.action == AuthAction.google,
+                                    onPressed: busy
+                                        ? null
+                                        : () => ref
+                                            .read(authProvider.notifier)
+                                            .signInGoogle())),
+                            const SizedBox(height: 4),
+                            Center(
+                                child:
+                                    Stack(clipBehavior: Clip.none, children: [
+                              TextAction('Continue with email',
+                                  color: t.ink,
+                                  onPressed: busy
+                                      ? null
+                                      : () => Navigator.of(context)
+                                          .push(EmailScreen.route())),
+                              if (last == 'email')
+                                Positioned(
+                                    top: -4,
+                                    right: -64,
+                                    child: _LastUsed(color: t.accent)),
+                            ])),
+                            AnimatedSize(
+                                duration: const Duration(milliseconds: 220),
+                                child: auth.error == null || auth.error!.isEmpty
+                                    ? const SizedBox(width: double.infinity)
+                                    : Padding(
+                                        padding: const EdgeInsets.only(top: 4),
+                                        child: Semantics(
+                                            liveRegion: true,
+                                            child: Text(auth.error!,
+                                                textAlign: TextAlign.center,
+                                                style: HolyTypography.caption
+                                                    .copyWith(
+                                                        color: t.accent))))),
+                            SizedBox(height: compact ? 6 : 10),
+                            _LegalLine(color: t.muted, link: t.ink),
+                          ])))),
         ]));
   }
 }

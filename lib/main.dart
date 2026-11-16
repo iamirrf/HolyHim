@@ -122,12 +122,6 @@ class _BootstrapState extends State<Bootstrap> {
           textDirection: TextDirection.ltr, child: SplashScreen());
 }
 
-final meshMoodProvider = Provider<ValueNotifier<double>>((ref) {
-  final value = ValueNotifier<double>(0);
-  ref.onDispose(value.dispose);
-  return value;
-});
-
 class HolyHimApp extends ConsumerStatefulWidget {
   const HolyHimApp({super.key});
   @override
@@ -177,7 +171,7 @@ class _HolyHimAppState extends ConsumerState<HolyHimApp>
       ref.read(repositoryProvider.notifier).retrySync();
       refreshTimeZone();
       reconcile();
-      unawaited(ref.read(lifetimeProvider.notifier).load());
+      unawaited(ref.read(accessProvider.notifier).load());
     }
   }
 

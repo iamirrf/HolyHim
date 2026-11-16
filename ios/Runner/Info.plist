@@ -47,6 +47,8 @@
 	<false/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Choose a photo for your HolyHim profile. Only you see it.</string>
 	<key>NSMotionUsageDescription</key>
 	<string>HolyHim uses gentle device movement to add depth to lesson art. You can disable motion in Accessibility.</string>
 	<key>UIApplicationSceneManifest</key>

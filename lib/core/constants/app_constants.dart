@@ -1,8 +1,8 @@
 abstract final class AppConstants {
   static const versionName = '2.0.0',
-      buildNumber = '6',
-      versionLabel = '2.0.0 (6)',
-      wireVersion = '2.0.0+6';
+      buildNumber = '8',
+      versionLabel = '2.0.0 (8)',
+      wireVersion = '2.0.0+8';
   static const appName = 'HolyHim',
       totalDays = 365,
       tagline = 'A quiet word with God, every morning.';
@@ -11,9 +11,10 @@ abstract final class AppConstants {
       termsUrl = '$websiteUrl/terms',
       supportUrl = '$websiteUrl/support';
 
-  /// Set once App Store Connect assigns the numeric app ID. Until then
-  /// shared keepsakes point to the website, which links to the store.
-  static const appStoreId = String.fromEnvironment('APP_STORE_ID');
+  /// HolyHim's numeric App Store ID, so a shared keepsake opens the
+  /// listing directly. A build can still override it.
+  static const appStoreId =
+      String.fromEnvironment('APP_STORE_ID', defaultValue: '');
   static const shareUrl = appStoreId == ''
       ? websiteUrl
       : 'https://apps.apple.com/app/id$appStoreId';

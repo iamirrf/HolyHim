@@ -38,8 +38,8 @@ class LegalScreen extends StatelessWidget {
                 style: HolyTypography.headline.copyWith(color: t.ink)),
             const SizedBox(height: 8),
             Text(section.$2,
-                style: HolyTypography.reading
-                    .copyWith(color: t.ink, fontSize: 17, height: 1.55)),
+                style: HolyTypography.ui
+                    .copyWith(color: t.ink, fontSize: 16, height: 1.6)),
             const SizedBox(height: 24),
           ],
         ]);
@@ -62,31 +62,33 @@ class StatusScreen extends StatelessWidget {
     final t = HolyThemeScope.of(context);
     return Scaffold(
         backgroundColor: t.paper,
-        body: SafeArea(
-            child: FitColumn(children: [
-          const Spacer(flex: 3),
-          Center(
-              child: ClipOval(
-                  child: SizedBox.square(
-                      dimension: 120,
-                      child: Image.asset('assets/art/library/sky-stillness-thumb.webp',
-                          fit: BoxFit.cover,
-                          excludeFromSemantics: true,
-                          errorBuilder: (c, e, s) =>
-                              ColoredBox(color: t.sunk))))),
-          const SizedBox(height: 28),
-          Text(title,
-              textAlign: TextAlign.center,
-              style: HolyTypography.title.copyWith(color: t.ink)),
-          const SizedBox(height: 10),
-          Text(message,
-              textAlign: TextAlign.center,
-              style: HolyTypography.body.copyWith(color: t.muted)),
-          const Spacer(flex: 4),
-          HolyButton(action,
-              onPressed: onAction ??
-                  () => GoRouter.of(context).go('/')),
-          const SizedBox(height: 16),
-        ])));
+        body: HolyBackdrop(
+            calm: true,
+            child: SafeArea(
+                child: FitColumn(children: [
+              const Spacer(flex: 3),
+              Center(
+                  child: ClipOval(
+                      child: SizedBox.square(
+                          dimension: 120,
+                          child: Image.asset(
+                              'assets/art/library/sky-stillness-thumb.webp',
+                              fit: BoxFit.cover,
+                              excludeFromSemantics: true,
+                              errorBuilder: (c, e, s) =>
+                                  ColoredBox(color: t.sunk))))),
+              const SizedBox(height: 28),
+              Text(title,
+                  textAlign: TextAlign.center,
+                  style: HolyTypography.title.copyWith(color: t.ink)),
+              const SizedBox(height: 10),
+              Text(message,
+                  textAlign: TextAlign.center,
+                  style: HolyTypography.body.copyWith(color: t.muted)),
+              const Spacer(flex: 4),
+              HolyButton(action,
+                  onPressed: onAction ?? () => GoRouter.of(context).go('/')),
+              const SizedBox(height: 16),
+            ]))));
   }
 }

@@ -63,7 +63,8 @@ class _EmailScreenState extends ConsumerState<EmailScreen> {
   Future<void> _submit() async {
     final auth = ref.read(authProvider.notifier);
     setState(() {
-      emailError = _emailValid ? null : 'Enter an email address like name@example.com.';
+      emailError =
+          _emailValid ? null : 'Enter an email address like name@example.com.';
       passwordError = mode == _Mode.reset
           ? null
           : password.text.isEmpty
@@ -137,19 +138,21 @@ class _EmailScreenState extends ConsumerState<EmailScreen> {
                 curve: Curves.easeOutCubic,
                 height: keyboard ? top + 64 : top + 170,
                 child: Stack(fit: StackFit.expand, children: [
-                  const PhotoStage(
-                      images: ['assets/art/library/scripture-lamp.webp'],
-                      alignment: Alignment(0, .35),
-                      parallax: false,
-                      topVeil: .35,
-                      bottomVeil: 0),
-                  DecoratedBox(
-                      decoration: BoxDecoration(
-                          gradient: LinearGradient(
+                  // The photograph thins out into the field below it.
+                  ShaderMask(
+                      blendMode: BlendMode.dstIn,
+                      shaderCallback: (rect) => const LinearGradient(
                               begin: Alignment.topCenter,
                               end: Alignment.bottomCenter,
-                              stops: const [.55, 1],
-                              colors: [t.paper.withValues(alpha: 0), t.paper]))),
+                              stops: [.55, 1],
+                              colors: [Colors.white, Colors.transparent])
+                          .createShader(rect),
+                      child: const PhotoStage(
+                          images: ['assets/art/library/scripture-lamp.webp'],
+                          alignment: Alignment(0, .35),
+                          parallax: false,
+                          topVeil: .35,
+                          bottomVeil: 0)),
                   Positioned(
                       top: top + 4,
                       left: HolySpace.gutter - 6,
@@ -220,7 +223,9 @@ class _EmailScreenState extends ConsumerState<EmailScreen> {
                           label: 'Password',
                           password: true,
                           error: passwordError,
-                          hint: mode == _Mode.create ? 'At least 8 characters' : null,
+                          hint: mode == _Mode.create
+                              ? 'At least 8 characters'
+                              : null,
                           autofillHints: [
                             mode == _Mode.create
                                 ? AutofillHints.newPassword
@@ -317,8 +322,9 @@ class _ModeToggle extends StatelessWidget {
             padding: const EdgeInsets.all(4),
             child: Stack(children: [
               AnimatedAlign(
-                  duration:
-                      reduced ? Duration.zero : const Duration(milliseconds: 260),
+                  duration: reduced
+                      ? Duration.zero
+                      : const Duration(milliseconds: 260),
                   curve: Curves.easeOutBack,
                   alignment:
                       create ? Alignment.centerRight : Alignment.centerLeft,

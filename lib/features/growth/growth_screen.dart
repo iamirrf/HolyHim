@@ -1,13 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'dart:ui' show ImageFilter;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../design/chapter_catalog.g.dart';
+import '../../design/widgets/coin_3d.dart';
+import '../../design/widgets/glass.dart';
+import '../../domain/milestones.dart';
 import '../../design/design.dart';
+import '../../design/widgets/glass_header.dart';
 import '../../domain/badges.dart';
 import '../../domain/calendar.dart';
 import '../../domain/streak.dart';
 import '../../services/repository.dart';
 
-/// Growth: the walk so far, this month, and the medallions, in one view.
+/// Growth: the walk so far, this month, and the medallion cabinet. Scrolls.
 class GrowthScreen extends ConsumerStatefulWidget {
   const GrowthScreen({super.key});
   @override
@@ -17,44 +23,63 @@ class GrowthScreen extends ConsumerStatefulWidget {
 class _GrowthScreenState extends ConsumerState<GrowthScreen> {
   int monthOffset = 0;
 
-  void _badge(WalkBadge badge) {
-    final t = HolyThemeScope.of(context);
+  void _medallion(WalkBadge badge) {
     showModalBottomSheet<void>(
         context: context,
-        builder: (context) => SafeArea(
-            child: Padding(
-                padding: const EdgeInsets.fromLTRB(28, 0, 28, 24),
-                child: Column(mainAxisSize: MainAxisSize.min, children: [
-                  Badge3D(
-                      label: badge.title,
-                      badgeId: badge.id,
-                      earned: badge.earned,
-                      size: 120,
-                      showLabel: false),
-                  const SizedBox(height: 16),
-                  Text(badge.title,
-                      textAlign: TextAlign.center,
-                      style: HolyTypography.title
-                          .copyWith(color: t.ink, fontSize: 30)),
-                  const SizedBox(height: 6),
-                  Text(badge.description,
-                      textAlign: TextAlign.center,
-                      style: HolyTypography.body.copyWith(color: t.muted)),
-                  const SizedBox(height: 16),
-                  ClipRRect(
-                      borderRadius: BorderRadius.circular(3),
-                      child: LinearProgressIndicator(
-                          value: badge.fraction,
-                          minHeight: 5,
-                          color: badge.earned ? t.olive : t.accent,
-                          backgroundColor: t.hairline)),
-                  const SizedBox(height: 8),
-                  Text(
-                      badge.earned
-                          ? 'Earned'
-                          : '${badge.progress} of ${badge.goal}',
-                      style: HolyTypography.caption.copyWith(color: t.muted)),
-                ]))));
+        isScrollControlled: true,
+        backgroundColor: Colors.transparent,
+        barrierColor: Colors.black.withValues(alpha: .35),
+        builder: (context) {
+          final t = HolyThemeScope.of(context);
+          return Padding(
+              padding: EdgeInsets.fromLTRB(
+                  12, 0, 12, MediaQuery.paddingOf(context).bottom + 12),
+              child: ClipRSuperellipse(
+                  borderRadius: BorderRadius.circular(HolyRadius.sheet),
+                  child: BackdropFilter(
+                      filter: ImageFilter.blur(sigmaX: 30, sigmaY: 30),
+                      child: ColoredBox(
+                          color: t.surface.withValues(alpha: .88),
+                          child: Padding(
+                              padding:
+                                  const EdgeInsets.fromLTRB(28, 30, 28, 26),
+                              child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Coin3D(
+                                        badgeId: badge.id,
+                                        earned: badge.earned,
+                                        size: 190,
+                                        interactive: true),
+                                    const SizedBox(height: 26),
+                                    Text(badge.title,
+                                        textAlign: TextAlign.center,
+                                        style: HolyTypography.title.copyWith(
+                                            color: t.ink, fontSize: 30)),
+                                    const SizedBox(height: 6),
+                                    Text(badge.description,
+                                        textAlign: TextAlign.center,
+                                        style: HolyTypography.body
+                                            .copyWith(color: t.muted)),
+                                    const SizedBox(height: 18),
+                                    ClipRRect(
+                                        borderRadius: BorderRadius.circular(3),
+                                        child: LinearProgressIndicator(
+                                            value: badge.fraction,
+                                            minHeight: 6,
+                                            color: badge.earned
+                                                ? t.gold
+                                                : t.accent,
+                                            backgroundColor: t.hairline)),
+                                    const SizedBox(height: 8),
+                                    Text(
+                                        badge.earned
+                                            ? 'Earned · spin it'
+                                            : '${badge.progress} of ${badge.goal}',
+                                        style: HolyTypography.caption
+                                            .copyWith(color: t.muted)),
+                                  ]))))));
+        });
   }
 
   @override
@@ -74,85 +99,209 @@ class _GrowthScreenState extends ConsumerState<GrowthScreen> {
     final local = localNow(now, zone);
     final month = DateTime(local.year, local.month + monthOffset);
     final media = MediaQuery.of(context);
-    final compact = media.size.height < 740;
-    return ColoredBox(
-        color: t.paper,
-        child: Padding(
-            padding: EdgeInsets.only(top: media.padding.top),
-            child: FitColumn(
-                padding: EdgeInsets.fromLTRB(HolySpace.gutter, 16,
-                    HolySpace.gutter, media.padding.bottom),
-                children: [
-                  Eyebrow('${state.completed.length} of 365 days'),
-                  const SizedBox(height: 4),
-                  Semantics(
-                      header: true,
-                      child: Text('Growth',
-                          style: HolyTypography.title.copyWith(color: t.ink))),
-                  SizedBox(height: compact ? 12 : 18),
-                  Row(children: [
-                    _Stat(
-                        value: streak.current,
-                        label: 'day walk',
-                        icon: CupertinoIcons.sun_max_fill,
-                        color: t.gold),
-                    const SizedBox(width: 10),
-                    _Stat(
-                        value: streak.longest,
-                        label: 'longest',
-                        icon: CupertinoIcons.flag_fill,
-                        color: t.accent),
-                    const SizedBox(width: 10),
-                    _Stat(
-                        value: streak.graceDays,
-                        label: 'grace days',
-                        icon: CupertinoIcons.leaf_arrow_circlepath,
-                        color: t.olive),
-                  ]),
-                  SizedBox(height: compact ? 12 : 16),
-                  FitFlex(
-                      min: compact ? 220 : 300,
-                      child: Paper(
-                          padding: const EdgeInsets.fromLTRB(16, 12, 16, 14),
-                          child: _Month(
-                              month: month,
-                              today: local,
-                              read: state.completed.values.toSet(),
-                              grace: streak.graceDates,
-                              onPrevious: () =>
-                                  setState(() => monthOffset--),
-                              onNext: monthOffset >= 0
-                                  ? null
-                                  : () => setState(() => monthOffset++)))),
-                  SizedBox(height: compact ? 12 : 18),
-                  Row(children: [
-                    Expanded(
-                        child: Text('Medallions',
-                            style: HolyTypography.headline
-                                .copyWith(color: t.ink, fontSize: 24))),
-                    Text('$earned of ${badges.length}',
-                        style: HolyTypography.label.copyWith(color: t.muted)),
-                  ]),
-                  const SizedBox(height: 8),
-                  SizedBox(
-                      height: compact ? 84 : 98,
-                      child: ListView.separated(
-                          scrollDirection: Axis.horizontal,
-                          clipBehavior: Clip.none,
-                          itemCount: badges.length,
-                          separatorBuilder: (_, __) => const SizedBox(width: 10),
-                          itemBuilder: (context, i) {
-                            final b = badges[i];
-                            return Badge3D(
-                                label: b.title,
-                                badgeId: b.id,
-                                earned: b.earned,
-                                size: compact ? 72 : 86,
-                                showLabel: false,
-                                onPressed: () => _badge(b));
-                          })),
-                  SizedBox(height: compact ? 4 : 10),
-                ])));
+    final chapters = ChapterCatalog.chapters
+        .where((c) => [for (var d = c.firstDay; d <= c.lastDay; d++) d]
+            .every(state.completed.containsKey))
+        .length;
+    final goal = nextMilestone(state.completed.length);
+    return GlassHeaderScaffold(
+        title: 'Growth',
+        background: backdropPaper(context, t),
+        body:
+            CustomScrollView(physics: const BouncingScrollPhysics(), slivers: [
+          SliverPadding(
+              padding: EdgeInsets.fromLTRB(HolySpace.gutter,
+                  media.padding.top + 14, HolySpace.gutter, 0),
+              sliver: SliverList.list(children: [
+                Eyebrow('Your whole walk', color: t.accent),
+                const SizedBox(height: 4),
+                Semantics(
+                    header: true,
+                    child: Text('Growth',
+                        style: HolyTypography.display
+                            .copyWith(color: t.ink, fontSize: 40, height: 1))),
+                const SizedBox(height: 18),
+                _WalkHero(
+                    walk: streak.current,
+                    longest: streak.longest,
+                    grace: streak.graceDays,
+                    goal: goal),
+                const SizedBox(height: 14),
+                Row(children: [
+                  _Stat(
+                      value: state.completed.length,
+                      label: 'lessons read',
+                      icon: CupertinoIcons.book_fill,
+                      color: t.accent),
+                  const SizedBox(width: 10),
+                  _Stat(
+                      value: chapters,
+                      label: 'chapters',
+                      icon: CupertinoIcons.map_fill,
+                      color: t.olive),
+                  const SizedBox(width: 10),
+                  _Stat(
+                      value: state.saved.length,
+                      label: 'verses kept',
+                      icon: CupertinoIcons.heart_fill,
+                      color: t.gold),
+                ]),
+                const SizedBox(height: 14),
+                Paper(
+                    padding: const EdgeInsets.fromLTRB(16, 12, 16, 14),
+                    child: SizedBox(
+                        height: 300,
+                        child: _Month(
+                            month: month,
+                            today: local,
+                            read: state.completed.values.toSet(),
+                            grace: streak.graceDates,
+                            onPrevious: () => setState(() => monthOffset--),
+                            onNext: monthOffset >= 0
+                                ? null
+                                : () => setState(() => monthOffset++)))),
+                const SizedBox(height: 30),
+                Row(crossAxisAlignment: CrossAxisAlignment.end, children: [
+                  Expanded(
+                      child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                        Eyebrow('Your collection', color: t.accent),
+                        const SizedBox(height: 2),
+                        Text('Medallions',
+                            style: HolyTypography.display.copyWith(
+                                color: t.ink, fontSize: 34, height: 1)),
+                      ])),
+                  Glass(
+                      radius: 40,
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 12, vertical: 7),
+                      child: Text('$earned of ${badges.length}',
+                          style: HolyTypography.label.copyWith(
+                              color: t.ink, fontWeight: FontWeight.w800))),
+                ]),
+                const SizedBox(height: 16),
+                _Spotlight(
+                    badge: badges.lastWhere((b) => b.earned,
+                        orElse: () => badges.first),
+                    onTap: _medallion),
+                const SizedBox(height: 16),
+              ])),
+          SliverPadding(
+              padding: EdgeInsets.fromLTRB(HolySpace.gutter, 0,
+                  HolySpace.gutter, media.padding.bottom + 24),
+              sliver: SliverGrid.builder(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      mainAxisSpacing: 14,
+                      crossAxisSpacing: 14,
+                      childAspectRatio: .74),
+                  itemCount: badges.length,
+                  itemBuilder: (context, i) {
+                    final b = badges[i];
+                    return Semantics(
+                        button: true,
+                        label:
+                            '${b.title}${b.earned ? ', earned' : ', locked'}',
+                        excludeSemantics: true,
+                        child: GestureDetector(
+                            behavior: HitTestBehavior.opaque,
+                            onTap: () => _medallion(b),
+                            child: _Tile3D(badge: b)));
+                  })),
+        ]));
+  }
+}
+
+/// The walk, large: the day count on rose light, the record and the grace
+/// days, and how close the next medallion is.
+class _WalkHero extends StatelessWidget {
+  final int walk, longest, grace;
+  final Milestone? goal;
+  const _WalkHero(
+      {required this.walk,
+      required this.longest,
+      required this.grace,
+      required this.goal});
+  @override
+  Widget build(BuildContext context) {
+    const ink = HolyTheme.photoInk;
+    // Each theme's own hero: plum to peach in First Light, violet in
+    // Lavender, deep olive in Olive Grove.
+    final t = HolyThemeScope.of(context);
+    return DecoratedBox(
+        decoration: ShapeDecoration(
+            shape: RoundedSuperellipseBorder(
+                borderRadius: BorderRadius.circular(HolyRadius.card)),
+            gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: t.hero),
+            shadows: [
+              BoxShadow(
+                  color: t.hero[1].withValues(alpha: .38),
+                  blurRadius: 30,
+                  offset: const Offset(0, 16))
+            ]),
+        child: Stack(children: [
+          Positioned(
+              right: -30,
+              top: -40,
+              child: Container(
+                  width: 190,
+                  height: 190,
+                  decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      gradient: RadialGradient(colors: [
+                        t.glow.withValues(alpha: .55),
+                        t.glow.withValues(alpha: 0),
+                      ])))),
+          Padding(
+              padding: const EdgeInsets.fromLTRB(22, 20, 22, 20),
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(crossAxisAlignment: CrossAxisAlignment.end, children: [
+                      RollingNumber(
+                          value: walk,
+                          style: HolyTypography.numeral
+                              .copyWith(color: ink, fontSize: 64, height: .9)),
+                      const SizedBox(width: 10),
+                      Padding(
+                          padding: const EdgeInsets.only(bottom: 8),
+                          child: Text('day walk',
+                              style: HolyTypography.headline
+                                  .copyWith(color: ink, fontSize: 22))),
+                      const Spacer(),
+                      Icon(CupertinoIcons.sun_max_fill,
+                          color: t.glow, size: 40),
+                    ]),
+                    const SizedBox(height: 10),
+                    Text(
+                        'Longest $longest · $grace grace ${grace == 1 ? 'day' : 'days'} ready',
+                        style: HolyTypography.label
+                            .copyWith(color: ink.withValues(alpha: .85))),
+                    if (goal != null) ...[
+                      const SizedBox(height: 16),
+                      Row(children: [
+                        Expanded(
+                            child: Text(goal!.distance,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: HolyTypography.label.copyWith(
+                                    color: ink, fontWeight: FontWeight.w700))),
+                      ]),
+                      const SizedBox(height: 8),
+                      ClipRRect(
+                          borderRadius: BorderRadius.circular(4),
+                          child: LinearProgressIndicator(
+                              value: goal!.progress,
+                              minHeight: 7,
+                              color: t.glow,
+                              backgroundColor: ink.withValues(alpha: .22))),
+                    ],
+                  ])),
+        ]));
   }
 }
 
@@ -189,8 +338,8 @@ class _Stat extends StatelessWidget {
                       Text(label,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
-                          style: HolyTypography.caption
-                              .copyWith(color: t.muted)),
+                          style:
+                              HolyTypography.caption.copyWith(color: t.muted)),
                     ]))));
   }
 }
@@ -207,8 +356,18 @@ class _Month extends StatelessWidget {
       required this.onPrevious,
       required this.onNext});
   static const names = [
-    'January', 'February', 'March', 'April', 'May', 'June', 'July',
-    'August', 'September', 'October', 'November', 'December'
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
   ];
   @override
   Widget build(BuildContext context) {
@@ -279,7 +438,8 @@ class _Month extends StatelessWidget {
                                             ? t.olive.withValues(alpha: .14)
                                             : null,
                                     border: isToday && !isRead
-                                        ? Border.all(color: t.accent, width: 1.5)
+                                        ? Border.all(
+                                            color: t.accent, width: 1.5)
                                         : null),
                                 child: Center(
                                     child: Text('$n',
@@ -321,7 +481,100 @@ class _Nav extends StatelessWidget {
                 width: 36,
                 height: 36,
                 child: Icon(icon,
-                    size: 16,
-                    color: onPressed == null ? t.hairline : t.ink))));
+                    size: 16, color: onPressed == null ? t.hairline : t.ink))));
+  }
+}
+
+/// The latest medallion, large and turning, on glass.
+class _Spotlight extends StatelessWidget {
+  final WalkBadge badge;
+  final ValueChanged<WalkBadge> onTap;
+  const _Spotlight({required this.badge, required this.onTap});
+  @override
+  Widget build(BuildContext context) {
+    final t = HolyThemeScope.of(context);
+    return Pressable(
+        semanticLabel:
+            '${badge.title}, ${badge.earned ? 'earned' : 'first to earn'}',
+        onPressed: () => onTap(badge),
+        child: Glass(
+            radius: HolyRadius.card,
+            elevation: 3,
+            padding: const EdgeInsets.fromLTRB(14, 16, 18, 16),
+            child: Row(children: [
+              Coin3D(badgeId: badge.id, earned: badge.earned, size: 132),
+              const SizedBox(width: 16),
+              Expanded(
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                    Eyebrow(
+                        badge.earned
+                            ? 'Latest medallion'
+                            : 'Your first medallion',
+                        color: t.gold),
+                    const SizedBox(height: 4),
+                    Text(badge.title,
+                        style: HolyTypography.headline
+                            .copyWith(color: t.ink, fontSize: 24, height: 1.1)),
+                    const SizedBox(height: 6),
+                    Text(badge.description,
+                        style: HolyTypography.caption.copyWith(color: t.muted)),
+                    const SizedBox(height: 10),
+                    Text(
+                        badge.earned
+                            ? 'Tap to spin it'
+                            : 'Earn it on your first morning',
+                        style: HolyTypography.label.copyWith(
+                            color: t.accent, fontWeight: FontWeight.w700)),
+                  ])),
+            ])));
+  }
+}
+
+/// One medallion in the cabinet: big, turning, and how close it is.
+class _Tile3D extends StatelessWidget {
+  final WalkBadge badge;
+  const _Tile3D({required this.badge});
+  @override
+  Widget build(BuildContext context) {
+    final t = HolyThemeScope.of(context);
+    return Glass(
+        radius: 26,
+        padding: const EdgeInsets.fromLTRB(12, 14, 12, 12),
+        child: Column(children: [
+          Expanded(
+              child: Center(
+                  child: Coin3D(
+                      badgeId: badge.id, earned: badge.earned, size: 112))),
+          const SizedBox(height: 8),
+          Text(badge.title,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              textAlign: TextAlign.center,
+              style: HolyTypography.label.copyWith(
+                  color: badge.earned ? t.ink : t.muted,
+                  fontWeight: FontWeight.w800,
+                  height: 1.2)),
+          const SizedBox(height: 6),
+          if (badge.earned)
+            Text('Earned',
+                style: HolyTypography.caption
+                    .copyWith(color: t.gold, fontWeight: FontWeight.w800))
+          else
+            Row(children: [
+              Expanded(
+                  child: ClipRRect(
+                      borderRadius: BorderRadius.circular(3),
+                      child: LinearProgressIndicator(
+                          value: badge.fraction,
+                          minHeight: 5,
+                          color: t.accent,
+                          backgroundColor: t.hairline))),
+              const SizedBox(width: 8),
+              Text('${badge.progress}/${badge.goal}',
+                  style: HolyTypography.caption.copyWith(color: t.muted)),
+            ]),
+        ]));
   }
 }

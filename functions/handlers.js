@@ -19,6 +19,7 @@ function createHandlers({db, auth, HttpsError, FieldValue, Timestamp, storage, n
     await db.doc(`deletionGuards/${uid}`).set({deleting: true, createdAt: FieldValue.serverTimestamp()});
     if (storage) await storage.deleteFiles({prefix: `users/${uid}/avatars/`});
     await db.recursiveDelete(db.doc(`users/${uid}`));
+    await db.recursiveDelete(db.doc(`circle/${uid}`));
     try {
       await auth.deleteUser(uid);
     } catch (error) {

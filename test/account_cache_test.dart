@@ -28,4 +28,20 @@ void main() {
     expect(next.read('alice'), isNull);
     expect(next.read('bob'), isNotNull);
   });
+
+  test('one account finishing the welcome never marks another as done',
+      () async {
+    // An earlier build also kept a device-wide date and lent it to any
+    // account without its own.
+    SharedPreferences.setMockInitialValues(
+        {'holyhim.onboarded_at.v2.last_active': '2026-11-10T08:00:00.000Z'});
+    final cache = AccountCache(durable: true);
+    await cache.initialize();
+    expect(cache.readOnboardedAt('bob'), isNull);
+    await cache.markOnboarded('alice', DateTime.utc(2026, 11, 16));
+    expect(cache.readOnboardedAt('alice'), DateTime.utc(2026, 11, 16));
+    expect(cache.readOnboardedAt('bob'), isNull);
+    final prefs = await SharedPreferences.getInstance();
+    expect(prefs.containsKey('holyhim.onboarded_at.v2.last_active'), isFalse);
+  });
 }

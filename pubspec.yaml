@@ -1,7 +1,7 @@
 name: holyhim
 description: A quiet word with God, every morning. 365 short Scripture lessons.
 publish_to: 'none'
-version: 2.0.0+6
+version: 2.0.0+8
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
@@ -9,6 +9,14 @@ environment:
 dependencies:
   audioplayers: 6.6.0
   share_plus: 12.0.0
+  # Cognein's Liquid Glass: native iOS 26 tab bar and refracting glass.
+  adaptive_platform_ui: 0.1.100
+  liquid_glass_easy: 4.3.1
+  liquid_glass_widgets: 0.30.2
+  # Profile photos, as in Cognein: pick, crop, upload to her own folder.
+  firebase_storage: ^14.0.1
+  image_picker: ^1.0.4
+  image: ^4.5.4
   cloud_firestore: ^7.1.0
   cloud_functions: ^7.0.1
   firebase_auth: ^7.0.1
@@ -41,6 +49,10 @@ flutter:
   uses-material-design: true
   assets:
     - assets/sounds/
+    # Every lesson read aloud (tool/voice/narrate.py), and the music beneath.
+    - assets/audio/lessons/
+    - assets/audio/music/
+    - assets/icons/
     - assets/brand/
     - assets/artwork/
     - assets/art/lessons/

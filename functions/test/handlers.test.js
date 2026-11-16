@@ -43,7 +43,7 @@ test('delete requires a signed-in user with recent authentication', async () => 
 test('delete writes permanent guard before deleting data and auth', async () => {
   const api = fixture();
   assert.deepEqual(await api.deleteAccount(request()), {deleted: true});
-  assert.deepEqual(api.calls.map(call => call.slice(0, 2)), [['set', 'deletionGuards/alice'], ['recursiveDelete', 'users/alice'], ['deleteUser', 'alice']]);
+  assert.deepEqual(api.calls.map(call => call.slice(0, 2)), [['set', 'deletionGuards/alice'], ['recursiveDelete', 'users/alice'], ['recursiveDelete', 'circle/alice'], ['deleteUser', 'alice']]);
   assert.equal(api.rows.get('deletionGuards/alice').deleting, true);
 });
 
@@ -88,7 +88,7 @@ test('support validates fields, method and honeypot without recording invalid da
 
 test('account deletion removes photos before account data and retries a photo failure', async () => {
  const success=fixture({photos:true});await success.deleteAccount(request());
- assert.deepEqual(success.calls.map(call=>call.slice(0,2)),[['set','deletionGuards/alice'],['deletePhotos','users/alice/avatars/'],['recursiveDelete','users/alice'],['deleteUser','alice']]);
+ assert.deepEqual(success.calls.map(call=>call.slice(0,2)),[['set','deletionGuards/alice'],['deletePhotos','users/alice/avatars/'],['recursiveDelete','users/alice'],['recursiveDelete','circle/alice'],['deleteUser','alice']]);
  const failed=fixture({photos:true,photoFailure:new Error('offline')});
  await assert.rejects(failed.deleteAccount(request()));
  assert.equal(failed.calls.some(call=>call[0]==='deleteUser'),false);
@@ -109,5 +109,5 @@ test('support permits three submissions per IP/hour then returns 429; storage er
 });
 
 test('production entry point includes reviewed billing and avatar cleanup endpoints', () => {
-  assert.deepEqual(Object.keys(require('../index')).sort(), ['cleanupReplacedAvatar', 'deleteAccount', 'getAccessStatus', 'revenuecatWebhook', 'supportRequest', 'syncAccess']);
+  assert.deepEqual(Object.keys(require('../index')).sort(), ['circleProfile', 'circleProgress', 'cleanupReplacedAvatar', 'deleteAccount', 'getAccessStatus', 'reportMember', 'revenuecatWebhook', 'sendAmen', 'supportRequest', 'syncAccess']);
 });

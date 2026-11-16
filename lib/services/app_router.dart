@@ -15,14 +15,13 @@ import '../features/onboarding/onboarding_screen.dart';
 import '../features/shell/home_shell.dart';
 import '../features/lesson/lesson_screen.dart';
 import '../features/celebration/celebration_screen.dart';
-import '../features/journey/journey_screen.dart';
 import '../features/paywall/paywall_screen.dart';
 import '../features/profile/profile_screen.dart';
+import '../features/saved/saved_screen.dart';
 import '../features/support/support_screen.dart';
 import '../services/share_card.dart';
 import 'billing.dart';
 import 'navigation_state.dart';
-import '../main.dart' show meshMoodProvider;
 import 'auth_service.dart';
 import 'repository.dart';
 
@@ -35,7 +34,14 @@ final appRouterProvider = Provider<GoRouter>((ref) {
   return router;
 });
 
-const _pushed = ['lesson', 'verse', 'celebration', 'journey', 'offer', 'paywall'];
+const _pushed = [
+  'lesson',
+  'verse',
+  'celebration',
+  'journey',
+  'offer',
+  'paywall'
+];
 
 /// Full-screen routes sit above the retained tab route, so the Today card
 /// can fly into the lesson as a shared element.
@@ -83,7 +89,7 @@ class AppGate extends ConsumerWidget {
     if (auth.user == null) return const WelcomeScreen();
     if (!state.ready) {
       return state.syncError == null
-          ? const Scaffold(body: BrandLoader())
+          ? const Scaffold(body: HolyBackdrop(calm: true, child: BrandLoader()))
           : StatusScreen(
               title: 'Your walk could not load',
               message:
@@ -93,23 +99,54 @@ class AppGate extends ConsumerWidget {
     }
     final requested = appPath(uri);
     final redo = uri.queryParameters['redo'] == '1';
-    final stepId = state.profile.onboardingDraft['stepId'];
-    final closing = onboardingClosingSteps.contains(stepId);
-    if (!state.profile.onboarded ||
-        closing ||
-        (requested == '/onboarding' && redo)) {
+    final closing = onboardingIsClosing(state.profile.onboardingDraft);
+    final retake = requested == '/onboarding' && redo;
+    if (!state.profile.onboarded || closing || retake) {
       if (requested != '/' && requested != '/onboarding') {
         scheduleMicrotask(() => ref
             .read(pendingDestinationProvider.notifier)
             .state = uri.toString());
       }
-      return const OnboardingScreen();
+      return OnboardingScreen(retake: retake && state.profile.onboarded);
+    }
+    final owned = ref.watch(accessProvider.select((a) => a.active));
+    final gate = ref.watch(
+        accessProvider.select((a) => (open: a.active, loading: a.loading)));
+    // The gate: after the welcome nothing opens without membership, and the
+    // offer has no close control, in every build. It stays up after a
+    // purchase until she has seen "You're in". The legal pages and Support
+    // stay reachable.
+    if (!gate.open || ref.watch(paywallThanksProvider)) {
+      if (requested == '/legal') {
+        return LegalScreen(
+            document: uri.queryParameters['document'] ?? 'terms');
+      }
+      if (requested == '/support') return const SupportScreen();
+      // Her access is still being read: a moment of quiet, not a flash of
+      // the offer before Today.
+      if (gate.loading && !gate.open) {
+        return const Scaffold(
+            body: HolyBackdrop(calm: true, child: BrandLoader()));
+      }
+      if (requested != '/' &&
+          requested != '/offer' &&
+          requested != '/paywall') {
+        scheduleMicrotask(() => ref
+            .read(pendingDestinationProvider.notifier)
+            .state = uri.toString());
+      }
+      return OfferScreen(
+          locked: true,
+          onContinue: () {
+            final pending = ref.read(pendingDestinationProvider);
+            ref.read(pendingDestinationProvider.notifier).state = null;
+            context.go(pending ?? '/');
+          });
     }
     if (requested == '/onboarding') {
       scheduleMicrotask(() => context.go('/'));
       return const HomeShell();
     }
-    final owned = ref.watch(lifetimeProvider.select((a) => a.active));
     if (requested == '/offer' || requested == '/paywall') {
       final day = int.tryParse(uri.queryParameters['day'] ?? '');
       return OfferScreen(
@@ -119,7 +156,7 @@ class AppGate extends ConsumerWidget {
             ref.read(pendingDestinationProvider.notifier).state = null;
             if (pending != null && owned) {
               context.go(pending);
-            } else if (day != null && ref.read(lifetimeProvider).active) {
+            } else if (day != null && ref.read(accessProvider).active) {
               context.pushReplacement('/lesson/$day');
             } else if (context.canPop()) {
               context.pop();
@@ -128,9 +165,19 @@ class AppGate extends ConsumerWidget {
             }
           });
     }
-    if (requested == '/journey') return const JourneyScreen();
-    if (requested == '/account') return const ProfileScreen();
+    if (requested == '/account') {
+      return const HolyBackdrop(child: ProfileScreen());
+    }
     if (requested == '/support') return const SupportScreen();
+    if (requested == '/saved') {
+      return Scaffold(
+          body: HolyBackdrop(
+              calm: true,
+              child: SavedScreen(
+                  onBack: () => context.canPop()
+                      ? context.pop()
+                      : context.go('/profile'))));
+    }
     if (requested == '/legal') {
       return LegalScreen(document: uri.queryParameters['document'] ?? 'terms');
     }
@@ -167,17 +214,16 @@ class AppGate extends ConsumerWidget {
         return CelebrationScreen(day: day);
       }
     }
-    const tabs = {'/': 0, '/saved': 1, '/growth': 2, '/profile': 3};
-    final tab = tabs[normalized.path];
-    if (tab == null) {
+    final tab = normalized.path == '/journey'
+        ? 1
+        : homeTabs.indexWhere((t) => t.path == normalized.path);
+    if (tab < 0) {
       return const StatusScreen(
           title: 'That page is not here',
           message: 'It may have moved. Your walk is right where you left it.',
           action: 'Back to Today');
     }
-    return HomeShell(
-        initialTab: tab,
-        onMood: (value) => ref.read(meshMoodProvider).value = value);
+    return HomeShell(initialTab: tab);
   }
 }
 
@@ -197,8 +243,11 @@ class VerseScreen extends StatelessWidget {
             topVeil: .45,
             bottomVeil: .85,
             child: Padding(
-                padding: EdgeInsets.fromLTRB(HolySpace.gutter,
-                    media.padding.top + 6, HolySpace.gutter, media.padding.bottom + 16),
+                padding: EdgeInsets.fromLTRB(
+                    HolySpace.gutter,
+                    media.padding.top + 6,
+                    HolySpace.gutter,
+                    media.padding.bottom + 16),
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -222,7 +271,7 @@ class VerseScreen extends StatelessWidget {
                           color: Color(0xFFF2D7A6)),
                       const SizedBox(height: 14),
                       Rise(
-                          child: Text('“${lesson.verse}”',
+                          child: Text(lesson.quotedVerse,
                               style: HolyTypography.verse.copyWith(
                                   color: HolyTheme.photoInk,
                                   fontSize: lesson.verse.length > 220 ? 26 : 32,
@@ -234,7 +283,8 @@ class VerseScreen extends StatelessWidget {
                       const SizedBox(height: 14),
                       Text('${lesson.reference} · World English Bible',
                           style: HolyTypography.label.copyWith(
-                              color: HolyTheme.photoInk.withValues(alpha: .85))),
+                              color:
+                                  HolyTheme.photoInk.withValues(alpha: .85))),
                       const SizedBox(height: 28),
                       HolyButton('Open today’s lesson',
                           style: HolyButtonStyle.photoPrimary,
