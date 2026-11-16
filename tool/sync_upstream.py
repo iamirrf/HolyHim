@@ -10,7 +10,8 @@ the branch `upstream/holyher-renamed`. Merge that branch into `redesign/v2`
 to pick up HolyHer's fixes, then rerun the generators (see README.md).
 
 Paths HolyHim owns (OWNED) are never part of a sync, so its lessons, art,
-icons, store material, website and cloud identity are never overwritten.
+voice, icons, store material, website and cloud identity are never overwritten.
+HolyHer's Circle (EXCLUDED) never arrives: HolyHim has Brothers.
 `--seed` copies the renamed HolyHer version of chosen owned paths into the
 working tree once, as a starting point.
 
@@ -53,17 +54,34 @@ OWNED = (
     'lib/design/chapter_catalog.g.dart',
     'test/fixtures/',
     'tool/verify_site.cjs',  # tests HolyHim's own public/ pages
+    # HolyHim's own voice, music, app icons and the words that carry its brand.
+    'assets/audio/', 'assets/icons/',
+    'ios/Runner/Assets.xcassets/AppIcon-*.appiconset/',
+    'lib/services/app_icon.dart', 'lib/domain/milestones.dart',
+    'lib/features/onboarding/onboarding_copy.dart', 'lib/features/onboarding/onboarding_moods.dart',
 )
 # Never needed in HolyHim even as a seed: HolyHer's art masters alone are
 # about 470 MB, and its release evidence would be false for HolyHim.
-NEVER_READ = ('art', 'store/screenshots', 'store/redesign-v3', 'HolyHer_AppIcon_Set.zip')
+NEVER_READ = ('art', 'store/screenshots', 'store/redesign-v3', 'HolyHer_AppIcon_Set.zip',
+              'assets/audio',  # about 175 MB of HolyHer's narrator and music
+              'store/voice-samples', 'store/creative')
+# HolyHer's Circle. HolyHim has Brothers (lib/features/community, functions/community.js)
+# in its place, so these never enter the import, not even as a seed.
+EXCLUDED = ('lib/features/circle/', 'lib/services/circle.dart', 'functions/circle.js',
+            'functions/test/circle.test.js', 'tool/render/circle_test.dart')
+# Identifiers HolyHer states only in code. HolyHim's values come from
+# config/revenuecat.json (memberEntitlementId) and config/release.json (appStoreId).
+HER_CODE_ONLY = {'revenueCatMemberEntitlement': 'entlf63e788b71', 'appStoreId': '6828594137'}
+# No value yet is a real state for these: the app shares its website until
+# Apple assigns an App Store ID. They become empty, never a placeholder.
+EMPTY_UNTIL_ASSIGNED = ('appStoreId',)
 
 NAME = [('HOLYHER', 'HOLYHIM'), ('HolyHer', 'HolyHim'), ('Holyher', 'Holyhim'), ('holyHer', 'holyHim'),
         ('holyher', 'holyhim')]
 
 
-def owned(path: str) -> bool:
-    for rule in OWNED:
+def matches(path: str, rules: tuple[str, ...]) -> bool:
+    for rule in rules:
         pattern = re.escape(rule).replace(r'\*', '[^/]*')
         if rule.endswith('/'):
             if re.match(pattern, path):
@@ -71,6 +89,10 @@ def owned(path: str) -> bool:
         elif re.fullmatch(pattern, path):
             return True
     return False
+
+
+def owned(path: str) -> bool:
+    return matches(path, OWNED)
 
 
 def rename(text: str) -> str:
@@ -106,9 +128,11 @@ def identity_values(read) -> dict[str, str]:
 
     from_json('config/revenuecat.json', {'projectId': 'revenueCatProject', 'appId': 'revenueCatApp',
                                          'entitlementId': 'revenueCatEntitlement',
+                                         'memberEntitlementId': 'revenueCatMemberEntitlement',
                                          'offeringId': 'revenueCatOffering', 'productId': 'revenueCatProduct'})
     from_json('config/revenuecat-public.json', {'iosPublicApiKey': 'revenueCatPublicKey'})
     from_json('config/cloud.json', {'firebaseIosAppId': 'firebaseIosApp'})
+    from_json('config/release.json', {'appStoreId': 'appStoreId'})
     from_json('config/firebase-web.json', {'appId': 'firebaseWebApp', 'apiKey': 'firebaseWebApiKey'})
     raw = read('ios/Runner/GoogleService-Info.plist')
     if raw:
@@ -122,7 +146,7 @@ def identity_values(read) -> dict[str, str]:
 
 
 def identity_map(her: Path, sha: str) -> list[tuple[str, str]]:
-    theirs = identity_values(lambda p: show(her, sha, p))
+    theirs = {**HER_CODE_ONLY, **identity_values(lambda p: show(her, sha, p))}
 
     def ours_read(path: str) -> bytes | None:
         file = ROOT / path
@@ -133,7 +157,8 @@ def identity_map(her: Path, sha: str) -> list[tuple[str, str]]:
     for name, literal in theirs.items():
         if len(literal) < 8:
             continue
-        replacement = ours.get(name) or f'REPLACE_WITH_HOLYHIM_{re.sub(r"(?<!^)(?=[A-Z])", "_", name).upper()}'
+        replacement = ours.get(name) or ('' if name in EMPTY_UNTIL_ASSIGNED else
+                                         f'REPLACE_WITH_HOLYHIM_{re.sub(r"(?<!^)(?=[A-Z])", "_", name).upper()}')
         if replacement != literal:
             pairs.append((literal, replacement))
     # Longest first, so client IDs are replaced before the project number inside them.
@@ -196,6 +221,8 @@ def main() -> None:
             if not member.isfile():
                 continue
             path = rename(member.name)
+            if matches(path, EXCLUDED):
+                continue
             data = tar.extractfile(member).read()
             files[path] = (transform(data, identity), member.mode)
 
@@ -238,7 +265,7 @@ def main() -> None:
     parent_tree = git('rev-parse', f'{parent}^{{tree}}').decode().strip()
     print(f'HolyHer {sha[:7]} "{subject}": {len(shared)} shared files, {len(files) - len(shared)} owned files left alone.')
     for literal, replacement in identity:
-        print(f'  identity {literal[:12]}… -> {replacement[:40]}')
+        print(f'  identity {literal[:12]}… -> {replacement[:40] or "(empty until assigned)"}')
     for problem in problems[:40]:
         print('  WARNING', problem)
     if placeholders:
