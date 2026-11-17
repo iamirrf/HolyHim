@@ -1563,7 +1563,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   abseil: a05cc83bf02079535e17169a73c5be5ba47f714b
   adaptive_platform_ui: f54f620666d1797636f9ef06f49137ef2cc13611
-  AppAuth: ef4da5a3fc2e10b90c09a0a94a9baeaedc0341d5
+  AppAuth: 3a08d0739dfbebc98104f5baa69d23201122bfd9
   AppCheckCore: be8fce5469f68d7f6a29aa94b25f097409ff7fdc
   audioplayers_darwin: 835ced6edd4c9fc8ebb0a7cc9e294a91d99917d5
   BoringSSL-GRPC: dded2a44897e45f28f08ae87a55ee4bcd19bc508

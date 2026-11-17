@@ -8,5 +8,15 @@
   "offeringId": "ofrng037e1d566a",
   "productId": "prod43ec70add6",
   "storeProductId": "holyhim_lifetime",
-  "priceUSD": 1.99
+  "priceUSD": 1.99,
+  "memberOfferingId": "ofrng0f7dda8a2c",
+  "memberOfferingLookupKey": "membership",
+  "memberProducts": {
+    "holyhim_annual_trial": "prod27ac37af6c",
+    "holyhim_annual": "prod006ece81e0"
+  },
+  "memberPackages": {
+    "annual_trial": "pkgea8390d247c",
+    "$rc_annual": "pkgeeaa403c31d"
+  }
 }

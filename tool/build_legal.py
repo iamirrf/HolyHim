@@ -22,7 +22,9 @@ for name in ('privacy','terms'):
   elif not rows:rows.append(['About this document',text])
   else:rows[-1][1]+=('\n\n' if rows[-1][1] else '')+text
  lines.append(json.dumps(name)+': [')
- lines.extend('('+json.dumps(title,ensure_ascii=False)+','+json.dumps(text,ensure_ascii=False)+'),' for title,text in rows)
+ # A Dart string reads $ as the start of an interpolation, as in "$1.99".
+ dart=lambda s:json.dumps(s,ensure_ascii=False).replace('$','\\$')
+ lines.extend('('+dart(title)+','+dart(text)+'),' for title,text in rows)
  lines.append('],')
 lines.append('};')
 text=subprocess.run(['dart','format','--output=show','--summary=none'],input='\n'.join(lines)+'\n',text=True,capture_output=True,check=True).stdout

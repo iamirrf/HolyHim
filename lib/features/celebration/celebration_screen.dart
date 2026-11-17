@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import '../../design/art_catalog.dart';
 import '../../design/design.dart';
 import '../../design/widgets/coin_3d.dart';
 import '../../domain/milestones.dart';
@@ -111,12 +112,14 @@ class _CelebrationScreenState extends ConsumerState<CelebrationScreen>
     return Scaffold(
         backgroundColor: HolyTheme.photoShade,
         body: Stack(fit: StackFit.expand, children: [
-          const PhotoStage(
-              images: ['assets/art/library/sky-rays.webp'],
-              alignment: Alignment(0, .1),
+          // The morning's own photograph: the same picture its lesson
+          // opened on.
+          PhotoStage(
+              images: [HolyArtCatalog.assetForDay(widget.day)],
+              alignment: const Alignment(0, .1),
               topVeil: .35,
               bottomVeil: .75,
-              child: LightMotes(count: 26)),
+              child: const LightMotes(count: 26)),
           FitColumn(
               crossAxisAlignment: CrossAxisAlignment.center,
               padding: EdgeInsets.fromLTRB(

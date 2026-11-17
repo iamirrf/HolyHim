@@ -15,7 +15,7 @@ const legalDocuments = <String, List<(String, String)>>{
     ),
     (
       "What stays on your device",
-      "The app keeps an offline copy of your account data so it works without a connection, remembers where you stopped in a lesson, and remembers whether you own lifetime access. If you add the home screen widget, today's verse and a small picture are shared with the widget on your device.",
+      "The app keeps an offline copy of your account data so it works without a connection, remembers where you stopped in a lesson, and remembers whether your membership is active. If you add the home screen widget, today's verse and a small picture are shared with the widget on your device.",
     ),
     (
       "Reminders",
@@ -27,7 +27,7 @@ const legalDocuments = <String, List<(String, String)>>{
     ),
     (
       "Purchases",
-      "Days 1 to 7 are free. Lifetime access to every lesson is a one-time purchase through Apple. Apple handles the payment; we never receive your card details. RevenueCat receives purchase and entitlement records linked to your account identifier so that lifetime access can be confirmed and restored, and our server checks that record with RevenueCat.",
+      "Membership is a yearly subscription through Apple, with a free week for new members. Apple handles the payment; we never receive your card details. RevenueCat receives purchase and subscription records linked to your account identifier so that your membership can be confirmed and restored, and our server checks that record with RevenueCat.",
     ),
     (
       "Service providers",
@@ -39,7 +39,7 @@ const legalDocuments = <String, List<(String, String)>>{
     ),
     (
       "Keeping, exporting and deleting",
-      "We keep your account data while your account exists. You can export it from Profile. To delete your account, open Profile, then Account, then Delete account, and confirm. This permanently deletes your profile, progress, saved verses, and your community card, posts and replies. A lifetime purchase belongs to your Apple account and can be restored if you sign up again.",
+      "We keep your account data while your account exists. You can export it from Profile. To delete your account, open Profile, then Account, then Delete account, and confirm. This permanently deletes your profile, progress, saved verses, and your community card, posts and replies. Membership belongs to your Apple account, and deleting your HolyHim account does not cancel it: cancel it in Settings, your name, then Subscriptions. It can be restored if you sign up again with the same Apple account.",
     ),
     (
       "Children",
@@ -60,8 +60,8 @@ const legalDocuments = <String, List<(String, String)>>{
       "Terms of use\n\nEffective November 13, 2026 · HolyHim 1.0 · Codellion LLC\n\nThese terms apply to HolyHim, provided by Codellion LLC. By using HolyHim you agree to use it lawfully and to keep your sign-in details secure.",
     ),
     (
-      "Free lessons and lifetime access",
-      "Days 1 to 7 are free lessons with no time limit. Reading every day after that needs lifetime access, a one-time purchase at the price shown in your local App Store currency before you confirm. It is not a subscription and does not renew. Restore Purchase recovers it on the same Apple account. Refunds are handled by Apple under its policies.",
+      "Membership",
+      "HolyHim membership opens every lesson. It is a yearly subscription through Apple that renews automatically: \$1.99 a year in the US, shown in your local currency before you confirm. New members can start with a free week; Apple decides who is eligible.\n\nPayment is charged to your Apple account when you confirm, or when the free week ends if you start with one. Membership renews each year at the price shown unless you cancel at least 24 hours before the end of the current period, and the renewal is charged within the 24 hours before that end. To cancel a free week without being charged, cancel at least 24 hours before it ends.\n\nYou can manage or cancel membership at any time in your Apple account settings: Settings, your name, then Subscriptions. Cancelling stops the next renewal, and you keep membership until the end of the period you paid for. Deleting your HolyHim account does not cancel it. Restore purchases recovers membership on the same Apple account. Refunds are handled by Apple under its policies.",
     ),
     (
       "How lessons open",

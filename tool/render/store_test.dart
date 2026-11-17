@@ -1,13 +1,14 @@
-// App Store screenshots: seven frames, each with its own light, each built
-// around a real screenshot shown the way the iPhone shows it (its display's
-// continuous corners, no hardware drawn). Real cards lift out of the screens;
-// the app's own medallions float alongside. Few words, written to move.
-// No paywall.
+// App Store screenshots: eight frames in First Watch light, from blue hour to
+// brass dawn, each built around a real screenshot shown the way the iPhone
+// shows it (its display's continuous corners, no hardware drawn). Four real
+// cards lift out of their screens; the app's own medallions float alongside.
+// Few words, in HolyHim's own voice. No paywall and no price.
 //
 // Run: flutter test tool/render/store_test.dart && python3 tool/finish_screenshots.py
 //
-// Phase 1 renders each real screen (fixture data, no invented UI) and records
-// where its cards sit. Phase 2 composes the frames from those renders.
+// Phase 1 renders each real screen (fixture data: the reader Daniel on Day 3,
+// 1 Corinthians 10:13; no invented UI) and records where its cards sit.
+// Phase 2 composes the frames from those renders.
 // ignore_for_file: invalid_use_of_visible_for_testing_member
 import 'dart:convert';
 import 'dart:io';
@@ -39,8 +40,11 @@ const out = 'store/screenshots/app-store/iphone-1290x2796';
 const raw = 'build/store/raw';
 const slideWidth = 430.0, slideHeight = 932.0;
 const screenSize = Size(393, 852);
-const plum = Color(0xFF33202A), cream = Color(0xFFFFF7EF);
-const gold = Color(0xFFF3C98B), rose = Color(0xFF9B4560);
+
+// First Watch: navy and slate fields, bone ink, brass for the light.
+const navy = Color(0xFF0E1217), bone = Color(0xFFF4EEE3);
+const brass = Color(0xFFE9BF72), brassDeep = Color(0xFF8A5E22);
+const _shade = Color(0xFF04070B);
 
 // ───────────────────────── Phase 1: the real screens ─────────────────────────
 
@@ -50,7 +54,7 @@ class StatusBar extends StatelessWidget {
   const StatusBar({super.key, required this.light});
   @override
   Widget build(BuildContext context) {
-    final ink = light ? Colors.white : Colors.black;
+    final ink = light ? Colors.black : Colors.white;
     return SizedBox(
         height: 54,
         child: Stack(children: [
@@ -133,6 +137,10 @@ class _Battery extends CustomPainter {
 
 Finder paperWith(String text) => find
     .ancestor(of: find.textContaining(text), matching: find.byType(Paper))
+    .first;
+
+Finder glassAround(String text) => find
+    .ancestor(of: find.text(text).first, matching: find.byType(Glass))
     .first;
 
 // ─────────────────────────── Phase 2: the frames ───────────────────────────
@@ -225,18 +233,28 @@ class Screen extends StatelessWidget {
                       decoration: ShapeDecoration(
                           shape:
                               RoundedSuperellipseBorder(borderRadius: radius),
-                          shadows: const [
+                          shadows: [
                             BoxShadow(
-                                color: Color(0x4D1A0A10),
+                                color: _shade.withValues(alpha: .55),
                                 blurRadius: 60,
-                                offset: Offset(0, 30)),
+                                offset: const Offset(0, 30)),
                             BoxShadow(
-                                color: Color(0x261A0A10),
+                                color: _shade.withValues(alpha: .3),
                                 blurRadius: 14,
-                                offset: Offset(0, 6)),
+                                offset: const Offset(0, 6)),
                           ]),
                       child: ClipRSuperellipse(
                           borderRadius: radius, child: Picture(image)))),
+              // A hairline of light along the glass edge, as a lit display.
+              Positioned.fill(
+                  child: IgnorePointer(
+                      child: DecoratedBox(
+                          decoration: ShapeDecoration(
+                              shape: RoundedSuperellipseBorder(
+                                  borderRadius: radius,
+                                  side: BorderSide(
+                                      color: bone.withValues(alpha: .14),
+                                      width: 1)))))),
               for (final lift in lifts)
                 Positioned(
                     left: lift.rect.left * s + lift.shift.dx,
@@ -255,20 +273,20 @@ class Screen extends StatelessWidget {
                             decoration: ShapeDecoration(
                                 shape: RoundedSuperellipseBorder(
                                     borderRadius:
-                                        BorderRadius.circular(30 * s)),
+                                        BorderRadius.circular(26 * s)),
                                 shadows: [
                                   BoxShadow(
-                                      color: const Color(0x661A0A10),
+                                      color: _shade.withValues(alpha: .7),
                                       blurRadius: lift.angled ? 70 : 50,
                                       offset: Offset(lift.ry * -60,
                                           lift.angled ? 44 : 28)),
-                                  const BoxShadow(
-                                      color: Color(0x261A0A10),
+                                  BoxShadow(
+                                      color: _shade.withValues(alpha: .35),
                                       blurRadius: 10,
-                                      offset: Offset(0, 5)),
+                                      offset: const Offset(0, 5)),
                                 ]),
                             child: ClipRSuperellipse(
-                                borderRadius: BorderRadius.circular(30 * s),
+                                borderRadius: BorderRadius.circular(26 * s),
                                 child: Picture(source ?? image,
                                     src: Rect.fromLTRB(
                                         lift.rect.left * 3,
@@ -288,24 +306,34 @@ class Medallion extends StatelessWidget {
   Widget build(BuildContext context) => SizedBox.square(
       dimension: size * 1.8,
       child: Stack(alignment: Alignment.center, children: [
+        Container(
+            width: size * 1.5,
+            height: size * 1.5,
+            decoration: BoxDecoration(shape: BoxShape.circle, boxShadow: [
+              BoxShadow(
+                  color: brass.withValues(alpha: .28),
+                  blurRadius: size * .5,
+                  spreadRadius: -size * .2)
+            ])),
         Transform.rotate(
             angle: turn,
             child: Container(
                 width: size,
                 height: size,
-                decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    boxShadow: [
-                      BoxShadow(
-                          color: Color(0x553A1E10),
-                          blurRadius: 28,
-                          offset: Offset(0, 16))
-                    ]),
+                decoration: BoxDecoration(shape: BoxShape.circle, boxShadow: [
+                  BoxShadow(
+                      color: _shade.withValues(alpha: .55),
+                      blurRadius: 28,
+                      offset: const Offset(0, 16))
+                ]),
                 child: Picture(image))),
       ]));
 }
 
-enum Light { deep, night, mulberry, photo, sunrise, blush, olive, gold }
+/// The light of each frame, from the watch before dawn to full morning.
+/// Frames up to [photo] are dark and carry bone words; the last two are
+/// lit and carry navy words.
+enum Light { blueHour, slate, iron, ember, night, photo, stone, brass }
 
 /// Each frame's own sky.
 class Backdrop extends CustomPainter {
@@ -334,99 +362,121 @@ class Backdrop extends CustomPainter {
                     stops: stops)
                 .createShader(r));
 
+  void _stars(Canvas canvas, Size size, int count, double reach) {
+    final random = math.Random(7);
+    for (var i = 0; i < count; i++) {
+      final y = random.nextDouble() * size.height * reach;
+      canvas.drawCircle(
+          Offset(random.nextDouble() * size.width, y),
+          random.nextDouble() * 1.1 + .35,
+          Paint()
+            ..color = bone.withValues(
+                alpha: (random.nextDouble() * .7 + .2) *
+                    (1 - y / (size.height * reach))));
+    }
+  }
+
   @override
   void paint(Canvas canvas, Size size) {
     final r = Offset.zero & size;
     final w = size.width, h = size.height;
     switch (light) {
+      case Light.blueHour:
+        // Navy overhead, the first brass light breaking at the horizon.
+        _fill(canvas, r, const [
+          Color(0xFF070B11),
+          Color(0xFF101A28),
+          Color(0xFF263A55),
+          Color(0xFF6B5A44),
+        ], const [
+          0,
+          .38,
+          .72,
+          1
+        ]);
+        _stars(canvas, size, 70, .3);
+        _glow(canvas, Offset(w * .5, h * 1.04), w * 1.15,
+            const Color(0xFFF2C27A).withValues(alpha: .62));
+        _glow(canvas, Offset(w * .5, h * 1.0), w * .42,
+            const Color(0xFFFFE6BC).withValues(alpha: .7));
+      case Light.slate:
+        _fill(
+            canvas,
+            r,
+            const [Color(0xFF0B1016), Color(0xFF1A2430), Color(0xFF3A4757)],
+            const [0, .5, 1]);
+        _glow(canvas, Offset(w * .85, h * .12), w * .9,
+            const Color(0xFFB8C7D9).withValues(alpha: .2));
+        _glow(canvas, Offset(w * .1, h * .95), w * .9,
+            const Color(0xFFE2B66A).withValues(alpha: .22));
+      case Light.iron:
+        _fill(
+            canvas,
+            r,
+            const [Color(0xFF0C0D0F), Color(0xFF191B1E), Color(0xFF34383E)],
+            const [0, .55, 1]);
+        _glow(canvas, Offset(w * .5, h * .02), w * .95,
+            const Color(0xFFCDD2D8).withValues(alpha: .18));
+        _glow(canvas, Offset(w * .9, h * .9), w * .7,
+            const Color(0xFFE8924D).withValues(alpha: .16));
+      case Light.ember:
+        // A low fire: deep brown, copper, the sun coming up warm.
+        _fill(canvas, r, const [
+          Color(0xFF0F0A08),
+          Color(0xFF2A170E),
+          Color(0xFF6A361C),
+          Color(0xFFD98B4A)
+        ], const [
+          0,
+          .36,
+          .72,
+          1
+        ]);
+        _glow(canvas, Offset(w * .5, h * .8), w * 1.1,
+            const Color(0xFFF2C27A).withValues(alpha: .5));
+        _glow(canvas, Offset(w * .5, h * .8), w * .34,
+            const Color(0xFFFFE8C2).withValues(alpha: .6));
       case Light.night:
         _fill(
             canvas,
             r,
-            const [Color(0xFF120A10), Color(0xFF2A1420), Color(0xFF5A2A3C)],
+            const [Color(0xFF05080D), Color(0xFF0C1420), Color(0xFF1B2B40)],
             const [0, .55, 1]);
-        final random = math.Random(5);
-        for (var i = 0; i < 110; i++) {
-          final y = random.nextDouble() * h * .5;
-          canvas.drawCircle(
-              Offset(random.nextDouble() * w, y),
-              random.nextDouble() * 1.1 + .35,
-              Paint()
-                ..color = cream.withValues(
-                    alpha:
-                        (random.nextDouble() * .7 + .2) * (1 - y / (h * .5))));
-        }
-        _glow(canvas, Offset(w * .5, h * 1.02), w * 1.05,
-            const Color(0xFFD98A7A).withValues(alpha: .55));
-      case Light.mulberry:
-        _fill(
-            canvas,
-            r,
-            const [Color(0xFF2B1220), Color(0xFF5E2840), Color(0xFF94485D)],
-            const [0, .5, 1]);
-        _glow(canvas, Offset(w * .78, h * .18), w * .9,
-            const Color(0xFFF3C98B).withValues(alpha: .22));
+        _stars(canvas, size, 120, .55);
+        _glow(canvas, Offset(w * .5, h * 1.05), w * 1.05,
+            const Color(0xFFE2B66A).withValues(alpha: .4));
       case Light.photo:
         _PicturePainter(art!, null, BoxFit.cover).paint(canvas, size);
         _fill(canvas, r, [
-          const Color(0xFF1A0D14).withValues(alpha: .82),
-          const Color(0xFF1A0D14).withValues(alpha: .25),
-          const Color(0xFF1A0D14).withValues(alpha: .05),
-          const Color(0xFF1A0D14).withValues(alpha: .4),
+          const Color(0xFF070B11).withValues(alpha: .86),
+          const Color(0xFF070B11).withValues(alpha: .3),
+          const Color(0xFF070B11).withValues(alpha: .05),
+          const Color(0xFF070B11).withValues(alpha: .45),
         ], const [
           0,
           .3,
           .6,
           1
         ]);
-      case Light.sunrise:
-        _fill(canvas, r, const [
-          Color(0xFF5E2C3E),
-          Color(0xFFB45F62),
-          Color(0xFFF0A97F),
-          Color(0xFFF8D2AE)
-        ], const [
-          0,
-          .35,
-          .7,
-          1
-        ]);
-        _glow(canvas, Offset(w * .5, h * .74), w * 1.1,
-            const Color(0xFFFFE3B5).withValues(alpha: .7));
-        _glow(canvas, Offset(w * .5, h * .74), w * .35,
-            const Color(0xFFFFF6E4).withValues(alpha: .8));
-      case Light.blush:
+      case Light.stone:
+        // Limestone in morning light.
         _fill(
             canvas,
             r,
-            const [Color(0xFFF2CFC4), Color(0xFFF8E2D6), Color(0xFFE9B9AC)],
+            const [Color(0xFFF1EBE0), Color(0xFFE4DACA), Color(0xFFCBBDA4)],
             const [0, .55, 1]);
-        _glow(canvas, Offset(w * .5, h * .28), w * .95,
+        _glow(canvas, Offset(w * .5, h * .22), w * .95,
             const Color(0xFFFFFFFF).withValues(alpha: .55));
-      case Light.olive:
+        _glow(canvas, Offset(w * .9, h * .95), w * .8,
+            const Color(0xFFD8A657).withValues(alpha: .25));
+      case Light.brass:
         _fill(
             canvas,
             r,
-            const [Color(0xFFF7F0E4), Color(0xFFEDE3D0), Color(0xFFDCD3B6)],
-            const [0, .6, 1]);
-        _glow(canvas, Offset(w * .1, h * .9), w * .9,
-            const Color(0xFFA6B07E).withValues(alpha: .35));
-        _glow(canvas, Offset(w * .9, h * .15), w * .7,
-            const Color(0xFFFFE6BE).withValues(alpha: .5));
-      case Light.deep:
-        _fill(canvas, r, const [Color(0xFF1C0F16), Color(0xFF120A0F)]);
-        _glow(canvas, Offset(w * .5, h * .62), w * 1.1,
-            const Color(0xFFE2B062).withValues(alpha: .32));
-        _glow(canvas, Offset(w * .15, h * .2), w * .6,
-            const Color(0xFF9B4560).withValues(alpha: .35));
-      case Light.gold:
-        _fill(
-            canvas,
-            r,
-            const [Color(0xFFFCF4EA), Color(0xFFF6E6CF), Color(0xFFEFD2AE)],
+            const [Color(0xFFF8EEDB), Color(0xFFEFD8AC), Color(0xFFD9AB5E)],
             const [0, .55, 1]);
         _glow(canvas, Offset(w * .5, h * .5), w * 1.0,
-            const Color(0xFFFFE2A8).withValues(alpha: .45));
+            const Color(0xFFFFF1D6).withValues(alpha: .55));
     }
   }
 
@@ -434,7 +484,7 @@ class Backdrop extends CustomPainter {
   bool shouldRepaint(Backdrop old) => false;
 }
 
-/// Two short lines; words between asterisks set in italic accent.
+/// Two short lines; words between asterisks set in italic brass.
 class Headline extends StatelessWidget {
   final String text;
   final bool dark;
@@ -442,7 +492,7 @@ class Headline extends StatelessWidget {
   const Headline(this.text, {super.key, required this.dark, this.detail});
   @override
   Widget build(BuildContext context) {
-    final ink = dark ? cream : plum;
+    final ink = dark ? bone : navy;
     final parts = text.split('*');
     return Column(mainAxisSize: MainAxisSize.min, children: [
       Text.rich(
@@ -452,7 +502,7 @@ class Headline extends StatelessWidget {
                   text: parts[i],
                   style: i.isOdd
                       ? TextStyle(
-                          color: dark ? gold : rose,
+                          color: dark ? brass : brassDeep,
                           fontStyle: FontStyle.italic,
                           fontWeight: FontWeight.w700)
                       : null)
@@ -460,19 +510,19 @@ class Headline extends StatelessWidget {
           textAlign: TextAlign.center,
           style: HolyTypography.display.copyWith(
               color: ink,
-              fontSize: 60,
+              fontSize: 58,
               fontWeight: FontWeight.w700,
-              height: .96,
-              letterSpacing: -1.4,
+              height: .98,
+              letterSpacing: -1.2,
               shadows: dark
-                  ? const [Shadow(color: Color(0x80000000), blurRadius: 26)]
+                  ? const [Shadow(color: Color(0x99000000), blurRadius: 26)]
                   : null)),
       if (detail != null) ...[
         const SizedBox(height: 14),
         Text(detail!,
             textAlign: TextAlign.center,
             style: HolyTypography.ui.copyWith(
-                color: ink.withValues(alpha: .8),
+                color: ink.withValues(alpha: .82),
                 fontSize: 16,
                 fontWeight: FontWeight.w600,
                 letterSpacing: .3)),
@@ -498,7 +548,7 @@ class Frame extends StatelessWidget {
       this.wordsBelow = false,
       required this.children});
 
-  bool get dark => light.index <= Light.sunrise.index;
+  bool get dark => light.index <= Light.photo.index;
 
   @override
   Widget build(BuildContext context) => Material(
@@ -530,20 +580,20 @@ Widget medallion(Map<String, ui.Image> images, String id, double x, double y,
         child: Medallion(images[id]!, size: size, turn: turn));
 
 List<Frame> frames(Map<String, ui.Image> images, Map<String, Rect> rects) => [
-      // Bright to dark: morning gold at the first frame, night at the last.
+      // Blue hour at the first frame, brass morning at the last.
       Frame(
-          light: Light.gold,
-          headline: 'Become a woman\n*of the Word*',
-          detail: 'The daily Bible devotional for women',
+          light: Light.blueHour,
+          headline: 'Stand on\n*the Word*',
+          detail: 'The daily Bible devotional for men',
           children: [
             at(
                 31,
                 262,
-                Screen(images['today-base']!,
-                    source: images['today'],
+                Screen(images['walk-base']!,
+                    source: images['walk'],
                     width: 368,
                     lifts: [
-                      Lift(rects['today']!,
+                      Lift(rects['walk']!,
                           scale: 1.08,
                           rx: .12,
                           ry: -.34,
@@ -551,8 +601,8 @@ List<Frame> frames(Map<String, ui.Image> images, Map<String, Rect> rects) => [
                     ])),
           ]),
       Frame(
-          light: Light.olive,
-          headline: 'His Word.\n*Your strength.*',
+          light: Light.slate,
+          headline: 'The Bible,\n*word for word*',
           children: [
             at(
                 22,
@@ -569,21 +619,21 @@ List<Frame> frames(Map<String, ui.Image> images, Map<String, Rect> rects) => [
                     ])),
           ]),
       Frame(
-          light: Light.blush,
-          headline: 'Fear less.\n*Trust more.*',
+          light: Light.iron,
+          headline: 'Plain words\n*for hard days*',
           children: [
-            at(31, 244, Screen(images['heart']!, width: 368, turn: .035)),
+            at(31, 244, Screen(images['life']!, width: 368, turn: .035)),
           ]),
       Frame(
-          light: Light.sunrise,
-          headline: 'Show up.\n*Grow stronger.*',
+          light: Light.ember,
+          headline: 'One morning\n*at a time*',
           children: [
             at(31, 248, Screen(images['amen']!, width: 368)),
             medallion(images, 'days-003', 352, 560, size: 140, turn: .14),
           ]),
       Frame(
-          light: Light.mulberry,
-          headline: 'Start every day\n*with God*',
+          light: Light.night,
+          headline: 'The first word\n*of your day*',
           wordsBelow: true,
           children: [
             at(
@@ -602,24 +652,24 @@ List<Frame> frames(Map<String, ui.Image> images, Map<String, Rect> rects) => [
           ]),
       Frame(
           light: Light.photo,
-          art: images['seaside'],
-          headline: 'Walk with Him\n*for life*',
+          art: images['ridge'],
+          headline: 'One road.\n*365 mornings.*',
           children: [
-            at(33, 246, Screen(images['walk']!, width: 364, turn: -.035)),
+            at(33, 246, Screen(images['road']!, width: 364, turn: -.035)),
             medallion(images, 'promise-kept', 372, 452, size: 108, turn: .2),
           ]),
       Frame(
-          light: Light.night,
-          headline: 'Faith is better\n*together*',
+          light: Light.stone,
+          headline: 'Iron sharpens\n*iron*',
           children: [
             at(
                 35,
                 254,
-                Screen(images['circle-base']!,
-                    source: images['circle'],
+                Screen(images['ranks-base']!,
+                    source: images['ranks'],
                     width: 360,
                     lifts: [
-                      Lift(rects['circle']!,
+                      Lift(rects['ranks']!,
                           scale: 1.08,
                           rx: .16,
                           ry: .34,
@@ -627,8 +677,8 @@ List<Frame> frames(Map<String, ui.Image> images, Map<String, Rect> rects) => [
                     ])),
           ]),
       Frame(
-          light: Light.deep,
-          headline: 'Inspire with\n*your commitment*',
+          light: Light.brass,
+          headline: 'Earn every\n*medallion*',
           children: [
             at(35, 254, Screen(images['growth']!, width: 360)),
             medallion(images, 'days-365', 372, 286, size: 112, turn: .14),
@@ -651,14 +701,24 @@ void main() {
     final today = tz.TZDateTime.now(zone);
     final morning =
         tz.TZDateTime(zone, today.year, today.month, today.day, 7, 10);
-    final reader =
-        WalkState(profile: profile(name: 'Grace'), completed: history(2));
+    AppProfile daniel(
+            {bool onboarded = true, Map<String, dynamic> draft = const {}}) =>
+        profile(
+            name: 'Daniel',
+            hearts: const ['strength', 'courage'],
+            onboarded: onboarded,
+            draft: draft);
+    final reader = WalkState(profile: daniel(), completed: history(2));
+    final kept = WalkState(
+        profile: daniel(),
+        completed: history(12),
+        saved: {3: DateTime(2026, 11, 5), 6: DateTime(2026, 11, 8)});
     final rects = <String, List<double>>{};
 
     Future<void> screen(String id, Widget page,
         {WalkState? walk,
         AccessState? billing,
-        bool light = true,
+        bool light = false,
         Future<void> Function()? action,
         List<Override> overrides = const [],
         Finder Function()? card}) async {
@@ -708,71 +768,71 @@ void main() {
 
     Future<void> Function() cards(int count) => () async {
           for (var i = 0; i < count; i++) {
-            await tester.tap(find.text('${i + 1} of 4').first);
+            await tester.tap(find.byTooltip('Next card'));
             await tester.pump(const Duration(milliseconds: 600));
           }
-          expect(find.text('${count + 1} of 4'), findsWidgets);
         };
 
-    await screen('today', HomeShell(now: morning),
-        light: false, card: () => paperWith('A Place to Bring Trouble'));
+    await screen('walk', HomeShell(now: morning),
+        card: () => find
+            .byWidgetPredicate((w) => w.runtimeType.toString() == 'TodayCard')
+            .first);
     await screen('verse', const LessonScreen(day: 3),
-        card: () => paperWith('God is our refuge'));
-    await screen('heart', const LessonScreen(day: 3), action: cards(2));
-    await screen('prayer', const LessonScreen(day: 3), action: cards(3));
+        card: () => paperWith('No temptation has taken you'));
+    await screen('life', const LessonScreen(day: 3), action: cards(2));
     await screen('amen', const CelebrationScreen(day: 3),
         walk: WalkState(
-            profile: profile(name: 'Grace'),
-            completed: history(2, today: true)));
+            profile: daniel(), completed: history(2, today: true)));
     await screen('reminder', const OnboardingScreen(),
-        // Let her answer finish arriving before the picture is taken.
+        // Let his answer finish arriving before the picture is taken.
         action: () => tester.pump(const Duration(seconds: 3)),
         walk: WalkState(
-            profile: profile(name: 'Grace', onboarded: false, draft: {
+            profile: daniel(onboarded: false, draft: {
           'flowVersion': onboardingFlowVersion,
           'stepId': 'reminder',
           'lifeSeason': 'full',
           'familiarity': 'returning',
           'obstacle': 'busy',
-          // Her answer given, so the frame ends on a lit button.
+          // His answer given, so the frame ends on a lit button.
           'reminder': '07:00',
         })),
         card: () => find
             .byWidgetPredicate((w) => w.runtimeType.toString() == 'NotePreview')
             .first);
-    const owner = AccessState(loading: false, purchased: true);
-    await screen('walk', HomeShell(initialTab: 1, now: morning),
-        light: false,
-        walk:
-            WalkState(profile: profile(name: 'Grace'), completed: history(12)),
-        billing: owner);
-    await screen('circle', HomeShell(initialTab: 2, now: morning),
-        light: false,
-        card: () => find
-            .ancestor(of: find.text('You'), matching: find.byType(Glass))
-            .first,
-        walk: WalkState(
-            profile: profile(name: 'Grace'), completed: history(12)),
-        billing: owner);
-    await screen('growth', HomeShell(initialTab: 3, now: morning), light: false,
+    await screen('road', HomeShell(now: morning), walk: kept,
         action: () async {
-      await tester.drag(find.byType(Scrollable).last, const Offset(0, -560));
-      await tester.pump(const Duration(milliseconds: 300));
-    },
+      await tester.drag(
+          find.byType(CustomScrollView).first, const Offset(0, -900));
+      await tester.pump(const Duration(milliseconds: 400));
+      await tester.tap(find.text('Back to today'));
+      await tester.pump(const Duration(milliseconds: 1200));
+      // A little higher, so the walked road shows above today's stop.
+      await tester.drag(
+          find.byType(CustomScrollView).first, const Offset(0, 160));
+      await tester.pump(const Duration(milliseconds: 400));
+    });
+    await screen('ranks', HomeShell(initialTab: 2, now: morning),
+        walk: kept, card: () => glassAround('Daniel (you)'));
+    await screen('growth', HomeShell(initialTab: 3, now: morning),
         walk: WalkState(
-            profile: profile(name: 'Grace'),
+            profile: daniel(),
             completed: history(30),
             saved: {1: DateTime(2026, 11, 3), 3: DateTime(2026, 11, 5)}),
-        billing: const AccessState(loading: false, purchased: true));
+        action: () async {
+      await tester.drag(
+          find.byType(CustomScrollView).first, const Offset(0, -700));
+      await tester.pump(const Duration(milliseconds: 400));
+    });
     File('$raw/rects.json').writeAsStringSync(jsonEncode(rects));
 
-    // For App Review of the purchase only, never a store screenshot.
+    // For App Review of the subscription only, never a store screenshot.
     debugDefaultTargetPlatformOverride = TargetPlatform.iOS;
     await capture(tester, '$out/iap-review-offer.png',
-        OfferScreen(lockedDay: 8, onContinue: () {}),
+        OfferScreen(locked: true, onContinue: () {}),
         phone: Phone.max,
         pixelRatio: 3,
-        wrap: (app) => scope(app, walk: reader));
+        wrap: (app) => scope(app,
+            walk: WalkState(profile: daniel(), completed: history(0))));
     debugDefaultTargetPlatformOverride = null;
     expect(tester.takeException(), isNull, reason: 'offer');
     await tester.pumpWidget(const SizedBox());
@@ -791,29 +851,26 @@ void main() {
     };
     final files = {
       for (final id in [
-        'today',
+        'walk',
         'verse',
-        'heart',
-        'prayer',
+        'life',
         'amen',
         'reminder',
-        'walk',
-        'circle',
+        'road',
+        'ranks',
         'growth'
       ])
         id: '$raw/$id.png',
-      for (final id in ['today', 'verse', 'reminder', 'circle'])
+      for (final id in ['walk', 'verse', 'reminder', 'ranks'])
         '$id-base': '$raw/$id-base.png',
       for (final badge in [
         'days-003',
-        'days-007',
         'days-100',
         'days-365',
-        'first-saved',
         'promise-kept'
       ])
         badge: 'assets/art/badges/$badge.png',
-      'seaside': 'assets/art/library/jesus-seaside.webp',
+      'ridge': 'assets/art/chapters/unit-01/portrait.webp',
     };
     final images = <String, ui.Image>{};
     await tester.runAsync(() async {
@@ -824,14 +881,14 @@ void main() {
       }
     });
     const names = [
-      '01-love',
-      '02-promises',
+      '01-stand-on-the-word',
+      '02-word-for-word',
       '03-hard-days',
-      '04-amen',
-      '05-morning',
-      '06-closer',
-      '07-sisters',
-      '08-blossom'
+      '04-one-morning',
+      '05-first-word',
+      '06-one-road',
+      '07-iron',
+      '08-medallions'
     ];
     final all = frames(images, rects);
     for (var i = 0; i < all.length; i++) {

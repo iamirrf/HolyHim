@@ -6,6 +6,7 @@ import 'dart:io';
 import 'dart:math' as math;
 import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'harness.dart' show loadFonts;
@@ -42,7 +43,7 @@ const _assets = [
       centre: Offset(1920, 800),
       eyebrow: 'EVERY MORNING',
       lines: [
-        [('Rise', false), ('with God', true)]
+        [('Stand on', false), ('the Word', true)]
       ],
       sizes: [292],
       eyebrowSize: 54,
@@ -52,12 +53,12 @@ const _assets = [
       size: Size(3840, 2560),
       safe: Rect.fromLTWH(836, 765, 2168, 1030),
       centre: Offset(1920, 1318),
-      eyebrow: 'FIVE QUIET MINUTES',
+      eyebrow: 'FIVE MINUTES A DAY',
       lines: [
-        [('Begin each morning', false)],
-        [('with God', true)]
+        [('Start the day', false)],
+        [('on solid ground', true)]
       ],
-      sizes: [250, 362],
+      sizes: [270, 300],
       eyebrowSize: 72,
       rule: 50),
 ];
@@ -84,11 +85,11 @@ const _upright = LinearGradient(
 
 const _italic =
     LinearGradient(begin: Alignment(-1, -.3), end: Alignment(1, .3), colors: [
-  Color(0xFFFAD9C6),
-  Color(0xFFF6C79B),
-  Color(0xFFFFE9BC),
-  Color(0xFFEBB56C),
-  Color(0xFFF7CDAB),
+  Color(0xFFF6DDA8),
+  Color(0xFFE9BF72),
+  Color(0xFFFFE7B0),
+  Color(0xFFD8A657),
+  Color(0xFFF0C97E),
 ], stops: [
   0,
   .24,
@@ -97,12 +98,13 @@ const _italic =
   1
 ]);
 
-/// The display serif. A [stroke] draws thickened letters, which give a glow
-/// far more light to spread than the thin strokes of the face alone.
+/// HolyHim's display serif, with a true italic for the brass words. A
+/// [stroke] draws thickened letters, which give a glow far more light to
+/// spread than the thin strokes of the face alone.
 TextStyle _serif(double size, bool italic, Color color, {double? stroke}) =>
     TextStyle(
-        fontFamily: 'CormorantGaramond',
-        fontWeight: FontWeight.w600,
+        fontFamily: italic ? 'LoraItalic' : 'SourceSerif4Display',
+        fontWeight: italic ? FontWeight.w500 : FontWeight.w700,
         fontStyle: italic ? FontStyle.italic : FontStyle.normal,
         fontSize: size,
         height: 1.02,
@@ -116,7 +118,7 @@ TextStyle _serif(double size, bool italic, Color color, {double? stroke}) =>
               ..strokeJoin = StrokeJoin.round
               ..color = color));
 
-/// One line of words: a plum shade for depth, a wide bloom, a tight glow,
+/// One line of words: a navy shade for depth, a wide bloom, a tight glow,
 /// and on top the letters themselves in their gradient.
 class _Line extends StatelessWidget {
   final List<(String, bool)> runs;
@@ -155,10 +157,10 @@ class _Line extends StatelessWidget {
   @override
   Widget build(BuildContext context) =>
       Stack(clipBehavior: Clip.none, children: [
-        // A plum shadow beneath, for depth on bright cloud.
+        // A navy shadow beneath, for depth on bright cloud.
         Transform.translate(
             offset: Offset(0, size * .045),
-            child: _blur(size * .06, _row(color: const Color(0xC2140510)))),
+            child: _blur(size * .06, _row(color: const Color(0xC2050A12)))),
         // The halo, from wide and warm to close and bright: an aura and a
         // bloom from thickened letters, a luminous rim, then a tight glow.
         _blur(size * .30,
@@ -168,9 +170,9 @@ class _Line extends StatelessWidget {
         _blur(size * .06,
             _row(color: const Color(0xA6FFC98A), stroke: size * .03)),
         _blur(size * .02, _row(color: const Color(0x8CFFE3B6))),
-        // A fine plum edge keeps each letter crisp in front of its light.
+        // A fine navy edge keeps each letter crisp in front of its light.
         _blur(size * .012,
-            _row(color: const Color(0x73200712), stroke: size * .012)),
+            _row(color: const Color(0x73081018), stroke: size * .012)),
         _row(),
       ]);
 }
@@ -278,7 +280,7 @@ class _Creative extends StatelessWidget {
                         color: const Color(0xA6FFCC91),
                         blurRadius: eyebrow * .5),
                     Shadow(
-                        color: const Color(0xB3180510),
+                        color: const Color(0xB3060B12),
                         blurRadius: eyebrow * .26,
                         offset: Offset(0, eyebrow * .06)),
                   ]))),
@@ -310,11 +312,11 @@ class _Creative extends StatelessWidget {
               a.safe.height * 1.5,
               const [Color(0x38FFC98F), Color(0x1FFFB682), Color(0x00FFA078)],
               const [.3, .6, 1]),
-          // A plum aura so the gold always has something deep behind it.
+          // A navy aura so the brass always has something deep behind it.
           glow(
               a.safe.width * 1.08,
               a.safe.height * .96,
-              const [Color(0x9E12050D), Color(0x6112050D), Color(0x0012050D)],
+              const [Color(0x9E060B12), Color(0x61060B12), Color(0x00060B12)],
               const [0, .5, 1]),
           Positioned(
               left: a.centre.dx - box.width / 2,
@@ -327,7 +329,14 @@ class _Creative extends StatelessWidget {
 }
 
 void main() {
-  setUpAll(() async => loadFonts());
+  setUpAll(() async {
+    await loadFonts();
+    // Lora's italic, for the brass words: Source Serif has none here.
+    final italic = FontLoader('LoraItalic')
+      ..addFont(Future.value(ByteData.sublistView(
+          File('assets/fonts/Lora-MediumItalic.ttf').readAsBytesSync())));
+    await italic.load();
+  });
 
   for (final asset in _assets) {
     testWidgets('creative ${asset.name}', (tester) async {

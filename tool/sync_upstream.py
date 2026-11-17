@@ -63,6 +63,9 @@ OWNED = (
     'tool/art/package_chapters.py', 'tool/art/record_visual_review.py', 'tool/art/verify_chapters.py',
     'lib/features/onboarding/onboarding_copy.dart', 'lib/features/onboarding/onboarding_moods.dart',
     'lib/features/onboarding/widgets/onboarding_tokens.dart',  # First Watch glass and ink
+    # HolyHim's App Store frames, header and search art: its own screens,
+    # headlines and First Watch light.
+    'tool/render/store_test.dart', 'tool/render/creative_test.dart', 'tool/art/store_creative.py',
 )
 # Never needed in HolyHim even as a seed: HolyHer's art masters alone are
 # about 470 MB, and its release evidence would be false for HolyHim.

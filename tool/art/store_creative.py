@@ -40,7 +40,7 @@ ASSETS = {
     'search-3840x2560': ('search-epic-3x2.jpeg', (3840, 2560), (0.5, 0.5),
                          'search-1920x1280.png', (1920, 1280)),
 }
-PLUM = np.array([22, 6, 16], np.float32) / 255
+NAVY = np.array([6, 10, 16], np.float32) / 255
 
 
 def cover(art, size, anchor):
@@ -58,7 +58,7 @@ def cover(art, size, anchor):
 
 
 def grade(image):
-    """A cinematic grade: deep plum corners, a little weight at top and foot."""
+    """A cinematic grade: deep navy corners, a little weight at top and foot."""
     a = np.asarray(image, dtype=np.float32) / 255
     h, w = a.shape[:2]
     y, x = np.mgrid[0:h, 0:w].astype(np.float32)
@@ -68,7 +68,7 @@ def grade(image):
     top = np.clip(1 - (y / h) / 0.3, 0, 1) * 0.42
     foot = np.clip(((y / h) - 0.76) / 0.24, 0, 1) * 0.34
     dark = (1 - (1 - corners) * (1 - top) * (1 - foot))[..., None]
-    out = a * (1 - dark) + PLUM * dark
+    out = a * (1 - dark) + NAVY * dark
     return Image.fromarray((np.clip(out, 0, 1) * 255 + 0.5).astype(np.uint8))
 
 

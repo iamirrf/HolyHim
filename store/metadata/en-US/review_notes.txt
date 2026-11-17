@@ -1,15 +1,18 @@
 HolyHim is a daily Bible app for young men: one short lesson a day (Scripture, what it means, for your life, a prayer), then the reader holds a button to say Amen.
 
-Sign-in: Sign in with Apple, Google, or email and password. Any of these creates an account in a few seconds.
+Sign-in: Sign in with Apple, Google, or email and password. A demo account is provided in the sign-in fields of this submission (appreview-onboarding@holyhim.example); any of the three sign-in methods also creates a new account in a few seconds.
 
-Free lessons and purchase: Days 1 to 7 are free lessons for everyone, with no time limit; this is not a time-based trial. Day 8 onward requires the one-time, non-consumable in-app purchase "HolyHim Lifetime" (holyhim_lifetime). There is no subscription. The offer appears at the end of onboarding ("Unlock for life" or "Start with Days 1 to 7 free"), from Profile, and on Day 8. Restore Purchase is on the offer screen and in Profile. Lessons open one per calendar day, so the Day 8 lock is reached on the eighth day, but the purchase can be made at any time from the offer or Profile.
+Membership and purchase: HolyHim is a membership app. After a short welcome (name, a few questions, a daily reminder time), the membership offer appears, and membership is required to read the lessons. It is sold as two auto-renewable yearly subscriptions in the subscription group "HolyHim Membership", both submitted with this version:
+- holyhim_annual_trial: 1 year, with a one-week free trial for new subscribers.
+- holyhim_annual: 1 year, no trial.
+The offer screen has a free-trial switch: on, it starts holyhim_annual_trial; off, holyhim_annual. The price, the length and the renewal terms are shown on the offer before purchase, with links to the Terms of Use and Privacy Policy. Restore purchases is on the offer screen and in Profile. Because membership is required, the offer screen itself also offers Sign out and Delete account.
 
-Account deletion: Profile > Account > Delete account. This permanently deletes the account, progress and saved verses.
+Account deletion: Profile > Account > Delete account, or Delete account on the offer screen. This permanently deletes the account, progress and saved verses. The confirmation explains that deleting the account does not cancel an Apple subscription.
 
 Notifications are optional. Permission is requested only when the reader chooses a reminder time.
 
 Scripture quotations use the public-domain World English Bible. All lesson text is original.
 
-HolyHim is its own product, separate from our app HolyHer (for women): it has its own lessons written for young men, its own reading plan, design, artwork, onboarding and listing.
+HolyHim is its own product, separate from our app HolyHer (for women): it has its own lessons written for young men, its own reading plan, photography, design, onboarding, community and listing.
 
 Community (the Brothers and Ranks tabs): before anyone can see or post, they join and agree to the Community Rules and the Terms of Use, which state zero tolerance for objectionable content and abusive users. Every post, reply and display name is checked on our server (slurs, sexual content, threats, links) before it appears. Each post and reply has Report (seven reasons) and Block in its menu. Reported content disappears for the reporter at once; content reported three times is hidden for everyone until reviewed. We review every report within 24 hours and remove the content, and the user where needed. Blocked people are listed in Profile > Blocked. People can delete their own posts and replies, leave the community (which deletes their card, posts and replies), or delete their account. Contact: https://holyhim-app-production.web.app/support

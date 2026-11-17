@@ -14,12 +14,26 @@
  "secondaryCategory": "LIFESTYLE",
  "pricing": {
   "appDownload": "Free with in-app purchase",
-  "productId": "holyhim_lifetime",
-  "productType": "NON_CONSUMABLE",
-  "entitlementId": "lifetime",
-  "launchPriceUSD": "1.99",
-  "freeDays": 7,
-  "subscription": false
+  "model": "auto-renewable yearly membership, required after the welcome",
+  "subscriptionGroup": "HolyHim Membership",
+  "products": [
+   {
+    "productId": "holyhim_annual_trial",
+    "type": "AUTO_RENEWABLE",
+    "duration": "P1Y",
+    "priceUSD": "1.99",
+    "introductoryOffer": "free trial, 1 week, new subscribers"
+   },
+   {
+    "productId": "holyhim_annual",
+    "type": "AUTO_RENEWABLE",
+    "duration": "P1Y",
+    "priceUSD": "1.99",
+    "introductoryOffer": null
+   }
+  ],
+  "entitlementId": "member",
+  "retiredProduct": "holyhim_lifetime (non-consumable, never sold publicly)"
  },
  "release": {
   "policy": "automatic after approval"
@@ -33,7 +47,12 @@
  "screenshots": {
   "iphone": "store/screenshots/app-store/iphone-1290x2796",
   "count": 8,
-  "provenance": "Real app screens rendered at 1290 x 2796 by tool/render/him_screenshots_test.dart and framed by tool/store_screenshots.py."
+  "provenance": "Real app screens with fixture data, rendered and framed by tool/render/store_test.dart, finished by tool/finish_screenshots.py."
  },
- "iapReviewScreenshot": "build/render/store/iap-offer.png (rendered with the store screens)"
+ "iapReviewScreenshot": "store/iap-review/offer.png",
+ "creative": {
+  "header": "store/creative/header-3840x1646.png",
+  "searchResults": "store/creative/search-1920x1280.png",
+  "source": "art/generated/store/*-epic-*.jpeg, set by tool/art/store_creative.py"
+ }
 }

@@ -1,14 +1,14 @@
 {
   "project": "holyhim-app-production",
-  "ruleset": "projects/holyhim-app-production/rulesets/d874cd9b-048c-482b-90b7-e3e9232ef741",
-  "sha256": "5da1d8824dcdcbc7ac78b71a2e10797a6a16eacc56b480010413a3c0ea709c26",
+  "ruleset": "projects/holyhim-app-production/rulesets/d0285979-d266-4bdc-b8d9-68dd3bbe3004",
+  "sha256": "126e2415d35d838e8af74c89a6ae7ed3c49a937f7d7d5c051f02e36cfb301e69",
   "compiled": true,
   "deployed": true,
   "readBackMatches": true,
   "release": {
     "name": "projects/holyhim-app-production/releases/cloud.firestore",
-    "rulesetName": "projects/holyhim-app-production/rulesets/d874cd9b-048c-482b-90b7-e3e9232ef741",
+    "rulesetName": "projects/holyhim-app-production/rulesets/d0285979-d266-4bdc-b8d9-68dd3bbe3004",
     "createTime": "2026-11-13T12:40:02.054775Z",
-    "updateTime": "2026-11-14T00:41:34.614068Z"
+    "updateTime": "2026-11-17T15:25:19.394596Z"
   }
 }

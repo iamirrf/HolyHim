@@ -12,6 +12,7 @@ import '../../design/widgets/particle_field.dart';
 import '../../domain/onboarding_flow.dart';
 import '../../services/auth_service.dart';
 import '../../services/billing.dart';
+import '../../services/narration.dart';
 import '../../services/repository.dart';
 import '../common.dart';
 import '../onboarding/onboarding_moods.dart';
@@ -417,7 +418,8 @@ class _Headline extends StatelessWidget {
         label: 'Your year in the Word starts this morning.',
         excludeSemantics: true,
         child: Column(children: [
-          Text('Your year in the Word', textAlign: TextAlign.center, style: style),
+          Text('Your year in the Word',
+              textAlign: TextAlign.center, style: style),
           GradientFill(
               colors: RoseGold.fill,
               child: Text('starts this morning.',
@@ -425,6 +427,10 @@ class _Headline extends StatelessWidget {
         ]));
   }
 }
+
+/// Whether the lessons have their recordings in this build.
+final _hasRecordings = FutureProvider<bool>(
+    (ref) async => (await NarrationCatalog.load()).isNotEmpty);
 
 /// What membership gives, in four plain lines; one is shaped by what he
 /// told us he needs most.
@@ -442,6 +448,8 @@ class _Benefits extends ConsumerWidget {
     final heart = labelFor(heartChoices, normalizedHearts(hearts).firstOrNull)
             ?.toLowerCase() ??
         'peace';
+    // Read aloud is promised only once lessons have their recordings.
+    final voice = ref.watch(_hasRecordings).valueOrNull ?? false;
     // In order of what matters most when room is short: the voice that
     // reads to him, what he needs most, the daily lesson, the medallions,
     // and the themes and icons that make it his.
@@ -452,7 +460,7 @@ class _Benefits extends ConsumerWidget {
       ('🏅', 'Medallions to earn as your road grows'),
       ('🎨', 'Themes and app icons to make it yours'),
     ];
-    const priority = [1, 2, 0, 3, 4];
+    final priority = [if (voice) 1, 2, 0, 3, 4];
     final keep = priority.take(this.rows.clamp(1, all.length)).toSet();
     final rows = [
       for (var i = 0; i < all.length; i++)

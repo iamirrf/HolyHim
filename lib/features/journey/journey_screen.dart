@@ -244,7 +244,7 @@ class _DayRow extends StatelessWidget {
       } else if (locked && current) {
         context.push('/offer?day=$day');
       } else if (locked) {
-        toast(context, 'Day $day opens with lifetime access.');
+        toast(context, 'Day $day opens with membership.');
       } else {
         toast(context, 'One lesson a day. Day $day is still ahead.');
       }

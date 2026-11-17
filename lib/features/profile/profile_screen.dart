@@ -423,7 +423,7 @@ class _Unlock extends StatelessWidget {
                             style: HolyTypography.headline
                                 .copyWith(color: t.ink, fontSize: 19)),
                         const SizedBox(height: 2),
-                        Text('Every lesson, every morning, read aloud.',
+                        Text('Every lesson, every morning, all year.',
                             style: HolyTypography.caption.copyWith(color: t.muted)),
                       ])),
                       Icon(CupertinoIcons.chevron_right, size: 14, color: t.accent),
@@ -758,7 +758,7 @@ class _AccountScreenState extends ConsumerState<AccountScreen> {
     if (!await confirm(context,
         title: 'Delete your account?',
         message:
-            'Your profile, completed lessons and saved verses will be permanently deleted. A lifetime purchase stays with your Apple ID and can be restored on a new account.',
+            'Your profile, completed lessons and saved verses will be permanently deleted. This does not cancel your membership: Apple bills it until you cancel in Settings, your name, then Subscriptions.',
         action: 'Delete account',
         destructive: true)) {
       return;
