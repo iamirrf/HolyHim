@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../haptics.dart';
+import '../motion.dart';
 import '../themes.dart';
 import '../tokens.dart';
 import '../typography.dart';
@@ -206,9 +207,25 @@ class IconControl extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = HolyThemeScope.of(context);
     final ink = color ?? (onPhoto ? HolyTheme.photoInk : t.ink);
+    final reduced = HolyMotion.reduced(context);
+    // A control that changes state (play and pause, saved and not) swaps its
+    // glyph with a quick fade and grow; Reduce Motion keeps only the fade.
     final glyph = SizedBox.square(
         dimension: size,
-        child: Icon(icon, size: size * .45, color: ink));
+        child: AnimatedSwitcher(
+            duration: HolyMotion.micro,
+            switchInCurve: HolyMotion.curveIn,
+            switchOutCurve: HolyMotion.curveOut,
+            transitionBuilder: (child, animation) => FadeTransition(
+                opacity: animation,
+                child: reduced
+                    ? child
+                    : ScaleTransition(
+                        scale: Tween<double>(begin: .6, end: 1)
+                            .animate(animation),
+                        child: child)),
+            child: Icon(icon,
+                key: ValueKey(icon), size: size * .45, color: ink)));
     return Tooltip(
         message: label,
         excludeFromSemantics: true,
