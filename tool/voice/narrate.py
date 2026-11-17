@@ -169,6 +169,9 @@ def synth_worker(job_path: str) -> None:
     """Runs inside the Kokoro venv: one model load, many lessons."""
     import numpy as np
     import onnxruntime as ort
+    from phonemizer.backend import EspeakBackend
+    from phonemizer.phonemize import _phonemize
+    from phonemizer.separator import default_separator
     import soundfile as sf
     from kokoro_onnx import Kokoro
 
@@ -181,6 +184,21 @@ def synth_worker(job_path: str) -> None:
         so.intra_op_num_threads = int(threads)
         so.inter_op_num_threads = 1
         tts.sess = ort.InferenceSession(str(model), sess_options=so, providers=["CPUExecutionProvider"])
+
+    # Reuse one espeak backend per worker instead of copying libespeak-ng.dylib into /tmp on every sentence.
+    backends: dict[str, EspeakBackend] = {}
+    vocab = tts.tokenizer.vocab
+
+    def cached_phonemize(text: str, lang: str = "en-us", norm: bool = True) -> str:
+        if norm:
+            text = tts.tokenizer.normalize_text(text)
+        backend = backends.get(lang)
+        if backend is None:
+            backend = backends[lang] = EspeakBackend(lang, preserve_punctuation=True, with_stress=True)
+        raw = _phonemize(backend, text, default_separator, False, 1, False, False)
+        return "".join(filter(lambda p: p in vocab, raw)).strip()
+
+    tts.tokenizer.phonemize = cached_phonemize
 
     def trim(x, sr, floor_db=-44, pad=0.025):
         frame = int(sr * 0.01)
@@ -290,7 +308,7 @@ def cmd_build(args) -> None:
         if not entry or entry.get("text") != current or not (OUT / entry["file"]).exists():
             stale.append(l)
     print(f"{len(stale)} of {len(wanted)} lessons need reading.", flush=True)
-    batch = 5 * max(1, args.workers)
+    batch = 4 * max(1, args.workers)
     for i in range(0, len(stale), batch):
         group = stale[i:i + batch]
         with tempfile.TemporaryDirectory(prefix="holyhim-voice-") as tmp:
