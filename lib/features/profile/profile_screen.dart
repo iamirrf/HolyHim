@@ -8,12 +8,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../../core/constants/app_constants.dart';
 import '../../design/design.dart';
 import '../../design/widgets/coin.dart';
 import '../../design/widgets/glass.dart';
 import '../../design/widgets/holy_header.dart';
 import '../../domain/badges.dart';
+import '../../domain/onboarding_flow.dart';
 import '../../domain/streak.dart';
 import '../../services/avatar_service.dart';
 import '../../services/community.dart';
@@ -22,10 +24,12 @@ import '../community/community_widgets.dart';
 import 'edit_profile_screen.dart';
 import '../../services/auth_service.dart';
 import '../../services/billing.dart';
+import '../../services/narration.dart';
 import '../../services/notifications.dart';
 import '../../services/repository.dart';
 import '../common.dart';
 import '../support/support_screen.dart';
+import 'app_icon_screen.dart';
 import 'theme_screen.dart';
 
 String _time(int minutes) {
@@ -195,6 +199,32 @@ class ProfileScreen extends ConsumerWidget {
               section('Your walk'),
               RowGroup(rows: [
                 HolyRow(
+                    icon: owned
+                        ? CupertinoIcons.checkmark_seal_fill
+                        : CupertinoIcons.sparkles,
+                    title: access.purchased || access.retained
+                        ? 'Lifetime access'
+                        : access.member
+                            ? (access.inTrial ? 'Your free week' : 'Membership')
+                            : 'Become a member',
+                    value: access.purchased || access.retained
+                        ? 'Yours'
+                        : access.member
+                            ? membershipDate(access)
+                            : null,
+                    // Apple keeps the subscription: he changes or cancels it
+                    // in his App Store settings.
+                    onPressed: access.purchased || access.retained
+                        ? null
+                        : access.member
+                            ? () => launchUrl(Uri.parse(manageSubscriptionsUrl),
+                                mode: LaunchMode.externalApplication)
+                            : () => context.push('/offer')),
+                HolyRow(
+                    icon: CupertinoIcons.arrow_clockwise,
+                    title: access.busy ? 'Restoring…' : 'Restore purchase',
+                    onPressed: access.busy ? null : () => _restore(context, ref)),
+                HolyRow(
                     icon: CupertinoIcons.bookmark,
                     title: 'Saved verses',
                     value: '${state.saved.length}',
@@ -235,10 +265,27 @@ class ProfileScreen extends ConsumerWidget {
                     value: HolyThemes.byId(p.theme).name,
                     onPressed: () => _open(context, const ThemeScreen())),
                 HolyRow(
+                    icon: CupertinoIcons.app,
+                    title: 'App icon',
+                    onPressed: () => _open(context, const AppIconScreen())),
+                HolyRow(
                     icon: CupertinoIcons.textformat_size,
                     title: 'Reading',
                     value: '${(p.readingScale * 100).round()}%',
                     onPressed: () => _open(context, const ReadingScreen())),
+                HolyRow(
+                    icon: CupertinoIcons.sunrise,
+                    title: 'Retake the welcome',
+                    onPressed: () {
+                      // The welcome again from his name; his road is untouched.
+                      ref.read(repositoryProvider.notifier).updateProfile(
+                          p.copyWith(onboardingDraft: {
+                            'flowVersion': onboardingFlowVersion,
+                            'stepId': 'name',
+                            'step': 0,
+                          }));
+                      context.go('/onboarding?redo=1');
+                    }),
               ]),
               section('Support'),
               RowGroup(rows: [
@@ -523,9 +570,82 @@ class ReadingScreen extends ConsumerWidget {
                 semanticLabel: 'Sounds',
                 onChanged: (v) => update(p.copyWith(sounds: v)))),
       ]),
+      // Offered once lessons have their recordings.
+      FutureBuilder<Map<int, NarrationTrack>>(
+          future: NarrationCatalog.load(),
+          builder: (context, snapshot) => (snapshot.data ?? const {}).isEmpty
+              ? const SizedBox.shrink()
+              : const Padding(
+                  padding: EdgeInsets.only(top: 12),
+                  child: RowGroup(rows: [_ReadAloudRow()]))),
       const Spacer(),
     ]);
   }
+}
+
+/// "Read lessons aloud": each lesson starts reading itself when it opens.
+class _ReadAloudRow extends StatefulWidget {
+  const _ReadAloudRow();
+  @override
+  State<_ReadAloudRow> createState() => _ReadAloudRowState();
+}
+
+class _ReadAloudRowState extends State<_ReadAloudRow> {
+  bool _on = false;
+
+  @override
+  void initState() {
+    super.initState();
+    NarrationPrefs.autoplay().then((v) {
+      if (mounted) setState(() => _on = v);
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) => HolyRow(
+      icon: CupertinoIcons.headphones,
+      title: 'Read lessons aloud',
+      trailing: HolySwitch(
+          value: _on,
+          semanticLabel: 'Read lessons aloud',
+          onChanged: (v) {
+            setState(() => _on = v);
+            NarrationPrefs.setAutoplay(v);
+          }));
+}
+
+/// Restore, from Profile: the same as on the offer and in Account.
+Future<void> _restore(BuildContext context, WidgetRef ref) async {
+  final ok = await ref.read(accessProvider.notifier).restore();
+  if (!context.mounted) return;
+  toast(
+      context,
+      ok
+          ? 'Restored. Every lesson is open.'
+          : ref.read(accessProvider).error ?? 'No purchase was found.');
+}
+
+/// When a membership renews or ends, as Profile shows it: "Renews Nov 22".
+String membershipDate(AccessState access) {
+  final until = access.memberUntil?.toLocal();
+  if (until == null) return 'Active';
+  const months = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec'
+  ];
+  final day = '${months[until.month - 1]} ${until.day}';
+  if (!access.willRenew) return 'Ends $day';
+  return access.inTrial ? 'Year starts $day' : 'Renews $day';
 }
 
 class ChoiceTileCompact extends StatelessWidget {

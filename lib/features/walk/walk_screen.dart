@@ -13,6 +13,7 @@ import '../../design/widgets/glass.dart';
 import '../../design/widgets/holy_header.dart';
 import '../../domain/access.dart';
 import '../../domain/badges.dart';
+import '../../domain/milestones.dart';
 import '../../domain/calendar.dart';
 import '../../domain/daily_verse.dart';
 import '../../domain/lesson_position.dart';
@@ -230,6 +231,19 @@ class _WalkScreenState extends ConsumerState<WalkScreen> {
                               completed: state.completed.values.toSet(),
                               grace: streak.graceDates,
                               today: local)),
+                      if (!pacing.finished) ...[
+                        const SizedBox(height: 12),
+                        Rise(
+                            index: 1,
+                            child: _NextStep(
+                                evening: local.hour >= 17 &&
+                                    !pacing.completedToday &&
+                                    pacing.canBegin &&
+                                    streak.current >= 2,
+                                streak: streak.current,
+                                milestone:
+                                    nextMilestone(state.completed.length))),
+                      ],
                       const SizedBox(height: 20),
                       Rise(
                           index: 2,
@@ -336,6 +350,55 @@ class _WalkScreenState extends ConsumerState<WalkScreen> {
       'December'
     ];
     return '${days[d.weekday - 1]}, ${months[d.month - 1]} ${d.day}';
+  }
+}
+
+/// One line under the week: in the evening, the streak worth keeping
+/// tonight; otherwise how close the next medallion is. It never shames a
+/// missed day.
+class _NextStep extends StatelessWidget {
+  final bool evening;
+  final int streak;
+  final Milestone? milestone;
+  const _NextStep(
+      {required this.evening, required this.streak, required this.milestone});
+  @override
+  Widget build(BuildContext context) {
+    final t = HolyThemeScope.of(context);
+    final goal = milestone;
+    if (!evening && goal == null) return const SizedBox.shrink();
+    final text = evening
+        ? 'Read tonight to keep your $streak-day streak'
+        : goal!.distance;
+    return Semantics(
+        container: true,
+        child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 6),
+            child: Row(children: [
+              Icon(evening ? CupertinoIcons.moon_stars : CupertinoIcons.sparkles,
+                  size: 16, color: evening ? t.accent : t.gold),
+              const SizedBox(width: 8),
+              Expanded(
+                  child: Text(text,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: HolyTypography.label.copyWith(
+                          color: evening ? t.accent : t.ink,
+                          fontWeight:
+                              evening ? FontWeight.w700 : FontWeight.w600))),
+              if (!evening && goal != null) ...[
+                const SizedBox(width: 10),
+                SizedBox(
+                    width: 64,
+                    child: ClipRRect(
+                        borderRadius: BorderRadius.circular(3),
+                        child: LinearProgressIndicator(
+                            value: goal.progress,
+                            minHeight: 5,
+                            color: t.gold,
+                            backgroundColor: t.hairline))),
+              ],
+            ])));
   }
 }
 
@@ -495,7 +558,7 @@ class TodayCard extends ConsumerWidget {
             _CardState.begin => 'Begin Day $day',
             _CardState.resume => 'Continue Day $day',
             _CardState.done => 'Read again',
-            _CardState.locked => 'Unlock lifetime access',
+            _CardState.locked => 'See membership',
             _CardState.finished => 'Start again at Day 1',
           };
           final line = switch (state) {
@@ -503,7 +566,7 @@ class TodayCard extends ConsumerWidget {
                 ? lesson.holdOn
                 : 'Tomorrow: ${next.title}. ${next.teaser}',
             _CardState.locked =>
-              'Days 1 to 7 were free. One payment opens every lesson, for life.',
+              'Membership opens every lesson, every morning.',
             _CardState.finished =>
               'You walked the whole road. Every lesson is still yours.',
             _ => lesson.teaser,
@@ -1181,7 +1244,7 @@ class _StopNodeState extends State<_StopNode>
       Stop.current => 'Day ${widget.day}, ${lesson.title}. Today. Tap to begin.',
       Stop.tomorrow => 'Day ${widget.day}. Opens tomorrow.',
       Stop.ahead => 'Day ${widget.day}. Still ahead.',
-      Stop.locked => 'Day ${widget.day}. Unlock lifetime access to read it.',
+      Stop.locked => 'Day ${widget.day}. Membership opens it.',
     };
     final coin = HolyCoin(
         size: size,
