@@ -401,11 +401,11 @@ void main() {
       await done(tester);
     });
 
-    testWidgets('a member sees that she is in', (tester) async {
+    testWidgets('a member sees that he is in', (tester) async {
       await pump(tester,
           const AccessState(loading: false, member: true, inTrial: true));
-      expect(find.text('You’re in 🤍'), findsOneWidget);
-      expect(find.textContaining('Your free week has begun'), findsOneWidget);
+      expect(find.text('You’re in.'), findsOneWidget);
+      expect(find.textContaining('Your free week has started'), findsOneWidget);
       await done(tester);
     });
   });

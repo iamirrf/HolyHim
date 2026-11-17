@@ -19,11 +19,11 @@ import '../onboarding/widgets/onboarding_scaffold.dart' show OnboardingButton;
 import '../onboarding/widgets/onboarding_tokens.dart';
 import '../profile/profile_screen.dart' show AccountScreen;
 
-/// True from a purchase made at the gate until she leaves "You're in", so
+/// True from a purchase made at the gate until he leaves "You're in", so
 /// the router keeps the offer on screen while access turns on beneath it.
 final paywallThanksProvider = StateProvider<bool>((ref) => false);
 
-/// Membership, on a screen of its own: the welcome's pearl light with the
+/// Membership, on a screen of its own: the welcome's first light with the
 /// offer in it.
 ///
 /// After the welcome, a person without access sees this and nothing else:
@@ -35,7 +35,7 @@ class OfferScreen extends ConsumerWidget {
   /// No close control: the gate after the welcome.
   final bool locked;
 
-  /// The locked lesson that brought her here, if any.
+  /// The locked lesson that brought him here, if any.
   final int? lockedDay;
   final VoidCallback? onContinue;
   const OfferScreen(
@@ -65,7 +65,7 @@ class OfferScreen extends ConsumerWidget {
         child: Theme(
             data: _theme,
             child: AnnotatedRegion<SystemUiOverlayStyle>(
-                value: SystemUiOverlayStyle.dark,
+                value: SystemUiOverlayStyle.light,
                 child: Scaffold(
                     backgroundColor: mood.mesh.baseColors[0],
                     body: Stack(fit: StackFit.expand, children: [
@@ -105,7 +105,7 @@ class OfferScreen extends ConsumerWidget {
   }
 }
 
-/// The offer itself: a photograph and her medallion, one promise, what
+/// The offer itself: a photograph and his medallion, one promise, what
 /// membership gives, its one price, the free week when the store offers it,
 /// and the ways on. It draws no background, so it sits on whatever field
 /// holds it.
@@ -129,7 +129,7 @@ class OfferBody extends ConsumerStatefulWidget {
 }
 
 class _OfferBodyState extends ConsumerState<OfferBody> {
-  /// The trial switch. Null until she touches it: on whenever the store can
+  /// The trial switch. Null until he touches it: on whenever the store can
   /// offer the free week.
   bool? _trialOn;
   bool _thanked = false;
@@ -168,7 +168,7 @@ class _OfferBodyState extends ConsumerState<OfferBody> {
   Future<void> _signOut() async {
     if (!await confirm(context,
         title: 'Sign out?',
-        message: 'Your walk stays saved to your account.',
+        message: 'Your road stays saved to your account.',
         action: 'Sign out')) {
       return;
     }
@@ -248,7 +248,7 @@ class _OfferBodyState extends ConsumerState<OfferBody> {
                 ? () => ref.read(accessProvider.notifier).load()
                 : () => _buy(plan)),
         const SizedBox(height: 7),
-        // The two things that let her say yes.
+        // The two things that let him say yes.
         Text(
             plan != null && withTrial
                 ? 'No payment due today. Cancel anytime.'
@@ -286,7 +286,7 @@ class _OfferBodyState extends ConsumerState<OfferBody> {
   }
 }
 
-/// What she is agreeing to, in the words Apple asks for.
+/// What he is agreeing to, in the words Apple asks for.
 class _Terms {
   final String? price;
   final int? trialDays;
@@ -314,8 +314,8 @@ class _Terms {
   }
 }
 
-/// The photograph of her first morning, her name in rose gold over it, and
-/// the medallion a full year earns turning at its edge.
+/// The photograph of his first morning, his name and the wordmark in brass
+/// over it, and the medallion the whole road earns turning at its edge.
 class _Hero extends ConsumerWidget {
   final double height;
   final bool onboarding;
@@ -336,7 +336,7 @@ class _Hero extends ConsumerWidget {
               child: DecoratedBox(
                   decoration: BoxDecoration(borderRadius: radius, boxShadow: [
                     BoxShadow(
-                        color: OnboardingTokens.plum.withValues(alpha: .22),
+                        color: OnboardingTokens.shade.withValues(alpha: .45),
                         blurRadius: 30,
                         offset: const Offset(0, 14)),
                   ]),
@@ -389,15 +389,15 @@ class _Hero extends ConsumerWidget {
                                         style: HolyTypography.eyebrow.copyWith(
                                             fontSize: 10,
                                             letterSpacing: 3,
-                                            color: const Color(0xFFF6D9C6))),
+                                            color: const Color(0xFFF2D7A6))),
                                 ])),
                       ])))),
-          // A year of mornings, in her hand.
+          // The whole road, in his hand.
           Positioned(
               right: 16,
               bottom: -coin * .42,
               child: Semantics(
-                  label: 'The A Year with God medallion',
+                  label: 'The Whole Road medallion',
                   child:
                       Coin3D(badgeId: 'days-365', earned: true, size: coin))),
         ]));
@@ -414,21 +414,20 @@ class _Headline extends StatelessWidget {
         fontSize: compact ? 26 : 30, height: 1.04, color: OnboardingTokens.ink);
     return Semantics(
         header: true,
-        label: 'Your year with God begins this morning.',
+        label: 'Your year in the Word starts this morning.',
         excludeSemantics: true,
         child: Column(children: [
-          Text('Your year with God', textAlign: TextAlign.center, style: style),
+          Text('Your year in the Word', textAlign: TextAlign.center, style: style),
           GradientFill(
-              colors: RoseGold.ink,
-              child: Text('begins this morning.',
-                  textAlign: TextAlign.center,
-                  style: style.copyWith(fontStyle: FontStyle.italic))),
+              colors: RoseGold.fill,
+              child: Text('starts this morning.',
+                  textAlign: TextAlign.center, style: style)),
         ]));
   }
 }
 
-/// What membership gives, in four plain lines; one is shaped by what she
-/// told us her heart needs.
+/// What membership gives, in four plain lines; one is shaped by what he
+/// told us he needs most.
 class _Benefits extends ConsumerWidget {
   final bool compact;
 
@@ -444,13 +443,13 @@ class _Benefits extends ConsumerWidget {
             ?.toLowerCase() ??
         'peace';
     // In order of what matters most when room is short: the voice that
-    // reads to her, her own heart, the daily lesson, the medallions, and
-    // the themes and icons that make it hers.
+    // reads to him, what he needs most, the daily lesson, the medallions,
+    // and the themes and icons that make it his.
     final all = [
       ('🌅', 'A new lesson every morning, all year'),
-      ('🎧', 'Read aloud, with soft music beneath'),
-      ('💗', 'Written for a heart that needs $heart'),
-      ('🏅', 'Medallions to keep as your walk grows'),
+      ('🎧', 'Every lesson read aloud, if you want it'),
+      ('🧭', 'Written for a man who needs $heart'),
+      ('🏅', 'Medallions to earn as your road grows'),
       ('🎨', 'Themes and app icons to make it yours'),
     ];
     const priority = [1, 2, 0, 3, 4];
@@ -473,7 +472,8 @@ class _Benefits extends ConsumerWidget {
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: Colors.white,
+                          color: OnboardingTokens.white,
+                          border: Border.all(color: OnboardingTokens.hairline),
                           boxShadow: [
                             BoxShadow(
                                 color: glow.withValues(alpha: .35),
@@ -548,9 +548,16 @@ class _PlanCard extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.baseline,
                           textBaseline: TextBaseline.alphabetic,
                           children: [
-                            Text(price ?? '—',
-                                style: HolyTypography.numeral.copyWith(
-                                    fontSize: 36, color: OnboardingTokens.ink)),
+                            // The largest figure on the card, as Apple asks; it
+                            // scales down rather than crowd the month price.
+                            Flexible(
+                                child: FittedBox(
+                                    fit: BoxFit.scaleDown,
+                                    alignment: Alignment.centerLeft,
+                                    child: Text(price ?? '—',
+                                        style: HolyTypography.numeral.copyWith(
+                                            fontSize: 36,
+                                            color: OnboardingTokens.ink)))),
                             const SizedBox(width: 6),
                             Text('/ year',
                                 style: HolyTypography.ui.copyWith(
@@ -704,7 +711,7 @@ class _Links extends StatelessWidget {
   }
 }
 
-/// After the purchase: a chime, her first medallion spinning in, and the
+/// After the purchase: a chime, his first medallion spinning in, and the
 /// way on.
 class _Welcome extends StatelessWidget {
   final bool trial, lifetime, firstDay;
@@ -717,12 +724,12 @@ class _Welcome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final glow = OnboardingMoods.rose.glow;
+    final glow = OnboardingMoods.rose.accent;
     final line = lifetime
         ? 'Every lesson is yours, for life.'
         : trial
-            ? 'Your free week has begun. Day 1 is waiting for you.'
-            : 'Your walk is open. Thank you for walking with us.';
+            ? 'Your free week has started. Day 1 is ready.'
+            : 'Your road is open. Glad to have you with us.';
     return Column(children: [
       const Spacer(),
       Stack(alignment: Alignment.center, children: [
@@ -732,7 +739,7 @@ class _Welcome extends StatelessWidget {
             decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 gradient: RadialGradient(colors: [
-                  glow.withValues(alpha: .55),
+                  glow.withValues(alpha: .30),
                   glow.withValues(alpha: 0)
                 ]))),
         const Coin3D(badgeId: 'days-1', earned: true, size: 160, spinIn: true),
@@ -744,7 +751,7 @@ class _Welcome extends StatelessWidget {
             Semantics(
                 header: true,
                 liveRegion: true,
-                child: Text('You’re in 🤍',
+                child: Text('You’re in.',
                     textAlign: TextAlign.center,
                     style: HolyTypography.title
                         .copyWith(fontSize: 38, color: OnboardingTokens.ink))),

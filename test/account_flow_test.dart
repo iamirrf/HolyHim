@@ -244,7 +244,7 @@ void main() {
     expect(app.walk.completed.keys, unorderedEquals([1, 2, 3]));
     // Joining opens Home, and every lesson she read is still hers.
     await _tap(tester, 'Start my 7 days free');
-    expect(find.text('You’re in 🤍'), findsOneWidget);
+    expect(find.text('You’re in.'), findsOneWidget);
     await _tap(tester, 'Continue');
     expect(find.byType(HomeShell), findsOneWidget);
     expect(app.walk.completed.keys, unorderedEquals([1, 2, 3]));
