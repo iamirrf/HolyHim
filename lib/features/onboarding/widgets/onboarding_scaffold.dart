@@ -37,7 +37,7 @@ class OnboardingScaffold extends StatefulWidget {
   /// Null hides the back control.
   final VoidCallback? onBack;
 
-  /// Null hides the close control. Shown when she is retaking the welcome.
+  /// Null hides the close control. Shown when he is retaking the welcome.
   final VoidCallback? onClose;
 
   /// False for steps that bring their own actions.
@@ -188,7 +188,7 @@ class _OnboardingScaffoldState extends State<OnboardingScaffold> {
                   _SmoothInsets(
                       child: PageView(
                           controller: _pages,
-                          // The button moves her on; a swipe past an
+                          // The button moves him on; a swipe past an
                           // unanswered question would leave the answer
                           // missing.
                           physics: const NeverScrollableScrollPhysics(),

@@ -4,7 +4,7 @@ import '../typography.dart';
 import 'top_bar.dart';
 
 /// Cognein's top bar for a scrolling tab: clear at rest, it gathers into
-/// progressive glass as she scrolls, and the screen's title settles into it
+/// progressive glass as he scrolls, and the screen's title settles into it
 /// once the large title has scrolled away.
 class GlassHeaderScaffold extends StatefulWidget {
   final String title;

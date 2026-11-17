@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../design/design.dart';
 import '../../../design/widgets/hide_region.dart';
 
-/// A faithful picture of the iOS banner she will receive.
+/// A faithful picture of the iOS banner he will receive.
 class NotePreview extends StatelessWidget {
   final String time, title, body;
   const NotePreview(

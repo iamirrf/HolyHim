@@ -21,7 +21,7 @@ const memberEntitlement = 'member';
 const memberTrialProductId = 'holyhim_annual_trial';
 const memberProductId = 'holyhim_annual';
 
-/// Where Apple lets her change or cancel a subscription.
+/// Where Apple lets him change or cancel a subscription.
 const manageSubscriptionsUrl = 'https://apps.apple.com/account/subscriptions';
 
 /// A way to become a member, exactly as the App Store offers it: its price
@@ -111,7 +111,7 @@ class AccessState {
       this.trialEligible,
       this.error});
 
-  /// Whether every lesson is open to her.
+  /// Whether every lesson is open to him.
   bool get active => purchased || retained || member;
 
   /// The trial may be offered: the store has it, and this Apple ID has not
@@ -252,7 +252,7 @@ class AccessController extends Notifier<AccessState> {
       if (owner == _generation) {
         state = state.copyWith(
             loading: false,
-            // The web has no App Store: membership begins on her iPhone.
+            // The web has no App Store: membership begins on his iPhone.
             error: kIsWeb
                 ? 'Membership begins in the HolyHim app on iPhone. Then sign in here with the same account.'
                 : 'We could not connect to the App Store. Try again shortly.');
@@ -375,7 +375,7 @@ class AccessController extends Notifier<AccessState> {
         willRenew: membership?.willRenew ?? false,
         memberUntil: until);
     await _cacheMember(uid, owner, membership == null ? null : until);
-    // The server keeps its own record, for the next device she signs in on.
+    // The server keeps its own record, for the next device he signs in on.
     if (membership != null) unawaited(_syncAccess());
   }
 

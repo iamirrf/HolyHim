@@ -19,7 +19,7 @@ class Coin3D extends StatefulWidget {
   /// Face straight on without swaying, for still images such as share cards.
   final bool still;
 
-  /// Arrives spinning, two full turns that slow to a stop facing her.
+  /// Arrives spinning, two full turns that slow to a stop facing him.
   final bool spinIn;
   final VoidCallback? onTap;
   const Coin3D(

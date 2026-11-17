@@ -14,12 +14,12 @@ const onboardingStepIds = [
   'birthday',
   'heart',
   'season',
-  // A short conversation: how well she knows the Bible, then what gets in
+  // A short conversation: how well he knows the Bible, then what gets in
   // the way. Both answers are saved under their own keys.
   'familiarity',
-  // Her first seven days, shown.
+  // His first seven days, shown.
   'routinePreview',
-  // A short conversation about her daily note.
+  // A short conversation about his daily note.
   'reminder',
   'building',
   'letter',

@@ -32,13 +32,13 @@ import 'widgets/select_step.dart';
 
 /// The welcome, version 3: eleven steps on one moving field.
 ///
-/// It is always in morning light, whatever theme she later picks: a pale
+/// It is always in morning light, whatever theme he later picks: a pale
 /// field lit by one soft colour per step, plum ink, white glass, and one
 /// plum button with rose-gold light round its edge. Every beat has a sound
 /// and a touch. Answers are saved as stable IDs the moment they are given,
-/// so a relaunch returns to the step she was on.
+/// so a relaunch returns to the step he was on.
 class OnboardingScreen extends StatelessWidget {
-  /// She has done this before and asked to do it again from Profile.
+  /// He has done this before and asked to do it again from Profile.
   final bool retake;
   const OnboardingScreen({super.key, this.retake = false});
 
@@ -133,7 +133,7 @@ class _FlowState extends ConsumerState<_Flow> {
     if (step == _building) {
       WidgetsBinding.instance.addPostFrameCallback((_) => _build());
     }
-    // A relaunch that lands her back mid-way says so, once.
+    // A relaunch that lands him back mid-way says so, once.
     final resumed = !widget.retake && step > 0 && draft['stepId'] != null;
     if (resumed && OnboardingScreen.resumeToast) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -198,8 +198,8 @@ class _FlowState extends ConsumerState<_Flow> {
     }
     final p = profile;
     _update(p.copyWith(
-        // A full name from Apple or Google stays whole unless she changes
-        // the part she was shown.
+        // A full name from Apple or Google stays whole unless he changes
+        // the part he was shown.
         name: name == firstNameOf(p.name) ? p.name : name,
         onboardingDraft: {...p.onboardingDraft, 'firstName': name}));
     _go(_birthday);
@@ -251,7 +251,7 @@ class _FlowState extends ConsumerState<_Flow> {
         : ChatAnswer(id, label, emoji: emojiFor(choices, id));
   }
 
-  // The conversation about her daily note.
+  // The conversation about his daily note.
   ChatAnswer? _noteAnswer(String question) {
     final stored = answers.reminder;
     if (stored == null) return null;
@@ -322,7 +322,7 @@ class _FlowState extends ConsumerState<_Flow> {
   Future<void> _onNoteAnswer(String question, ChatAnswer answer) async {
     _kept = answer.id == OnboardingCopy.noteKeep;
     if (_kept) {
-      // Her note stays exactly as it is; only the answer is recorded.
+      // His note stays exactly as it is; only the answer is recorded.
       _patchDraft({'reminder': reminderAnswerFor(profile.reminderMinutes)});
       return;
     }
@@ -334,7 +334,7 @@ class _FlowState extends ConsumerState<_Flow> {
           onboardingDraft: {...p.onboardingDraft, 'reminder': 'off'}));
       return;
     }
-    // iOS's own prompt the first time; Settings if she said no before.
+    // iOS's own prompt the first time; Settings if he said no before.
     final granted = ref.read(notificationServiceProvider).supported
         ? await enableNotifications(context, ref)
             .catchError((Object _) => false)
@@ -405,7 +405,7 @@ class _FlowState extends ConsumerState<_Flow> {
     context.go(widget.retake ? '/' : '/lesson/1');
   }
 
-  /// Leaves a retake part-way: nothing more is asked, and her walk is as it
+  /// Leaves a retake part-way: nothing more is asked, and his walk is as it
   /// was.
   void _close() {
     FocusManager.instance.primaryFocus?.unfocus();

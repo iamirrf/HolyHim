@@ -128,7 +128,7 @@ class _HoldButtonState extends State<HoldButton>
                                         offset: const Offset(0, 6))
                                   ]),
                               child: Stack(alignment: Alignment.center, children: [
-                                // Light gathers from the centre as she holds.
+                                // Light gathers from the centre as he holds.
                                 Positioned.fill(
                                     child: DecoratedBox(
                                         decoration: BoxDecoration(

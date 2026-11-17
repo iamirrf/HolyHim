@@ -123,7 +123,7 @@ class _RulerPickerState extends State<RulerPicker> {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
-      final half = constraints.maxWidth / 2 - RulerPicker.itemWidth / 2;
+      final half = (constraints.maxWidth / 2 - RulerPicker.itemWidth / 2).clamp(0.0, double.infinity);
       return SizedBox(
           height: 52,
           child: NotificationListener<ScrollNotification>(

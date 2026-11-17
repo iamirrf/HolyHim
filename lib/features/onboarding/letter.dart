@@ -91,8 +91,9 @@ class PersonalLetter extends StatelessWidget {
       Row(children: [
         Flourish(color: t.gold, width: 36),
         const SizedBox(width: 12),
-        Text('In your corner, HolyHim',
-            style: HolyTypography.label.copyWith(color: t.muted)),
+        Flexible(
+            child: Text('See you on Day 1.',
+                style: HolyTypography.label.copyWith(color: t.muted))),
       ]),
     ]);
     if (!framed) return letter;

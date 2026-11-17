@@ -4,7 +4,7 @@
 /// The rule is small: membership (in its free week or paid), the lifetime
 /// unlock sold before membership, or access kept from the free edition opens
 /// every lesson. Without one of those the app shows the offer, and nothing
-/// is free. A lesson she completed stays readable whenever she is let in.
+/// is free. A lesson he completed stays readable whenever he is let in.
 library;
 
 enum LessonAccess {

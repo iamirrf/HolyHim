@@ -6,7 +6,7 @@ import '../onboarding_copy.dart';
 import '../widgets/onboarding_tokens.dart';
 import '../widgets/step_title.dart';
 
-/// Her letter, in the same card the checklist drew itself in a moment ago.
+/// His letter, in the same card the checklist drew itself in a moment ago.
 class LetterStep extends StatelessWidget {
   final String name;
   final OnboardingAnswers answers;

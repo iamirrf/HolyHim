@@ -66,7 +66,7 @@ class _CelebrationScreenState extends ConsumerState<CelebrationScreen>
 
   bool _started = false;
 
-  /// The rating prompt, asked a moment after Amen; let go if she leaves first.
+  /// The rating prompt, asked a moment after Amen; let go if he leaves first.
   Timer? _review;
 
   @override
@@ -83,7 +83,7 @@ class _CelebrationScreenState extends ConsumerState<CelebrationScreen>
         if (mounted) HolyHaptics.celebration();
       });
     }
-    // Right after her first Amen, and once more a week in. iOS decides
+    // Right after his first Amen, and once more a week in. iOS decides
     // whether to show the prompt and never shows it too often.
     if (_moment != null && (widget.day == 1 || widget.day == 7)) {
       _review = Timer(const Duration(seconds: 3), requestStoreReview);

@@ -1,4 +1,4 @@
-/// A short conversation, written down: what HolyHim says, what she can tap
+/// A short conversation, written down: what HolyHim says, what he can tap
 /// in reply, and what HolyHim says back.
 ///
 /// Lines are functions, not strings, so they are read at the moment they are
@@ -6,21 +6,21 @@
 /// second ago, which no line written ahead of time could know.
 library;
 
-/// One thing she can tap in reply.
+/// One thing he can tap in reply.
 class ChatReply {
   final String id, label;
 
   /// Opens something of its own (a time picker) before there is an answer,
-  /// so her bubble waits for what she chooses there.
+  /// so his bubble waits for what he chooses there.
   final bool deferred;
 
-  /// Set before the label, on the pill and in her bubble.
+  /// Set before the label, on the pill and in his bubble.
   final String? emoji;
   const ChatReply(this.id, this.label, {this.deferred = false, this.emoji});
 }
 
 /// What was stored for a question: the saved value and the words shown in
-/// her bubble.
+/// his bubble.
 class ChatAnswer {
   final String id, label;
   final String? emoji;

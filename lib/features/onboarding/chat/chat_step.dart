@@ -10,7 +10,7 @@ import 'chat_script.dart';
 ///
 /// HolyHim writes a line or two and offers a few replies to tap; nothing is
 /// typed. Each reply is stored the moment it is tapped (through [onAnswer]),
-/// then HolyHim answers it before asking the next thing. Tapping one of her
+/// then HolyHim answers it before asking the next thing. Tapping one of his
 /// own earlier replies takes the conversation back to that question.
 ///
 /// When the step is built again (Back, or a relaunch) the conversation is
@@ -22,12 +22,12 @@ class OnboardingChatStep extends StatefulWidget {
   final ChatAnswer? Function(String questionId) answerOf;
 
   /// Turns a [ChatReply.deferred] reply into an answer, for example by
-  /// opening a time picker. Null means she backed out.
+  /// opening a time picker. Null means he backed out.
   final Future<ChatAnswer?> Function(String questionId, ChatReply reply)?
       resolve;
 
   /// Stores an answer and runs whatever it sets off. HolyHim waits for it
-  /// before answering: what she says about the daily note depends on what
+  /// before answering: what he says about the daily note depends on what
   /// iOS allowed.
   final Future<void> Function(String questionId, ChatAnswer answer) onAnswer;
 
@@ -35,7 +35,7 @@ class OnboardingChatStep extends StatefulWidget {
   final ValueChanged<bool> onCompleteChanged;
 
   /// Something to show under a question's lines, such as a picture of the
-  /// note she will receive.
+  /// note he will receive.
   final Widget? Function(String questionId)? attachment;
 
   final Color accent;
@@ -54,16 +54,16 @@ class OnboardingChatStep extends StatefulWidget {
   State<OnboardingChatStep> createState() => _OnboardingChatStepState();
 }
 
-enum _Kind { holyHim, her, attachment }
+enum _Kind { holyHim, him, attachment }
 
 class _Message {
   final _Kind kind;
   final String text;
 
-  /// For her replies: the reply's emoji.
+  /// For his replies: the reply's emoji.
   final String? emoji;
 
-  /// For her replies and attachments: the question they belong to.
+  /// For his replies and attachments: the question they belong to.
   final String? questionId;
 
   /// False for messages restored from what was stored; they appear at once.
@@ -137,7 +137,7 @@ class _OnboardingChatStepState extends State<OnboardingChatStep> {
       }
       answeredAny = true;
       restored.addAll(_asked(q, animate: false));
-      restored.add(_Message(_Kind.her, answer.label,
+      restored.add(_Message(_Kind.him, answer.label,
           questionId: q.id,
           emoji: answer.emoji,
           animate: false,
@@ -266,7 +266,7 @@ class _OnboardingChatStepState extends State<OnboardingChatStep> {
     setState(() {
       _pressed = null;
       _asking = null;
-      _messages.add(_Message(_Kind.her, chosen.label,
+      _messages.add(_Message(_Kind.him, chosen.label,
           questionId: q.id,
           emoji: chosen.emoji ?? reply.emoji,
           animate: !_reduced,
@@ -307,12 +307,12 @@ class _OnboardingChatStepState extends State<OnboardingChatStep> {
     widget.onCompleteChanged(true);
   }
 
-  /// Takes the conversation back to [questionId]: everything from her reply
+  /// Takes the conversation back to [questionId]: everything from his reply
   /// onward is cleared and the replies come back.
   void _rewind(String questionId) {
     if (_busy) return;
     final index = _messages.lastIndexWhere(
-        (m) => m.kind == _Kind.her && m.questionId == questionId);
+        (m) => m.kind == _Kind.him && m.questionId == questionId);
     if (index < 0) return;
     ChatQuestion? question;
     for (final q in widget.script.questions) {
@@ -436,7 +436,7 @@ class _OnboardingChatStepState extends State<OnboardingChatStep> {
         (next == null ? !_typing : next.kind != _Kind.holyHim);
     final Widget bubble = switch (message.kind) {
       _Kind.holyHim => _HolyHimBubble(text: message.text, tail: lastOfRun),
-      _Kind.her => _HerBubble(
+      _Kind.him => _HisBubble(
           text: message.text,
           emoji: message.emoji,
           accent: widget.accent,
@@ -450,7 +450,7 @@ class _OnboardingChatStepState extends State<OnboardingChatStep> {
     };
     if (!message.animate) return KeyedSubtree(key: message.key, child: bubble);
     return _Arrival(
-        key: message.key, fromHer: message.kind == _Kind.her, child: bubble);
+        key: message.key, fromHim: message.kind == _Kind.him, child: bubble);
   }
 }
 
@@ -498,12 +498,12 @@ class _HolyHimBubble extends StatelessWidget {
                                   color: OnboardingTokens.textPrimary))))))));
 }
 
-class _HerBubble extends StatelessWidget {
+class _HisBubble extends StatelessWidget {
   final String text;
   final String? emoji;
   final Color accent;
   final VoidCallback? onTap;
-  const _HerBubble(
+  const _HisBubble(
       {required this.text, required this.accent, this.emoji, this.onTap});
 
   @override
@@ -561,26 +561,26 @@ class _HerBubble extends StatelessWidget {
   }
 }
 
-/// A line arriving. HolyHim's lines ease up into place; her own reply
-/// springs up from where her finger was.
+/// A line arriving. HolyHim's lines ease up into place; his own reply
+/// springs up from where his finger was.
 class _Arrival extends StatelessWidget {
   final Widget child;
-  final bool fromHer;
-  const _Arrival({super.key, required this.child, this.fromHer = false});
+  final bool fromHim;
+  const _Arrival({super.key, required this.child, this.fromHim = false});
 
   @override
   Widget build(BuildContext context) => TweenAnimationBuilder<double>(
       tween: Tween(begin: 0, end: 1),
-      duration: Duration(milliseconds: fromHer ? 460 : 340),
-      curve: fromHer ? Curves.easeOutBack : Curves.easeOutCubic,
+      duration: Duration(milliseconds: fromHim ? 460 : 340),
+      curve: fromHim ? Curves.easeOutBack : Curves.easeOutCubic,
       builder: (context, t, child) => Opacity(
           opacity: t.clamp(0.0, 1.0),
           child: Transform.translate(
-              offset: Offset(0, (1 - t) * (fromHer ? 18 : 10)),
+              offset: Offset(0, (1 - t) * (fromHim ? 18 : 10)),
               child: Transform.scale(
                   scale: 0.94 + 0.06 * t,
                   alignment:
-                      fromHer ? Alignment.bottomRight : Alignment.bottomLeft,
+                      fromHim ? Alignment.bottomRight : Alignment.bottomLeft,
                   child: child))),
       child: child);
 }

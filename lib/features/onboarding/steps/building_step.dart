@@ -8,8 +8,8 @@ import '../onboarding_copy.dart';
 import '../widgets/onboarding_tokens.dart';
 import '../widgets/step_title.dart';
 
-/// "Building your walk". Her first medallion spins in, the one Day 1 will
-/// give her; then a short checklist ticks itself off while the profile is
+/// "Building your walk". His first medallion spins in, the one Day 1 will
+/// give him; then a short checklist ticks itself off while the profile is
 /// saved, and the card gives a small, glad lift when the save lands.
 ///
 /// It shares its card with the letter that follows: when the save lands the
@@ -92,12 +92,9 @@ class _BuildingStepState extends State<BuildingStep>
 
   @override
   Widget build(BuildContext context) {
-    final heart = labelFor(heartChoices, widget.answers.hearts.firstOrNull)
-            ?.toLowerCase() ??
-        'peace';
     final lines = [
-      'Choosing verses for $heart',
-      'Writing each lesson in plain words',
+      'Getting Day 1 ready',
+      'Almost there',
       widget.reminderOn
           ? 'Setting your note for ${OnboardingCopy.clock(widget.reminderMinutes)}'
           : 'Saving your place for any time of day',

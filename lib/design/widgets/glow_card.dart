@@ -25,7 +25,7 @@ class GlowCard extends StatefulWidget {
   final Color glow;
   final bool animate;
 
-  /// One full cycle. Cards she reads drift slowly.
+  /// One full cycle. Cards he reads drift slowly.
   final Duration duration;
   final double blurSigma;
 

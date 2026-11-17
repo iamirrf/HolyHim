@@ -36,7 +36,7 @@ class AppProfile {
   final DateTime createdAt, updatedAt;
 
   /// The Circle: whether she shows on the shared board, her chosen art
-  /// avatar, and the members she has blocked.
+  /// avatar, and the members he has blocked.
   final bool circle;
   final String circleAvatar;
   final List<String> blocked;

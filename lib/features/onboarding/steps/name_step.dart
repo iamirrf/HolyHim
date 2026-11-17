@@ -4,7 +4,7 @@ import '../onboarding_copy.dart';
 import '../widgets/onboarding_tokens.dart';
 import '../widgets/step_title.dart';
 
-/// Her first name. The field opens with the keyboard up, and the button
+/// His first name. The field opens with the keyboard up, and the button
 /// below rides the keyboard, so the whole step is one line of typing.
 class NameStep extends StatelessWidget {
   final TextEditingController controller;

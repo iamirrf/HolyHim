@@ -125,7 +125,7 @@ class NotificationService {
     return enabled == true ? 'authorized' : 'notDetermined';
   }
 
-  /// Shows iOS's own prompt when iOS still allows it and waits for her
+  /// Shows iOS's own prompt when iOS still allows it and waits for his
   /// answer, however long she reads it. Returns whether notes may be sent.
   Future<bool> requestPermission() async {
     if (!_supported) return false;
@@ -150,7 +150,7 @@ class NotificationService {
     }
   }
 
-  /// HolyHim's notification settings, for when she said no before.
+  /// HolyHim's notification settings, for when he said no before.
   Future<void> openSettings() async {
     try {
       await _native.invokeMethod<void>('openSettings');

@@ -6,12 +6,12 @@ import '../widgets/onboarding_tokens.dart';
 import '../widgets/ruler_picker.dart';
 import '../widgets/step_title.dart';
 
-/// Her birthday, on three rulers: month, day and year.
+/// His birthday, on three rulers: month, day and year.
 ///
 /// It is optional. The rulers open on a plain date and nothing is saved
-/// until she taps the button, so skipping leaves no birthday behind.
+/// until he taps the button, so skipping leaves no birthday behind.
 class BirthdayStep extends StatefulWidget {
-  /// A saved `YYYY-MM-DD`, if she has given one before.
+  /// A saved `YYYY-MM-DD`, if he has given one before.
   final String? initial;
   final Color accent;
   final ValueChanged<DateTime> onChanged;
@@ -84,7 +84,7 @@ class _BirthdayStepState extends State<BirthdayStep> {
                       fontSize: 10.5, color: OnboardingTokens.textTertiary)),
               const SizedBox(height: 2),
               // The value under the tick, in the display face: the one thing
-              // on this step she is meant to read.
+              // on this step he is meant to read.
               AnimatedSwitcher(
                   duration: MediaQuery.disableAnimationsOf(context)
                       ? Duration.zero

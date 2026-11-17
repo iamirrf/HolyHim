@@ -67,7 +67,7 @@ class _LessonScreenState extends ConsumerState<LessonScreen>
     await narration.init();
     if (!mounted || !narration.available || _completed) return;
     if (await NarrationPrefs.autoplay() && mounted && !finishing) {
-      // After her place is restored, so the voice starts on her card.
+      // After his place is restored, so the voice starts on his card.
       await Future<void>.delayed(const Duration(milliseconds: 600));
       if (mounted) unawaited(narration.play(fromCard: card));
     }
@@ -265,50 +265,60 @@ class _LessonScreenState extends ConsumerState<LessonScreen>
                   color: HolyTheme.photoInk)),
           const SizedBox(width: 12),
           // Read aloud: shown once this lesson has its reading.
-          ListenableBuilder(
-              listenable: narration,
-              builder: (context, _) => !narration.available
-                  ? const SizedBox.shrink()
-                  : Padding(
-                      padding: const EdgeInsets.only(right: 8),
-                      child: IconControl(
-                          icon: narration.playing
-                              ? CupertinoIcons.pause_fill
-                              : CupertinoIcons.headphones,
-                          label: narration.playing
-                              ? 'Pause reading'
-                              : 'Read this lesson aloud',
-                          onPhoto: true,
-                          onPressed: () {
-                            HolyHaptics.chipSelect();
-                            unawaited(narration.toggle(card));
-                          }))),
-          IconControl(
-              icon: CupertinoIcons.textformat_size,
-              label: 'Text size',
-              onPhoto: true,
-              onPressed: _textSize),
-          const SizedBox(width: 8),
-          IconControl(
-              icon: saved ? CupertinoIcons.heart_fill : CupertinoIcons.heart,
-              label: saved ? 'Remove from Saved' : 'Save this verse',
-              onPhoto: true,
-              color: saved ? const Color(0xFFFFB9C8) : null,
-              onPressed: () {
-                ref.read(repositoryProvider.notifier).toggleSaved(widget.day);
-                HolyHaptics.chipSelect();
-                toast(
-                    context,
-                    saved
-                        ? 'Removed from Saved.'
-                        : 'Kept in Saved for another day.');
-              }),
-          const SizedBox(width: 8),
-          IconControl(
-              icon: CupertinoIcons.square_arrow_up,
-              label: 'Share this verse',
-              onPhoto: true,
-              onPressed: () => showShareSheet(context, lesson)),
+          Flexible(
+              child: FittedBox(
+                  fit: BoxFit.scaleDown,
+                  alignment: Alignment.centerRight,
+                  child: Row(mainAxisSize: MainAxisSize.min, children: [
+                    ListenableBuilder(
+                        listenable: narration,
+                        builder: (context, _) => !narration.available
+                            ? const SizedBox.shrink()
+                            : Padding(
+                                padding: const EdgeInsets.only(right: 8),
+                                child: IconControl(
+                                    icon: narration.playing
+                                        ? CupertinoIcons.pause_fill
+                                        : CupertinoIcons.headphones,
+                                    label: narration.playing
+                                        ? 'Pause reading'
+                                        : 'Read this lesson aloud',
+                                    onPhoto: true,
+                                    onPressed: () {
+                                      HolyHaptics.chipSelect();
+                                      unawaited(narration.toggle(card));
+                                    }))),
+                    IconControl(
+                        icon: CupertinoIcons.textformat_size,
+                        label: 'Text size',
+                        onPhoto: true,
+                        onPressed: _textSize),
+                    const SizedBox(width: 8),
+                    IconControl(
+                        icon: saved
+                            ? CupertinoIcons.heart_fill
+                            : CupertinoIcons.heart,
+                        label: saved ? 'Remove from Saved' : 'Save this verse',
+                        onPhoto: true,
+                        color: saved ? const Color(0xFFFFB9C8) : null,
+                        onPressed: () {
+                          ref
+                              .read(repositoryProvider.notifier)
+                              .toggleSaved(widget.day);
+                          HolyHaptics.chipSelect();
+                          toast(
+                              context,
+                              saved
+                                  ? 'Removed from Saved.'
+                                  : 'Kept in Saved for another day.');
+                        }),
+                    const SizedBox(width: 8),
+                    IconControl(
+                        icon: CupertinoIcons.square_arrow_up,
+                        label: 'Share this verse',
+                        onPhoto: true,
+                        onPressed: () => showShareSheet(context, lesson)),
+                  ]))),
         ]));
 
     final title = Padding(
@@ -336,12 +346,12 @@ class _LessonScreenState extends ConsumerState<LessonScreen>
     final scaler = MediaQuery.textScalerOf(context);
 
     // Each card's words set as large as they can be while they still fit the
-    // card, between a floor and a ceiling that her reading size moves.
+    // card, between a floor and a ceiling that his reading size moves.
     Widget readingFor(int index, Size box) {
       if (index == 0) {
         final quote = lesson.quotedVerse;
         final style = HolyTypography.verse.copyWith(color: t.ink, height: 1.26);
-        // Room for the reference beneath, and the note when she came back
+        // Room for the reference beneath, and the note when he came back
         // part-way through the verse.
         final below = 16 +
             scaler.scale(14) * 1.4 +
@@ -510,7 +520,7 @@ class _LessonScreenState extends ConsumerState<LessonScreen>
                         locked: finishing,
                         onIndexChanged: (value) {
                           setState(() => card = value);
-                          // A swipe takes the voice to her card; a turn the
+                          // A swipe takes the voice to his card; a turn the
                           // voice made needs no seeking.
                           if (!_followingVoice) {
                             unawaited(narration.seekToCard(value));
@@ -559,7 +569,7 @@ class _LessonScreenState extends ConsumerState<LessonScreen>
                                     label: book ? 'Turn the page' : null,
                                     onNext: () => move(1))))),
               ]),
-              // Light gathering while she holds, then the bloom.
+              // Light gathering while he holds, then the bloom.
               IgnorePointer(
                   child: AnimatedBuilder(
                       animation: Listenable.merge([holdGlow, bloom]),

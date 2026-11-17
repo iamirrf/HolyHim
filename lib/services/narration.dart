@@ -100,7 +100,7 @@ abstract final class NarrationPrefs {
 
 /// A lesson read aloud, with the day's music very quietly beneath it.
 ///
-/// The voice follows the cards: [seekToCard] when she swipes, and
+/// The voice follows the cards: [seekToCard] when he swipes, and
 /// [onCard] tells the screen when the voice has moved on to the next one,
 /// so the cards can turn by themselves. The music fades in as the reading
 /// begins and fades out when it pauses or ends, at a tenth of the voice's

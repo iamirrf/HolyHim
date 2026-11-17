@@ -111,7 +111,9 @@ class _Grid extends StatelessWidget {
   final double spacing;
   const _Grid({required this.children, required this.spacing});
   @override
-  Widget build(BuildContext context) => Column(
+  Widget build(BuildContext context) => SingleChildScrollView(
+      physics: const ClampingScrollPhysics(),
+      child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -129,5 +131,5 @@ class _Grid extends StatelessWidget {
                             : const SizedBox.shrink()),
                   ])),
             ]
-          ]);
+          ]));
 }

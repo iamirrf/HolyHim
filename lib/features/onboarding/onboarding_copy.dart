@@ -102,7 +102,7 @@ abstract final class OnboardingCopy {
   static ChatScript bibleChat({required String Function() name}) => ChatScript(
       opening: () => [
             _hello(name()),
-            'Two quick questions. They help me pick the right words for you.',
+            'Two quick questions before we start.',
           ],
       questions: [
         ChatQuestion(
@@ -115,9 +115,9 @@ abstract final class OnboardingCopy {
             react: (id) => switch (id) {
                   'new' =>
                     'Good place to start. Every lesson explains the verse in plain words.',
-                  'some' => 'Good. We will build on the stories you know.',
+                  'some' => 'Good. We\'ll build on what you know.',
                   'returning' =>
-                    'Welcome back. We will take it one day at a time.',
+                    'Welcome back. One day at a time.',
                   'daily' =>
                     'Good. You may see a verse you know in a new light.',
                   _ => null,
@@ -132,19 +132,19 @@ abstract final class OnboardingCopy {
             react: (id) => switch (id) {
                   'busy' => 'Fair. Each lesson is just four short cards.',
                   'understanding' =>
-                    'You are not the only one. We explain each verse in plain words.',
+                    'You\'re not alone in that. Every verse comes with plain words.',
                   'forgetting' =>
-                    'That happens to everyone. A short note each day can help.',
+                    'That happens. A short note each day can help.',
                   'starting' =>
                     'Starting is the hard part. You already have.',
-                  'none' => 'Good. Then let us start.',
+                  'none' => 'Good. Let\'s start.',
                   _ => null,
                 }),
       ],
       closing: () => [
             name().isEmpty
-                ? 'Thanks. That is all I need.'
-                : 'Thanks, ${name()}. That is all I need.'
+                ? 'Thanks. That\'s all I need.'
+                : 'Thanks, ${name()}. That\'s all I need.'
           ]);
 
   // The conversation about his daily note.
@@ -198,9 +198,9 @@ abstract final class OnboardingCopy {
   static String noteSet(String time) =>
       'Done. One note a day at $time. You can change it any time.';
   static const noteDenied =
-      'That is fine. You can turn notes on later in Profile.';
+      'That\'s fine. You can turn notes on later in Profile.';
   static const noteDeclined =
-      'That is fine. Your road will be here whenever you come back.';
+      'That\'s fine. Your road will be here.';
   static const noteKept = 'Good. Your note stays just as it is.';
 
   /// "7:00 AM" for minutes after midnight.

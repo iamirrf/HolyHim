@@ -529,7 +529,7 @@ class _JourneyRow extends StatelessWidget {
                             backgroundColor: t.hairline)),
                   ])),
               const SizedBox(width: 14),
-              Text('Your journey',
+              Text('Your road',
                   style: HolyTypography.label.copyWith(color: t.accent)),
               const SizedBox(width: 4),
               Icon(CupertinoIcons.chevron_right, size: 14, color: t.accent),

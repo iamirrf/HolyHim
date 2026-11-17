@@ -17,7 +17,7 @@ Future<void> showShareSheet(BuildContext context, Lesson lesson) {
       builder: (_) => ShareSheet(lesson: lesson));
 }
 
-/// Her keepsake, shown exactly as it will be sent: three looks, two shapes
+/// His keepsake, shown exactly as it will be sent: three looks, two shapes
 /// and one button. The HolyHim icon and wordmark travel on every card, so a
 /// verse passed to a friend also tells him where it came from.
 class ShareSheet extends StatefulWidget {

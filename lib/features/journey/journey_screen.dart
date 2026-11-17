@@ -82,18 +82,16 @@ class _JourneyScreenState extends ConsumerState<JourneyScreen> {
               child: Row(children: [
                 IconControl(
                     icon: CupertinoIcons.xmark,
-                    label: 'Close journey',
+                    label: 'Close',
                     onPhoto: true,
                     onPressed: () =>
                         context.canPop() ? context.pop() : context.go('/')),
                 const Spacer(),
-                FrostedGlass(
-                    onPhoto: true,
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 14, vertical: 9),
-                    child: Text('${page + 1} of ${ChapterCatalog.chapters.length}',
-                        style: HolyTypography.label
-                            .copyWith(color: HolyTheme.photoInk))),
+                _PagePill(
+                    page: page,
+                    total: ChapterCatalog.chapters.length,
+                    completed: state.completed,
+                    pacing: pacing),
               ])),
           Positioned(
               bottom: media.padding.bottom + 10,
@@ -112,6 +110,54 @@ class _JourneyScreenState extends ConsumerState<JourneyScreen> {
                         ? null
                         : () => _turn(1)),
               ])),
+        ]));
+  }
+}
+
+class _PagePill extends StatelessWidget {
+  final int page, total;
+  final Map<int, String> completed;
+  final Pacing pacing;
+  const _PagePill(
+      {required this.page,
+      required this.total,
+      required this.completed,
+      required this.pacing});
+  @override
+  Widget build(BuildContext context) {
+    final t = HolyThemeScope.of(context);
+    final chapter = ChapterCatalog.chapters[page];
+    final done = [
+      for (var d = chapter.firstDay; d <= chapter.lastDay; d++)
+        if (completed.containsKey(d)) d
+    ].length;
+    final chapterComplete = done == 5;
+    final currentChapter =
+        ChapterCatalog.forDay(pacing.displayDay) == chapter;
+    final label = '${page + 1} of $total';
+
+    if (currentChapter) {
+      // Accent pill for current chapter.
+      return Container(
+          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 9),
+          decoration: BoxDecoration(
+              color: t.accent,
+              borderRadius: BorderRadius.circular(100)),
+          child: Text(label,
+              style: HolyTypography.label.copyWith(color: Colors.white)));
+    }
+
+    return FrostedGlass(
+        onPhoto: true,
+        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 9),
+        child: Row(mainAxisSize: MainAxisSize.min, children: [
+          if (chapterComplete) ...[
+            const Icon(CupertinoIcons.checkmark_alt,
+                size: 14, color: HolyTheme.photoInk),
+            const SizedBox(width: 5),
+          ],
+          Text(label,
+              style: HolyTypography.label.copyWith(color: HolyTheme.photoInk)),
         ]));
   }
 }
@@ -211,9 +257,28 @@ class _ChapterPage extends StatelessWidget {
                           completed: completed,
                           last: d == chapter.lastDay),
                     const Spacer(),
-                    Text(done == 5 ? 'Chapter complete' : '$done of 5 read',
-                        textAlign: TextAlign.center,
-                        style: HolyTypography.caption.copyWith(color: t.muted)),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        for (var d = chapter.firstDay; d <= chapter.lastDay; d++) ...[
+                          Container(
+                            width: 8, height: 8,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: completed.containsKey(d) ? t.olive : Colors.transparent,
+                              border: Border.all(
+                                color: completed.containsKey(d) ? t.olive : t.hairline,
+                                width: 1.5,
+                              ),
+                            ),
+                          ),
+                          if (d < chapter.lastDay) const SizedBox(width: 6),
+                        ],
+                        const SizedBox(width: 10),
+                        Text(done == 5 ? 'Complete' : '$done of 5',
+                          style: HolyTypography.caption.copyWith(color: t.muted)),
+                      ],
+                    ),
                   ]))),
     ]);
   }
@@ -269,6 +334,13 @@ class _DayRow extends StatelessWidget {
                     ? null
                     : Border(bottom: BorderSide(color: t.hairline, width: .8))),
             child: Row(children: [
+              if (current) ...[
+                Container(width: 3, height: 24,
+                  decoration: BoxDecoration(
+                    color: t.accent,
+                    borderRadius: BorderRadius.circular(2))),
+                const SizedBox(width: 6),
+              ],
               SizedBox(
                   width: 34,
                   child: Text('$day',

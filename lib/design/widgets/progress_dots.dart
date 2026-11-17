@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 /// Step progress as a row of dots, where the current step is a wide pill.
 ///
-/// Steps behind her are filled, steps ahead are outlined. The pill's width
+/// Steps behind him are filled, steps ahead are outlined. The pill's width
 /// animates, so moving on reads as the row flowing forward.
 class ProgressDots extends StatelessWidget {
   final int totalSteps;

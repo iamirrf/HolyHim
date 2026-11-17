@@ -242,8 +242,8 @@ class AuthNotifier extends Notifier<AuthState> {
           final result =
               await user.reauthenticateWithProvider(fb.AppleAuthProvider());
           final code = result.additionalUserInfo?.authorizationCode;
-          // Revoking her Apple token needs the provider's server key. Deleting
-          // her account and data must never depend on it.
+          // Revoking his Apple token needs the provider's server key. Deleting
+          // his account and data must never depend on it.
           if (code != null) {
             try {
               await fb.FirebaseAuth.instance

@@ -8,19 +8,19 @@ import '../onboarding_copy.dart';
 import '../widgets/onboarding_tokens.dart';
 import '../widgets/step_title.dart';
 
-/// Her first seven days. Three of the real lesson cards rise and fan out in
+/// His first seven days. Three of the real lesson cards rise and fan out in
 /// perspective, then a path runs down the week below them and each day
 /// lights, with a soft sound, as the line reaches it. The titles are the real
-/// lessons she is about to read, so nothing here is a promise the app has to
+/// lessons he is about to read, so nothing here is a promise the app has to
 /// keep later.
 class FirstWeekStep extends StatefulWidget {
   final String name;
   final Color accent, glow;
 
-  /// Her own words, said back to her. Null shows the plain subtitle.
+  /// His own words, said back to him. Null shows the plain subtitle.
   final String? echo;
 
-  /// True once she has seen the path draw; coming back shows it finished.
+  /// True once he has seen the path draw; coming back shows it finished.
   final bool revealed;
   final VoidCallback onRevealed;
   const FirstWeekStep(
@@ -115,8 +115,8 @@ class _FirstWeekStepState extends State<FirstWeekStep>
             const gap = 14.0;
             const chrome = 14.0 + 26 + 12; // padding, label, padding
             // A row is never shorter than its words.
-            final minRow = (24 * MediaQuery.textScalerOf(context).scale(1))
-                .clamp(24.0, 40.0);
+            final scale = MediaQuery.textScalerOf(context).scale(1.0);
+            final minRow = (40.0 * scale).clamp(40.0, 80.0);
             // The week comes first; the cards take what room is left, and
             // step aside on a short screen rather than shrink past reading.
             final spare = box.maxHeight - chrome - minRow * _days - gap;

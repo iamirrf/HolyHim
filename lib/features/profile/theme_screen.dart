@@ -8,7 +8,7 @@ import '../../services/repository.dart';
 
 /// The eight themes, each a small window onto its own living field, with
 /// the app icon that matches it. Tap one and the app changes colour like
-/// the light in a room; if the Home Screen icon differs, she is offered the
+/// the light in a room; if the Home Screen icon differs, he is offered the
 /// matching one.
 class ThemeScreen extends ConsumerStatefulWidget {
   const ThemeScreen({super.key});

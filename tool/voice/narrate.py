@@ -143,8 +143,8 @@ def script(lesson: dict) -> list[list[tuple[str, float]]]:
     return [
         first,
         card("What it means.", lesson["meaning"], PAUSE_CARD),
-        card("For your heart.", lesson["heart"], PAUSE_CARD),
-        card("Let us pray.", lesson["prayer"], TAIL),
+        card("For your life.", lesson["heart"], PAUSE_CARD),
+        card("Let's pray.", lesson["prayer"], TAIL),
     ]
 
 

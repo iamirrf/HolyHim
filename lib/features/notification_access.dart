@@ -7,7 +7,7 @@ import '../services/notifications.dart';
 
 /// Turns notes on the way iOS allows: its own prompt the first time; after a
 /// "Don't Allow", a short sheet that opens HolyHim's notification settings
-/// and notices when she comes back with them on.
+/// and notices when he comes back with them on.
 Future<bool> enableNotifications(BuildContext context, WidgetRef ref) async {
   final service = ref.read(notificationServiceProvider);
   if (!service.supported) return false;

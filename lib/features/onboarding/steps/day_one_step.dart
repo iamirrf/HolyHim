@@ -79,39 +79,49 @@ class DayOneStep extends StatelessWidget {
                                 Padding(
                                     padding: const EdgeInsets.fromLTRB(
                                         22, 20, 22, 22),
-                                    child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.end,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(lesson.reference.toUpperCase(),
-                                              maxLines: 1,
-                                              overflow: TextOverflow.ellipsis,
-                                              style: HolyTypography.eyebrow
-                                                  .copyWith(
-                                                      color: HolyTheme.photoInk
-                                                          .withValues(
-                                                              alpha: .86))),
-                                          const SizedBox(height: 6),
-                                          Text(lesson.title,
-                                              maxLines: 2,
-                                              overflow: TextOverflow.ellipsis,
-                                              style: HolyTypography.headline
-                                                  .copyWith(
-                                                      fontSize: 30,
-                                                      color:
-                                                          HolyTheme.photoInk)),
-                                          const SizedBox(height: 8),
-                                          Text(lesson.teaser,
-                                              maxLines: 3,
-                                              overflow: TextOverflow.ellipsis,
-                                              style: HolyTypography.ui.copyWith(
-                                                  fontSize: 15.5,
-                                                  height: 1.42,
-                                                  color: HolyTheme.photoInk
-                                                      .withValues(alpha: .9))),
-                                        ])),
+                                    child: SingleChildScrollView(
+                                        child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.end,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                  lesson.reference
+                                                      .toUpperCase(),
+                                                  maxLines: 1,
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
+                                                  style: HolyTypography.eyebrow
+                                                      .copyWith(
+                                                          color: HolyTheme
+                                                              .photoInk
+                                                              .withValues(
+                                                                  alpha: .86))),
+                                              const SizedBox(height: 6),
+                                              Text(lesson.title,
+                                                  maxLines: 2,
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
+                                                  style: HolyTypography.headline
+                                                      .copyWith(
+                                                          fontSize: 30,
+                                                          color: HolyTheme
+                                                              .photoInk)),
+                                              const SizedBox(height: 8),
+                                              Text(lesson.teaser,
+                                                  maxLines: 3,
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
+                                                  style: HolyTypography.ui
+                                                      .copyWith(
+                                                          fontSize: 15.5,
+                                                          height: 1.42,
+                                                          color: HolyTheme
+                                                              .photoInk
+                                                              .withValues(
+                                                                  alpha: .9))),
+                                            ]))),
                               ])))))),
         ]));
   }
