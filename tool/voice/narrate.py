@@ -28,6 +28,7 @@ import os
 from pathlib import Path
 import re
 import shutil
+from concurrent.futures import ThreadPoolExecutor
 import subprocess
 import sys
 import tempfile
@@ -167,12 +168,19 @@ def load_lessons() -> list[dict]:
 def synth_worker(job_path: str) -> None:
     """Runs inside the Kokoro venv: one model load, many lessons."""
     import numpy as np
+    import onnxruntime as ort
     import soundfile as sf
     from kokoro_onnx import Kokoro
 
     job = json.loads(Path(job_path).read_text(encoding="utf-8"))
     model = MODELS / "kokoro-v1.0.onnx"
     tts = Kokoro(str(model), str(MODELS / "voices-v1.0.bin"))
+    threads = job.get("threads")
+    if threads:
+        so = ort.SessionOptions()
+        so.intra_op_num_threads = int(threads)
+        so.inter_op_num_threads = 1
+        tts.sess = ort.InferenceSession(str(model), sess_options=so, providers=["CPUExecutionProvider"])
 
     def trim(x, sr, floor_db=-44, pad=0.025):
         frame = int(sr * 0.01)
@@ -200,7 +208,7 @@ def synth_worker(job_path: str) -> None:
 
 # ------------------------------------------------------------- orchestration
 
-def kokoro(lessons: list[dict], voice: str, speed: float, work: Path) -> dict[int, dict]:
+def kokoro(lessons: list[dict], voice: str, speed: float, work: Path, workers: int = 1) -> dict[int, dict]:
     """Synthesizes [lessons] to WAV in [work]; returns each day's cues."""
     if not KOKORO_PY.exists():
         sys.exit(f"Kokoro's environment is missing: {KOKORO_PY}")
@@ -208,11 +216,21 @@ def kokoro(lessons: list[dict], voice: str, speed: float, work: Path) -> dict[in
     items = [{"day": int(l["day"]), "cards": script(l),
               "wav": str(work / f"day-{int(l['day']):03d}.wav"),
               "cues": str(work / f"day-{int(l['day']):03d}.json")} for l in lessons]
-    job = work / "job.json"
-    job.write_text(json.dumps({"voice": voice, "speed": speed, "lang": lang, "lessons": items},
-                              ensure_ascii=False))
-    subprocess.run([str(KOKORO_PY), "-I", str(Path(__file__).resolve()), "_synth", str(job)],
-                   check=True, env=dict(os.environ, PYTHONUNBUFFERED="1"))
+    n = max(1, min(workers, len(items)))
+    shards = [items[i::n] for i in range(n)]
+    env = dict(os.environ, PYTHONUNBUFFERED="1")
+    if n > 1:
+        env.update(OMP_NUM_THREADS="1", MKL_NUM_THREADS="1")
+    procs = []
+    for idx, shard in enumerate(shards):
+        job = work / f"job-{idx}.json"
+        job.write_text(json.dumps({"voice": voice, "speed": speed, "lang": lang, "threads": 1, "lessons": shard},
+                                  ensure_ascii=False))
+        procs.append(subprocess.Popen([str(KOKORO_PY), "-I", str(Path(__file__).resolve()), "_synth", str(job)],
+                                      env=env))
+    failed = [p.returncode for p in procs if p.wait() != 0]
+    if failed:
+        raise subprocess.CalledProcessError(failed[0], str(KOKORO_PY))
     return {i["day"]: json.loads(Path(i["cues"]).read_text()) for i in items}
 
 
@@ -271,22 +289,24 @@ def cmd_build(args) -> None:
         current = text_hash(script(l), args.voice, args.speed, args.quality)
         if not entry or entry.get("text") != current or not (OUT / entry["file"]).exists():
             stale.append(l)
-    print(f"{len(stale)} of {len(wanted)} lessons need reading.")
-    batch = 10
+    print(f"{len(stale)} of {len(wanted)} lessons need reading.", flush=True)
+    batch = 5 * max(1, args.workers)
     for i in range(0, len(stale), batch):
         group = stale[i:i + batch]
         with tempfile.TemporaryDirectory(prefix="holyhim-voice-") as tmp:
             work = Path(tmp)
-            cues = kokoro(group, args.voice, args.speed, work)
+            cues = kokoro(group, args.voice, args.speed, work, workers=args.workers)
+            with ThreadPoolExecutor(max_workers=max(1, min(4, args.workers * 2))) as pool:
+                list(pool.map(lambda l: encode(work / f"day-{int(l['day']):03d}.wav",
+                                               OUT / f"day-{int(l['day']):03d}.m4a", args.quality), group))
             for l in group:
                 day = int(l["day"])
                 name = f"day-{day:03d}.m4a"
-                encode(work / f"day-{day:03d}.wav", OUT / name, args.quality)
                 manifest["lessons"][str(day)] = {
                     "file": name, "seconds": cues[day]["seconds"], "cues": cues[day]["cues"],
                     "text": text_hash(script(l), args.voice, args.speed, args.quality)}
         MANIFEST.write_text(json.dumps(manifest, indent=1, sort_keys=True))
-    print(f"Manifest: {MANIFEST.relative_to(ROOT)}")
+    print(f"Manifest: {MANIFEST.relative_to(ROOT)}", flush=True)
 
 
 def cmd_check(args) -> int:
@@ -341,6 +361,7 @@ def main(argv: list[str] | None = None) -> int:
     s.add_argument("--voice", required=True)
     s.add_argument("--quality", choices=sorted(QUALITIES), default="compact")
     s.add_argument("--speed", type=float, default=SPEED)
+    s.add_argument("--workers", type=int, default=1)
     sub.add_parser("check")
     args = cli.parse_args(argv)
     if args.cmd in ("samples", "build") and not shutil.which("ffmpeg"):
