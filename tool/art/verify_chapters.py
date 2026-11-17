@@ -72,7 +72,8 @@ def main():
             total += verify_file(record, size=SIZES[key], kind='WEBP')
         for record in row['masters'].values():
             assert record['path'].startswith(f"art/generated/chapters/{row['id']}/")
-            verify_file(record, kind='PNG')
+            # HolyHim keeps Gemini's photographs as JPEG originals.
+            verify_file(record, kind='PNG' if record['path'].endswith('.png') else 'JPEG')
         review = reviews.get(row['id'], {})
         matching_review = (review.get('portraitSha256') == row['masters']['portrait']['sha256']
                            and review.get('landscapeSha256') == row['masters']['landscape']['sha256'])

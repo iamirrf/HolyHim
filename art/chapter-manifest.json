@@ -24,10 +24,53 @@
           0.5
         ]
       },
-      "status": "pending originals",
-      "visualReview": "pending",
-      "masters": {},
-      "assets": {}
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-01/portrait.jpg",
+          "sha256": "41bc36a787a28fd2ebc08dcb67982f046375259c9e898c8c2b98726a76a37f1c"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-01/landscape.jpg",
+          "sha256": "227fd217f086ea8229059c051373463a9e436279dc30f80eb4f602efd6eafdf2"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-01/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "7021b1f5b9afe64c3380f1716bcfef77b04baa7776d13ad79474af13b5ccb7bb",
+          "bytes": 288630
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-01/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "a7ddbaf5c1cb6a088aec5f1e45b19856d1fdf6202a4a5d0c20010296a7f8379c",
+          "bytes": 116726
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-01/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "6d63dfdf0863c47432478d4f9325dd0e0855d4334ea145a5afb75b965d533388",
+          "bytes": 14364
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-01/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "a5d3956a138f09e8022d175e205bd5d7f1f8ff5af0da007ab7f9575dfa9ab183",
+          "bytes": 11972
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-01-thumb.jpg",
+        "sha256": "682cd1b2dba66f263b99f85f3bbd8f2f9e836c3f9b2048837179b5e33f935064",
+        "bytes": 22181
+      }
     },
     {
       "id": "unit-02",
@@ -51,10 +94,53 @@
           0.5
         ]
       },
-      "status": "pending originals",
-      "visualReview": "pending",
-      "masters": {},
-      "assets": {}
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-02/portrait.jpg",
+          "sha256": "07b7bb9366911d5d391036f9d7242291b4daf7c1f2f389f45052028b3cb62d54"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-02/landscape.jpg",
+          "sha256": "3a2aa364782a10aa0ff17a704f850d362070974a1687a906011d1fae9aadee36"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-02/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "b64eeb92afb2a7547305ea903c5cd9124325e6b531700f9b94a3fb1a6d2a64ea",
+          "bytes": 207502
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-02/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "749eb8e462b8a30d28ffc299c6db3c58290cd677b2e6615665007294903401e8",
+          "bytes": 129294
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-02/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "d868b3274575ccd8fa28637827a35a422079e96d6f7fe5b3e561de1fb08ff55a",
+          "bytes": 12776
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-02/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "b7b94cddb160276364487231d5364dabf7765c58d57840c7e39a3a8b40d110bc",
+          "bytes": 10200
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-02-thumb.jpg",
+        "sha256": "5efccf5b8ae646c53af0fa2a56d5c09c82b2cb719374886359fb4a6d69142f0b",
+        "bytes": 20064
+      }
     },
     {
       "id": "unit-03",
@@ -78,10 +164,53 @@
           0.5
         ]
       },
-      "status": "pending originals",
-      "visualReview": "pending",
-      "masters": {},
-      "assets": {}
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-03/portrait.jpg",
+          "sha256": "02820517ab7dfcbaab9f7d18c5726e1913e95a2f681eba26b112cedcb62fef84"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-03/landscape.jpg",
+          "sha256": "7c36351f5145dd2caaa7342b6010334dfe2a04105e327ec622abfd2029c8f9d1"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-03/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "56096f5de8515dbf0fda3a0f0d66c1977a38cdeec9924cc92ec0b7256e39db6f",
+          "bytes": 192816
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-03/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "bf14d7fce0452edf570ee75c5e41d5e33bc2eae20b8431631f714f920fe3b334",
+          "bytes": 95496
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-03/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "94fcc6fc860f56c6b81ccab45014d815d6d15402bc0df3231fd34768efde9a05",
+          "bytes": 11070
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-03/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "1ec5f55edbb82c61be31a14e7092eb5ae350b8562dc270a55b55dd48705a213d",
+          "bytes": 9080
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-03-thumb.jpg",
+        "sha256": "e2b61671030941be6106278dcc3c81a5ec7c263c406d7e973bc4961dc88f89f3",
+        "bytes": 18304
+      }
     },
     {
       "id": "unit-04",
@@ -105,10 +234,53 @@
           0.5
         ]
       },
-      "status": "pending originals",
-      "visualReview": "pending",
-      "masters": {},
-      "assets": {}
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-04/portrait.jpg",
+          "sha256": "3ac00656ab8d6f2ad59e832236050af4f7546290fdf4d968a3d527446b814047"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-04/landscape.jpg",
+          "sha256": "ca4a107c25f456a4c2014a7822fa9f4ce8ad08348d4114366e4d0b848948774e"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-04/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "7b6b02358c39dad671bdad8879083bd9e832ef273e9c82fa091b28dab54dca65",
+          "bytes": 325220
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-04/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "077c60ff967315046c55e0b60139b2ba689bfdeb87f2013d56785cc29256e06a",
+          "bytes": 121562
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-04/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "f9e893b2314e2e57c4068a247604e313cb122d54166b8ad7f1a70d00b2c84fd9",
+          "bytes": 17148
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-04/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "911d8b7c4587a8b065f52fe2d3028212c31f47e24c56cb82220577590035386e",
+          "bytes": 13914
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-04-thumb.jpg",
+        "sha256": "14743939b60c45faf1938b23261607b218e73020b04c5edc908ba2503d2e524e",
+        "bytes": 24612
+      }
     },
     {
       "id": "unit-05",
@@ -132,10 +304,53 @@
           0.5
         ]
       },
-      "status": "pending originals",
-      "visualReview": "pending",
-      "masters": {},
-      "assets": {}
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-05/portrait.jpg",
+          "sha256": "db3e88a6c4ddfbdfed68341ceb667ee2e086cc88a2566e867c8a2a9e99a61a05"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-05/landscape.jpg",
+          "sha256": "74cd60556c6e156863021a769fbe6611e1f45ad56f31e7d3095382eeaae78556"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-05/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "1cc18fae10650cc4fd7ae99eb64f3fcae2071961e3486889a7bbcc6e8cd5e2f7",
+          "bytes": 105428
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-05/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "626991c2143e0f390b9f18d9b5e1adf0848fe9c0613c554c193afe4be4e619b3",
+          "bytes": 76226
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-05/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "91ae00d5b9e9a20c78e6f627703f808b00b3ddb31a20a84a9625c60145d0fe5b",
+          "bytes": 9314
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-05/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "952b09bd2b1993954ad72cb2ce1811c263b61fd53f05c7ef20285bad21b04e88",
+          "bytes": 7486
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-05-thumb.jpg",
+        "sha256": "3858fa93f0bb86593891b6b81786fd0eeda7bb7cfd3d5503aa1dcaae5651dd62",
+        "bytes": 15966
+      }
     },
     {
       "id": "unit-06",
@@ -159,10 +374,53 @@
           0.5
         ]
       },
-      "status": "pending originals",
-      "visualReview": "pending",
-      "masters": {},
-      "assets": {}
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-06/portrait.jpg",
+          "sha256": "fc4d1fd174d57d8d5727121dbd3fd075e1c0ba03835b68808dd3b50b11f28e57"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-06/landscape.jpg",
+          "sha256": "dbf5321b10e93ac9f25ffc35a53f75f7194c9d78e15249359abdd16a8147add1"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-06/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "f744bb764b095a8ab7074f962731a3b33223eb097432b3b85d2d345fd5075307",
+          "bytes": 317196
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-06/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "f826688f0cc5d5b2816bd322bd1c792544eae65a13023e3bd0b382a4955c114f",
+          "bytes": 141890
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-06/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "065fb4b8e814506a889ee518600f20e928eee148d1f313d22e067d537bffd45a",
+          "bytes": 17764
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-06/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "0031fd87b7271271d9e3f0d612b042c52298a4169f36cd44f88e545f17dfb932",
+          "bytes": 14056
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-06-thumb.jpg",
+        "sha256": "1ab4ea6faf83431c8d1b01fae826cb140afea2a17f7697914de7ee1d859cec14",
+        "bytes": 25574
+      }
     },
     {
       "id": "unit-07",
@@ -186,10 +444,53 @@
           0.5
         ]
       },
-      "status": "pending originals",
-      "visualReview": "pending",
-      "masters": {},
-      "assets": {}
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-07/portrait.jpg",
+          "sha256": "bbc421948f022bf27c97fb4116fe4dc906e37397a0463a00bf1729535b4c044a"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-07/landscape.jpg",
+          "sha256": "b58c9b9f1784be023286a9710f59ee4af17f8042bce551e30409b0f92281c55e"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-07/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "557349d352c547e1c20cb35117cc05c0679a4de4a68aede7f8e0be0f0ef0f5f4",
+          "bytes": 230886
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-07/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "558728d12a19b4aae9a5bf106bf9df0b0303ad3bd0a5e41d6eca611ba68d6152",
+          "bytes": 117492
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-07/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "b330e919f4c71774aab806ce6dde46af8575a4bd0ad7f88130e16c3c4ddd15a2",
+          "bytes": 14438
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-07/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "db9ef77f091c1c545d4622f734777e2ab7f80e5165591189bcd5d8f1d981f992",
+          "bytes": 11758
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-07-thumb.jpg",
+        "sha256": "8dddcc2e013f9b2a6066f570d08ad01975118e46d4c1c8e3b918ffab9b595dcd",
+        "bytes": 21722
+      }
     },
     {
       "id": "unit-08",
@@ -213,10 +514,53 @@
           0.5
         ]
       },
-      "status": "pending originals",
-      "visualReview": "pending",
-      "masters": {},
-      "assets": {}
+      "status": "packaged; visual review passed; device review pending",
+      "visualReview": "passed",
+      "masters": {
+        "portrait": {
+          "path": "art/generated/chapters/unit-08/portrait.jpg",
+          "sha256": "83b6553993c8ebdefb0cfecea2d910133ab9ac19f98fde7ac0cce447a1769177"
+        },
+        "landscape": {
+          "path": "art/generated/chapters/unit-08/landscape.jpg",
+          "sha256": "649711e1a8c685beffa6479bea462aa534230b1af04593c81b520cee1b4c173b"
+        }
+      },
+      "assets": {
+        "portrait": {
+          "path": "assets/art/chapters/unit-08/portrait.webp",
+          "width": 1080,
+          "height": 1920,
+          "sha256": "5cb9b2ec86e5e91fffefe56c7194f9de0e99cb7aae7f4a73c2499cb4b5c8ad25",
+          "bytes": 188160
+        },
+        "landscape": {
+          "path": "assets/art/chapters/unit-08/landscape.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "bcb5080cf4065004398a86384310b8de959d3fec7346dc216d9e545f41fa182a",
+          "bytes": 86002
+        },
+        "portraitThumb": {
+          "path": "assets/art/chapters/unit-08/portrait-thumb.webp",
+          "width": 270,
+          "height": 480,
+          "sha256": "bca40a96bf3958a2b3aff3ba3acc2fd880330fe2415908926a7ff28a26b1b2bd",
+          "bytes": 11692
+        },
+        "subjectThumb": {
+          "path": "assets/art/chapters/unit-08/subject-thumb.webp",
+          "width": 256,
+          "height": 256,
+          "sha256": "f289f04d7911899dcc5c6bfd2b096a8d0717b06a84d7f2a6e18014220e07738a",
+          "bytes": 9068
+        }
+      },
+      "widgetAsset": {
+        "path": "ios/HolyHimWidget/Art/unit-08-thumb.jpg",
+        "sha256": "adef7269fc89eb7409925bf6dd18601bb9f73b6d95fc5e4917aa7b73ab6f5e16",
+        "bytes": 19145
+      }
     },
     {
       "id": "unit-09",
@@ -1974,7 +2318,7 @@
       "assets": {}
     }
   ],
-  "packagedAssets": 0,
-  "assetBytes": 0,
+  "packagedAssets": 32,
+  "assetBytes": 2936626,
   "targetAssetBytes": 47185920
 }

@@ -53,6 +53,14 @@ flutter:
     - assets/brand/
     - assets/artwork/
     - assets/art/library/
+    - assets/art/chapters/unit-01/
+    - assets/art/chapters/unit-02/
+    - assets/art/chapters/unit-03/
+    - assets/art/chapters/unit-04/
+    - assets/art/chapters/unit-05/
+    - assets/art/chapters/unit-06/
+    - assets/art/chapters/unit-07/
+    - assets/art/chapters/unit-08/
     - assets/art/badges/
     - assets/fonts/SourceSerif4-OFL.txt
     - assets/fonts/manrope-OFL.txt

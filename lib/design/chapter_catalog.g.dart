@@ -9,16 +9,16 @@ class ChapterArt {
 }
 
 abstract final class ChapterCatalog {
-  static const artworkRevision = 'e3b0c44298fc';
+  static const artworkRevision = '48340600a5c8';
   static const chapters = <ChapterArt>[
-    ChapterArt("unit-01", "Stand strong", 1, 5, false),
-    ChapterArt("unit-02", "Strength that lasts", 6, 10, false),
-    ChapterArt("unit-03", "Made on purpose", 11, 15, false),
-    ChapterArt("unit-04", "Wrestling and rising", 16, 20, false),
-    ChapterArt("unit-05", "Led through the wild", 21, 25, false),
-    ChapterArt("unit-06", "Strong and kind", 26, 30, false),
-    ChapterArt("unit-07", "Words that stick", 31, 35, false),
-    ChapterArt("unit-08", "Choose life", 36, 40, false),
+    ChapterArt("unit-01", "Stand strong", 1, 5, true),
+    ChapterArt("unit-02", "Strength that lasts", 6, 10, true),
+    ChapterArt("unit-03", "Made on purpose", 11, 15, true),
+    ChapterArt("unit-04", "Wrestling and rising", 16, 20, true),
+    ChapterArt("unit-05", "Led through the wild", 21, 25, true),
+    ChapterArt("unit-06", "Strong and kind", 26, 30, true),
+    ChapterArt("unit-07", "Words that stick", 31, 35, true),
+    ChapterArt("unit-08", "Choose life", 36, 40, true),
     ChapterArt("unit-09", "Be strong and choose", 41, 45, false),
     ChapterArt("unit-10", "Brothers for the road", 46, 50, false),
     ChapterArt("unit-11", "Grow up listening", 51, 55, false),

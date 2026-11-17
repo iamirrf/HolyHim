@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "chapters": {
+    "unit-01": {
+      "portraitSha256": "41bc36a787a28fd2ebc08dcb67982f046375259c9e898c8c2b98726a76a37f1c",
+      "landscapeSha256": "227fd217f086ea8229059c051373463a9e436279dc30f80eb4f602efd6eafdf2",
+      "reviewedAt": "2026-11-17",
+      "scope": "Both photographic masters inspected at full size and in contact sheet; physical device pending"
+    },
+    "unit-02": {
+      "portraitSha256": "07b7bb9366911d5d391036f9d7242291b4daf7c1f2f389f45052028b3cb62d54",
+      "landscapeSha256": "3a2aa364782a10aa0ff17a704f850d362070974a1687a906011d1fae9aadee36",
+      "reviewedAt": "2026-11-17",
+      "scope": "Both photographic masters inspected at full size and in contact sheet; physical device pending"
+    },
+    "unit-03": {
+      "portraitSha256": "02820517ab7dfcbaab9f7d18c5726e1913e95a2f681eba26b112cedcb62fef84",
+      "landscapeSha256": "7c36351f5145dd2caaa7342b6010334dfe2a04105e327ec622abfd2029c8f9d1",
+      "reviewedAt": "2026-11-17",
+      "scope": "Both photographic masters inspected at full size and in contact sheet; physical device pending"
+    },
+    "unit-04": {
+      "portraitSha256": "3ac00656ab8d6f2ad59e832236050af4f7546290fdf4d968a3d527446b814047",
+      "landscapeSha256": "ca4a107c25f456a4c2014a7822fa9f4ce8ad08348d4114366e4d0b848948774e",
+      "reviewedAt": "2026-11-17",
+      "scope": "Both photographic masters inspected at full size and in contact sheet; physical device pending"
+    },
+    "unit-05": {
+      "portraitSha256": "db3e88a6c4ddfbdfed68341ceb667ee2e086cc88a2566e867c8a2a9e99a61a05",
+      "landscapeSha256": "74cd60556c6e156863021a769fbe6611e1f45ad56f31e7d3095382eeaae78556",
+      "reviewedAt": "2026-11-17",
+      "scope": "Both photographic masters inspected at full size and in contact sheet; physical device pending"
+    },
+    "unit-06": {
+      "portraitSha256": "fc4d1fd174d57d8d5727121dbd3fd075e1c0ba03835b68808dd3b50b11f28e57",
+      "landscapeSha256": "dbf5321b10e93ac9f25ffc35a53f75f7194c9d78e15249359abdd16a8147add1",
+      "reviewedAt": "2026-11-17",
+      "scope": "Both photographic masters inspected at full size and in contact sheet; physical device pending"
+    },
+    "unit-07": {
+      "portraitSha256": "bbc421948f022bf27c97fb4116fe4dc906e37397a0463a00bf1729535b4c044a",
+      "landscapeSha256": "b58c9b9f1784be023286a9710f59ee4af17f8042bce551e30409b0f92281c55e",
+      "reviewedAt": "2026-11-17",
+      "scope": "Both photographic masters inspected at full size and in contact sheet; physical device pending"
+    },
+    "unit-08": {
+      "portraitSha256": "83b6553993c8ebdefb0cfecea2d910133ab9ac19f98fde7ac0cce447a1769177",
+      "landscapeSha256": "649711e1a8c685beffa6479bea462aa534230b1af04593c81b520cee1b4c173b",
+      "reviewedAt": "2026-11-17",
+      "scope": "Both photographic masters inspected at full size and in contact sheet; physical device pending"
+    }
+  }
+}
