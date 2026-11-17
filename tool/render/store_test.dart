@@ -18,9 +18,11 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:holyhim/design/design.dart';
+import 'package:holyhim/design/widgets/glass.dart';
+import 'package:holyhim/design/widgets/hide_region.dart';
 import 'package:holyhim/domain/onboarding_flow.dart';
 import 'package:holyhim/features/celebration/celebration_screen.dart';
-import 'package:holyhim/features/journey/journey_screen.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:holyhim/features/lesson/lesson_screen.dart';
 import 'package:holyhim/features/onboarding/onboarding_screen.dart';
 import 'package:holyhim/features/paywall/paywall_screen.dart';
@@ -70,7 +72,8 @@ class StatusBar extends StatelessWidget {
               right: 0,
               width: 134,
               top: 21,
-              child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+              child:
+                  Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 CustomPaint(size: const Size(18, 12), painter: _Bars(ink)),
                 const SizedBox(width: 6),
                 Icon(CupertinoIcons.wifi, size: 17, color: ink),
@@ -176,20 +179,33 @@ class _PicturePainter extends CustomPainter {
 /// A real card from the screen, lifted toward the viewer.
 class Lift {
   final Rect rect; // in screen points
-  final double scale, turn;
+  final double scale, turn, rx, ry;
   final Offset shift;
   const Lift(this.rect,
-      {this.scale = 1.08, this.turn = 0, this.shift = Offset.zero});
+      {this.scale = 1.08,
+      this.turn = 0,
+      this.rx = 0,
+      this.ry = 0,
+      this.shift = Offset.zero});
+  bool get angled => rx != 0 || ry != 0;
 }
 
 /// A screenshot as the iPhone shows it: its display's continuous corners,
 /// no hardware drawn around it. Any lifted cards ride on top.
 class Screen extends StatelessWidget {
   final ui.Image image;
+
+  /// The full screen the lifted cards are cut from; [image] is the same
+  /// screen rendered with those cards left out, so each appears once.
+  final ui.Image? source;
   final double width, turn;
   final List<Lift> lifts;
   const Screen(this.image,
-      {super.key, required this.width, this.turn = 0, this.lifts = const []});
+      {super.key,
+      required this.width,
+      this.source,
+      this.turn = 0,
+      this.lifts = const []});
 
   static const corner = 55.0; // iPhone 15/16 Pro display, in points
 
@@ -207,7 +223,8 @@ class Screen extends StatelessWidget {
               Positioned.fill(
                   child: DecoratedBox(
                       decoration: ShapeDecoration(
-                          shape: RoundedSuperellipseBorder(borderRadius: radius),
+                          shape:
+                              RoundedSuperellipseBorder(borderRadius: radius),
                           shadows: const [
                             BoxShadow(
                                 color: Color(0x4D1A0A10),
@@ -226,33 +243,38 @@ class Screen extends StatelessWidget {
                     top: lift.rect.top * s + lift.shift.dy,
                     width: lift.rect.width * s,
                     height: lift.rect.height * s,
-                    child: Transform.rotate(
-                        angle: lift.turn,
-                        child: Transform.scale(
-                            scale: lift.scale,
-                            child: DecoratedBox(
-                                decoration: ShapeDecoration(
-                                    shape: RoundedSuperellipseBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(30 * s)),
-                                    shadows: const [
-                                      BoxShadow(
-                                          color: Color(0x591A0A10),
-                                          blurRadius: 50,
-                                          offset: Offset(0, 28)),
-                                      BoxShadow(
-                                          color: Color(0x261A0A10),
-                                          blurRadius: 10,
-                                          offset: Offset(0, 5)),
-                                    ]),
-                                child: ClipRSuperellipse(
-                                    borderRadius: BorderRadius.circular(30 * s),
-                                    child: Picture(image,
-                                        src: Rect.fromLTRB(
-                                            lift.rect.left * 3,
-                                            lift.rect.top * 3,
-                                            lift.rect.right * 3,
-                                            lift.rect.bottom * 3))))))),
+                    child: Transform(
+                        alignment: Alignment.center,
+                        transform: Matrix4.identity()
+                          ..setEntry(3, 2, .0016)
+                          ..rotateX(lift.rx)
+                          ..rotateY(lift.ry)
+                          ..rotateZ(lift.turn)
+                          ..scaleByDouble(lift.scale, lift.scale, 1, 1),
+                        child: DecoratedBox(
+                            decoration: ShapeDecoration(
+                                shape: RoundedSuperellipseBorder(
+                                    borderRadius:
+                                        BorderRadius.circular(30 * s)),
+                                shadows: [
+                                  BoxShadow(
+                                      color: const Color(0x661A0A10),
+                                      blurRadius: lift.angled ? 70 : 50,
+                                      offset: Offset(lift.ry * -60,
+                                          lift.angled ? 44 : 28)),
+                                  const BoxShadow(
+                                      color: Color(0x261A0A10),
+                                      blurRadius: 10,
+                                      offset: Offset(0, 5)),
+                                ]),
+                            child: ClipRSuperellipse(
+                                borderRadius: BorderRadius.circular(30 * s),
+                                child: Picture(source ?? image,
+                                    src: Rect.fromLTRB(
+                                        lift.rect.left * 3,
+                                        lift.rect.top * 3,
+                                        lift.rect.right * 3,
+                                        lift.rect.bottom * 3)))))),
             ])));
   }
 }
@@ -266,14 +288,6 @@ class Medallion extends StatelessWidget {
   Widget build(BuildContext context) => SizedBox.square(
       dimension: size * 1.8,
       child: Stack(alignment: Alignment.center, children: [
-        DecoratedBox(
-            decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                gradient: RadialGradient(colors: [
-              const Color(0xFFFFE2B0).withValues(alpha: .5),
-              const Color(0xFFFFE2B0).withValues(alpha: 0),
-            ])),
-            child: const SizedBox.expand()),
         Transform.rotate(
             angle: turn,
             child: Container(
@@ -291,7 +305,7 @@ class Medallion extends StatelessWidget {
       ]));
 }
 
-enum Light { night, mulberry, photo, sunrise, blush, olive, gold }
+enum Light { deep, night, mulberry, photo, sunrise, blush, olive, gold }
 
 /// Each frame's own sky.
 class Backdrop extends CustomPainter {
@@ -304,11 +318,12 @@ class Backdrop extends CustomPainter {
           at,
           radius,
           Paint()
-            ..shader = RadialGradient(
-                    colors: [color, color.withValues(alpha: 0)])
-                .createShader(Rect.fromCircle(center: at, radius: radius)));
+            ..shader =
+                RadialGradient(colors: [color, color.withValues(alpha: 0)])
+                    .createShader(Rect.fromCircle(center: at, radius: radius)));
 
-  void _fill(Canvas canvas, Rect r, List<Color> colors, [List<double>? stops]) =>
+  void _fill(Canvas canvas, Rect r, List<Color> colors,
+          [List<double>? stops]) =>
       canvas.drawRect(
           r,
           Paint()
@@ -325,7 +340,10 @@ class Backdrop extends CustomPainter {
     final w = size.width, h = size.height;
     switch (light) {
       case Light.night:
-        _fill(canvas, r, const [Color(0xFF120A10), Color(0xFF2A1420), Color(0xFF5A2A3C)],
+        _fill(
+            canvas,
+            r,
+            const [Color(0xFF120A10), Color(0xFF2A1420), Color(0xFF5A2A3C)],
             const [0, .55, 1]);
         final random = math.Random(5);
         for (var i = 0; i < 110; i++) {
@@ -335,12 +353,16 @@ class Backdrop extends CustomPainter {
               random.nextDouble() * 1.1 + .35,
               Paint()
                 ..color = cream.withValues(
-                    alpha: (random.nextDouble() * .7 + .2) * (1 - y / (h * .5))));
+                    alpha:
+                        (random.nextDouble() * .7 + .2) * (1 - y / (h * .5))));
         }
         _glow(canvas, Offset(w * .5, h * 1.02), w * 1.05,
             const Color(0xFFD98A7A).withValues(alpha: .55));
       case Light.mulberry:
-        _fill(canvas, r, const [Color(0xFF2B1220), Color(0xFF5E2840), Color(0xFF94485D)],
+        _fill(
+            canvas,
+            r,
+            const [Color(0xFF2B1220), Color(0xFF5E2840), Color(0xFF94485D)],
             const [0, .5, 1]);
         _glow(canvas, Offset(w * .78, h * .18), w * .9,
             const Color(0xFFF3C98B).withValues(alpha: .22));
@@ -351,28 +373,57 @@ class Backdrop extends CustomPainter {
           const Color(0xFF1A0D14).withValues(alpha: .25),
           const Color(0xFF1A0D14).withValues(alpha: .05),
           const Color(0xFF1A0D14).withValues(alpha: .4),
-        ], const [0, .3, .6, 1]);
+        ], const [
+          0,
+          .3,
+          .6,
+          1
+        ]);
       case Light.sunrise:
-        _fill(canvas, r, const [Color(0xFF5E2C3E), Color(0xFFB45F62), Color(0xFFF0A97F), Color(0xFFF8D2AE)],
-            const [0, .35, .7, 1]);
+        _fill(canvas, r, const [
+          Color(0xFF5E2C3E),
+          Color(0xFFB45F62),
+          Color(0xFFF0A97F),
+          Color(0xFFF8D2AE)
+        ], const [
+          0,
+          .35,
+          .7,
+          1
+        ]);
         _glow(canvas, Offset(w * .5, h * .74), w * 1.1,
             const Color(0xFFFFE3B5).withValues(alpha: .7));
         _glow(canvas, Offset(w * .5, h * .74), w * .35,
             const Color(0xFFFFF6E4).withValues(alpha: .8));
       case Light.blush:
-        _fill(canvas, r, const [Color(0xFFF2CFC4), Color(0xFFF8E2D6), Color(0xFFE9B9AC)],
+        _fill(
+            canvas,
+            r,
+            const [Color(0xFFF2CFC4), Color(0xFFF8E2D6), Color(0xFFE9B9AC)],
             const [0, .55, 1]);
         _glow(canvas, Offset(w * .5, h * .28), w * .95,
             const Color(0xFFFFFFFF).withValues(alpha: .55));
       case Light.olive:
-        _fill(canvas, r, const [Color(0xFFF7F0E4), Color(0xFFEDE3D0), Color(0xFFDCD3B6)],
+        _fill(
+            canvas,
+            r,
+            const [Color(0xFFF7F0E4), Color(0xFFEDE3D0), Color(0xFFDCD3B6)],
             const [0, .6, 1]);
         _glow(canvas, Offset(w * .1, h * .9), w * .9,
             const Color(0xFFA6B07E).withValues(alpha: .35));
         _glow(canvas, Offset(w * .9, h * .15), w * .7,
             const Color(0xFFFFE6BE).withValues(alpha: .5));
+      case Light.deep:
+        _fill(canvas, r, const [Color(0xFF1C0F16), Color(0xFF120A0F)]);
+        _glow(canvas, Offset(w * .5, h * .62), w * 1.1,
+            const Color(0xFFE2B062).withValues(alpha: .32));
+        _glow(canvas, Offset(w * .15, h * .2), w * .6,
+            const Color(0xFF9B4560).withValues(alpha: .35));
       case Light.gold:
-        _fill(canvas, r, const [Color(0xFFFCF4EA), Color(0xFFF6E6CF), Color(0xFFEFD2AE)],
+        _fill(
+            canvas,
+            r,
+            const [Color(0xFFFCF4EA), Color(0xFFF6E6CF), Color(0xFFEFD2AE)],
             const [0, .55, 1]);
         _glow(canvas, Offset(w * .5, h * .5), w * 1.0,
             const Color(0xFFFFE2A8).withValues(alpha: .45));
@@ -403,15 +454,16 @@ class Headline extends StatelessWidget {
                       ? TextStyle(
                           color: dark ? gold : rose,
                           fontStyle: FontStyle.italic,
-                          fontWeight: FontWeight.w600)
+                          fontWeight: FontWeight.w700)
                       : null)
           ]),
           textAlign: TextAlign.center,
           style: HolyTypography.display.copyWith(
               color: ink,
-              fontSize: 50,
-              height: 1.02,
-              letterSpacing: -.6,
+              fontSize: 60,
+              fontWeight: FontWeight.w700,
+              height: .96,
+              letterSpacing: -1.4,
               shadows: dark
                   ? const [Shadow(color: Color(0x80000000), blurRadius: 26)]
                   : null)),
@@ -478,62 +530,109 @@ Widget medallion(Map<String, ui.Image> images, String id, double x, double y,
         child: Medallion(images[id]!, size: size, turn: turn));
 
 List<Frame> frames(Map<String, ui.Image> images, Map<String, Rect> rects) => [
+      // Bright to dark: morning gold at the first frame, night at the last.
       Frame(
-          light: Light.night,
-          headline: 'Feel God’s love\n*every morning*',
-          detail: 'A daily Bible devotional for women',
+          light: Light.gold,
+          headline: 'Become a woman\n*of the Word*',
+          detail: 'The daily Bible devotional for women',
           children: [
-            at(31, 262, Screen(images['today']!, width: 368, lifts: [
-              Lift(rects['today']!, scale: 1.07, shift: const Offset(-8, 0)),
-            ])),
+            at(
+                31,
+                262,
+                Screen(images['today-base']!,
+                    source: images['today'],
+                    width: 368,
+                    lifts: [
+                      Lift(rects['today']!,
+                          scale: 1.08,
+                          rx: .12,
+                          ry: -.34,
+                          shift: const Offset(-8, 8)),
+                    ])),
           ]),
       Frame(
-          light: Light.mulberry,
-          headline: 'His promises,\n*spoken over you*',
+          light: Light.olive,
+          headline: 'His Word.\n*Your strength.*',
           children: [
-            at(22, 236, Screen(images['verse']!, width: 366, turn: -.04, lifts: [
-              Lift(rects['verse']!,
-                  scale: 1.1, turn: .06, shift: const Offset(18, 14)),
-            ])),
+            at(
+                22,
+                240,
+                Screen(images['verse-base']!,
+                    source: images['verse'],
+                    width: 360,
+                    lifts: [
+                      Lift(rects['verse']!,
+                          scale: 1.06,
+                          rx: .1,
+                          ry: .34,
+                          shift: const Offset(16, 12)),
+                    ])),
           ]),
       Frame(
-          light: Light.photo,
-          art: images['seaside'],
-          headline: 'On hard days,\n*you’re not alone*',
+          light: Light.blush,
+          headline: 'Fear less.\n*Trust more.*',
           children: [
-            at(31, 244, Screen(images['heart']!, width: 368, turn: .04)),
+            at(31, 244, Screen(images['heart']!, width: 368, turn: .035)),
           ]),
       Frame(
           light: Light.sunrise,
-          headline: 'Say Amen.\n*Walk in peace.*',
+          headline: 'Show up.\n*Grow stronger.*',
           children: [
             at(31, 248, Screen(images['amen']!, width: 368)),
             medallion(images, 'days-003', 352, 560, size: 140, turn: .14),
           ]),
       Frame(
-          light: Light.blush,
-          headline: 'Good morning,\n*beloved*',
+          light: Light.mulberry,
+          headline: 'Start every day\n*with God*',
           wordsBelow: true,
           children: [
-            at(31, -110, Screen(images['reminder']!, width: 368, lifts: [
-              Lift(rects['reminder']!, scale: 1.16, shift: const Offset(0, 6)),
-            ])),
+            at(
+                31,
+                -110,
+                Screen(images['reminder-base']!,
+                    source: images['reminder'],
+                    width: 368,
+                    lifts: [
+                      Lift(rects['reminder']!,
+                          scale: 1.14,
+                          rx: .2,
+                          ry: -.3,
+                          shift: const Offset(-6, 18)),
+                    ])),
           ]),
       Frame(
-          light: Light.olive,
-          headline: '365 days\n*closer to Him*',
+          light: Light.photo,
+          art: images['seaside'],
+          headline: 'Walk with Him\n*for life*',
           children: [
-            at(33, 246, Screen(images['journey']!, width: 364, turn: -.035)),
+            at(33, 246, Screen(images['walk']!, width: 364, turn: -.035)),
             medallion(images, 'promise-kept', 372, 452, size: 108, turn: .2),
           ]),
       Frame(
-          light: Light.gold,
-          headline: 'Watch your faith\n*blossom*',
+          light: Light.night,
+          headline: 'Faith is better\n*together*',
+          children: [
+            at(
+                35,
+                254,
+                Screen(images['circle-base']!,
+                    source: images['circle'],
+                    width: 360,
+                    lifts: [
+                      Lift(rects['circle']!,
+                          scale: 1.08,
+                          rx: .16,
+                          ry: .34,
+                          shift: const Offset(18, 0)),
+                    ])),
+          ]),
+      Frame(
+          light: Light.deep,
+          headline: 'Inspire with\n*your commitment*',
           children: [
             at(35, 254, Screen(images['growth']!, width: 360)),
             medallion(images, 'days-365', 372, 286, size: 112, turn: .14),
             medallion(images, 'days-100', 50, 700, size: 100, turn: -.18),
-            medallion(images, 'first-saved', 384, 610, size: 82, turn: .22),
           ]),
     ];
 
@@ -542,8 +641,9 @@ List<Frame> frames(Map<String, ui.Image> images, Map<String, Rect> rects) => [
 void main() {
   setUpAll(() async {
     tzdata.initializeTimeZones();
-    await loadFonts();
+    await loadFonts(emoji: true);
     HolySounds.player = (String _, {double gain = 1}) async {};
+    OnboardingScreen.resumeToast = false;
   });
 
   testWidgets('phase 1: the real screens', (tester) async {
@@ -557,29 +657,53 @@ void main() {
 
     Future<void> screen(String id, Widget page,
         {WalkState? walk,
-        LifetimeState? billing,
+        AccessState? billing,
         bool light = true,
         Future<void> Function()? action,
+        List<Override> overrides = const [],
         Finder Function()? card}) async {
       debugDefaultTargetPlatformOverride = TargetPlatform.iOS;
       SharedPreferences.setMockInitialValues({});
       await capture(tester, '$raw/$id.png',
           Stack(children: [page, StatusBar(light: light)]),
-          phone: Phone.pro,
-          pixelRatio: 3,
-          action: action,
-          wrap: (app) => scope(app,
-              lastSignIn: null,
-              walk: walk ?? reader,
-              billing: billing ??
-                  const LifetimeState(loading: false, product: product)));
+          phone: Phone.pro, pixelRatio: 3, action: action, wrap: (app) {
+        final scoped = scope(app,
+            lastSignIn: null,
+            walk: walk ?? reader,
+            community: true,
+            billing: billing ?? memberState);
+        return overrides.isEmpty
+            ? scoped
+            : ProviderScope(overrides: overrides, child: scoped);
+      });
+      Rect? hidden;
       if (card != null) {
-        final r = tester.getRect(card());
-        rects[id] = [r.left, r.top, r.right, r.bottom];
+        hidden = tester.getRect(card());
+        rects[id] = [hidden.left, hidden.top, hidden.right, hidden.bottom];
       }
-      debugDefaultTargetPlatformOverride = null;
       expect(tester.takeException(), isNull, reason: id);
       await tester.pumpWidget(const SizedBox());
+      if (hidden != null) {
+        // The same screen with the lifted card left out.
+        SharedPreferences.setMockInitialValues({});
+        await capture(tester, '$raw/$id-base.png',
+            Stack(children: [page, StatusBar(light: light)]),
+            phone: Phone.pro, pixelRatio: 3, action: action, wrap: (app) {
+          final scoped = scope(app,
+              lastSignIn: null,
+              walk: walk ?? reader,
+              community: true,
+              billing: billing ?? memberState);
+          return HideRegion(
+              rect: hidden!,
+              child: overrides.isEmpty
+                  ? scoped
+                  : ProviderScope(overrides: overrides, child: scoped));
+        });
+        expect(tester.takeException(), isNull, reason: '$id-base');
+        await tester.pumpWidget(const SizedBox());
+      }
+      debugDefaultTargetPlatformOverride = null;
     }
 
     Future<void> Function() cards(int count) => () async {
@@ -601,6 +725,8 @@ void main() {
             profile: profile(name: 'Grace'),
             completed: history(2, today: true)));
     await screen('reminder', const OnboardingScreen(),
+        // Let her answer finish arriving before the picture is taken.
+        action: () => tester.pump(const Duration(seconds: 3)),
         walk: WalkState(
             profile: profile(name: 'Grace', onboarded: false, draft: {
           'flowVersion': onboardingFlowVersion,
@@ -608,26 +734,45 @@ void main() {
           'lifeSeason': 'full',
           'familiarity': 'returning',
           'obstacle': 'busy',
+          // Her answer given, so the frame ends on a lit button.
+          'reminder': '07:00',
         })),
         card: () => find
-            .byWidgetPredicate(
-                (w) => w.runtimeType.toString() == '_NotificationPreview')
+            .byWidgetPredicate((w) => w.runtimeType.toString() == 'NotePreview')
             .first);
-    await screen('journey', const JourneyScreen());
-    await screen('growth', HomeShell(initialTab: 2, now: morning),
+    const owner = AccessState(loading: false, purchased: true);
+    await screen('walk', HomeShell(initialTab: 1, now: morning),
         light: false,
+        walk:
+            WalkState(profile: profile(name: 'Grace'), completed: history(12)),
+        billing: owner);
+    await screen('circle', HomeShell(initialTab: 2, now: morning),
+        light: false,
+        card: () => find
+            .ancestor(of: find.text('You'), matching: find.byType(Glass))
+            .first,
+        walk: WalkState(
+            profile: profile(name: 'Grace'), completed: history(12)),
+        billing: owner);
+    await screen('growth', HomeShell(initialTab: 3, now: morning), light: false,
+        action: () async {
+      await tester.drag(find.byType(Scrollable).last, const Offset(0, -560));
+      await tester.pump(const Duration(milliseconds: 300));
+    },
         walk: WalkState(
             profile: profile(name: 'Grace'),
             completed: history(30),
             saved: {1: DateTime(2026, 11, 3), 3: DateTime(2026, 11, 5)}),
-        billing: const LifetimeState(loading: false, purchased: true));
+        billing: const AccessState(loading: false, purchased: true));
     File('$raw/rects.json').writeAsStringSync(jsonEncode(rects));
 
     // For App Review of the purchase only, never a store screenshot.
     debugDefaultTargetPlatformOverride = TargetPlatform.iOS;
     await capture(tester, '$out/iap-review-offer.png',
         OfferScreen(lockedDay: 8, onContinue: () {}),
-        phone: Phone.max, pixelRatio: 3, wrap: (app) => scope(app, walk: reader));
+        phone: Phone.max,
+        pixelRatio: 3,
+        wrap: (app) => scope(app, walk: reader));
     debugDefaultTargetPlatformOverride = null;
     expect(tester.takeException(), isNull, reason: 'offer');
     await tester.pumpWidget(const SizedBox());
@@ -652,10 +797,13 @@ void main() {
         'prayer',
         'amen',
         'reminder',
-        'journey',
+        'walk',
+        'circle',
         'growth'
       ])
         id: '$raw/$id.png',
+      for (final id in ['today', 'verse', 'reminder', 'circle'])
+        '$id-base': '$raw/$id-base.png',
       for (final badge in [
         'days-003',
         'days-007',
@@ -670,14 +818,20 @@ void main() {
     final images = <String, ui.Image>{};
     await tester.runAsync(() async {
       for (final entry in files.entries) {
-        final codec = await ui
-            .instantiateImageCodec(File(entry.value).readAsBytesSync());
+        final codec =
+            await ui.instantiateImageCodec(File(entry.value).readAsBytesSync());
         images[entry.key] = (await codec.getNextFrame()).image;
       }
     });
     const names = [
-      '01-love', '02-promises', '03-hard-days', '04-amen', '05-morning',
-      '06-closer', '07-blossom'
+      '01-love',
+      '02-promises',
+      '03-hard-days',
+      '04-amen',
+      '05-morning',
+      '06-closer',
+      '07-sisters',
+      '08-blossom'
     ];
     final all = frames(images, rects);
     for (var i = 0; i < all.length; i++) {

@@ -1,74 +1,70 @@
-// Ported from Cognein; see store/v2-design-ports.json.
+// Ported from Cognein's SapphireEdgeGlow; see store/v2-design-ports.json.
 import 'dart:math' as math;
 import 'dart:ui' as ui;
-
 import 'package:flutter/material.dart';
 
-/// A slow, rotating sapphire glow hugging the inside of a rounded edge.
+/// A slow, turning rose-gold light hugging the inside of a rounded edge.
 ///
-/// This is the AI Coach screen's glow, made reusable: the same sweep colours,
-/// the same three layers (a wide bloom, a tighter body and a glossy 1px
-/// highlight) and the same 8 second turn. Two things differ, both because a card
-/// is not a display:
+/// Three strokes share one sweep: a wide bloom, a tighter body and a glossy
+/// hairline. The sweep turns once every eight seconds. Place it in a
+/// `Positioned.fill` above the content and inside the clip that rounds the
+/// surface: the strokes sit just inside [corners], so the clip cuts their
+/// outer half away and the rest reads as light coming in from the edge.
 ///
-/// * [scale] shrinks the bloom so it stays graceful on something a few hundred
-///   points wide, where the coach's full-screen bloom would swallow the content.
-/// * [energy] is handed in by the caller instead of being animated here, so a
-///   drag can drive it one-to-one with the finger. (The coach eases its own
-///   intensity with `easeInOut`, which is right for a request the app starts and
-///   wrong for a gesture a finger owns.)
-///
-/// Place it in a `Positioned.fill` above the content and inside the clip that
-/// rounds the card: it paints strokes centred just inside [corners], so the
-/// outer half of each stroke is cut away by the clip and the rest reads as light
-/// bleeding in from the edge. It never takes pointer events and is invisible to
-/// semantics.
-///
-/// The turn stops when [animate] is false, when the route is covered
-/// (`TickerMode`), and when the platform asks for reduced motion. A stopped glow
-/// still paints a single representative frame.
-class RoseEdgeGlow extends StatefulWidget {
-  /// The contour the glow follows; match the clip it sits inside.
+/// It stops turning when [animate] is false, when its route is covered, and
+/// under Reduce Motion, and then paints one still frame.
+class EdgeGlow extends StatefulWidget {
   final BorderRadius corners;
 
-  /// 0..1. 0 is the resting glow; 1 is the brightest, widest state.
+  /// 0 to 1: the resting glow up to the brightest, widest one.
   final double energy;
 
-  /// Multiplies every stroke width and blur radius.
+  /// Multiplies every stroke width and blur.
   final double scale;
 
-  /// Multiplies the glow's opacity. Below 1 for surfaces that should glow
-  /// quietly.
+  /// Multiplies the glow's opacity.
   final double intensity;
 
-  /// Distance in from the edge to the centre line of the strokes.
+  /// From the edge to the centre line of the strokes.
   final double inset;
-
-  /// Whether the sweep turns. False for a card that is behind the deck.
   final bool animate;
 
-  /// Six sweep colours (start, two lights, a dark, a mid, and the start again)
-  /// to glow in a hue other than sapphire. Null keeps the sapphire palette.
-  final List<Color>? colors;
+  /// Six sweep colours: a start, two lights, a dark, a mid, the start again.
+  final List<Color> colors;
 
-  const RoseEdgeGlow({
-    super.key,
-    required this.corners,
-    this.energy = 0,
-    this.scale = 1,
-    this.intensity = 1,
-    this.inset = 3,
-    this.animate = true,
-    this.colors,
-  }) : assert(colors == null || colors.length == 6);
+  /// Whether the surface under the glow is dark, which takes a stronger
+  /// light.
+  final bool onDark;
+
+  const EdgeGlow(
+      {super.key,
+      required this.corners,
+      this.energy = 0,
+      this.scale = 1,
+      this.intensity = 1,
+      this.inset = 3,
+      this.animate = true,
+      this.colors = roseGold,
+      this.onDark = true})
+      : assert(colors.length == 6);
+
+  /// Blush, pearl, champagne and a deep rose, round the edge.
+  static const roseGold = [
+    Color(0xFFE7A3B4),
+    Color(0xFFF6D1C1),
+    Color(0xFFFFF1E2),
+    Color(0xFFB06A7E),
+    Color(0xFFEBC48E),
+    Color(0xFFE7A3B4),
+  ];
 
   @override
-  State<RoseEdgeGlow> createState() => _RoseEdgeGlowState();
+  State<EdgeGlow> createState() => _EdgeGlowState();
 }
 
-class _RoseEdgeGlowState extends State<RoseEdgeGlow>
+class _EdgeGlowState extends State<EdgeGlow>
     with SingleTickerProviderStateMixin {
-  late final AnimationController _phase =
+  late final AnimationController _turn =
       AnimationController(vsync: this, duration: const Duration(seconds: 8));
 
   bool get _turning =>
@@ -83,130 +79,114 @@ class _RoseEdgeGlowState extends State<RoseEdgeGlow>
   }
 
   @override
-  void didUpdateWidget(RoseEdgeGlow oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    if (widget.animate != oldWidget.animate) _sync();
+  void didUpdateWidget(EdgeGlow old) {
+    super.didUpdateWidget(old);
+    if (widget.animate != old.animate) _sync();
   }
 
   void _sync() {
     if (_turning) {
-      if (!_phase.isAnimating) _phase.repeat();
+      if (!_turn.isAnimating) _turn.repeat();
     } else {
-      _phase.stop();
+      _turn.stop();
     }
   }
 
   @override
   void dispose() {
-    _phase.dispose();
+    _turn.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) => IgnorePointer(
-        child: ExcludeSemantics(
+      child: ExcludeSemantics(
           child: RepaintBoundary(
-            child: CustomPaint(
-              painter: _RoseEdgePainter(
-                phase: _phase,
-                energy: widget.energy.clamp(0.0, 1.0),
-                dark: Theme.of(context).brightness == Brightness.dark,
-                corners: widget.corners,
-                scale: widget.scale,
-                intensity: widget.intensity,
-                inset: widget.inset,
-                colors: widget.colors,
-              ),
-            ),
-          ),
-        ),
-      );
+              child: CustomPaint(
+                  painter: _EdgePainter(
+                      turn: _turn,
+                      energy: widget.energy.clamp(0.0, 1.0),
+                      onDark: widget.onDark,
+                      corners: widget.corners,
+                      scale: widget.scale,
+                      intensity: widget.intensity,
+                      inset: widget.inset,
+                      colors: widget.colors)))));
 }
 
-const _sapphire = [
-  Color(0xFFD4AF37),
-  Color(0xFFF2E3B3),
-  Color(0xFFFFF1DA),
-  Color(0xFF8C6D1F),
-  Color(0xFFE3C98A),
-  Color(0xFFD4AF37),
-];
-
-class _RoseEdgePainter extends CustomPainter {
-  final Animation<double> phase;
-  final double energy;
-  final bool dark;
+class _EdgePainter extends CustomPainter {
+  final Animation<double> turn;
+  final double energy, scale, intensity, inset;
+  final bool onDark;
   final BorderRadius corners;
-  final double scale;
-  final double intensity;
-  final double inset;
-  final List<Color>? colors;
-
-  _RoseEdgePainter({
-    required this.phase,
-    required this.energy,
-    required this.dark,
-    required this.corners,
-    required this.scale,
-    required this.intensity,
-    required this.inset,
-    this.colors,
-  }) : super(repaint: phase);
+  final List<Color> colors;
+  _EdgePainter(
+      {required this.turn,
+      required this.energy,
+      required this.onDark,
+      required this.corners,
+      required this.scale,
+      required this.intensity,
+      required this.inset,
+      required this.colors})
+      : super(repaint: turn);
 
   @override
   void paint(Canvas canvas, Size size) {
     if (size.isEmpty) return;
     final bounds = Offset.zero & size;
     final outline = corners.toRRect(bounds).deflate(inset);
-    final breath = 0.95 + 0.05 * math.sin(phase.value * math.pi * 4);
-    final strength = ((dark ? 0.62 : 0.42) + energy * (dark ? 0.28 : 0.34)) *
+    final breath = .95 + .05 * math.sin(turn.value * math.pi * 4);
+    final strength = ((onDark ? .62 : .42) + energy * (onDark ? .28 : .34)) *
         breath *
         intensity;
+    const weights = [1.0, 1.0, .85, .32, 1.0, 1.0];
     final shader = SweepGradient(
-      transform: GradientRotation(phase.value * math.pi * 2),
-      colors: [
-        for (final (i, color) in (colors ?? _sapphire).indexed)
-          color.withValues(alpha: strength * const [1, 1, 0.85, 0.32, 1, 1][i]),
-      ],
-      stops: const [0, 0.22, 0.32, 0.48, 0.76, 1],
-    ).createShader(bounds);
-    // A wide bloom that widens as the energy rises.
+        transform: GradientRotation(turn.value * math.pi * 2),
+        colors: [
+          for (var i = 0; i < 6; i++)
+            colors[i].withValues(alpha: (strength * weights[i]).clamp(0, 1)),
+        ],
+        stops: const [
+          0,
+          .22,
+          .32,
+          .48,
+          .76,
+          1
+        ]).createShader(bounds);
     canvas.drawRRect(
-      outline,
-      Paint()
-        ..style = PaintingStyle.stroke
-        ..strokeWidth = (26 + energy * 22) * scale
-        ..shader = shader
-        ..maskFilter =
-            ui.MaskFilter.blur(ui.BlurStyle.normal, (15 + energy * 13) * scale),
-    );
+        outline,
+        Paint()
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = (26 + energy * 22) * scale
+          ..shader = shader
+          ..maskFilter = ui.MaskFilter.blur(
+              ui.BlurStyle.normal, (15 + energy * 13) * scale));
     canvas.drawRRect(
-      outline,
-      Paint()
-        ..style = PaintingStyle.stroke
-        ..strokeWidth = (5 + energy * 4) * scale
-        ..shader = shader
-        ..maskFilter =
-            ui.MaskFilter.blur(ui.BlurStyle.normal, (3 + energy * 2) * scale),
-    );
-    // A narrow travelling highlight gives the edge its glossy sapphire finish.
+        outline,
+        Paint()
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = (5 + energy * 4) * scale
+          ..shader = shader
+          ..maskFilter = ui.MaskFilter.blur(
+              ui.BlurStyle.normal, (3 + energy * 2) * scale));
     canvas.drawRRect(
-      outline,
-      Paint()
-        ..style = PaintingStyle.stroke
-        ..strokeWidth = (1.2 + energy * 0.8) * math.max(scale, 0.75)
-        ..shader = shader,
-    );
+        outline,
+        Paint()
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = (1.2 + energy * .8) * math.max(scale, .75)
+          ..shader = shader);
   }
 
   @override
-  bool shouldRepaint(_RoseEdgePainter oldDelegate) =>
-      dark != oldDelegate.dark ||
-      corners != oldDelegate.corners ||
-      energy != oldDelegate.energy ||
-      scale != oldDelegate.scale ||
-      intensity != oldDelegate.intensity ||
-      inset != oldDelegate.inset ||
-      colors != oldDelegate.colors ||
-      phase != oldDelegate.phase;
+  bool shouldRepaint(_EdgePainter old) =>
+      onDark != old.onDark ||
+      corners != old.corners ||
+      energy != old.energy ||
+      scale != old.scale ||
+      intensity != old.intensity ||
+      inset != old.inset ||
+      colors != old.colors ||
+      turn != old.turn;
 }

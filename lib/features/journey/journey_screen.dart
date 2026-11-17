@@ -55,7 +55,7 @@ class _JourneyScreenState extends ConsumerState<JourneyScreen> {
   Widget build(BuildContext context) {
     final t = HolyThemeScope.of(context);
     final state = ref.watch(repositoryProvider);
-    final owned = ref.watch(lifetimeProvider.select((a) => a.active));
+    final owned = ref.watch(accessProvider.select((a) => a.active));
     final pacing =
         pacingFor(state.completed, DateTime.now(), state.profile.timeZone);
     final media = MediaQuery.of(context);

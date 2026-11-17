@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:share_plus/share_plus.dart';
 import '../design/design.dart';
+import '../design/widgets/coin_3d.dart';
 import '../domain/badges.dart';
 
 /// The same porcelain keepsake used on the shelf, rendered as a 9:16 image.
@@ -27,12 +28,7 @@ class BadgeShareCard extends StatelessWidget {
                   style: HolyTypography.eyebrow
                       .copyWith(letterSpacing: 3, color: theme.ink)),
               const Spacer(),
-              Badge3D(
-                  badgeId: badge.id,
-                  icon: icon,
-                  label: '',
-                  earned: true,
-                  size: 190),
+              Coin3D(badgeId: badge.id, earned: true, size: 190, still: true),
               const SizedBox(height: 20),
               Text(badge.title,
                   textAlign: TextAlign.center,

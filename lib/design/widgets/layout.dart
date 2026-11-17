@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import '../themes.dart';
 import '../tokens.dart';
+import 'backdrop.dart';
 
 /// A fixed composition: children are laid out to fill exactly one viewport,
 /// with [Spacer]s and [Expanded] distributing the space. When the content
@@ -49,9 +50,7 @@ class FitColumn extends StatelessWidget {
 /// minimum its [FitFlex] children declare.
 class _MeasuredColumn extends Column {
   const _MeasuredColumn(
-      {super.crossAxisAlignment,
-      super.mainAxisAlignment,
-      super.children});
+      {super.crossAxisAlignment, super.mainAxisAlignment, super.children});
   @override
   RenderFlex createRenderObject(BuildContext context) => _RenderMeasuredFlex(
       direction: direction,
@@ -101,7 +100,8 @@ class FitFlex extends StatelessWidget {
   final double min;
   final int flex;
   final Widget child;
-  const FitFlex({super.key, required this.min, this.flex = 1, required this.child});
+  const FitFlex(
+      {super.key, required this.min, this.flex = 1, required this.child});
   @override
   Widget build(BuildContext context) =>
       Expanded(flex: flex, child: _FlexMin(min: min, child: child));
@@ -187,11 +187,12 @@ class KeyboardLift extends StatelessWidget {
     final media = MediaQuery.of(context);
     final inset = media.viewInsets.bottom;
     final open = inset > 60;
-    final bottom = math.max(inset + HolySpace.s, media.padding.bottom + HolySpace.m);
+    final bottom =
+        math.max(inset + HolySpace.s, media.padding.bottom + HolySpace.m);
     return Scaffold(
         resizeToAvoidBottomInset: false,
         backgroundColor: color ?? HolyThemeScope.of(context).paper,
-        body: Stack(children: [
+        body: _field(Stack(children: [
           if (background != null) Positioned.fill(child: background!),
           Padding(
               padding: EdgeInsets.only(
@@ -204,20 +205,24 @@ class KeyboardLift extends StatelessWidget {
                     Expanded(child: builder(context, open)),
                     if (footer != null)
                       Padding(
-                          padding: const EdgeInsets.fromLTRB(
-                              HolySpace.gutter, HolySpace.s, HolySpace.gutter, 0),
+                          padding: const EdgeInsets.fromLTRB(HolySpace.gutter,
+                              HolySpace.s, HolySpace.gutter, 0),
                           child: Center(
                               child: ConstrainedBox(
                                   constraints:
                                       const BoxConstraints(maxWidth: 560),
                                   child: footer))),
                   ]))),
-        ]));
+        ])));
   }
+
+  /// The moving field, unless the caller asked for a colour of its own.
+  Widget _field(Widget child) =>
+      color == null ? HolyBackdrop(calm: true, child: child) : child;
 }
 
 /// A standard sub-screen frame: back control, a display title and a fitted
-/// body on paper.
+/// body on the calm field.
 class ScreenFrame extends StatelessWidget {
   final String title;
   final String? subtitle;
@@ -267,21 +272,23 @@ class ScreenFrame extends StatelessWidget {
     final bottom = MediaQuery.paddingOf(context).bottom + HolySpace.m;
     return Scaffold(
         backgroundColor: t.paper,
-        body: SafeArea(
-            bottom: false,
-            child: Column(children: [
-              header,
-              Expanded(
-                  child: scroll
-                      ? ListView(
-                          padding: EdgeInsets.fromLTRB(HolySpace.gutter, 0,
-                              HolySpace.gutter, bottom + HolySpace.l),
-                          children: [titleBlock, ...children])
-                      : FitColumn(
-                          padding: EdgeInsets.fromLTRB(
-                              HolySpace.gutter, 0, HolySpace.gutter, bottom),
-                          children: [titleBlock, ...children])),
-            ])));
+        body: HolyBackdrop(
+            calm: true,
+            child: SafeArea(
+                bottom: false,
+                child: Column(children: [
+                  header,
+                  Expanded(
+                      child: scroll
+                          ? ListView(
+                              padding: EdgeInsets.fromLTRB(HolySpace.gutter, 0,
+                                  HolySpace.gutter, bottom + HolySpace.l),
+                              children: [titleBlock, ...children])
+                          : FitColumn(
+                              padding: EdgeInsets.fromLTRB(HolySpace.gutter, 0,
+                                  HolySpace.gutter, bottom),
+                              children: [titleBlock, ...children])),
+                ]))));
   }
 }
 

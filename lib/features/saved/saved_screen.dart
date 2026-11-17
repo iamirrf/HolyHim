@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../data/lessons.g.dart';
@@ -7,13 +6,14 @@ import '../../design/design.dart';
 import '../../domain/pacing.dart';
 import '../../services/repository.dart';
 import '../../services/share_card.dart';
+import '../share/share_sheet.dart';
 import '../common.dart';
 
 /// Saved verses as keepsake cards on a snap carousel.
 class SavedScreen extends ConsumerStatefulWidget {
-  /// Opened from the profile rather than shown as a tab: adds a way back.
-  final bool standalone;
-  const SavedScreen({super.key, this.standalone = false});
+  /// Opened from Profile rather than as a tab: shows a way back.
+  final VoidCallback? onBack;
+  const SavedScreen({super.key, this.onBack});
   @override
   ConsumerState<SavedScreen> createState() => _SavedScreenState();
 }
@@ -27,14 +27,7 @@ class _SavedScreenState extends ConsumerState<SavedScreen> {
     super.dispose();
   }
 
-  Future<void> _share(int day) async {
-    final style = await showModalBottomSheet<KeepsakeStyle>(
-        context: context,
-        builder: (context) => const _ShareStyleSheet());
-    if (style != null && mounted) {
-      await shareVerseCard(context, lessons[day - 1], style: style);
-    }
-  }
+  Future<void> _share(int day) => showShareSheet(context, lessons[day - 1]);
 
   void _remove(int day) {
     final repo = ref.read(repositoryProvider.notifier);
@@ -54,37 +47,44 @@ class _SavedScreenState extends ConsumerState<SavedScreen> {
         pacingFor(state.completed, DateTime.now(), state.profile.timeZone);
     if (page >= days.length && days.isNotEmpty) page = days.length - 1;
     return ColoredBox(
-        color: t.paper,
+        color: backdropPaper(context, t),
         child: Padding(
             padding: EdgeInsets.only(
                 top: media.padding.top + 16, bottom: media.padding.bottom),
-            child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              if (widget.standalone)
-                const Padding(
-                    padding: EdgeInsets.fromLTRB(HolySpace.gutter - 8, 0, 0, 8),
-                    child: BackControl()),
+            child:
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               Padding(
                   padding:
                       const EdgeInsets.symmetric(horizontal: HolySpace.gutter),
-                  child: Row(crossAxisAlignment: CrossAxisAlignment.end, children: [
-                    Expanded(
-                        child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                          Eyebrow(days.isEmpty
-                              ? 'Keepsakes'
-                              : '${days.length} kept ${days.length == 1 ? 'verse' : 'verses'}'),
-                          const SizedBox(height: 4),
-                          Semantics(
-                              header: true,
-                              child: Text('Saved',
-                                  style: HolyTypography.title
-                                      .copyWith(color: t.ink))),
-                        ])),
-                    if (days.length > 1)
-                      Text('${page + 1} of ${days.length}',
-                          style: HolyTypography.label.copyWith(color: t.muted)),
-                  ])),
+                  child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        if (widget.onBack != null) ...[
+                          IconControl(
+                              icon: CupertinoIcons.chevron_left,
+                              label: 'Back',
+                              onPressed: widget.onBack!),
+                          const SizedBox(width: 12),
+                        ],
+                        Expanded(
+                            child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                              Eyebrow(days.isEmpty
+                                  ? 'Keepsakes'
+                                  : '${days.length} kept ${days.length == 1 ? 'verse' : 'verses'}'),
+                              const SizedBox(height: 4),
+                              Semantics(
+                                  header: true,
+                                  child: Text('Saved',
+                                      style: HolyTypography.title
+                                          .copyWith(color: t.ink))),
+                            ])),
+                        if (days.length > 1)
+                          Text('${page + 1} of ${days.length}',
+                              style: HolyTypography.label
+                                  .copyWith(color: t.muted)),
+                      ])),
               const SizedBox(height: 18),
               Expanded(
                   child: days.isEmpty
@@ -142,13 +142,24 @@ class _Keepsake extends StatelessWidget {
     final t = HolyThemeScope.of(context);
     final lesson = lessons[day - 1];
     const months = [
-      'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-      'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+      'Jan',
+      'Feb',
+      'Mar',
+      'Apr',
+      'May',
+      'Jun',
+      'Jul',
+      'Aug',
+      'Sep',
+      'Oct',
+      'Nov',
+      'Dec'
     ];
     return Paper(
         padding: EdgeInsets.zero,
         lift: 1.3,
-        child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+        child:
+            Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
           Expanded(
               child: Stack(fit: StackFit.expand, children: [
             KeepsakeCard(lesson: lesson),
@@ -205,7 +216,8 @@ class _Empty extends StatelessWidget {
               child: SizedBox(
                   width: 200,
                   height: 250,
-                  child: Image.asset('assets/art/library/scripture-morning.webp',
+                  child: Image.asset(
+                      'assets/art/library/scripture-morning.webp',
                       fit: BoxFit.cover,
                       excludeFromSemantics: true,
                       errorBuilder: (c, e, s) => ColoredBox(color: t.sunk))))),
@@ -222,53 +234,5 @@ class _Empty extends StatelessWidget {
       HolyButton.secondary('Open today’s lesson', onPressed: onToday),
       const Spacer(),
     ]);
-  }
-}
-
-class _ShareStyleSheet extends StatelessWidget {
-  const _ShareStyleSheet();
-  @override
-  Widget build(BuildContext context) {
-    final t = HolyThemeScope.of(context);
-    Widget option(KeepsakeStyle style, String label, String detail, double ratio) =>
-        Expanded(
-            child: Pressable(
-                onPressed: () => Navigator.pop(context, style),
-                semanticLabel: '$label, $detail',
-                child: Column(children: [
-                  SizedBox(
-                      height: 120,
-                      child: Center(
-                          child: AspectRatio(
-                              aspectRatio: ratio,
-                              child: DecoratedBox(
-                                  decoration: ShapeDecoration(
-                                      color: t.sunk,
-                                      shape: RoundedSuperellipseBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(12),
-                                          side: BorderSide(color: t.hairline))),
-                                  child: Center(
-                                      child: Icon(CupertinoIcons.photo,
-                                          color: t.muted)))))),
-                  const SizedBox(height: 8),
-                  Text(label,
-                      style: HolyTypography.label.copyWith(color: t.ink)),
-                  Text(detail,
-                      style: HolyTypography.caption.copyWith(color: t.muted)),
-                ])));
-    return SafeArea(
-        child: Padding(
-            padding: const EdgeInsets.fromLTRB(24, 0, 24, 20),
-            child: Column(mainAxisSize: MainAxisSize.min, children: [
-              Text('Share this verse',
-                  style: HolyTypography.headline.copyWith(color: t.ink)),
-              const SizedBox(height: 18),
-              Row(children: [
-                option(KeepsakeStyle.story, 'Story', 'Tall, 9:16', 9 / 16),
-                const SizedBox(width: 16),
-                option(KeepsakeStyle.square, 'Square', 'For posts', 1),
-              ]),
-            ])));
   }
 }

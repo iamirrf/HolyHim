@@ -55,6 +55,21 @@ rulesTest('profile rejects wrong owner, anonymous, extra keys, invalid types and
   assert.equal((await request('users/profile-reader', {uid: 'profile-reader', method: 'DELETE'})).status, 403);
 });
 
+rulesTest('engine profile fields validate, and there is no Circle to read or write', async () => {
+  // The shared engine saves these three fields with every profile; HolyHim
+  // accepts them only well formed. Brothers keeps its own block list.
+  assert.equal((await request('users/circle-reader', {uid: 'circle-reader', data: {...profile, circle: false, circleAvatar: '', blocked: []}})).status, 200);
+  for (const change of [{circle: 'yes'}, {circleAvatar: '../x'}, {circleAvatar: 'A'}, {blocked: 'someone'}, {blocked: Array.from({length: 201}, (_, i) => `u${i}`)}]) {
+    assert.equal((await request('users/circle-reader', {uid: 'circle-reader', data: {...profile, ...change}})).status, 403, JSON.stringify(change));
+  }
+  assert.equal((await request('circle/circle-reader', {uid: 'circle-reader', data: {name: 'Me', walk: 999}})).status, 403);
+  assert.equal((await request('circle/anyone', {uid: 'circle-reader'})).status, 403);
+  assert.equal((await request('circle/anyone')).status, 403);
+  assert.equal((await request('circle/anyone/amens/x', {uid: 'circle-reader'})).status, 403);
+  assert.equal((await request('circleReports/x', {uid: 'circle-reader', data: {reason: 'spam'}})).status, 403);
+  assert.equal((await request('circleSuspended/circle-reader', {uid: 'circle-reader'})).status, 403);
+});
+
 rulesTest('completion map accepts all 365 days and merges remain valid at end of journey', async () => {
   const completed = Object.fromEntries(Array.from({length: 365}, (_, i) => [i + 1, '2026-11-03']));
   assert.equal((await request('users/full-reader/walk/progress', {uid: 'full-reader', data: {completed}})).status, 200);

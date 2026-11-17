@@ -22,3 +22,7 @@ export 'widgets/photo_stage.dart';
 export 'widgets/controls.dart';
 export 'widgets/motion_widgets.dart';
 export 'widgets/theme_host.dart';
+export 'widgets/backdrop.dart';
+export 'widgets/text_halo.dart';
+export 'widgets/glow_card.dart';
+export 'widgets/edge_glow.dart';

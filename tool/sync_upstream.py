@@ -68,7 +68,8 @@ NEVER_READ = ('art', 'store/screenshots', 'store/redesign-v3', 'HolyHer_AppIcon_
 # HolyHer's Circle. HolyHim has Brothers (lib/features/community, functions/community.js)
 # in its place, so these never enter the import, not even as a seed.
 EXCLUDED = ('lib/features/circle/', 'lib/services/circle.dart', 'functions/circle.js',
-            'functions/test/circle.test.js', 'tool/render/circle_test.dart')
+            'functions/test/circle.test.js', 'tool/render/circle_test.dart',
+            'tool/render/tabs_test.dart')  # HolyHer's five tabs; HolyHim renders its own in redesign_test.dart
 # Identifiers HolyHer states only in code. HolyHim's values come from
 # config/revenuecat.json (memberEntitlementId) and config/release.json (appStoreId).
 HER_CODE_ONLY = {'revenueCatMemberEntitlement': 'entlf63e788b71', 'appStoreId': '6828594137'}

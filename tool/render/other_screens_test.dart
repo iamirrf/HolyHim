@@ -10,7 +10,6 @@ import 'package:holyhim/features/lesson/lesson_screen.dart';
 import 'package:holyhim/features/onboarding/onboarding_screen.dart';
 import 'package:holyhim/features/paywall/paywall_screen.dart';
 import 'package:holyhim/features/welcome/welcome_screen.dart';
-import 'package:holyhim/services/billing.dart';
 import 'package:holyhim/services/repository.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:timezone/data/latest.dart' as tz;
@@ -46,7 +45,7 @@ void main() {
         wrap: (app) => scope(app,
             walk: walk,
             user: id == 'welcome' ? null : null,
-            billing: LifetimeState(loading: false, purchased: owned, product: product)));
+            billing: owned ? memberState : offerState));
     final error = tester.takeException();
     if (error != null) debugPrint('!! $id: $error');
     await tester.pumpWidget(const SizedBox());
@@ -60,7 +59,7 @@ void main() {
       await shot(tester, 'onboarding-$step', const OnboardingScreen(),
           WalkState(profile: profile(draft: _draft(step), onboarded: step == 'letter')));
     }
-    await shot(tester, 'offer', OfferScreen(onboarding: true, onContinue: () {}),
+    await shot(tester, 'offer', OfferScreen(locked: true, onContinue: () {}),
         WalkState(profile: profile(), completed: history(0)));
     await shot(tester, 'lesson', const LessonScreen(day: 3),
         WalkState(profile: profile(), completed: history(2)), owned: true);

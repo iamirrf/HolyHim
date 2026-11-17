@@ -12,6 +12,7 @@ import '../../domain/calendar.dart';
 import '../../domain/daily_verse.dart';
 import '../../domain/lesson_position.dart';
 import '../../domain/pacing.dart';
+import '../../domain/milestones.dart';
 import '../../domain/streak.dart';
 import '../../services/auth_service.dart';
 import '../../services/billing.dart';
@@ -47,7 +48,7 @@ class _TodayScreenState extends ConsumerState<TodayScreen> {
   Widget build(BuildContext context) {
     final t = HolyThemeScope.of(context);
     final state = ref.watch(repositoryProvider);
-    final owned = ref.watch(lifetimeProvider.select((a) => a.active));
+    final owned = ref.watch(accessProvider.select((a) => a.active));
     final now = widget.now ?? DateTime.now();
     final zone = state.profile.timeZone;
     final local = localNow(now, zone);
@@ -64,7 +65,7 @@ class _TodayScreenState extends ConsumerState<TodayScreen> {
     final verse = dailyVerse(lessons, now, zone);
 
     return ColoredBox(
-        color: t.paper,
+        color: backdropPaper(context, t),
         child: Padding(
             padding: EdgeInsets.only(top: media.padding.top),
             child: FitColumn(
@@ -90,7 +91,7 @@ class _TodayScreenState extends ConsumerState<TodayScreen> {
                                       maxLines: 2,
                                       style: HolyTypography.title.copyWith(
                                           color: t.ink,
-                                          fontSize: compact ? 26 : 30))),
+                                          fontSize: compact ? 28 : 32))),
                             ])),
                         const SizedBox(width: 12),
                         _StreakBadge(days: streak.current),
@@ -102,12 +103,26 @@ class _TodayScreenState extends ConsumerState<TodayScreen> {
                           completed: state.completed.values.toSet(),
                           grace: streak.graceDates,
                           today: local)),
+                  if (!compact && !pacing.finished)
+                    Padding(
+                        padding: const EdgeInsets.only(top: 12),
+                        child: _NextStep(
+                            evening: local.hour >= 17 &&
+                                !pacing.completedToday &&
+                                pacing.canBegin &&
+                                streak.current >= 2,
+                            walk: streak.current,
+                            milestone: nextMilestone(state.completed.length))),
                   SizedBox(height: compact ? 12 : 18),
                   FitFlex(
                       // The text block grows with the reader's text size;
                       // the photograph above it gives way first.
-                      min: 250 * MediaQuery.textScalerOf(context).scale(16) / 16 +
-                          (MediaQuery.textScalerOf(context).scale(16) > 17 ? 60 : 0),
+                      min: 250 *
+                              MediaQuery.textScalerOf(context).scale(16) /
+                              16 +
+                          (MediaQuery.textScalerOf(context).scale(16) > 17
+                              ? 60
+                              : 0),
                       child: Rise(
                           index: 2,
                           child: _LessonCard(
@@ -198,53 +213,51 @@ class WeekRow extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = HolyThemeScope.of(context);
     const letters = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
-    return Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          for (var i = 6; i >= 0; i--)
-            () {
-              final d = DateTime(today.year, today.month, today.day - i);
-              final key = dateKey(d);
-              final read = completed.contains(key);
-              final kept = grace.contains(key);
-              final isToday = i == 0;
-              return Semantics(
-                  label:
-                      '${letters[d.weekday - 1]} ${d.day}, ${read ? 'read' : kept ? 'grace day' : 'not read'}',
-                  excludeSemantics: true,
-                  child: Column(children: [
-                    Text(letters[d.weekday - 1],
-                        style: HolyTypography.caption.copyWith(
-                            color: isToday ? t.accent : t.muted,
-                            fontWeight: FontWeight.w700)),
-                    const SizedBox(height: 6),
-                    Container(
-                        width: MediaQuery.sizeOf(context).height < 740 ? 32 : 36,
-                        height: MediaQuery.sizeOf(context).height < 740 ? 32 : 36,
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: read ? t.olive : t.surface,
-                            border: Border.all(
-                                color: read
-                                    ? t.olive
-                                    : isToday
-                                        ? t.accent
-                                        : t.hairline,
-                                width: isToday && !read ? 1.6 : 1)),
-                        child: Center(
-                            child: read
-                                ? Icon(CupertinoIcons.checkmark_alt,
-                                    size: 18, color: t.surface)
-                                : kept
-                                    ? Icon(CupertinoIcons.leaf_arrow_circlepath,
-                                        size: 15, color: t.olive)
-                                    : Text('${d.day}',
-                                        style: HolyTypography.caption.copyWith(
-                                            color: isToday ? t.ink : t.muted,
-                                            fontWeight: FontWeight.w700)))),
-                  ]));
-            }(),
-        ]);
+    return Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+      for (var i = 6; i >= 0; i--)
+        () {
+          final d = DateTime(today.year, today.month, today.day - i);
+          final key = dateKey(d);
+          final read = completed.contains(key);
+          final kept = grace.contains(key);
+          final isToday = i == 0;
+          return Semantics(
+              label:
+                  '${letters[d.weekday - 1]} ${d.day}, ${read ? 'read' : kept ? 'grace day' : 'not read'}',
+              excludeSemantics: true,
+              child: Column(children: [
+                Text(letters[d.weekday - 1],
+                    style: HolyTypography.caption.copyWith(
+                        color: isToday ? t.accent : t.muted,
+                        fontWeight: FontWeight.w700)),
+                const SizedBox(height: 6),
+                Container(
+                    width: MediaQuery.sizeOf(context).height < 740 ? 32 : 36,
+                    height: MediaQuery.sizeOf(context).height < 740 ? 32 : 36,
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: read ? t.olive : t.surface,
+                        border: Border.all(
+                            color: read
+                                ? t.olive
+                                : isToday
+                                    ? t.accent
+                                    : t.hairline,
+                            width: isToday && !read ? 1.6 : 1)),
+                    child: Center(
+                        child: read
+                            ? Icon(CupertinoIcons.checkmark_alt,
+                                size: 18, color: t.surface)
+                            : kept
+                                ? Icon(CupertinoIcons.leaf_arrow_circlepath,
+                                    size: 15, color: t.olive)
+                                : Text('${d.day}',
+                                    style: HolyTypography.caption.copyWith(
+                                        color: isToday ? t.ink : t.muted,
+                                        fontWeight: FontWeight.w700)))),
+              ]));
+        }(),
+    ]);
   }
 }
 
@@ -292,7 +305,7 @@ class _LessonCard extends ConsumerWidget {
                           : _CardState.begin;
           final eyebrow = switch (state) {
             _CardState.done => 'Day $day · Complete',
-            _CardState.finished => 'The whole road · Complete',
+            _CardState.finished => 'Every chapter walked',
             _ => 'Day $day · ${lesson.theme}',
           };
           void open() {
@@ -311,7 +324,7 @@ class _LessonCard extends ConsumerWidget {
             _CardState.begin => 'Begin Day $day',
             _CardState.resume => 'Continue Day $day',
             _CardState.done => 'Read again',
-            _CardState.locked => 'Unlock lifetime access',
+            _CardState.locked => 'See membership',
             _CardState.finished => 'Start again at Day 1',
           };
 
@@ -341,7 +354,11 @@ class _LessonCard extends ConsumerWidget {
                                       gradient: LinearGradient(
                                           begin: Alignment.topCenter,
                                           end: Alignment.bottomCenter,
-                                          stops: [0, .5, 1],
+                                          stops: [
+                                    0,
+                                    .5,
+                                    1
+                                  ],
                                           colors: [
                                     Color(0x33000000),
                                     Color(0x00000000),
@@ -384,13 +401,12 @@ class _LessonCard extends ConsumerWidget {
                                           style: HolyTypography.caption
                                               .copyWith(
                                                   color: HolyTheme.photoInk,
-                                                  fontWeight:
-                                                      FontWeight.w700)),
+                                                  fontWeight: FontWeight.w700)),
                                   ])),
                             ])),
                             Padding(
-                                padding: EdgeInsets.fromLTRB(
-                                    20, compact ? 14 : 18, 20, compact ? 16 : 20),
+                                padding: EdgeInsets.fromLTRB(20,
+                                    compact ? 14 : 18, 20, compact ? 16 : 20),
                                 child: Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
@@ -401,8 +417,7 @@ class _LessonCard extends ConsumerWidget {
                                           style: HolyTypography.headline
                                               .copyWith(
                                                   color: t.ink,
-                                                  fontSize:
-                                                      compact ? 24 : 27)),
+                                                  fontSize: compact ? 24 : 27)),
                                       const SizedBox(height: 6),
                                       Text(
                                           switch (state) {
@@ -410,18 +425,17 @@ class _LessonCard extends ConsumerWidget {
                                                 ? lesson.holdOn
                                                 : 'Tomorrow: ${next.title}. ${next.teaser}',
                                             _CardState.locked =>
-                                              'Days 1 to 7 were free. One payment opens every lesson, for life.',
+                                              'Membership opens every lesson, every morning.',
                                             _CardState.finished =>
-                                              'You walked the whole road. Every lesson is still yours.',
+                                              'You walked every chapter. Every lesson is still here for you.',
                                             _ => lesson.teaser,
                                           },
                                           maxLines: compact ? 2 : 3,
                                           overflow: TextOverflow.ellipsis,
-                                          style: HolyTypography.readingItalic
-                                              .copyWith(
-                                                  color: t.muted,
-                                                  fontSize: compact ? 15.5 : 16.5,
-                                                  height: 1.45)),
+                                          style: HolyTypography.ui.copyWith(
+                                              color: t.muted,
+                                              fontSize: compact ? 14.5 : 15.5,
+                                              height: 1.45)),
                                       SizedBox(height: compact ? 12 : 16),
                                       state == _CardState.done
                                           ? HolyButton.secondary(action,
@@ -472,8 +486,8 @@ class _VerseRow extends StatelessWidget {
                     Text('“$verse”',
                         maxLines: compact ? 1 : 2,
                         overflow: TextOverflow.ellipsis,
-                        style: HolyTypography.verse.copyWith(
-                            color: t.ink, fontSize: 19, height: 1.2)),
+                        style: HolyTypography.verse
+                            .copyWith(color: t.ink, fontSize: 19, height: 1.2)),
                   ])),
               Icon(CupertinoIcons.chevron_right, size: 15, color: t.muted),
             ])));
@@ -487,14 +501,13 @@ class _JourneyRow extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = HolyThemeScope.of(context);
     final chapter = ChapterCatalog.forDay(day);
-    final index = chapter == null
-        ? 1
-        : ChapterCatalog.chapters.indexOf(chapter) + 1;
+    final index =
+        chapter == null ? 1 : ChapterCatalog.chapters.indexOf(chapter) + 1;
     return Pressable(
         onPressed: () => context.push('/journey'),
         pressedScale: .98,
         semanticLabel:
-            'Your journey. Chapter $index of 73, ${chapter?.title ?? ''}. $done days read.',
+            'Your walk. Chapter $index, ${chapter?.title ?? ''}. $done lessons read.',
         child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
             child: Row(children: [
@@ -510,7 +523,7 @@ class _JourneyRow extends StatelessWidget {
                     ClipRRect(
                         borderRadius: BorderRadius.circular(2),
                         child: LinearProgressIndicator(
-                            value: (done % 5) / 5,
+                            value: done / 365,
                             minHeight: 3,
                             color: t.accent,
                             backgroundColor: t.hairline)),
@@ -521,5 +534,50 @@ class _JourneyRow extends StatelessWidget {
               const SizedBox(width: 4),
               Icon(CupertinoIcons.chevron_right, size: 14, color: t.accent),
             ])));
+  }
+}
+
+/// One line under the week: in the evening, the walk worth keeping tonight;
+/// otherwise how close the next medallion is.
+class _NextStep extends StatelessWidget {
+  final bool evening;
+  final int walk;
+  final Milestone? milestone;
+  const _NextStep(
+      {required this.evening, required this.walk, required this.milestone});
+  @override
+  Widget build(BuildContext context) {
+    final t = HolyThemeScope.of(context);
+    final goal = milestone;
+    if (!evening && goal == null) return const SizedBox.shrink();
+    final text =
+        evening ? 'Read tonight to keep your $walk-day walk' : goal!.distance;
+    return Semantics(
+        container: true,
+        child: Row(children: [
+          Icon(evening ? CupertinoIcons.moon_stars : CupertinoIcons.sparkles,
+              size: 16, color: evening ? t.accent : t.gold),
+          const SizedBox(width: 8),
+          Expanded(
+              child: Text(text,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: HolyTypography.label.copyWith(
+                      color: evening ? t.accent : t.ink,
+                      fontWeight:
+                          evening ? FontWeight.w700 : FontWeight.w600))),
+          if (!evening && goal != null) ...[
+            const SizedBox(width: 10),
+            SizedBox(
+                width: 64,
+                child: ClipRRect(
+                    borderRadius: BorderRadius.circular(3),
+                    child: LinearProgressIndicator(
+                        value: goal.progress,
+                        minHeight: 5,
+                        color: t.gold,
+                        backgroundColor: t.hairline))),
+          ],
+        ]));
   }
 }

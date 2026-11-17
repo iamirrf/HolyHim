@@ -141,7 +141,7 @@ class _WalkScreenState extends ConsumerState<WalkScreen> {
   Widget build(BuildContext context) {
     final t = HolyThemeScope.of(context);
     final state = ref.watch(repositoryProvider);
-    final owned = ref.watch(lifetimeProvider.select((a) => a.active));
+    final owned = ref.watch(accessProvider.select((a) => a.active));
     final now = widget.now ?? DateTime.now();
     final zone = state.profile.timeZone;
     final local = localNow(now, zone);

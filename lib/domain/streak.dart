@@ -78,8 +78,7 @@ List<String> _cleanDays(Object? raw) {
   return keys.toList()..sort();
 }
 
-StreakRecord? planStreakUpdate(
-    Map<String, dynamic>? stored, DateTime nowLocal,
+StreakRecord? planStreakUpdate(Map<String, dynamic>? stored, DateTime nowLocal,
     {Iterable<String> additionalDates = const []}) {
   final todayKey = dayKey(nowLocal);
   final today = dayNumber(todayKey)!;

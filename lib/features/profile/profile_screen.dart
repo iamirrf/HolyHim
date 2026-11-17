@@ -20,7 +20,6 @@ import '../../services/community.dart';
 import '../community/community_screen.dart';
 import '../community/community_widgets.dart';
 import 'edit_profile_screen.dart';
-import '../../domain/access.dart';
 import '../../services/auth_service.dart';
 import '../../services/billing.dart';
 import '../../services/notifications.dart';
@@ -46,13 +45,13 @@ class ProfileScreen extends ConsumerWidget {
     final t = HolyThemeScope.of(context);
     final state = ref.watch(repositoryProvider);
     final user = ref.watch(authProvider).user;
-    final owned = ref.watch(lifetimeProvider.select((a) => a.active));
+    final access = ref.watch(accessProvider);
+    final owned = access.active;
     final member = ref.watch(myMemberProvider).valueOrNull;
     final hidden = ref.watch(hiddenProvider).valueOrNull;
     final p = state.profile;
     final name = p.name.trim().isEmpty ? 'Brother' : p.name.trim();
     final media = MediaQuery.of(context);
-    final left = freeDaysLeft(state.completed);
     final streak = streakFor(state.completed, DateTime.now(), p.timeZone);
     final photo = visibleAvatarUrl(p.avatarUrl, user?.photoUrl);
     final next = dayBadgeTitles.keys.firstWhere(
@@ -110,7 +109,7 @@ class ProfileScreen extends ConsumerWidget {
                                       style: HolyTypography.caption
                                           .copyWith(color: t.muted)),
                                   const SizedBox(height: 10),
-                                  _Membership(owned: owned, left: left),
+                                  _Membership(access: access),
                                 ])),
                             Icon(CupertinoIcons.pencil, size: 18, color: t.accent),
                           ])))),
@@ -191,7 +190,7 @@ class ProfileScreen extends ConsumerWidget {
               ],
               if (!owned) ...[
                 const SizedBox(height: 12),
-                _Unlock(left: left),
+                const _Unlock(),
               ],
               section('Your walk'),
               RowGroup(rows: [
@@ -268,13 +267,16 @@ class ProfileScreen extends ConsumerWidget {
   }
 }
 
+/// What he holds: the lifetime unlock sold before membership, a membership
+/// (in its free week or paid), or nothing yet.
 class _Membership extends StatelessWidget {
-  final bool owned;
-  final int left;
-  const _Membership({required this.owned, required this.left});
+  final AccessState access;
+  const _Membership({required this.access});
   @override
   Widget build(BuildContext context) {
     final t = HolyThemeScope.of(context);
+    final owned = access.active;
+    final lifetime = access.purchased || access.retained;
     return Container(
         padding: const EdgeInsets.fromLTRB(8, 4, 10, 4),
         decoration: BoxDecoration(
@@ -292,11 +294,11 @@ class _Membership extends StatelessWidget {
           const SizedBox(width: 5),
           Flexible(
               child: Text(
-                  owned
+                  lifetime
                       ? 'Lifetime member'
-                      : left > 0
-                          ? '$left free ${left == 1 ? 'lesson' : 'lessons'} left'
-                          : 'Free lessons read',
+                      : access.member
+                          ? (access.inTrial ? 'Free week' : 'Member')
+                          : 'Not a member yet',
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: HolyTypography.caption.copyWith(
@@ -335,14 +337,15 @@ class _Stat extends StatelessWidget {
   }
 }
 
+/// Shown only when membership has lapsed and the offer has not yet covered
+/// the screen: the way back in.
 class _Unlock extends StatelessWidget {
-  final int left;
-  const _Unlock({required this.left});
+  const _Unlock();
   @override
   Widget build(BuildContext context) {
     final t = HolyThemeScope.of(context);
     return Pressable(
-        semanticLabel: 'Unlock lifetime access',
+        semanticLabel: 'Become a member',
         pressedScale: .985,
         onPressed: () => context.push('/offer'),
         child: DecoratedBox(
@@ -365,18 +368,15 @@ class _Unlock extends StatelessWidget {
                       const HolyCoin(
                           size: 52,
                           glow: .5,
-                          face: Icon(CupertinoIcons.infinite)),
+                          face: Icon(CupertinoIcons.sunrise_fill)),
                       const SizedBox(width: 14),
                       Expanded(
                           child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                        Text('Lifetime access',
+                        Text('Become a member',
                             style: HolyTypography.headline
                                 .copyWith(color: t.ink, fontSize: 19)),
                         const SizedBox(height: 2),
-                        Text(
-                            left > 0
-                                ? 'Every lesson, for life. One payment.'
-                                : 'Days 1 to 7 were free. One payment opens every lesson.',
+                        Text('Every lesson, every morning, read aloud.',
                             style: HolyTypography.caption.copyWith(color: t.muted)),
                       ])),
                       Icon(CupertinoIcons.chevron_right, size: 14, color: t.accent),
@@ -602,13 +602,13 @@ class _AccountScreenState extends ConsumerState<AccountScreen> {
   }
 
   Future<void> _restore() async {
-    final ok = await ref.read(lifetimeProvider.notifier).restore();
+    final ok = await ref.read(accessProvider.notifier).restore();
     if (!mounted) return;
     toast(
         context,
         ok
-            ? 'Lifetime access restored. Every day is open.'
-            : ref.read(lifetimeProvider).error ?? 'No purchase was found.');
+            ? 'Restored. Every lesson is open.'
+            : ref.read(accessProvider).error ?? 'No purchase was found.');
   }
 
   Future<void> _export() async {
@@ -689,7 +689,7 @@ class _AccountScreenState extends ConsumerState<AccountScreen> {
   Widget build(BuildContext context) {
     final p = ref.watch(repositoryProvider).profile;
     final auth = ref.watch(authProvider);
-    final busy = ref.watch(lifetimeProvider.select((a) => a.busy));
+    final busy = ref.watch(accessProvider.select((a) => a.busy));
     return ScreenFrame(title: 'Account', children: [
       RowGroup(rows: [
         HolyRow(

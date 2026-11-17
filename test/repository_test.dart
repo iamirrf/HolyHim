@@ -2,87 +2,18 @@ import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:timezone/data/latest.dart' as tzdata;
 import 'package:holyhim/services/auth_service.dart';
 import 'package:holyhim/services/repository.dart';
 import 'package:holyhim/services/account_cache.dart';
+import 'fixtures/controlled_firestore.dart';
 
 class LocalAuth extends AuthNotifier {
   @override
   AuthState build() =>
       const AuthState(user: AuthUser(uid: 'first', displayName: 'Mira'));
   void change(String uid) => state = AuthState(user: AuthUser(uid: uid));
-}
-
-class ControlledFirestore implements FirebaseFirestore {
-  final documents = <String, ControlledDocument>{};
-  @override
-  ControlledDocument doc(String path) =>
-      documents.putIfAbsent(path, () => ControlledDocument());
-  Future<void> close() async {
-    for (final doc in documents.values) {
-      await doc.snapshotsController.close();
-    }
-  }
-
-  @override
-  dynamic noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);
-}
-
-// Test-only SDK stand-ins: these public types have private constructors.
-// ignore: subtype_of_sealed_class
-class ControlledDocument implements DocumentReference<Map<String, dynamic>> {
-  final snapshotsController =
-      StreamController<DocumentSnapshot<Map<String, dynamic>>>.broadcast(
-          sync: true);
-  final writes = <({
-    Map<String, dynamic> data,
-    SetOptions? options,
-    Completer<void> receipt
-  })>[];
-  @override
-  Stream<DocumentSnapshot<Map<String, dynamic>>> snapshots(
-          {bool includeMetadataChanges = false,
-          ListenSource source = ListenSource.defaultSource}) =>
-      snapshotsController.stream;
-  void emit(Map<String, dynamic>? data,
-          {bool cached = true, bool pending = false}) =>
-      snapshotsController
-          .add(ControlledSnapshot(data, cached: cached, pending: pending));
-  @override
-  Future<void> set(Map<String, dynamic> data, [SetOptions? options]) {
-    final receipt = Completer<void>();
-    writes.add((data: data, options: options, receipt: receipt));
-    return receipt.future;
-  }
-
-  @override
-  dynamic noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);
-}
-
-// ignore: subtype_of_sealed_class
-class ControlledSnapshot implements DocumentSnapshot<Map<String, dynamic>> {
-  final Map<String, dynamic>? value;
-  final bool cached, pending;
-  ControlledSnapshot(this.value, {this.cached = true, this.pending = false});
-  @override
-  Map<String, dynamic>? data() => value;
-  @override
-  SnapshotMetadata get metadata =>
-      ControlledMetadata(cached: cached, pending: pending);
-  @override
-  dynamic noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);
-}
-
-class ControlledMetadata implements SnapshotMetadata {
-  final bool cached, pending;
-  ControlledMetadata({required this.cached, required this.pending});
-  @override
-  bool get isFromCache => cached;
-  @override
-  bool get hasPendingWrites => pending;
-  @override
-  dynamic noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);
 }
 
 class FlakyDeviceCache extends AccountCache {
@@ -153,6 +84,25 @@ void main() {
     expect(cache.read('first')!['completed'], {'1': '2026-11-05'});
     expect(container.read(repositoryProvider).syncError, isNull);
     expect(container.read(repositoryProvider).completed.length, 1);
+  });
+  test('a new account on a phone where another finished the welcome starts it',
+      () async {
+    container.dispose();
+    SharedPreferences.setMockInitialValues({
+      'holyhim.onboarded_at.v2.someone-else': '2026-11-10T08:00:00.000Z',
+      'holyhim.onboarded_at.v2.last_active': '2026-11-10T08:00:00.000Z',
+    });
+    final cache = AccountCache(durable: true);
+    await cache.initialize();
+    container = ProviderContainer(overrides: [
+      authProvider.overrideWith(LocalAuth.new),
+      accountCacheProvider.overrideWithValue(cache)
+    ]);
+    expect(container.read(repositoryProvider).profile.onboarded, isFalse);
+    // Her own welcome, once finished, is remembered for her alone.
+    await cache.markOnboarded('first');
+    container.invalidate(repositoryProvider);
+    expect(container.read(repositoryProvider).profile.onboarded, isTrue);
   });
   test('a delayed device-cache failure cannot affect another account',
       () async {

@@ -8,7 +8,6 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:holyhim/design/design.dart';
 import 'package:holyhim/features/community/community_screen.dart';
 import 'package:holyhim/features/shell/home_shell.dart';
-import 'package:holyhim/services/billing.dart';
 import 'package:holyhim/services/repository.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:timezone/data/latest.dart' as tz;
@@ -42,7 +41,7 @@ void main() {
         wrap: (app) => scope(app,
             walk: walk,
             community: community,
-            billing: LifetimeState(loading: false, purchased: owned, product: product)));
+            billing: owned ? memberState : offerState));
     final error = tester.takeException();
     if (error != null) debugPrint('!! $id: $error');
     await tester.pumpWidget(const SizedBox());

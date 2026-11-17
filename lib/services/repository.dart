@@ -34,8 +34,17 @@ class AppProfile {
   final double readingScale;
   final DateTime? promiseStartedAt, onboardedAt, migratedAt;
   final DateTime createdAt, updatedAt;
+
+  /// The Circle: whether she shows on the shared board, her chosen art
+  /// avatar, and the members she has blocked.
+  final bool circle;
+  final String circleAvatar;
+  final List<String> blocked;
   AppProfile(
       {this.name = '',
+      this.circle = false,
+      this.circleAvatar = '',
+      this.blocked = const [],
       this.username = '',
       this.birthday,
       this.avatarUrl,
@@ -73,9 +82,15 @@ class AppProfile {
           Object? promiseStartedAt = _keep,
           Object? onboardedAt = _keep,
           Object? migratedAt = _keep,
+          bool? circle,
+          String? circleAvatar,
+          List<String>? blocked,
           DateTime? updatedAt}) =>
       AppProfile(
           name: name ?? this.name,
+          circle: circle ?? this.circle,
+          circleAvatar: circleAvatar ?? this.circleAvatar,
+          blocked: blocked ?? this.blocked,
           username: username ?? this.username,
           birthday:
               identical(birthday, _keep) ? this.birthday : birthday as String?,
@@ -117,6 +132,9 @@ class AppProfile {
         'sounds': sounds,
         'promise': {'startedAt': promiseStartedAt},
         'timeZone': timeZone,
+        'circle': circle,
+        'circleAvatar': circleAvatar,
+        'blocked': blocked.take(200).toList(),
         'onboardedAt': onboardedAt,
         'createdAt': createdAt,
         'updatedAt': updatedAt,
@@ -135,6 +153,11 @@ class AppProfile {
             : <String>[];
     return AppProfile(
         name: data['name'] is String ? data['name'] : name,
+        circle: data['circle'] == true,
+        circleAvatar: data['circleAvatar'] is String ? data['circleAvatar'] : '',
+        blocked: data['blocked'] is List
+            ? (data['blocked'] as List).whereType<String>().take(200).toList()
+            : const [],
         username: data['username'] as String? ?? '',
         birthday: data['birthday'] as String?,
         avatarUrl: data['avatarUrl'] as String?,

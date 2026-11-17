@@ -15,20 +15,27 @@ class HolyTypography {
   static const _reading = 'SourceSerif4';
   static const _ui = 'Manrope';
 
+  /// Emoji in any style come from the system's colour emoji font. iOS falls
+  /// back to it anyway; naming it lets screenshot renders draw it too.
+  static const _emoji = ['Apple Color Emoji'];
+
   static const display = TextStyle(
       fontFamily: _display,
+      fontFamilyFallback: _emoji,
       fontSize: 42,
       height: 1.06,
       fontWeight: FontWeight.w700,
       letterSpacing: -.9);
   static const title = TextStyle(
       fontFamily: _display,
+      fontFamilyFallback: _emoji,
       fontSize: 31,
       height: 1.1,
       fontWeight: FontWeight.w600,
       letterSpacing: -.6);
   static const headline = TextStyle(
       fontFamily: _display,
+      fontFamilyFallback: _emoji,
       fontSize: 24,
       height: 1.16,
       fontWeight: FontWeight.w600,
@@ -37,6 +44,7 @@ class HolyTypography {
   /// Scripture as a pull-quote: upright, measured, never decorative.
   static const verse = TextStyle(
       fontFamily: _display,
+      fontFamilyFallback: _emoji,
       fontSize: 25,
       height: 1.32,
       fontWeight: FontWeight.w500,
@@ -45,6 +53,7 @@ class HolyTypography {
   /// Long-form lesson prose.
   static const reading = TextStyle(
       fontFamily: _reading,
+      fontFamilyFallback: _emoji,
       fontSize: 19,
       height: 1.56,
       fontWeight: FontWeight.w400);
@@ -53,38 +62,45 @@ class HolyTypography {
   /// italic cut, and a synthesised slant would look broken.
   static const readingItalic = TextStyle(
       fontFamily: _reading,
+      fontFamilyFallback: _emoji,
       fontSize: 19,
       height: 1.5,
       fontWeight: FontWeight.w500);
 
   static const ui = TextStyle(
       fontFamily: _ui,
+      fontFamilyFallback: _emoji,
       fontSize: 16,
       height: 1.4,
       fontWeight: FontWeight.w500);
   static const body = TextStyle(
       fontFamily: _ui,
+      fontFamilyFallback: _emoji,
       fontSize: 15,
       height: 1.45,
       fontWeight: FontWeight.w500);
   static const label = TextStyle(
       fontFamily: _ui,
+      fontFamilyFallback: _emoji,
       fontSize: 14,
       height: 1.3,
       fontWeight: FontWeight.w700);
   static const caption = TextStyle(
       fontFamily: _ui,
+      fontFamilyFallback: _emoji,
       fontSize: 13,
       height: 1.35,
       fontWeight: FontWeight.w500);
   static const button = TextStyle(
       fontFamily: _ui,
+      fontFamilyFallback: _emoji,
       fontSize: 16,
       height: 1.2,
       fontWeight: FontWeight.w800,
       letterSpacing: .2);
   static const eyebrow = TextStyle(
       fontFamily: _ui,
+      fontFamilyFallback: _emoji,
       fontSize: 11.5,
       height: 1.3,
       fontWeight: FontWeight.w800,
@@ -93,6 +109,7 @@ class HolyTypography {
   /// Numerals in counters and dates.
   static const numeral = TextStyle(
       fontFamily: _display,
+      fontFamilyFallback: _emoji,
       fontSize: 40,
       height: 1,
       fontWeight: FontWeight.w700,
@@ -101,6 +118,7 @@ class HolyTypography {
   /// The closing word, e.g. "Amen."
   static const accent = TextStyle(
       fontFamily: _display,
+      fontFamilyFallback: _emoji,
       fontSize: 36,
       height: 1.1,
       fontWeight: FontWeight.w700,
@@ -108,6 +126,7 @@ class HolyTypography {
 
   static const wordmark = TextStyle(
       fontFamily: _display,
+      fontFamilyFallback: _emoji,
       fontSize: 40,
       height: 1,
       fontWeight: FontWeight.w700,

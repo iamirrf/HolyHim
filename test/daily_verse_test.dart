@@ -28,8 +28,8 @@ void main(){
     expect(finished.first.subtitle,endsWith(' · WEB'));
     expect(finished.skip(1).map((v)=>v.day),fresh.skip(1).map((v)=>v.day));
     expect(finished.every((v)=>v.kind==NotificationKind.daily),isTrue);
-    expect(finished.first.title,'Today’s word for you, Mira');
-    expect(finished.first.body,teaserExcerpt(lessons[finished.first.day-1].verse));
+    expect(finished.first.title,'📖 Today’s word for you, Mira');
+    expect(finished.first.body,verseNoteBody(lessons[finished.first.day-1]));
     expect(finished.map((v)=>v.day).toSet().length,29);
   });
 }

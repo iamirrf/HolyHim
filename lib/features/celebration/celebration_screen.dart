@@ -5,13 +5,15 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../design/design.dart';
+import '../../design/widgets/coin_3d.dart';
+import '../../domain/milestones.dart';
 import '../../domain/streak.dart';
 import '../../domain/completion_moment.dart';
 export '../../domain/completion_moment.dart';
 import '../../services/auth_service.dart';
 import '../../services/repository.dart';
 import '../../data/lessons.g.dart';
-import '../../services/share_card.dart';
+import '../share/share_sheet.dart';
 
 CompletionMoment completionMomentBetween(
         {required int day,
@@ -62,6 +64,10 @@ class _CelebrationScreenState extends ConsumerState<CelebrationScreen>
   }
 
   bool _started = false;
+
+  /// The rating prompt, asked a moment after Amen; let go if she leaves first.
+  Timer? _review;
+
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
@@ -76,13 +82,16 @@ class _CelebrationScreenState extends ConsumerState<CelebrationScreen>
         if (mounted) HolyHaptics.celebration();
       });
     }
-    if (_moment != null && (widget.day == 3 || widget.day == 10)) {
-      Timer(const Duration(seconds: 3), requestStoreReview);
+    // Right after her first Amen, and once more a week in. iOS decides
+    // whether to show the prompt and never shows it too often.
+    if (_moment != null && (widget.day == 1 || widget.day == 7)) {
+      _review = Timer(const Duration(seconds: 3), requestStoreReview);
     }
   }
 
   @override
   void dispose() {
+    _review?.cancel();
     _light.dispose();
     super.dispose();
   }
@@ -110,8 +119,10 @@ class _CelebrationScreenState extends ConsumerState<CelebrationScreen>
               child: LightMotes(count: 26)),
           FitColumn(
               crossAxisAlignment: CrossAxisAlignment.center,
-              padding: EdgeInsets.fromLTRB(HolySpace.gutter,
-                  media.padding.top + (compact ? 20 : 48), HolySpace.gutter,
+              padding: EdgeInsets.fromLTRB(
+                  HolySpace.gutter,
+                  media.padding.top + (compact ? 20 : 48),
+                  HolySpace.gutter,
                   media.padding.bottom + 14),
               children: [
                 Rise(
@@ -143,12 +154,10 @@ class _CelebrationScreenState extends ConsumerState<CelebrationScreen>
                           child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Badge3D(
-                                    label: badge.title,
+                                Coin3D(
                                     badgeId: badge.id,
                                     earned: true,
-                                    showLabel: false,
-                                    size: compact ? 64 : 78),
+                                    size: compact ? 70 : 86),
                                 const SizedBox(width: 14),
                                 Flexible(
                                     child: Column(
@@ -162,8 +171,25 @@ class _CelebrationScreenState extends ConsumerState<CelebrationScreen>
                                               .copyWith(
                                                   color: HolyTheme.photoInk,
                                                   fontSize: 24)),
+                                      if (badge.id.startsWith('days-') &&
+                                          identityFor(state.completed.length) !=
+                                              null)
+                                        Text(
+                                            identityFor(
+                                                state.completed.length)!,
+                                            style: HolyTypography.ui.copyWith(
+                                                color: HolyTheme.photoInk
+                                                    .withValues(alpha: .9),
+                                                fontSize: 15,
+                                                height: 1.35)),
                                     ])),
-                              ]))),
+                              ])))
+                else if (nextMilestone(state.completed.length) case final goal?)
+                  Rise(
+                      delay: const Duration(milliseconds: 1500),
+                      child: Padding(
+                          padding: const EdgeInsets.only(bottom: 16),
+                          child: _NextMedallion(goal: goal))),
                 Rise(
                     delay: const Duration(milliseconds: 1300),
                     child: Paper(
@@ -202,7 +228,7 @@ class _CelebrationScreenState extends ConsumerState<CelebrationScreen>
                       label: 'Share this verse',
                       onPhoto: true,
                       size: 56,
-                      onPressed: () => shareVerseCard(context, lesson)),
+                      onPressed: () => showShareSheet(context, lesson)),
                   const SizedBox(width: 10),
                   Expanded(
                       child: HolyButton('Done',
@@ -249,12 +275,42 @@ class _WalkCount extends StatelessWidget {
           ])));
 }
 
-const _review = MethodChannel('holyhim/review');
+const _reviewChannel = MethodChannel('holyhim/review');
 
 /// Asks iOS to show its own rating prompt. iOS decides whether to show it
 /// and limits how often; nothing here asks twice.
 Future<void> requestStoreReview() async {
   try {
-    await _review.invokeMethod<void>('request');
+    await _reviewChannel.invokeMethod<void>('request');
   } catch (_) {}
+}
+
+/// How close the next medallion is: the next morning always has a reason.
+class _NextMedallion extends StatelessWidget {
+  final Milestone goal;
+  const _NextMedallion({required this.goal});
+  @override
+  Widget build(BuildContext context) {
+    final t = HolyThemeScope.of(context);
+    return Semantics(
+        label: goal.distance,
+        excludeSemantics: true,
+        child: Column(children: [
+          Text(goal.distance,
+              textAlign: TextAlign.center,
+              style: HolyTypography.label.copyWith(
+                  color: HolyTheme.photoInk, fontWeight: FontWeight.w700)),
+          const SizedBox(height: 8),
+          SizedBox(
+              width: 180,
+              child: ClipRRect(
+                  borderRadius: BorderRadius.circular(3),
+                  child: LinearProgressIndicator(
+                      value: goal.progress,
+                      minHeight: 6,
+                      color: t.gold,
+                      backgroundColor:
+                          HolyTheme.photoInk.withValues(alpha: .22)))),
+        ]));
+  }
 }

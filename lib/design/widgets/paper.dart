@@ -2,6 +2,7 @@ import 'dart:ui' show ImageFilter;
 import 'package:flutter/material.dart';
 import '../themes.dart';
 import '../tokens.dart';
+import 'hide_region.dart';
 
 /// The reading surface: opaque warm paper with a hairline and one soft
 /// shadow. Every card, sheet and panel in the app is a [Paper].
@@ -24,7 +25,9 @@ class Paper extends StatelessWidget {
       this.borderRadius});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) => Hideable(child: _build(context));
+
+  Widget _build(BuildContext context) {
     final t = HolyThemeScope.of(context);
     final shape = RoundedSuperellipseBorder(
         borderRadius: borderRadius ?? BorderRadius.circular(radius),

@@ -12,12 +12,12 @@ import 'package:holyhim/features/auth/email_screen.dart';
 import 'package:holyhim/features/celebration/celebration_screen.dart';
 import 'package:holyhim/features/journey/journey_screen.dart';
 import 'package:holyhim/features/lesson/lesson_screen.dart';
+import 'package:holyhim/features/saved/saved_screen.dart';
 import 'package:holyhim/features/onboarding/onboarding_screen.dart';
 import 'package:holyhim/features/paywall/paywall_screen.dart';
 import 'package:holyhim/features/profile/profile_screen.dart';
 import 'package:holyhim/features/profile/theme_screen.dart';
 import 'package:holyhim/features/shell/home_shell.dart';
-import 'package:holyhim/features/saved/saved_screen.dart';
 import 'package:holyhim/features/support/support_screen.dart';
 import 'package:holyhim/features/welcome/welcome_screen.dart';
 import 'package:holyhim/services/repository.dart';
@@ -26,38 +26,60 @@ import '../tool/render/harness.dart' show loadFonts;
 
 const sizes = [Size(375, 667), Size(393, 852), Size(430, 932), Size(440, 956)];
 
-Map<String, dynamic> _draft(String stepId) => {
-      'flowVersion': onboardingFlowVersion,
-      'stepId': stepId,
-      'lifeSeason': 'full',
-      'familiarity': 'returning',
-      'obstacle': 'busy',
-      'reminder': '07:00',
-    };
+/// A draft resting on [stepId] with every earlier answer given. [open]
+/// leaves that step's own question unanswered, so a conversation shows its
+/// replies instead of a finished transcript.
+Map<String, dynamic> _draft(String stepId, {bool open = false}) {
+  final at = onboardingStepIds.indexOf(stepId);
+  bool has(String id) {
+    final index = onboardingStepIds.indexOf(id);
+    return open ? at > index : at >= index;
+  }
 
-WalkState _walk({Map<String, dynamic> draft = const {}, bool onboarded = true}) =>
+  return {
+    'flowVersion': onboardingFlowVersion,
+    'stepId': stepId,
+    'step': at,
+    if (has('season')) 'lifeSeason': 'full',
+    if (has('familiarity')) ...{'familiarity': 'returning', 'obstacle': 'busy'},
+    if (has('reminder')) 'reminder': '07:00',
+  };
+}
+
+/// The steps after the save, where the profile is already onboarded.
+const _closing = {'letter', 'dailyRhythm', 'offer'};
+
+WalkState _walk(
+        {Map<String, dynamic> draft = const {}, bool onboarded = true}) =>
     WalkState(
         profile: profile(draft: draft, onboarded: onboarded),
         completed: history(2),
         saved: {1: DateTime(2026, 11, 3)});
 
 final screens = <String, (Widget, WalkState)>{
-  'welcome': (const WelcomeScreen(), _walk()),
+  'welcome': (WelcomeScreen(now: DateTime(2026, 11, 14, 9)), _walk()),
+  'welcome-night': (WelcomeScreen(now: DateTime(2026, 11, 14, 22)), _walk()),
   'email': (const EmailScreen(), _walk()),
-  for (final step in ['heart', 'season', 'familiarity', 'obstacle', 'reminder',
-      'birthday', 'letter'])
+  for (final step in onboardingStepIds.where((id) => id != 'building'))
     'onboarding-$step': (
       const OnboardingScreen(),
-      _walk(draft: _draft(step), onboarded: step == 'letter')
+      _walk(draft: _draft(step), onboarded: _closing.contains(step))
     ),
-  'offer': (OfferScreen(onboarding: true, onContinue: () {}), _walk()),
+  // The two conversations with their replies still on offer.
+  for (final step in ['familiarity', 'reminder'])
+    'onboarding-$step-open': (
+      const OnboardingScreen(),
+      _walk(draft: _draft(step, open: true), onboarded: false)
+    ),
+  'onboarding-retake': (const OnboardingScreen(retake: true), _walk()),
+  'offer': (const OfferScreen(locked: true), _walk()),
   'offer-locked': (const OfferScreen(lockedDay: 8), _walk()),
   'walk': (const HomeShell(), _walk()),
   'brothers': (const HomeShell(initialTab: 1), _walk()),
   'ranks': (const HomeShell(initialTab: 2), _walk()),
   'growth': (const HomeShell(initialTab: 3), _walk()),
   'profile': (const HomeShell(initialTab: 4), _walk()),
-  'saved': (const SavedScreen(standalone: true), _walk()),
+  'saved': (SavedScreen(onBack: () {}), _walk()),
   'journey': (const JourneyScreen(), _walk()),
   'lesson': (const LessonScreen(day: 3), _walk()),
   'celebration': (const CelebrationScreen(day: 2), _walk()),
@@ -149,17 +171,15 @@ void main() {
     }
   });
 
-  testWidgets('the first-name step keeps its field and button above the keyboard',
+  testWidgets(
+      'the first-name step keeps its field and button above the keyboard',
       (tester) async {
     addTearDown(tester.view.reset);
     for (final size in sizes) {
       final keyboard = size.height < 700 ? 260.0 : 336.0;
-      await _pump(
-          tester,
-          const OnboardingScreen(),
+      await _pump(tester, const OnboardingScreen(),
           WalkState(profile: profile(name: '', onboarded: false)),
-          size: size,
-          keyboard: keyboard);
+          size: size, keyboard: keyboard);
       final limit = size.height - keyboard;
       expect(tester.getRect(find.text('Continue')).bottom,
           lessThanOrEqualTo(limit),

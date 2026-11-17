@@ -2,6 +2,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import '../themes.dart';
 import '../typography.dart';
+import 'backdrop.dart';
 
 /// A thin arc that chases its tail: the only activity indicator in the app.
 class HolySpinner extends StatefulWidget {
@@ -99,7 +100,7 @@ class _BrandLoaderState extends State<BrandLoader>
   Widget build(BuildContext context) {
     final t = HolyThemeScope.of(context);
     return ColoredBox(
-        color: t.paper,
+        color: backdropPaper(context, t),
         child: Center(
             child: Column(mainAxisSize: MainAxisSize.min, children: [
           FadeTransition(

@@ -246,7 +246,8 @@ def main(argv: list[str] | None = None) -> int:
     secret_name, created = backup_key(api, key, args.key_id)
     body = {"name": IDP_NAME, "enabled": True, "clientId": args.service_id,
             "appleSignInConfig": {"codeFlowConfig": {"teamId": TEAM_ID, "keyId": args.key_id,
-                                                     "privateKey": key.decode("ascii")},
+                                                     # Google requires the PEM to end exactly at its footer.
+                                                     "privateKey": key.decode("ascii").strip()},
                                   "bundleIds": [BUNDLE_ID]}}
     patch_url = IDP_URL + "?" + urllib.parse.urlencode({"updateMask": "enabled,clientId,appleSignInConfig"})
     api.request("PATCH", patch_url, "Configure the Apple provider's code flow", body)

@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_timezone/flutter_timezone.dart';
@@ -103,30 +104,57 @@ class NotificationService {
     }
   }
 
-  /// The system prompt can remain visible. App navigation gets a result in 5s.
+  static const _native = MethodChannel('holyhim/notifications');
+
+  bool get supported => _supported;
+
+  /// iOS's real answer: notDetermined, denied, authorized or provisional.
+  Future<String> permissionStatus() async {
+    if (!_supported) return 'denied';
+    if (defaultTargetPlatform == TargetPlatform.iOS) {
+      try {
+        return await _native.invokeMethod<String>('status') ?? 'denied';
+      } catch (_) {
+        return 'denied';
+      }
+    }
+    final enabled = await _plugin
+        .resolvePlatformSpecificImplementation<
+            AndroidFlutterLocalNotificationsPlugin>()
+        ?.areNotificationsEnabled();
+    return enabled == true ? 'authorized' : 'notDetermined';
+  }
+
+  /// Shows iOS's own prompt when iOS still allows it and waits for her
+  /// answer, however long she reads it. Returns whether notes may be sent.
   Future<bool> requestPermission() async {
     if (!_supported) return false;
     try {
-      return await (() async {
-        await _initialize();
-        if (defaultTargetPlatform == TargetPlatform.iOS) {
-          return await _plugin
-                  .resolvePlatformSpecificImplementation<
-                      IOSFlutterLocalNotificationsPlugin>()
-                  ?.requestPermissions(
-                      alert: true, sound: true, badge: false) ??
-              false;
-        }
-        return await _plugin
-                .resolvePlatformSpecificImplementation<
-                    AndroidFlutterLocalNotificationsPlugin>()
-                ?.requestNotificationsPermission() ??
+      await _initialize();
+      if (defaultTargetPlatform == TargetPlatform.iOS) {
+        final status = await permissionStatus();
+        if (status == 'authorized' || status == 'provisional') return true;
+        if (status != 'notDetermined') return false;
+        return await _native
+                .invokeMethod<bool>('request')
+                .timeout(const Duration(minutes: 3), onTimeout: () => false) ??
             false;
-      })()
-          .timeout(const Duration(seconds: 5), onTimeout: () => false);
+      }
+      return await _plugin
+              .resolvePlatformSpecificImplementation<
+                  AndroidFlutterLocalNotificationsPlugin>()
+              ?.requestNotificationsPermission() ??
+          false;
     } catch (_) {
       return false;
     }
+  }
+
+  /// HolyHim's notification settings, for when she said no before.
+  Future<void> openSettings() async {
+    try {
+      await _native.invokeMethod<void>('openSettings');
+    } catch (_) {}
   }
 
   Future<bool> requestReminderPermission() => requestPermission();

@@ -19,10 +19,10 @@ class _Auth extends AuthNotifier {
       state = AuthState(user: uid == null ? null : AuthUser(uid: uid));
 }
 
-class _VerifiedAccess extends LifetimeController {
+class _VerifiedAccess extends AccessController {
   @override
-  LifetimeState build() =>
-      const LifetimeState(loading: false, purchased: true, verified: true);
+  AccessState build() =>
+      const AccessState(loading: false, purchased: true, verified: true);
 }
 
 class _Repository extends WalkRepository {
@@ -93,7 +93,7 @@ void main() {
     final notifications = _Notifications(), bridge = _WidgetBridge();
     final container = ProviderContainer(overrides: [
       authProvider.overrideWith(_Auth.new),
-      lifetimeProvider.overrideWith(_VerifiedAccess.new),
+      accessProvider.overrideWith(_VerifiedAccess.new),
       repositoryProvider.overrideWith(_Repository.new),
       notificationServiceProvider.overrideWithValue(notifications),
       widgetBridgeProvider.overrideWithValue(bridge)

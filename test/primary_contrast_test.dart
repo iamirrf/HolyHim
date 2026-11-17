@@ -2,6 +2,8 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:holyhim/design/design.dart';
+import 'package:holyhim/design/widgets/animated_mesh_background.dart';
+import 'package:holyhim/design/widgets/sunrise_background.dart';
 
 double _contrast(Color a, Color b) {
   final light = math.max(a.computeLuminance(), b.computeLuminance());
@@ -50,6 +52,39 @@ void main() {
     // Text on photographs always sits on the dark veil colour.
     expect(_contrast(HolyTheme.photoInk, HolyTheme.photoShade),
         greaterThanOrEqualTo(12));
+  });
+  test('words set on the moving field stay legible in every theme', () {
+    List<Color> colours(MeshTheme m) => [
+          ...m.baseColors,
+          m.b1Start,
+          m.b1End,
+          m.b2Start,
+          m.b2End,
+          m.b3Start,
+          m.b3End,
+          m.b4Start,
+          m.b4Mid,
+          m.b4End
+        ];
+    for (final t in HolyThemes.all) {
+      // The full field sits behind the home tabs, where reading happens on
+      // cards: body ink keeps normal-text contrast and secondary labels keep
+      // the large-text floor wherever a blob drifts.
+      for (final ground in colours(SunriseBackground.meshFor(t))) {
+        expect(_contrast(t.ink, ground), greaterThanOrEqualTo(4.5),
+            reason: '${t.name} ink on the field');
+        expect(_contrast(t.muted, ground), greaterThanOrEqualTo(3),
+            reason: '${t.name} muted on the field');
+      }
+      // The calm field sits behind screens that set captions straight on it.
+      for (final ground in colours(SunriseBackground.meshFor(t,
+          calm: SunriseBackground.calmField))) {
+        expect(_contrast(t.ink, ground), greaterThanOrEqualTo(7),
+            reason: '${t.name} ink on the calm field');
+        expect(_contrast(t.muted, ground), greaterThanOrEqualTo(4.5),
+            reason: '${t.name} muted on the calm field');
+      }
+    }
   });
   testWidgets(
       'HolyButton and HoldButton draw opaque primary fills with tested ink',

@@ -34,15 +34,52 @@ class FakeRepository extends WalkRepository {
           .copyWith(onboardedAt: DateTime(2026, 11, 4)));
 }
 
-class FakeBilling extends LifetimeController {
-  final LifetimeState fixed;
+class FakeBilling extends AccessController {
+  final AccessState fixed;
   FakeBilling(this.fixed);
   @override
-  LifetimeState build() => fixed;
+  AccessState build() => fixed;
 }
 
-const product = StoreProduct('holyhim_lifetime', 'All 365 lessons',
-    'HolyHim Lifetime', 1.99, r'$1.99', 'USD');
+const _offering = PresentedOfferingContext('default', null, null);
+
+/// The App Store as it will be: one yearly price, with a free week or not.
+const trialPlan = MemberPlan(
+    Package(
+        r'$rc_custom_annual_trial',
+        PackageType.custom,
+        StoreProduct('holyhim_annual_trial', 'Every lesson, every morning',
+            'HolyHim Membership', 1.99, r'$1.99', 'USD',
+            introductoryPrice:
+                IntroductoryPrice(0, r'$0.00', 'P1W', 1, PeriodUnit.week, 1),
+            subscriptionPeriod: 'P1Y',
+            pricePerMonthString: r'$0.16'),
+        _offering),
+    7);
+const plainPlan = MemberPlan(
+    Package(
+        r'$rc_annual',
+        PackageType.annual,
+        StoreProduct('holyhim_annual', 'Every lesson, every morning',
+            'HolyHim Membership', 1.99, r'$1.99', 'USD',
+            subscriptionPeriod: 'P1Y', pricePerMonthString: r'$0.16'),
+        _offering),
+    null);
+
+/// Someone who has not joined yet, with the store's two plans loaded.
+const offerState = AccessState(
+    loading: false,
+    trialPlan: trialPlan,
+    plainPlan: plainPlan,
+    trialEligible: true);
+
+/// A member in her free week.
+final memberState = AccessState(
+    loading: false,
+    member: true,
+    inTrial: true,
+    willRenew: true,
+    memberUntil: DateTime(2026, 11, 22));
 
 AppProfile profile(
         {String name = 'Daniel Reyes',
@@ -84,13 +121,13 @@ Widget scope(Widget app,
     AuthUser? user = const AuthUser(uid: 'review', email: 'daniel@example.com'),
     AuthState? auth,
     String? lastSignIn = 'apple',
-    LifetimeState billing = const LifetimeState(loading: false, product: product),
+    AccessState billing = offerState,
     bool community = false}) {
   return ProviderScope(overrides: [
     authProvider.overrideWith(() => FakeAuth(user, fixed: auth)),
     repositoryProvider.overrideWith(
         () => FakeRepository(walk ?? WalkState(profile: profile()))),
-    lifetimeProvider.overrideWith(() => FakeBilling(billing)),
+    accessProvider.overrideWith(() => FakeBilling(billing)),
     lastSignInProvider.overrideWith((ref) async => lastSignIn),
     if (community) ...[
       myMemberProvider.overrideWith((ref) => Stream.value(sampleMe)),

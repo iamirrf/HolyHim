@@ -11,7 +11,6 @@ import 'package:holyhim/features/celebration/celebration_screen.dart';
 import 'package:holyhim/features/lesson/lesson_screen.dart';
 import 'package:holyhim/features/paywall/paywall_screen.dart';
 import 'package:holyhim/features/shell/home_shell.dart';
-import 'package:holyhim/services/billing.dart';
 import 'package:holyhim/services/repository.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:timezone/data/latest.dart' as tz;
@@ -41,8 +40,7 @@ void main() {
         wrap: (app) => scope(app,
             walk: walk,
             community: true,
-            billing: LifetimeState(
-                loading: false, purchased: owned, product: product)));
+            billing: owned ? memberState : offerState));
     final error = tester.takeException();
     if (error != null) debugPrint('!! $id: $error');
     await tester.pumpWidget(const SizedBox());
@@ -85,7 +83,7 @@ void main() {
       await tester.pump(const Duration(milliseconds: 400));
     });
     // The in-app purchase as App Review sees it (not a marketing screenshot).
-    await shot(tester, 'iap-offer', OfferScreen(onboarding: true, onContinue: () {}),
+    await shot(tester, 'iap-offer', OfferScreen(locked: true, onContinue: () {}),
         walk: WalkState(profile: profile(), completed: history(0)), owned: false);
   });
 }

@@ -57,6 +57,10 @@ Spaceship::Client.prepend(HolyHimSpaceshipCompatibility)
 BUNDLE_ID = 'com.holyhim.app'
 DEVELOPER_TEAM = 'DU9D6TAM58'
 TEAM_NAME = 'Codellion LLC'
+# App Store Connect now names its team by this UUID, not the developer Team ID
+# (seen 2026-11-13). The account also belongs to another team, so match exactly.
+TUNES_PROVIDER = '3556f494-37fe-4469-a9ea-1f6b58de199f'
+HOLYHIM_PROVIDERS = [DEVELOPER_TEAM, TUNES_PROVIDER].freeze
 ROOT = File.expand_path('..', __dir__)
 VERSION = JSON.parse(File.read(File.join(ROOT, 'config/release.json'))).fetch('version')
 
@@ -119,11 +123,11 @@ class HolyHimSavedSession
       raise HolyHimSessionError, 'The saved cookie belongs to a different Apple account.'
     end
     teams = client.teams
-    matches = teams.select { |team| team['publicProviderId'] == DEVELOPER_TEAM }
+    matches = teams.select { |team| HOLYHIM_PROVIDERS.include?(team['publicProviderId']) }
     matches = teams.select { |team| team['name'] == TEAM_NAME } if matches.empty?
     raise HolyHimSessionError, 'The saved session does not uniquely identify Codellion LLC.' unless matches.length == 1
     team = matches.first
-    if !team['publicProviderId'].to_s.empty? && team['publicProviderId'] != DEVELOPER_TEAM
+    if !team['publicProviderId'].to_s.empty? && !HOLYHIM_PROVIDERS.include?(team['publicProviderId'])
       raise HolyHimSessionError, 'The saved session belongs to a different developer team.'
     end
     expected_id = team.fetch('providerId').to_s
@@ -615,7 +619,7 @@ else
   selected_team = Spaceship::ConnectAPI.client.tunes_teams.find do |team|
     team['providerId'].to_s == Spaceship::ConnectAPI.client.tunes_team_id.to_s
   end
-  correct_team = selected_team && (selected_team['publicProviderId'].to_s.empty? ? selected_team['name'] == TEAM_NAME : selected_team['publicProviderId'] == DEVELOPER_TEAM)
+  correct_team = selected_team && (selected_team['publicProviderId'].to_s.empty? ? selected_team['name'] == TEAM_NAME : HOLYHIM_PROVIDERS.include?(selected_team['publicProviderId']))
   abort('Apple selected a different App Store team; no HolyHim records were changed.') unless correct_team
   if options[:create] && Spaceship::ConnectAPI.client.portal_team_id != DEVELOPER_TEAM
     abort('Apple selected a different developer team; no HolyHim records were changed.')

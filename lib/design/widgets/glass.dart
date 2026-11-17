@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import '../themes.dart';
 import '../tokens.dart';
+import 'hide_region.dart';
 
 class Glass extends StatelessWidget {
   final Widget child;
@@ -19,7 +20,9 @@ class Glass extends StatelessWidget {
       this.tint,
       this.borderWidth = 1.0});
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) => Hideable(child: _build(context));
+
+  Widget _build(BuildContext context) {
     final theme = HolyThemeScope.of(context),
         opaque = HolyThemeScope.opaqueOf(context);
     final shape =

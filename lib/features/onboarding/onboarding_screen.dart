@@ -1,3 +1,5 @@
+// The welcome's structure and motion are ported from Cognein; see
+// store/v2-design-ports.json.
 import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -11,37 +13,107 @@ import '../../services/account_cache.dart';
 import '../../services/auth_service.dart';
 import '../../services/notifications.dart';
 import '../../services/repository.dart';
+import '../notification_access.dart';
 import '../paywall/paywall_screen.dart';
-import 'letter.dart';
+import 'chat/chat_script.dart';
+import 'chat/chat_step.dart';
+import 'onboarding_copy.dart';
+import 'onboarding_moods.dart';
+import 'steps/birthday_step.dart';
+import 'steps/building_step.dart';
+import 'steps/day_one_step.dart';
+import 'steps/first_week_step.dart';
+import 'steps/letter_step.dart';
+import 'steps/name_step.dart';
+import 'widgets/note_preview.dart';
+import 'widgets/onboarding_scaffold.dart';
+import 'widgets/onboarding_tokens.dart';
+import 'widgets/select_step.dart';
 
-/// Onboarding version 3. One film: a photograph dissolves underneath while a
-/// paper panel asks one thing at a time. Answers are saved as stable IDs.
-class OnboardingScreen extends ConsumerStatefulWidget {
-  const OnboardingScreen({super.key});
+/// The welcome, version 3: eleven steps on one moving field.
+///
+/// It is always in morning light, whatever theme she later picks: a pale
+/// field lit by one soft colour per step, plum ink, white glass, and one
+/// plum button with rose-gold light round its edge. Every beat has a sound
+/// and a touch. Answers are saved as stable IDs the moment they are given,
+/// so a relaunch returns to the step she was on.
+class OnboardingScreen extends StatelessWidget {
+  /// She has done this before and asked to do it again from Profile.
+  final bool retake;
+  const OnboardingScreen({super.key, this.retake = false});
+
+  static final _theme = HolyThemeData.build(HolyThemes.blush);
+
+  /// Whether a relaunch part-way through says "Welcome back". Off for
+  /// still renders, where the toast would cover the step.
+  @visibleForTesting
+  static bool resumeToast = true;
+
   @override
-  ConsumerState<OnboardingScreen> createState() => _OnboardingScreenState();
+  Widget build(BuildContext context) {
+    final outer = context.dependOnInheritedWidgetOfExactType<HolyThemeScope>();
+    // First Light is already HolyHim's ivory, plum and rose, so every shared
+    // control (fields, buttons, sheets) is right for the pale field with no
+    // colours of its own.
+    return HolyThemeScope(
+        theme: HolyThemes.blush,
+        reduceTransparency: outer?.reduceTransparency ?? false,
+        child: Theme(data: _theme, child: _Flow(retake: retake)));
+  }
 }
 
-const _scenes = [
-  'assets/art/library/sky-dawn.webp', // name
-  'assets/art/library/sky-stillness.webp', // heart
-  'assets/art/library/landscape-path.webp', // season
-  'assets/art/library/scripture-morning.webp', // familiarity
-  'assets/art/library/landscape-water.webp', // obstacle
-  'assets/art/library/scripture-lamp.webp', // reminder
-  'assets/art/library/symbol-lilies.webp', // birthday
-  'assets/art/library/sky-rays.webp', // building
-  'assets/art/library/scripture-garden.webp', // letter
-  'assets/art/library/jesus-path.webp', // offer
-];
+String firstNameOf(String name) {
+  final parts = name.trim().split(RegExp(r'\s+'));
+  return parts.isEmpty ? '' : parts.first;
+}
 
-class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
+class _Flow extends ConsumerStatefulWidget {
+  final bool retake;
+  const _Flow({required this.retake});
+  @override
+  ConsumerState<_Flow> createState() => _FlowState();
+}
+
+class _FlowState extends ConsumerState<_Flow> {
+  static const _name = 0,
+      _birthday = 1,
+      _heart = 2,
+      _season = 3,
+      _bible = 4,
+      _week = 5,
+      _note = 6,
+      _building = 7,
+      _letter = 8,
+      _dayOne = 9,
+      _offer = 10;
+
   late int step;
   late final TextEditingController first;
   String? nameError;
   bool saving = false;
+
+  /// The save has landed and the card is lifting; the letter is next.
+  bool saved = false;
   String? saveError;
-  bool asking = false;
+
+  /// Whether this run showed the name step, so Back may return to it. A name
+  /// from Apple or Google is never asked for.
+  late bool _askedName;
+
+  /// She is retaking the welcome with a note already on: the last reply in
+  /// the note conversation keeps it, where "Not now" would switch it off.
+  late final bool _offerKeep;
+  bool _kept = false;
+
+  bool _bibleDone = false, _noteDone = false, _weekShown = false;
+  DateTime? _birthdayPicked;
+
+  late final ChatScript _bibleChat =
+      OnboardingCopy.bibleChat(name: () => firstNameOf(profile.name));
+  late final ChatScript _noteChat = OnboardingCopy.noteChat(
+      name: () => firstNameOf(profile.name),
+      keep: _offerKeep,
+      react: _noteReaction);
 
   AppProfile get profile => ref.read(repositoryProvider).profile;
   Map<String, dynamic> get draft => profile.onboardingDraft;
@@ -51,490 +123,170 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
   @override
   void initState() {
     super.initState();
-    step = resumeOnboardingStep(draft, answers);
+    step = widget.retake ? _name : resumeOnboardingStep(draft, answers);
+    _askedName = step == _name;
+    _offerKeep = widget.retake && profile.reminderEnabled;
+    _weekShown = step > _week;
     first = TextEditingController(
         text: (draft['firstName'] as String?) ?? firstNameOf(profile.name));
-    if (step == 7) {
+    unawaited(HolySounds.warmUp());
+    if (step == _building) {
       WidgetsBinding.instance.addPostFrameCallback((_) => _build());
+    }
+    // A relaunch that lands her back mid-way says so, once.
+    final resumed = !widget.retake && step > 0 && draft['stepId'] != null;
+    if (resumed && OnboardingScreen.resumeToast) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (!mounted) return;
+        _toasted = true;
+        GlassToast.info(context, OnboardingCopy.resumed);
+      });
     }
   }
 
+  /// This flow put the "Welcome back" toast up, so it takes it down.
+  bool _toasted = false;
+
   @override
   void dispose() {
+    if (_toasted) GlassToast.dismiss();
     first.dispose();
     super.dispose();
   }
 
+  void _update(AppProfile next) =>
+      ref.read(repositoryProvider.notifier).updateProfile(next);
+
   void _patchDraft(Map<String, dynamic> changes) {
     final p = profile;
-    ref.read(repositoryProvider.notifier).updateProfile(
-        p.copyWith(onboardingDraft: {...p.onboardingDraft, ...changes}));
+    _update(p.copyWith(onboardingDraft: {...p.onboardingDraft, ...changes}));
   }
 
   void _go(int value) {
     FocusManager.instance.primaryFocus?.unfocus();
+    final forward = value > step;
     _patchDraft({
       'step': value,
       'stepId': onboardingStepIds[value],
       'flowVersion': onboardingFlowVersion,
     });
     setState(() => step = value);
-    HolyHaptics.stepComplete();
-    if (value == 7) _build();
+    if (forward) {
+      HolyHaptics.stepComplete();
+      unawaited(HolySounds.lessonSwipe(intensity: .52));
+    } else {
+      HolyHaptics.chipDeselect();
+      unawaited(HolySounds.lessonSwipe(forward: false, intensity: .4));
+    }
+    if (value == _building) _build();
   }
 
-  void _back() {
-    var previous = step - 1;
-    if (previous == 0 && profile.name.trim().isNotEmpty) previous = -1;
-    if (previous < 0) return;
-    _go(previous);
-  }
+  bool get _canBack => switch (step) {
+        _birthday => _askedName,
+        >= _heart && <= _note => true,
+        // The letter never goes back into the save.
+        _dayOne || _offer => true,
+        _ => false,
+      };
 
-  // Step 0.
+  // Name.
   void _saveName() {
     final name = first.text.trim();
     if (name.isEmpty) {
-      setState(() => nameError = 'Tell us what to call you.');
+      setState(() => nameError = OnboardingCopy.nameError);
       return;
     }
     final p = profile;
-    ref.read(repositoryProvider.notifier).updateProfile(p.copyWith(
-        name: name,
+    _update(p.copyWith(
+        // A full name from Apple or Google stays whole unless she changes
+        // the part she was shown.
+        name: name == firstNameOf(p.name) ? p.name : name,
         onboardingDraft: {...p.onboardingDraft, 'firstName': name}));
-    _go(1);
+    _go(_birthday);
   }
 
+  // Birthday.
+  void _saveBirthday() {
+    final d = _birthdayPicked;
+    if (d != null) {
+      _update(profile.copyWith(
+          birthday: '${d.year.toString().padLeft(4, '0')}-'
+              '${d.month.toString().padLeft(2, '0')}-'
+              '${d.day.toString().padLeft(2, '0')}'));
+    }
+    _go(_heart);
+  }
+
+  // Heart.
   void _toggleHeart(String id) {
     final hearts = normalizedHearts(profile.hearts);
     if (hearts.contains(id)) {
       hearts.remove(id);
     } else if (hearts.length < 3) {
       hearts.add(id);
+      // A soft pat for a choice, a small bright note for the third.
+      unawaited(hearts.length == 3
+          ? HolySounds.lessonCorrect()
+          : HolySounds.lessonLand(intensity: .48));
     } else {
-      HolyHaptics.error();
       return;
     }
-    ref
-        .read(repositoryProvider.notifier)
-        .updateProfile(profile.copyWith(hearts: hearts));
+    _update(profile.copyWith(hearts: hearts));
   }
 
-  void _answer(String key, String id) {
-    _patchDraft({key: id});
-    // A short beat so the check can draw before the scene moves on.
-    Future<void>.delayed(
-        Duration(
-            milliseconds: MediaQuery.disableAnimationsOf(context) ? 0 : 420),
-        () {
-      if (mounted) _go(step + 1);
-    });
+  void _chooseSeason(String id) {
+    if (answers.season != id) unawaited(HolySounds.lessonLand(intensity: .5));
+    _patchDraft({'lifeSeason': id});
   }
 
-  Future<void> _reminder(String? answer) async {
-    if (asking) return;
-    final minutes = reminderMinutesFor(answer);
-    final notifications = ref.read(notificationServiceProvider);
-    if (minutes == null) {
-      final p = profile;
-      ref.read(repositoryProvider.notifier).updateProfile(p.copyWith(
-          reminderEnabled: false,
-          onboardingDraft: {...p.onboardingDraft, 'reminder': 'off'}));
-      _go(6);
-      return;
-    }
-    setState(() => asking = true);
-    final granted = await notifications
-        .requestPermission()
-        .timeout(const Duration(seconds: 20), onTimeout: () => false)
-        .catchError((Object _) => false);
-    if (!mounted) return;
-    final p = profile;
-    ref.read(repositoryProvider.notifier).updateProfile(p.copyWith(
-        reminderMinutes: minutes,
-        reminderEnabled: granted,
-        onboardingDraft: {
-          ...p.onboardingDraft,
-          'reminder': reminderAnswerFor(minutes)
-        }));
-    setState(() => asking = false);
-    _go(6);
-  }
-
-  void _birthday(String? value) {
-    if (value != null) {
-      ref
-          .read(repositoryProvider.notifier)
-          .updateProfile(profile.copyWith(birthday: value));
-    }
-    _go(7);
-  }
-
-  Future<void> _build() async {
-    if (saving) return;
-    setState(() {
-      saving = true;
-      saveError = null;
-    });
-    final started = DateTime.now();
-    try {
-      await ref.read(repositoryProvider.notifier).finishOnboardingDurably();
-      final user = ref.read(authProvider).user;
-      if (user != null) ref.read(accountCacheProvider).markOnboarded(user.uid);
-      // Let the checklist finish drawing; it is part of the welcome.
-      final reduced = mounted && MediaQuery.disableAnimationsOf(context);
-      final rest = Duration(milliseconds: reduced ? 600 : 3400) -
-          DateTime.now().difference(started);
-      if (rest > Duration.zero) await Future<void>.delayed(rest);
-      if (!mounted) return;
-      setState(() => saving = false);
-      HolyHaptics.celebration();
-      _go(8);
-    } catch (_) {
-      if (!mounted) return;
-      setState(() {
-        saving = false;
-        saveError =
-            'We could not save your walk on this phone. Please try again.';
-      });
-    }
-  }
-
-  void _finish() {
-    _patchDraft({
-      'stepId': onboardingDoneStepId,
-      'step': 9,
-      'flowVersion': onboardingFlowVersion
-    });
-    context.go('/lesson/1');
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final t = HolyThemeScope.of(context);
-    ref.watch(repositoryProvider.select((s) => s.profile));
-    if (step == 9) {
-      return OfferScreen(
-          onboarding: true,
-          onContinue: _finish,
-          onBack: () => _go(8));
-    }
-    final media = MediaQuery.of(context);
-    final keyboard = media.viewInsets.bottom > 60;
-    final compact = media.size.height < 720;
-    final photoHeight = keyboard
-        ? media.padding.top + 56
-        : media.size.height *
-            (step == 8
-                ? (compact ? .16 : .30)
-                : step == 7
-                    ? .42
-                    : (compact ? .25 : .30));
-    final canBack = step > 0 &&
-        step < 7 &&
-        !(step == 1 && profile.name.trim().isNotEmpty);
-    final reduced = MediaQuery.disableAnimationsOf(context);
-
-    return Scaffold(
-        resizeToAvoidBottomInset: false,
-        backgroundColor: t.paper,
-        body: Stack(children: [
-          AnimatedPositioned(
-              duration:
-                  reduced ? Duration.zero : const Duration(milliseconds: 420),
-              curve: Curves.easeOutCubic,
-              top: 0,
-              left: 0,
-              right: 0,
-              height: photoHeight + HolyRadius.sheet,
-              child: PhotoStage(
-                  images: _scenes,
-                  index: step,
-                  alignment: const Alignment(0, .1),
-                  topVeil: .38,
-                  bottomVeil: .1,
-                  child: step >= 7 ? const LightMotes(count: 16) : null)),
-          // Top controls over the photograph.
-          Positioned(
-              top: media.padding.top + 6,
-              left: HolySpace.gutter - 6,
-              right: HolySpace.gutter,
-              child: Row(children: [
-                AnimatedOpacity(
-                    opacity: canBack ? 1 : 0,
-                    duration: const Duration(milliseconds: 200),
-                    child: IgnorePointer(
-                        ignoring: !canBack,
-                        child: BackControl(onPhoto: true, onPressed: _back))),
-                const SizedBox(width: 10),
-                if (step < 7)
-                  Expanded(
-                      child: StepBar(
-                          steps: 7,
-                          current: step,
-                          color: HolyTheme.photoInk)),
-              ])),
-          AnimatedPositioned(
-              duration:
-                  reduced ? Duration.zero : const Duration(milliseconds: 420),
-              curve: Curves.easeOutCubic,
-              top: photoHeight,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              child: DecoratedBox(
-                  decoration: ShapeDecoration(
-                      color: t.paper,
-                      shape: const RoundedSuperellipseBorder(
-                          borderRadius: BorderRadius.vertical(
-                              top: Radius.circular(HolyRadius.sheet))),
-                      shadows: HolyDepth.paper(t, lift: 1.4)),
-                  child: Padding(
-                      padding: EdgeInsets.only(
-                          bottom: keyboard
-                              ? media.viewInsets.bottom + 12
-                              : media.padding.bottom + 14),
-                      child: AnimatedSwitcher(
-                          duration: Duration(milliseconds: reduced ? 0 : 360),
-                          switchInCurve: Curves.easeOutCubic,
-                          transitionBuilder: (child, animation) =>
-                              FadeTransition(
-                                  opacity: animation,
-                                  child: SlideTransition(
-                                      position: Tween(
-                                              begin: const Offset(0, .03),
-                                              end: Offset.zero)
-                                          .animate(animation),
-                                      child: child)),
-                          child: KeyedSubtree(
-                              key: ValueKey(step),
-                              child: _stepBody(context, keyboard)))))),
-        ]));
-  }
-
-  Widget _stepBody(BuildContext context, bool keyboard) {
-    final name = firstNameOf(profile.name);
+  // The conversation about the Bible.
+  ChatAnswer? _bibleAnswer(String question) {
     final a = answers;
-    switch (step) {
-      case 0:
-        return _Panel(
-            title: 'What should we call you?',
-            subtitle: 'Your first name is enough.',
-            compactTitle: keyboard,
-            footer: HolyButton('Continue', onPressed: _saveName),
-            children: [
-              HolyField(
-                  controller: first,
-                  label: 'First name',
-                  autofocus: true,
-                  error: nameError,
-                  maxLength: 40,
-                  capitalization: TextCapitalization.words,
-                  autofillHints: const [AutofillHints.givenName],
-                  textInputAction: TextInputAction.done,
-                  onChanged: (_) {
-                    if (nameError != null) setState(() => nameError = null);
-                  },
-                  onSubmitted: (_) => _saveName()),
-            ]);
-      case 1:
-        final hearts = a.hearts;
-        return _Panel(
-            title: name.isEmpty
-                ? 'What do you need most?'
-                : '$name, what do you need most?',
-            subtitle: 'Pick up to three. Your lessons will meet you there.',
-            footer: HolyButton('Continue',
-                onPressed: hearts.isEmpty ? null : () => _go(2)),
-            children: [
-              _Grid(children: [
-                for (final c in heartChoices)
-                  ChoiceTile(
-                      dense: true,
-                      multi: true,
-                      label: c.label,
-                      detail: c.detail,
-                      selected: hearts.contains(c.id),
-                      onPressed: () => _toggleHeart(c.id)),
-              ]),
-            ]);
-      case 2:
-        return _Panel(
-            title: 'Where are you right now?',
-            subtitle: 'There is no wrong answer.',
-            children: [
-              for (final c in seasonChoices)
-                _Gap(ChoiceTile(
-                    dense: true,
-                    label: c.label,
-                    selected: a.season == c.id,
-                    onPressed: () => _answer('lifeSeason', c.id))),
-            ]);
-      case 3:
-        return _Panel(
-            title: 'How well do you know the Bible?',
-            subtitle: 'Every lesson explains the verse in plain words.',
-            children: [
-              for (final c in familiarityChoices)
-                _Gap(ChoiceTile(
-                    label: c.label,
-                    selected: a.familiarity == c.id,
-                    onPressed: () => _answer('familiarity', c.id))),
-            ]);
-      case 4:
-        return _Panel(
-            title: 'What usually gets in the way?',
-            subtitle: 'We will help with that part.',
-            children: [
-              for (final c in obstacleChoices)
-                _Gap(ChoiceTile(
-                    dense: true,
-                    label: c.label,
-                    selected: a.obstacle == c.id,
-                    onPressed: () => _answer('obstacle', c.id))),
-            ]);
-      case 5:
-        return _ReminderStep(
-            initial: a.reminder,
-            busy: asking,
-            onChoose: _reminder,
-            name: name,
-            preview: lessons.first.teaser);
-      case 6:
-        return _BirthdayStep(
-            initial: profile.birthday, onDone: _birthday);
-      case 7:
-        return _BuildingStep(
-            name: name,
-            answers: a,
-            error: saveError,
-            onRetry: _build,
-            reminderOn: profile.reminderEnabled,
-            reminderMinutes: profile.reminderMinutes);
-      case 8:
-        return _Panel(
-            footer: HolyButton('Continue', onPressed: () => _go(9)),
-            children: [
-              FitFlex(
-                  min: 300,
-                  child: Center(
-                      child: SingleChildScrollView(
-                          child: PersonalLetter(
-                          name: name,
-                          answers: a,
-                          reminderOn: profile.reminderEnabled,
-                          reminderMinutes: profile.reminderMinutes)))),
-            ]);
+    final familiarity = question == 'familiarity';
+    final id = familiarity ? a.familiarity : a.obstacle;
+    final choices = familiarity ? familiarityChoices : obstacleChoices;
+    final label = labelFor(choices, id);
+    return id == null || label == null
+        ? null
+        : ChatAnswer(id, label, emoji: emojiFor(choices, id));
+  }
+
+  // The conversation about her daily note.
+  ChatAnswer? _noteAnswer(String question) {
+    final stored = answers.reminder;
+    if (stored == null) return null;
+    final minutes = reminderMinutesFor(stored);
+    if (minutes == null) {
+      return const ChatAnswer(
+          OnboardingCopy.noteOff, OnboardingCopy.noteOffLabel,
+          emoji: OnboardingCopy.noteOffEmoji);
     }
-    return const SizedBox.shrink();
-  }
-}
-
-String firstNameOf(String name) {
-  final parts = name.trim().split(RegExp(r'\s+'));
-  return parts.isEmpty ? '' : parts.first;
-}
-
-/// The paper panel's composition: title, subtitle, content, footer button.
-class _Panel extends StatelessWidget {
-  final String? title, subtitle;
-  final List<Widget> children;
-  final Widget? footer;
-  final bool compactTitle;
-  const _Panel(
-      {this.title,
-      this.subtitle,
-      required this.children,
-      this.footer,
-      this.compactTitle = false});
-  @override
-  Widget build(BuildContext context) {
-    final t = HolyThemeScope.of(context);
-    final compact = MediaQuery.sizeOf(context).height < 720;
-    final hasExpanded = children.any((c) => c is Expanded || c is FitFlex);
-    return FitColumn(
-        padding: EdgeInsets.fromLTRB(
-            HolySpace.gutter, compact ? 22 : 28, HolySpace.gutter, 0),
-        children: [
-          if (title != null) ...[
-            Semantics(
-                header: true,
-                child: Text(title!,
-                    style: HolyTypography.title.copyWith(
-                        color: t.ink,
-                        fontSize: compactTitle || compact ? 28 : 32))),
-            if (subtitle != null && !compactTitle) ...[
-              const SizedBox(height: 6),
-              Text(subtitle!,
-                  style: HolyTypography.body.copyWith(color: t.muted)),
-            ],
-            SizedBox(height: compact ? 14 : 20),
-          ],
-          ...children,
-          if (!hasExpanded) const Spacer(),
-          if (footer != null) ...[const SizedBox(height: 12), footer!],
-        ]);
-  }
-}
-
-class _Gap extends StatelessWidget {
-  final Widget child;
-  const _Gap(this.child);
-  @override
-  Widget build(BuildContext context) =>
-      Padding(padding: const EdgeInsets.only(bottom: 8), child: child);
-}
-
-class _Grid extends StatelessWidget {
-  final List<Widget> children;
-  const _Grid({required this.children});
-  @override
-  Widget build(BuildContext context) => Column(children: [
-        for (var i = 0; i < children.length; i += 2)
-          Padding(
-              padding: const EdgeInsets.only(bottom: 8),
-              child: IntrinsicHeight(
-                  child: Row(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-                Expanded(child: children[i]),
-                const SizedBox(width: 8),
-                Expanded(
-                    child: i + 1 < children.length
-                        ? children[i + 1]
-                        : const SizedBox()),
-              ]))),
-      ]);
-}
-
-/// Reminder time, shown as the actual notification she will receive before
-/// iOS asks for permission.
-class _ReminderStep extends StatefulWidget {
-  final String? initial;
-  final bool busy;
-  final Future<void> Function(String? answer) onChoose;
-  final String name, preview;
-  const _ReminderStep(
-      {required this.initial,
-      required this.busy,
-      required this.onChoose,
-      required this.name,
-      required this.preview});
-  @override
-  State<_ReminderStep> createState() => _ReminderStepState();
-}
-
-class _ReminderStepState extends State<_ReminderStep> {
-  late String choice =
-      reminderMinutesFor(widget.initial) == null ? '07:00' : widget.initial!;
-
-  String _format(String answer) {
-    final m = reminderMinutesFor(answer)!;
-    final h = m ~/ 60, min = m % 60;
-    final h12 = h % 12 == 0 ? 12 : h % 12;
-    return '$h12:${min.toString().padLeft(2, '0')} ${h < 12 ? 'AM' : 'PM'}';
+    for (final preset in reminderPresets) {
+      if (preset.id == stored) {
+        return ChatAnswer(stored, '${preset.label} · ${preset.detail}',
+            emoji: preset.emoji);
+      }
+    }
+    return ChatAnswer(stored, OnboardingCopy.clock(minutes),
+        emoji: OnboardingCopy.noteCustomEmoji);
   }
 
-  Future<void> _custom() async {
-    final m = reminderMinutesFor(choice) ?? 420;
-    var picked = DateTime(2026, 1, 1, m ~/ 60, m % 60);
+  String? _noteReaction(String answerId) {
+    if (_kept || answerId == OnboardingCopy.noteKeep) {
+      return OnboardingCopy.noteKept;
+    }
+    final minutes = reminderMinutesFor(answerId);
+    if (minutes == null) return OnboardingCopy.noteDeclined;
+    return profile.reminderEnabled
+        ? OnboardingCopy.noteSet(OnboardingCopy.clock(minutes))
+        : OnboardingCopy.noteDenied;
+  }
+
+  /// "Choose another time": a time wheel in a sheet. Null if she closes it.
+  Future<ChatAnswer?> _pickNoteTime(String question, ChatReply reply) async {
+    final current =
+        reminderMinutesFor(answers.reminder) ?? profile.reminderMinutes;
+    var picked = DateTime(2026, 1, 1, current ~/ 60, current % 60);
     final t = HolyThemeScope.of(context);
     final ok = await showModalBottomSheet<bool>(
         context: context,
@@ -553,295 +305,261 @@ class _ReminderStepState extends State<_ReminderStep> {
                       child: CupertinoDatePicker(
                           mode: CupertinoDatePickerMode.time,
                           minuteInterval: 5,
-                          initialDateTime: DateTime(2026, 1, 1, m ~/ 60,
-                              (m % 60) - (m % 60) % 5),
+                          initialDateTime: DateTime(2026, 1, 1, current ~/ 60,
+                              (current % 60) - (current % 60) % 5),
                           onDateTimeChanged: (d) => picked = d))),
               Padding(
                   padding: const EdgeInsets.fromLTRB(24, 8, 24, 12),
                   child: HolyButton('Set time',
                       onPressed: () => Navigator.pop(context, true))),
             ])));
-    if (ok == true && mounted) {
-      setState(() => choice = reminderAnswerFor(picked.hour * 60 + picked.minute));
+    if (ok != true) return null;
+    final minutes = picked.hour * 60 + picked.minute;
+    return ChatAnswer(reminderAnswerFor(minutes), OnboardingCopy.clock(minutes),
+        emoji: OnboardingCopy.noteCustomEmoji);
+  }
+
+  Future<void> _onNoteAnswer(String question, ChatAnswer answer) async {
+    _kept = answer.id == OnboardingCopy.noteKeep;
+    if (_kept) {
+      // Her note stays exactly as it is; only the answer is recorded.
+      _patchDraft({'reminder': reminderAnswerFor(profile.reminderMinutes)});
+      return;
+    }
+    final minutes = reminderMinutesFor(answer.id);
+    if (minutes == null) {
+      final p = profile;
+      _update(p.copyWith(
+          reminderEnabled: false,
+          onboardingDraft: {...p.onboardingDraft, 'reminder': 'off'}));
+      return;
+    }
+    // iOS's own prompt the first time; Settings if she said no before.
+    final granted = ref.read(notificationServiceProvider).supported
+        ? await enableNotifications(context, ref)
+            .catchError((Object _) => false)
+        : false;
+    if (!mounted) return;
+    final p = profile;
+    _update(p.copyWith(
+        reminderMinutes: minutes,
+        reminderEnabled: granted,
+        onboardingDraft: {
+          ...p.onboardingDraft,
+          'reminder': reminderAnswerFor(minutes)
+        }));
+  }
+
+  Widget _notePreview(String question) {
+    final minutes = reminderMinutesFor(answers.reminder) ?? 420;
+    return NotePreview(
+        time: OnboardingCopy.clock(minutes),
+        title: lessonNoteTitle(minutes ~/ 60, firstNameOf(profile.name)),
+        body: lessonNoteBody(lessons.first));
+  }
+
+  // Building.
+  Future<void> _build() async {
+    if (saving) return;
+    setState(() {
+      saving = true;
+      saved = false;
+      saveError = null;
+    });
+    final started = DateTime.now();
+    try {
+      await ref.read(repositoryProvider.notifier).finishOnboardingDurably();
+      final user = ref.read(authProvider).user;
+      if (user != null) ref.read(accountCacheProvider).markOnboarded(user.uid);
+      // Let the medallion land and the checklist finish; they are part of
+      // the welcome.
+      final reduced = mounted && MediaQuery.disableAnimationsOf(context);
+      final rest = Duration(milliseconds: reduced ? 600 : 4100) -
+          DateTime.now().difference(started);
+      if (rest > Duration.zero) await Future<void>.delayed(rest);
+      if (!mounted) return;
+      // The save has landed: the card lifts, with a chime.
+      setState(() => saved = true);
+      HolyHaptics.celebration();
+      unawaited(HolySounds.purchaseChime());
+      await Future<void>.delayed(Duration(milliseconds: reduced ? 200 : 1150));
+      if (!mounted) return;
+      setState(() => saving = false);
+      _go(_letter);
+    } catch (_) {
+      if (!mounted) return;
+      setState(() {
+        saving = false;
+        saveError = OnboardingCopy.saveError;
+      });
+    }
+  }
+
+  void _finish() {
+    _patchDraft({
+      'stepId': onboardingDoneStepId,
+      'step': _offer,
+      'flowVersion': onboardingFlowVersion
+    });
+    // A first welcome ends in Day 1. A second one ends where she started.
+    context.go(widget.retake ? '/' : '/lesson/1');
+  }
+
+  /// Leaves a retake part-way: nothing more is asked, and her walk is as it
+  /// was.
+  void _close() {
+    FocusManager.instance.primaryFocus?.unfocus();
+    _patchDraft({'stepId': onboardingDoneStepId});
+    context.go('/profile');
+  }
+
+  void _continue() {
+    switch (step) {
+      case _name:
+        _saveName();
+      case _birthday:
+        _saveBirthday();
+      case _building:
+        _build();
+      default:
+        _go(step + 1);
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    final t = HolyThemeScope.of(context);
-    final isPreset = reminderPresets.any((p) => p.id == choice);
-    return _Panel(
-        title: 'When should today’s word arrive?',
-        subtitle: 'One note a day. You can change it anytime.',
-        footer: Column(children: [
-          HolyButton('Remind me at ${_format(choice)}',
-              loading: widget.busy, onPressed: () => widget.onChoose(choice)),
-          TextAction('Not now',
-              color: t.muted,
-              onPressed: widget.busy ? null : () => widget.onChoose(null)),
-        ]),
-        children: [
-          _NotificationPreview(
-              time: _format(choice),
-              title: lessonNoteTitle(
-                  reminderMinutesFor(choice)! ~/ 60, widget.name),
-              body: teaserExcerpt(widget.preview)),
-          const SizedBox(height: 16),
-          Row(children: [
-            for (final p in reminderPresets) ...[
-              Expanded(
-                  child: _TimeChip(
-                      label: p.label,
-                      detail: p.detail!,
-                      selected: choice == p.id,
-                      onPressed: () => setState(() => choice = p.id))),
-              const SizedBox(width: 8),
-            ],
-          ]..removeLast()),
-          const SizedBox(height: 8),
-          Align(
-              alignment: Alignment.centerLeft,
-              child: TextAction(
-                  isPreset ? 'Choose another time' : 'Custom · ${_format(choice)}',
-                  onPressed: _custom)),
-        ]);
-  }
-}
+    ref.watch(repositoryProvider.select((s) => s.profile));
+    final a = answers;
+    final name = firstNameOf(profile.name);
+    final moods = OnboardingMoods.steps;
+    Color accent(int i) => moods[i].accent;
+    Color glow(int i) => moods[i].glow;
+    final echo =
+        OnboardingCopy.echo(a.obstacle, reminderOn: profile.reminderEnabled);
 
-class _TimeChip extends StatelessWidget {
-  final String label, detail;
-  final bool selected;
-  final VoidCallback onPressed;
-  const _TimeChip(
-      {required this.label,
-      required this.detail,
-      required this.selected,
-      required this.onPressed});
-  @override
-  Widget build(BuildContext context) {
-    final t = HolyThemeScope.of(context);
-    return Pressable(
-        onPressed: () {
-          HolyHaptics.chipSelect();
-          onPressed();
-        },
-        selected: selected,
-        semanticLabel: '$label, $detail',
-        child: AnimatedContainer(
-            duration: const Duration(milliseconds: 200),
-            padding: const EdgeInsets.symmetric(vertical: 12),
-            decoration: ShapeDecoration(
-                color: selected
-                    ? Color.alphaBlend(
-                        t.accent.withValues(alpha: .08), t.surface)
-                    : t.surface,
-                shape: RoundedSuperellipseBorder(
-                    borderRadius: BorderRadius.circular(HolyRadius.field),
-                    side: BorderSide(
-                        color: selected ? t.accent : t.hairline,
-                        width: selected ? 1.4 : 1))),
-            child: Column(children: [
-              Text(label,
-                  style: HolyTypography.label.copyWith(
-                      color: t.ink,
-                      fontWeight: selected ? FontWeight.w800 : FontWeight.w600)),
-              const SizedBox(height: 2),
-              Text(detail,
-                  style: HolyTypography.caption.copyWith(color: t.muted)),
-            ])));
-  }
-}
+    final canContinue = switch (step) {
+      _name => first.text.trim().isNotEmpty,
+      _heart => a.hearts.isNotEmpty,
+      _season => a.season != null,
+      _bible => _bibleDone,
+      _week => _weekShown,
+      _note => _noteDone,
+      _building => saveError != null,
+      _ => true,
+    };
+    final label = switch (step) {
+      _birthday => OnboardingCopy.birthdaySave,
+      _bible => OnboardingCopy.showFirstWeek,
+      _note => OnboardingCopy.buildWalk,
+      _building => OnboardingCopy.tryAgain,
+      _ => OnboardingCopy.continueLabel,
+    };
+    // One small line under the button on every step.
+    final microcopy = switch (step) {
+      _name => OnboardingCopy.nameLine,
+      _birthday => OnboardingCopy.birthdayLine,
+      _heart => OnboardingCopy.heartCount(a.hearts.length),
+      _season => OnboardingCopy.seasonLine,
+      _bible || _note => (step == _bible ? a.familiarity : a.reminder) == null
+          ? OnboardingCopy.chatLine
+          : OnboardingCopy.chatHint,
+      _week => OnboardingCopy.firstWeekLine,
+      _letter => OnboardingCopy.letterLine,
+      _dayOne => OnboardingCopy.dayOneLine,
+      _ => null,
+    };
 
-/// A faithful picture of the iOS banner she will see.
-class _NotificationPreview extends StatelessWidget {
-  final String time, title, body;
-  const _NotificationPreview(
-      {required this.time, required this.title, required this.body});
-  @override
-  Widget build(BuildContext context) {
-    final t = HolyThemeScope.of(context);
-    return Semantics(
-        label: 'Preview: HolyHim at $time. $title. $body',
-        excludeSemantics: true,
-        child: DecoratedBox(
-            decoration: ShapeDecoration(
-                color: t.isDark ? const Color(0xFF2C2C2E) : Colors.white,
-                shape: RoundedSuperellipseBorder(
-                    borderRadius: BorderRadius.circular(22)),
-                shadows: HolyDepth.paper(t, lift: .8)),
-            child: Padding(
-                padding: const EdgeInsets.fromLTRB(14, 12, 14, 14),
-                child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                  ClipRRect(
-                      borderRadius: BorderRadius.circular(8),
-                      child: Image.asset('assets/brand/holyhim-mark.png',
-                          width: 36, height: 36, fit: BoxFit.cover,
-                          errorBuilder: (c, e, s) => Container(
-                              width: 36, height: 36, color: t.accent))),
-                  const SizedBox(width: 10),
-                  Expanded(
-                      child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                        Row(children: [
-                          Expanded(
-                              child: Text('HolyHim',
-                                  style: HolyTypography.label.copyWith(
-                                      color: t.isDark
-                                          ? Colors.white
-                                          : Colors.black,
-                                      fontWeight: FontWeight.w700))),
-                          Text(time,
-                              style: HolyTypography.caption.copyWith(
-                                  color: t.isDark
-                                      ? Colors.white60
-                                      : Colors.black54)),
-                        ]),
-                        const SizedBox(height: 2),
-                        Text(title,
-                            style: HolyTypography.label.copyWith(
-                                color:
-                                    t.isDark ? Colors.white : Colors.black)),
-                        Text(body,
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-                            style: HolyTypography.caption.copyWith(
-                                color: t.isDark
-                                    ? Colors.white70
-                                    : Colors.black87)),
-                      ])),
-                ]))));
-  }
-}
-
-class _BirthdayStep extends StatefulWidget {
-  final String? initial;
-  final ValueChanged<String?> onDone;
-  const _BirthdayStep({required this.initial, required this.onDone});
-  @override
-  State<_BirthdayStep> createState() => _BirthdayStepState();
-}
-
-class _BirthdayStepState extends State<_BirthdayStep> {
-  late DateTime value =
-      DateTime.tryParse(widget.initial ?? '') ?? DateTime(1995, 6, 15);
-  @override
-  Widget build(BuildContext context) {
-    final t = HolyThemeScope.of(context);
-    final now = DateTime.now();
-    return _Panel(
-        title: 'When is your birthday?',
-        subtitle: 'So we can send a blessing on your day. This is optional.',
-        footer: Column(children: [
-          HolyButton('Save my birthday',
-              onPressed: () => widget.onDone(
-                  '${value.year.toString().padLeft(4, '0')}-${value.month.toString().padLeft(2, '0')}-${value.day.toString().padLeft(2, '0')}')),
-          TextAction('Skip', color: t.muted, onPressed: () => widget.onDone(null)),
-        ]),
-        children: [
-          FitFlex(
-              min: 180,
-              child: ConstrainedBox(
-                  constraints: const BoxConstraints(maxHeight: 216, minHeight: 120),
-                  child: CupertinoTheme(
-                      data: CupertinoThemeData(
-                          brightness:
-                              t.isDark ? Brightness.dark : Brightness.light,
-                          textTheme: CupertinoTextThemeData(
-                              dateTimePickerTextStyle: HolyTypography.ui
-                                  .copyWith(color: t.ink, fontSize: 21))),
-                      child: CupertinoDatePicker(
-                          mode: CupertinoDatePickerMode.date,
-                          initialDateTime: value,
-                          minimumDate: DateTime(now.year - 100, 1, 1),
-                          maximumDate: DateTime(now.year - 13, now.month, now.day),
-                          onDateTimeChanged: (d) => value = d)))),
-        ]);
-  }
-}
-
-/// "Building your walk": a short checklist that draws itself while the
-/// profile is saved.
-class _BuildingStep extends StatefulWidget {
-  final String name;
-  final OnboardingAnswers answers;
-  final String? error;
-  final VoidCallback onRetry;
-  final bool reminderOn;
-  final int reminderMinutes;
-  const _BuildingStep(
-      {required this.name,
-      required this.answers,
-      required this.error,
-      required this.onRetry,
-      required this.reminderOn,
-      required this.reminderMinutes});
-  @override
-  State<_BuildingStep> createState() => _BuildingStepState();
-}
-
-class _BuildingStepState extends State<_BuildingStep> {
-  int done = 0;
-  Timer? timer;
-  @override
-  void initState() {
-    super.initState();
-    timer = Timer.periodic(const Duration(milliseconds: 750), (t) {
-      if (!mounted) return;
-      setState(() => done++);
-      HolyHaptics.chipSelect();
-      if (done >= 4) t.cancel();
-    });
-  }
-
-  @override
-  void dispose() {
-    timer?.cancel();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final t = HolyThemeScope.of(context);
-    final heart = labelFor(heartChoices, widget.answers.hearts.firstOrNull)
-            ?.toLowerCase() ??
-        'peace';
-    final m = widget.reminderMinutes;
-    final h12 = (m ~/ 60) % 12 == 0 ? 12 : (m ~/ 60) % 12;
-    final time =
-        '$h12:${(m % 60).toString().padLeft(2, '0')} ${m < 720 ? 'AM' : 'PM'}';
-    final lines = [
-      'Choosing verses for $heart',
-      'Writing each lesson in plain words',
-      widget.reminderOn
-          ? 'Setting your note for $time'
-          : 'Saving your place for any time of day',
-      'Preparing Day 1: ${lessons.first.title}',
-    ];
-    return _Panel(
-        title: widget.name.isEmpty
-            ? 'Building your walk'
-            : 'Building your walk, ${widget.name}',
-        footer: widget.error == null
-            ? null
-            : HolyButton('Try again', onPressed: widget.onRetry),
-        children: [
-          for (var i = 0; i < lines.length; i++)
-            Padding(
-                padding: const EdgeInsets.only(bottom: 14),
-                child: AnimatedOpacity(
-                    duration: const Duration(milliseconds: 300),
-                    opacity: i <= done ? 1 : .35,
-                    child: Row(children: [
-                      HolyCheck(checked: i < done, size: 24, color: t.olive),
-                      const SizedBox(width: 14),
-                      Expanded(
-                          child: Text(lines[i],
-                              style: HolyTypography.ui.copyWith(color: t.ink))),
-                    ]))),
-          if (widget.error != null)
-            Text(widget.error!,
-                style: HolyTypography.caption.copyWith(color: t.accent)),
+    return OnboardingScaffold(
+        moods: moods,
+        currentIndex: step,
+        canContinue: canContinue,
+        continueLabel: label,
+        onContinue: _continue,
+        // The save has no button unless it fails; the offer brings its own.
+        showContinue:
+            step != _offer && (step != _building || saveError != null),
+        // Building and the letter share one card: the page between them
+        // dissolves in place.
+        dissolve: const {_building},
+        secondaryLabel: step == _birthday ? OnboardingCopy.skip : null,
+        onSecondary: step == _birthday ? () => _go(_heart) : null,
+        microcopy: microcopy,
+        onBack: _canBack ? () => _go(step - 1) : null,
+        onClose: widget.retake && step < _building ? _close : null,
+        pages: [
+          NameStep(
+              controller: first,
+              error: nameError,
+              onChanged: (_) => setState(() => nameError = null),
+              onSubmitted: _saveName),
+          BirthdayStep(
+              initial: profile.birthday,
+              accent: accent(_birthday),
+              onChanged: (d) => _birthdayPicked = d),
+          SelectStep(
+              title: OnboardingCopy.heartTitle(name),
+              subtitle: OnboardingCopy.heartSubtitle,
+              choices: heartChoices,
+              selected: a.hearts,
+              max: 3,
+              accent: accent(_heart),
+              onTap: _toggleHeart),
+          SelectStep(
+              title: OnboardingCopy.seasonTitle,
+              subtitle: OnboardingCopy.seasonSubtitle,
+              choices: seasonChoices,
+              selected: [if (a.season != null) a.season!],
+              accent: accent(_season),
+              onTap: _chooseSeason),
+          OnboardingChatStep(
+              key: const ValueKey('bible-chat'),
+              script: _bibleChat,
+              accent: accent(_bible),
+              answerOf: _bibleAnswer,
+              onAnswer: (question, answer) async =>
+                  _patchDraft({question: answer.id}),
+              onCompleteChanged: (done) {
+                if (mounted) setState(() => _bibleDone = done);
+              }),
+          FirstWeekStep(
+              name: name,
+              accent: accent(_week),
+              glow: glow(_week),
+              echo: echo,
+              revealed: _weekShown,
+              onRevealed: () => setState(() => _weekShown = true)),
+          OnboardingChatStep(
+              key: const ValueKey('note-chat'),
+              script: _noteChat,
+              accent: accent(_note),
+              answerOf: _noteAnswer,
+              resolve: _pickNoteTime,
+              onAnswer: _onNoteAnswer,
+              attachment: _notePreview,
+              onCompleteChanged: (done) {
+                if (mounted) setState(() => _noteDone = done);
+              }),
+          BuildingStep(
+              name: name,
+              answers: a,
+              error: saveError,
+              saved: saved,
+              accent: accent(_building),
+              glow: glow(_building),
+              reminderOn: profile.reminderEnabled,
+              reminderMinutes: profile.reminderMinutes),
+          LetterStep(
+              name: name,
+              answers: a,
+              glow: glow(_letter),
+              reminderOn: profile.reminderEnabled,
+              reminderMinutes: profile.reminderMinutes),
+          DayOneStep(accent: accent(_dayOne)),
+          Builder(
+              builder: (context) => Padding(
+                  padding:
+                      OnboardingTokens.pageInsets(context, top: 6, bottom: 4),
+                  child: OfferBody(onboarding: true, onContinue: _finish))),
         ]);
   }
 }
