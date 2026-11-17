@@ -30,7 +30,9 @@ class _HoldButtonState extends State<HoldButton>
     with SingleTickerProviderStateMixin {
   late final _controller =
       AnimationController(vsync: this, duration: widget.duration);
-  static const _beats = [.0, .27, .49, .66, .79, .89, .96];
+  /// Light ticks at a quarter, a half and three quarters; the success
+  /// notification lands at the end.
+  static const _beats = [.25, .5, .75];
   int _beat = 0;
   bool _complete = false;
   @override
@@ -45,7 +47,7 @@ class _HoldButtonState extends State<HoldButton>
     if (_controller.isAnimating &&
         _controller.status == AnimationStatus.forward) {
       while (_beat < _beats.length && _controller.value >= _beats[_beat]) {
-        HolyHaptics.tap();
+        HolyHaptics.holdTick();
         _beat++;
       }
     }

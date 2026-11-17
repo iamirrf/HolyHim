@@ -3,8 +3,16 @@ import 'package:flutter/services.dart';
 
 /// Haptic patterns mapped to interaction types.
 ///
-/// Centralised so the onboarding flow feels consistent: every selection uses
-/// the same weight, every step boundary the same double-tap.
+/// One vocabulary for the whole app, all of it behind the Haptics switch:
+///
+/// * selection tick: chips, toggles, segmented controls, pickers, tabs
+/// * light impact: a lesson card turning, a sheet opening
+/// * medium impact: a primary button
+/// * rising light ticks while Amen is held, then a success notification
+/// * success notification: a purchase confirmed, a medallion earned
+/// * warning notification: anything that went wrong
+///
+/// Nothing fires on scroll.
 class HolyHaptics {
   const HolyHaptics._();
 
@@ -20,14 +28,22 @@ class HolyHaptics {
   /// Standard button press.
   static void buttonPress() => _fire(HapticFeedback.mediumImpact);
 
+  /// A chip, toggle, segmented control, picker or tab changing.
+  static void selection() => _fire(HapticFeedback.selectionClick);
+
   /// Selecting a card or chip.
-  static void chipSelect() => _fire(HapticFeedback.lightImpact);
+  static void chipSelect() => _fire(HapticFeedback.selectionClick);
 
   /// Deselecting a card or chip — lighter than selecting, on purpose.
   static void chipDeselect() => _fire(HapticFeedback.selectionClick);
 
-  /// A committing action (pledge, form submit).
-  static void success() => _fire(HapticFeedback.heavyImpact);
+  /// Something done and kept: a purchase confirmed, a medallion earned, an
+  /// Amen held to the end. The platform's own success notification.
+  static void success() => _fire(HapticFeedback.successNotification);
+
+  /// One tick of a hold building: Amen fires these at a quarter, a half and
+  /// three quarters, so the finger feels the light gathering.
+  static void holdTick() => _fire(HapticFeedback.lightImpact);
 
   /// A light, incidental tap: opening a sheet, copying, tapping a suggestion.
   static void tap() => _fire(HapticFeedback.lightImpact);
@@ -43,8 +59,8 @@ class HolyHaptics {
   /// moment without competing with the gesture.
   static void detent() => _fire(HapticFeedback.selectionClick);
 
-  /// Something went wrong.
-  static void error() => _fire(HapticFeedback.heavyImpact);
+  /// Something went wrong: the platform's warning notification.
+  static void error() => _fire(HapticFeedback.warningNotification);
 
   /// Crossing a step boundary: a medium tap, then a light one.
   static Future<void> stepComplete() async {
@@ -54,15 +70,9 @@ class HolyHaptics {
     _fire(HapticFeedback.lightImpact);
   }
 
-  /// Reaching a milestone (purchase complete, plan built).
-  static Future<void> celebration() async {
-    if (!enabled) return;
-    for (var i = 0; i < 3; i++) {
-      _fire(HapticFeedback.lightImpact);
-      await Future<void>.delayed(const Duration(milliseconds: 80));
-    }
-    _fire(HapticFeedback.heavyImpact);
-  }
+  /// Reaching a milestone (purchase complete, plan built): the same success
+  /// notification as [success], so a milestone feels the same everywhere.
+  static Future<void> celebration() async => success();
 
   // Lesson cards. Deliberately the quietest vocabulary in the app: a lesson is
   // read for minutes, so nothing here may feel like a notification. Only the two

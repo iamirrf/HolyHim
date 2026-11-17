@@ -13,6 +13,10 @@ class Pressable extends StatefulWidget {
   final bool selected, haptic;
   final double pressedScale;
   final Key? interactionKey;
+
+  /// The haptic under the finger. A selection tick unless the control says
+  /// otherwise; a primary button passes [HolyHaptics.buttonPress].
+  final VoidCallback? pressHaptic;
   const Pressable(
       {super.key,
       required this.child,
@@ -21,8 +25,9 @@ class Pressable extends StatefulWidget {
       this.semanticLabel,
       this.selected = false,
       this.haptic = true,
-      this.pressedScale = .96,
-      this.interactionKey});
+      this.pressedScale = HolyMotion.pressedScale,
+      this.interactionKey,
+      this.pressHaptic});
   @override
   State<Pressable> createState() => _PressableState();
 }
@@ -35,8 +40,8 @@ class _PressableState extends State<Pressable>
   void _highlight(bool down) {
     if (_pressed == down || widget.onPressed == null) return;
     _pressed = down;
-    if (down && widget.haptic) HolyHaptics.detent();
-    if (MediaQuery.disableAnimationsOf(context)) {
+    if (down && widget.haptic) (widget.pressHaptic ?? HolyHaptics.selection)();
+    if (HolyMotion.reduced(context)) {
       _scale.value = 1;
       return;
     }
@@ -63,8 +68,7 @@ class _PressableState extends State<Pressable>
       label: widget.semanticLabel,
       child: Listener(
               onPointerDown: (e) {
-                if (MediaQuery.disableAnimationsOf(context) ||
-                    widget.onPressed == null) {
+                if (HolyMotion.reduced(context) || widget.onPressed == null) {
                   return;
                 }
                 final size = context.size ?? const Size(200, 80);
@@ -84,7 +88,7 @@ class _PressableState extends State<Pressable>
                           highlightColor: Colors.transparent,
                           child: widget.child)),
                   builder: (context, child) {
-                    final force = ((1 - _scale.value) / .04).clamp(-.2, 1.0);
+                    final force = ((1 - _scale.value) / .03).clamp(-.2, 1.0);
                     return Transform(
                         alignment: Alignment.center,
                         transform: Matrix4.identity()

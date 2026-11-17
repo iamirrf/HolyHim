@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../haptics.dart';
 import '../themes.dart';
 import '../tokens.dart';
 import '../typography.dart';
@@ -134,6 +135,10 @@ class HolyButton extends StatelessWidget {
             child: Pressable(
                 onPressed: enabled ? onPressed : null,
                 borderRadius: BorderRadius.circular(HolyRadius.button),
+                pressHaptic: style == HolyButtonStyle.primary ||
+                        style == HolyButtonStyle.photoPrimary
+                    ? HolyHaptics.buttonPress
+                    : null,
                 child: surface)));
   }
 }
