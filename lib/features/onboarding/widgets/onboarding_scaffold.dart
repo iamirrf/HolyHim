@@ -351,9 +351,13 @@ class OnboardingButton extends StatelessWidget {
                         curve: Curves.easeOutCubic,
                         width: double.infinity,
                         height: OnboardingTokens.ctaHeight,
-                        color: ready || busy
-                            ? OnboardingTokens.plum
-                            : OnboardingTokens.ctaDisabledFill,
+                        decoration: BoxDecoration(
+                            gradient: ready || busy
+                                ? HolyDepth.metal(OnboardingTokens.plum)
+                                : LinearGradient(colors: [
+                                    OnboardingTokens.ctaDisabledFill,
+                                    OnboardingTokens.ctaDisabledFill
+                                  ])),
                         child: Stack(fit: StackFit.expand, children: [
                           // The light only turns while there is something
                           // to press.

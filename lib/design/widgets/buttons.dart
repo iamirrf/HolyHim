@@ -115,15 +115,16 @@ class HolyButton extends StatelessWidget {
             decoration: ShapeDecoration(
                 color: fill,
                 shape: shape,
-                shadows: style == HolyButtonStyle.primary && !t.isDark
-                    ? [
-                        BoxShadow(
-                            color: t.primary.withValues(alpha: .22),
-                            blurRadius: 18,
-                            offset: const Offset(0, 8))
-                      ]
+                shadows: style == HolyButtonStyle.primary && enabled
+                    ? HolyDepth.metalShadows(fill, dark: t.isDark)
                     : null),
-            child: content);
+            // The primary button is metal: an opaque base, then the lit face.
+            child: style == HolyButtonStyle.primary
+                ? DecoratedBox(
+                    decoration: ShapeDecoration(
+                        gradient: HolyDepth.metal(fill), shape: shape),
+                    child: content)
+                : content);
     return Semantics(
         label: semanticLabel ?? label,
         button: true,

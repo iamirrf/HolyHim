@@ -123,6 +123,11 @@ class _HoldButtonState extends State<HoldButton>
                                           BorderRadius.circular(HolyRadius.button)),
                                   shadows: [
                                     BoxShadow(
+                                        color: Colors.black.withValues(
+                                            alpha: theme.isDark ? .30 : .10),
+                                        blurRadius: 20,
+                                        offset: const Offset(0, 12)),
+                                    BoxShadow(
                                         color: theme.gold
                                             .withValues(alpha: .10 + v * .45),
                                         blurRadius: 18 + v * 34,
@@ -130,6 +135,12 @@ class _HoldButtonState extends State<HoldButton>
                                         offset: const Offset(0, 6))
                                   ]),
                               child: Stack(alignment: Alignment.center, children: [
+                                // The brass face over the opaque base.
+                                Positioned.fill(
+                                    child: DecoratedBox(
+                                        decoration: BoxDecoration(
+                                            gradient: HolyDepth.metal(
+                                                theme.primary)))),
                                 // Light gathers from the centre as he holds.
                                 Positioned.fill(
                                     child: DecoratedBox(

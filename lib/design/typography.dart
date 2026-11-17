@@ -113,7 +113,10 @@ class HolyTypography {
       fontSize: 40,
       height: 1,
       fontWeight: FontWeight.w700,
-      fontFeatures: [FontFeature.liningFigures()]);
+      fontFeatures: [
+        FontFeature.liningFigures(),
+        FontFeature.tabularFigures()
+      ]);
 
   /// The closing word, e.g. "Amen."
   static const accent = TextStyle(

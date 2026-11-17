@@ -48,7 +48,7 @@ class Glass extends StatelessWidget {
                     borderRadius: BorderRadius.circular(radius),
                     side: BorderSide(
                         color: Colors.white
-                            .withValues(alpha: theme.isDark ? .20 : .85),
+                            .withValues(alpha: theme.isDark ? .10 : .85),
                         width: borderWidth)),
                 gradient: LinearGradient(
                     begin: Alignment.topCenter,
@@ -61,7 +61,12 @@ class Glass extends StatelessWidget {
                       0,
                       .35
                     ])),
-            child: Padding(padding: padding, child: child)));
+            child: CustomPaint(
+                foregroundPainter: _RimLight(
+                    radius: radius,
+                    color: theme.isDark ? theme.ink : Colors.white,
+                    alpha: theme.isDark ? .16 : .7),
+                child: Padding(padding: padding, child: child))));
     return DecoratedBox(
         decoration: ShapeDecoration(
             shape: shape,
@@ -74,6 +79,44 @@ class Glass extends StatelessWidget {
                     filter: ImageFilter.blur(sigmaX: 22, sigmaY: 22),
                     child: surface)));
   }
+}
+
+/// A 1 px rim of light along the top edge of a glass surface, fading out
+/// before the middle, so the card reads as lit from above. One stroke with a
+/// gradient shader: no layer, no blur.
+class _RimLight extends CustomPainter {
+  final double radius, alpha;
+  final Color color;
+  const _RimLight(
+      {required this.radius, required this.color, required this.alpha});
+  @override
+  void paint(Canvas canvas, Size size) {
+    if (size.isEmpty) return;
+    final rect = (Offset.zero & size).deflate(.5);
+    final path = RoundedSuperellipseBorder(
+            borderRadius: BorderRadius.circular(radius))
+        .getOuterPath(rect);
+    canvas.drawPath(
+        path,
+        Paint()
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = 1
+          ..shader = LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [
+                color.withValues(alpha: alpha),
+                color.withValues(alpha: 0)
+              ],
+              stops: const [
+                0,
+                .42
+              ]).createShader(rect));
+  }
+
+  @override
+  bool shouldRepaint(_RimLight old) =>
+      old.radius != radius || old.color != color || old.alpha != alpha;
 }
 
 class DepthCard extends StatelessWidget {

@@ -16,5 +16,11 @@ class RollingNumber extends StatelessWidget {
                   : const Duration(milliseconds: 900),
               curve: Curves.easeOutCubic,
               builder: (context, n, _) => Text('${n.round()}',
-                  style: style ?? HolyTypography.display))));
+                  style: _tabular(style ?? HolyTypography.display)))));
+
+  /// Counting digits keep one width, so a number rolling up never jitters.
+  static TextStyle _tabular(TextStyle s) => s.copyWith(fontFeatures: [
+        ...?s.fontFeatures,
+        const FontFeature.tabularFigures()
+      ]);
 }
