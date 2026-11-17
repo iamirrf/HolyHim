@@ -50,7 +50,6 @@ flutter:
   assets:
     - assets/sounds/
     - assets/audio/lessons/
-    - assets/audio/music/
     - assets/icons/
     - assets/brand/
     - assets/artwork/
