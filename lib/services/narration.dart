@@ -191,12 +191,17 @@ class LessonNarration extends ChangeNotifier {
         await voice.seek(t.startOf(card));
         await voice.resume();
       }
-      if (music.state != PlayerState.paused) {
-        await music.setSource(AssetSource(musicForDay(day)));
+      // The music is optional: without it the reading goes on alone.
+      try {
+        if (music.state != PlayerState.paused) {
+          await music.setSource(AssetSource(musicForDay(day)));
+        }
+        await music.setVolume(_musicLevel);
+        await music.resume();
+        _fadeMusic(musicVolume, _fadeIn);
+      } catch (e) {
+        debugPrint('Narration music unavailable: $e');
       }
-      await music.setVolume(_musicLevel);
-      await music.resume();
-      _fadeMusic(musicVolume, _fadeIn);
     } catch (e) {
       debugPrint('Narration error: $e');
       playing = false;
@@ -219,7 +224,7 @@ class LessonNarration extends ChangeNotifier {
   Future<void> toggle(int fromCard) =>
       playing ? pause() : play(fromCard: _voice == null ? fromCard : null);
 
-  /// She swiped to [to]: the voice follows her there.
+  /// He swiped to [to]: the voice follows him there.
   Future<void> seekToCard(int to) async {
     final t = track;
     if (t == null || to == card) return;

@@ -247,11 +247,9 @@ void main() {
     expect(find.text('Good to have you here, Daniel.'), findsOneWidget);
     expect(find.text('How well do you know the Bible?'), findsOneWidget);
     await _tap(tester, 'I am coming back to it');
-    expect(find.text('Welcome back. We will take it one day at a time.'),
-        findsOneWidget);
+    expect(find.text('Welcome back. One day at a time.'), findsOneWidget);
     await _tap(tester, 'It is hard to understand');
-    expect(
-        find.text('Thanks, Daniel. That is all I need.'), findsOneWidget);
+    expect(find.text('Thanks, Daniel. That\'s all I need.'), findsOneWidget);
     await _tap(tester, 'Show me my first week');
 
     // His first week is the real first seven lessons.

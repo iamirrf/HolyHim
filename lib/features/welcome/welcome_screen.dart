@@ -96,7 +96,7 @@ class WelcomeScreen extends ConsumerWidget {
                             fontSize: compact ? 27 : 31,
                             height: 1.16))),
               ])),
-          // The paper panel, there from the first frame: she came to sign
+          // The paper panel, there from the first frame: he came to sign
           // in, and the buttons should be waiting for him.
           Align(
               alignment: Alignment.bottomCenter,

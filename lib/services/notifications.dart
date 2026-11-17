@@ -126,7 +126,7 @@ class NotificationService {
   }
 
   /// Shows iOS's own prompt when iOS still allows it and waits for his
-  /// answer, however long she reads it. Returns whether notes may be sent.
+  /// answer, however long he reads it. Returns whether notes may be sent.
   Future<bool> requestPermission() async {
     if (!_supported) return false;
     try {

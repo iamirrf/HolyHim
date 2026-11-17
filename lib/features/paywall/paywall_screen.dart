@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import '../../data/lessons.g.dart';
 import '../../design/art_catalog.dart';
 import '../../design/design.dart';
 import '../../design/widgets/animated_mesh_background.dart';
@@ -428,9 +429,10 @@ class _Headline extends StatelessWidget {
   }
 }
 
-/// Whether the lessons have their recordings in this build.
+/// Whether every lesson has its recording in this build: the offer promises
+/// "every lesson read aloud", so a partial set does not count.
 final _hasRecordings = FutureProvider<bool>(
-    (ref) async => (await NarrationCatalog.load()).isNotEmpty);
+    (ref) async => (await NarrationCatalog.load()).length >= lessons.length);
 
 /// What membership gives, in four plain lines; one is shaped by what he
 /// told us he needs most.

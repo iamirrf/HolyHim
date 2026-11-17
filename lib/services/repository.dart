@@ -35,7 +35,7 @@ class AppProfile {
   final DateTime? promiseStartedAt, onboardedAt, migratedAt;
   final DateTime createdAt, updatedAt;
 
-  /// The Circle: whether she shows on the shared board, her chosen art
+  /// The Circle: whether he shows on the shared board, his chosen art
   /// avatar, and the members he has blocked.
   final bool circle;
   final String circleAvatar;

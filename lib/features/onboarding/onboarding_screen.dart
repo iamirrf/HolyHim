@@ -282,7 +282,7 @@ class _FlowState extends ConsumerState<_Flow> {
         : OnboardingCopy.noteDenied;
   }
 
-  /// "Choose another time": a time wheel in a sheet. Null if she closes it.
+  /// "Choose another time": a time wheel in a sheet. Null if he closes it.
   Future<ChatAnswer?> _pickNoteTime(String question, ChatReply reply) async {
     final current =
         reminderMinutesFor(answers.reminder) ?? profile.reminderMinutes;
@@ -401,7 +401,7 @@ class _FlowState extends ConsumerState<_Flow> {
       'step': _offer,
       'flowVersion': onboardingFlowVersion
     });
-    // A first welcome ends in Day 1. A second one ends where she started.
+    // A first welcome ends in Day 1. A second one ends where he started.
     context.go(widget.retake ? '/' : '/lesson/1');
   }
 

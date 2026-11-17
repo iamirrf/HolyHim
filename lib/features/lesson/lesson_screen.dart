@@ -62,7 +62,7 @@ class _LessonScreenState extends ConsumerState<LessonScreen>
     unawaited(_startNarration());
   }
 
-  /// Reads the lesson aloud from where she is, if she has asked for that.
+  /// Reads the lesson aloud from where he is, if he has asked for that.
   Future<void> _startNarration() async {
     await narration.init();
     if (!mounted || !narration.available || _completed) return;
