@@ -1,77 +1,83 @@
 // Ported from Cognein; see store/v2-design-ports.json.
 import 'package:flutter/material.dart';
 
-/// Surface tokens for the welcome: white glass on a pale, moving field.
+/// Surface tokens for the welcome: slate glass on a dark, moving field.
 ///
-/// Cognein's light set in HolyHim's colours: plum ink for words, white glass
-/// at part opacity for cards, and one solid plum for the button, so the only
-/// strong colour on a step is the thing to press and what she has chosen.
+/// First Watch: bone ink for words, slate glass at part opacity for cards,
+/// and one solid brass for the button, so the only strong colour on a step
+/// is the thing to press and what he has chosen. The engine's names are
+/// kept (`plum` is the button, `white` the glass) so upstream syncs stay
+/// clean.
 class OnboardingTokens {
   const OnboardingTokens._();
 
-  /// The First Light theme's plum ink.
-  static const Color ink = Color(0xFF33202A);
+  /// Bone, the ink of every First Watch screen.
+  static const Color ink = Color(0xFFF2EDE4);
   static const Color textPrimary = ink;
 
-  /// 7:1 on white glass, 5:1 on the field's deepest tint.
-  static const Color textSecondary = Color(0xFF6A525D);
+  /// 7:1 on the glass, 4.5:1 on the field's brightest light.
+  static const Color textSecondary = Color(0xFFBFC6CF);
 
-  /// 5:1 on white glass: small print on glass or a bar, never on the orb.
-  static const Color textTertiary = Color(0xFF7F6873);
+  /// 4.5:1 on the glass: small print on glass or a bar, never on the orb.
+  static const Color textTertiary = Color(0xFFA2AAB5);
 
-  /// The button and anything that must look pressable.
-  static const Color plum = Color(0xFF4A2638);
-  static const Color onPlum = Color(0xFFFFF8F2);
+  /// The button and anything that must look pressable: brass.
+  static const Color plum = Color(0xFFD8A657);
+  static const Color onPlum = Color(0xFF14110B);
 
-  static const Color white = Colors.white;
+  /// The glass every card, bubble and panel is made of.
+  static const Color white = Color(0xFF1A222D);
 
-  /// A hairline of plum, for edges on white.
+  /// Shadows fall dark on a dark field.
+  static const Color shade = Color(0xFF000000);
+
+  /// A hairline of bone, for edges on the glass.
   static Color get hairline => ink.withValues(alpha: .10);
 
-  /// Unselected card: white glass with a bright rim.
+  /// Unselected card: slate glass with a faint rim.
   static Color get cardFillTop => white.withValues(alpha: .80);
-  static Color get cardFillBottom => white.withValues(alpha: .60);
-  static Color get cardBorder => white.withValues(alpha: .95);
+  static Color get cardFillBottom => white.withValues(alpha: .62);
+  static Color get cardBorder => ink.withValues(alpha: .12);
 
   /// Selected card: the step's colour washed into the glass, with its rim.
   static Color selectedFillTop(Color accent) =>
-      Color.alphaBlend(accent.withValues(alpha: .12), white);
+      Color.alphaBlend(accent.withValues(alpha: .20), white);
   static Color selectedFillBottom(Color accent) => Color.alphaBlend(
-      accent.withValues(alpha: .06), white.withValues(alpha: .86));
-  static Color selectedBorder(Color accent) => accent.withValues(alpha: .78);
+      accent.withValues(alpha: .10), white.withValues(alpha: .88));
+  static Color selectedBorder(Color accent) => accent.withValues(alpha: .85);
 
   static List<BoxShadow> get cardShadow => [
         BoxShadow(
-            color: plum.withValues(alpha: .08),
+            color: shade.withValues(alpha: .30),
             blurRadius: 18,
             offset: const Offset(0, 6)),
       ];
 
   static List<BoxShadow> selectedShadow(Color accent) => [
         BoxShadow(
-            color: accent.withValues(alpha: .22),
+            color: accent.withValues(alpha: .18),
             blurRadius: 20,
             offset: const Offset(0, 6)),
       ];
 
-  /// The button, waiting for an answer: the same plum, faded back.
+  /// The button, waiting for an answer: the same brass, faded back.
   static Color get ctaDisabledFill => plum.withValues(alpha: .16);
-  static Color get ctaDisabledLabel => plum.withValues(alpha: .46);
+  static Color get ctaDisabledLabel => plum.withValues(alpha: .55);
   static List<BoxShadow> get ctaShadow => [
         BoxShadow(
-            color: plum.withValues(alpha: .30),
+            color: plum.withValues(alpha: .26),
             blurRadius: 24,
             offset: const Offset(0, 10)),
       ];
 
   /// A content surface: the first-week card, the letter, the Day 1 card.
-  static Color get panelFillTop => white.withValues(alpha: .82);
-  static Color get panelFillBottom => white.withValues(alpha: .62);
-  static Color get panelBorder => white.withValues(alpha: .95);
+  static Color get panelFillTop => white.withValues(alpha: .84);
+  static Color get panelFillBottom => white.withValues(alpha: .68);
+  static Color get panelBorder => ink.withValues(alpha: .12);
 
-  /// The base of a card with light drifting in it: near-white, so the
-  /// step's own colour does the glowing.
-  static const List<Color> glowBase = [Color(0xFFFFFFFF), Color(0xFFFFF8F4)];
+  /// The base of a card with light drifting in it: slate, so the step's own
+  /// colour does the glowing.
+  static const List<Color> glowBase = [Color(0xFF1C2430), Color(0xFF141B25)];
 
   static const double screenPadding = 24.0;
   static const double cardRadius = 18.0;

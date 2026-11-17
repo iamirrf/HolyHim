@@ -70,7 +70,7 @@ class HolyButton extends StatelessWidget {
         ),
       HolyButtonStyle.photoPrimary => (
           HolyTheme.photoInk,
-          const Color(0xFF2E1B24),
+          HolyTheme.photoShade,
           BorderSide.none
         ),
     };

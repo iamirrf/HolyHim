@@ -3,7 +3,7 @@ import 'dart:math' as math;
 import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 
-/// A slow, turning rose-gold light hugging the inside of a rounded edge.
+/// A slow, turning brass light hugging the inside of a rounded edge.
 ///
 /// Three strokes share one sweep: a wide bloom, a tighter body and a glossy
 /// hairline. The sweep turns once every eight seconds. Place it in a
@@ -48,14 +48,15 @@ class EdgeGlow extends StatefulWidget {
       this.onDark = true})
       : assert(colors.length == 6);
 
-  /// Blush, pearl, champagne and a deep rose, round the edge.
+  /// Brass, bone and candle light round the edge, with one deep bronze.
+  /// The shared engine's name is kept so upstream syncs stay clean.
   static const roseGold = [
-    Color(0xFFE7A3B4),
-    Color(0xFFF6D1C1),
-    Color(0xFFFFF1E2),
-    Color(0xFFB06A7E),
-    Color(0xFFEBC48E),
-    Color(0xFFE7A3B4),
+    Color(0xFFE8C27A),
+    Color(0xFFFFE7B0),
+    Color(0xFFFFF6E0),
+    Color(0xFF8E6427),
+    Color(0xFFD8A657),
+    Color(0xFFE8C27A),
   ];
 
   @override

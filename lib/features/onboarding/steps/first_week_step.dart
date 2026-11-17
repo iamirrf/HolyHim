@@ -323,8 +323,8 @@ class _LessonCard extends StatelessWidget {
         child: DecoratedBox(
             decoration: BoxDecoration(borderRadius: radius, boxShadow: [
               BoxShadow(
-                  color: OnboardingTokens.plum
-                      .withValues(alpha: front ? .26 : .16),
+                  color: OnboardingTokens.shade
+                      .withValues(alpha: front ? .42 : .30),
                   blurRadius: front ? 22 : 14,
                   offset: Offset(0, front ? 12 : 8)),
             ]),
@@ -430,7 +430,7 @@ class _DayRow extends StatelessWidget {
                   decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       // Opaque, so the line passes behind the day.
-                      color: lit ? accent : Colors.white,
+                      color: lit ? accent : OnboardingTokens.white,
                       border: Border.all(
                           color: lit
                               ? accent

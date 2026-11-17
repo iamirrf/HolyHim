@@ -37,8 +37,8 @@ class DayOneStep extends StatelessWidget {
                           decoration:
                               BoxDecoration(borderRadius: radius, boxShadow: [
                             BoxShadow(
-                                color: OnboardingTokens.plum
-                                    .withValues(alpha: .28),
+                                color: OnboardingTokens.shade
+                                    .withValues(alpha: .45),
                                 blurRadius: 32,
                                 offset: const Offset(0, 16)),
                           ]),

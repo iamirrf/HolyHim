@@ -15,7 +15,7 @@ import 'package:holyhim/features/lesson/lesson_screen.dart';
 import 'package:holyhim/features/onboarding/onboarding_screen.dart';
 import 'package:holyhim/features/paywall/paywall_screen.dart';
 import 'package:holyhim/features/shell/home_shell.dart';
-import 'package:holyhim/features/today/today_screen.dart';
+import 'package:holyhim/features/walk/walk_screen.dart';
 import 'package:holyhim/features/welcome/welcome_screen.dart';
 import 'package:holyhim/main.dart';
 import 'package:holyhim/services/app_router.dart';
@@ -129,8 +129,8 @@ class _Harness {
 
 Future<_Harness> _mount(WidgetTester tester,
     {bool onboarded = false,
-    String name = 'Mira Rose',
-    String displayName = 'Mira Rose',
+    String name = 'Daniel Reyes',
+    String displayName = 'Daniel Reyes',
     Map<String, dynamic> draft = const {},
     Map<int, String> completed = const {},
     List<String> hearts = const [],
@@ -177,7 +177,8 @@ Future<_Harness> _mount(WidgetTester tester,
 Future<void> _tap(WidgetTester tester, String text,
     {Duration settle = const Duration(milliseconds: 500)}) async {
   final target = find.text(text).last;
-  await tester.ensureVisible(target);
+  // Centred, so a floating header or tab bar never sits over it.
+  await Scrollable.ensureVisible(tester.element(target), alignment: .5);
   await tester.pump();
   await tester.tap(target);
   await tester.pump();
@@ -209,8 +210,8 @@ void main() {
 
   testWidgets('a name from Apple or Google is never asked for', (tester) async {
     final h = await _mount(tester);
-    expect(find.text('What should we call you? 🌸'), findsNothing);
-    expect(find.text('When is your birthday? 🎂'), findsOneWidget);
+    expect(find.text('What should we call you?'), findsNothing);
+    expect(find.text('When is your birthday?'), findsOneWidget);
     // There is no way back to a question that was never asked.
     expect(find.byTooltip('Back'), findsNothing);
     await h.dispose(tester);
@@ -221,40 +222,40 @@ void main() {
       (tester) async {
     final h = await _mount(tester, name: '', displayName: '');
     AppProfile profile() => h.container.read(repositoryProvider).profile;
-    expect(find.text('What should we call you? 🌸'), findsOneWidget);
-    await tester.enterText(find.byType(TextField), 'Mira');
+    expect(find.text('What should we call you?'), findsOneWidget);
+    await tester.enterText(find.byType(TextField), 'Daniel');
     await tester.pump();
     await _tap(tester, 'Continue');
-    expect(profile().name, 'Mira');
+    expect(profile().name, 'Daniel');
 
     // Birthday is optional, and skipping it saves nothing.
-    expect(find.text('When is your birthday? 🎂'), findsOneWidget);
+    expect(find.text('When is your birthday?'), findsOneWidget);
     await _tap(tester, 'Skip');
     expect(profile().birthday, isNull);
 
-    expect(find.text('Hi Mira. What does your heart need? 💗'), findsOneWidget);
+    expect(find.text('Daniel, what do you need most?'), findsOneWidget);
     await _tap(tester, 'Peace');
-    await _tap(tester, 'Hope');
+    await _tap(tester, 'Courage');
     await _tap(tester, 'Continue');
 
-    // An answer is a choice, not a page turn: Continue moves her on.
-    await _tap(tester, 'Things are changing');
-    expect(find.text('What season are you in? 🍃'), findsOneWidget);
+    // An answer is a choice, not a page turn: Continue moves him on.
+    await _tap(tester, 'Life is changing fast');
+    expect(find.text('Where are you right now?'), findsOneWidget);
     await _tap(tester, 'Continue');
 
     // The conversation about the Bible.
-    expect(find.text('Hi Mira. I am so glad you are here. 🤍'), findsOneWidget);
-    expect(find.text('How well do you know the Bible? 📖'), findsOneWidget);
+    expect(find.text('Good to have you here, Daniel.'), findsOneWidget);
+    expect(find.text('How well do you know the Bible?'), findsOneWidget);
     await _tap(tester, 'I am coming back to it');
     expect(find.text('Welcome back. We will take it one day at a time.'),
         findsOneWidget);
     await _tap(tester, 'It is hard to understand');
     expect(
-        find.text('Thank you, Mira. I have what I need. 🌷'), findsOneWidget);
+        find.text('Thanks, Daniel. That is all I need.'), findsOneWidget);
     await _tap(tester, 'Show me my first week');
 
-    // Her first week is the real first seven lessons.
-    expect(find.text('Mira, here is your first week 🌅'), findsOneWidget);
+    // His first week is the real first seven lessons.
+    expect(find.text('Daniel, here is your first week'), findsOneWidget);
     // Days 1 to 3 also stand on the cards fanned above the path.
     for (final lesson in lessons.take(7)) {
       expect(find.text(lesson.title),
@@ -262,14 +263,14 @@ void main() {
     }
     await _tap(tester, 'Continue');
 
-    // The conversation about her note.
+    // The conversation about his note.
     expect(find.textContaining('When should today’s word arrive?'),
         findsOneWidget);
     expect(h.notifications.requests, 0);
     await _tap(tester, 'Not now');
     expect(h.notifications.requests, 0);
     expect(profile().reminderEnabled, isFalse);
-    await _tap(tester, 'Build my walk');
+    await _tap(tester, 'Build my road');
 
     final draft = _draft(tester, h);
     expect(draft['flowVersion'], onboardingFlowVersion);
@@ -277,23 +278,23 @@ void main() {
     expect(draft['familiarity'], 'returning');
     expect(draft['obstacle'], 'understanding');
     expect(draft['reminder'], 'off');
-    expect(profile().hearts, ['peace', 'hope']);
+    expect(profile().hearts, ['peace', 'courage']);
     // Building, then the letter.
     await tester.pump(const Duration(seconds: 1));
     await tester.pump(const Duration(seconds: 1));
     expect(profile().onboarded, isTrue);
-    expect(find.text('Dear Mira,'), findsOneWidget);
-    // The save is behind her: there is no way back into it.
+    expect(find.text('Daniel,'), findsOneWidget);
+    // The save is behind him: there is no way back into it.
     expect(find.byTooltip('Back'), findsNothing);
     await _tap(tester, 'Continue');
-    expect(find.text('Here is where you begin 🕊️'), findsOneWidget);
+    expect(find.text('Here is where you start'), findsOneWidget);
     expect(find.text(lessons.first.title), findsOneWidget);
     await _tap(tester, 'Continue');
     // The offer has no way past it but the free week or the subscription.
     expect(find.byType(OfferBody), findsOneWidget);
     expect(find.text('Sign out'), findsOneWidget);
     await _tap(tester, 'Start my 7 days free');
-    expect(find.text('You’re in 🤍'), findsOneWidget);
+    expect(find.text('You’re in.'), findsOneWidget);
     await _tap(tester, 'Begin Day 1');
     await tester.pump(const Duration(milliseconds: 500));
     expect(find.byType(LessonScreen), findsOneWidget);
@@ -302,10 +303,10 @@ void main() {
     await h.dispose(tester);
   });
 
-  testWidgets('choosing a time for her note asks iOS only after the tap',
+  testWidgets('choosing a time for his note asks iOS only after the tap',
       (tester) async {
     final h = await _mount(tester, hearts: [
-      'rest'
+      'discipline'
     ], draft: {
       'flowVersion': onboardingFlowVersion,
       'stepId': 'reminder',
@@ -318,7 +319,7 @@ void main() {
     expect(h.notifications.requests, 0);
     await _tap(tester, 'Evening · 8:30 PM', settle: Duration.zero);
     expect(h.notifications.requests, 1);
-    // She has not answered iOS yet: the conversation waits with her.
+    // He has not answered iOS yet: the conversation waits with him.
     expect(find.textContaining('One note a day at'), findsNothing);
     h.notifications.permission.complete(true);
     await tester.pump(const Duration(milliseconds: 500));
@@ -328,14 +329,14 @@ void main() {
     expect(profile.onboardingDraft['reminder'], '20:30');
     expect(
         find.text(
-            'Done. One note a day at 8:30 PM. You can change it anytime. 🌤️'),
+            'Done. One note a day at 8:30 PM. You can change it any time.'),
         findsOneWidget);
     await h.dispose(tester);
   });
 
   testWidgets('a reply can be taken back by tapping it', (tester) async {
     final h = await _mount(tester, hearts: [
-      'rest'
+      'discipline'
     ], draft: {
       'flowVersion': onboardingFlowVersion,
       'stepId': 'familiarity',
@@ -345,7 +346,7 @@ void main() {
     await _tap(tester, 'Nothing really');
     expect(_draft(tester, h)['familiarity'], 'some');
     expect(find.text('Show me my first week'), findsOneWidget);
-    // Her first reply goes back to its question, and the step is open again.
+    // His first reply goes back to its question, and the step is open again.
     await _tap(tester, 'I know a few stories');
     expect(find.text('What usually gets in the way?'), findsNothing);
     await _tap(tester, 'I read it most days');
@@ -354,7 +355,7 @@ void main() {
     await h.dispose(tester);
   });
 
-  testWidgets('retaking the welcome starts at her name and can be closed',
+  testWidgets('retaking the welcome starts at his name and can be closed',
       (tester) async {
     final h = await _mount(tester,
         onboarded: true,
@@ -366,13 +367,13 @@ void main() {
           'stepId': 'name',
           'step': 0
         });
-    expect(find.text('What should we call you? 🌸'), findsOneWidget);
+    expect(find.text('What should we call you?'), findsOneWidget);
     expect(tester.widget<TextField>(find.byType(TextField)).controller!.text,
-        'Mira');
-    // Passing her first name through does not shorten her full name.
+        'Daniel');
+    // Passing his first name through does not shorten his full name.
     await _tap(tester, 'Continue');
-    expect(h.container.read(repositoryProvider).profile.name, 'Mira Rose');
-    expect(find.text('When is your birthday? 🎂'), findsOneWidget);
+    expect(h.container.read(repositoryProvider).profile.name, 'Daniel Reyes');
+    expect(find.text('When is your birthday?'), findsOneWidget);
     await tester.tap(find.byTooltip('Close'));
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 500));
@@ -401,25 +402,25 @@ void main() {
     }
 
     await play();
-    await tester.enterText(find.byType(TextField), 'Mira');
+    await tester.enterText(find.byType(TextField), 'Daniel');
     await tester.pump();
     await press('Continue');
     await press('Skip');
     await press('Peace', 500);
     await press('Continue');
-    await press('Things are changing', 500);
-    // HolyHim writes her opening lines and the first question.
+    await press('Life is changing fast', 500);
+    // HolyHim writes his opening lines and the first question.
     await press('Continue', 7000);
-    expect(find.text('How well do you know the Bible? 📖'), findsOneWidget);
+    expect(find.text('How well do you know the Bible?'), findsOneWidget);
     await press('I am new to the Bible', 5000);
     await press('Nothing really', 5000);
     // The path draws down the week before Continue opens.
     await press('Show me my first week', 5500);
     await press('Continue', 6000);
     await press('Not now', 4000);
-    // The checklist, the save, then the card opens into her letter.
-    await press('Build my walk', 6500);
-    expect(find.text('Dear Mira,'), findsOneWidget);
+    // The checklist, the save, then the card opens into his letter.
+    await press('Build my road', 6500);
+    expect(find.text('Daniel,'), findsOneWidget);
     await press('Continue');
     await press('Continue');
     expect(find.byType(OfferBody), findsOneWidget);
@@ -433,7 +434,7 @@ void main() {
       'flowVersion': 2,
       'stepId': 'lifetimeAccess',
       'step': 10,
-      'firstName': 'Mira',
+      'firstName': 'Daniel',
       'lifeSeason': 'A time of change',
       'faithRoutine': 'I read regularly',
       'obstacle': 'My days are full',
@@ -448,7 +449,7 @@ void main() {
         container: h.container, child: const HolyHimApp()));
     await tester.pump();
     expect(find.byType(OnboardingScreen), findsOneWidget);
-    expect(find.text('Dear Mira,'), findsOneWidget);
+    expect(find.text('Daniel,'), findsOneWidget);
     await h.dispose(tester);
   });
 
@@ -466,7 +467,7 @@ void main() {
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 600));
     expect(tester.state(find.byType(HomeShell)), same(shell));
-    expect(find.byType(TodayScreen), findsOneWidget);
+    expect(find.byType(WalkScreen), findsOneWidget);
     await h.dispose(tester);
   });
 
@@ -505,10 +506,10 @@ void main() {
     await tester.pump();
     await tester.pump();
     expect(find.byType(HomeShell), findsNothing);
-    // The free week opens the door, once she has seen that she is in, and
-    // takes her where she was going.
+    // The free week opens the door, once he has seen that he is in, and
+    // takes him where he was going.
     await _tap(tester, 'Start my 7 days free');
-    expect(find.text('You’re in 🤍'), findsOneWidget);
+    expect(find.text('You’re in.'), findsOneWidget);
     await _tap(tester, 'Continue');
     await tester.pump(const Duration(milliseconds: 500));
     expect(find.byType(LessonScreen), findsOneWidget);

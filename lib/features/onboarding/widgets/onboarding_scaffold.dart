@@ -132,7 +132,7 @@ class _OnboardingScaffoldState extends State<OnboardingScaffold> {
     final tint = mood.mesh.baseColors[0];
     final opaque = HolyThemeScope.opaqueOf(context);
     return AnnotatedRegion<SystemUiOverlayStyle>(
-        value: SystemUiOverlayStyle.dark,
+        value: SystemUiOverlayStyle.light,
         child: Scaffold(
             backgroundColor: mood.mesh.baseColors[0],
             extendBodyBehindAppBar: true,
@@ -305,7 +305,7 @@ class _OnboardingScaffoldState extends State<OnboardingScaffold> {
   }
 }
 
-/// The welcome's button: solid plum with rose-gold light turning round its
+/// The welcome's button: solid brass with light turning round its
 /// edge, a spring under the finger, and one pass of light each time it
 /// becomes ready. The offer uses it too.
 class OnboardingButton extends StatelessWidget {

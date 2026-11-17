@@ -378,7 +378,7 @@ class _OnboardingChatStepState extends State<OnboardingChatStep> {
                     excludeSemantics: true,
                     child: Center(
                         child: GradientFill(
-                            colors: RoseGold.ink,
+                            colors: RoseGold.fill,
                             child: Wordmark(
                                 size: compact ? 26 : 30,
                                 color: OnboardingTokens.ink)))),
@@ -481,8 +481,8 @@ class _HolyHimBubble extends StatelessWidget {
                                   Border.all(color: OnboardingTokens.hairline),
                               boxShadow: [
                                 BoxShadow(
-                                    color: OnboardingTokens.plum
-                                        .withValues(alpha: .06),
+                                    color: OnboardingTokens.shade
+                                        .withValues(alpha: .22),
                                     blurRadius: 10,
                                     offset: const Offset(0, 3)),
                               ],
@@ -511,7 +511,7 @@ class _HerBubble extends StatelessWidget {
     final bubble = Container(
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
         decoration: BoxDecoration(
-            // Her words in the step's own colour, as her side of a
+            // His words in the step's own colour, as his side of a
             // conversation is.
             gradient: LinearGradient(
                 begin: Alignment.topLeft,
@@ -757,8 +757,8 @@ class _ReplyPill extends StatelessWidget {
                   width: 1.2),
               boxShadow: [
                 BoxShadow(
-                    color: (selected ? accent : OnboardingTokens.plum)
-                        .withValues(alpha: selected ? .30 : .07),
+                    color: (selected ? accent : OnboardingTokens.shade)
+                        .withValues(alpha: selected ? .30 : .22),
                     blurRadius: selected ? 14 : 10,
                     offset: const Offset(0, 4)),
               ]),

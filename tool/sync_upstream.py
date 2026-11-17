@@ -60,6 +60,7 @@ OWNED = (
     'lib/services/app_icon.dart', 'lib/domain/milestones.dart',
     'tool/art/app_icons.py', 'test/app_icon_test.dart',  # HolyHim's icon set and its test
     'lib/features/onboarding/onboarding_copy.dart', 'lib/features/onboarding/onboarding_moods.dart',
+    'lib/features/onboarding/widgets/onboarding_tokens.dart',  # First Watch glass and ink
 )
 # Never needed in HolyHim even as a seed: HolyHer's art masters alone are
 # about 470 MB, and its release evidence would be false for HolyHim.
