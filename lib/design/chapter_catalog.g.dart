@@ -9,7 +9,7 @@ class ChapterArt {
 }
 
 abstract final class ChapterCatalog {
-  static const artworkRevision = '784879d442ad';
+  static const artworkRevision = 'a02f1bd595e4';
   static const chapters = <ChapterArt>[
     ChapterArt("unit-01", "Stand strong", 1, 5, true),
     ChapterArt("unit-02", "Strength that lasts", 6, 10, true),
@@ -27,13 +27,13 @@ abstract final class ChapterCatalog {
     ChapterArt("unit-14", "The quiet voice", 66, 70, true),
     ChapterArt("unit-15", "A father's charge", 71, 75, true),
     ChapterArt("unit-16", "Rebuild", 76, 80, true),
-    ChapterArt("unit-17", "When it hits hard", 81, 85, false),
-    ChapterArt("unit-18", "Rooted and covered", 86, 90, false),
-    ChapterArt("unit-19", "Morning and night", 91, 95, false),
-    ChapterArt("unit-20", "Unshaken", 96, 100, false),
-    ChapterArt("unit-21", "The Shepherd leads", 101, 105, false),
-    ChapterArt("unit-22", "Be strong and wait", 106, 110, false),
-    ChapterArt("unit-23", "Strength and shield", 111, 115, false),
+    ChapterArt("unit-17", "When it hits hard", 81, 85, true),
+    ChapterArt("unit-18", "Rooted and covered", 86, 90, true),
+    ChapterArt("unit-19", "Morning and night", 91, 95, true),
+    ChapterArt("unit-20", "Unshaken", 96, 100, true),
+    ChapterArt("unit-21", "The Shepherd leads", 101, 105, true),
+    ChapterArt("unit-22", "Be strong and wait", 106, 110, true),
+    ChapterArt("unit-23", "Strength and shield", 111, 115, true),
     ChapterArt("unit-24", "Come clean", 116, 120, false),
     ChapterArt("unit-25", "Steady steps", 121, 125, false),
     ChapterArt("unit-26", "A new song", 126, 130, false),

@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		017B1241D7838CB8554B1FF7 /* WidgetVerses.json in Resources */ = {isa = PBXBuildFile; fileRef = B7626D13A02D28A891D264A1 /* WidgetVerses.json */; };
 		02365A3CC97C000C5F6BBB92 /* cross-meadow-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A0D3A0493F65033D6065919A /* cross-meadow-thumb.jpg */; };
+		05EA36638A33908EA3DDB63D /* unit-02-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C3B95D8291ACC58774673CC8 /* unit-02-thumb.jpg */; };
 		079993E81821D3CF660F8244 /* sky-stillness-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6C17B98EFDD0F12EB220DD4F /* sky-stillness-thumb.jpg */; };
+		084164BC91FB6DB2BC7BCE9D /* unit-12-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B3DA4B5E958DEDFCAF750BC5 /* unit-12-thumb.jpg */; };
 		09F6E71BEBE1A843AD4C4E6D /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFC80917C5E4A07CA2F7F8B4 /* WidgetKit.framework */; };
 		1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */; };
 		170C56B6206DDE3867D7BC47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74858FAE1ED2DC5600515810 /* AppDelegate.swift */; };
@@ -17,53 +19,74 @@
 		1D41943FB6F3E14C400AAB08 /* jesus-prayer-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 59A8D6B991FE437E7634244E /* jesus-prayer-thumb.jpg */; };
 		1EEAB44368AAEE1EBF8C8FC2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7884E8672EC3CC0400C636F2 /* SceneDelegate.swift */; };
 		253039EFD5A0D1E0CC87FD04 /* cross-mountain-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BB0F64241E0A4699CCF0D33C /* cross-mountain-thumb.jpg */; };
+		25EBA29F739C4E26FB06312E /* unit-16-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EFE2FE24A3A2E8E07E94DFC8 /* unit-16-thumb.jpg */; };
+		2A13890FEE5B6CE87C1240EA /* unit-05-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9EC4AF1E502D986C3B3B836B /* unit-05-thumb.jpg */; };
 		331C808B294A63AB00263BE5 /* RunnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331C807B294A618700263BE5 /* RunnerTests.swift */; };
 		37250623A365F7311EF52D26 /* sky-evening-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FF90F993469ADF2AB2672776 /* sky-evening-thumb.jpg */; };
+		385A48776E04CD88970723F7 /* unit-03-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B89E421A0264A6471829FCE3 /* unit-03-thumb.jpg */; };
 		396C5299A52703632C1E8625 /* cross-hill-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1C10666938F04F95E0DCB965 /* cross-hill-thumb.jpg */; };
 		3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */; };
 		41FE0203852A979973B984FD /* Pods_Runner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2898385D9DBF30A4A1859E2E /* Pods_Runner.framework */; };
 		4979DA3213F5A67DB4B8762A /* cross-window-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3D1F091D620A5344DAC72877 /* cross-window-thumb.jpg */; };
+		498B0B5CDF04F97144250F9F /* unit-11-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9DED31267852A942A1420E7E /* unit-11-thumb.jpg */; };
 		4AAA8FC140E48A66463D34D1 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = A11000000000000000000004 /* PrivacyInfo.xcprivacy */; };
 		4F15E85AF307B17D66C8F3B8 /* jesus-path-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7C26360DD231DB2650CC1FFA /* jesus-path-thumb.jpg */; };
 		4FC0120602CEAF2631D51AE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FA1CF9000F007C117D /* Main.storyboard */; };
 		508A0716F227A62E0510163F /* jesus-dawn-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 669DB083CD5B516601F40D5B /* jesus-dawn-thumb.jpg */; };
+		5340289146D42CA810142794 /* unit-21-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0558DD24189BFD2173C14B99 /* unit-21-thumb.jpg */; };
+		57CAB60C673B95E069B72B5B /* unit-10-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BEC15BA82C36E2B9AC82D10F /* unit-10-thumb.jpg */; };
 		5B529F564C8521D1457CCEE5 /* Pods_RunnerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E11CCBD98B8CA7006EE6D368 /* Pods_RunnerTests.framework */; };
 		648A058F4A655B1C0CDC77E7 /* sky-clouds-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F1372879625FCC05CB69890F /* sky-clouds-thumb.jpg */; };
 		69B1276D776428F90483FB99 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E9BFE2248D5DC9D6CEB0294 /* SwiftUI.framework */; };
+		72DFBE78CE29AD90EF5C860C /* unit-17-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 24FC7D07DA19F4083BB93AFF /* unit-17-thumb.jpg */; };
 		74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74858FAE1ED2DC5600515810 /* AppDelegate.swift */; };
 		7884E8682EC3CC0700C636F2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7884E8672EC3CC0400C636F2 /* SceneDelegate.swift */; };
+		7D66DD3429350C4F5B5225A3 /* unit-08-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A43079738A656825BC9484B9 /* unit-08-thumb.jpg */; };
 		831C21A9CF41B2B9D364A868 /* cross-stone-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0A4B864C557CF97E03795873 /* cross-stone-thumb.jpg */; };
+		8497C9D6461E6B6A50ECEAC2 /* unit-06-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1F44EEE383BA0186CBA62595 /* unit-06-thumb.jpg */; };
+		84A6961A6DF8913A5904FF9C /* unit-14-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E444297DEA60C758143BFF61 /* unit-14-thumb.jpg */; };
 		84BE05C0E659BA931C5213A0 /* landscape-water-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 076FC2909BB83BB9D64D9AB1 /* landscape-water-thumb.jpg */; };
+		8A685CB73D26AEC03CF54FE5 /* unit-18-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FC359E680750F1ABF6EE6F07 /* unit-18-thumb.jpg */; };
 		8B60EA879924948D8D938C26 /* scripture-chapel-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 010D84E2BD99D6CCCDE6421E /* scripture-chapel-thumb.jpg */; };
 		9260B40D7A12FA69FBAF4457 /* scripture-lamp-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 20D0536150F4ABB7D1EE0C0C /* scripture-lamp-thumb.jpg */; };
 		97C146FC1CF9000F007C117D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FA1CF9000F007C117D /* Main.storyboard */; };
 		97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FD1CF9000F007C117D /* Assets.xcassets */; };
 		97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */; };
+		99430C69EE3AFE565A1AABA3 /* unit-20-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 11D9331792E43A989F76331A /* unit-20-thumb.jpg */; };
 		9AEC06297FCEB35411753B9D /* scripture-morning-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E5623B785775C8523DB4A7B2 /* scripture-morning-thumb.jpg */; };
 		A11000000000000000000001 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A11000000000000000000002 /* GoogleService-Info.plist */; };
 		A11000000000000000000005 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = A11000000000000000000004 /* PrivacyInfo.xcprivacy */; };
 		A1DC5BCF5092EBCD247D89EA /* landscape-path-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 638B8F0569A690D96EFEEE90 /* landscape-path-thumb.jpg */; };
+		A5B38575883D3D7CF6668064 /* unit-04-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8B8DBEE1CD9EDF192BD43E84 /* unit-04-thumb.jpg */; };
 		A740AEF45DAA647DD8F492AC /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 8E3B470B055F227970C19ADB /* PrivacyInfo.xcprivacy */; };
 		A8843ADBA43BA33B54E0B20D /* sky-rays-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D12F97FE5948D8656ECB2C4 /* sky-rays-thumb.jpg */; };
 		B06EFBD960CDC8CCAB3953E9 /* symbol-lilies-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BDE9C51364DDB4D04F0FDAF1 /* symbol-lilies-thumb.jpg */; };
 		B41EB59DB900C0E22B3D70D7 /* jesus-seaside-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 184F0A8C663CDB389DFEF0F2 /* jesus-seaside-thumb.jpg */; };
 		B509AF1C24091D0039BE2282 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5901FB94E3B5E83CD2E9096 /* Foundation.framework */; };
 		BA57025084353864978E1369 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FD1CF9000F007C117D /* Assets.xcassets */; };
+		C064732DDAB5A738FEE7C864 /* unit-09-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AC3D07F036EF9F636E94C6A6 /* unit-09-thumb.jpg */; };
 		C159ADFE3D84CEB49F911206 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A11000000000000000000002 /* GoogleService-Info.plist */; };
 		C1DCE3CE20E6D26D157CC614 /* GeneratedPluginRegistrant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */; };
+		C282E4BD4E8D056C111B3814 /* unit-19-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C609D9CE767B5FA383ED082E /* unit-19-thumb.jpg */; };
 		C328ABF6704D27D831E52242 /* HolyHimWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5F9C2C41017F96CC1AB1A2C0 /* HolyHimWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C43C2262D3ACE1EC55964BCF /* scripture-garden-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8B325F6A4F2AA01A00F7A8B9 /* scripture-garden-thumb.jpg */; };
+		C47A3C769D0CB19B074BB947 /* unit-22-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B5B948B70F9818A845F1C01B /* unit-22-thumb.jpg */; };
 		CA8550F6BE11E4C2BC5A7658 /* sky-dawn-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7FA6B4131EA890BC7ABC00B1 /* sky-dawn-thumb.jpg */; };
 		CD0CE6B278466DB679B5F7DA /* symbol-dove-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0D844480AE18BF11FCE61DF8 /* symbol-dove-thumb.jpg */; };
+		CD4CCA52397ACCCB455EECB7 /* unit-23-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8F9E0F3C415CA0E9B8D74BBA /* unit-23-thumb.jpg */; };
+		D02CFB08B27BBA872FB2DDC9 /* unit-15-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 29BB49BCA90C1FE3D1787609 /* unit-15-thumb.jpg */; };
 		D6121B3A9500584313F457D5 /* scripture-prayer-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 182355312F24280B7BEB7696 /* scripture-prayer-thumb.jpg */; };
 		E045FB40CAEFF043357C2E26 /* jesus-shepherd-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4CEA33C39F55E3EC7E7F93F4 /* jesus-shepherd-thumb.jpg */; };
 		E291F85A0491665D087B0C37 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81F616F0681A00967721C9DE /* UIKit.framework */; };
+		E70EDB71328CC4C04F61B1C9 /* unit-13-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C0A44DBAFC66DB88AB8441F3 /* unit-13-thumb.jpg */; };
 		E8BB560295FC1A48727347F4 /* HolyHimWidgetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE444BD6EB3BBAA56A49CAAB /* HolyHimWidgetData.swift */; };
 		EB28E71401A93589CC079C58 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5901FB94E3B5E83CD2E9096 /* Foundation.framework */; };
+		EB2AF766309B94FFE75A201A /* unit-07-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7C19D81E530D0237501EE912 /* unit-07-thumb.jpg */; };
 		ECE161BD710FACAD2D8FA1B8 /* symbol-olive-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C2A4202C39229C53DE1C099F /* symbol-olive-thumb.jpg */; };
 		EE5781996A265E33924B964C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */; };
 		F98DA16B228CB43A4BCE9B4A /* AppFrameworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */; };
 		FA75336A8FAF4CE893493ED5 /* HolyHimWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978E88630B0685C8B8E3F20B /* HolyHimWidget.swift */; };
+		FEC84FCFB6C4932465D09840 /* unit-01-thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 526A4C4143A14BAFFFA066CE /* unit-01-thumb.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,17 +142,22 @@
 
 /* Begin PBXFileReference section */
 		010D84E2BD99D6CCCDE6421E /* scripture-chapel-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "scripture-chapel-thumb.jpg"; path = "Art/scripture-chapel-thumb.jpg"; sourceTree = "<group>"; };
+		0558DD24189BFD2173C14B99 /* unit-21-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-21-thumb.jpg"; path = "Art/unit-21-thumb.jpg"; sourceTree = "<group>"; };
 		076FC2909BB83BB9D64D9AB1 /* landscape-water-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "landscape-water-thumb.jpg"; path = "Art/landscape-water-thumb.jpg"; sourceTree = "<group>"; };
 		0A4B864C557CF97E03795873 /* cross-stone-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "cross-stone-thumb.jpg"; path = "Art/cross-stone-thumb.jpg"; sourceTree = "<group>"; };
 		0D844480AE18BF11FCE61DF8 /* symbol-dove-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "symbol-dove-thumb.jpg"; path = "Art/symbol-dove-thumb.jpg"; sourceTree = "<group>"; };
+		11D9331792E43A989F76331A /* unit-20-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-20-thumb.jpg"; path = "Art/unit-20-thumb.jpg"; sourceTree = "<group>"; };
 		1498D2321E8E86230040F4C2 /* GeneratedPluginRegistrant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeneratedPluginRegistrant.h; sourceTree = "<group>"; };
 		1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneratedPluginRegistrant.m; sourceTree = "<group>"; };
 		182355312F24280B7BEB7696 /* scripture-prayer-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "scripture-prayer-thumb.jpg"; path = "Art/scripture-prayer-thumb.jpg"; sourceTree = "<group>"; };
 		184F0A8C663CDB389DFEF0F2 /* jesus-seaside-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "jesus-seaside-thumb.jpg"; path = "Art/jesus-seaside-thumb.jpg"; sourceTree = "<group>"; };
 		1C10666938F04F95E0DCB965 /* cross-hill-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "cross-hill-thumb.jpg"; path = "Art/cross-hill-thumb.jpg"; sourceTree = "<group>"; };
+		1F44EEE383BA0186CBA62595 /* unit-06-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-06-thumb.jpg"; path = "Art/unit-06-thumb.jpg"; sourceTree = "<group>"; };
 		20185F16459F8E83D6BF8581 /* HolyHimWidget.entitlements */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.entitlements; path = HolyHimWidget.entitlements; sourceTree = "<group>"; };
 		20D0536150F4ABB7D1EE0C0C /* scripture-lamp-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "scripture-lamp-thumb.jpg"; path = "Art/scripture-lamp-thumb.jpg"; sourceTree = "<group>"; };
+		24FC7D07DA19F4083BB93AFF /* unit-17-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-17-thumb.jpg"; path = "Art/unit-17-thumb.jpg"; sourceTree = "<group>"; };
 		2898385D9DBF30A4A1859E2E /* Pods_Runner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		29BB49BCA90C1FE3D1787609 /* unit-15-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-15-thumb.jpg"; path = "Art/unit-15-thumb.jpg"; sourceTree = "<group>"; };
 		2FB2A151A9A865BB7C5D771E /* Pods-Runner.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.profile.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.profile.xcconfig"; sourceTree = "<group>"; };
 		331C807B294A618700263BE5 /* RunnerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunnerTests.swift; sourceTree = "<group>"; };
 		331C8081294A63A400263BE5 /* RunnerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RunnerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,6 +168,7 @@
 		4944360C58223C1428DC9432 /* Pods-RunnerTests.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunnerTests.profile.xcconfig"; path = "Target Support Files/Pods-RunnerTests/Pods-RunnerTests.profile.xcconfig"; sourceTree = "<group>"; };
 		4AF573AD56A14882189E0E72 /* Pods-Runner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.debug.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.debug.xcconfig"; sourceTree = "<group>"; };
 		4CEA33C39F55E3EC7E7F93F4 /* jesus-shepherd-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "jesus-shepherd-thumb.jpg"; path = "Art/jesus-shepherd-thumb.jpg"; sourceTree = "<group>"; };
+		526A4C4143A14BAFFFA066CE /* unit-01-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-01-thumb.jpg"; path = "Art/unit-01-thumb.jpg"; sourceTree = "<group>"; };
 		59A8D6B991FE437E7634244E /* jesus-prayer-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "jesus-prayer-thumb.jpg"; path = "Art/jesus-prayer-thumb.jpg"; sourceTree = "<group>"; };
 		5F9C2C41017F96CC1AB1A2C0 /* HolyHimWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = HolyHimWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FDB037C2155BC666BDE4A01 /* Pods-RunnerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunnerTests.debug.xcconfig"; path = "Target Support Files/Pods-RunnerTests/Pods-RunnerTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -150,11 +179,14 @@
 		74858FAE1ED2DC5600515810 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7884E8672EC3CC0400C636F2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		7AFA3C8E1D35360C0083082E /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Release.xcconfig; path = Flutter/Release.xcconfig; sourceTree = "<group>"; };
+		7C19D81E530D0237501EE912 /* unit-07-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-07-thumb.jpg"; path = "Art/unit-07-thumb.jpg"; sourceTree = "<group>"; };
 		7C26360DD231DB2650CC1FFA /* jesus-path-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "jesus-path-thumb.jpg"; path = "Art/jesus-path-thumb.jpg"; sourceTree = "<group>"; };
 		7FA6B4131EA890BC7ABC00B1 /* sky-dawn-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "sky-dawn-thumb.jpg"; path = "Art/sky-dawn-thumb.jpg"; sourceTree = "<group>"; };
 		81F616F0681A00967721C9DE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		8B325F6A4F2AA01A00F7A8B9 /* scripture-garden-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "scripture-garden-thumb.jpg"; path = "Art/scripture-garden-thumb.jpg"; sourceTree = "<group>"; };
+		8B8DBEE1CD9EDF192BD43E84 /* unit-04-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-04-thumb.jpg"; path = "Art/unit-04-thumb.jpg"; sourceTree = "<group>"; };
 		8E3B470B055F227970C19ADB /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		8F9E0F3C415CA0E9B8D74BBA /* unit-23-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-23-thumb.jpg"; path = "Art/unit-23-thumb.jpg"; sourceTree = "<group>"; };
 		9740EEB21CF90195004384FC /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Debug.xcconfig; path = Flutter/Debug.xcconfig; sourceTree = "<group>"; };
 		9740EEB31CF90195004384FC /* Generated.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Generated.xcconfig; path = Flutter/Generated.xcconfig; sourceTree = "<group>"; };
 		978E88630B0685C8B8E3F20B /* HolyHimWidget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HolyHimWidget.swift; sourceTree = "<group>"; };
@@ -164,22 +196,36 @@
 		97C147001CF9000F007C117D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97C147021CF9000F007C117D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D12F97FE5948D8656ECB2C4 /* sky-rays-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "sky-rays-thumb.jpg"; path = "Art/sky-rays-thumb.jpg"; sourceTree = "<group>"; };
+		9DED31267852A942A1420E7E /* unit-11-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-11-thumb.jpg"; path = "Art/unit-11-thumb.jpg"; sourceTree = "<group>"; };
+		9EC4AF1E502D986C3B3B836B /* unit-05-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-05-thumb.jpg"; path = "Art/unit-05-thumb.jpg"; sourceTree = "<group>"; };
 		A0D3A0493F65033D6065919A /* cross-meadow-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "cross-meadow-thumb.jpg"; path = "Art/cross-meadow-thumb.jpg"; sourceTree = "<group>"; };
 		A11000000000000000000002 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A11000000000000000000003 /* Runner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Runner.entitlements; sourceTree = "<group>"; };
 		A11000000000000000000004 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		A43079738A656825BC9484B9 /* unit-08-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-08-thumb.jpg"; path = "Art/unit-08-thumb.jpg"; sourceTree = "<group>"; };
+		AC3D07F036EF9F636E94C6A6 /* unit-09-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-09-thumb.jpg"; path = "Art/unit-09-thumb.jpg"; sourceTree = "<group>"; };
+		B3DA4B5E958DEDFCAF750BC5 /* unit-12-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-12-thumb.jpg"; path = "Art/unit-12-thumb.jpg"; sourceTree = "<group>"; };
+		B5B948B70F9818A845F1C01B /* unit-22-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-22-thumb.jpg"; path = "Art/unit-22-thumb.jpg"; sourceTree = "<group>"; };
 		B7626D13A02D28A891D264A1 /* WidgetVerses.json */ = {isa = PBXFileReference; includeInIndex = 1; path = WidgetVerses.json; sourceTree = "<group>"; };
+		B89E421A0264A6471829FCE3 /* unit-03-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-03-thumb.jpg"; path = "Art/unit-03-thumb.jpg"; sourceTree = "<group>"; };
 		BB0F64241E0A4699CCF0D33C /* cross-mountain-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "cross-mountain-thumb.jpg"; path = "Art/cross-mountain-thumb.jpg"; sourceTree = "<group>"; };
 		BDE9C51364DDB4D04F0FDAF1 /* symbol-lilies-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "symbol-lilies-thumb.jpg"; path = "Art/symbol-lilies-thumb.jpg"; sourceTree = "<group>"; };
+		BEC15BA82C36E2B9AC82D10F /* unit-10-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-10-thumb.jpg"; path = "Art/unit-10-thumb.jpg"; sourceTree = "<group>"; };
 		BFC80917C5E4A07CA2F7F8B4 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.0.sdk/System/Library/Frameworks/WidgetKit.framework; sourceTree = DEVELOPER_DIR; };
+		C0A44DBAFC66DB88AB8441F3 /* unit-13-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-13-thumb.jpg"; path = "Art/unit-13-thumb.jpg"; sourceTree = "<group>"; };
 		C2A4202C39229C53DE1C099F /* symbol-olive-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "symbol-olive-thumb.jpg"; path = "Art/symbol-olive-thumb.jpg"; sourceTree = "<group>"; };
 		C37FE1DEFD89927373F49BC8 /* Pods-RunnerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunnerTests.release.xcconfig"; path = "Target Support Files/Pods-RunnerTests/Pods-RunnerTests.release.xcconfig"; sourceTree = "<group>"; };
+		C3B95D8291ACC58774673CC8 /* unit-02-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-02-thumb.jpg"; path = "Art/unit-02-thumb.jpg"; sourceTree = "<group>"; };
 		C5901FB94E3B5E83CD2E9096 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		C609D9CE767B5FA383ED082E /* unit-19-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-19-thumb.jpg"; path = "Art/unit-19-thumb.jpg"; sourceTree = "<group>"; };
 		C62970FBC25F4135889510E5 /* HolyHimVisualQA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HolyHimVisualQA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E11CCBD98B8CA7006EE6D368 /* Pods_RunnerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RunnerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E444297DEA60C758143BFF61 /* unit-14-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-14-thumb.jpg"; path = "Art/unit-14-thumb.jpg"; sourceTree = "<group>"; };
 		E5623B785775C8523DB4A7B2 /* scripture-morning-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "scripture-morning-thumb.jpg"; path = "Art/scripture-morning-thumb.jpg"; sourceTree = "<group>"; };
 		E7110D7B172E720B9F7C2A93 /* Pods-Runner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.release.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.release.xcconfig"; sourceTree = "<group>"; };
+		EFE2FE24A3A2E8E07E94DFC8 /* unit-16-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-16-thumb.jpg"; path = "Art/unit-16-thumb.jpg"; sourceTree = "<group>"; };
 		F1372879625FCC05CB69890F /* sky-clouds-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "sky-clouds-thumb.jpg"; path = "Art/sky-clouds-thumb.jpg"; sourceTree = "<group>"; };
+		FC359E680750F1ABF6EE6F07 /* unit-18-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "unit-18-thumb.jpg"; path = "Art/unit-18-thumb.jpg"; sourceTree = "<group>"; };
 		FE444BD6EB3BBAA56A49CAAB /* HolyHimWidgetData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HolyHimWidgetData.swift; sourceTree = "<group>"; };
 		FF90F993469ADF2AB2672776 /* sky-evening-thumb.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = "sky-evening-thumb.jpg"; path = "Art/sky-evening-thumb.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -352,6 +398,29 @@
 				0D844480AE18BF11FCE61DF8 /* symbol-dove-thumb.jpg */,
 				BDE9C51364DDB4D04F0FDAF1 /* symbol-lilies-thumb.jpg */,
 				C2A4202C39229C53DE1C099F /* symbol-olive-thumb.jpg */,
+				526A4C4143A14BAFFFA066CE /* unit-01-thumb.jpg */,
+				C3B95D8291ACC58774673CC8 /* unit-02-thumb.jpg */,
+				B89E421A0264A6471829FCE3 /* unit-03-thumb.jpg */,
+				8B8DBEE1CD9EDF192BD43E84 /* unit-04-thumb.jpg */,
+				9EC4AF1E502D986C3B3B836B /* unit-05-thumb.jpg */,
+				1F44EEE383BA0186CBA62595 /* unit-06-thumb.jpg */,
+				7C19D81E530D0237501EE912 /* unit-07-thumb.jpg */,
+				A43079738A656825BC9484B9 /* unit-08-thumb.jpg */,
+				AC3D07F036EF9F636E94C6A6 /* unit-09-thumb.jpg */,
+				BEC15BA82C36E2B9AC82D10F /* unit-10-thumb.jpg */,
+				9DED31267852A942A1420E7E /* unit-11-thumb.jpg */,
+				B3DA4B5E958DEDFCAF750BC5 /* unit-12-thumb.jpg */,
+				C0A44DBAFC66DB88AB8441F3 /* unit-13-thumb.jpg */,
+				E444297DEA60C758143BFF61 /* unit-14-thumb.jpg */,
+				29BB49BCA90C1FE3D1787609 /* unit-15-thumb.jpg */,
+				EFE2FE24A3A2E8E07E94DFC8 /* unit-16-thumb.jpg */,
+				24FC7D07DA19F4083BB93AFF /* unit-17-thumb.jpg */,
+				FC359E680750F1ABF6EE6F07 /* unit-18-thumb.jpg */,
+				C609D9CE767B5FA383ED082E /* unit-19-thumb.jpg */,
+				11D9331792E43A989F76331A /* unit-20-thumb.jpg */,
+				0558DD24189BFD2173C14B99 /* unit-21-thumb.jpg */,
+				B5B948B70F9818A845F1C01B /* unit-22-thumb.jpg */,
+				8F9E0F3C415CA0E9B8D74BBA /* unit-23-thumb.jpg */,
 			);
 			name = HolyHimWidget;
 			path = HolyHimWidget;
@@ -564,6 +633,29 @@
 				CD0CE6B278466DB679B5F7DA /* symbol-dove-thumb.jpg in Resources */,
 				B06EFBD960CDC8CCAB3953E9 /* symbol-lilies-thumb.jpg in Resources */,
 				ECE161BD710FACAD2D8FA1B8 /* symbol-olive-thumb.jpg in Resources */,
+				FEC84FCFB6C4932465D09840 /* unit-01-thumb.jpg in Resources */,
+				05EA36638A33908EA3DDB63D /* unit-02-thumb.jpg in Resources */,
+				385A48776E04CD88970723F7 /* unit-03-thumb.jpg in Resources */,
+				A5B38575883D3D7CF6668064 /* unit-04-thumb.jpg in Resources */,
+				2A13890FEE5B6CE87C1240EA /* unit-05-thumb.jpg in Resources */,
+				8497C9D6461E6B6A50ECEAC2 /* unit-06-thumb.jpg in Resources */,
+				EB2AF766309B94FFE75A201A /* unit-07-thumb.jpg in Resources */,
+				7D66DD3429350C4F5B5225A3 /* unit-08-thumb.jpg in Resources */,
+				C064732DDAB5A738FEE7C864 /* unit-09-thumb.jpg in Resources */,
+				57CAB60C673B95E069B72B5B /* unit-10-thumb.jpg in Resources */,
+				498B0B5CDF04F97144250F9F /* unit-11-thumb.jpg in Resources */,
+				084164BC91FB6DB2BC7BCE9D /* unit-12-thumb.jpg in Resources */,
+				E70EDB71328CC4C04F61B1C9 /* unit-13-thumb.jpg in Resources */,
+				84A6961A6DF8913A5904FF9C /* unit-14-thumb.jpg in Resources */,
+				D02CFB08B27BBA872FB2DDC9 /* unit-15-thumb.jpg in Resources */,
+				25EBA29F739C4E26FB06312E /* unit-16-thumb.jpg in Resources */,
+				72DFBE78CE29AD90EF5C860C /* unit-17-thumb.jpg in Resources */,
+				8A685CB73D26AEC03CF54FE5 /* unit-18-thumb.jpg in Resources */,
+				C282E4BD4E8D056C111B3814 /* unit-19-thumb.jpg in Resources */,
+				99430C69EE3AFE565A1AABA3 /* unit-20-thumb.jpg in Resources */,
+				5340289146D42CA810142794 /* unit-21-thumb.jpg in Resources */,
+				C47A3C769D0CB19B074BB947 /* unit-22-thumb.jpg in Resources */,
+				CD4CCA52397ACCCB455EECB7 /* unit-23-thumb.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
