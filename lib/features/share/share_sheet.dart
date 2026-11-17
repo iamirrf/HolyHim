@@ -19,7 +19,7 @@ Future<void> showShareSheet(BuildContext context, Lesson lesson) {
 
 /// Her keepsake, shown exactly as it will be sent: three looks, two shapes
 /// and one button. The HolyHim icon and wordmark travel on every card, so a
-/// verse passed to a friend also tells her where it came from.
+/// verse passed to a friend also tells him where it came from.
 class ShareSheet extends StatefulWidget {
   final Lesson lesson;
   final KeepsakeLook initialLook;
@@ -89,7 +89,7 @@ class _ShareSheetState extends State<ShareSheet> {
               Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                      'Every share helps another woman find a quiet morning with God 🤍',
+                      'Every share puts a word in another man’s hands.',
                       style: HolyTypography.ui
                           .copyWith(color: t.muted, fontSize: 14.5))),
               const SizedBox(height: 16),
@@ -222,7 +222,7 @@ class _LookChip extends StatelessWidget {
     final t = HolyThemeScope.of(context);
     final label = switch (look) {
       KeepsakeLook.photo => 'Photo',
-      KeepsakeLook.paper => 'Paper',
+      KeepsakeLook.paper => 'Stone',
       KeepsakeLook.night => 'Night',
     };
     final swatch = switch (look) {
@@ -234,13 +234,13 @@ class _LookChip extends StatelessWidget {
               gradient: LinearGradient(
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
-                  colors: [Color(0xFFFCF7F1), Color(0xFFF1D9D2)]))),
+                  colors: [Color(0xFFF3F0EA), Color(0xFFE2DDD3)]))),
       KeepsakeLook.night => const DecoratedBox(
           decoration: BoxDecoration(
               gradient: LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
-                  colors: [Color(0xFF4A2232), Color(0xFF140C12)]))),
+                  colors: [Color(0xFF1C2A3D), Color(0xFF0A0E14)]))),
     };
     return Pressable(
         onPressed: onPressed,

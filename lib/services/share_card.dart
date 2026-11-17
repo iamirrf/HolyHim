@@ -24,13 +24,16 @@ class _Palette {
   const _Palette(this.ink, this.muted, this.accent, this.frame);
 }
 
+/// HolyHim's three looks: the day's photograph under a navy shade; Stone,
+/// limestone with graphite ink and a bronze accent (the engine calls it
+/// `paper`); and Night, deep navy with brass and cold stars.
 const _palettes = {
-  KeepsakeLook.photo: _Palette(Color(0xFFFFFBF6), Color(0xD9FFFBF6),
-      Color(0xFFF2D7A6), Color(0x47FFFBF6)),
-  KeepsakeLook.paper: _Palette(Color(0xFF33202A), Color(0xFF6E5560),
-      Color(0xFF9B4560), Color(0x73B4904F)),
-  KeepsakeLook.night: _Palette(Color(0xFFF6EAE5), Color(0xFFC5AFB6),
-      Color(0xFFE8C38A), Color(0x59E6A3B7)),
+  KeepsakeLook.photo: _Palette(Color(0xFFF5F1EA), Color(0xD9F5F1EA),
+      Color(0xFFF2D7A6), Color(0x47F5F1EA)),
+  KeepsakeLook.paper: _Palette(Color(0xFF1A1F26), Color(0xFF545B66),
+      Color(0xFF85561C), Color(0x73A77B33)),
+  KeepsakeLook.night: _Palette(Color(0xFFF2EDE4), Color(0xFFA7AEB8),
+      Color(0xFFD8A657), Color(0x59D8A657)),
 };
 
 /// A keepsake of the day's verse, made to be passed on: the HolyHim icon and
@@ -130,7 +133,7 @@ class KeepsakeCard extends StatelessWidget {
                 height: 1,
                 color: p.frame,
                 margin: EdgeInsets.only(bottom: story ? 12 : 8)),
-            Text('A quiet word with God, every morning',
+            Text('A word to stand on, every morning',
                 textAlign: TextAlign.center,
                 style: HolyTypography.caption
                     .copyWith(color: p.muted, fontSize: story ? 12.5 : 10.5)),
@@ -190,10 +193,10 @@ class _Background extends StatelessWidget {
                 1
               ],
                       colors: [
-                Color(0x99140C10),
-                Color(0x33140C10),
-                Color(0x99140C10),
-                Color(0xE6140C10),
+                Color(0x990B0E13),
+                Color(0x330B0E13),
+                Color(0x990B0E13),
+                Color(0xE60B0E13),
               ]))),
         ]);
       case KeepsakeLook.paper:
@@ -202,10 +205,10 @@ class _Background extends StatelessWidget {
                 gradient: LinearGradient(
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
-                    colors: [Color(0xFFFCF7F1), Color(0xFFF4E6DB)])),
+                    colors: [Color(0xFFF3F0EA), Color(0xFFE2DDD3)])),
             child: Stack(fit: StackFit.expand, children: [
-              _Glow(Alignment(.9, -.85), Color(0x80F1C8C6), .9),
-              _Glow(Alignment(-.95, .9), Color(0x80F5E1C0), .8),
+              _Glow(Alignment(.9, -.85), Color(0x80FFFFFF), .9),
+              _Glow(Alignment(-.95, .9), Color(0x66E3C995), .8),
             ]));
       case KeepsakeLook.night:
         return const DecoratedBox(
@@ -213,9 +216,9 @@ class _Background extends StatelessWidget {
                 gradient: LinearGradient(
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
-                    colors: [Color(0xFF2B1622), Color(0xFF140C12)])),
+                    colors: [Color(0xFF16202E), Color(0xFF0A0E14)])),
             child: Stack(fit: StackFit.expand, children: [
-              _Glow(Alignment(0, -.75), Color(0x666B2D44), 1.1),
+              _Glow(Alignment(0, -.75), Color(0x662B4466), 1.1),
               _Stars(),
             ]));
     }
@@ -267,9 +270,9 @@ class _StarPainter extends CustomPainter {
           c,
           r * 3.2,
           Paint()
-            ..color = const Color(0x33FFE9F0)
+            ..color = const Color(0x33E8F0FF)
             ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 3));
-      canvas.drawCircle(c, r, Paint()..color = const Color(0xE6FFF4F7));
+      canvas.drawCircle(c, r, Paint()..color = const Color(0xE6F4F7FF));
     }
   }
 
@@ -280,7 +283,7 @@ class _StarPainter extends CustomPainter {
 /// The words that travel with a shared keepsake: where it is from and where
 /// to find HolyHim.
 String keepsakeShareText(Lesson lesson) =>
-    '${lesson.reference} 🤍 A quiet word with God, every morning, '
+    '${lesson.reference}. A word to stand on, every morning, '
     'from HolyHim: ${AppConstants.shareUrl}';
 
 /// Renders the keepsake at 1080 wide and opens the share sheet with it.
