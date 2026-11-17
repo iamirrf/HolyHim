@@ -157,10 +157,20 @@ class _CelebrationScreenState extends ConsumerState<CelebrationScreen>
                           child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Coin3D(
-                                    badgeId: badge.id,
-                                    earned: true,
-                                    size: compact ? 70 : 86),
+                                SpringDrop(
+                                    delay: const Duration(milliseconds: 1700),
+                                    child: DecoratedBox(
+                                        decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            boxShadow: [
+                                              HolyDepth.bloom(
+                                                  const Color(0xFFD8A657),
+                                                  strength: 1.4)
+                                            ]),
+                                        child: Coin3D(
+                                            badgeId: badge.id,
+                                            earned: true,
+                                            size: compact ? 70 : 86))),
                                 const SizedBox(width: 14),
                                 Flexible(
                                     child: Column(

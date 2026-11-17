@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter/physics.dart';
 import '../motion.dart';
 
 /// Content that rises into place: a short fade and lift, staggered by
@@ -56,6 +57,61 @@ class _RiseState extends State<Rise> with SingleTickerProviderStateMixin {
                 offset: Offset(0, widget.distance * (1 - curve.value)),
                 child: child)));
   }
+}
+
+/// Something earned arriving: it drops from a little above, a little large,
+/// and lands on a spring with one soft overshoot. Reduce Motion shows it at
+/// rest.
+class SpringDrop extends StatefulWidget {
+  final Widget child;
+  final Duration delay;
+  const SpringDrop({super.key, required this.child, this.delay = Duration.zero});
+  @override
+  State<SpringDrop> createState() => _SpringDropState();
+}
+
+class _SpringDropState extends State<SpringDrop>
+    with SingleTickerProviderStateMixin {
+  static final _spring =
+      SpringDescription.withDampingRatio(mass: 1, stiffness: 240, ratio: .5);
+  late final _t = AnimationController.unbounded(vsync: this, value: 0);
+  Timer? _start;
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (HolyMotion.reduced(context)) {
+      _start?.cancel();
+      _t.value = 1;
+    } else if (_t.value == 0 && _start == null) {
+      _start = Timer(widget.delay, () {
+        if (mounted) {
+          _t.animateWith(SpringSimulation(_spring, 0, 1, 0,
+              tolerance: const Tolerance(distance: .002, velocity: .02)));
+        }
+      });
+    }
+  }
+
+  @override
+  void dispose() {
+    _start?.cancel();
+    _t.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) => AnimatedBuilder(
+      animation: _t,
+      child: widget.child,
+      builder: (context, child) {
+        final v = _t.value;
+        final scale = 1 + .18 * (1 - v);
+        return Opacity(
+            opacity: (v * 2).clamp(0.0, 1.0),
+            child: Transform.translate(
+                offset: Offset(0, -36 * (1 - v)),
+                child: Transform.scale(scale: scale, child: child)));
+      });
 }
 
 /// A band of light that passes across [child] once, like sun catching
