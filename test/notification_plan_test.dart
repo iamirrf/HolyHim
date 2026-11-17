@@ -121,7 +121,7 @@ void main() {
     // Last read October 31: notes on November 3 and November 7.
     expect(comebacks.map((n) => n.at.day), [3, 7]);
     expect(comebacks.first.title, '🕊️ Your place is saved');
-    expect(comebacks.last.title, '🤍 Still here for you');
+    expect(comebacks.last.title, '🤝 Still here for you');
     final early = plan(completed: {1: '2026-11-02'})
         .where((n) => n.kind == NotificationKind.comeback)
         .map((n) => n.at.day);

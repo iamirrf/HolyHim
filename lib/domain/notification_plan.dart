@@ -60,7 +60,7 @@ String noteVerse(String verse, {int limit = 220}) {
 }
 
 /// A lesson note's body: the day's verse, then where it is from, so the
-/// note is worth reading even if she never opens it.
+/// note is worth reading even if he never opens it.
 String lessonNoteBody(Lesson lesson) =>
     '${noteVerse(lesson.verse)}\n— ${lesson.reference}';
 
@@ -73,7 +73,7 @@ String _first(String name) {
 }
 
 /// The waiting lesson's note: a medallion one morning away, then a habit
-/// worth keeping, then a plain greeting. A new reader always gets the greeting she
+/// worth keeping, then a plain greeting. A new reader always gets the greeting he
 /// saw previewed in onboarding.
 String _lessonTitle(int hour, String name, int read, int walk) {
   final first = _first(name);
@@ -97,8 +97,8 @@ String _fit(String first, String personal, String plain) =>
 String _verseTitle(bool firstNote, DateTime at, String first) {
   final titles = [
     first.isEmpty ? '📖 Today’s word' : '📖 Today’s word for you, $first',
-    '🌸 A promise for your morning',
-    '🕊️ Something to hold today',
+    '⚓ A promise for your morning',
+    '🪨 Something to stand on today',
     _fit(first, '✨ $first, a verse for you', '✨ A verse for you'),
   ];
   if (firstNote) return titles.first;
@@ -107,7 +107,7 @@ String _verseTitle(bool firstNote, DateTime at, String first) {
 }
 
 /// The title of a lesson note at [hour], shared with the onboarding preview
-/// so the picture she approves is the note she gets.
+/// so the picture he approves is the note he gets.
 String lessonNoteTitle(int hour, String name) {
   final greeting = hour < 12
       ? '🌅 Good morning'
@@ -118,16 +118,16 @@ String lessonNoteTitle(int hour, String name) {
   return first.isEmpty ? greeting : '$greeting, $first';
 }
 
-/// The notes HolyHim sends, all about Scripture and her daily habit, never about
+/// The notes HolyHim sends, all about Scripture and his daily habit, never about
 /// buying anything:
 ///
-/// * a personal daily note at her chosen time: the next lesson's teaser when
+/// * a personal daily note at his chosen time: the next lesson's teaser when
 ///   one is waiting, otherwise the verse of the day;
 /// * an evening note at 8 PM, only today, only if a habit of two or more
 ///   days would otherwise lapse;
-/// * a quiet "your place is saved" note three and seven days after her last
+/// * a quiet "your place is saved" note three and seven days after his last
 ///   reading, in place of that day's daily note;
-/// * a blessing on her birthday, in place of that day's daily note.
+/// * a blessing on his birthday, in place of that day's daily note.
 ///
 /// The queue is rebuilt whenever the app opens or progress changes, so
 /// completing today's lesson removes the evening note.
@@ -186,7 +186,7 @@ List<PlannedNotification> notificationPlan(
           day: next?.day ?? verse.day,
           at: at,
           title:
-              quiet == 3 ? '🕊️ Your place is saved' : '🤍 Still here for you',
+              quiet == 3 ? '🕊️ Your place is saved' : '🤝 Still here for you',
           subtitle: next == null
               ? verse.reference
               : 'Day ${next.day} · ${next.title}',
@@ -196,7 +196,7 @@ List<PlannedNotification> notificationPlan(
           kind: NotificationKind.comeback));
       continue;
     }
-    // The very next note can point at the lesson she will actually open.
+    // The very next note can point at the lesson he will actually open.
     final lessonDay = !pacing.finished &&
             (pacing.canBegin ||
                 (pacing.nextUnlock != null && !pacing.nextUnlock!.isAfter(at)))

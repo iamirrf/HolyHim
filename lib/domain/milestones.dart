@@ -1,6 +1,6 @@
 import 'badges.dart';
 
-/// The next day medallion and how close she is to it. Progress shown as a
+/// The next day medallion and how close he is to it. Progress shown as a
 /// short distance to a named goal keeps a habit moving (the goal-gradient
 /// effect); it never shames a missed day.
 class Milestone {
@@ -34,21 +34,22 @@ Milestone? nextMilestone(int lessonsRead) {
   return null;
 }
 
-/// Who she is becoming, said once at each day medallion. Identity outlasts
-/// rewards; these are affirmations, never promises.
+/// Who he is becoming, said once at each day medallion. Identity outlasts
+/// rewards; these are affirmations, never promises. Plain words, no
+/// swagger: never "warrior", "alpha" or "real men" (content/STYLE.md).
 String? identityFor(int lessonsRead) => const {
-      1: 'Every faithful story begins with one morning.',
-      3: 'You keep showing up. That is faith, lived.',
-      7: 'A week with God. This is who you are becoming.',
-      14: 'Your roots are going deeper.',
-      21: 'This is more than a habit now. It is a home.',
-      30: 'A month of mornings. You are a woman of the Word.',
-      50: 'Fifty mornings. Your quiet strength is showing.',
-      75: 'A steady light, morning after morning.',
-      100: 'One hundred mornings with God.',
+      1: 'Every road starts with one step. You took it.',
+      3: 'Three mornings. You keep showing up. That is faith, lived.',
+      7: 'A week in the Word. This is who you are becoming.',
+      14: 'Two weeks strong. Your roots are going deeper.',
+      21: 'This is more than a habit now. It is how your day starts.',
+      30: 'A month standing. You are a man of the Word.',
+      50: 'Fifty mornings. Steady strength is showing.',
+      75: 'A lamp to your feet, morning after morning.',
+      100: 'One hundred mornings in the Word.',
       150: 'Deep roots grow quietly. Yours have.',
-      200: 'Two hundred mornings of hope.',
-      250: 'An open heart, and it shows.',
-      300: 'A faithful season, held in His hands.',
-      365: 'A whole year of mornings with God.',
+      200: 'Two hundred mornings of living hope.',
+      250: 'A faithful heart, and it shows.',
+      300: 'Three hundred mornings, faithful in the small things.',
+      365: 'The whole road. A year of mornings with God.',
     }[lessonsRead];
