@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-17T15:25:08.267322+00:00",
+  "checkedAt": "2026-11-17T20:57:14.218525+00:00",
   "archive": "/Users/amir/Downloads/HolyHim/build/ios/archive/Runner.xcarchive",
   "status": "passed",
   "scope": "Completed archive identity, signing and combined bundled privacy declarations.",
@@ -174,7 +174,7 @@
     "MinimumOSVersion": "15.0",
     "DTSDKName": "iphoneos26.5",
     "DTXcode": "2660",
-    "bytes": 72689181
+    "bytes": 131014025
   },
   "sourceHashes": {
     "ios/Runner/PrivacyInfo.xcprivacy": "ed122837fddda438533852dc029926eae18c4673299f2d936e08675e8660cd3a",
