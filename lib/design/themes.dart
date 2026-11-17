@@ -207,7 +207,7 @@ class HolyThemes {
       surface: Color(0xFF1C1D1F),
       sunk: Color(0xFF0B0C0D),
       ink: Color(0xFFEDEDED),
-      muted: Color(0xFFA3A6AA),
+      muted: Color(0xFFB0B3B7),
       hairline: Color(0xFF2E3033),
       accent: Color(0xFFC9CED4),
       primary: Color(0xFFE4E6E9),
@@ -219,7 +219,7 @@ class HolyThemes {
       hero: [Color(0xFF0C0D0E), Color(0xFF2A2D31), Color(0xFF8D949C)],
       glow: Color(0xFFDDE2E8),
       photoLabel: Color(0xFFE6E9EC),
-      field: [Color(0xFF121314), Color(0xFF1A1C1F), Color(0xFF26292D)]);
+      field: [Color(0xFF121314), Color(0xFF1A1C1F), Color(0xFF222528)]);
   static const sunrise = HolyTheme(
       id: 'sunrise',
       name: 'Ember',
