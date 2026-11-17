@@ -44,6 +44,9 @@ SKIP = (
 
 PLACEHOLDER = re.compile(r'REPLACE_WITH_|(?<![0-9A-Za-z])0{12}(?![0-9A-Za-z])')
 HER_NAME = re.compile(r'holyher', re.I)
+# The name built from pieces, as a wordmark does ('Holy' + 'Her'), which a
+# whole-word rename never sees.
+HER_PIECE = re.compile(r"""(['"])Her\1|>\s*Her\s*<""")
 # HolyHer's Firebase project number, RevenueCat project, app, entitlements
 # (lifetime and member), offering and product, its App Store ID, and anything
 # shaped like its bundle, project or product IDs.
@@ -97,7 +100,7 @@ def scan(root: Path, paths: list[str], her_values: list[str] = ()) -> list[str]:
             found = PLACEHOLDER.search(line)
             if found:
                 problems.append(f'{path}:{number}: placeholder {found.group(0)!r}')
-            found = HER_IDS.search(line) or (HER_NAME.search(line) if under(path, APP) else None)
+            found = HER_IDS.search(line) or (HER_NAME.search(line) or HER_PIECE.search(line) if under(path, APP) else None)
             if found:
                 problems.append(f'{path}:{number}: HolyHer identifier {found.group(0)!r}')
             elif any(value in line for value in her_values):

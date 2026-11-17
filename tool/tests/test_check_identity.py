@@ -42,6 +42,12 @@ class IdentityGateTests(unittest.TestCase):
         self.assertTrue(self.found('lib/app.dart', "const title = 'HolyHer';"))
         self.assertTrue(self.found('public/index.html', '<a href="https://holyher-app-production.web.app">'))
 
+    def test_the_name_may_not_be_built_from_pieces(self):
+        self.assertTrue(self.found('lib/design/widgets/text_halo.dart', "        TextSpan(text: 'Her',"))
+        self.assertTrue(self.found('public/index.html', '<a class="wordmark">Holy<span>Her</span></a>'))
+        self.assertEqual(self.found('lib/design/typography.dart', "TextSpan(text: 'Him', style: style)"), [])
+        self.assertEqual(self.found('lib/features/x.dart', "'Here is your first week'"), [])
+
     def test_tooling_may_mention_holyher_but_not_use_its_identifiers(self):
         self.assertEqual(self.found('tool/setup.py', "# HolyHer's project is never read or changed."), [])
         self.assertEqual(self.found('store/metadata/en-US/review_notes.txt', 'separate from our app HolyHer (for women)'), [])

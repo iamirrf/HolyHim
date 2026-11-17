@@ -4,17 +4,19 @@ import 'dart:math' as math;
 import 'dart:ui' show ImageFilter;
 import 'package:flutter/widgets.dart';
 
-/// HolyHim's rose gold, for words set on a photograph or a dark field:
-/// warm pearl, blush and champagne, left to right.
+/// HolyHim's brass, for words set on a photograph or a dark field: bone
+/// into light brass into brass, left to right, glowing amber and candle
+/// gold. The shared engine's name for it is kept so upstream syncs stay
+/// clean.
 abstract final class RoseGold {
-  static const fill = [Color(0xFFFFF4EC), Color(0xFFF8D2C8), Color(0xFFF0C083)];
+  static const fill = [Color(0xFFF7F1E6), Color(0xFFF3D9A4), Color(0xFFD8A657)];
 
-  /// The two tints of the glow: rose and candle gold.
-  static const rose = Color(0xFFF2A3B6);
-  static const gold = Color(0xFFE9C27A);
+  /// The two tints of the glow: amber and candle gold.
+  static const rose = Color(0xFFE0A35A);
+  static const gold = Color(0xFFF0C97E);
 
   /// The same metal, deepened to read on pale paper.
-  static const ink = [Color(0xFF8E3F5A), Color(0xFFB0586E), Color(0xFF9C6A2E)];
+  static const ink = [Color(0xFF7A5522), Color(0xFF8E6427), Color(0xFF6E4A1C)];
 }
 
 /// Fills [child]'s glyphs with a left-to-right gradient.
@@ -31,7 +33,7 @@ class GradientFill extends StatelessWidget {
       child: child);
 }
 
-/// Words with a slow-breathing halo, in rose gold.
+/// Words with a slow-breathing halo, in brass.
 ///
 /// Three layers share one 3.6 second breath, so they stay in step:
 ///
@@ -74,14 +76,12 @@ class TextHalo extends StatefulWidget {
       this.strength = 1,
       this.sweep = true,
       this.scaleText = false,
-      this.shade = const Color(0x80240C16)});
+      this.shade = const Color(0x80080B10)});
 
-  /// The HolyHim wordmark: **Holy** in roman, *Her* in italic.
+  /// The HolyHim wordmark, upright like every First Watch title.
   static InlineSpan wordmark() => const TextSpan(children: [
         TextSpan(text: 'Holy'),
-        TextSpan(
-            text: 'Her',
-            style: TextStyle(fontStyle: FontStyle.italic, letterSpacing: -.2)),
+        TextSpan(text: 'Him', style: TextStyle(letterSpacing: -.2)),
       ]);
 
   static const Duration breath = Duration(milliseconds: 3600);

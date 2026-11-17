@@ -97,9 +97,16 @@ def owned(path: str) -> bool:
     return matches(path, OWNED)
 
 
+# The name built from pieces, as a wordmark does: 'Holy' + 'Her', or
+# Holy<span>Her</span>. A whole-word rename never sees these.
+PIECES = [(re.compile(r"""(['"])Her\1"""), r'\1Him\1'), (re.compile(r'>(\s*)Her(\s*)<'), r'>\1Him\2<')]
+
+
 def rename(text: str) -> str:
     for old, new in NAME:
         text = text.replace(old, new)
+    for pattern, new in PIECES:
+        text = pattern.sub(new, text)
     return text
 
 
@@ -196,6 +203,8 @@ def residue(text_files: dict[str, bytes], identity: list[tuple[str, str]]) -> li
         text = data.decode('utf-8', errors='ignore')
         if re.search('holyher', text, re.I) or re.search('holyher', path, re.I):
             problems.append(f'{path}: still names HolyHer')
+        if any(pattern.search(text) for pattern, _ in PIECES):
+            problems.append(f'{path}: still builds HolyHer from pieces')
         for old, _ in identity:
             if old in text:
                 problems.append(f'{path}: still holds a HolyHer identifier')
