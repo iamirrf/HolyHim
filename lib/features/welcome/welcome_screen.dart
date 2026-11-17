@@ -22,11 +22,12 @@ class WelcomeScreen extends ConsumerWidget {
     'assets/art/library/symbol-dove.webp',
   ];
 
-  /// The same three subjects at night: Scripture, Jesus, the sky.
+  /// The same three subjects after dark: Scripture by lamplight, Jesus under
+  /// the evening star, still water.
   static const nightScenes = [
-    'assets/art/library/night-bible.webp',
-    'assets/art/library/night-jesus.webp',
-    'assets/art/library/night-stars.webp',
+    'assets/art/library/scripture-lamp.webp',
+    'assets/art/library/sky-evening.webp',
+    'assets/art/library/sky-stillness.webp',
   ];
 
   /// From seven in the evening until five in the morning.
