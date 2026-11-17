@@ -30,7 +30,9 @@ def main():
     for number in sorted(numbers):
         chapter = f'unit-{number:02d}'
         folder = ROOT / 'art/generated/chapters' / chapter
-        portrait, landscape = folder / 'portrait.png', folder / 'landscape.png'
+        portrait, landscape = (next((folder / f'{name}.{ext}' for ext in ('jpg', 'jpeg', 'png')
+                                     if (folder / f'{name}.{ext}').is_file()), folder / f'{name}.jpg')
+                                for name in ('portrait', 'landscape'))
         assert portrait.is_file() and landscape.is_file(), chapter
         data['chapters'][chapter] = {
             'portraitSha256': digest(portrait),

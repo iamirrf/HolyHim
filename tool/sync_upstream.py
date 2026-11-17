@@ -59,6 +59,8 @@ OWNED = (
     'ios/Runner/Assets.xcassets/AppIcon-*.appiconset/',
     'lib/services/app_icon.dart', 'lib/domain/milestones.dart',
     'tool/art/app_icons.py', 'test/app_icon_test.dart',  # HolyHim's icon set and its test
+    # HolyHim's chapter photographs are its own, kept as JPEG originals.
+    'tool/art/package_chapters.py', 'tool/art/record_visual_review.py', 'tool/art/verify_chapters.py',
     'lib/features/onboarding/onboarding_copy.dart', 'lib/features/onboarding/onboarding_moods.dart',
     'lib/features/onboarding/widgets/onboarding_tokens.dart',  # First Watch glass and ink
 )

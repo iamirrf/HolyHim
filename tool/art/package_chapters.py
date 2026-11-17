@@ -22,6 +22,13 @@ SPECS = {
 def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
+def master(folder, name):
+    """A chapter's original: HolyHim keeps Gemini's photographs as JPEG."""
+    for ext in ('jpg', 'jpeg', 'png'):
+        if (folder / f'{name}.{ext}').is_file():
+            return folder / f'{name}.{ext}'
+    return folder / f'{name}.jpg'
+
 def package(source, target, size, quality, centering=(.5, .5)):
     with Image.open(source) as original:
         image = ImageOps.fit(original.convert('RGB'), size,
@@ -44,7 +51,7 @@ def main():
         chapter_lessons = LESSONS[first - 1:last]
         assert len(chapter_lessons) == 5 and [x['day'] for x in chapter_lessons] == list(range(first, last + 1))
         originals = ORIGINALS / folder
-        portrait, landscape = originals / 'portrait.png', originals / 'landscape.png'
+        portrait, landscape = master(originals, 'portrait'), master(originals, 'landscape')
         row = {'id': folder, 'title': unit['title'], 'firstDay': first,
                'lastDay': last, 'lessonTitles': [x['title'] for x in chapter_lessons],
                'focalPoints': {'portrait': [.5, .70], 'landscape': [.5, .5]},
@@ -137,7 +144,7 @@ abstract final class ChapterCatalog {
         width, height = 270, 480
         columns = min(8, len(ready))
         sheet = Image.new('RGB', (columns * width,
-                                  ((len(ready) + columns - 1) // columns) * (height + 38)), '#fff8f6')
+                                  ((len(ready) + columns - 1) // columns) * (height + 38)), '#0e1217')
         draw = ImageDraw.Draw(sheet)
         for index, row in enumerate(ready):
             x, y = (index % columns) * width, (index // columns) * (height + 38)
