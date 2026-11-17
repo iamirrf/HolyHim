@@ -327,7 +327,7 @@ class _MinimizingGlassNavBarState extends State<MinimizingGlassNavBar>
     _syncLift();
     // The pill was already held down under the finger if it started on the
     // selected tab, and that press has ticked; only a new grab gets its own.
-    if (!_pressedSelected) HolyHaptics.tap();
+    if (!_pressedSelected) HolyHaptics.selection();
   }
 
   void _dragUpdate(DragUpdateDetails details, double cellWidth) {
@@ -347,8 +347,8 @@ class _MinimizingGlassNavBarState extends State<MinimizingGlassNavBar>
         .round()
         .clamp(0, widget.items.length - 1);
     _travelTo(target.toDouble(), velocity: flick);
-    // Set down on a tab.
-    HolyHaptics.tap();
+    // Set down on a tab: a tab change is a selection tick.
+    HolyHaptics.selection();
     if (target != widget.selectedIndex) widget.onSelected(target);
   }
 
