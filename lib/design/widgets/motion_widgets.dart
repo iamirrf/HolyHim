@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import '../motion.dart';
 
 /// Content that rises into place: a short fade and lift, staggered by
 /// [index]. Reduce Motion shows it immediately.
@@ -13,14 +14,14 @@ class Rise extends StatefulWidget {
       required this.child,
       this.index = 0,
       this.delay = Duration.zero,
-      this.distance = 18});
+      this.distance = HolyMotion.rise});
   @override
   State<Rise> createState() => _RiseState();
 }
 
 class _RiseState extends State<Rise> with SingleTickerProviderStateMixin {
   late final _in = AnimationController(
-      vsync: this, duration: const Duration(milliseconds: 620));
+      vsync: this, duration: HolyMotion.hero);
   Timer? _start;
   @override
   void didChangeDependencies() {
@@ -29,7 +30,7 @@ class _RiseState extends State<Rise> with SingleTickerProviderStateMixin {
       _start?.cancel();
       _in.value = 1;
     } else if (_in.value == 0 && _start == null) {
-      _start = Timer(widget.delay + Duration(milliseconds: 70 * widget.index),
+      _start = Timer(widget.delay + HolyMotion.staggered(widget.index),
           () {
         if (mounted) _in.forward();
       });
@@ -45,7 +46,7 @@ class _RiseState extends State<Rise> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    final curve = CurvedAnimation(parent: _in, curve: Curves.easeOutCubic);
+    final curve = CurvedAnimation(parent: _in, curve: HolyMotion.curveIn);
     return AnimatedBuilder(
         animation: curve,
         child: widget.child,

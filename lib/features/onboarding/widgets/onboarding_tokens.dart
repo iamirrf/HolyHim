@@ -108,7 +108,8 @@ class OnboardingTokens {
   static const double optionSpacing = 12.0;
   static const double optionSpacingCompact = 8.0;
 
-  static const Duration pageTransition = Duration(milliseconds: 680);
+  /// A step changing: the shared transition duration (320 ms).
+  static const Duration pageTransition = Duration(milliseconds: 320);
   static const Curve pageCurve = Curves.easeInOutCubic;
 
   /// A glass panel in the flow's shape.

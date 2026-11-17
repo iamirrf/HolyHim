@@ -534,16 +534,16 @@ class _PageMotion extends StatelessWidget {
                       ..translateByDouble(delta * width, 0, 0, 1),
                     child: child));
           }
+          // Every other step moves on a shared vertical axis: the page holds
+          // its place against the scroll, the old step fades and lifts away,
+          // and the new one fades in rising [HolyMotion.rise] px from below.
+          // Going back runs the same axis the other way.
           return Opacity(
-              opacity: (1 - eased * 1.15).clamp(0.0, 1.0),
-              child: Transform(
-                  alignment: Alignment.center,
-                  transform: Matrix4.identity()
-                    ..setEntry(3, 2, 0.0011)
-                    // Counter part of the scroll: the page covers less ground.
-                    ..translateByDouble(delta * width * 0.32, 0, 0, 1)
-                    ..rotateY(-delta * 0.34)
-                    ..scaleByDouble(1 - 0.08 * eased, 1 - 0.08 * eased, 1, 1),
+              opacity: Curves.easeOut
+                  .transform((1 - distance * 1.6).clamp(0.0, 1.0)),
+              child: Transform.translate(
+                  offset: Offset(
+                      delta * width, -delta * HolyMotion.rise * (.4 + .6 * eased)),
                   child: child));
         });
   }
