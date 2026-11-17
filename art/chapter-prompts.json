@@ -1,0 +1,376 @@
+{
+  "version": 1,
+  "style": "Photorealistic editorial photograph. Blue hour turning to first light: slate and cold stone, brass and amber light, weathered wood, iron, rope, leather, cedar, desert rock and open water. Natural, grounded and quiet, with a fine film grain and deep shadows. No faces, no readable text, no letters or numbers, no logos, no watermark, no frame.",
+  "compositions": {
+    "portrait": "Vertical 9:16. The subject sits in the lower half; calm open sky or soft darkness fills the upper half for words.",
+    "landscape": "Horizontal 16:9. The subject sits near the centre with room on both sides; the same light and scene as the vertical image."
+  },
+  "generator": "Gemini image generation in the owner's signed-in Chrome, 8 chapters per session (tool/art/README.md)",
+  "chapters": [
+    {
+      "id": "unit-01",
+      "title": "Stand strong",
+      "subject": "a narrow trail climbing a granite ridge, two men seen far off from behind walking side by side toward the horizon"
+    },
+    {
+      "id": "unit-02",
+      "title": "Strength that lasts",
+      "subject": "an eagle soaring high over a deep stone canyon, the rim catching the first warm light"
+    },
+    {
+      "id": "unit-03",
+      "title": "Made on purpose",
+      "subject": "a single upright standing stone in a rocky desert valley, a worn leather bedroll on the ground beside it, the last stars fading"
+    },
+    {
+      "id": "unit-04",
+      "title": "Wrestling and rising",
+      "subject": "a shallow river ford at dawn with churned water, deep footprints pressed into the muddy bank, mist over the water"
+    },
+    {
+      "id": "unit-05",
+      "title": "Led through the wild",
+      "subject": "a towering column of cloud glowing amber above a vast red-rock desert, a faint path of footprints winding toward it"
+    },
+    {
+      "id": "unit-06",
+      "title": "Strong and kind",
+      "subject": "a pack donkey standing on a stony desert path under a heavy load of sacks, a coil of rope and a wooden staff on the ground"
+    },
+    {
+      "id": "unit-07",
+      "title": "Words that stick",
+      "subject": "the wooden doorframe of an old stone house, a small leather scroll case fixed to the doorpost, warm lamplight inside"
+    },
+    {
+      "id": "unit-08",
+      "title": "Choose life",
+      "subject": "a massive granite outcrop rising above a misty valley, a worn path leading up to its base"
+    },
+    {
+      "id": "unit-09",
+      "title": "Be strong and choose",
+      "subject": "a cairn of twelve rounded river stones stacked on the bank of a wide river"
+    },
+    {
+      "id": "unit-10",
+      "title": "Brothers for the road",
+      "subject": "a heavy three-strand rope wound around an iron mooring post on a weathered wooden dock"
+    },
+    {
+      "id": "unit-11",
+      "title": "Grow up listening",
+      "subject": "an old clay oil lamp still burning on a stone ledge inside a dark temple doorway before dawn"
+    },
+    {
+      "id": "unit-12",
+      "title": "The battle is the LORD's",
+      "subject": "a shepherd's leather sling and five smooth stones resting in a dry creek bed, a wide valley beyond"
+    },
+    {
+      "id": "unit-13",
+      "title": "Show yourself a man",
+      "subject": "a lone broom tree in the wilderness, a clay jar of water and a round flat loaf on a warm stone beside glowing embers"
+    },
+    {
+      "id": "unit-14",
+      "title": "The quiet voice",
+      "subject": "the mouth of a mountain cave at dawn, mist rolling out, the air calm after a storm"
+    },
+    {
+      "id": "unit-15",
+      "title": "A father's charge",
+      "subject": "a blacksmith's anvil and hammer beside the glowing coals of a forge in a stone workshop"
+    },
+    {
+      "id": "unit-16",
+      "title": "Rebuild",
+      "subject": "a half-rebuilt stone city wall with rough timber scaffolding, stacked cut stones and a mason's trowel"
+    },
+    {
+      "id": "unit-17",
+      "title": "When it hits hard",
+      "subject": "three men seen from behind sitting quietly on rocks around a low fire in a stony desert at dusk"
+    },
+    {
+      "id": "unit-18",
+      "title": "Rooted and covered",
+      "subject": "an old cedar tree with deep exposed roots gripping rock beside a clear stream"
+    },
+    {
+      "id": "unit-19",
+      "title": "Morning and night",
+      "subject": "a canvas tent pitched on a high plateau under the last stars, a lantern glowing inside, the horizon warming"
+    },
+    {
+      "id": "unit-20",
+      "title": "Unshaken",
+      "subject": "the Milky Way fading over a still mountain lake as the first light rises"
+    },
+    {
+      "id": "unit-21",
+      "title": "The Shepherd leads",
+      "subject": "a shepherd's wooden staff leaning on a dry-stone wall at the edge of a green pasture, sheep grazing in morning mist, a shadowed valley beyond"
+    },
+    {
+      "id": "unit-22",
+      "title": "Be strong and wait",
+      "subject": "a stone watchtower on a hilltop at dawn, a lantern still lit in its narrow window"
+    },
+    {
+      "id": "unit-23",
+      "title": "Strength and shield",
+      "subject": "an old round wooden shield bound with iron, resting against a stone wall"
+    },
+    {
+      "id": "unit-24",
+      "title": "Come clean",
+      "subject": "a stone basin of clear water beside an old well, a wooden ladle on its rim"
+    },
+    {
+      "id": "unit-25",
+      "title": "Steady steps",
+      "subject": "flat stepping stones crossing a fast mountain stream, a man's leather boots on the wet stones, seen from above"
+    },
+    {
+      "id": "unit-26",
+      "title": "A new song",
+      "subject": "a worn acoustic guitar leaning on a log by a lake at sunrise, steam rising off the water"
+    },
+    {
+      "id": "unit-27",
+      "title": "When you are overwhelmed",
+      "subject": "a high rock outcrop above a rough sea, light breaking through storm clouds"
+    },
+    {
+      "id": "unit-28",
+      "title": "A Father for the fatherless",
+      "subject": "rain falling on a dry, cracked field, puddles catching the first light"
+    },
+    {
+      "id": "unit-29",
+      "title": "Strength of my heart",
+      "subject": "an old wooden doorway opening into a quiet stone courtyard with an olive tree"
+    },
+    {
+      "id": "unit-30",
+      "title": "Whose you are",
+      "subject": "a flock of sheep gathered at a stone fold in morning mist, a shepherd seen from behind at the gate"
+    },
+    {
+      "id": "unit-31",
+      "title": "Guard your heart",
+      "subject": "a heavy timber city gate bound with iron in an old stone wall, standing half open to the first light"
+    },
+    {
+      "id": "unit-32",
+      "title": "Words and company",
+      "subject": "a campfire burned down to embers, a blackened kettle and two tin mugs on a log"
+    },
+    {
+      "id": "unit-33",
+      "title": "Work and listen",
+      "subject": "sheaves of harvested wheat standing in a field, a wooden pitchfork leaning against them"
+    },
+    {
+      "id": "unit-34",
+      "title": "Rise again",
+      "subject": "a well-used carpenter's workbench with planed cedar boards, chisels and fresh shavings"
+    },
+    {
+      "id": "unit-35",
+      "title": "Walls and seasons",
+      "subject": "an old orchard of bare branches showing the first green buds against the sky"
+    },
+    {
+      "id": "unit-36",
+      "title": "Even if not",
+      "subject": "the open mouth of a great brick furnace roaring with fire at night, sparks and ash drifting up"
+    },
+    {
+      "id": "unit-37",
+      "title": "Called by name",
+      "subject": "a still lake at dawn with a single wooden rowboat moored at a short jetty"
+    },
+    {
+      "id": "unit-38",
+      "title": "Blessed are",
+      "subject": "a hillside of grass and wildflowers sloping down to the Sea of Galilee"
+    },
+    {
+      "id": "unit-39",
+      "title": "Seek first",
+      "subject": "a flock of small birds lifting off from a field of wild grass"
+    },
+    {
+      "id": "unit-40",
+      "title": "Build on the rock",
+      "subject": "the stone foundation and timber frame of a house rising on bedrock, a wooden mallet and a level resting on the stone"
+    },
+    {
+      "id": "unit-41",
+      "title": "Follow him",
+      "subject": "wooden fishing boats in morning mist on a calm lake, a stony shore path leading along the water"
+    },
+    {
+      "id": "unit-42",
+      "title": "Serve and stay awake",
+      "subject": "a clay pitcher, a basin of water and a folded linen towel on a stone floor by lamplight"
+    },
+    {
+      "id": "unit-43",
+      "title": "The man in the storm",
+      "subject": "a small wooden fishing boat on a storm-tossed lake under dark clouds, a break of dawn light on the horizon"
+    },
+    {
+      "id": "unit-44",
+      "title": "Called by Jesus",
+      "subject": "a dusty road outside an old city gate, a worn cloak thrown aside on the ground"
+    },
+    {
+      "id": "unit-45",
+      "title": "Peace and purpose",
+      "subject": "first light breaking over the Judean hills, mist lying in the valleys"
+    },
+    {
+      "id": "unit-46",
+      "title": "Faithful in little",
+      "subject": "a work-worn open hand holding a few small seeds above freshly tilled soil"
+    },
+    {
+      "id": "unit-47",
+      "title": "Count the cost",
+      "subject": "the stone foundation of a tower marked out with stakes and a taut measuring line"
+    },
+    {
+      "id": "unit-48",
+      "title": "The Father runs",
+      "subject": "a long dirt road winding toward a stone farmhouse, a lone figure far off running down the road"
+    },
+    {
+      "id": "unit-49",
+      "title": "Light that wins",
+      "subject": "a single lantern burning bright in a dark stone room, its light spilling out through an open door into the night"
+    },
+    {
+      "id": "unit-50",
+      "title": "Stay connected",
+      "subject": "grapevines heavy with ripe fruit, close on one strong branch growing from the vine"
+    },
+    {
+      "id": "unit-51",
+      "title": "Church on the move",
+      "subject": "an iron prison door standing open at midnight, broken chains on the stone floor, moonlight through a high window"
+    },
+    {
+      "id": "unit-52",
+      "title": "No condemnation",
+      "subject": "broken iron chains lying on a flat rock in the open"
+    },
+    {
+      "id": "unit-53",
+      "title": "Stand firm",
+      "subject": "an ancient stone stadium with its long running track empty"
+    },
+    {
+      "id": "unit-54",
+      "title": "Strength in weakness",
+      "subject": "a cracked clay jar on a rough wooden table, warm light shining through the crack"
+    },
+    {
+      "id": "unit-55",
+      "title": "Built for good work",
+      "subject": "a pomegranate tree heavy with ripe fruit in an old courtyard"
+    },
+    {
+      "id": "unit-56",
+      "title": "Press on",
+      "subject": "a climbing rope and an ice axe on a snowy ridge just below the summit"
+    },
+    {
+      "id": "unit-57",
+      "title": "Think on these things",
+      "subject": "a plain wooden desk by a window, an open Bible with no readable words, a notebook and a mug of coffee"
+    },
+    {
+      "id": "unit-58",
+      "title": "Work as for the Lord",
+      "subject": "a wooden plow and leather work gloves on freshly turned soil"
+    },
+    {
+      "id": "unit-59",
+      "title": "Words with grace",
+      "subject": "a loaf of bread and a small dish of coarse salt on a wooden table by a window"
+    },
+    {
+      "id": "unit-60",
+      "title": "A quiet, strong life",
+      "subject": "a potter's wheel with wet clay and well-used tools in a quiet stone workshop"
+    },
+    {
+      "id": "unit-61",
+      "title": "Man of God",
+      "subject": "a simple stone-walled gym with a worn jump rope, a chalk bowl and an iron bar on the floor"
+    },
+    {
+      "id": "unit-62",
+      "title": "Power, love and self-control",
+      "subject": "a strong horse wearing a leather bridle, standing calm in a mountain meadow"
+    },
+    {
+      "id": "unit-63",
+      "title": "Fight the good fight",
+      "subject": "a finish line scratched across a dirt track, a laurel wreath hanging on a wooden post beside it"
+    },
+    {
+      "id": "unit-64",
+      "title": "An anchor for the soul",
+      "subject": "a heavy iron anchor on a wet stone harbor, its rope running taut into calm water"
+    },
+    {
+      "id": "unit-65",
+      "title": "Run with endurance",
+      "subject": "a long empty road running through hills, a runner seen far off from behind"
+    },
+    {
+      "id": "unit-66",
+      "title": "Swift to hear",
+      "subject": "long rays of sunlight breaking through clouds over a wide valley"
+    },
+    {
+      "id": "unit-67",
+      "title": "Faith that moves",
+      "subject": "a pair of worn work boots on a wooden floor beside an open door, sunrise outside"
+    },
+    {
+      "id": "unit-68",
+      "title": "Pray, confess, stay alert",
+      "subject": "a lion's paw prints pressed into sand at the edge of tall grass"
+    },
+    {
+      "id": "unit-69",
+      "title": "Brothers who care",
+      "subject": "a long wooden table set outdoors with tin mugs and broken bread, empty benches waiting for a group of men"
+    },
+    {
+      "id": "unit-70",
+      "title": "Keep growing",
+      "subject": "a young oak sapling growing out of a crack in grey rock"
+    },
+    {
+      "id": "unit-71",
+      "title": "Love you can see",
+      "subject": "two strong hands passing a round loaf of bread across a wooden table"
+    },
+    {
+      "id": "unit-72",
+      "title": "Kept and called",
+      "subject": "a weathered wooden door with iron studs, warm light glowing through the gaps around it"
+    },
+    {
+      "id": "unit-73",
+      "title": "The road home",
+      "subject": "a spring of clear water running over rocks toward a city on a hill bathed in gold light"
+    }
+  ]
+}
