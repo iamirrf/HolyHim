@@ -15,39 +15,30 @@ class AppIconChoice {
   String get preview => 'assets/icons/$id.png';
 }
 
-/// Every icon, in the order the App icon screen shows them.
+/// Every icon, in the order the App icon screen shows them: the cross in
+/// each theme's colours. The symbols and seasons join when their drawings
+/// are made (tool/art/app_icons.py lists them; --check keeps this in step).
 const appIcons = [
-  AppIconChoice('first-light', null, 'First Light', 'Themes'),
-  AppIconChoice('rose', 'AppIcon-Rose', 'Rosé', 'Themes'),
-  AppIconChoice('lavender', 'AppIcon-Lavender', 'Lavender', 'Themes'),
-  AppIconChoice('sunrise', 'AppIcon-Sunrise', 'Sunrise', 'Themes'),
-  AppIconChoice('pearl', 'AppIcon-Pearl', 'Pearl', 'Themes'),
-  AppIconChoice('olive-grove', 'AppIcon-OliveGrove', 'Olive Grove', 'Themes'),
-  AppIconChoice('evening', 'AppIcon-Evening', 'Evening', 'Themes'),
-  AppIconChoice('starlight', 'AppIcon-Starlight', 'Starlight', 'Themes'),
-  AppIconChoice('dove', 'AppIcon-Dove', 'Dove', 'Symbols'),
-  AppIconChoice('lily', 'AppIcon-Lily', 'Lily', 'Symbols'),
-  AppIconChoice('cross-at-sunrise', 'AppIcon-CrossSunrise', 'Cross at Sunrise',
-      'Symbols'),
-  AppIconChoice(
-      'olive-branch', 'AppIcon-OliveBranch', 'Olive Branch', 'Symbols'),
-  AppIconChoice('candle', 'AppIcon-Candle', 'Candle', 'Symbols'),
-  AppIconChoice(
-      'christmas-star', 'AppIcon-ChristmasStar', 'Christmas Star', 'Seasons'),
-  AppIconChoice(
-      'easter-morning', 'AppIcon-EasterMorning', 'Easter Morning', 'Seasons'),
+  AppIconChoice('first-watch', null, 'First Watch', 'Themes'),
+  AppIconChoice('limestone', 'AppIcon-Limestone', 'Limestone', 'Themes'),
+  AppIconChoice('iron', 'AppIcon-Iron', 'Iron', 'Themes'),
+  AppIconChoice('ember', 'AppIcon-Ember', 'Ember', 'Themes'),
+  AppIconChoice('cedar', 'AppIcon-Cedar', 'Cedar', 'Themes'),
+  AppIconChoice('midnight', 'AppIcon-Midnight', 'Midnight', 'Themes'),
+  AppIconChoice('sandstone', 'AppIcon-Sandstone', 'Sandstone', 'Themes'),
+  AppIconChoice('slate', 'AppIcon-Slate', 'Slate', 'Themes'),
 ];
 
-/// The icon that wears each theme's colours.
+/// The icon that wears each theme's colours, by stored theme ID.
 const _themeIcons = {
-  'blush': 'first-light',
-  'rose': 'rose',
-  'lavender': 'lavender',
-  'sunrise': 'sunrise',
-  'pearl': 'pearl',
-  'sage': 'olive-grove',
-  'midnight-rose': 'evening',
-  'starlight': 'starlight',
+  'blush': 'first-watch',
+  'rose': 'limestone',
+  'lavender': 'iron',
+  'sunrise': 'ember',
+  'sage': 'cedar',
+  'midnight-rose': 'midnight',
+  'pearl': 'sandstone',
+  'starlight': 'slate',
 };
 
 AppIconChoice appIconById(String id) =>
@@ -55,7 +46,7 @@ AppIconChoice appIconById(String id) =>
 
 /// The theme's matching icon.
 AppIconChoice appIconForTheme(String themeId) =>
-    appIconById(_themeIcons[themeId] ?? 'first-light');
+    appIconById(_themeIcons[themeId] ?? 'first-watch');
 
 /// The icon whose asset set iOS reports, or the primary icon.
 AppIconChoice appIconByIosName(String? iosName) => appIcons

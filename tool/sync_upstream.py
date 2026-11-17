@@ -58,6 +58,7 @@ OWNED = (
     'assets/audio/', 'assets/icons/',
     'ios/Runner/Assets.xcassets/AppIcon-*.appiconset/',
     'lib/services/app_icon.dart', 'lib/domain/milestones.dart',
+    'tool/art/app_icons.py', 'test/app_icon_test.dart',  # HolyHim's icon set and its test
     'lib/features/onboarding/onboarding_copy.dart', 'lib/features/onboarding/onboarding_moods.dart',
 )
 # Never needed in HolyHim even as a seed: HolyHer's art masters alone are

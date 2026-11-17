@@ -14,7 +14,9 @@ void main() {
   const channel = MethodChannel('holyhim/app-icon');
 
   test('every icon has its preview and its asset catalog set', () {
-    expect(appIcons.length, 15);
+    // The cross in all eight theme colours; symbols join as they are drawn.
+    expect(appIcons.where((i) => i.group == 'Themes').length,
+        HolyThemes.all.length);
     expect(appIcons.map((i) => i.id).toSet().length, appIcons.length);
     expect(appIcons.first.iosName, isNull, reason: 'the primary icon');
     for (final icon in appIcons) {
@@ -61,8 +63,8 @@ void main() {
     final matched = {for (final t in HolyThemes.all) appIconForTheme(t.id).id};
     expect(matched.length, HolyThemes.all.length);
     expect(appIconForTheme('blush').iosName, isNull);
-    expect(appIconForTheme('midnight-rose').id, 'evening');
-    expect(appIconForTheme('unknown').id, 'first-light');
+    expect(appIconForTheme('midnight-rose').id, 'midnight');
+    expect(appIconForTheme('unknown').id, 'first-watch');
   });
 
   testWidgets('tapping an icon asks iOS for its set and marks it chosen',
@@ -100,20 +102,20 @@ void main() {
             home: const AppIconScreen())));
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 600));
-    expect(find.text('First Light'), findsOneWidget);
+    expect(find.text('First Watch'), findsOneWidget);
     expect(find.byIcon(CupertinoIcons.checkmark_circle_fill), findsOneWidget);
     final list = find
         .descendant(
             of: find.byType(ListView), matching: find.byType(Scrollable))
         .first;
-    await tester.scrollUntilVisible(find.text('Candle'), 160, scrollable: list);
+    await tester.scrollUntilVisible(find.text('Slate'), 160, scrollable: list);
     await tester.pump(const Duration(milliseconds: 300));
-    await tester.tap(find.text('Candle'));
+    await tester.tap(find.text('Slate'));
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 600));
     expect(calls.last.method, 'set');
-    expect(calls.last.arguments, 'AppIcon-Candle');
-    expect(shown, 'AppIcon-Candle');
+    expect(calls.last.arguments, 'AppIcon-Slate');
+    expect(shown, 'AppIcon-Slate');
     expect(find.byIcon(CupertinoIcons.checkmark_circle_fill), findsOneWidget);
   });
 }

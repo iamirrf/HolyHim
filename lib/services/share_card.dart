@@ -159,7 +159,7 @@ class _Brand extends StatelessWidget {
     return Row(mainAxisSize: MainAxisSize.min, children: [
       ClipRRect(
           borderRadius: BorderRadius.circular(icon * .24),
-          child: Image.asset('assets/icons/first-light.png',
+          child: Image.asset('assets/icons/first-watch.png',
               width: icon, height: icon, filterQuality: FilterQuality.high)),
       SizedBox(width: compact ? 7 : 9),
       Wordmark(size: compact ? 21 : 27, color: ink),
@@ -316,7 +316,7 @@ Future<void> shareVerseCard(BuildContext context, Lesson lesson,
       if (look == KeepsakeLook.photo)
         precacheImage(
             AssetImage(HolyArtCatalog.assetForDay(lesson.day)), context),
-      precacheImage(const AssetImage('assets/icons/first-light.png'), context),
+      precacheImage(const AssetImage('assets/icons/first-watch.png'), context),
     ]);
     await WidgetsBinding.instance.endOfFrame;
     await Future<void>.delayed(const Duration(milliseconds: 80));

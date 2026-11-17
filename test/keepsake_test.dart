@@ -10,7 +10,13 @@ void main() {
     final text = keepsakeShareText(lessons[2]);
     expect(text, contains(lessons[2].reference));
     expect(text, contains('HolyHim'));
-    expect(AppConstants.shareUrl, 'https://apps.apple.com/app/id');
+    // The store listing once Apple has assigned the app its ID; until then
+    // the website, which links to the store.
+    expect(
+        AppConstants.shareUrl,
+        AppConstants.appStoreId.isEmpty
+            ? AppConstants.websiteUrl
+            : 'https://apps.apple.com/app/id${AppConstants.appStoreId}');
     expect(text, endsWith(AppConstants.shareUrl));
   });
 
