@@ -35,7 +35,7 @@ PRODUCTS = [
 ].freeze
 
 def bearer
-  if @token.nil? || Time.now - @made > 900
+  if @token.nil? || Time.now - @made > 400 # fastlane tokens last 500 s by default
     @token = Spaceship::ConnectAPI::Token.create(key_id: ENV.fetch('ASC_KEY_ID'),
                                                  issuer_id: ENV.fetch('ASC_ISSUER_ID'),
                                                  filepath: ENV.fetch('ASC_KEY_PATH'))
@@ -93,7 +93,8 @@ unless group_locales.any? { |l| l.dig('attributes', 'locale') == 'en-US' }
                 relationships: { subscriptionGroup: ref('subscriptionGroups', group['id']) } } })
 end
 
-territories = all_pages('v1/territories', { 'limit' => 200 }).first.map { |t| t['id'] } - LEFT_OUT
+everywhere = all_pages('v1/territories', { 'limit' => 200 }).first.map { |t| t['id'] }
+territories = everywhere - LEFT_OUT
 existing, = all_pages("v1/subscriptionGroups/#{group['id']}/subscriptions", { 'limit' => 50 })
 
 PRODUCTS.each do |product|
@@ -128,7 +129,9 @@ PRODUCTS.each do |product|
   end
 
   # One price per storefront: 1.99 USD in the United States and Apple's
-  # equalized price point everywhere else.
+  # equalized price point everywhere else. App Review requires a price in
+  # every storefront, including the ones left out of availability (China
+  # mainland); availability alone decides where it is sold.
   points, = all_pages("v1/subscriptions/#{id}/pricePoints", { 'filter[territory]' => 'USA', 'limit' => 200 })
   us = points.find { |p| p.dig('attributes', 'customerPrice') == US_PRICE } or abort("No #{US_PRICE} USD price point.")
   _, price_territories = all_pages("v1/subscriptions/#{id}/prices", { 'include' => 'territory', 'limit' => 200 })
@@ -138,7 +141,7 @@ PRODUCTS.each do |product|
   wanted = [[us['id'], 'USA']] + equal.map { |p| [p['id'], p.dig('relationships', 'territory', 'data', 'id')] }
   added = 0
   wanted.each do |point, territory|
-    next if priced.include?(territory) || !territories.include?(territory)
+    next if priced.include?(territory) || !everywhere.include?(territory)
 
     api(:post, 'v1/subscriptionPrices',
         { data: { type: 'subscriptionPrices', attributes: { preserveCurrentPrice: false },
