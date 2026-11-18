@@ -1,0 +1,66 @@
+[
+ {
+  "voice": "am_adam",
+  "quality": "compact",
+  "file": "store/voice-samples/day-001-am_adam-compact.m4a",
+  "seconds": 80.7,
+  "kb": 241,
+  "wpm": 167
+ },
+ {
+  "voice": "am_adam",
+  "quality": "clear",
+  "file": "store/voice-samples/day-001-am_adam-clear.m4a",
+  "seconds": 80.5,
+  "kb": 480,
+  "wpm": 167
+ },
+ {
+  "voice": "am_michael",
+  "quality": "compact",
+  "file": "store/voice-samples/day-001-am_michael-compact.m4a",
+  "seconds": 88.6,
+  "kb": 264,
+  "wpm": 152
+ },
+ {
+  "voice": "am_michael",
+  "quality": "clear",
+  "file": "store/voice-samples/day-001-am_michael-clear.m4a",
+  "seconds": 88.4,
+  "kb": 527,
+  "wpm": 152
+ },
+ {
+  "voice": "bm_daniel",
+  "quality": "compact",
+  "file": "store/voice-samples/day-001-bm_daniel-compact.m4a",
+  "seconds": 84.0,
+  "kb": 250,
+  "wpm": 161
+ },
+ {
+  "voice": "bm_daniel",
+  "quality": "clear",
+  "file": "store/voice-samples/day-001-bm_daniel-clear.m4a",
+  "seconds": 83.8,
+  "kb": 499,
+  "wpm": 161
+ },
+ {
+  "voice": "bm_george",
+  "quality": "compact",
+  "file": "store/voice-samples/day-001-bm_george-compact.m4a",
+  "seconds": 94.4,
+  "kb": 281,
+  "wpm": 143
+ },
+ {
+  "voice": "bm_george",
+  "quality": "clear",
+  "file": "store/voice-samples/day-001-bm_george-clear.m4a",
+  "seconds": 94.2,
+  "kb": 561,
+  "wpm": 143
+ }
+]
